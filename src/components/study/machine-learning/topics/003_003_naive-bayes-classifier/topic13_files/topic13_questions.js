@@ -1,279 +1,10504 @@
-/**
- * Topic 13: Short Questions
- * 30 Assessment Questions (Moderate to Expert)
- * Author: Sukanta Hui | Coder & AccoTax | Barrackpore
- */
-
+// Auto-generated Master Quiz Questions for 003_003_naive-bayes-classifier
 const questions = [
   {
-    "id": 1,
-    "question": "Question 1 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #1)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #1 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q1)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q1",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 2,
-    "question": "Question 2 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #2)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #2 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q2)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q2",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 3,
-    "question": "Question 3 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #3)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #3 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q3)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q3",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 4,
-    "question": "Question 4 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #4)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #4 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q4)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q4",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 5,
-    "question": "Question 5 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #5)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #5 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q5)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q5",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 6,
-    "question": "Question 6 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #6)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #6 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q6)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q6",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 7,
-    "question": "Question 7 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #7)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #7 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q7)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q7",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 8,
-    "question": "Question 8 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #8)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #8 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q8)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q8",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 9,
-    "question": "Question 9 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #9)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #9 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q9)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q9",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 10,
-    "question": "Question 10 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #10)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #10 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Short Questions (Q10)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q10",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 11,
-    "question": "Question 11 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #11)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #11 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q11)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q11",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 12,
-    "question": "Question 12 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #12)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #12 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q12)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q12",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 13,
-    "question": "Question 13 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #13)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #13 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q13)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q13",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 14,
-    "question": "Question 14 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #14)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #14 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q14)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q14",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 15,
-    "question": "Question 15 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #15)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #15 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q15)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q15",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 16,
-    "question": "Question 16 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #16)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #16 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q16)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q16",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 17,
-    "question": "Question 17 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #17)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #17 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q17)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q17",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 18,
-    "question": "Question 18 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #18)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #18 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q18)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q18",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 19,
-    "question": "Question 19 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #19)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #19 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q19)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q19",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 20,
-    "question": "Question 20 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #20)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #20 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q20)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q20",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 21,
-    "question": "Question 21 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #21)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #21 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q21)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q21",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 22,
-    "question": "Question 22 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #22)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #22 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Short Questions (Q22)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q22",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 23,
-    "question": "Question 23 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #23)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #23 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q23)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q23",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 24,
-    "question": "Question 24 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #24)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #24 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q24)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q24",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 25,
-    "question": "Question 25 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #25)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #25 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q25)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q25",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 26,
-    "question": "Question 26 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #26)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #26 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q26)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q26",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 27,
-    "question": "Question 27 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #27)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #27 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q27)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q27",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
   },
   {
-    "id": 28,
-    "question": "Question 28 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #28)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #28 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q28)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q28",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
   },
   {
-    "id": 29,
-    "question": "Question 29 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #29)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #29 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q29)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q29",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
   },
   {
-    "id": 30,
-    "question": "Question 30 on Short Questions: What is a critical conceptual principle of Short Questions (Concept #30)?",
-    "shortAnswer": "Essential principle of Short Questions covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Short Questions (Naive Bayes Classifier), understanding concept #30 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Short Questions operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Short Questions (Q30)\nmodel = LinearRegression().fit(X_train, y_train)"
+    "id": "ml_003_003_naive_bayes_classifier_q30",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q31",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q32",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q33",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q34",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q35",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q36",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q37",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q38",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q39",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q40",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q41",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q42",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q43",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q44",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q45",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q46",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q47",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q48",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q49",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q50",
+    "topic": "Bayes theorem",
+    "question": "[Bayes theorem] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Bayes theorem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Bayes theorem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Bayes theorem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q51",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q52",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q53",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q54",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q55",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q56",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q57",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q58",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q59",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q60",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q61",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q62",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q63",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q64",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q65",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q66",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q67",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q68",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q69",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q70",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q71",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q72",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q73",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q74",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q75",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q76",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q77",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q78",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q79",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q80",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q81",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q82",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q83",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q84",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q85",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q86",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q87",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q88",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q89",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q90",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q91",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q92",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q93",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q94",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q95",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q96",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q97",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q98",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q99",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q100",
+    "topic": "Conditional probability",
+    "question": "[Conditional probability] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Conditional probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Conditional probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Conditional probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q101",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q102",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q103",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q104",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q105",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q106",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q107",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q108",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q109",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q110",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q111",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q112",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q113",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q114",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q115",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q116",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q117",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q118",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q119",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q120",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q121",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q122",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q123",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q124",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q125",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q126",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q127",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q128",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q129",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q130",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q131",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q132",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q133",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q134",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q135",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q136",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q137",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q138",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q139",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q140",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q141",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q142",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q143",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q144",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q145",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q146",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q147",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q148",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q149",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q150",
+    "topic": "Naive Bayes assumption",
+    "question": "[Naive Bayes assumption] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes assumption in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes assumption, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes assumption establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q151",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q152",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q153",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q154",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q155",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q156",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q157",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q158",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q159",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q160",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q161",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q162",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q163",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q164",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q165",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q166",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q167",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q168",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q169",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q170",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q171",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q172",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q173",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q174",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q175",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q176",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q177",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q178",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q179",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q180",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q181",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q182",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q183",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q184",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q185",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q186",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q187",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q188",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q189",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q190",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q191",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q192",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q193",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q194",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q195",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q196",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q197",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q198",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q199",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q200",
+    "topic": "Prior probability",
+    "question": "[Prior probability] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Prior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Prior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Prior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q201",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q202",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q203",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q204",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q205",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q206",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q207",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q208",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q209",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q210",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q211",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q212",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q213",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q214",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q215",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q216",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q217",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q218",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q219",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q220",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q221",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q222",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q223",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q224",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q225",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q226",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q227",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q228",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q229",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q230",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q231",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q232",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q233",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q234",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q235",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q236",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q237",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q238",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q239",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q240",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q241",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q242",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q243",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q244",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q245",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q246",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q247",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q248",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q249",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q250",
+    "topic": "Likelihood",
+    "question": "[Likelihood] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Likelihood in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Likelihood, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Likelihood establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q251",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q252",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q253",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q254",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q255",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q256",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q257",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q258",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q259",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q260",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q261",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q262",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q263",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q264",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q265",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q266",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q267",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q268",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q269",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q270",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q271",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q272",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q273",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q274",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q275",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q276",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q277",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q278",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q279",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q280",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q281",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q282",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q283",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q284",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q285",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q286",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q287",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q288",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q289",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q290",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q291",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q292",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q293",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q294",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q295",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q296",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q297",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q298",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q299",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q300",
+    "topic": "Posterior probability",
+    "question": "[Posterior probability] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Posterior probability in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Posterior probability, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Posterior probability establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q301",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q302",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q303",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q304",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q305",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q306",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q307",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q308",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q309",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q310",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q311",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q312",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q313",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q314",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q315",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q316",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q317",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q318",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q319",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q320",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q321",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q322",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q323",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q324",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q325",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q326",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q327",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q328",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q329",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q330",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q331",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q332",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q333",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q334",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q335",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q336",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q337",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q338",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q339",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q340",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q341",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q342",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q343",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q344",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q345",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q346",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q347",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q348",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q349",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q350",
+    "topic": "Naive Bayes classification workflow",
+    "question": "[Naive Bayes classification workflow] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Naive Bayes classification workflow in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Naive Bayes classification workflow, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Naive Bayes classification workflow establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q351",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q352",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q353",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q354",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q355",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q356",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q357",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q358",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q359",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q360",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q361",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q362",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q363",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q364",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q365",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q366",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q367",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q368",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q369",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q370",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q371",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q372",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q373",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q374",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q375",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q376",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q377",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q378",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q379",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q380",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q381",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q382",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q383",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q384",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q385",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q386",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q387",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q388",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q389",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q390",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q391",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q392",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q393",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q394",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q395",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q396",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q397",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q398",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q399",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q400",
+    "topic": "Text classification overview",
+    "question": "[Text classification overview] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Text classification overview in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Text classification overview, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Text classification overview establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q401",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q402",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q403",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q404",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q405",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q406",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q407",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q408",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q409",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q410",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q411",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q412",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q413",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q414",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q415",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q416",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q417",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q418",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q419",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q420",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q421",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q422",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q423",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q424",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q425",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q426",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q427",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q428",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q429",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q430",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q431",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q432",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q433",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q434",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q435",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q436",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q437",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q438",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q439",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q440",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q441",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q442",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q443",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q444",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q445",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q446",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q447",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q448",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q449",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q450",
+    "topic": "Spam classification example",
+    "question": "[Spam classification example] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Spam classification example in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Spam classification example, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Spam classification example establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q451",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q452",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q453",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q454",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q455",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q456",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q457",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q458",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q459",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q460",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q461",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q462",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q463",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q464",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q465",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q466",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q467",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q468",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q469",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q470",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q471",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q472",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q473",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q474",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q475",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q476",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q477",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q478",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q479",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q480",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q481",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q482",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q483",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q484",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q485",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q486",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q487",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q488",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q489",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q490",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q491",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q492",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q493",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q494",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q495",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q496",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q497",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q498",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q499",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q500",
+    "topic": "Worked Example 1: Simple categorical Naive Bayes",
+    "question": "[Worked Example 1: Simple categorical Naive Bayes] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 1: Simple categorical Naive Bayes in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 1: Simple categorical Naive Bayes, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 1: Simple categorical Naive Bayes establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q501",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q502",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q503",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q504",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q505",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q506",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q507",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q508",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q509",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q510",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q511",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q512",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q513",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q514",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q515",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q516",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q517",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q518",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q519",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q520",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q521",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q522",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q523",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q524",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q525",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q526",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q527",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q528",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q529",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q530",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q531",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q532",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q533",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q534",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q535",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q536",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q537",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q538",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q539",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q540",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q541",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q542",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q543",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q544",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q545",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q546",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q547",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q548",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q549",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q550",
+    "topic": "Worked Example 2: Email spam classification",
+    "question": "[Worked Example 2: Email spam classification] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 2: Email spam classification in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 2: Email spam classification, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 2: Email spam classification establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q551",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q552",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q553",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q554",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q555",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q556",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q557",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q558",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q559",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q560",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q561",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q562",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q563",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q564",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q565",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q566",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q567",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q568",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q569",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q570",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q571",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q572",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q573",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q574",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q575",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q576",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q577",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q578",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q579",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q580",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q581",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q582",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q583",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q584",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q585",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q586",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q587",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q588",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q589",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q590",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q591",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q592",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q593",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q594",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q595",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q596",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q597",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q598",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q599",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q600",
+    "topic": "Worked Example 3: Small student classification problem",
+    "question": "[Worked Example 3: Small student classification problem] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Worked Example 3: Small student classification problem in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Worked Example 3: Small student classification problem, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Worked Example 3: Small student classification problem establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q601",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 1: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q602",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 2: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q603",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 3: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q604",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 4: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q605",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 5: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q606",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 6: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q607",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 7: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q608",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 8: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q609",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 9: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q610",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 10: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q611",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 11: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q612",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 12: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q613",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 13: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q614",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 14: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q615",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 15: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q616",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 16: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q617",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 17: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q618",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 18: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q619",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 19: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q620",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 20: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q621",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 21: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q622",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 22: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q623",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 23: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q624",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 24: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q625",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 25: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q626",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 26: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q627",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 27: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q628",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 28: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q629",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 29: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q630",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 30: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q631",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 31: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q632",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 32: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q633",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 33: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q634",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 34: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q635",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 35: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q636",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 36: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q637",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 37: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q638",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 38: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q639",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 39: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q640",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 40: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q641",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 41: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q642",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 42: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q643",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 43: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q644",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 44: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q645",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 45: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q646",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 46: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q647",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 47: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q648",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 48: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q649",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 49: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q650",
+    "topic": "Numerical Exercises",
+    "question": "[Numerical Exercises] Question 50: What is the core mathematical principle, algorithmic formulation, and practical implementation rule of Numerical Exercises in Machine Learning systems?",
+    "options": [
+      "Applies rigorous mathematical formulation and loss optimization for Numerical Exercises, ensuring proper inductive bias, numerical convergence, and high predictive generalization on unseen test data",
+      "Causes deterministic overfitting to training noise and corrupts model parameters",
+      "Converts continuous feature vectors to arbitrary unencoded text strings",
+      "Disables gradient descent and backpropagation optimization permanently"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Machine Learning, Numerical Exercises establishes essential theoretical and computational foundations, guaranteeing empirical loss minimization and robust performance across training and inference pipelines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q651",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q1] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q652",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q2] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q653",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q3] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q654",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q4] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q655",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q5] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q656",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q6] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q657",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q7] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q658",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q8] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q659",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q9] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q660",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q10] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q661",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q11] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q662",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q12] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q663",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q13] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q664",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q14] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q665",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q15] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q666",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q16] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q667",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q17] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q668",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q18] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q669",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q19] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q670",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q20] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q671",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q21] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q672",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q22] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q673",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q23] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q674",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q24] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q675",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q25] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q676",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q26] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q677",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q27] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q678",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q28] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q679",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q29] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q680",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q30] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q681",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q31] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q682",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q32] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q683",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q33] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q684",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q34] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q685",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q35] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q686",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q36] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q687",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q37] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q688",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q38] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q689",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q39] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q690",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q40] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q691",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q41] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q692",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q42] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q693",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q43] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q694",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q44] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q695",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q45] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q696",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q46] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q697",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q47] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q698",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q48] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q699",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q49] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q700",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q50] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q701",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q51] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q702",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q52] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q703",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q53] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q704",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q54] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q705",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q55] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q706",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q56] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q707",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q57] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q708",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q58] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q709",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q59] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q710",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q60] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q711",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q61] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q712",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q62] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q713",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q63] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q714",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q64] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q715",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q65] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q716",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q66] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q717",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q67] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q718",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q68] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q719",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q69] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q720",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q70] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q721",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q71] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q722",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q72] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q723",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q73] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q724",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q74] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q725",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q75] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q726",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q76] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q727",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q77] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q728",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q78] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q729",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q79] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q730",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q80] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q731",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q81] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q732",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q82] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q733",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q83] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q734",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q84] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q735",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q85] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q736",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q86] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q737",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q87] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q738",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q88] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q739",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q89] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q740",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q90] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q741",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q91] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q742",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q92] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q743",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q93] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q744",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q94] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q745",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q95] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q746",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q96] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q747",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q97] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q748",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q98] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q749",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q99] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "ml_003_003_naive_bayes_classifier_q750",
+    "topic": "Naive Bayes Classifier Comprehensive Synthesis",
+    "question": "[Naive Bayes Classifier Master Synthesis - Q100] How does integrating data preprocessing, mathematical loss formulation, regularization, and rigorous validation metrics ensure robust production deployment in modern Machine Learning engineering?",
+    "options": [
+      "It prevents data leakage, minimizes generalization error, mitigates variance/bias trade-offs, and guarantees high-throughput, low-latency inference in production pipelines",
+      "It guarantees 100% training accuracy while causing catastrophic test failure",
+      "It eliminates the need for test datasets entirely",
+      "It converts models into static lookup tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "Production machine learning systems require end-to-end alignment: leak-free feature pipelines, calibrated loss functions, cross-validation, and performance benchmarking across diverse demographic and operational distributions.",
+    "level": "Intermediate"
   }
 ];
 

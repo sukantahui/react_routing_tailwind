@@ -1,1 +1,6305 @@
-const questions = []; export default questions;
+// Auto-generated Master Quiz Questions for 009_002_excel-database-query-functions
+const questions = [
+  {
+    "id": "m_009_002_excel-database-query-functions_q1",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 1: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q2",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 2: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q3",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 3: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q4",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 4: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q5",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 5: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q6",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 6: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q7",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 7: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q8",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 8: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q9",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 9: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q10",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 10: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q11",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 11: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q12",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 12: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q13",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 13: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q14",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 14: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q15",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 15: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q16",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 16: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q17",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 17: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q18",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 18: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q19",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 19: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q20",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 20: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q21",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 21: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q22",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 22: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q23",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 23: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q24",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 24: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q25",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 25: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q26",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 26: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q27",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 27: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q28",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 28: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q29",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 29: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q30",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 30: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q31",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 31: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q32",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 32: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q33",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 33: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q34",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 34: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q35",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 35: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q36",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 36: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q37",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 37: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q38",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 38: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q39",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 39: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q40",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 40: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q41",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 41: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q42",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 42: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q43",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 43: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q44",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 44: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q45",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 45: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q46",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 46: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q47",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 47: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q48",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 48: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q49",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 49: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q50",
+    "topic": "Database Function Architecture & Structured Criteria Blocks",
+    "question": "[Database Function Architecture & Structured Criteria Blocks] Question 50: What is the core operating mechanism and architectural rule of Database Function Architecture & Structured Criteria Blocks in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for Database Function Architecture & Structured Criteria Blocks ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Database Function Architecture & Structured Criteria Blocks executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q51",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 1: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q52",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 2: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q53",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 3: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q54",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 4: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q55",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 5: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q56",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 6: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q57",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 7: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q58",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 8: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q59",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 9: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q60",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 10: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q61",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 11: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q62",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 12: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q63",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 13: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q64",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 14: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q65",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 15: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q66",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 16: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q67",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 17: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q68",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 18: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q69",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 19: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q70",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 20: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q71",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 21: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q72",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 22: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q73",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 23: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q74",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 24: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q75",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 25: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q76",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 26: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q77",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 27: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q78",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 28: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q79",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 29: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q80",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 30: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q81",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 31: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q82",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 32: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q83",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 33: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q84",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 34: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q85",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 35: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q86",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 36: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q87",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 37: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q88",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 38: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q89",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 39: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q90",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 40: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q91",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 41: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q92",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 42: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q93",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 43: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q94",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 44: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q95",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 45: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q96",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 46: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q97",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 47: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q98",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 48: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q99",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 49: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q100",
+    "topic": "DSUM Multi-Criteria Database Summation",
+    "question": "[DSUM Multi-Criteria Database Summation] Question 50: What is the core operating mechanism and architectural rule of DSUM Multi-Criteria Database Summation in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DSUM Multi-Criteria Database Summation ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DSUM Multi-Criteria Database Summation executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q101",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 1: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q102",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 2: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q103",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 3: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q104",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 4: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q105",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 5: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q106",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 6: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q107",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 7: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q108",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 8: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q109",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 9: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q110",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 10: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q111",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 11: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q112",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 12: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q113",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 13: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q114",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 14: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q115",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 15: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q116",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 16: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q117",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 17: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q118",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 18: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q119",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 19: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q120",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 20: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q121",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 21: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q122",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 22: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q123",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 23: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q124",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 24: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q125",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 25: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q126",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 26: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q127",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 27: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q128",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 28: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q129",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 29: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q130",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 30: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q131",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 31: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q132",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 32: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q133",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 33: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q134",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 34: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q135",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 35: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q136",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 36: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q137",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 37: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q138",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 38: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q139",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 39: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q140",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 40: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q141",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 41: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q142",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 42: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q143",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 43: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q144",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 44: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q145",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 45: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q146",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 46: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q147",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 47: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q148",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 48: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q149",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 49: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q150",
+    "topic": "DCOUNT & DCOUNTA Database Frequency Counting",
+    "question": "[DCOUNT & DCOUNTA Database Frequency Counting] Question 50: What is the core operating mechanism and architectural rule of DCOUNT & DCOUNTA Database Frequency Counting in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DCOUNT & DCOUNTA Database Frequency Counting ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DCOUNT & DCOUNTA Database Frequency Counting executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q151",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 1: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q152",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 2: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q153",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 3: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q154",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 4: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q155",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 5: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q156",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 6: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q157",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 7: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q158",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 8: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q159",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 9: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q160",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 10: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q161",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 11: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q162",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 12: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q163",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 13: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q164",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 14: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q165",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 15: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q166",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 16: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q167",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 17: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q168",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 18: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q169",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 19: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q170",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 20: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q171",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 21: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q172",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 22: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q173",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 23: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q174",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 24: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q175",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 25: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q176",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 26: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q177",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 27: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q178",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 28: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q179",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 29: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q180",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 30: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q181",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 31: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q182",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 32: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q183",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 33: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q184",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 34: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q185",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 35: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q186",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 36: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q187",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 37: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q188",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 38: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q189",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 39: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q190",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 40: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q191",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 41: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q192",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 42: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q193",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 43: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q194",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 44: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q195",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 45: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q196",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 46: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q197",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 47: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q198",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 48: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q199",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 49: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q200",
+    "topic": "DAVERAGE Database Mean Calculations",
+    "question": "[DAVERAGE Database Mean Calculations] Question 50: What is the core operating mechanism and architectural rule of DAVERAGE Database Mean Calculations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DAVERAGE Database Mean Calculations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DAVERAGE Database Mean Calculations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q201",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 1: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q202",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 2: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q203",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 3: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q204",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 4: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q205",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 5: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q206",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 6: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q207",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 7: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q208",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 8: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q209",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 9: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q210",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 10: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q211",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 11: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q212",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 12: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q213",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 13: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q214",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 14: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q215",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 15: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q216",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 16: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q217",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 17: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q218",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 18: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q219",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 19: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q220",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 20: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q221",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 21: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q222",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 22: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q223",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 23: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q224",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 24: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q225",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 25: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q226",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 26: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q227",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 27: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q228",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 28: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q229",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 29: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q230",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 30: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q231",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 31: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q232",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 32: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q233",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 33: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q234",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 34: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q235",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 35: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q236",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 36: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q237",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 37: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q238",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 38: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q239",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 39: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q240",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 40: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q241",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 41: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q242",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 42: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q243",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 43: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q244",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 44: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q245",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 45: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q246",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 46: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q247",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 47: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q248",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 48: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q249",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 49: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q250",
+    "topic": "DMIN & DMAX Extreme Database Querying",
+    "question": "[DMIN & DMAX Extreme Database Querying] Question 50: What is the core operating mechanism and architectural rule of DMIN & DMAX Extreme Database Querying in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DMIN & DMAX Extreme Database Querying ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DMIN & DMAX Extreme Database Querying executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q251",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 1: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q252",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 2: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q253",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 3: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q254",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 4: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q255",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 5: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q256",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 6: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q257",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 7: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q258",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 8: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q259",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 9: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q260",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 10: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q261",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 11: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q262",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 12: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q263",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 13: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q264",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 14: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q265",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 15: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q266",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 16: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q267",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 17: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q268",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 18: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q269",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 19: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q270",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 20: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q271",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 21: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q272",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 22: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q273",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 23: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q274",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 24: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q275",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 25: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q276",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 26: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q277",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 27: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q278",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 28: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q279",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 29: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q280",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 30: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q281",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 31: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q282",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 32: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q283",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 33: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q284",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 34: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q285",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 35: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q286",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 36: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q287",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 37: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q288",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 38: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q289",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 39: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q290",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 40: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q291",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 41: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q292",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 42: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q293",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 43: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q294",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 44: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q295",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 45: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q296",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 46: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q297",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 47: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q298",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 48: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q299",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 49: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q300",
+    "topic": "DGET Single Unique Record Extraction & Error Diagnostics",
+    "question": "[DGET Single Unique Record Extraction & Error Diagnostics] Question 50: What is the core operating mechanism and architectural rule of DGET Single Unique Record Extraction & Error Diagnostics in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DGET Single Unique Record Extraction & Error Diagnostics ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DGET Single Unique Record Extraction & Error Diagnostics executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q301",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 1: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q302",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 2: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q303",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 3: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q304",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 4: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q305",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 5: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q306",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 6: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q307",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 7: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q308",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 8: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q309",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 9: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q310",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 10: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q311",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 11: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q312",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 12: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q313",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 13: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q314",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 14: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q315",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 15: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q316",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 16: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q317",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 17: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q318",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 18: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q319",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 19: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q320",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 20: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q321",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 21: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q322",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 22: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q323",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 23: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q324",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 24: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q325",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 25: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q326",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 26: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q327",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 27: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q328",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 28: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q329",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 29: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q330",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 30: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q331",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 31: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q332",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 32: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q333",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 33: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q334",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 34: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q335",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 35: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q336",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 36: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q337",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 37: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q338",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 38: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q339",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 39: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q340",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 40: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q341",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 41: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q342",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 42: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q343",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 43: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q344",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 44: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q345",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 45: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q346",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 46: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q347",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 47: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q348",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 48: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q349",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 49: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q350",
+    "topic": "DPRODUCT, DSTDEV & DVAR Statistical Database Operations",
+    "question": "[DPRODUCT, DSTDEV & DVAR Statistical Database Operations] Question 50: What is the core operating mechanism and architectural rule of DPRODUCT, DSTDEV & DVAR Statistical Database Operations in enterprise Microsoft Excel?",
+    "options": [
+      "Applies verified algorithms for DPRODUCT, DSTDEV & DVAR Statistical Database Operations ensuring robust execution, high-throughput memory management, and deterministic results",
+      "Converts values to text format permanently",
+      "Deletes workbook metadata and dependencies",
+      "Disables background calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, DPRODUCT, DSTDEV & DVAR Statistical Database Operations executes standardized operations according to Microsoft engineering standards, ensuring mathematical and structural data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q351",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q1] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q352",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q2] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q353",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q3] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q354",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q4] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q355",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q5] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q356",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q6] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q357",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q7] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q358",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q8] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q359",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q9] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q360",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q10] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q361",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q11] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q362",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q12] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q363",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q13] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q364",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q14] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q365",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q15] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q366",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q16] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q367",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q17] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q368",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q18] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q369",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q19] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q370",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q20] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q371",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q21] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q372",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q22] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q373",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q23] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q374",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q24] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q375",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q25] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q376",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q26] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q377",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q27] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q378",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q28] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q379",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q29] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q380",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q30] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q381",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q31] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q382",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q32] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q383",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q33] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q384",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q34] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q385",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q35] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q386",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q36] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q387",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q37] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q388",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q38] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q389",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q39] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q390",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q40] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q391",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q41] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q392",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q42] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q393",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q43] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q394",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q44] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q395",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q45] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q396",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q46] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q397",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q47] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q398",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q48] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q399",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q49] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q400",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q50] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q401",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q51] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q402",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q52] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q403",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q53] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q404",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q54] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q405",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q55] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q406",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q56] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q407",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q57] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q408",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q58] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q409",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q59] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q410",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q60] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q411",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q61] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q412",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q62] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q413",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q63] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q414",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q64] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q415",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q65] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q416",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q66] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q417",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q67] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q418",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q68] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q419",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q69] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q420",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q70] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q421",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q71] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q422",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q72] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q423",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q73] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q424",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q74] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q425",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q75] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q426",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q76] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q427",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q77] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q428",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q78] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q429",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q79] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q430",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q80] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q431",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q81] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q432",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q82] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q433",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q83] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q434",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q84] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q435",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q85] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q436",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q86] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q437",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q87] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q438",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q88] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q439",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q89] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q440",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q90] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q441",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q91] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q442",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q92] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q443",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q93] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q444",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q94] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q445",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q95] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q446",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q96] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q447",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q97] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q448",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q98] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q449",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q99] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_009_002_excel-database-query-functions_q450",
+    "topic": "Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis",
+    "question": "[Module 9.3: Excel Database Query Functions (DSUM, DCOUNT, DGET) Master Synthesis - Q100] How does master-level implementation of multi-criteria database querying (DSUM/DGET) using structured criteria blocks transform Excel into an enterprise-grade automated business intelligence and financial engineering hub?",
+    "options": [
+      "It delivers automated ETL pipelines, scalable relational data models, and high-speed execution workflows capable of processing multi-million record datasets with zero manual intervention",
+      "It makes Excel files slower",
+      "It locks workbooks permanently",
+      "It disables formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "By integrating multi-criteria database querying (DSUM/DGET) using structured criteria blocks, corporate analysts automate end-to-end data lifecycle pipelines from ingestion to executive presentation.",
+    "level": "Intermediate"
+  }
+];
+
+export default questions;

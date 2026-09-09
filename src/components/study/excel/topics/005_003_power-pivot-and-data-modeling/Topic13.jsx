@@ -1,581 +1,80 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
-import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
-import sampleWorkbookUrl from "./excel_files/005_003_power_pivot_and_data_modeling_master.xlsx?url";
-import FAQTemplate from "../../../../../common/FAQTemplate";
-import questions from "./topic13_files/topic13_questions";
+import React from "react";
+import QuizEngine from "../../../QuizEngine";
+import questions from "./topic13_files/topic13_quiz.json";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
 export default function Topic13() {
-  const sectionsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
-    );
-    sectionsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const handleDownload = () => {
-    if (!sampleWorkbookUrl) return;
-    const link = document.createElement("a");
-    link.href = sampleWorkbookUrl;
-    link.download = "power_pivot_data_modeling_practice.xlsx";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
-    <div className="dark bg-slate-950 text-slate-100 min-h-screen py-8 px-4 sm:px-6 lg:px-8 font-sans selection:bg-sky-500/30 selection:text-sky-200">
-      <style>{`
-        @keyframes fadeInSlide {
-          from { transform: translateY(18px); }
-          to { transform: translateY(0); }
-        }
-        .reveal-section {
-          animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-      `}</style>
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-4 pb-16 px-4 sm:px-6">
+      {/* HERO BANNER */}
+      <header className="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 p-6 sm:p-10 rounded-3xl border border-sky-800/40 shadow-2xl space-y-4 relative overflow-hidden backdrop-blur-xl">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
 
-      <div className="max-w-5xl mx-auto space-y-10">
-        {/* =========================================================================
-            SECTION 1: HERO HEADER & OVERVIEW
-        ========================================================================= */}
-        <header
-          ref={(el) => (sectionsRef.current[0] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🏆 Enterprise Retail Data Model Capstone"} · Topic 13
-            </span>
-            <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Enterprise Master Architecture"}
-            </span>
-            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Ultra-Expert · Bloom Level 6: Evaluate"}
-            </span>
-          </div>
-
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships"}
-          </h1>
-
-          <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Comprehensive end-to-end master capstone project: architecting an Enterprise Retail Data Model with multi-table Star Schemas, 1-to-Many relationships, Date dimensions, and explicit DAX measures"}. Master the complete VertiPaq in-memory engine, Star Schema dimensional modeling, 1-to-Many relationships, Date dimensions, and enterprise model governance.
-          </p>
-
-          <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Subject Code:</strong> EXCEL-PRO-901</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Module:</strong> Power Pivot &amp; Data Modeling</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-slate-300">
-              <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Accreditation:</strong> Coder &amp; AccoTax Centre of Excellence</span>
-            </div>
-          </div>
-        </header>
-
-        {/* =========================================================================
-            SECTION 2: FORMULA & SYNTAX ANATOMY CARD
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[1] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all duration-300 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
-              Data Modeling Syntax &amp; Architectural Standard
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Tabular Architecture
-            </span>
-          </div>
-
-          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Enterprise Retail Data Model: Fact_Sales + Fact_Inventory + Dim_Customer + Dim_Product + Dim_Store + Dim_Calendar + Explicit DAX Measure Suite"}
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Component / Construct</th>
-                  <th className="py-3 px-4">Role / Engine Tier</th>
-                  <th className="py-3 px-4">Requirement</th>
-                  <th className="py-3 px-4">Operational Description</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/50 font-mono">
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">VertiPaq Columnar Data Store</td>
-                  <td className="py-3 px-4 text-teal-400">In-Memory Engine</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Core Foundation</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">High-compression in-memory columnar vector database executing billion-row queries in milliseconds.</td>
-                </tr>
-                <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Star Schema Relational Mesh</td>
-                  <td className="py-3 px-4 text-teal-400">Dimensional Layer</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">1-to-Many relationships connecting central Fact tables to surrounding Dimension lookup entities.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Core Principle: </strong>
-              Power Pivot transforms Excel into an enterprise BI powerhouse, enabling multi-table relational modeling and billion-row analytical aggregation.
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[2] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-              Engine Architecture &amp; Relational Mechanics
-            </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Under-The-Hood Architecture
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Multi-Fact Dimensional Architecture"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Integrates two distinct business processes: `Fact_Sales` (Transactions) and `Fact_Inventory` (Daily Stock Snapshots) connected to shared conforming dimensions."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Conformed Dimensions (Shared Context)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"`Dim_Product`, `Dim_Store`, and `Dim_Calendar` act as conformed dimensions, enabling simultaneous cross-fact analysis of Sales vs Inventory levels."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Comprehensive Explicit DAX Suite"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Implements core revenue measures, inventory stock-out ratios, gross margin % ratios, and Year-over-Year growth calculations."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Enterprise Retail Multi-Fact Star Schema Architecture & Measure Matrix"}
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              Relational Pipeline
-            </span>
-          </div>
-
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <linearGradient id="gradFlowMod13_13" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
-                </linearGradient>
-                <marker id="arrowMod13_13" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
-
-              {/* Node 1: Dimension Table (1) */}
-              <g transform="translate(30, 45)">
-                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
-                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Dimension Table (1)</text>
-                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Unique Primary Key</text>
-                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">Customer, Product, Date</text>
-                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Context Filter Source</text>
-              </g>
-
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod13_13)" fill="none" />
-
-              {/* Node 2: VertiPaq Relational Engine */}
-              <g transform="translate(315, 30)">
-                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">VertiPaq Engine Layer</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Enterprise Master Architecture"}</text>
-                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">1-to-Many Filter Propagation</text>
-                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Columnar Run-Length Compression</text>
-                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native Tabular RAM</text>
-              </g>
-
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod13_13)" fill="none" />
-
-              {/* Node 3: Fact Table (*) */}
-              <g transform="translate(640, 45)">
-                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
-                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Fact Table (*)</text>
-                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Metrics (*)</text>
-                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Millions of Rows</text>
-              </g>
-            </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">📥</span>
-                Interactive Spreadsheet &amp; Practice Workbook
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore the dataset below live in the browser or download the full module workbook to practice in Microsoft Excel.
-              </p>
-            </div>
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download the full .xlsx practice workbook for this module"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              <span>Download Workbook (.xlsx)</span>
-            </button>
-          </div>
-
-          <ExcelFileLoader
-            fileModule={sampleWorkbookUrl}
-            sheetName="EX2214"
-            title={"Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships - Interactive Practice Grid"}
-            rowsPerPage={10}
-            showSheetSelector={true}
-          />
-        </section>
-
-        {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-              Real-World Corporate Implementation Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Chief Data Architect"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Enterprise Multi-Store Retail Model Deployment"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Architects a complete corporate retail data model consolidating ₹500 Crore sales across 150 retail stores and 10,000 product SKUs."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Lead Commercial Controller"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Retail Inventory Turnover & Margin Optimization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Builds explicit measures tracking Days Sales of Inventory (DSI) and gross margin return on investment (GMROI)."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Supply Chain Operations Lead"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Warehouse Stock Replenishment Analytics"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Connects store sales velocity measures to warehouse inventory replenishment schedules."}</p>
-            </div>
-            
-            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Optimization Lead"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Regional Distribution Network Fulfillment Hub"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Monitors cross-store inventory transfer efficiency and delivery turnaround times."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Implementation &amp; Execution Guide
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Execution Protocol
-            </span>
-          </div>
-
-          <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Load Data Tables to Data Model
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> → Check <strong>Add this data to the Data Model</strong>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Open Diagram View &amp; Create 1-to-Many Relationships
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Open Power Pivot window (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + B + M</kbd>), switch to Diagram View, and drag Primary Keys to Foreign Keys <code className="text-cyan-300 font-mono font-bold">{"Enterprise Retail Data Model: Fact_Sales + Fact_Inventory + Dim_Customer + Dim_Product + Dim_Store + Dim_Calendar + Explicit DAX Measure Suite"}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Define Calendar Dimension &amp; Mark as Date Table
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design → Mark as Date Table</strong>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-indigo-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Build Explicit Measures &amp; Insert Data Model Pivot
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Author explicit DAX measures, organize them into Display Folders, and insert a Data Model PivotTable (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + N + V + M</kbd>).
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Troubleshooting Matrix
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Diagnostic Fixes
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error Signature</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Connecting Two Fact Tables Directly"}</td>
-                  <td className="py-3 px-4">{"Attempting to create a relationship between `Fact_Sales` and `Fact_Inventory` directly."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Connect both Fact tables independently to shared Conformed Dimension tables (`Dim_Product`, `Dim_Store`, `Dim_Calendar`)."}</td>
-                </tr>
-                
-                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Inconsistent Key Formatting Across Tables"}</td>
-                  <td className="py-3 px-4">{"StoreKey formatted as Text in Dim_Store but Whole Number in Fact_Sales, breaking relationship creation."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Standardize key column data types across all tables in Power Query."}</td>
-                </tr>
-                
-                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Hardcoding Calculations in Worksheet Grid"}</td>
-                  <td className="py-3 px-4">{"Bypassing the Data Model and writing manual SUMIFS formulas on large datasets."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Perform all calculations using explicit DAX measures in the Data Model."}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Conformed Dimensions"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Enables cross-process business intelligence in a single model."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Share Dim tables across multiple Fact tables"}</kbd>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Clean 3-Tier Layering"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Standard visual layout in Power Pivot Diagram View."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Dimensions Top → Facts Bottom"}</kbd>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Full DAX Measure Suite"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Delivers an institutional, production-grade business model."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Organize measures into Display Folders"}</kbd>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"What is a 'Conformed Dimension', and how does it allow comparing Sales transactions against Inventory snapshots in a single PivotTable?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the columnar compression architecture and relational data modeling principles.
-              </p>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"Why must multi-fact models never connect two Fact tables directly to each other?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the columnar compression architecture and relational data modeling principles.
-              </p>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"How does this comprehensive Star Schema architecture prepare your Excel models for seamless migration into Microsoft Power BI?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the columnar compression architecture and relational data modeling principles.
-              </p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
-          <FAQTemplate
-            title={"Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships - Frequently Asked Questions"}
-            questions={questions}
-          />
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className="px-3.5 py-1 text-xs font-bold tracking-wider uppercase bg-sky-500/20 text-sky-300 border border-sky-500/40 rounded-full shadow-inner">
+            📊 Microsoft Excel • 005 • 003 • power-pivot-and-data-modeling
+          </span>
+          <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">
+            Comprehensive Module Evaluation
+          </span>
+          <span className="px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full">
+            500 Question Master Bank
+          </span>
         </div>
 
-        {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
-          <Teacher
-            note={"Congratulations on mastering Power Pivot and Data Modeling! You now command the same enterprise-grade data architecture used by Fortune 500 companies. Your models can handle millions of rows, complex relationships, and lightning-fast calculations."}
-          />
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-300 via-teal-200 to-indigo-200 bg-clip-text text-transparent">
+          Module 5.3: Power Pivot & Relational Data Modeling: Master Assessment &amp; Certification
+        </h1>
+
+        <p className="text-base sm:text-lg text-slate-300 max-w-4xl leading-relaxed">
+          Comprehensive evaluation covering all 8 topics in this module with 50 dedicated questions per topic plus 100 integrated mixed scenarios. Test your knowledge in focus or list mode with instant feedback and honor roll certificate generation.
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800/80 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-slate-300">
+            <span className="text-sky-400 font-bold">✓</span>
+            <span><strong>50 Qs / Topic:</strong> 8 Topic Areas</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-300">
+            <span className="text-emerald-400 font-bold">✓</span>
+            <span><strong>100 Qs:</strong> Mixed Synthesis</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-300">
+            <span className="text-amber-400 font-bold">✓</span>
+            <span><strong>Pass Tier:</strong> 70% Cutoff</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-300">
+            <span className="text-indigo-400 font-bold">✓</span>
+            <span><strong>Certificate:</strong> Verified Honor Roll</span>
+          </div>
         </div>
-      </div>
+      </header>
+
+      {/* QUIZ ENGINE */}
+      <section className="bg-slate-900/90 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden backdrop-blur-xl">
+        <QuizEngine
+          title="Module 5.3: Power Pivot & Relational Data Modeling Master Evaluation"
+          questions={questions}
+          testId="005_003_power-pivot-and-data-modeling_master_quiz"
+          questionLimit={50}
+          passPercent={70}
+          certificateHeader="Coder & AccoTax"
+          certificateSubtitle="Barrackpore Accounting & Spreadsheet Academy · www.codernaccotax.co.in"
+          certificateTitle="Module 5.3: Power Pivot & Relational Data Modeling Master Certificate"
+          leaderboardTitle="Module 5.3: Power Pivot & Relational Data Modeling Leaderboard"
+        />
+      </section>
+
+      {/* TEACHER GUIDANCE */}
+      <Teacher
+        note={
+          "Congratulations on attempting the master evaluation for Module 5.3: Power Pivot & Relational Data Modeling! " +
+          "Carefully review every question and explanation. Take the test in 25, 50, or full size, verify your score on the leaderboard, and lock in your conceptual foundation before proceeding."
+        }
+      />
     </div>
   );
 }

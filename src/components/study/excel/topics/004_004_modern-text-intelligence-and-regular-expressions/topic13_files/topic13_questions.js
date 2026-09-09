@@ -1,248 +1,6304 @@
-// topic13_questions.js - 30 Comprehensive Practice & Viva Voce Questions for Topic 13
-// Topic: Assessment: Advanced Regex and String Intelligence Lab
-// Module: 004_004_modern-text-intelligence-and-regular-expressions
-// Lead Academic Mentor: Sukanta Hui (Coder & AccoTax)
-
+// Auto-generated Master Quiz Questions for 004_004_modern-text-intelligence-and-regular-expressions
 const questions = [
   {
-    question: "What is the primary evaluation goal of the Advanced Regex and String Intelligence Assessment Lab?",
-    shortAnswer: "To rigorously assess the student's mastery in designing, debugging, optimizing, and deploying native regular expressions and dynamic array string functions in real-world enterprise architectures.",
-    explanation: "Tests theoretical comprehension and hands-on speed across all 14 module topics.",
-    hint: "Comprehensive mastery evaluation across regex and text functions.",
-    level: "basic",
-    codeExample: "Advanced String Intelligence Capstone Evaluation"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q1",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 1: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "What are the 3 native regular expression functions introduced in Microsoft Excel 365?",
-    shortAnswer: "REGEXTEST, REGEXEXTRACT, and REGEXREPLACE.",
-    explanation: "Native C++ functions operating in compiled SIMD memory with zero VBA dependencies.",
-    hint: "REGEXTEST, REGEXEXTRACT, REGEXREPLACE.",
-    level: "basic",
-    codeExample: "REGEXTEST, REGEXEXTRACT, REGEXREPLACE"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q2",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 2: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you distinguish between REGEXTEST and REGEXEXTRACT?",
-    shortAnswer: "REGEXTEST returns a boolean (TRUE/FALSE) confirming pattern presence; REGEXEXTRACT extracts the matching substring or spilled token array.",
-    explanation: "Validation vs Extraction.",
-    hint: "REGEXTEST: Boolean; REGEXEXTRACT: Substring/Array.",
-    level: "basic",
-    codeExample: "REGEXTEST(text, pat) vs REGEXEXTRACT(text, pat, [mode])"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q3",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 3: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "What are the 3 return modes of REGEXEXTRACT?",
-    shortAnswer: "0 (First Match, Default), 1 (All Matches Spilled), and 2 (Capturing Groups Only).",
-    explanation: "Mode 0 returns scalar string; Mode 1 returns 1D vector of all matches; Mode 2 returns horizontal vector of capturing groups.",
-    hint: "0: First Match; 1: All Matches; 2: Capturing Groups.",
-    level: "moderate",
-    codeExample: "Mode 0, Mode 1, Mode 2"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q4",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 4: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you strip all HTML tags from a text cell using REGEXREPLACE?",
-    shortAnswer: "=REGEXREPLACE(A2, \"<[^>]+>\", \"\")",
-    explanation: "Replaces `<...>` markup tags with empty string.",
-    hint: "<[^>]+> replaced with \"\".",
-    level: "basic",
-    codeExample: "=REGEXREPLACE(A2, \"<[^>]+>\", \"\")"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q5",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 5: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How does passing a negative instance number (e.g. -1) to TEXTBEFORE or TEXTAFTER alter the search direction?",
-    shortAnswer: "It searches from right-to-left, targeting the LAST occurrence of the delimiter in the text string.",
-    explanation: "Crucial for isolating file extensions and parent folder directories.",
-    hint: "Searches backwards from right-to-left.",
-    level: "basic",
-    codeExample: "=TEXTAFTER(\"Report.final.xlsx\", \".\", -1) → \"xlsx\""
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q6",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 6: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you construct a 2D matrix from a delimited text blob using TEXTSPLIT?",
-    shortAnswer: "Specify both column_delimiter and row_delimiter: `=TEXTSPLIT(A2, col_delim, row_delim)`.",
-    explanation: "Spills rows and columns simultaneously in pure RAM.",
-    hint: "TEXTSPLIT(text, col_delimiter, row_delimiter).",
-    level: "moderate",
-    codeExample: "=TEXTSPLIT(\"A:1|B:2|C:3\", \":\", \"|\")"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q7",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 7: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How do you combine FILTER with REGEXTEST to isolate only rows with valid 10-digit mobile numbers starting with 6-9?",
-    shortAnswer: "=FILTER(DataTable, REGEXTEST(PhoneCol, \"^[6-9]\\d{9}$\"))",
-    explanation: "Anchored pattern `^[6-9]\\d{9}$` ensures exact 10-digit compliance.",
-    hint: "FILTER(Table, REGEXTEST(Col, '^[6-9]\\d{9}$')).",
-    level: "basic",
-    codeExample: "=FILTER(A5:E20, REGEXTEST(D5:D20, \"^[6-9]\\d{9}$\"))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q8",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 8: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you extract all invoice codes across a column into a unique vertical list using TOCOL?",
-    shortAnswer: "=SORT(UNIQUE(TOCOL(REGEXEXTRACT(InvoiceCol, \"INV-\\d+\", 1), 3)))",
-    explanation: "REGEXEXTRACT mode 1 pulls all codes, TOCOL flattens to 1D ignoring errors, UNIQUE deduplicates, and SORT alphabetizes.",
-    hint: "SORT(UNIQUE(TOCOL(REGEXEXTRACT(..., 1), 3))).",
-    level: "advanced",
-    codeExample: "=SORT(UNIQUE(TOCOL(REGEXEXTRACT(B5:B100, \"INV-\\d+\", 1), 3)))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q9",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 9: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "What is the role of positive lookbehind `(?<=prefix)` in corporate log parsing?",
-    shortAnswer: "It asserts that the matched substring is preceded by the prefix without including the prefix itself in the extracted return value.",
-    explanation: "Extracts values from key-value pairs cleanly without helper formulas.",
-    hint: "Zero-width assertion matching text preceded by prefix.",
-    level: "advanced",
-    codeExample: "=REGEXEXTRACT(A2, \"(?<=UID=)\\w+\")"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q10",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 10: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you decompose employee full names into First and Last Name columns across 1,000 rows using BYROW?",
-    shortAnswer: "=BYROW(A5:A1000, LAMBDA(r, REGEXEXTRACT(r, \"^(\\w+)\\s+(.+)$\", 2)))",
-    explanation: "BYROW evaluates each row vector and spills the 2 capturing groups across 2 adjacent columns.",
-    hint: "BYROW + LAMBDA + REGEXEXTRACT mode 2.",
-    level: "advanced",
-    codeExample: "=BYROW(A5:A1000, LAMBDA(r, REGEXEXTRACT(r, \"^(\\w+)\\s+(.+)$\", 2)))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q11",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 11: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How do you mask the first 12 digits of a 16-digit credit card number using REGEXREPLACE and backreferences?",
-    shortAnswer: "=REGEXREPLACE(A2, \"^\\d{4}-\\d{4}-\\d{4}-(\\d{4})$\", \"XXXX-XXXX-XXXX-$1\")",
-    explanation: "Captures the last 4 digits in group $1 and replaces preceding numbers with static Xs.",
-    hint: "Replace with \"XXXX-XXXX-XXXX-$1\".",
-    level: "basic",
-    codeExample: "=REGEXREPLACE(A2, \"^\\d{4}-\\d{4}-\\d{4}-(\\d{4})$\", \"XXXX-XXXX-XXXX-$1\")"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q12",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 12: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you extract text enclosed inside double quotes `\"Barrackpore\"` without using regex?",
-    shortAnswer: "=TEXTBEFORE(TEXTAFTER(A2, \"\"\"\"), \"\"\"\")",
-    explanation: "TEXTAFTER extracts text following first quote; TEXTBEFORE trims preceding next quote.",
-    hint: "TEXTBEFORE(TEXTAFTER(A2, '\"'), '\"').",
-    level: "moderate",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(A2, \"\"\"\"), \"\"\"\")"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q13",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 13: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How do you sanitize text by collapsing multiple internal spaces and converting to Proper Case in 1 formula?",
-    shortAnswer: "=PROPER(TRIM(REGEXREPLACE(A2, \"\\s+\", \" \")))",
-    explanation: "Collapses multi-space runs with `\\s+`, trims boundary spaces, and capitalizes words with PROPER.",
-    hint: "PROPER(TRIM(REGEXREPLACE(A2, '\\s+', ' '))).",
-    level: "basic",
-    codeExample: "=PROPER(TRIM(REGEXREPLACE(A2, \"\\s+\", \" \")))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q14",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 14: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you prevent #N/A errors in TEXTBEFORE when a name contains only 1 word and lacks spaces?",
-    shortAnswer: "Set the `match_end` argument to 1: `=TEXTBEFORE(A2, \" \", , , 1)`.",
-    explanation: "Treats the end of text as a delimiter, returning the full single-word name safely.",
-    hint: "Set match_end = 1.",
-    level: "moderate",
-    codeExample: "=TEXTBEFORE(A2, \" \", , , 1)"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q15",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 15: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you parse a multi-token server log line `[Timestamp] [Level] [User] Event` into 4 columns in 1 formula?",
-    shortAnswer: "=REGEXEXTRACT(A2, \"^\\[([^\\]]+)\\]\\s+\\[([^\\]]+)\\]\\s+\\[([^\\]]+)\\]\\s+(.+)$\", 2)",
-    explanation: "Mode 2 spills the 4 bracketed capturing groups across adjacent columns.",
-    hint: "REGEXEXTRACT with 4 capturing groups and mode 2.",
-    level: "advanced",
-    codeExample: "=REGEXEXTRACT(A2, \"^\\[([^\\]]+)\\]\\s+\\[([^\\]]+)\\]\\s+\\[([^\\]]+)\\]\\s+(.+)$\", 2)"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q16",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 16: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you calculate a composite customer compliance score (0% to 100%) across PAN, GSTIN, and Email validation checks?",
-    shortAnswer: "=(--REGEXTEST(PAN, \"^[A-Z]{5}\\d{4}[A-Z]$\") + --REGEXTEST(GST, \"^\\d{2}[A-Z]{5}\\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$\") + --REGEXTEST(Email, \"^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$\")) / 3",
-    explanation: "Double unaries coerce booleans to 1/0 and average over total tests.",
-    hint: "Sum of --REGEXTEST results / 3.",
-    level: "advanced",
-    codeExample: "=(--ValidPAN + --ValidGST + --ValidEmail) / 3"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q17",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 17: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How do you build a dynamic defect remarks string using TEXTJOIN for failed fields only?",
-    shortAnswer: "=TEXTJOIN(\"; \", TRUE, IF(NOT(ValidPAN), \"PAN Invalid\", \"\"), IF(NOT(ValidEmail), \"Email Invalid\", \"\"))",
-    explanation: "TEXTJOIN skips empty strings and joins active error flags dynamically.",
-    hint: "TEXTJOIN('; ', TRUE, IF(NOT(Test), 'Error', '')).",
-    level: "expert",
-    codeExample: "=TEXTJOIN(\"; \", TRUE, IF(NOT(ValidPAN), \"PAN Invalid\", \"\"), IF(NOT(ValidEmail), \"Email Invalid\", \"\"))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q18",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 18: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you extract the integer value from a string `Total: 450 items` and convert it to a real Excel number?",
-    shortAnswer: "=NUMBERVALUE(REGEXEXTRACT(A2, \"\\d+\"))",
-    explanation: "REGEXEXTRACT pulls the digits and NUMBERVALUE coerces to numeric type.",
-    hint: "NUMBERVALUE(REGEXEXTRACT(A2, '\\d+')).",
-    level: "basic",
-    codeExample: "=NUMBERVALUE(REGEXEXTRACT(\"Total: 450 items\", \"\\d+\"))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q19",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 19: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "Why should you always anchor regex validation patterns with `^` (Start) and `$` (End)?",
-    shortAnswer: "Without anchors, the regex performs a partial substring search, allowing invalid strings with embedded conforming tokens (e.g. 15-char invalid PAN) to erroneously pass.",
-    explanation: "Anchors enforce complete whole-string validation.",
-    hint: "Enforces complete string validation and prevents substring false positives.",
-    level: "basic",
-    codeExample: "Pattern: ^[A-Z]{5}\\d{4}[A-Z]$"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q20",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 20: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you remove ASCII control characters (0-31) from legacy mainframe database exports?",
-    shortAnswer: "=REGEXREPLACE(A2, \"[\\x00-\\x1F]\", \"\")",
-    explanation: "Matches hexadecimal ASCII control characters and deletes them.",
-    hint: "[\\x00-\\x1F] replaced with \"\".",
-    level: "moderate",
-    codeExample: "=REGEXREPLACE(A2, \"[\\x00-\\x1F]\", \"\")"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q21",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 21: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you extract the directory folder path from `C:\\Users\\Admin\\Reports\\Audit.xlsx` in 1 step?",
-    shortAnswer: "=TEXTBEFORE(A2, \"\\\", -1)",
-    explanation: "Extracts all characters preceding the last backslash.",
-    hint: "=TEXTBEFORE(A2, '\\', -1).",
-    level: "basic",
-    codeExample: "=TEXTBEFORE(\"C:\\Users\\Admin\\Reports\\Audit.xlsx\", \"\\\", -1) → \"C:\\Users\\Admin\\Reports\""
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q22",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 22: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you extract the file extension from `Audit.final.2026.xlsx` in 1 step?",
-    shortAnswer: "=TEXTAFTER(A2, \".\", -1)",
-    explanation: "Extracts text following the last period.",
-    hint: "=TEXTAFTER(A2, '.', -1).",
-    level: "basic",
-    codeExample: "=TEXTAFTER(\"Audit.final.2026.xlsx\", \".\", -1) → \"xlsx\""
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q23",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 23: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How do you extract all URLs starting with http:// or https:// from a long narrative text block into a deduplicated column?",
-    shortAnswer: "=SORT(UNIQUE(TOCOL(REGEXEXTRACT(A2, \"https?://[\\w.-]+(?:/[\\w.-]*)*\", 1))))",
-    explanation: "Mode 1 pulls all URLs, TOCOL flattens to 1D, UNIQUE deduplicates, and SORT orders alphabetically.",
-    hint: "SORT(UNIQUE(TOCOL(REGEXEXTRACT(..., 1)))).",
-    level: "advanced",
-    codeExample: "URL Master Extraction Pipeline"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q24",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 24: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you clean an entire 2D table range `B5:D20` of non-alphanumeric noise in a single dynamic array formula?",
-    shortAnswer: "=MAP(B5:D20, LAMBDA(cell, TRIM(REGEXREPLACE(cell, \"[^a-zA-Z0-9\\s]\", \"\"))))",
-    explanation: "MAP executes regex cleansing across all cells in the 2D grid in pure RAM.",
-    hint: "MAP(2D_Range, LAMBDA(c, REGEXREPLACE(c, '[^a-zA-Z0-9\\s]', ''))).",
-    level: "advanced",
-    codeExample: "=MAP(B5:D20, LAMBDA(c, TRIM(REGEXREPLACE(c, \"[^a-zA-Z0-9\\s]\", \"\"))))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q25",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 25: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "How do you build a live Executive Data Hygiene KPI Dashboard in 1 LET formula?",
-    shortAnswer: "=LET(tot, ROWS(MasterTable), valid, SUM(--(ScoreCol=1)), HSTACK(tot, valid, tot-valid, valid/tot))",
-    explanation: "LET computes total records, approved counts, flagged counts, and compliance % KPI in pure RAM.",
-    hint: "LET formula computing live board-level metrics.",
-    level: "expert",
-    codeExample: "Board-Level Governance KPI Formula"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q26",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 26: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "What is the speed benefit of native C++ SIMD regex execution over legacy VBA macro loops in Excel 365?",
-    shortAnswer: "Native regex operates 50x to 100x faster in compiled multi-threaded RAM, runs natively on Excel for Web and Mac, and eliminates all macro security warnings.",
-    explanation: "Institutional grade performance and security compliance.",
-    hint: "50x-100x faster + Cross-Platform + Zero Macro Warnings.",
-    level: "expert",
-    codeExample: "SIMD Compiled RAM vs Legacy VBA Macro"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q27",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 27: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
   },
   {
-    question: "How do you create a named LAMBDA `FX_VALIDATE_EMAIL` in Name Manager for company-wide deployment?",
-    shortAnswer: "=LAMBDA(emailStr, REGEXTEST(emailStr, \"^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$\"))",
-    explanation: "Encapsulates email RFC-standard regex validation into a reusable enterprise function.",
-    hint: "LAMBDA(s, REGEXTEST(s, EmailPattern)).",
-    level: "moderate",
-    codeExample: "FX_VALIDATE_EMAIL = LAMBDA(s, REGEXTEST(s, \"^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$\"))"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q28",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 28: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
   },
   {
-    question: "How do you isolate the middle 3-digit exchange code from a formatted phone number `(033) 259-2114`?",
-    shortAnswer: "=TEXTBEFORE(TEXTAFTER(A2, \") \"), \"-\")",
-    explanation: "Pulls text between `) ` and `-`.",
-    hint: "TEXTBEFORE(TEXTAFTER(A2, ') '), '-').",
-    level: "basic",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(\"(033) 259-2114\", \") \"), \"-\") → \"259\""
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q29",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 29: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
   },
   {
-    question: "What is Instructor Sukanta Hui's ultimate capstone principle for Modern Text Intelligence & Regular Expressions?",
-    shortAnswer: "Text intelligence is the bridge between chaotic real-world data and deterministic institutional analytics! By mastering the triumvirate of Native Regex Functions (REGEXTEST, REGEXEXTRACT, REGEXREPLACE) combined with 2D Dynamic Arrays (TEXTSPLIT, TEXTBEFORE, TEXTAFTER, FILTER, BYROW, TOCOL), you possess the power to ingest, sanitize, parse, and govern millions of enterprise records in pure RAM with zero macros and zero human error!",
-    explanation: "You have graduated to the elite rank of Modern Excel Text Intelligence Architects!",
-    hint: "Native Regex + Dynamic Array Pipelines + In-Memory Governance = Elite Text Engineering Mastery!",
-    level: "expert",
-    codeExample: "Capstone Graduation: Master of Modern Text Intelligence!"
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q30",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 30: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q31",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 31: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q32",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 32: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q33",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 33: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q34",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 34: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q35",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 35: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q36",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 36: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q37",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 37: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q38",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 38: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q39",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 39: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q40",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 40: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q41",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 41: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q42",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 42: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q43",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 43: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q44",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 44: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q45",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 45: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q46",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 46: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q47",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 47: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q48",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 48: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q49",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 49: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q50",
+    "topic": "Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing",
+    "question": "[Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing] Question 50: What is the primary operational principle and calculation rule of Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Modern Text Engines: TEXTSPLIT Multi-Delimiter Parsing executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q51",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 1: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q52",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 2: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q53",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 3: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q54",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 4: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q55",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 5: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q56",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 6: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q57",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 7: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q58",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 8: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q59",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 9: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q60",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 10: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q61",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 11: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q62",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 12: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q63",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 13: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q64",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 14: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q65",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 15: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q66",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 16: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q67",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 17: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q68",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 18: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q69",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 19: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q70",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 20: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q71",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 21: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q72",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 22: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q73",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 23: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q74",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 24: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q75",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 25: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q76",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 26: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q77",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 27: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q78",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 28: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q79",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 29: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q80",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 30: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q81",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 31: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q82",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 32: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q83",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 33: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q84",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 34: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q85",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 35: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q86",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 36: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q87",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 37: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q88",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 38: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q89",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 39: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q90",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 40: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q91",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 41: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q92",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 42: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q93",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 43: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q94",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 44: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q95",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 45: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q96",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 46: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q97",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 47: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q98",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 48: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q99",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 49: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q100",
+    "topic": "TEXTBEFORE & TEXTAFTER Edge Token Handling",
+    "question": "[TEXTBEFORE & TEXTAFTER Edge Token Handling] Question 50: What is the primary operational principle and calculation rule of TEXTBEFORE & TEXTAFTER Edge Token Handling in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for TEXTBEFORE & TEXTAFTER Edge Token Handling ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, TEXTBEFORE & TEXTAFTER Edge Token Handling executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q101",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 1: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q102",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 2: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q103",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 3: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q104",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 4: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q105",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 5: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q106",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 6: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q107",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 7: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q108",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 8: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q109",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 9: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q110",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 10: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q111",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 11: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q112",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 12: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q113",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 13: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q114",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 14: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q115",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 15: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q116",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 16: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q117",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 17: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q118",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 18: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q119",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 19: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q120",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 20: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q121",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 21: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q122",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 22: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q123",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 23: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q124",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 24: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q125",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 25: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q126",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 26: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q127",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 27: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q128",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 28: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q129",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 29: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q130",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 30: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q131",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 31: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q132",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 32: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q133",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 33: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q134",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 34: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q135",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 35: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q136",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 36: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q137",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 37: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q138",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 38: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q139",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 39: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q140",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 40: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q141",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 41: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q142",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 42: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q143",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 43: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q144",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 44: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q145",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 45: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q146",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 46: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q147",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 47: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q148",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 48: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q149",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 49: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q150",
+    "topic": "REGEXTEST: Pattern Validation & Regex Logic",
+    "question": "[REGEXTEST: Pattern Validation & Regex Logic] Question 50: What is the primary operational principle and calculation rule of REGEXTEST: Pattern Validation & Regex Logic in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXTEST: Pattern Validation & Regex Logic ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXTEST: Pattern Validation & Regex Logic executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q151",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 1: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q152",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 2: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q153",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 3: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q154",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 4: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q155",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 5: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q156",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 6: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q157",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 7: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q158",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 8: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q159",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 9: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q160",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 10: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q161",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 11: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q162",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 12: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q163",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 13: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q164",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 14: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q165",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 15: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q166",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 16: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q167",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 17: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q168",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 18: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q169",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 19: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q170",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 20: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q171",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 21: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q172",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 22: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q173",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 23: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q174",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 24: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q175",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 25: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q176",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 26: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q177",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 27: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q178",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 28: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q179",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 29: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q180",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 30: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q181",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 31: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q182",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 32: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q183",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 33: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q184",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 34: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q185",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 35: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q186",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 36: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q187",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 37: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q188",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 38: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q189",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 39: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q190",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 40: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q191",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 41: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q192",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 42: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q193",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 43: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q194",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 44: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q195",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 45: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q196",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 46: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q197",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 47: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q198",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 48: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q199",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 49: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q200",
+    "topic": "REGEXEXTRACT: Token Extraction via Regex Groups",
+    "question": "[REGEXEXTRACT: Token Extraction via Regex Groups] Question 50: What is the primary operational principle and calculation rule of REGEXEXTRACT: Token Extraction via Regex Groups in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXEXTRACT: Token Extraction via Regex Groups ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXEXTRACT: Token Extraction via Regex Groups executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q201",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 1: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q202",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 2: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q203",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 3: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q204",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 4: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q205",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 5: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q206",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 6: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q207",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 7: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q208",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 8: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q209",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 9: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q210",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 10: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q211",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 11: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q212",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 12: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q213",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 13: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q214",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 14: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q215",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 15: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q216",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 16: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q217",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 17: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q218",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 18: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q219",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 19: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q220",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 20: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q221",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 21: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q222",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 22: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q223",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 23: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q224",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 24: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q225",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 25: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q226",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 26: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q227",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 27: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q228",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 28: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q229",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 29: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q230",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 30: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q231",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 31: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q232",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 32: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q233",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 33: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q234",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 34: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q235",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 35: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q236",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 36: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q237",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 37: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q238",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 38: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q239",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 39: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q240",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 40: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q241",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 41: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q242",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 42: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q243",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 43: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q244",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 44: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q245",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 45: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q246",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 46: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q247",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 47: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q248",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 48: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q249",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 49: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q250",
+    "topic": "REGEXREPLACE: Pattern-Based String Substitution",
+    "question": "[REGEXREPLACE: Pattern-Based String Substitution] Question 50: What is the primary operational principle and calculation rule of REGEXREPLACE: Pattern-Based String Substitution in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for REGEXREPLACE: Pattern-Based String Substitution ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, REGEXREPLACE: Pattern-Based String Substitution executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q251",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 1: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q252",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 2: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q253",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 3: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q254",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 4: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q255",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 5: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q256",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 6: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q257",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 7: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q258",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 8: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q259",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 9: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q260",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 10: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q261",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 11: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q262",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 12: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q263",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 13: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q264",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 14: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q265",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 15: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q266",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 16: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q267",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 17: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q268",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 18: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q269",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 19: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q270",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 20: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q271",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 21: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q272",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 22: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q273",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 23: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q274",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 24: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q275",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 25: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q276",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 26: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q277",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 27: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q278",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 28: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q279",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 29: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q280",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 30: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q281",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 31: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q282",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 32: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q283",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 33: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q284",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 34: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q285",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 35: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q286",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 36: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q287",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 37: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q288",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 38: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q289",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 39: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q290",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 40: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q291",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 41: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q292",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 42: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q293",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 43: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q294",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 44: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q295",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 45: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q296",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 46: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q297",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 47: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q298",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 48: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q299",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 49: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q300",
+    "topic": "Regex Syntax: Metacharacters, Quantifiers & Character Sets",
+    "question": "[Regex Syntax: Metacharacters, Quantifiers & Character Sets] Question 50: What is the primary operational principle and calculation rule of Regex Syntax: Metacharacters, Quantifiers & Character Sets in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Regex Syntax: Metacharacters, Quantifiers & Character Sets ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Regex Syntax: Metacharacters, Quantifiers & Character Sets executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q301",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 1: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q302",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 2: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q303",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 3: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q304",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 4: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q305",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 5: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q306",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 6: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q307",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 7: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q308",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 8: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q309",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 9: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q310",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 10: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q311",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 11: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q312",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 12: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q313",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 13: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q314",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 14: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q315",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 15: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q316",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 16: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q317",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 17: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q318",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 18: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q319",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 19: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q320",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 20: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q321",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 21: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q322",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 22: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q323",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 23: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q324",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 24: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q325",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 25: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q326",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 26: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q327",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 27: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q328",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 28: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q329",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 29: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q330",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 30: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q331",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 31: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q332",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 32: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q333",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 33: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q334",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 34: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q335",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 35: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q336",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 36: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q337",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 37: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q338",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 38: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q339",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 39: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q340",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 40: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q341",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 41: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q342",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 42: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q343",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 43: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q344",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 44: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q345",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 45: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q346",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 46: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q347",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 47: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q348",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 48: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q349",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 49: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q350",
+    "topic": "Unstructured Data Cleaning & String Mining",
+    "question": "[Unstructured Data Cleaning & String Mining] Question 50: What is the primary operational principle and calculation rule of Unstructured Data Cleaning & String Mining in enterprise Microsoft Excel modeling?",
+    "options": [
+      "Applies verified algorithms for Unstructured Data Cleaning & String Mining ensuring accurate mathematical calculation, dynamic array spilling, and strict error handling",
+      "Converts values to text format permanently",
+      "Deletes precedent formula coordinates",
+      "Disables multi-threaded workbook calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Microsoft Excel, Unstructured Data Cleaning & String Mining executes standardized operations according to Microsoft specification standards, preserving precision and supporting corporate audit compliance.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q351",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q1] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q352",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q2] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q353",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q3] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q354",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q4] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q355",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q5] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q356",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q6] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q357",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q7] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q358",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q8] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q359",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q9] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q360",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q10] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q361",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q11] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q362",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q12] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q363",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q13] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q364",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q14] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q365",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q15] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q366",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q16] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q367",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q17] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q368",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q18] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q369",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q19] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q370",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q20] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q371",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q21] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q372",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q22] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q373",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q23] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q374",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q24] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q375",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q25] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q376",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q26] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q377",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q27] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q378",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q28] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q379",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q29] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q380",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q30] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q381",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q31] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q382",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q32] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q383",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q33] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q384",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q34] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q385",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q35] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q386",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q36] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q387",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q37] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q388",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q38] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q389",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q39] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q390",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q40] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q391",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q41] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q392",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q42] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q393",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q43] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q394",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q44] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q395",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q45] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q396",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q46] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q397",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q47] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q398",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q48] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q399",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q49] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q400",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q50] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q401",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q51] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q402",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q52] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q403",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q53] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q404",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q54] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q405",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q55] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q406",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q56] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q407",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q57] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q408",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q58] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q409",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q59] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q410",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q60] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q411",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q61] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q412",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q62] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q413",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q63] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q414",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q64] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q415",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q65] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q416",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q66] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q417",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q67] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q418",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q68] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q419",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q69] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q420",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q70] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q421",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q71] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q422",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q72] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q423",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q73] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q424",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q74] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q425",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q75] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q426",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q76] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q427",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q77] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q428",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q78] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q429",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q79] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q430",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q80] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q431",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q81] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q432",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q82] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q433",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q83] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q434",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q84] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q435",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q85] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q436",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q86] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q437",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q87] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q438",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q88] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q439",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q89] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q440",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q90] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q441",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q91] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q442",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q92] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q443",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q93] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q444",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q94] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q445",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q95] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q446",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q96] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q447",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q97] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q448",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q98] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q449",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q99] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m_004_004_modern-text-intelligence-and-regular-expressions_q450",
+    "topic": "Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis",
+    "question": "[Module 4.4: Modern Text Intelligence & Regular Expressions (REGEXTEST, REGEXEXTRACT) Master Synthesis - Q100] How does integrating modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence empower financial modelers and business analysts to design high-performance, automated Excel decision systems?",
+    "options": [
+      "It creates modular, recalculation-optimized spreadsheet architectures that dynamically process data streams without manual intervention or formula corruption",
+      "It increases file size unnecessarily",
+      "It limits models to 10 rows",
+      "It permanently locks the user out of the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Systematic integration of modern TEXTSPLIT parsing, REGEXTEST pattern validation, and REGEXEXTRACT string intelligence delivers scalable, institutional-grade analytical models that maintain formula integrity and visual executive clarity under massive data volume.",
+    "level": "Intermediate"
   }
 ];
 

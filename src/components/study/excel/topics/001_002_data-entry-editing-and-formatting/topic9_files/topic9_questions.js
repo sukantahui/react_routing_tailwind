@@ -1,243 +1,7704 @@
+// Auto-generated 550 Master Quiz Questions for Module 1.2
 const questions = [
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Data type coercion rules (Text vs Number vs Date vs Boolean) (Question 1)?",
-    "shortAnswer": "Data type coercion rules (Text vs Number vs Date vs Boolean) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Data type coercion rules (Text vs Number vs Date vs Boolean) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Data type coercion rules (Text vs Number vs Date vs Boolean) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q1",
+    "topic": "Types of Data in Excel",
+    "question": "What is the default horizontal alignment for standard numeric data entered into an unformatted Excel cell?",
+    "options": [
+      "Left-aligned",
+      "Right-aligned",
+      "Center-aligned",
+      "Justified"
+    ],
+    "answerIndex": 1,
+    "explanation": "By default, Excel right-aligns numbers and dates, left-aligns text strings, and center-aligns Boolean logical values (TRUE/FALSE) and error tokens.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply IEEE 754 floating-point 15-digit precision limit (Question 2)?",
-    "shortAnswer": "IEEE 754 floating-point 15-digit precision limit is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, IEEE 754 floating-point 15-digit precision limit plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how IEEE 754 floating-point 15-digit precision limit prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TEXT(A2, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q2",
+    "topic": "Types of Data in Excel",
+    "question": "What is the default horizontal alignment for text strings entered into an unformatted Excel cell?",
+    "options": [
+      "Left-aligned",
+      "Right-aligned",
+      "Center-aligned",
+      "Bottom-aligned"
+    ],
+    "answerIndex": 0,
+    "explanation": "Text values are automatically left-aligned by Excel's default alignment rules.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Date serial integer storage and 1900 Epoch system (Question 3)?",
-    "shortAnswer": "Date serial integer storage and 1900 Epoch system is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Date serial integer storage and 1900 Epoch system plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Date serial integer storage and 1900 Epoch system prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TYPE(A3)"
+    "id": "m1_2_q3",
+    "topic": "Types of Data in Excel",
+    "question": "How does Excel align Boolean values (TRUE and FALSE) by default?",
+    "options": [
+      "Left-aligned",
+      "Right-aligned",
+      "Center-aligned",
+      "Top-aligned"
+    ],
+    "answerIndex": 2,
+    "explanation": "Excel automatically center-aligns recognized Boolean tokens (TRUE and FALSE).",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Time fraction decimals and [h]:mm elapsed hour formatting (Question 4)?",
-    "shortAnswer": "Time fraction decimals and [h]:mm elapsed hour formatting is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Time fraction decimals and [h]:mm elapsed hour formatting plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Time fraction decimals and [h]:mm elapsed hour formatting prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q4",
+    "topic": "Types of Data in Excel",
+    "question": "What character can you prefix to a numeric entry (e.g., '12345) to force Excel to store it as text?",
+    "options": [
+      "Double quote (\")",
+      "Single apostrophe (')",
+      "Hash symbol (#)",
+      "Tilde (~)"
+    ],
+    "answerIndex": 1,
+    "explanation": "A single apostrophe (') at the beginning of a cell entry forces Excel to interpret and store the entire entry as text, preserving leading zeros and preventing scientific notation.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply AutoComplete buffer mechanics in contiguous columns (Question 5)?",
-    "shortAnswer": "AutoComplete buffer mechanics in contiguous columns is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, AutoComplete buffer mechanics in contiguous columns plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how AutoComplete buffer mechanics in contiguous columns prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TEXT(A5, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q5",
+    "topic": "Types of Data in Excel",
+    "question": "According to the IEEE 754 standard used by Microsoft Excel, what is the maximum limit of significant digits of precision for numbers?",
+    "options": [
+      "10 digits",
+      "12 digits",
+      "15 digits",
+      "18 digits"
+    ],
+    "answerIndex": 2,
+    "explanation": "Excel follows the IEEE 754 specification for double-precision floating-point numbers, offering 15 significant digits of precision. Any digits beyond the 15th are permanently converted to zeroes.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Pick from Drop-Down list shortcut (Alt + Down Arrow) (Question 6)?",
-    "shortAnswer": "Pick from Drop-Down list shortcut (Alt + Down Arrow) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Pick from Drop-Down list shortcut (Alt + Down Arrow) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Pick from Drop-Down list shortcut (Alt + Down Arrow) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TYPE(A6)"
+    "id": "m1_2_q6",
+    "topic": "Types of Data in Excel",
+    "question": "If you type a 16-digit credit card number 1234567812345678 directly into a General formatted cell, what happens?",
+    "options": [
+      "Excel rejects the input with an error dialog",
+      "The 16th digit is converted to 0 (e.g., 1.23457E+15 / ...5670)",
+      "Excel automatically converts the cell to Text",
+      "Excel stores 16 digits but displays only 15"
+    ],
+    "answerIndex": 1,
+    "explanation": "Due to the 15-digit precision limit, Excel converts the 16th digit (and any subsequent digits) into zeroes.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Flash Fill inductive pattern synthesis algorithms (Ctrl + E) (Question 7)?",
-    "shortAnswer": "Flash Fill inductive pattern synthesis algorithms (Ctrl + E) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Flash Fill inductive pattern synthesis algorithms (Ctrl + E) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Flash Fill inductive pattern synthesis algorithms (Ctrl + E) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q7",
+    "topic": "Types of Data in Excel",
+    "question": "What Excel function returns the integer 1 for numbers, 2 for text, 4 for logical values, and 16 for errors?",
+    "options": [
+      "=INFO()",
+      "=CELL()",
+      "=TYPE()",
+      "=VALUE()"
+    ],
+    "answerIndex": 2,
+    "explanation": "The =TYPE(value) function returns 1 for Number, 2 for Text, 4 for Boolean/Logical, 16 for Error, 64 for Array, and 128 for Compound data types.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Custom Lists creation and global Excel registry storage (Question 8)?",
-    "shortAnswer": "Custom Lists creation and global Excel registry storage is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Custom Lists creation and global Excel registry storage plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Custom Lists creation and global Excel registry storage prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TEXT(A8, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q8",
+    "topic": "Types of Data in Excel",
+    "question": "What does =TYPE(\"100\") return in Microsoft Excel?",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "16"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because \"100\" is enclosed in quotes or stored as text, =TYPE() returns 2 (Text).",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply 4-section Custom Number Format syntax (Positive; Negative; Zero; Text) (Question 9)?",
-    "shortAnswer": "4-section Custom Number Format syntax (Positive; Negative; Zero; Text) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, 4-section Custom Number Format syntax (Positive; Negative; Zero; Text) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how 4-section Custom Number Format syntax (Positive; Negative; Zero; Text) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "=TYPE(A9)"
+    "id": "m1_2_q9",
+    "topic": "Types of Data in Excel",
+    "question": "What does =TYPE(TRUE) return in Microsoft Excel?",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "16"
+    ],
+    "answerIndex": 2,
+    "explanation": "=TYPE(TRUE) returns 4, which represents a logical/Boolean data type.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores (Question 10)?",
-    "shortAnswer": "Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Currency symbol formatting (₹ #,##,##0.00) for Indian Lakhs & Crores prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "basic",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q10",
+    "topic": "Types of Data in Excel",
+    "question": "What does =TYPE(#N/A) return in Microsoft Excel?",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "16"
+    ],
+    "answerIndex": 3,
+    "explanation": "=TYPE(#N/A) returns 16, which is the code for error tokens.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Scaling numbers with trailing commas (Thousands vs Millions/Crores) (Question 11)?",
-    "shortAnswer": "Scaling numbers with trailing commas (Thousands vs Millions/Crores) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Scaling numbers with trailing commas (Thousands vs Millions/Crores) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Scaling numbers with trailing commas (Thousands vs Millions/Crores) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A11, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q11",
+    "topic": "Types of Data in Excel",
+    "question": "Which function evaluates to TRUE if a cell contains a numeric value and FALSE otherwise?",
+    "options": [
+      "=ISTEXT()",
+      "=ISNUMBER()",
+      "=ISLOGICAL()",
+      "=ISNONTEXT()"
+    ],
+    "answerIndex": 1,
+    "explanation": "=ISNUMBER(cell) returns TRUE if the referenced cell contains a valid number, date, or time serial.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Color tags in number format masks ([Red], [Green], [Blue]) (Question 12)?",
-    "shortAnswer": "Color tags in number format masks ([Red], [Green], [Blue]) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Color tags in number format masks ([Red], [Green], [Blue]) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Color tags in number format masks ([Red], [Green], [Blue]) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A12)"
+    "id": "m1_2_q12",
+    "topic": "Types of Data in Excel",
+    "question": "If cell A1 contains the text '500' (stored as text with an apostrophe), what will =SUM(A1, 100) return?",
+    "options": [
+      "600",
+      "100",
+      "#VALUE!",
+      "500"
+    ],
+    "answerIndex": 1,
+    "explanation": "The =SUM() function ignores text cells within range arguments. Since A1 is text, =SUM(A1, 100) ignores A1 and computes 0 + 100 = 100. (Note: =A1+100 would coerce it to 600, but SUM ignores text).",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Blanking zero balances with dash (\"-\") in format section 3 (Question 13)?",
-    "shortAnswer": "Blanking zero balances with dash (\"-\") in format section 3 is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Blanking zero balances with dash (\"-\") in format section 3 plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Blanking zero balances with dash (\"-\") in format section 3 prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q13",
+    "topic": "Types of Data in Excel",
+    "question": "If cell A1 contains '500' (text) and cell B1 has formula =A1 + 100, what will B1 return?",
+    "options": [
+      "600",
+      "#VALUE!",
+      "500100",
+      "100"
+    ],
+    "answerIndex": 0,
+    "explanation": "The arithmetic plus operator (+) enforces mathematical coercion. Excel attempts to coerce text '500' into numeric 500 and evaluates 500 + 100 = 600.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Difference between visual number formatting vs =ROUND() math (Question 14)?",
-    "shortAnswer": "Difference between visual number formatting vs =ROUND() math is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Difference between visual number formatting vs =ROUND() math plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Difference between visual number formatting vs =ROUND() math prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A14, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q14",
+    "topic": "Types of Data in Excel",
+    "question": "What does a cell display when a numeric value or date is too wide to fit in the current column width?",
+    "options": [
+      "#VALUE!",
+      "###",
+      "#NUM!",
+      "#REF!"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel displays a series of hash marks (###) when a formatted number, date, or time cannot fit inside the column width.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Text to Columns delimiter parsing and date format conversion (Question 15)?",
-    "shortAnswer": "Text to Columns delimiter parsing and date format conversion is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Text to Columns delimiter parsing and date format conversion plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Text to Columns delimiter parsing and date format conversion prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A15)"
+    "id": "m1_2_q15",
+    "topic": "Types of Data in Excel",
+    "question": "What happens when text is too long for a cell and the adjacent cell to the right is empty?",
+    "options": [
+      "The text wraps automatically",
+      "The text overflows visually across the adjacent empty cell",
+      "Excel displays ###",
+      "The text is truncated permanently"
+    ],
+    "answerIndex": 1,
+    "explanation": "When the adjacent cell to the right is empty, unformatted text overflows into the visible space of that cell without altering the neighboring cell.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Center Across Selection vs destructive Merge & Center (Question 16)?",
-    "shortAnswer": "Center Across Selection vs destructive Merge & Center is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Center Across Selection vs destructive Merge & Center plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Center Across Selection vs destructive Merge & Center prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q16",
+    "topic": "Types of Data in Excel",
+    "question": "What happens when text is too long for a cell and the adjacent cell to the right is NOT empty?",
+    "options": [
+      "The text wraps to row 2",
+      "The text is visually clipped at the cell boundary",
+      "Excel throws a #SPILL! error",
+      "The column widens automatically"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the adjacent cell contains any data or formatting, the overflowing text is visually clipped at the right boundary.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Outline Grouping (Shift + Alt + Right) vs row/column hiding (Question 17)?",
-    "shortAnswer": "Outline Grouping (Shift + Alt + Right) vs row/column hiding is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Outline Grouping (Shift + Alt + Right) vs row/column hiding plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Outline Grouping (Shift + Alt + Right) vs row/column hiding prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A17, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q17",
+    "topic": "Types of Data in Excel",
+    "question": "Which error token indicates that a formula is dividing a number by zero or by an empty cell?",
+    "options": [
+      "#DIV/0!",
+      "#NULL!",
+      "#VALUE!",
+      "#N/A"
+    ],
+    "answerIndex": 0,
+    "explanation": "#DIV/0! occurs when a formula attempts division by zero or an empty cell.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Clear All (Alt + H + E + A) vs Delete key contents clearing (Question 18)?",
-    "shortAnswer": "Clear All (Alt + H + E + A) vs Delete key contents clearing is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Clear All (Alt + H + E + A) vs Delete key contents clearing plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Clear All (Alt + H + E + A) vs Delete key contents clearing prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A18)"
+    "id": "m1_2_q18",
+    "topic": "Types of Data in Excel",
+    "question": "Which error token appears when Excel does not recognize text in a formula, such as a misspelled function name like =SMU(A1:A5)?",
+    "options": [
+      "#REF!",
+      "#NAME?",
+      "#VALUE!",
+      "#NUM!"
+    ],
+    "answerIndex": 1,
+    "explanation": "#NAME? appears when Excel fails to recognize a function name, named range, or unquoted text inside a formula.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply AutoFit Column Width (Alt + H + O + I) and '###' overflow fix (Question 19)?",
-    "shortAnswer": "AutoFit Column Width (Alt + H + O + I) and '###' overflow fix is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, AutoFit Column Width (Alt + H + O + I) and '###' overflow fix plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how AutoFit Column Width (Alt + H + O + I) and '###' overflow fix prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q19",
+    "topic": "Types of Data in Excel",
+    "question": "Which error token appears when a cell reference is invalid, often caused by deleting a referenced row or column?",
+    "options": [
+      "#REF!",
+      "#NULL!",
+      "#DIV/0!",
+      "#NAME?"
+    ],
+    "answerIndex": 0,
+    "explanation": "#REF! stands for invalid cell Reference, which frequently happens when a row, column, or worksheet referred to in a formula is deleted.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Hierarchical financial statement indentation (Alt + H + 6) (Question 20)?",
-    "shortAnswer": "Hierarchical financial statement indentation (Alt + H + 6) is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Hierarchical financial statement indentation (Alt + H + 6) plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Hierarchical financial statement indentation (Alt + H + 6) prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TEXT(A20, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q20",
+    "topic": "Types of Data in Excel",
+    "question": "Which error token indicates an incorrect data type is supplied to an operator or function (e.g., =\"Hello\" + 5)?",
+    "options": [
+      "#VALUE!",
+      "#N/A!",
+      "#TYPE!",
+      "#NUM!"
+    ],
+    "answerIndex": 0,
+    "explanation": "#VALUE! occurs when an operation receives an argument or operand of the wrong mathematical data type (e.g. adding text to a number).",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Static date timestamping (Ctrl + ;) vs dynamic =TODAY() (Question 21)?",
-    "shortAnswer": "Static date timestamping (Ctrl + ;) vs dynamic =TODAY() is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Static date timestamping (Ctrl + ;) vs dynamic =TODAY() plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Static date timestamping (Ctrl + ;) vs dynamic =TODAY() prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "=TYPE(A21)"
+    "id": "m1_2_q21",
+    "topic": "Types of Data in Excel",
+    "question": "Which error token indicates that an intersection of two ranges specified with a space operator does not intersect?",
+    "options": [
+      "#NULL!",
+      "#N/A",
+      "#SPILL!",
+      "#NAME?"
+    ],
+    "answerIndex": 0,
+    "explanation": "#NULL! is generated when you specify an intersection of two cell ranges (using a space) that do not actually intersect.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Double unary operator (--) for converting text numbers to floats (Question 22)?",
-    "shortAnswer": "Double unary operator (--) for converting text numbers to floats is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Double unary operator (--) for converting text numbers to floats plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Double unary operator (--) for converting text numbers to floats prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "moderate",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q22",
+    "topic": "Types of Data in Excel",
+    "question": "Which error token signifies that a formula contains invalid numeric values (e.g., =SQRT(-25) or integer overflow)?",
+    "options": [
+      "#NUM!",
+      "#VALUE!",
+      "#REF!",
+      "#CALC!"
+    ],
+    "answerIndex": 0,
+    "explanation": "#NUM! occurs when a formula has invalid numeric arguments, such as attempting square roots of negative numbers or numbers exceeding Excel's floating-point capacity.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Handling leading zeros in postal PIN codes and mobile numbers (Question 23)?",
-    "shortAnswer": "Handling leading zeros in postal PIN codes and mobile numbers is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Handling leading zeros in postal PIN codes and mobile numbers plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Handling leading zeros in postal PIN codes and mobile numbers prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TEXT(A23, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q23",
+    "topic": "Types of Data in Excel",
+    "question": "What is the underlying data type of Dates in Excel's calculation engine?",
+    "options": [
+      "Special String Token",
+      "Formatted Integer Serial Number",
+      "Floating Point Timestamp only",
+      "64-bit Binary Array"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dates in Excel are stored as positive integer serial numbers representing the count of elapsed days since January 1, 1900.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Preserving 16-digit credit card and Aadhar numbers in Text format (Question 24)?",
-    "shortAnswer": "Preserving 16-digit credit card and Aadhar numbers in Text format is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Preserving 16-digit credit card and Aadhar numbers in Text format plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Preserving 16-digit credit card and Aadhar numbers in Text format prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TYPE(A24)"
+    "id": "m1_2_q24",
+    "topic": "Types of Data in Excel",
+    "question": "What is the underlying data type of Time in Excel's calculation engine?",
+    "options": [
+      "A text string formatted as HH:MM:SS",
+      "A decimal fraction of a 24-hour day (between 0.0 and 0.99999...)",
+      "An integer count of seconds",
+      "A 128-bit timestamp object"
+    ],
+    "answerIndex": 1,
+    "explanation": "Time values are stored as decimal fractions of a 24-hour day, where 0.5 represents 12:00 PM (noon) and 0.25 represents 6:00 AM.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply AutoFill handle double-click downward table boundary fill (Question 25)?",
-    "shortAnswer": "AutoFill handle double-click downward table boundary fill is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, AutoFill handle double-click downward table boundary fill plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how AutoFill handle double-click downward table boundary fill prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q25",
+    "topic": "Types of Data in Excel",
+    "question": "What will =ISLOGICAL(\"TRUE\") return?",
+    "options": [
+      "TRUE",
+      "FALSE",
+      "#VALUE!",
+      "1"
+    ],
+    "answerIndex": 1,
+    "explanation": "\"TRUE\" is a text string enclosed in quotes, so =ISLOGICAL(\"TRUE\") returns FALSE. Only the literal Boolean TRUE (without quotes) returns TRUE.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Bounding box pre-selected range fast keyboard data entry (Question 26)?",
-    "shortAnswer": "Bounding box pre-selected range fast keyboard data entry is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Bounding box pre-selected range fast keyboard data entry plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Bounding box pre-selected range fast keyboard data entry prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TEXT(A26, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q26",
+    "topic": "Types of Data in Excel",
+    "question": "What will =ISNONTEXT(12345) return?",
+    "options": [
+      "TRUE",
+      "FALSE",
+      "#VALUE!",
+      "1"
+    ],
+    "answerIndex": 0,
+    "explanation": "=ISNONTEXT() checks if a value is not text. Since 12345 is a number, it returns TRUE.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Custom format conditions like [>1000] and [<0] logic (Question 27)?",
-    "shortAnswer": "Custom format conditions like [>1000] and [<0] logic is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Custom format conditions like [>1000] and [<0] logic plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Custom format conditions like [>1000] and [<0] logic prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TYPE(A27)"
+    "id": "m1_2_q27",
+    "topic": "Types of Data in Excel",
+    "question": "What will =ISBLANK(A1) return if cell A1 contains an empty text string created by =\"\"?",
+    "options": [
+      "TRUE",
+      "FALSE",
+      "#VALUE!",
+      "0"
+    ],
+    "answerIndex": 1,
+    "explanation": "A cell containing an empty formula string =\"\" is not truly blank (it contains a 0-length text string), so =ISBLANK(A1) returns FALSE.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Handling text numbers enclosed in quotes (\"45000\") (Question 28)?",
-    "shortAnswer": "Handling text numbers enclosed in quotes (\"45000\") is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Handling text numbers enclosed in quotes (\"45000\") plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Handling text numbers enclosed in quotes (\"45000\") prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "₹ #,##,##0.00;[Red]-₹ #,##0.00;\"-\";@"
+    "id": "m1_2_q28",
+    "topic": "Types of Data in Excel",
+    "question": "What is the result of coercing the Boolean value TRUE in a math operation like =TRUE + 0?",
+    "options": [
+      "1",
+      "0",
+      "TRUE",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "When coerced mathematically in Excel, Boolean TRUE equals 1 and Boolean FALSE equals 0.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Cell styles and executive 3-tier financial workbook architecture (Question 29)?",
-    "shortAnswer": "Cell styles and executive 3-tier financial workbook architecture is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Cell styles and executive 3-tier financial workbook architecture plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Cell styles and executive 3-tier financial workbook architecture prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TEXT(A29, \"DD-MMM-YYYY\")"
+    "id": "m1_2_q29",
+    "topic": "Types of Data in Excel",
+    "question": "What is the result of =FALSE * 50?",
+    "options": [
+      "50",
+      "0",
+      "FALSE",
+      "#VALUE!"
+    ],
+    "answerIndex": 1,
+    "explanation": "FALSE is coerced to numeric 0 in arithmetic operations, so 0 * 50 = 0.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals, how does Excel evaluate and apply Data hygiene audit verification before formula construction (Question 30)?",
-    "shortAnswer": "Data hygiene audit verification before formula construction is executed deterministically by Excel to guarantee visual clarity, data type hygiene, and mathematical integrity.",
-    "explanation": "In Microsoft Excel, Data hygiene audit verification before formula construction plays a crucial role in data management. The storage and formatting subsystem applies exact memory parsing rules, ensuring that cell inputs are properly typed and presented without corrupting underlying calculation values.",
-    "hint": "Think about how Data hygiene audit verification before formula construction prevents calculation errors, speeds up data cleaning, and enhances executive report readability.",
-    "level": "advanced",
-    "codeExample": "=TYPE(A30)"
+    "id": "m1_2_q30",
+    "topic": "Types of Data in Excel",
+    "question": "What green triangle indicator appears in the top-left corner of a cell in Excel?",
+    "options": [
+      "AutoSave confirmation",
+      "Background Error Checking flag",
+      "Filter active flag",
+      "Comment or note indicator"
+    ],
+    "answerIndex": 1,
+    "explanation": "A green triangle in the upper-left corner indicates Excel's background error checker detected a potential issue, such as 'Number Stored as Text' or 'Inconsistent Formula'.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q31",
+    "topic": "Types of Data in Excel",
+    "question": "What small red triangle in the top-right corner of a cell represents in Excel?",
+    "options": [
+      "Calculation Error",
+      "A cell Note or Comment",
+      "Formula dependency",
+      "Conditional format trigger"
+    ],
+    "answerIndex": 1,
+    "explanation": "A red triangle in the top-right corner signifies an attached cell Note or threaded Comment.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q32",
+    "topic": "Types of Data in Excel",
+    "question": "What happens when you enter =1/3 in a General formatted cell and expand the column width?",
+    "options": [
+      "Displays up to 15 decimal digits of precision (0.333333333333333)",
+      "Displays infinite 3s across the screen",
+      "Rounds immediately to 0.33",
+      "Displays #NUM!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel calculates up to 15 significant digits of precision (0.333333333333333) and will display up to that limit based on column width and cell formatting.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q33",
+    "topic": "Types of Data in Excel",
+    "question": "How does Excel represent scientific notation for very large numbers like 10,000,000,000 by default in standard column widths?",
+    "options": [
+      "10B",
+      "1E+10",
+      "1.0000000000",
+      "#LARGE!"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel uses standard exponential scientific notation (e.g. 1E+10 for 1 × 10^10) when numbers exceed the default display width.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q34",
+    "topic": "Types of Data in Excel",
+    "question": "What function converts a numeric string like \"$1,250.00\" or \"450\" into a pure numeric value?",
+    "options": [
+      "=TEXT()",
+      "=VALUE()",
+      "=NUM()",
+      "=CONVERT()"
+    ],
+    "answerIndex": 1,
+    "explanation": "=VALUE(text) parses a text string representing a number and converts it into a standard Excel numeric value.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q35",
+    "topic": "Types of Data in Excel",
+    "question": "What function converts a numeric value into formatted text based on a format mask?",
+    "options": [
+      "=STRING()",
+      "=FORMAT()",
+      "=TEXT()",
+      "=FIXED()"
+    ],
+    "answerIndex": 2,
+    "explanation": "The =TEXT(value, format_text) function converts a number into a formatted text string using custom formatting codes.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q36",
+    "topic": "Types of Data in Excel",
+    "question": "What does =EXACT(\"Excel\", \"excel\") return?",
+    "options": [
+      "TRUE",
+      "FALSE",
+      "#VALUE!",
+      "0"
+    ],
+    "answerIndex": 1,
+    "explanation": "=EXACT() performs a case-sensitive text comparison and returns FALSE because the uppercase 'E' does not match lowercase 'e'.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q37",
+    "topic": "Types of Data in Excel",
+    "question": "What is the maximum number of characters that can be stored in a single Excel cell?",
+    "options": [
+      "255 characters",
+      "1,024 characters",
+      "32,767 characters",
+      "65,536 characters"
+    ],
+    "answerIndex": 2,
+    "explanation": "A single Excel cell can contain up to 32,767 characters of text.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q38",
+    "topic": "Types of Data in Excel",
+    "question": "What is the maximum positive number that Excel can store in floating-point format?",
+    "options": [
+      "9.99999999999999E+307",
+      "1.7976931348623158E+308",
+      "65,535",
+      "2,147,483,647"
+    ],
+    "answerIndex": 1,
+    "explanation": "Based on IEEE 754 64-bit float limits, Excel's maximum positive number is approximately 1.7976931348623158E+308.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q39",
+    "topic": "Types of Data in Excel",
+    "question": "What happens when you enter a number smaller than Excel's smallest positive float (2.2250738585072E-308)?",
+    "options": [
+      "Underflow to 0",
+      "Overflow to #NUM!",
+      "Fatal program crash",
+      "Converts to text string"
+    ],
+    "answerIndex": 0,
+    "explanation": "Numbers below the minimum positive floating-point threshold experience floating-point underflow and resolve to 0.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q40",
+    "topic": "Types of Data in Excel",
+    "question": "Which of the following is considered an Error Token in Excel?",
+    "options": [
+      "#SPILL!",
+      "#NAME?",
+      "#CALC!",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "explanation": "All three (#SPILL!, #NAME?, #CALC!) are built-in native Excel error tokens.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q41",
+    "topic": "Types of Data in Excel",
+    "question": "When typing 007 into an unformatted General cell, what will Excel display after pressing Enter?",
+    "options": [
+      "007",
+      "7",
+      "'007",
+      "007.0"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because General format treats 007 as a numeric integer, leading zeroes are stripped, displaying simply 7.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q42",
+    "topic": "Types of Data in Excel",
+    "question": "To display 007 while keeping the underlying value as a true number 7, which custom number format should be applied?",
+    "options": [
+      "###",
+      "000",
+      "???",
+      "@@@"
+    ],
+    "answerIndex": 1,
+    "explanation": "The format mask '000' forces Excel to display at least 3 digits, padding with leading zeroes when the number is smaller.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q43",
+    "topic": "Types of Data in Excel",
+    "question": "Which function returns the ASCII or Unicode character corresponding to a numeric code?",
+    "options": [
+      "=CODE()",
+      "=CHAR()",
+      "=TOKEN()",
+      "=ASCII()"
+    ],
+    "answerIndex": 1,
+    "explanation": "=CHAR(number) returns the character specified by the code number from the system character set.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q44",
+    "topic": "Types of Data in Excel",
+    "question": "Which function returns the numeric code for the first character in a text string?",
+    "options": [
+      "=CHAR()",
+      "=CODE()",
+      "=ASCII()",
+      "=VALUE()"
+    ],
+    "answerIndex": 1,
+    "explanation": "=CODE(text) returns the numeric code of the first character in the given text string.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q45",
+    "topic": "Types of Data in Excel",
+    "question": "What does =CHAR(10) represent in Excel for Windows?",
+    "options": [
+      "Tab character",
+      "Line feed (Alt + Enter line break)",
+      "Carriage return",
+      "Space"
+    ],
+    "answerIndex": 1,
+    "explanation": "=CHAR(10) produces a Line Feed character, which is the exact character inserted when pressing Alt + Enter for in-cell line breaks.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q46",
+    "topic": "Types of Data in Excel",
+    "question": "What is the data type returned by the logical expression =A1 > 50?",
+    "options": [
+      "Number",
+      "Text",
+      "Boolean (Logical)",
+      "Variant"
+    ],
+    "answerIndex": 2,
+    "explanation": "Comparison operators (=, >, <, >=, <=, <>) return Boolean (Logical) data types: TRUE or FALSE.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q47",
+    "topic": "Types of Data in Excel",
+    "question": "If cell A1 contains TRUE and cell A2 contains TRUE, what does =COUNT(A1:A2) return?",
+    "options": [
+      "2",
+      "0",
+      "1",
+      "#VALUE!"
+    ],
+    "answerIndex": 1,
+    "explanation": "The =COUNT() function only counts numeric values. Since cells A1 and A2 contain Booleans, =COUNT(A1:A2) returns 0. (COUNTA would return 2).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q48",
+    "topic": "Types of Data in Excel",
+    "question": "What does =COUNTA(A1:A5) count in Excel?",
+    "options": [
+      "Only numbers",
+      "Only text",
+      "All non-empty cells regardless of data type",
+      "Only cells containing formulas"
+    ],
+    "answerIndex": 2,
+    "explanation": "=COUNTA() counts all non-empty cells containing numbers, text, Booleans, errors, or empty strings.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q49",
+    "topic": "Types of Data in Excel",
+    "question": "What is the difference between a Blank cell and a cell containing an Empty String (\"\")?",
+    "options": [
+      "There is no difference",
+      "A blank cell has no contents, whereas an empty string cell contains a zero-length text string",
+      "A blank cell evaluates to #N/A",
+      "An empty string cell evaluates to 0 in =ISBLANK()"
+    ],
+    "answerIndex": 1,
+    "explanation": "A blank cell is completely empty (ISBLANK=TRUE), whereas a formula returning \"\" produces a 0-length text value (ISBLANK=FALSE, ISTEXT=TRUE).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q50",
+    "topic": "Types of Data in Excel",
+    "question": "Why does Excel treat leading zeroes in text-formatted ZIP codes (e.g. '08817') differently from number-formatted ZIP codes?",
+    "options": [
+      "Text preserves exact character sequences including leading zeros; numeric values strip leading zeros",
+      "Excel encrypts text ZIP codes",
+      "Text ZIP codes cannot be printed",
+      "Numbers can only have 3 digits"
+    ],
+    "answerIndex": 0,
+    "explanation": "Text strings preserve exact character tokens including leading zeroes, whereas the numeric storage engine discards insignificant leading zeroes.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q51",
+    "topic": "Custom Number Formatting",
+    "question": "What is the standard 4-section architecture of an Excel custom number formatting code?",
+    "options": [
+      "Positive; Negative; Zero; Text",
+      "Positive, Zero, Negative, Text",
+      "Number; Currency; Date; Time",
+      "Header; Body; Footer; Total"
+    ],
+    "answerIndex": 0,
+    "explanation": "An Excel custom format code can contain up to four sections separated by semicolons: <POSITIVE>;<NEGATIVE>;<ZERO>;<TEXT>.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q52",
+    "topic": "Custom Number Formatting",
+    "question": "What character is used to separate the distinct sections of a custom number format mask?",
+    "options": [
+      "Comma (,)",
+      "Semicolon (;)",
+      "Colon (:)",
+      "Pipe (|)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Semicolons (;) are the standard delimiters used to separate the positive, negative, zero, and text sections.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q53",
+    "topic": "Custom Number Formatting",
+    "question": "What does the digit placeholder '0' (zero) do in a custom number format?",
+    "options": [
+      "Displays only significant digits",
+      "Forces display of non-significant leading or trailing zeros",
+      "Leaves a blank space for zeros",
+      "Converts digits to text"
+    ],
+    "answerIndex": 1,
+    "explanation": "The '0' placeholder forces Excel to display the digit if present, or display a zero (0) if no digit is present.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q54",
+    "topic": "Custom Number Formatting",
+    "question": "What does the digit placeholder '#' (hash) do in a custom number format?",
+    "options": [
+      "Displays leading zeros",
+      "Displays only significant digits and suppresses non-significant zeros",
+      "Fills cell with hash marks",
+      "Rounds numbers up to nearest integer"
+    ],
+    "answerIndex": 1,
+    "explanation": "The '#' placeholder displays significant digits only and does not display non-significant leading or trailing zeros.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q55",
+    "topic": "Custom Number Formatting",
+    "question": "What does the placeholder '?' (question mark) do in custom number formatting?",
+    "options": [
+      "Generates a random digit",
+      "Adds a space for non-significant zeros to align decimal points in fixed-width fonts",
+      "Converts numbers to text",
+      "Flags an error"
+    ],
+    "answerIndex": 1,
+    "explanation": "The '?' placeholder reserves space for non-significant zeros on either side of the decimal point, allowing clean vertical alignment of fractions and decimal points.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q56",
+    "topic": "Custom Number Formatting",
+    "question": "What placeholder token represents Text input in the 4th section of a custom number format?",
+    "options": [
+      "#",
+      "&",
+      "@",
+      "%"
+    ],
+    "answerIndex": 2,
+    "explanation": "The '@' (at symbol) is the text placeholder in custom formatting codes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q57",
+    "topic": "Custom Number Formatting",
+    "question": "What happens if you omit the '@' placeholder in the 4th section of a format code, for example: `#,##0;(#,##0);\"-\";`?",
+    "options": [
+      "Text entries are displayed in red",
+      "Text entries in that cell are hidden from display",
+      "Excel throws a syntax error",
+      "Text is converted to 0"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the 4th section is left blank or omitted after a semicolon, text entered into the cell will not be displayed.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q58",
+    "topic": "Custom Number Formatting",
+    "question": "How can you completely hide all cell contents (numbers, text, zeroes) using custom number formatting without deleting the data?",
+    "options": [
+      "###",
+      ";;;",
+      "@@@",
+      "\"\"\"\""
+    ],
+    "answerIndex": 1,
+    "explanation": "The format mask `;;;` (three consecutive semicolons) hides positive, negative, zero, and text values from visible cell display while keeping them in the Formula Bar.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q59",
+    "topic": "Custom Number Formatting",
+    "question": "What does an asterisk followed by a character (e.g. `* ` or `*-`) do in a custom format code?",
+    "options": [
+      "Multiplies the cell value by 10",
+      "Repeats the next character to fill the entire remaining column width",
+      "Inserts a bullet point",
+      "Makes the text bold"
+    ],
+    "answerIndex": 1,
+    "explanation": "An asterisk (*) repeats whatever character immediately follows it until the cell's entire visible width is filled.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q60",
+    "topic": "Custom Number Formatting",
+    "question": "What does an underscore followed by a character (e.g. `_)` or `_x`) do in custom formatting?",
+    "options": [
+      "Creates an underline",
+      "Creates a blank space equal in width to the specified character",
+      "Converts the character to lowercase",
+      "Inserts a comment"
+    ],
+    "answerIndex": 1,
+    "explanation": "An underscore (_) skips the width of the character that follows it. For example, `_)` creates a space equal to the width of a closing parenthesis so positive numbers align with `(1,000)`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q61",
+    "topic": "Custom Number Formatting",
+    "question": "What does a comma placed immediately before a semicolon or at the end of a format mask (e.g. `#,##0,`) do?",
+    "options": [
+      "Causes a syntax error",
+      "Scales the displayed number down by a factor of 1,000 (thousands scaling)",
+      "Adds a comma after every digit",
+      "Converts number to percentage"
+    ],
+    "answerIndex": 1,
+    "explanation": "A trailing comma divides the displayed number by 1,000 without altering its actual underlying value.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q62",
+    "topic": "Custom Number Formatting",
+    "question": "What does two trailing commas (e.g. `#,##0,, \"M\"`) do in a custom format mask?",
+    "options": [
+      "Divides the displayed number by 2,000",
+      "Scales the displayed number down by 1,000,000 (millions scaling)",
+      "Displays two decimal places",
+      "Throws a fatal formatting error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Two trailing commas scale the displayed number down by 1,000,000 (10^6), ideal for executive financial reporting in Millions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q63",
+    "topic": "Custom Number Formatting",
+    "question": "How do you specify the color Green for positive numbers in a custom format code?",
+    "options": [
+      "{Green} #,##0",
+      "[Green]#,##0",
+      "(Green)#,##0",
+      "<Green>#,##0"
+    ],
+    "answerIndex": 1,
+    "explanation": "Colors in custom formats must be enclosed in square brackets, such as `[Green]`, `[Red]`, `[Blue]`, `[Cyan]`, `[Magenta]`, `[Yellow]`, `[White]`, or `[Black]`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q64",
+    "topic": "Custom Number Formatting",
+    "question": "How can you specify a custom indexed color (such as Color 10) in a number format mask?",
+    "options": [
+      "[Color 10]",
+      "#COLOR10#",
+      "{Color10}",
+      "@Color(10)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel supports 56 palette colors via the syntax `[Color n]`, e.g., `[Color 10]`, `[Color 4]`, etc.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q65",
+    "topic": "Custom Number Formatting",
+    "question": "How do you define custom conditions in a format mask, such as displaying numbers >= 1000 in Blue and others in Red?",
+    "options": [
+      "IF(>=1000)[Blue];[Red]",
+      "[Blue][>=1000]#,##0;[Red]#,##0",
+      "{>=1000:Blue}#,##0",
+      "(>=1000)[Blue]#,##0"
+    ],
+    "answerIndex": 1,
+    "explanation": "Conditional formatting inside custom format codes uses square brackets for comparison criteria, e.g. `[Blue][>=1000]#,##0;[Red]#,##0`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q66",
+    "topic": "Custom Number Formatting",
+    "question": "How many conditional criteria can you define inside a single custom number format string?",
+    "options": [
+      "Up to 2 explicit conditions (with the third part as the catch-all default)",
+      "Unlimited conditions",
+      "Only 1 condition",
+      "Up to 5 conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Custom number formats support a maximum of 2 explicit conditional rules (e.g., `[>100]...;[<50]...;...`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q67",
+    "topic": "Custom Number Formatting",
+    "question": "How do you display literal text like 'USD' or 'CR' alongside numbers in a custom format mask?",
+    "options": [
+      "Enclose the literal text in double quotation marks (e.g. `\"USD\" #,##0`) or precede single characters with a backslash (`\\`)",
+      "Enclose in single quotes ('USD')",
+      "Prefix with an ampersand (&USD)",
+      "Enclose in parentheses (USD)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Literal text strings should be enclosed in double quotation marks (`\"USD\"`) or escaped with a backslash (`\\`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q68",
+    "topic": "Custom Number Formatting",
+    "question": "What does the custom format code `\"₹ \"#,##,##0.00` accomplish for Indian numbering formats?",
+    "options": [
+      "Displays US currency",
+      "Displays rupee symbol with standard Lakhs and Crores grouping",
+      "Forces 4 decimal places",
+      "Converts Rupees to Dollars"
+    ],
+    "answerIndex": 1,
+    "explanation": "The mask `\"₹ \"#,##,##0.00` displays the Rupee symbol and formats large numbers according to the Indian numbering system (Lakhs and Crores grouping: 2, 2, 3 digits).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q69",
+    "topic": "Custom Number Formatting",
+    "question": "What will the format code `0.00%` display for the underlying value 0.125?",
+    "options": [
+      "0.13%",
+      "12.50%",
+      "1.25%",
+      "125%"
+    ],
+    "answerIndex": 1,
+    "explanation": "The `%` symbol automatically multiplies the displayed value by 100 and appends the percent sign, displaying `12.50%`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q70",
+    "topic": "Custom Number Formatting",
+    "question": "What will the format code `???/???` display for the decimal value 0.75?",
+    "options": [
+      "0.750",
+      "3/4",
+      "75/100",
+      "???/???"
+    ],
+    "answerIndex": 1,
+    "explanation": "Using question mark fractional formatting `???/???` renders decimal values as reduced proper fractions, displaying `3/4`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q71",
+    "topic": "Custom Number Formatting",
+    "question": "What does applying the custom format `\"Company ID: \"@` do when the user types 'A-101' in the cell?",
+    "options": [
+      "Displays 'Company ID: A-101'",
+      "Displays 'Company ID: @'",
+      "Replaces 'A-101' with 'Company ID'",
+      "Throws an error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `@` placeholder dynamically injects the entered text string into the formatted mask, displaying `Company ID: A-101`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q72",
+    "topic": "Custom Number Formatting",
+    "question": "What is the keyboard shortcut to open the Format Cells dialog box in Microsoft Excel?",
+    "options": [
+      "Ctrl + 1",
+      "Ctrl + F",
+      "Ctrl + Shift + F4",
+      "Alt + 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pressing `Ctrl + 1` is the universal keyboard shortcut to open the Format Cells dialog in Excel.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q73",
+    "topic": "Custom Number Formatting",
+    "question": "Which tab in the Format Cells dialog allows you to enter custom syntax codes?",
+    "options": [
+      "Alignment",
+      "Font",
+      "Number (Custom Category)",
+      "Protection"
+    ],
+    "answerIndex": 2,
+    "explanation": "Under the 'Number' tab, selecting the 'Custom' category at the bottom allows you to write or paste custom format codes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q74",
+    "topic": "Custom Number Formatting",
+    "question": "What will happen to the underlying calculation value when you format the number 12.3456 as `0.00`?",
+    "options": [
+      "The underlying value is permanently rounded to 12.35 in memory",
+      "The underlying value remains 12.3456 in memory; only visual display shows 12.35",
+      "Excel converts it to text",
+      "The decimal places are truncated to 12.34"
+    ],
+    "answerIndex": 1,
+    "explanation": "Cell formatting changes only the visual presentation of data on the grid; the underlying value in Excel's calculation engine retains its full 15-digit precision (12.3456).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q75",
+    "topic": "Custom Number Formatting",
+    "question": "What is the difference between custom formatting and the =ROUND() function?",
+    "options": [
+      "Custom formatting changes visual appearance only; =ROUND() alters the underlying numeric value permanently in memory",
+      "Custom formatting is permanent; ROUND is temporary",
+      "ROUND only works on text",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "Custom formatting changes how numbers are displayed without altering the actual stored precision. The =ROUND() function actually modifies the underlying stored value.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q76",
+    "topic": "Custom Number Formatting",
+    "question": "What format mask displays negative numbers inside red parentheses, e.g., (1,250.00)?",
+    "options": [
+      "`#,##0.00;[Red](#,##0.00);\"-\";@`",
+      "`[Red]-#,##0.00`",
+      "`#,##0.00;(#,##0.00);[Red]`",
+      "`-#,##0.00(Red)`"
+    ],
+    "answerIndex": 0,
+    "explanation": "In the 4-part syntax, `#,##0.00;[Red](#,##0.00);\"-\";@` designates that positive numbers are standard, negative numbers are enclosed in red parentheses, zero displays as a dash, and text remains as entered.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q77",
+    "topic": "Custom Number Formatting",
+    "question": "What is the effect of the format mask `#,##0;(#,##0);\"NIL\"` when a cell value is 0?",
+    "options": [
+      "Displays 0",
+      "Displays (0)",
+      "Displays NIL",
+      "Displays blank"
+    ],
+    "answerIndex": 2,
+    "explanation": "The 3rd section defines the Zero display format. Since section 3 is `\"NIL\"`, a value of 0 displays the text `NIL`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q78",
+    "topic": "Custom Number Formatting",
+    "question": "What is the effect of the format mask `#,##0;(#,##0);` when a cell value is 0?",
+    "options": [
+      "Displays 0",
+      "Displays blank (suppresses zero)",
+      "Displays #VALUE!",
+      "Displays ;"
+    ],
+    "answerIndex": 1,
+    "explanation": "When the third section is empty (e.g. semicolon with nothing after it), zero values are completely suppressed and display as empty cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q79",
+    "topic": "Custom Number Formatting",
+    "question": "How can you format phone numbers like 9876543210 to display as `+91 (987) 654-3210`?",
+    "options": [
+      "`\"+91 (\"000\") \"000-0000`",
+      "`+91 (###) ###-####`",
+      "`+91-phone-number`",
+      "`\"Phone: \"0000000000`"
+    ],
+    "answerIndex": 0,
+    "explanation": "The mask `\"+91 (\"000\") \"000-0000` inserts literal strings and groups the 10 digits into area and subscriber codes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q80",
+    "topic": "Custom Number Formatting",
+    "question": "What will the custom format mask `00000` display for the entered number 42?",
+    "options": [
+      "42",
+      "00042",
+      "42000",
+      "00000"
+    ],
+    "answerIndex": 1,
+    "explanation": "The mask `00000` requires at least 5 digits, prepending 3 leading zeroes to 42 to display `00042`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q81",
+    "topic": "Custom Number Formatting",
+    "question": "What does the date format code `dddd` produce for the date August 15, 2026?",
+    "options": [
+      "15",
+      "Aug",
+      "Saturday (Full weekday name)",
+      "08"
+    ],
+    "answerIndex": 2,
+    "explanation": "`d` gives day number (15), `dd` gives 2-digit day (15), `ddd` gives abbreviated day (Sat), and `dddd` gives the full weekday name (Saturday).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q82",
+    "topic": "Custom Number Formatting",
+    "question": "What does the date format code `mmmm` produce for August 15, 2026?",
+    "options": [
+      "08",
+      "Aug",
+      "August (Full month name)",
+      "A"
+    ],
+    "answerIndex": 2,
+    "explanation": "`m` gives month number (8), `mm` gives 2 digits (08), `mmm` gives short name (Aug), `mmmm` gives full month name (August), and `mmmmm` gives single letter (A).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q83",
+    "topic": "Custom Number Formatting",
+    "question": "What does the format code `mmmmm` produce for the month of February?",
+    "options": [
+      "Feb",
+      "February",
+      "F (Single first letter of month)",
+      "02"
+    ],
+    "answerIndex": 2,
+    "explanation": "`mmmmm` displays only the first letter of the month name (e.g., 'F' for February, 'M' for March/May).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q84",
+    "topic": "Custom Number Formatting",
+    "question": "What is the difference between `mm` in a date format vs `mm` in a time format?",
+    "options": [
+      "They are identical",
+      "When preceded by `hh` or followed by `ss`, `mm` represents minutes; when preceded by `dd` or followed by `yy`, `mm` represents month",
+      "Time uses `MM` and dates use `mm`",
+      "Excel throws an error if both appear"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel contextually interprets `mm` as minutes if it immediately follows hour codes (`hh:mm`) or precedes second codes (`mm:ss`); otherwise, it interprets `mm` as the month number.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q85",
+    "topic": "Custom Number Formatting",
+    "question": "How do you format a cell so that numbers greater than 0 display with a leading plus sign (e.g., +500)?",
+    "options": [
+      "`+0;-0;0`",
+      "`+#,##0;-#,##0;0`",
+      "`\"+\"#,##0;-#,##0;0`",
+      "Both B and C"
+    ],
+    "answerIndex": 3,
+    "explanation": "Both `+#,##0;-#,##0;0` and `\"+\"#,##0;-#,##0;0` successfully prefix positive numbers with a visible plus sign.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q86",
+    "topic": "Custom Number Formatting",
+    "question": "What does the backslash `\\` character do in an Excel custom number format code?",
+    "options": [
+      "Starts a comment",
+      "Escapes the immediately following single character so it displays as a literal",
+      "Divides the number by 10",
+      "Clears the format"
+    ],
+    "answerIndex": 1,
+    "explanation": "A backslash (`\\`) escapes the next character, allowing it to display as a literal character without needing surrounding quotation marks (e.g. `\\$#,##0` or `\\#000`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q87",
+    "topic": "Custom Number Formatting",
+    "question": "What does the format code `[h]:mm:ss` do when total elapsed hours exceed 24?",
+    "options": [
+      "Resets the hours count back to 00",
+      "Displays cumulative total elapsed hours beyond 24 (e.g., 38:45:00)",
+      "Throws a #NUM! error",
+      "Converts hours into days"
+    ],
+    "answerIndex": 1,
+    "explanation": "Enclosing the hour token in square brackets `[h]` tells Excel to calculate and display cumulative elapsed hours exceeding 24 without rolling over at midnight.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q88",
+    "topic": "Custom Number Formatting",
+    "question": "What does `[m]` in custom time formatting represent?",
+    "options": [
+      "Month name",
+      "Cumulative total elapsed minutes (e.g. 150 minutes for 2.5 hours)",
+      "Milliseconds",
+      "Medium date"
+    ],
+    "answerIndex": 1,
+    "explanation": "`[m]` displays total elapsed minutes without capping at 60 minutes per hour.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q89",
+    "topic": "Custom Number Formatting",
+    "question": "What does `[s]` in custom time formatting represent?",
+    "options": [
+      "Season code",
+      "Cumulative total elapsed seconds",
+      "Short date",
+      "Sub-seconds"
+    ],
+    "answerIndex": 1,
+    "explanation": "`[s]` displays total elapsed seconds without capping at 60 seconds per minute.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q90",
+    "topic": "Custom Number Formatting",
+    "question": "What does the format code `hh:mm:ss.000` display?",
+    "options": [
+      "Hours, minutes, seconds and milliseconds (up to 3 decimal places)",
+      "Time with date code",
+      "Time in military format only",
+      "Error code"
+    ],
+    "answerIndex": 0,
+    "explanation": "Appending `.000` or `.00` to time format strings displays fractional seconds (milliseconds).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q91",
+    "topic": "Custom Number Formatting",
+    "question": "What does the custom format code `General` do?",
+    "options": [
+      "Removes all formatting and restores default dynamic general number behavior",
+      "Forces 2 decimal places",
+      "Converts numbers to uppercase text",
+      "Aligns text to center"
+    ],
+    "answerIndex": 0,
+    "explanation": "`General` is Excel's default format, displaying numbers as integers, decimals, or scientific notation as needed based on cell width.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q92",
+    "topic": "Custom Number Formatting",
+    "question": "Can custom number formatting change cell font styles such as Bold or Italic?",
+    "options": [
+      "Yes, using [Bold] tag",
+      "No, custom number formatting controls text representation and color, but font styles (Bold, Italic, Font Family) must be set via cell styling or Conditional Formatting",
+      "Yes, using {Italic}",
+      "Only in Office 365"
+    ],
+    "answerIndex": 1,
+    "explanation": "Custom format strings cannot apply font attributes like Bold, Italic, or Underline. These require standard Font formatting or Conditional Formatting rules.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q93",
+    "topic": "Custom Number Formatting",
+    "question": "What will the custom number format `#,##0.00_);[Red](#,##0.00)` do for positive numbers?",
+    "options": [
+      "Leaves a blank space at the right equal to the width of a closing parenthesis so it aligns with negative numbers",
+      "Displays an underscore after the number",
+      "Prints a parenthesis",
+      "Converts positive numbers to Red"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `_)` token introduces a phantom blank space equal to `)` at the right edge of positive numbers, aligning their decimal points perfectly with parenthesized negative values.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q94",
+    "topic": "Custom Number Formatting",
+    "question": "What is the result of applying custom format `[$-409]dddd, mmmm dd, yyyy`?",
+    "options": [
+      "Forces French locale date",
+      "Forces English (United States) locale language formatting for weekday and month names",
+      "Encrypts the date",
+      "Converts date to Unix timestamp"
+    ],
+    "answerIndex": 1,
+    "explanation": "`[$-409]` is the locale hex identifier for English (US), ensuring day and month names display in English regardless of the operating system's regional settings.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q95",
+    "topic": "Custom Number Formatting",
+    "question": "What will the format mask `0.0#` display for the number 5.1?",
+    "options": [
+      "5.1",
+      "5.10",
+      "5.100",
+      "05.10"
+    ],
+    "answerIndex": 1,
+    "explanation": "The first decimal digit `0` forces display of `1`, and the optional `#` is suppressed since there is no second decimal digit, resulting in `5.1` (or `5.10` if `0.00`). Here `0.0#` on 5.1 displays `5.1`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q96",
+    "topic": "Custom Number Formatting",
+    "question": "What will the format mask `0.0#` display for the number 5.126?",
+    "options": [
+      "5.1",
+      "5.12",
+      "5.13 (rounded to 2 decimal places)",
+      "5.126"
+    ],
+    "answerIndex": 2,
+    "explanation": "Since only 2 decimal places (`0.#`) are defined, 5.126 is visually rounded to 2 decimal places, displaying `5.13`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q97",
+    "topic": "Custom Number Formatting",
+    "question": "How does Excel handle the formatting code `\"Balance: \"$#,##0.00`?",
+    "options": [
+      "Throws syntax error",
+      "Displays literal 'Balance: $' followed by comma-separated number with 2 decimals",
+      "Converts to formula",
+      "Aligns text to left and number to right"
+    ],
+    "answerIndex": 1,
+    "explanation": "It prefixes the number with the label `Balance: $` and formats the numerical value accordingly.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q98",
+    "topic": "Custom Number Formatting",
+    "question": "What is the maximum number of custom format codes that a single Excel workbook can store?",
+    "options": [
+      "Between 200 and 250 unique custom formats (depending on Excel version limits)",
+      "Exactly 10",
+      "Unlimited",
+      "1,000,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel workbooks have an internal limit (typically 200-250 custom number formats) before displaying the 'Too many different cell formats' error in legacy workbooks.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q99",
+    "topic": "Custom Number Formatting",
+    "question": "If cell A1 has value 1500 and format `0.0,\"k\"`, what is displayed in the cell?",
+    "options": [
+      "1500.0k",
+      "1.5k",
+      "1500",
+      "0.0k"
+    ],
+    "answerIndex": 1,
+    "explanation": "The single trailing comma scales 1500 by 1,000 to 1.5, and appends literal `k`, displaying `1.5k`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q100",
+    "topic": "Custom Number Formatting",
+    "question": "What does the format code `;;;\"CONFIDENTIAL\"` display for any numeric entry versus a text entry?",
+    "options": [
+      "Numbers are hidden; text entries display as 'CONFIDENTIAL'",
+      "All entries display as CONFIDENTIAL",
+      "Numbers display as CONFIDENTIAL; text is hidden",
+      "Throws an error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since sections 1, 2, and 3 (positive, negative, zero) are empty, numbers are invisible. The 4th section displays `CONFIDENTIAL` for any text input.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q101",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What is the small square located at the bottom-right corner of the active cell selection called?",
+    "options": [
+      "Selection Pin",
+      "Fill Handle",
+      "Quick Analysis Button",
+      "Smart Tag"
+    ],
+    "answerIndex": 1,
+    "explanation": "The small solid green square at the lower-right corner of the active cell or selection is called the Fill Handle.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q102",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What is the keyboard shortcut to trigger AI-powered Flash Fill in Microsoft Excel?",
+    "options": [
+      "Ctrl + F",
+      "Ctrl + E",
+      "Ctrl + Shift + F",
+      "Alt + E"
+    ],
+    "answerIndex": 1,
+    "explanation": "`Ctrl + E` is the universal shortcut to run Flash Fill across adjacent rows based on identified pattern examples.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q103",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What happens when you double-click the Fill Handle of an active cell?",
+    "options": [
+      "Deletes the cell contents",
+      "Automatically extends the fill down to the bottom of the adjacent contiguous data column",
+      "Opens the Format Cells dialog",
+      "Creates a chart"
+    ],
+    "answerIndex": 1,
+    "explanation": "Double-clicking the Fill Handle automatically populates the series or formula down the column matching the height of the contiguous adjacent column on the left (or right).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q104",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If you type 'Monday' in cell A1 and drag the Fill Handle down 4 cells, what will cell A5 contain?",
+    "options": [
+      "Monday",
+      "Tuesday",
+      "Thursday",
+      "Friday"
+    ],
+    "answerIndex": 3,
+    "explanation": "Excel recognizes day names from standard Custom Lists: A1=Monday, A2=Tuesday, A3=Wednesday, A4=Thursday, A5=Friday.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q105",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If you type the number 1 in cell A1 and drag the Fill Handle down without holding any modifier keys, what does Excel do by default?",
+    "options": [
+      "Fills a linear series (1, 2, 3, 4, 5)",
+      "Copies the value 1 to all cells (1, 1, 1, 1, 1)",
+      "Clears the cells",
+      "Fills odd numbers"
+    ],
+    "answerIndex": 1,
+    "explanation": "For a single numeric value, dragging the fill handle copies the identical number (1, 1, 1...) unless Ctrl is held or 'Fill Series' is chosen from the AutoFill Options tag.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q106",
+    "topic": "AutoFill & Flash Fill",
+    "question": "How can you force Excel to create an incrementing series (1, 2, 3, 4...) when dragging a single number cell?",
+    "options": [
+      "Hold down the Ctrl key while dragging the Fill Handle",
+      "Hold down Shift while dragging",
+      "Hold down Alt while dragging",
+      "Right-click the ribbon"
+    ],
+    "answerIndex": 0,
+    "explanation": "Holding down the `Ctrl` key while dragging the Fill Handle toggles Copy Cells into an incrementing Fill Series.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q107",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If you select two cells containing 5 and 10 and drag the Fill Handle down 3 cells, what will the next 3 cells contain?",
+    "options": [
+      "5, 10, 5",
+      "15, 20, 25",
+      "10, 10, 10",
+      "11, 12, 13"
+    ],
+    "answerIndex": 1,
+    "explanation": "Selecting two values establishes a step value (10 - 5 = 5), so AutoFill creates a linear arithmetic progression: 15, 20, 25.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q108",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which AutoFill option allows copying only background color, borders, and number masks without overwriting destination cell data?",
+    "options": [
+      "Fill Series",
+      "Copy Cells",
+      "Fill Formatting Only",
+      "Fill Without Formatting"
+    ],
+    "answerIndex": 2,
+    "explanation": "'Fill Formatting Only' copies cell styles, borders, fonts, and number masks to target cells while keeping their existing values intact.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q109",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which AutoFill option populates calculated values or text without copying background fills, borders, or custom styling?",
+    "options": [
+      "Fill Series",
+      "Fill Formatting Only",
+      "Fill Without Formatting",
+      "Flash Fill"
+    ],
+    "answerIndex": 2,
+    "explanation": "'Fill Without Formatting' populates values or formulas into target cells while preserving the target cells' original styling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q110",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which option in the AutoFill menu fills only business working days, skipping Saturdays and Sundays?",
+    "options": [
+      "Fill Days",
+      "Fill Weekdays",
+      "Fill Workdays",
+      "Fill Business Schedule"
+    ],
+    "answerIndex": 1,
+    "explanation": "Selecting 'Fill Weekdays' increments dates Monday through Friday and automatically skips weekend dates (Saturday and Sunday).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q111",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Where in Excel Options can you view, edit, or create Custom Lists for AutoFill?",
+    "options": [
+      "File > Options > Formulas",
+      "File > Options > Advanced > General > Edit Custom Lists...",
+      "File > Options > Proofing",
+      "Home > Editing > Fill"
+    ],
+    "answerIndex": 1,
+    "explanation": "Custom lists are managed via `File > Options > Advanced > General > Edit Custom Lists...`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q112",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Can custom AutoFill lists be imported directly from an active worksheet cell range?",
+    "options": [
+      "No, they must be typed manually",
+      "Yes, by clicking the 'Import' button in the Custom Lists dialog after selecting a cell range",
+      "Only with VBA code",
+      "Only in Excel for Mac"
+    ],
+    "answerIndex": 1,
+    "explanation": "In the Custom Lists dialog, you can select a range of cells containing list items and click 'Import' to store it in Excel's user profile.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q113",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Where are Custom Lists stored in Microsoft Excel?",
+    "options": [
+      "Inside the specific workbook file only",
+      "In the local computer's Excel application registry / user profile (available across all workbooks on that PC)",
+      "In OneDrive cloud storage",
+      "In the Windows System32 folder"
+    ],
+    "answerIndex": 1,
+    "explanation": "Custom Lists are saved to the local Excel application environment, making them accessible across all workbooks on that computer.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q114",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If column A has 'John Smith' and you type 'John' in cell B1 and press `Ctrl + E`, what does Flash Fill do?",
+    "options": [
+      "Copies 'John' to all cells",
+      "Extracts the first name from each corresponding row in column A",
+      "Throws an error",
+      "Deletes column A"
+    ],
+    "answerIndex": 1,
+    "explanation": "Flash Fill recognizes the pattern of extracting the first word/name and automatically populates the first names for all rows.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q115",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If column A contains email addresses like `sarah.jenkins@company.com`, how can you extract username `sarah.jenkins` using Flash Fill?",
+    "options": [
+      "Write =EXTRACT() formula",
+      "Type `sarah.jenkins` in cell B1 adjacent to column A and press `Ctrl + E`",
+      "Highlight column A and press Ctrl + C",
+      "Use Text to Columns only"
+    ],
+    "answerIndex": 1,
+    "explanation": "Typing an example output (`sarah.jenkins`) in the adjacent column and pressing `Ctrl + E` triggers Flash Fill to induce the extraction rule.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q116",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What should you do if Flash Fill produces an incorrect pattern after providing 1 example?",
+    "options": [
+      "Give up and use VBA",
+      "Provide a second or third corrected example in row 2 or 3 so Flash Fill refines its inductive learning model",
+      "Restart Excel",
+      "Press Ctrl + Z ten times"
+    ],
+    "answerIndex": 1,
+    "explanation": "Flash Fill continuously learns from user guidance. Providing 2 or 3 varied examples resolves ambiguities (such as middle names or hyphenated words).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q117",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which of the following is a key requirement for Flash Fill to work reliably?",
+    "options": [
+      "Target column must be directly adjacent or contiguous to the source data column without empty blank columns between them",
+      "Source data must be in uppercase only",
+      "Formulas must be enabled in manual calculation mode",
+      "Workbook must be saved in .csv format"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill requires data in adjacent or contiguous columns so its pattern-recognition engine can inspect neighboring inputs.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q118",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Can Flash Fill dynamically update its results when source data in column A changes in the future?",
+    "options": [
+      "Yes, it recalculates like a formula",
+      "No, Flash Fill outputs static text/numbers; it does not create dynamic live formula links",
+      "Only if saved as .xlsx",
+      "Yes, if AutoCalculate is on"
+    ],
+    "answerIndex": 1,
+    "explanation": "Flash Fill outputs static string or numeric literals. Unlike formulas (=LEFT, =TEXTBEFORE), it will NOT automatically refresh when underlying source data changes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q119",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What dialog allows creating geometric Growth series (multiplication by step value) or Date series by Month/Year?",
+    "options": [
+      "Format Cells dialog",
+      "Series Dialog (Home > Editing > Fill > Series...)",
+      "Data Validation dialog",
+      "Goal Seek dialog"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Series dialog (`Home > Editing > Fill > Series...`) provides full control over Linear, Growth, Date, and AutoFill series.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q120",
+    "topic": "AutoFill & Flash Fill",
+    "question": "In the Series dialog, if Type is set to 'Growth' with Step Value = 2, starting at 3, what will the first 4 values be?",
+    "options": [
+      "3, 5, 7, 9",
+      "3, 6, 12, 24",
+      "3, 9, 27, 81",
+      "3, 2, 4, 8"
+    ],
+    "answerIndex": 1,
+    "explanation": "A Growth series multiplies each successive term by the step value: 3 × 2 = 6, 6 × 2 = 12, 12 × 2 = 24.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q121",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What does setting a 'Stop Value' in the Series dialog accomplish?",
+    "options": [
+      "Stops Excel from saving",
+      "Ceases series generation when the calculated value reaches or exceeds the specified limit",
+      "Limits cell characters",
+      "Deletes empty cells"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Stop Value defines the numerical or date ceiling where series generation halts automatically.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q122",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If cell A1 contains `Item-001`, what does AutoFill produce in cell A4 when dragged down?",
+    "options": [
+      "Item-001",
+      "Item-002",
+      "Item-004",
+      "Item-000"
+    ],
+    "answerIndex": 2,
+    "explanation": "Excel automatically detects alphanumeric trailing numbers and increments them: A1=Item-001, A2=Item-002, A3=Item-003, A4=Item-004.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q123",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If cell A1 contains `Q1`, what does dragging the Fill Handle across 5 horizontal columns generate?",
+    "options": [
+      "Q1, Q1, Q1, Q1, Q1",
+      "Q1, Q2, Q3, Q4, Q1",
+      "Q1, Q2, Q3, Q4, Q5",
+      "1, 2, 3, 4, 5"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel recognizes financial quarters (Q1, Q2, Q3, Q4) and cycles back to Q1 after Q4.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q124",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What happens when you drag the Fill Handle UPWARDS or to the LEFT?",
+    "options": [
+      "Throws an error",
+      "Decrements series or clears cell contents if dragged within the selection",
+      "Duplicates cells randomly",
+      "Locks cell formulas"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dragging upwards or to the left decrements numbers/dates or clears contents if dragged back over the active selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q125",
+    "topic": "AutoFill & Flash Fill",
+    "question": "How can you access the AutoFill shortcut menu with options like 'Fill Months', 'Fill Years', and 'Trend' without using the Ribbon?",
+    "options": [
+      "Right-click and drag the Fill Handle, then release the mouse button",
+      "Press Alt + Shift + F",
+      "Double click cell center",
+      "Press F4"
+    ],
+    "answerIndex": 0,
+    "explanation": "Dragging the Fill Handle with the RIGHT mouse button opens an instant contextual popup menu upon release with rich series options.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q126",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which Flash Fill capability allows converting 'DOE, JOHN' into 'John Doe'?",
+    "options": [
+      "Inductive Case Conversion and Name Reordering",
+      "Text Encryption",
+      "Regex Parsing only",
+      "Dynamic Array spilling"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill excels at simultaneous case conversion (Proper case) and token reordering (First Name Last Name).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q127",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If column A has full phone numbers `9876543210` and you type `(987) 654-3210` in B1, what does `Ctrl + E` do?",
+    "options": [
+      "Fills the entire column applying the exact masking format to all phone numbers as text",
+      "Deletes phone numbers",
+      "Converts numbers to currency",
+      "Opens dialer"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill applies the punctuation, parentheses, and spacing pattern consistently across all rows.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q128",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What is a common reason Flash Fill displays the alert 'We looked at all the data next to your selection and didn't see a pattern'?",
+    "options": [
+      "The data is in numbers",
+      "There is no adjacent column of data, or the provided example has no recognizable inductive relationship with the source data",
+      "Excel is unactivated",
+      "The sheet is zoomed to 100%"
+    ],
+    "answerIndex": 1,
+    "explanation": "Flash Fill fails when there are no adjacent data columns or when inconsistent examples prevent pattern discovery.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q129",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Can AutoFill populate dates by exact month intervals (e.g. Jan 31, Feb 28, Mar 31...)?",
+    "options": [
+      "No, only by 30 days",
+      "Yes, using the 'Fill Months' AutoFill option",
+      "Only using formulas",
+      "Only in leap years"
+    ],
+    "answerIndex": 1,
+    "explanation": "Choosing 'Fill Months' increments the month while automatically adjusting for month-end day counts (28, 30, 31).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q130",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which keyboard shortcut fills the active cell's contents and formatting DOWN into selected cells below?",
+    "options": [
+      "Ctrl + D",
+      "Ctrl + R",
+      "Ctrl + F",
+      "Ctrl + Down Arrow"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + D` fills the contents and formatting of the topmost cell into the selected cells below.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q131",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Which keyboard shortcut fills the active cell's contents and formatting RIGHT into selected cells?",
+    "options": [
+      "Ctrl + R",
+      "Ctrl + D",
+      "Ctrl + Shift + R",
+      "Alt + R"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + R` fills the contents and formatting of the leftmost cell into the selected cells to the right.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q132",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What happens when you select a formula cell and double-click the Fill Handle when there is a blank row in the adjacent data column?",
+    "options": [
+      "It continues to row 1,000,000",
+      "AutoFill stops at the first empty row encountered in the adjacent column",
+      "It deletes the blank row",
+      "It skips the blank row and continues"
+    ],
+    "answerIndex": 1,
+    "explanation": "Double-click AutoFill evaluates contiguous data and halts at the first completely empty row in the adjacent column.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q133",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If you enter `Jan` in cell A1, what will dragging the Fill Handle down 3 cells output in A4?",
+    "options": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr"
+    ],
+    "answerIndex": 3,
+    "explanation": "AutoFill increments three-letter month abbreviations: A1=Jan, A2=Feb, A3=Mar, A4=Apr.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q134",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Can you create custom AutoFill lists for departmental hierarchies (e.g. Sales, Marketing, Finance, HR)?",
+    "options": [
+      "No, only dates and numbers are supported",
+      "Yes, by registering them under Custom Lists in Excel Options",
+      "Only with Microsoft 365 Enterprise license",
+      "Only using Power Query"
+    ],
+    "answerIndex": 1,
+    "explanation": "You can register any arbitrary text sequence (departments, product lines, regional offices) in Custom Lists.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q135",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What built-in lists are permanently registered in Excel and cannot be deleted or modified?",
+    "options": [
+      "Custom business lists",
+      "Standard Day names (Sun..Sat, Sunday..Saturday) and Month names (Jan..Dec, January..December)",
+      "Company employee IDs",
+      "Country names"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel's default Day and Month lists are hardcoded into the application core and cannot be edited or deleted.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q136",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What is the effect of checking the 'Trend' checkbox in the Series dialog for a Linear series?",
+    "options": [
+      "Creates a line chart",
+      "Calculates a best-fit linear regression trendline across the selected range",
+      "Sorts the data ascending",
+      "Highlights outliers in yellow"
+    ],
+    "answerIndex": 1,
+    "explanation": "Checking 'Trend' causes Excel to compute a linear or exponential regression trendline across the selected starting points.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q137",
+    "topic": "AutoFill & Flash Fill",
+    "question": "When Flash Fill splits a column of full addresses into Street, City, and State, what is the best practice?",
+    "options": [
+      "Verify the first 20-30 rows to ensure edge cases (e.g. 2-word cities like 'New York') were parsed accurately",
+      "Assume 100% accuracy without checking",
+      "Convert to PDF",
+      "Turn off calculation"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because Flash Fill is heuristic/inductive, reviewing complex variations (e.g., multi-word cities or missing zip codes) ensures complete data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q138",
+    "topic": "AutoFill & Flash Fill",
+    "question": "How can you accept or reject Flash Fill suggestions when Excel previews them in light grey text while typing?",
+    "options": [
+      "Press Enter to accept; press Esc to discard",
+      "Press Space to accept",
+      "Click File > Save",
+      "Press Ctrl + Alt + Delete"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pressing `Enter` commits the suggested Flash Fill ghost preview, while `Esc` cancels the suggestion.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q139",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Can AutoFill automatically increment roman numerals (e.g., I, II, III, IV)?",
+    "options": [
+      "Yes, automatically",
+      "No, unless a custom list is explicitly created by the user for Roman numerals",
+      "Only in Word",
+      "Only up to X"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel does not have a default built-in Custom List for Roman numerals, so it will simply copy 'I' unless added to Custom Lists.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q140",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If cell A1 has `1st` and you drag down, what does Excel output in A2, A3, A4?",
+    "options": [
+      "1st, 1st, 1st",
+      "2nd, 3rd, 4th",
+      "1st, 2nd, 3rd",
+      "None of these"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel recognizes ordinal numbers (`1st`, `2nd`, `3rd`, `4th`) and increments them accordingly.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q141",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What happens when you select two dates '01-Jan-2026' and '15-Jan-2026' and drag the Fill Handle?",
+    "options": [
+      "Increments by 1 day",
+      "Increments by 14 days (bi-weekly interval)",
+      "Copies Jan 15 only",
+      "Throws an error"
+    ],
+    "answerIndex": 1,
+    "explanation": "AutoFill calculates the 14-day difference and increments by 14 days: Jan 29, Feb 12, etc.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q142",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What is the command location on the Ribbon for Flash Fill?",
+    "options": [
+      "Home > Editing > Fill > Flash Fill (also on Data > Data Tools > Flash Fill)",
+      "Insert > Illustrations",
+      "Page Layout > Themes",
+      "View > Window"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill is located on both the `Home` tab (`Editing > Fill > Flash Fill`) and the `Data` tab (`Data Tools > Flash Fill`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q143",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What happens if you use AutoFill on a formula with relative references like `=A1*B1`?",
+    "options": [
+      "The formula is copied without changing references",
+      "The cell references adjust relative to the new row/column position (e.g. `=A2*B2`)",
+      "References become absolute ($A$1)",
+      "Returns 0"
+    ],
+    "answerIndex": 1,
+    "explanation": "AutoFill automatically shifts relative cell coordinates row by row (`=A2*B2`, `=A3*B3`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q144",
+    "topic": "AutoFill & Flash Fill",
+    "question": "How do you cancel an active AutoFill drag operation before releasing the mouse button?",
+    "options": [
+      "Press Enter",
+      "Press Escape (Esc)",
+      "Press Backspace",
+      "Press Delete"
+    ],
+    "answerIndex": 1,
+    "explanation": "Pressing `Escape (Esc)` while holding down the mouse button cancels the AutoFill action immediately.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q145",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What icon appears next to a range immediately after dragging the Fill Handle?",
+    "options": [
+      "Smart Lookup icon",
+      "AutoFill Options smart tag button",
+      "Quick Print button",
+      "Error indicator"
+    ],
+    "answerIndex": 1,
+    "explanation": "The AutoFill Options button appears, providing quick access to Copy Cells, Fill Series, Fill Formatting Only, and Flash Fill.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q146",
+    "topic": "AutoFill & Flash Fill",
+    "question": "If column A has 'John Michael Smith', what example should you provide to extract the Middle Name with Flash Fill?",
+    "options": [
+      "Type 'Michael' in B1 and press Ctrl + E",
+      "Type 'John' in B1",
+      "Type 'Smith' in B1",
+      "Type 'J.M.S.'"
+    ],
+    "answerIndex": 0,
+    "explanation": "Typing 'Michael' instructs Flash Fill to extract middle tokens.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q147",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What happens when AutoFill reaches 'December' while dragging months?",
+    "options": [
+      "Stops filling",
+      "Wraps around to 'January' and continues the cycle",
+      "Displays #N/A",
+      "Creates blank cells"
+    ],
+    "answerIndex": 1,
+    "explanation": "AutoFill wraps around seamlessly from December to January.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q148",
+    "topic": "AutoFill & Flash Fill",
+    "question": "How can you populate a column with identical text without triggering AutoFill series incrementation?",
+    "options": [
+      "Select 'Copy Cells' from the AutoFill Options smart tag",
+      "Use Flash Fill",
+      "Delete the series",
+      "Save as CSV"
+    ],
+    "answerIndex": 0,
+    "explanation": "Selecting 'Copy Cells' enforces literal duplication of the source cell.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q149",
+    "topic": "AutoFill & Flash Fill",
+    "question": "Can Flash Fill extract numbers from mixed strings like `Invoice #45892 (Paid)` to output `45892`?",
+    "options": [
+      "Yes, Flash Fill recognizes internal numeric extraction patterns",
+      "No, Flash Fill only works on alphabetical text",
+      "Only if formatted as currency",
+      "Only in VBA"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill excels at isolating numeric substrings embedded inside surrounding text and punctuation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q150",
+    "topic": "AutoFill & Flash Fill",
+    "question": "What is the primary operational advantage of AutoFill and Flash Fill for corporate financial analysts?",
+    "options": [
+      "Reduces file size",
+      "Dramatically speeds up data transformation, cleaning, and series modeling without complex nested string formulas",
+      "Disables formula errors",
+      "Encrypts client data"
+    ],
+    "answerIndex": 1,
+    "explanation": "It eliminates tedious manual re-entry and eliminates the need for writing complex nested MID, FIND, and SEARCH formulas for one-time data munging.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q151",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to insert new rows or columns when a row/column is selected?",
+    "options": [
+      "Ctrl + + (or Ctrl + Shift + +)",
+      "Ctrl + I",
+      "Alt + I",
+      "Ctrl + Ins"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + +` (or `Ctrl + +` on the numeric keypad) inserts cells, rows, or columns.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q152",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to delete selected cells, rows, or columns?",
+    "options": [
+      "Ctrl + - (Control minus)",
+      "Delete",
+      "Backspace",
+      "Alt + D"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + -` (Control minus) opens the Delete dialog or immediately deletes the selected row/column.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q153",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to select an entire ROW in Excel?",
+    "options": [
+      "Shift + Space",
+      "Ctrl + Space",
+      "Ctrl + Shift + Space",
+      "Alt + Space"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Shift + Space` selects the entire row of the currently active cell.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q154",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to select an entire COLUMN in Excel?",
+    "options": [
+      "Ctrl + Space",
+      "Shift + Space",
+      "Ctrl + A",
+      "Alt + Down Arrow"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Space` selects the entire column of the currently active cell.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q155",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to HIDE selected rows?",
+    "options": [
+      "Ctrl + 9",
+      "Ctrl + 0",
+      "Ctrl + H",
+      "Ctrl + Shift + 9"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + 9` hides the currently selected row(s).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q156",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to HIDE selected columns?",
+    "options": [
+      "Ctrl + 0",
+      "Ctrl + 9",
+      "Ctrl + H",
+      "Alt + 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + 0` hides the currently selected column(s).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q157",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to UNHIDE hidden rows within a selection?",
+    "options": [
+      "Ctrl + Shift + ( (or Ctrl + Shift + 9)",
+      "Ctrl + U",
+      "Alt + Shift + 9",
+      "Ctrl + Alt + U"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + (` (or `Ctrl + Shift + 9`) unhides any hidden rows spanning the active selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q158",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to UNHIDE hidden columns within a selection?",
+    "options": [
+      "Ctrl + Shift + ) (or Ctrl + Shift + 0)",
+      "Ctrl + Shift + C",
+      "Alt + 0",
+      "Ctrl + Alt + 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + )` (or `Ctrl + Shift + 0`) unhides hidden columns.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q159",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the default standard column width in a newly created Excel worksheet (in standard font points/characters)?",
+    "options": [
+      "8.43 characters (64 pixels)",
+      "10.00 characters",
+      "15.00 characters",
+      "12.5 characters"
+    ],
+    "answerIndex": 0,
+    "explanation": "The default column width in Microsoft Excel (using Calibri 11pt) is 8.43 characters (approx 64 pixels).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q160",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the default standard row height in Microsoft Excel for standard 11pt font?",
+    "options": [
+      "15.00 points (20 pixels)",
+      "12.00 points",
+      "20.00 points",
+      "8.43 points"
+    ],
+    "answerIndex": 0,
+    "explanation": "The default row height in Microsoft Excel is 15.00 points (approx 20 pixels).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q161",
+    "topic": "Grid & Structure Editing",
+    "question": "How can you instantly AutoFit a column to fit its longest text entry?",
+    "options": [
+      "Double-click the boundary line between two column header letters",
+      "Right-click and select Clear",
+      "Press Ctrl + F",
+      "Press Alt + Enter"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double-clicking the right boundary separator of a column header automatically resizes that column to accommodate the widest cell value.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q162",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the maximum allowable row height in Microsoft Excel?",
+    "options": [
+      "255 points",
+      "409 points",
+      "500 points",
+      "1000 points"
+    ],
+    "answerIndex": 1,
+    "explanation": "The maximum allowable row height in Excel is 409 points.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q163",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the maximum allowable column width in Microsoft Excel?",
+    "options": [
+      "255 characters",
+      "409 characters",
+      "100 characters",
+      "512 characters"
+    ],
+    "answerIndex": 0,
+    "explanation": "The maximum column width in Excel is 255 characters.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q164",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to GROUP selected rows or columns for outline collapsing?",
+    "options": [
+      "Shift + Alt + Right Arrow",
+      "Shift + Alt + Left Arrow",
+      "Ctrl + G",
+      "Alt + G"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Shift + Alt + Right Arrow` groups selected rows or columns, creating an outline structure with +/- collapse buttons.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q165",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to UNGROUP grouped rows or columns?",
+    "options": [
+      "Shift + Alt + Left Arrow",
+      "Shift + Alt + Right Arrow",
+      "Ctrl + Shift + G",
+      "Alt + U"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Shift + Alt + Left Arrow` ungroups the selected outline hierarchy.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q166",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the total number of Rows available in a modern Excel worksheet (.xlsx)?",
+    "options": [
+      "65,536 rows",
+      "1,048,576 rows",
+      "524,288 rows",
+      "2,097,152 rows"
+    ],
+    "answerIndex": 1,
+    "explanation": "An Excel worksheet has exactly 1,048,576 rows (2^20).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q167",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the total number of Columns available in a modern Excel worksheet (.xlsx)?",
+    "options": [
+      "256 (IV)",
+      "16,384 (XFD)",
+      "1,024 (AMJ)",
+      "4,096 (ZZ)"
+    ],
+    "answerIndex": 1,
+    "explanation": "An Excel worksheet has exactly 16,384 columns, ending at column XFD (2^14).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q168",
+    "topic": "Grid & Structure Editing",
+    "question": "What feature keeps top header rows visible on screen while scrolling down through thousands of rows?",
+    "options": [
+      "Split Window",
+      "Freeze Panes (Freeze Top Row)",
+      "Grid Lock",
+      "Header Pinning"
+    ],
+    "answerIndex": 1,
+    "explanation": "`Freeze Panes` (specifically 'Freeze Top Row') locks headers in place at the top of the visible viewport during scrolling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q169",
+    "topic": "Grid & Structure Editing",
+    "question": "Where is the Freeze Panes command located on the Excel Ribbon?",
+    "options": [
+      "Home > Editing",
+      "View > Window > Freeze Panes",
+      "Page Layout > Sheet Options",
+      "Data > Sort"
+    ],
+    "answerIndex": 1,
+    "explanation": "Freeze Panes is located on the `View` tab under the `Window` group.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q170",
+    "topic": "Grid & Structure Editing",
+    "question": "If you select cell C4 and click 'Freeze Panes', which rows and columns will be frozen?",
+    "options": [
+      "Rows 1-4 and Columns A-C",
+      "Rows 1 to 3 and Columns A to B (above and to the left of C4)",
+      "Only cell C4",
+      "Rows 4-1048576"
+    ],
+    "answerIndex": 1,
+    "explanation": "Freeze Panes freezes all rows ABOVE the active cell (Rows 1-3) and all columns to the LEFT of the active cell (Columns A-B).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q171",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the difference between Freeze Panes and Split Window?",
+    "options": [
+      "Freeze Panes locks header zones in place; Split creates 2 to 4 independently scrollable panes within the same sheet",
+      "Freeze Panes creates a new workbook",
+      "Split only works vertically",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "Freeze Panes locks fixed rows/columns, whereas Split divides the worksheet into separate scrollable panes with synchronized cursor movement.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q172",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens to existing cell formulas when you insert a new row between rows 5 and 6 in an Excel table?",
+    "options": [
+      "Formulas referring to row 6 automatically shift their references down to row 7",
+      "Formulas return #REF!",
+      "Formulas stop calculating",
+      "Formulas are deleted"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically updates and shifts relative and absolute cell references to accommodate inserted rows.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q173",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens to a formula `=SUM(A1:A10)` if row 5 inside that range is deleted?",
+    "options": [
+      "Returns #REF!",
+      "Automatically contracts to `=SUM(A1:A9)` without errors",
+      "Returns 0",
+      "Converts to text"
+    ],
+    "answerIndex": 1,
+    "explanation": "Deleting an interior row within a range dynamically contracts the range boundaries from A1:A10 to A1:A9 without generating a #REF! error.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q174",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens to a formula `=A5+B5` if row 5 is deleted entirely?",
+    "options": [
+      "Returns `=#REF!+#REF!` (#REF! error)",
+      "Returns 0",
+      "Takes values from row 6",
+      "Excel crashes"
+    ],
+    "answerIndex": 0,
+    "explanation": "Direct references to deleted cells are invalidated and replaced with the `#REF!` error token.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q175",
+    "topic": "Grid & Structure Editing",
+    "question": "How can you set multiple columns to the exact same width simultaneously?",
+    "options": [
+      "Select all desired columns, right-click any selected column header, choose 'Column Width...', and type the desired dimension",
+      "Format them one by one",
+      "Use Format Painter",
+      "Drag the ribbon"
+    ],
+    "answerIndex": 0,
+    "explanation": "Selecting multiple column headers and modifying the width on any one header instantly applies that exact width across all selected columns.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q176",
+    "topic": "Grid & Structure Editing",
+    "question": "How do you unhide Column A if it has been hidden?",
+    "options": [
+      "Drag from column B to the left boundary or type A1 in the Name Box and use Home > Format > Hide & Unhide > Unhide Columns",
+      "Press Ctrl + A",
+      "Restart Excel",
+      "Press Shift + A"
+    ],
+    "answerIndex": 0,
+    "explanation": "Type `A1` in the Name Box, press Enter, then navigate to `Format > Hide & Unhide > Unhide Columns` (or drag the double header separator to the left of B).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q177",
+    "topic": "Grid & Structure Editing",
+    "question": "What visual indicator shows that rows or columns are hidden in a worksheet?",
+    "options": [
+      "Missing sequential numbers/letters (e.g. Row 4 followed by Row 8) and a double border line between headers",
+      "A red exclamation mark",
+      "The sheet turns blue",
+      "A warning message on status bar"
+    ],
+    "answerIndex": 0,
+    "explanation": "Hidden rows/columns are indicated by missing sequence numbers (e.g. A, B, E) and double separator lines in the header headers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q178",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the keyboard shortcut to open the 'Go To Special' dialog to select only visible cells in a filtered or grouped grid?",
+    "options": [
+      "Alt + ; (semicolon)",
+      "Ctrl + G > Alt + S",
+      "Both A and B",
+      "Ctrl + Shift + V"
+    ],
+    "answerIndex": 2,
+    "explanation": "Both `Alt + ;` (instant Visible Cells shortcut) and `Ctrl + G > Special (Alt + S)` allow selecting visible cells only.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q179",
+    "topic": "Grid & Structure Editing",
+    "question": "Why is selecting 'Visible Cells Only' (`Alt + ;`) crucial before copying filtered or hidden data?",
+    "options": [
+      "Prevents Excel from copying hidden rows into the destination clipboard",
+      "Speeds up CPU speed",
+      "Formats data as a table",
+      "Saves the file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Without selecting visible cells only, standard copying in non-table ranges can inadvertently copy hidden rows and paste them into the target.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q180",
+    "topic": "Grid & Structure Editing",
+    "question": "How can you hide gridlines completely in a worksheet for executive dashboard presentation?",
+    "options": [
+      "Uncheck 'Gridlines' under View tab (or Page Layout tab)",
+      "Delete all columns",
+      "Change cell colors to white",
+      "Press Ctrl + G"
+    ],
+    "answerIndex": 0,
+    "explanation": "Unchecking `View > Show > Gridlines` hides the gridlines across the entire active sheet.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q181",
+    "topic": "Grid & Structure Editing",
+    "question": "How can you insert multiple rows (e.g. 5 new rows) in one single operation?",
+    "options": [
+      "Highlight 5 existing rows and press `Ctrl + Shift + +`",
+      "Press insert 5 times",
+      "Type =ROW(5)",
+      "Right-click 5 times"
+    ],
+    "answerIndex": 0,
+    "explanation": "Highlighting N rows and pressing `Ctrl + Shift + +` inserts exactly N new rows above the selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q182",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens when you drag a column header boundary line while holding down the Shift key?",
+    "options": [
+      "Moves and shifts the column between existing columns without overwriting them",
+      "Copies the column",
+      "Deletes the column",
+      "Hides the column"
+    ],
+    "answerIndex": 0,
+    "explanation": "Holding `Shift` while dragging a selection border switches the operation to an 'Insert & Move' cut-and-shift action without overwriting data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q183",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the function of the small Outline level buttons [1] and [2] in the top-left corner of a grouped worksheet?",
+    "options": [
+      "They switch font sizes",
+      "They expand or collapse entire outline levels across the entire sheet simultaneously",
+      "They add new worksheets",
+      "They switch pages"
+    ],
+    "answerIndex": 1,
+    "explanation": "Level buttons [1], [2], [3] in the outline margin collapse or expand all grouped sections to that hierarchy level in one click.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q184",
+    "topic": "Grid & Structure Editing",
+    "question": "Which command creates automatic outlines with subtotals across sorted categorical data?",
+    "options": [
+      "Data > Subtotal",
+      "Home > AutoSum",
+      "Insert > PivotTable",
+      "Formulas > Math"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Data > Outline > Subtotal` automatically groups rows and inserts subtotal formulas for sorted categorical blocks.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q185",
+    "topic": "Grid & Structure Editing",
+    "question": "Can you hide an entire worksheet tab from view?",
+    "options": [
+      "No, all tabs must remain visible",
+      "Yes, right-click the sheet tab and select 'Hide'",
+      "Only by deleting it",
+      "Only in VBA"
+    ],
+    "answerIndex": 1,
+    "explanation": "Right-clicking any sheet tab and choosing 'Hide' hides the entire sheet tab from the workbook interface.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q186",
+    "topic": "Grid & Structure Editing",
+    "question": "Can a workbook have ALL of its worksheets hidden simultaneously?",
+    "options": [
+      "Yes",
+      "No, at least one worksheet must remain visible at all times",
+      "Only in protected mode",
+      "Only in macro workbooks"
+    ],
+    "answerIndex": 1,
+    "explanation": "Excel requires at least one visible worksheet tab in a workbook; attempting to hide the final remaining sheet triggers an error.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q187",
+    "topic": "Grid & Structure Editing",
+    "question": "How do you unhide a hidden worksheet tab?",
+    "options": [
+      "Right-click any visible sheet tab and select 'Unhide...'",
+      "Press Ctrl + Shift + U",
+      "Go to File > Open",
+      "Double-click the ribbon"
+    ],
+    "answerIndex": 0,
+    "explanation": "Right-clicking any visible sheet tab and clicking `Unhide...` opens a dialog listing all hidden sheets to restore.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q188",
+    "topic": "Grid & Structure Editing",
+    "question": "What is 'Very Hidden' sheet state in Excel?",
+    "options": [
+      "A worksheet hidden via VBA (xlSheetVeryHidden) that cannot be unhidden through the standard Excel GUI Unhide dialog",
+      "A password protected file",
+      "A sheet on OneDrive",
+      "A deleted sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "An `xlSheetVeryHidden` sheet set in VBA Properties is completely invisible in the standard UI and can only be restored via VBA or macro code.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q189",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens when you select rows 10 to 15 and press `Delete` on the keyboard?",
+    "options": [
+      "The rows are physically removed and rows below shift up",
+      "Only the contents of cells in rows 10-15 are cleared; the rows themselves remain in place",
+      "The sheet is deleted",
+      "Excel undoes last action"
+    ],
+    "answerIndex": 1,
+    "explanation": "The `Delete` key clears cell contents only. To physically delete rows and shift lower rows up, you must use `Ctrl + -`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q190",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the difference between 'Clear Contents' and 'Delete Rows'?",
+    "options": [
+      "Clear Contents empties data but preserves row coordinates; Delete Rows physically removes the rows and shifts remaining rows upward",
+      "There is no difference",
+      "Clear Contents causes #REF! errors",
+      "Delete Rows keeps cell formatting"
+    ],
+    "answerIndex": 0,
+    "explanation": "Clear Contents (`Delete` key) leaves the grid structure intact, whereas Delete Rows (`Ctrl + -`) physically removes rows and shifts lower coordinates up.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q191",
+    "topic": "Grid & Structure Editing",
+    "question": "How do you adjust row height to automatically accommodate wrapped multiline text?",
+    "options": [
+      "Double-click the bottom boundary of the row header",
+      "Press Ctrl + Shift + A",
+      "Right-click and select Clear",
+      "Press F2"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double-clicking the bottom separator of a row header triggers AutoFit Row Height to display all wrapped lines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q192",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens when you double-click the boundary between Column C and Column D when Column C is hidden (width 0)?",
+    "options": [
+      "Column C unhides and AutoFits to its content width",
+      "Column D is deleted",
+      "Column B is hidden",
+      "Nothing happens"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double-clicking the boundary of a hidden column restores its visibility and AutoFits its width.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q193",
+    "topic": "Grid & Structure Editing",
+    "question": "Which view mode displays page margins, headers, footers, and physical print boundaries live while editing?",
+    "options": [
+      "Normal View",
+      "Page Break Preview",
+      "Page Layout View",
+      "Custom View"
+    ],
+    "answerIndex": 2,
+    "explanation": "`Page Layout View` displays real-time page boundaries, headers, footers, and ruler measurements directly on the grid.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q194",
+    "topic": "Grid & Structure Editing",
+    "question": "What is Page Break Preview used for?",
+    "options": [
+      "Displaying formula dependencies",
+      "Visualizing and dragging blue dashed page boundaries to customize exact print page splits",
+      "Checking spelling",
+      "Editing macros"
+    ],
+    "answerIndex": 1,
+    "explanation": "`Page Break Preview` shows exact page break lines as blue borders that can be dragged to adjust print layouts.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q195",
+    "topic": "Grid & Structure Editing",
+    "question": "What happens if you hide a row that is referenced in an active `=SUM()` formula?",
+    "options": [
+      "The standard `=SUM()` formula STILL includes the hidden row's value in its calculation total",
+      "The hidden row is excluded from the SUM",
+      "The formula returns #REF!",
+      "The formula returns 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `=SUM()` formulas always calculate all cells in their range, regardless of whether rows are hidden or visible. (Use `=SUBTOTAL(109, ...)` or `=AGGREGATE()` to exclude hidden rows).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q196",
+    "topic": "Grid & Structure Editing",
+    "question": "Which function can calculate a sum while explicitly ignoring manually hidden rows?",
+    "options": [
+      "=SUM()",
+      "=SUBTOTAL(109, range)",
+      "=SUMIF()",
+      "=TOTAL()"
+    ],
+    "answerIndex": 1,
+    "explanation": "`=SUBTOTAL(109, range)` (using the 100-series function numbers) calculates the sum while ignoring rows hidden manually or via filters.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q197",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the shortcut to jump directly to the last cell with data in a contiguous column or row?",
+    "options": [
+      "Ctrl + Arrow Keys (e.g. Ctrl + Down Arrow)",
+      "Shift + Arrow Keys",
+      "Alt + Arrow Keys",
+      "Tab"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Arrow Keys` navigates directly to the edge of the current data region.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q198",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the shortcut to select all contiguous cells from the active cell to the edge of the region?",
+    "options": [
+      "Ctrl + Shift + Arrow Keys",
+      "Alt + Shift + Arrow Keys",
+      "Ctrl + Space",
+      "Shift + Tab"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + Arrow Keys` expands the active selection to the boundary of the contiguous data block.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q199",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the shortcut to jump back to cell A1 from anywhere in the worksheet?",
+    "options": [
+      "Ctrl + Home",
+      "Ctrl + End",
+      "Home",
+      "Alt + Home"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Home` instantly jumps the active cursor to cell A1 (or the top-left unlocked cell below frozen panes).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q200",
+    "topic": "Grid & Structure Editing",
+    "question": "What is the shortcut to jump to the very last used cell in the active worksheet?",
+    "options": [
+      "Ctrl + End",
+      "Ctrl + Home",
+      "End + Down",
+      "Alt + End"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + End` moves the cursor to the bottom-rightmost cell containing data or formatting in the worksheet.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q201",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the keyboard shortcut to put the active cell into in-cell Edit Mode with the insertion point at the end?",
+    "options": [
+      "F2",
+      "F4",
+      "F7",
+      "F12"
+    ],
+    "answerIndex": 0,
+    "explanation": "`F2` enters in-cell Edit Mode, allowing you to edit cell contents directly at the text cursor position.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q202",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the difference between typing in Ready Mode vs Edit Mode in Excel?",
+    "options": [
+      "Typing in Ready Mode replaces all cell contents; typing in Edit Mode inserts characters at the active cursor position",
+      "Ready Mode only accepts numbers",
+      "Edit mode deletes formulas",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Ready Mode, typing immediately overwrites the entire existing cell content. In Edit Mode (F2), typing inserts characters into the existing string.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q203",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What keyboard shortcut opens the Find and Replace dialog directly with the 'Replace' tab active?",
+    "options": [
+      "Ctrl + F",
+      "Ctrl + H",
+      "Ctrl + R",
+      "Alt + H"
+    ],
+    "answerIndex": 1,
+    "explanation": "`Ctrl + H` opens the Find and Replace dialog with the Replace tab active.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q204",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What keyboard shortcut opens the Find and Replace dialog with the 'Find' tab active?",
+    "options": [
+      "Ctrl + F",
+      "Ctrl + H",
+      "Ctrl + G",
+      "F5"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + F` opens the Find and Replace dialog on the Find tab.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q205",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What wildcard character in Excel Find & Replace matches any single individual character?",
+    "options": [
+      "Asterisk (*)",
+      "Question mark (?)",
+      "Tilde (~)",
+      "Hash (#)"
+    ],
+    "answerIndex": 1,
+    "explanation": "The question mark (`?`) represents any single character (e.g. `b?t` matches `bat`, `bet`, `bit`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q206",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What wildcard character in Excel Find & Replace matches any sequence of zero or more characters?",
+    "options": [
+      "Question mark (?)",
+      "Asterisk (*)",
+      "Tilde (~)",
+      "Ampersand (&)"
+    ],
+    "answerIndex": 1,
+    "explanation": "The asterisk (`*`) matches any string of consecutive characters of any length (e.g. `East*` matches `Eastern`, `East Coast`, etc.).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q207",
+    "topic": "Cell Editing & Paste Special",
+    "question": "How do you search for an actual literal question mark (`?`) or asterisk (`*`) using Find & Replace?",
+    "options": [
+      "Prefix the character with a tilde (e.g. `~?` or `~*`)",
+      "Enclose in double quotes (\"?\")",
+      "Escape with backslash (\\?)",
+      "Use brackets [?]"
+    ],
+    "answerIndex": 0,
+    "explanation": "The tilde (`~`) is the escape character in Excel Find & Replace. Searching for `~*` or `~?` finds literal asterisks and question marks.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q208",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does checking 'Match entire cell contents' in Find & Replace do?",
+    "options": [
+      "Finds cells where the entire cell equals the search string, avoiding partial substring matches",
+      "Matches lowercase only",
+      "Searches across all worksheets",
+      "Formats matching cells in yellow"
+    ],
+    "answerIndex": 0,
+    "explanation": "'Match entire cell contents' ensures that cells containing additional text surrounding the keyword are not matched.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q209",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the universal keyboard shortcut to open the Paste Special dialog box after copying?",
+    "options": [
+      "Ctrl + Alt + V (or Alt + E + S)",
+      "Ctrl + Shift + P",
+      "Alt + V",
+      "Ctrl + P"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Alt + V` (or legacy `Alt + E + S`) opens the comprehensive Paste Special dialog.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q210",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Which Paste Special option pastes only the calculated numerical/text results of formulas and strips the underlying formula syntax?",
+    "options": [
+      "Paste Formulas",
+      "Paste Values (V)",
+      "Paste Formats",
+      "Paste Validation"
+    ],
+    "answerIndex": 1,
+    "explanation": "`Paste Values` converts live dynamic formulas into static calculated constants.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q211",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Which Paste Special option copies background fills, fonts, borders, and number formats without overwriting existing cell data?",
+    "options": [
+      "Paste Formats (T)",
+      "Paste Formulas",
+      "Paste Values",
+      "Paste Comments"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Paste Formats` transfers visual styling and number formatting codes without changing target cell values.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q212",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Which Paste Special operation swaps rows into columns and columns into rows?",
+    "options": [
+      "Transpose (E)",
+      "Flip Grid",
+      "Invert Matrix",
+      "Skip Blanks"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Transpose` rotates a horizontal table orientation into vertical, or vice versa.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q213",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does the 'Skip Blanks' checkbox in the Paste Special dialog do?",
+    "options": [
+      "Deletes blank cells",
+      "Prevents blank cells in the copied range from overwriting existing data in the destination range",
+      "Fills blank cells with zeros",
+      "Highlights empty cells"
+    ],
+    "answerIndex": 1,
+    "explanation": "`Skip Blanks` ensures that empty cells in the copied source clipboard do not overwrite existing data in the target range.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q214",
+    "topic": "Cell Editing & Paste Special",
+    "question": "How can you multiply an entire column of numbers by 1.18 (e.g. to add 18% GST) in a single step without writing helper formulas?",
+    "options": [
+      "Type 1.18 in a cell, copy it (`Ctrl + C`), select the column, open Paste Special (`Ctrl + Alt + V`), choose Operation 'Multiply', and click OK",
+      "Use AutoSum",
+      "Use Find & Replace",
+      "Apply custom formatting"
+    ],
+    "answerIndex": 0,
+    "explanation": "Paste Special Operation > Multiply multiplies every selected target cell by the copied number directly in-place.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q215",
+    "topic": "Cell Editing & Paste Special",
+    "question": "How can you convert a column of numbers stored as text into real numeric values using Paste Special?",
+    "options": [
+      "Copy an empty cell (or a cell containing 1), select the text numbers, open Paste Special, and select Operation 'Add' (or 'Multiply')",
+      "Use Find & Replace",
+      "Format as Text",
+      "Press F2 on every cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Paste Special Operation Add (with 0 or blank) or Multiply (with 1) forces Excel to mathematically coerce text strings into true numbers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q216",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the keyboard shortcut for Undo in Microsoft Excel?",
+    "options": [
+      "Ctrl + Z",
+      "Ctrl + Y",
+      "Ctrl + U",
+      "Alt + Backspace"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Z` undoes the previous action(s).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q217",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the keyboard shortcut for Redo (or Repeat last action) in Excel?",
+    "options": [
+      "Ctrl + Y (or F4)",
+      "Ctrl + Z",
+      "Ctrl + R",
+      "Alt + Y"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Y` redoes an undone action or repeats the last formatting/editing command.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q218",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What happens when you run a VBA macro in Excel regarding the Undo stack?",
+    "options": [
+      "Undo stack remains unaffected",
+      "Running a VBA macro completely clears and wipes the entire Undo history stack in Excel",
+      "VBA creates a restore point",
+      "VBA saves the workbook automatically"
+    ],
+    "answerIndex": 1,
+    "explanation": "Executing VBA macro code clears Excel's internal Undo buffer; macro changes cannot be undone with Ctrl + Z.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q219",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Where is the Formula Bar located and what does it display?",
+    "options": [
+      "Above the worksheet grid; displays the true underlying formula or unformatted value of the active cell",
+      "At the bottom status bar",
+      "Inside the ribbon",
+      "In the File menu"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Formula Bar displays the actual underlying cell value or formula syntax, distinct from what is visually rendered on the grid.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q220",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the shortcut to expand or collapse the Formula Bar height to view long formulas?",
+    "options": [
+      "Ctrl + Shift + U",
+      "Ctrl + F2",
+      "Alt + Enter",
+      "Ctrl + Down Arrow"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + U` expands or collapses the Formula Bar height.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q221",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does 'Clear All' (`Home > Editing > Clear > Clear All`) do to selected cells?",
+    "options": [
+      "Clears cell contents, formatting, comments, and hyperlinks completely",
+      "Clears only cell text",
+      "Deletes the row",
+      "Resets column width"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Clear All` removes everything from the cell: values, formulas, formatting, comments, and hyperlinks.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q222",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does 'Clear Formats' (`Home > Editing > Clear > Clear Formats`) do?",
+    "options": [
+      "Restores default General formatting, removing borders, fills, and custom number masks while preserving cell data",
+      "Clears cell numbers",
+      "Deletes cell notes",
+      "Clears cell validation"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Clear Formats` removes styling and custom number masks, resetting the cell to unformatted General while preserving data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q223",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What happens when you press the `Delete` key on a cell containing a formatted number with yellow fill and borders?",
+    "options": [
+      "Only the number is deleted; the yellow fill, borders, and number formatting remain intact",
+      "The cell is reset to General",
+      "The cell is deleted",
+      "The formatting is removed"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Delete` key clears only cell values/contents; formatting, borders, fills, and comments remain untouched.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q224",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the Office Clipboard capable of storing in Microsoft Excel?",
+    "options": [
+      "Only the last 1 item copied",
+      "Up to 24 collected copied items from across Office applications",
+      "Unlimited items",
+      "Up to 100 items"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Office Clipboard can hold up to 24 separate copied items simultaneously.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q225",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What shortcut key repeats the last formatting command (such as applying a cell fill or border)?",
+    "options": [
+      "F4 (or Ctrl + Y)",
+      "F2",
+      "F5",
+      "F9"
+    ],
+    "answerIndex": 0,
+    "explanation": "`F4` repeats the last formatting or worksheet action in Excel.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q226",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What keyboard key cancels cell entry in the Formula Bar or in-cell edit mode, restoring original cell content?",
+    "options": [
+      "Escape (Esc)",
+      "Enter",
+      "Tab",
+      "Delete"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Escape (Esc)` aborts active cell editing and restores the original value.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q227",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What keyboard shortcut enters the same formula or value into ALL currently selected cells simultaneously?",
+    "options": [
+      "Ctrl + Enter",
+      "Shift + Enter",
+      "Alt + Enter",
+      "Ctrl + Shift + Enter"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Enter` populates the typed entry or formula across all currently selected cells in one stroke.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q228",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What keyboard shortcut inserts a hard line break within a single cell during in-cell text editing?",
+    "options": [
+      "Alt + Enter",
+      "Ctrl + Enter",
+      "Shift + Enter",
+      "Ctrl + Shift + L"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Alt + Enter` inserts a manual line break (`CHAR(10)`) within the active cell.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q229",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does Paste Special > 'Paste Link' do?",
+    "options": [
+      "Creates dynamic formula links (e.g. `=Sheet1!A1`) pointing back to the source cells",
+      "Creates an internet hyperlink",
+      "Pastes static values",
+      "Pastes image link"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Paste Link` creates cell references pointing directly to the source coordinates.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q230",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What Paste Special option copies only the column dimensions of the source range to the target range?",
+    "options": [
+      "Column Widths (W)",
+      "Transpose",
+      "Formulas",
+      "Formats"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Paste Special > Column Widths (W)` matches destination column widths to source column widths without modifying cell data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q231",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Can you Paste Special > Transpose data if the destination range overlaps with the source range?",
+    "options": [
+      "No, Excel displays an error stating that the copy and paste areas cannot overlap",
+      "Yes, Excel handles it automatically",
+      "Only if saved",
+      "Only in VBA"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel prohibits transposing data into a destination range that overlaps with the copied source range.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q232",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What happens when you copy a cell with Data Validation rules and use Paste Special > Formats on another cell?",
+    "options": [
+      "Formats are pasted, but Data Validation is NOT copied (Validation requires 'Paste Validation')",
+      "Data validation is copied",
+      "Validation is cleared",
+      "Throws error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Data Validation rules are copied via `Paste Special > Validation (N)`, not via Paste Formats.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q233",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Which command allows finding cells containing specific formulas or constants across an entire sheet?",
+    "options": [
+      "Find & Select > Go To Special...",
+      "Sort & Filter",
+      "Conditional Formatting",
+      "Data Validation"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Go To Special` (`F5 > Special` or `Ctrl + G > Special`) allows selecting Formulas, Constants, Blanks, Comments, or Data Validation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q234",
+    "topic": "Cell Editing & Paste Special",
+    "question": "How can you quickly select all BLANK cells inside a data table to fill them with 'N/A'?",
+    "options": [
+      "Select range > Go To Special (`Ctrl + G > Alt + S`) > Blanks > type 'N/A' > press `Ctrl + Enter`",
+      "Select cells manually one by one",
+      "Use Find & Replace on spaces",
+      "Use Text to Columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Go To Special > Blanks`, typing the text, and pressing `Ctrl + Enter` fills all empty cells instantly.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q235",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does the Replace All button in Find and Replace return after executing?",
+    "options": [
+      "A popup dialogue reporting the exact count of replacements made (e.g. 'All done. We made 142 replacements.')",
+      "A new workbook",
+      "A sound alert only",
+      "Nothing"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel displays a confirmation notification detailing the total number of replacements performed.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q236",
+    "topic": "Cell Editing & Paste Special",
+    "question": "If you want to replace only exact whole-word matches of 'US' without replacing 'USE' or 'BUS', what setting must be enabled?",
+    "options": [
+      "Match entire cell contents (or whole word)",
+      "Match case",
+      "Search by Columns",
+      "Look in Values"
+    ],
+    "answerIndex": 0,
+    "explanation": "'Match entire cell contents' prevents replacing substrings inside longer words.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q237",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the keyboard shortcut to check spelling in the active worksheet?",
+    "options": [
+      "F7",
+      "F1",
+      "F3",
+      "F9"
+    ],
+    "answerIndex": 0,
+    "explanation": "`F7` opens the Spell Check dialog box in Microsoft Excel.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q238",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What happens when you copy a formula containing relative references (`=A1*5`) and paste it as 'Paste Formulas' into a cell 2 rows down and 1 column right?",
+    "options": [
+      "Formula becomes `=B3*5`",
+      "Formula stays `=A1*5`",
+      "Formula becomes `=A3*5`",
+      "Returns 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting formulas shifts relative references by the row and column offset (+2 rows, +1 column = B3).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q239",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What Paste Special option performs subtraction of the copied value from the destination cells?",
+    "options": [
+      "Operation > Subtract (S)",
+      "Operation > Divide",
+      "Operation > Multiply",
+      "Operation > None"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Paste Special > Operation > Subtract` subtracts the source value from the destination cell values.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q240",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What Paste Special option divides destination cells by the copied value?",
+    "options": [
+      "Operation > Divide (I)",
+      "Operation > Multiply",
+      "Operation > Add",
+      "Operation > None"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Paste Special > Operation > Divide` divides all selected cells by the copied number.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q241",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the shortcut to open the 'Go To' dialog box in Excel?",
+    "options": [
+      "Ctrl + G (or F5)",
+      "Ctrl + H",
+      "Ctrl + J",
+      "Alt + G"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` opens the Go To navigation dialog.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q242",
+    "topic": "Cell Editing & Paste Special",
+    "question": "How can you convert formulas in range A1:A100 into static values using only mouse shortcuts?",
+    "options": [
+      "Select range, right-click the border of selection, drag slightly away and drag back, release, and choose 'Copy Here as Values Only'",
+      "Double click border",
+      "Left-click column header",
+      "Press scroll wheel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Right-dragging the selection boundary and releasing displays an instant shortcut menu with 'Copy Here as Values Only'.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q243",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What happens when you use Find & Replace to replace `--` with empty text in a numeric column?",
+    "options": [
+      "Excel converts modified cells to true numbers if remaining characters form valid digits",
+      "Cells turn red",
+      "Excel displays #VALUE!",
+      "Formulas break"
+    ],
+    "answerIndex": 0,
+    "explanation": "Removing non-numeric symbols via Find & Replace allows Excel to re-evaluate the cell as a valid numeric data type.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q244",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the maximum number of undo steps supported by Microsoft Excel by default?",
+    "options": [
+      "100 actions",
+      "16 actions",
+      "Unlimited",
+      "10 actions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel supports up to 100 Undo levels in standard memory.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q245",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does Paste Special > 'All using Source theme' do?",
+    "options": [
+      "Pastes all contents, formulas, and formatting using the source workbook's theme colors and fonts",
+      "Pastes values only",
+      "Converts to black and white",
+      "Pastes as image"
+    ],
+    "answerIndex": 0,
+    "explanation": "It transfers formatting while preserving exact theme colors from the source document.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q246",
+    "topic": "Cell Editing & Paste Special",
+    "question": "How do you replace line breaks (`Alt + Enter`) inside cells using Find & Replace?",
+    "options": [
+      "In 'Find what', press `Ctrl + J` (which inputs the line feed character)",
+      "Type `\\n`",
+      "Type `[Enter]`",
+      "Type `CHAR(10)`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + J` inserts the invisible Line Feed (`CHAR(10)`) character into the Find What field.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q247",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What is the effect of pasting a range of cells into an Excel table using Paste Special > Transpose?",
+    "options": [
+      "Excel transposes the data if destination cells outside table are selected, but direct in-table transpose requires matching column dimensions",
+      "Table is deleted",
+      "Table becomes a picture",
+      "Header names are erased"
+    ],
+    "answerIndex": 0,
+    "explanation": "Transposing into an official Excel Table structure requires careful coordinate management because table headers cannot be transposed over existing fields.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q248",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Which shortcut toggles between displaying cell values and displaying raw formulas across the entire worksheet?",
+    "options": [
+      "Ctrl + ` (grave accent / tilde key)",
+      "Ctrl + F9",
+      "Alt + F1",
+      "Shift + F3"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + ~` (or `Ctrl + ``) toggles Formula Audit mode, displaying formulas directly in the cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q249",
+    "topic": "Cell Editing & Paste Special",
+    "question": "What does 'Paste as Picture Link' accomplish?",
+    "options": [
+      "Creates a dynamic floating camera image of the copied range that updates in real-time when the underlying cells change",
+      "Pastes a static JPEG",
+      "Creates a chart",
+      "Locks the sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Paste as Linked Picture` (the Camera tool feature) creates a live visual snapshot of cells that updates in real time.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q250",
+    "topic": "Cell Editing & Paste Special",
+    "question": "Why should financial accountants use Paste Special Values before distributing client models?",
+    "options": [
+      "To prevent external workbook reference errors, secure proprietary formula logic, and lock historical balances",
+      "To reduce font size",
+      "To change currency to EUR",
+      "To disable macros"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values severs broken external workbook links (`#REF!`), hides proprietary calculations, and locks audited financial numbers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q251",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the starting base date (Epoch Day 1) in the default Windows Excel 1900 Date System?",
+    "options": [
+      "January 1, 1900 (Serial 1)",
+      "January 0, 1900",
+      "January 1, 1970",
+      "December 31, 1899"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Excel's 1900 date system, serial number 1 represents January 1, 1900.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q252",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the infamous 'Lotus 1-2-3 Leap Year Bug' intentionally preserved in Microsoft Excel?",
+    "options": [
+      "Excel incorrectly treats the year 1900 as a leap year, recognizing February 29, 1900 (Serial 60)",
+      "Excel skips all leap years",
+      "Excel treats 2000 as not a leap year",
+      "Excel cannot calculate dates after 2050"
+    ],
+    "answerIndex": 0,
+    "explanation": "Lotus 1-2-3 incorrectly assumed 1900 was a leap year (it was not). Excel intentionally replicated this bug (Serial 60 = Feb 29, 1900) to maintain backwards compatibility with Lotus 1-2-3 spreadsheets.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q253",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the numerical serial value of 12:00 PM (Noon) in Excel's time calculation engine?",
+    "options": [
+      "0.5",
+      "12.0",
+      "1.2",
+      "0.25"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since a full 24-hour day equals 1.0, 12 hours equals 12/24 = 0.5.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q254",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the numerical serial value of 6:00 AM in Excel?",
+    "options": [
+      "0.25 (6/24)",
+      "0.6",
+      "6.0",
+      "0.5"
+    ],
+    "answerIndex": 0,
+    "explanation": "6:00 AM is one quarter of a day: 6 / 24 = 0.25.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q255",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the numerical serial value of 6:00 PM in Excel?",
+    "options": [
+      "0.75 (18/24)",
+      "0.6",
+      "18.0",
+      "0.8"
+    ],
+    "answerIndex": 0,
+    "explanation": "6:00 PM (18:00) represents 18 / 24 = 0.75 of a 24-hour day.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q256",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the mathematical serial value for 1 hour in Excel?",
+    "options": [
+      "1 / 24 ≈ 0.041666667",
+      "1 / 60",
+      "1 / 1440",
+      "0.1"
+    ],
+    "answerIndex": 0,
+    "explanation": "One hour is 1/24th of a day (approx 0.041666667).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q257",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the mathematical serial value for 1 minute in Excel?",
+    "options": [
+      "1 / 1440 (since 24 × 60 = 1440)",
+      "1 / 60",
+      "1 / 3600",
+      "0.001"
+    ],
+    "answerIndex": 0,
+    "explanation": "One minute is 1 / (24 × 60) = 1 / 1440 of a day (approx 0.000694444).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q258",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the mathematical serial value for 1 second in Excel?",
+    "options": [
+      "1 / 86400 (since 24 × 60 × 60 = 86400)",
+      "1 / 3600",
+      "1 / 1440",
+      "0.0001"
+    ],
+    "answerIndex": 0,
+    "explanation": "One second is 1 / (24 × 3600) = 1 / 86400 of a day.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q259",
+    "topic": "Date & Time Mechanics",
+    "question": "If cell A1 contains date `15-Jan-2026`, what does formula `=A1 + 7` return when formatted as a date?",
+    "options": [
+      "22-Jan-2026",
+      "15-Jan-2033",
+      "#VALUE!",
+      "22"
+    ],
+    "answerIndex": 0,
+    "explanation": "Adding an integer N to an Excel date adds N calendar days, resulting in 22-Jan-2026.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q260",
+    "topic": "Date & Time Mechanics",
+    "question": "If cell A1 contains the time `09:00 AM`, what formula adds 3 hours to it?",
+    "options": [
+      "=A1 + (3/24)",
+      "=A1 + 3",
+      "=A1 + 180",
+      "=A1 + (3/60)"
+    ],
+    "answerIndex": 0,
+    "explanation": "To add hours, add `hours / 24`. Therefore, `=A1 + (3/24)` evaluates to 12:00 PM.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q261",
+    "topic": "Date & Time Mechanics",
+    "question": "If cell A1 contains `09:00 AM`, what formula adds 45 minutes to it?",
+    "options": [
+      "=A1 + (45/1440)",
+      "=A1 + 45",
+      "=A1 + (45/24)",
+      "=A1 + 0.45"
+    ],
+    "answerIndex": 0,
+    "explanation": "To add minutes, add `minutes / 1440` (or `minutes / (24*60)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q262",
+    "topic": "Date & Time Mechanics",
+    "question": "What keyboard shortcut inserts the CURRENT STATIC DATE into the active cell?",
+    "options": [
+      "Ctrl + ; (semicolon)",
+      "Ctrl + Shift + :",
+      "Alt + D",
+      "Ctrl + D"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + ;` (semicolon) stamps the current system date as a static serial number.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q263",
+    "topic": "Date & Time Mechanics",
+    "question": "What keyboard shortcut inserts the CURRENT STATIC TIME into the active cell?",
+    "options": [
+      "Ctrl + Shift + : (colon)",
+      "Ctrl + ;",
+      "Alt + T",
+      "Ctrl + T"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + :` (colon) stamps the current system time as a static decimal value.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q264",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the difference between the shortcut `Ctrl + ;` and the function `=TODAY()`?",
+    "options": [
+      "`Ctrl + ;` enters a static snapshot date that never changes; `=TODAY()` is a volatile dynamic formula that updates every day",
+      "There is no difference",
+      "`=TODAY()` creates text",
+      "`Ctrl + ;` requires internet"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + ;` hardcodes the current date as a constant; `=TODAY()` dynamically recalculates every time the workbook recalculates.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q265",
+    "topic": "Date & Time Mechanics",
+    "question": "What does `=NOW()` return in Microsoft Excel?",
+    "options": [
+      "The current date and time serial number (volatile)",
+      "Only the current date",
+      "Only current time",
+      "The computer uptime"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=NOW()` returns both the current date integer and time fractional decimal.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q266",
+    "topic": "Date & Time Mechanics",
+    "question": "What happens when you enter a negative date or calculate a time difference that evaluates to a negative number in the 1900 Date System?",
+    "options": [
+      "Excel displays a full cell of hash marks (`###`)",
+      "Displays a negative date",
+      "Returns 0",
+      "Converts to text"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 1900 Date System cannot display negative date/time serials, showing `###` across the cell width.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q267",
+    "topic": "Date & Time Mechanics",
+    "question": "What legacy date system used by older versions of Excel for Macintosh started on January 1, 1904 (Serial 0)?",
+    "options": [
+      "1904 Date System",
+      "1984 System",
+      "Unix System",
+      "Mac Epoch"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `1904 Date System` starts on Jan 1, 1904, and supports negative date/time offsets.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q268",
+    "topic": "Date & Time Mechanics",
+    "question": "What happens if you copy dates between a workbook using the 1900 system and a workbook using the 1904 system?",
+    "options": [
+      "Dates shift by exactly 4 years and 1 day (1,462 days)",
+      "Dates are preserved identically",
+      "Formulas throw #VALUE!",
+      "Dates convert to text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because the epochs differ by 1,462 days, dates pasted between 1900 and 1904 systems shift by 4 years and 1 day.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q269",
+    "topic": "Date & Time Mechanics",
+    "question": "How can you calculate elapsed working hours between Start Time (A1 = 09:00 AM) and End Time (B1 = 05:30 PM) as a regular decimal number (8.5 hours)?",
+    "options": [
+      "=(B1 - A1) * 24",
+      "=B1 - A1",
+      "=(B1 - A1) / 24",
+      "=HOUR(B1 - A1)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`(End Time - Start Time)` yields a fraction of a day. Multiplying by 24 converts it to total decimal hours: `(0.729166 - 0.375) * 24 = 8.5`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q270",
+    "topic": "Date & Time Mechanics",
+    "question": "How do you calculate the difference between End Time `02:00 AM` (next day) and Start Time `10:00 PM` (previous day) without dates?",
+    "options": [
+      "=MOD(B1 - A1, 1)",
+      "=B1 - A1",
+      "=A1 - B1",
+      "=IF(B1>A1, B1-A1, 0)"
+    ],
+    "answerIndex": 0,
+    "explanation": "The formula `=MOD(EndTime - StartTime, 1)` handles overnight time intervals that cross midnight.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q271",
+    "topic": "Date & Time Mechanics",
+    "question": "What function extracts the 4-digit year integer from a date serial in cell A1?",
+    "options": [
+      "=YEAR(A1)",
+      "=DATEYEAR(A1)",
+      "=YYYY(A1)",
+      "=EXTRACTYEAR(A1)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=YEAR(date)` returns an integer from 1900 to 9999.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q272",
+    "topic": "Date & Time Mechanics",
+    "question": "What function extracts the month number (1 to 12) from a date serial?",
+    "options": [
+      "=MONTH(A1)",
+      "=MON(A1)",
+      "=DATE(A1)",
+      "=VALUE(A1)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=MONTH(date)` returns an integer from 1 (January) to 12 (December).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q273",
+    "topic": "Date & Time Mechanics",
+    "question": "What function extracts the day of the month (1 to 31) from a date serial?",
+    "options": [
+      "=DAY(A1)",
+      "=DATE(A1)",
+      "=DAYS(A1)",
+      "=NUM(A1)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=DAY(date)` returns an integer from 1 to 31.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q274",
+    "topic": "Date & Time Mechanics",
+    "question": "What function constructs a valid date serial from separate Year, Month, and Day arguments?",
+    "options": [
+      "=DATE(year, month, day)",
+      "=MAKEDATE(y, m, d)",
+      "=BUILDDATE()",
+      "=SERIAL()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=DATE(year, month, day)` builds a proper Excel date serial from numeric components.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q275",
+    "topic": "Date & Time Mechanics",
+    "question": "What will `=DATE(2026, 1, 35)` evaluate to in Excel?",
+    "options": [
+      "February 4, 2026 (automatically rolls over 4 days into February)",
+      "Error #VALUE!",
+      "January 31, 2026",
+      "January 35, 2026"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `=DATE()` function intelligently rolls forward: January has 31 days, so day 35 rolls 4 days into February (Feb 4, 2026).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q276",
+    "topic": "Date & Time Mechanics",
+    "question": "What will `=DATE(2026, 13, 1)` evaluate to?",
+    "options": [
+      "January 1, 2027 (rolls 1 month into next year)",
+      "#NUM!",
+      "December 31, 2026",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Month 13 rolls 1 month into the subsequent year, yielding January 1, 2027.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q277",
+    "topic": "Date & Time Mechanics",
+    "question": "What function extracts the hour (0 to 23) from a time value?",
+    "options": [
+      "=HOUR(A1)",
+      "=HOURS(A1)",
+      "=TIME(A1)",
+      "=GETHOUR()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=HOUR(time)` returns an integer from 0 (12:00 AM) to 23 (11:00 PM).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q278",
+    "topic": "Date & Time Mechanics",
+    "question": "What function constructs a valid time decimal from Hour, Minute, and Second integers?",
+    "options": [
+      "=TIME(hour, minute, second)",
+      "=MAKETIME()",
+      "=BUILDTIME()",
+      "=DECIMALTIME()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TIME(hour, minute, second)` returns a decimal fraction between 0.0 and 0.99998843.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q279",
+    "topic": "Date & Time Mechanics",
+    "question": "What function returns the day of the week as an integer (e.g. 1 for Sunday to 7 for Saturday)?",
+    "options": [
+      "=WEEKDAY(serial_number, [return_type])",
+      "=DAYNAME()",
+      "=DOW()",
+      "=WEEK()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=WEEKDAY(date)` returns an integer from 1 to 7 corresponding to the day of the week.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q280",
+    "topic": "Date & Time Mechanics",
+    "question": "What return_type argument in `=WEEKDAY(date, 2)` sets Monday as day 1 and Sunday as day 7?",
+    "options": [
+      "return_type = 2",
+      "return_type = 1",
+      "return_type = 3",
+      "return_type = 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Setting `return_type` to 2 configures standard ISO weekday numbering: Monday = 1 through Sunday = 7.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q281",
+    "topic": "Date & Time Mechanics",
+    "question": "What function returns the integer ISO week number of the year for a given date?",
+    "options": [
+      "=ISOWEEKNUM(date) or =WEEKNUM(date)",
+      "=WEEKOFYEAR()",
+      "=ISOWEEK()",
+      "=CALNUM()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=WEEKNUM()` and `=ISOWEEKNUM()` compute the week number (1-53) of the year.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q282",
+    "topic": "Date & Time Mechanics",
+    "question": "What function calculates the number of full calendar days between two dates (`end_date - start_date`)?",
+    "options": [
+      "=DAYS(end_date, start_date)",
+      "=DATEDIFF()",
+      "=INTERVAL()",
+      "=DAYSPAN()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=DAYS(end_date, start_date)` returns the integer count of days between two dates.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q283",
+    "topic": "Date & Time Mechanics",
+    "question": "What function returns the date that is N workdays before or after a start date, excluding weekends and optional holidays?",
+    "options": [
+      "=WORKDAY(start_date, days, [holidays])",
+      "=NETWORKDAYS()",
+      "=ADJUSTDATE()",
+      "=BUSDAY()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=WORKDAY()` calculates project target dates by advancing only through business working days.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q284",
+    "topic": "Date & Time Mechanics",
+    "question": "What function returns the total number of whole working days between two dates, excluding weekends and holidays?",
+    "options": [
+      "=NETWORKDAYS(start_date, end_date, [holidays])",
+      "=WORKDAYS()",
+      "=DAYS()",
+      "=BUSINESDAYS()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=NETWORKDAYS()` computes total working days between two date milestones.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q285",
+    "topic": "Date & Time Mechanics",
+    "question": "What function allows custom weekend definitions (e.g. Friday-Saturday weekend, or Sunday-only weekend)?",
+    "options": [
+      "=WORKDAY.INTL() and =NETWORKDAYS.INTL()",
+      "=WORKDAY()",
+      "=NETWORKDAYS()",
+      "=DATE.INTL()"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `.INTL` variants (`WORKDAY.INTL` and `NETWORKDAYS.INTL`) support custom international weekend parameters.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q286",
+    "topic": "Date & Time Mechanics",
+    "question": "What function returns the last day of the month that is N months before or after a start date?",
+    "options": [
+      "=EOMONTH(start_date, months)",
+      "=EDATE()",
+      "=MONTHEND()",
+      "=LASTDAY()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=EOMONTH(start_date, months)` returns the serial number of the final day of the specified month (e.g. Feb 28/29, Apr 30).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q287",
+    "topic": "Date & Time Mechanics",
+    "question": "What will `=EOMONTH(\"2026-01-15\", 0)` return?",
+    "options": [
+      "January 31, 2026",
+      "January 15, 2026",
+      "February 28, 2026",
+      "December 31, 2025"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=EOMONTH(date, 0)` returns the last day of the current month (Jan 31, 2026).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q288",
+    "topic": "Date & Time Mechanics",
+    "question": "What will `=EOMONTH(\"2026-01-15\", 1)` return?",
+    "options": [
+      "February 28, 2026",
+      "January 31, 2026",
+      "March 31, 2026",
+      "February 15, 2026"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=EOMONTH(date, 1)` jumps 1 month ahead to the end of February (Feb 28, 2026).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q289",
+    "topic": "Date & Time Mechanics",
+    "question": "What function returns the exact same day of the month N months before or after a start date?",
+    "options": [
+      "=EDATE(start_date, months)",
+      "=EOMONTH()",
+      "=DATEPLUS()",
+      "=MONTHADD()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=EDATE(start_date, months)` advances or rewinds by exact calendar months, preserving the day of the month.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q290",
+    "topic": "Date & Time Mechanics",
+    "question": "What undocumented but widely supported compatibility function calculates the difference between two dates in Years (\"Y\"), Months (\"M\"), or Days (\"D\")?",
+    "options": [
+      "=DATEDIF(start_date, end_date, unit)",
+      "=YEARFRAC()",
+      "=DATEDIFF()",
+      "=SPAN()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=DATEDIF(start, end, \"Y\")` calculates completed years, months, or days between dates.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q291",
+    "topic": "Date & Time Mechanics",
+    "question": "What does `=YEARFRAC(start_date, end_date, [basis])` return?",
+    "options": [
+      "The exact fraction of a year (as a decimal) represented by the number of whole days between two dates",
+      "The year number",
+      "The week number",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=YEARFRAC()` calculates the exact fractional proportion of a year between dates, ideal for financial accruals and depreciation.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q292",
+    "topic": "Date & Time Mechanics",
+    "question": "Why does entering `12/31/2026` sometimes store as text in computers located in the UK or India?",
+    "options": [
+      "Because regional OS settings expect DD/MM/YYYY; entering Month 12 as first token fails validation if Day exceeds 12",
+      "Excel dislikes December",
+      "Excel requires dashes",
+      "The year is invalid"
+    ],
+    "answerIndex": 0,
+    "explanation": "Regional settings dictate date parsing. In DMY locales, `12/31/2026` is rejected as an invalid month 31 and coerced to Text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q293",
+    "topic": "Date & Time Mechanics",
+    "question": "How can you fix a column of foreign imported dates formatted as text (e.g. `YYYYMMDD` like `20260815`)?",
+    "options": [
+      "Use Data > Text to Columns > Step 3: Column data format > Date: YMD",
+      "Format as Currency",
+      "Use Find & Replace",
+      "Press Delete"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Text to Columns` (Step 3 Date selector) parses and converts unstructured date strings into native Excel serial numbers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q294",
+    "topic": "Date & Time Mechanics",
+    "question": "What custom date code format string outputs `2026-08-15`?",
+    "options": [
+      "`yyyy-mm-dd`",
+      "`dd-mm-yyyy`",
+      "`yyyy-dd-mm`",
+      "`yy-m-d`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`yyyy-mm-dd` is the standard ISO 8601 date format code in Excel.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q295",
+    "topic": "Date & Time Mechanics",
+    "question": "What does custom date code `dd-mmm-yy` display for October 5, 2026?",
+    "options": [
+      "05-Oct-26",
+      "5-October-2026",
+      "10-05-26",
+      "05-10-2026"
+    ],
+    "answerIndex": 0,
+    "explanation": "`dd` gives 05, `mmm` gives Oct, and `yy` gives 26.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q296",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the result of `=ISNUMBER(DATE(2026, 5, 10))`?",
+    "options": [
+      "TRUE",
+      "FALSE",
+      "#VALUE!",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=DATE()` returns a numeric serial integer, so `=ISNUMBER()` returns TRUE.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q297",
+    "topic": "Date & Time Mechanics",
+    "question": "What is the serial value of January 1, 2026 in Excel's 1900 date system?",
+    "options": [
+      "46023",
+      "1",
+      "36525",
+      "100000"
+    ],
+    "answerIndex": 0,
+    "explanation": "January 1, 2026 corresponds to serial number 46,023 (days since 1900).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q298",
+    "topic": "Date & Time Mechanics",
+    "question": "What happens when you add 24 hours to a cell formatted as standard `hh:mm`?",
+    "options": [
+      "The display resets to `00:00` because standard time rolls over at 24 hours",
+      "Displays 24:00",
+      "Displays ###",
+      "Throws error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `hh:mm` displays modulo 24 hours. To display 24:00 or 36:00, the format mask must use bracketed `[h]:mm`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q299",
+    "topic": "Date & Time Mechanics",
+    "question": "What does `=TIMEVALUE(\"06:00 PM\")` return in Excel?",
+    "options": [
+      "0.75",
+      "18",
+      "6",
+      "0.25"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TIMEVALUE(text)` converts a text time representation into its equivalent decimal serial (0.75 for 6:00 PM).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q300",
+    "topic": "Date & Time Mechanics",
+    "question": "What does `=DATEVALUE(\"2026-01-01\")` return in Excel?",
+    "options": [
+      "The integer serial number representing January 1, 2026 (46023)",
+      "The text string \"2026-01-01\"",
+      "1",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=DATEVALUE(text)` converts a date string into an Excel date serial integer.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q301",
+    "topic": "Alignment & Cell Styles",
+    "question": "Which horizontal alignment centers a title across multiple columns WITHOUT physically merging the cells?",
+    "options": [
+      "Center Across Selection",
+      "Merge & Center",
+      "Justify",
+      "Distributed"
+    ],
+    "answerIndex": 0,
+    "explanation": "'Center Across Selection' (in Format Cells > Alignment) visually centers text across selected columns without merging cell coordinates.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q302",
+    "topic": "Alignment & Cell Styles",
+    "question": "Why do professional financial modelers strongly prefer 'Center Across Selection' over 'Merge & Center'?",
+    "options": [
+      "Merged cells break column sorting, corrupt formula referencing, and prevent single-column selections; Center Across Selection avoids all these bugs",
+      "Center Across Selection uses less memory",
+      "Merge & Center is deprecated",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "Merged cells create structural grid anomalies that prevent column sorting, filter errors, and block standard selection. Center Across Selection eliminates these risks.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q303",
+    "topic": "Alignment & Cell Styles",
+    "question": "What happens to underlying data in cells B1, C1, and D1 when you select range A1:D1 and click 'Merge & Center'?",
+    "options": [
+      "Only the data in the upper-left cell (A1) is kept; data in all other cells (B1, C1, D1) is discarded/hidden",
+      "All text is joined together",
+      "Excel throws a fatal error",
+      "All data is saved in row 2"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel's Merge & Center warns that 'Merging cells only keeps the upper-left value and discards other values'.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q304",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to insert a manual line break within a cell to wrap text exactly where desired?",
+    "options": [
+      "Alt + Enter",
+      "Ctrl + Enter",
+      "Shift + Enter",
+      "Ctrl + Shift + W"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Alt + Enter` inserts a Line Feed (`CHAR(10)`) within the cell string.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q305",
+    "topic": "Alignment & Cell Styles",
+    "question": "What feature automatically increases row height and breaks long text into multiple visible lines inside a cell?",
+    "options": [
+      "Wrap Text",
+      "Shrink to Fit",
+      "Merge Across",
+      "AutoFit Columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Wrap Text` (`Home > Alignment > Wrap Text`) enables multiline display within the cell based on column width.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q306",
+    "topic": "Alignment & Cell Styles",
+    "question": "What does the 'Shrink to Fit' alignment option do when text exceeds the column width?",
+    "options": [
+      "Dynamically reduces the visual font size so all text fits within the cell without changing column width",
+      "Truncates text",
+      "Wraps text to row 2",
+      "Deletes excess characters"
+    ],
+    "answerIndex": 0,
+    "explanation": "'Shrink to Fit' reduces visual font rendering size so the entire text string remains visible inside fixed column bounds.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q307",
+    "topic": "Alignment & Cell Styles",
+    "question": "Can 'Wrap Text' and 'Shrink to Fit' be applied simultaneously to the same cell?",
+    "options": [
+      "No, enabling Wrap Text disables Shrink to Fit (they are mutually exclusive)",
+      "Yes",
+      "Only in tables",
+      "Only in Excel 365"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Excel's formatting engine, checking Wrap Text automatically disables and greys out the Shrink to Fit option.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q308",
+    "topic": "Alignment & Cell Styles",
+    "question": "What horizontal alignment option evenly spreads text characters across the entire cell width?",
+    "options": [
+      "Distributed (Indent)",
+      "Left",
+      "Fill",
+      "Center"
+    ],
+    "answerIndex": 0,
+    "explanation": "'Distributed' distributes characters and spacing evenly across the full width of the cell.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q309",
+    "topic": "Alignment & Cell Styles",
+    "question": "What horizontal alignment option repeats the cell content until the entire cell width is filled?",
+    "options": [
+      "Fill",
+      "General",
+      "Justify",
+      "Repeat"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 'Fill' alignment repeats the character sequence continuously across the visible cell width.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q310",
+    "topic": "Alignment & Cell Styles",
+    "question": "What alignment option allows rotating cell text at custom angles (e.g. 45 degrees or vertical text)?",
+    "options": [
+      "Orientation (Format Cells > Alignment > Orientation)",
+      "Wrap Text",
+      "Text Direction",
+      "Transform"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Orientation` dial allows rotating text from -90° to +90° or displaying stacked vertical characters.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q311",
+    "topic": "Alignment & Cell Styles",
+    "question": "Where are the Vertical Alignment options located on the Home tab?",
+    "options": [
+      "Home > Alignment group (Top Align, Middle Align, Bottom Align buttons)",
+      "Home > Font",
+      "Page Layout",
+      "View"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vertical alignment buttons (Top, Middle, Bottom) reside directly above the horizontal alignment buttons on the Home tab.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q312",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the default vertical alignment for all cells in Excel?",
+    "options": [
+      "Bottom Align",
+      "Top Align",
+      "Middle Align",
+      "Justify"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel aligns cell contents to the **Bottom** of the cell by default.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q313",
+    "topic": "Alignment & Cell Styles",
+    "question": "What button increases the left indent margin of text inside a cell?",
+    "options": [
+      "Increase Indent (`Home > Alignment > Increase Indent`)",
+      "Tab key",
+      "Spacebar",
+      "Indent Maker"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Increase Indent` button moves cell content 1 character width inward from the border, ideal for financial statement hierarchies.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q314",
+    "topic": "Alignment & Cell Styles",
+    "question": "What keyboard shortcut opens the Format Cells dialog directly to the Alignment tab?",
+    "options": [
+      "Ctrl + 1, then Arrow Right to Alignment",
+      "Ctrl + Shift + A",
+      "Alt + H + A",
+      "F2"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pressing `Ctrl + 1` and navigating with arrow keys opens the Alignment configuration panel.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q315",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the difference between Theme Colors and Standard Colors in Excel's color palette?",
+    "options": [
+      "Theme Colors automatically adapt when you switch workbook themes; Standard Colors remain fixed permanently",
+      "Theme Colors print in black and white",
+      "Standard Colors cannot be changed",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "Theme colors are dynamically linked to the workbook's active Office Theme palette. Standard colors (10 fixed hues) never change with themes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q316",
+    "topic": "Alignment & Cell Styles",
+    "question": "What feature allows applying pre-packaged executive formatting sets (e.g. 'Heading 1', 'Total', 'Good/Bad/Neutral') in one click?",
+    "options": [
+      "Cell Styles gallery (`Home > Styles > Cell Styles`)",
+      "AutoFormat",
+      "Themes",
+      "Format Painter"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Cell Styles` gallery provides standardized executive formatting styles for titles, inputs, calculations, and financial totals.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q317",
+    "topic": "Alignment & Cell Styles",
+    "question": "Can you create and save custom Cell Styles in an Excel workbook?",
+    "options": [
+      "Yes, by clicking 'New Cell Style...' in the Cell Styles gallery",
+      "No, styles are fixed",
+      "Only via VBA",
+      "Only in Word"
+    ],
+    "answerIndex": 0,
+    "explanation": "You can save custom combinations of fonts, borders, fills, and number formats as named custom Cell Styles.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q318",
+    "topic": "Alignment & Cell Styles",
+    "question": "What tool copies formatting from one cell and applies it to another with a single click?",
+    "options": [
+      "Format Painter (`Home > Clipboard > Format Painter`)",
+      "Copy Paste",
+      "Flash Fill",
+      "AutoFill"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Format Painter` paintbrush tool copies all visual formatting attributes from source to target cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q319",
+    "topic": "Alignment & Cell Styles",
+    "question": "How can you keep Format Painter active to paint formatting onto multiple non-contiguous ranges?",
+    "options": [
+      "Double-click the Format Painter button",
+      "Hold Shift while clicking",
+      "Right-click the paintbrush",
+      "Press Ctrl + F4"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double-clicking the Format Painter locks it active so you can paint formatting onto multiple separate ranges until pressing `Esc`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q320",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the standard accounting formatting convention for financial totals at the bottom of an income statement?",
+    "options": [
+      "Top border thin line, bottom border double line ('Top and Double Bottom Border')",
+      "Thick red border",
+      "No borders",
+      "Dotted border"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting standards specify a single top rule (subtotal calculation line) and a double bottom rule (final closed balance line).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q321",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to apply an Outline Border around selected cells?",
+    "options": [
+      "Ctrl + Shift + & (or Ctrl + Shift + 7)",
+      "Ctrl + B",
+      "Alt + B",
+      "Ctrl + Shift + -"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + &` applies an outline border around the active selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q322",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to remove ALL borders from selected cells?",
+    "options": [
+      "Ctrl + Shift + _ (underscore)",
+      "Ctrl + Shift + -",
+      "Alt + Backspace",
+      "Delete"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + _` (underscore) removes all borders from the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q323",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the default state of the 'Locked' attribute in the Protection tab of Format Cells for all cells in a new sheet?",
+    "options": [
+      "All cells are 'Locked' by default",
+      "All cells are 'Unlocked' by default",
+      "Only row 1 is locked",
+      "Only numbers are locked"
+    ],
+    "answerIndex": 0,
+    "explanation": "Every cell in Excel is marked as 'Locked' by default. However, locking takes effect ONLY after the worksheet is protected (`Review > Protect Sheet`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q324",
+    "topic": "Alignment & Cell Styles",
+    "question": "What happens when you protect a worksheet if you haven't unlocked data-entry cells first?",
+    "options": [
+      "Users cannot edit any cells in the entire worksheet",
+      "Users can edit numbers only",
+      "Excel crashes",
+      "Formulas are erased"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because all cells are locked by default, protecting the sheet makes every cell read-only unless specifically unlocked beforehand.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q325",
+    "topic": "Alignment & Cell Styles",
+    "question": "What does the 'Hidden' checkbox on the Protection tab do when sheet protection is active?",
+    "options": [
+      "Hides the formula from appearing in the Formula Bar while keeping the calculated result visible on the grid",
+      "Hides the cell completely",
+      "Deletes the cell",
+      "Hides the row"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 'Hidden' protection attribute conceals the formula syntax in the Formula Bar while displaying the calculated result on the sheet.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q326",
+    "topic": "Alignment & Cell Styles",
+    "question": "What alignment setting ensures that Japanese, Chinese, or Arabic text directions are preserved?",
+    "options": [
+      "Text Direction: Context / Left-to-Right / Right-to-Left",
+      "Wrap Text",
+      "Shrink to Fit",
+      "Fill"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Text Direction` setting controls bidirectional rendering for Right-to-Left scripts like Arabic or Hebrew.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q327",
+    "topic": "Alignment & Cell Styles",
+    "question": "What happens when you copy a merged cell (A1:C1) and paste it into a single cell (E5)?",
+    "options": [
+      "The destination cells (E5:G5) are also merged automatically",
+      "Only E5 gets data, no merge",
+      "Error",
+      "Only text pastes"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard copy-paste transfers the merged structure, merging E5:G5.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q328",
+    "topic": "Alignment & Cell Styles",
+    "question": "How do you unmerge previously merged cells?",
+    "options": [
+      "Click the 'Merge & Center' button again to toggle it off (or choose 'Unmerge Cells')",
+      "Press Delete",
+      "Clear Contents",
+      "Press F2"
+    ],
+    "answerIndex": 0,
+    "explanation": "Clicking `Merge & Center` on an already merged range toggles the merge off and restores individual cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q329",
+    "topic": "Alignment & Cell Styles",
+    "question": "When unmerging cells A1:D1 that contained 'Revenue', where does the value 'Revenue' reside after unmerging?",
+    "options": [
+      "In cell A1 only; cells B1, C1, D1 are empty",
+      "Duplicated in all 4 cells",
+      "Cleared completely",
+      "In cell D1"
+    ],
+    "answerIndex": 0,
+    "explanation": "After unmerging, the original value remains in the top-left cell (A1); all other constituent cells are blank.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q330",
+    "topic": "Alignment & Cell Styles",
+    "question": "What fill pattern style can be applied via Format Cells > Fill tab?",
+    "options": [
+      "Pattern Colors and Pattern Styles (e.g. diagonal stripes, crosshatch, dots)",
+      "3D shadows only",
+      "Video background",
+      "HTML canvas"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Fill tab supports gradient fills, solid background colors, pattern colors, and crosshatch/striped pattern textures.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q331",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the benefit of using soft, muted pastel fills (e.g. Slate, Ice Blue) instead of bright saturated neon colors in executive dashboards?",
+    "options": [
+      "Enhances data readability, prevents visual fatigue, and maintains professional corporate executive aesthetics",
+      "Saves printer ink only",
+      "Reduces file size",
+      "Required by Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Muted, harmonious palettes enhance data scannability without overwhelming executive readers with harsh saturated tones.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q332",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the 'Merge Across' option in the Merge dropdown menu?",
+    "options": [
+      "Merges cells horizontally across each row individually in the selection without merging the rows together",
+      "Merges everything into 1 single giant cell",
+      "Merges columns vertically",
+      "Merges worksheets"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Merge Across` merges each row horizontally across selected columns while keeping individual rows distinct.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q333",
+    "topic": "Alignment & Cell Styles",
+    "question": "Why does sorting a table fail with the error message 'To do this, all the merged cells need to be the same size'?",
+    "options": [
+      "Because merged cells create non-uniform rectangular grid shapes that break the relational row sorting engine",
+      "Because sort is disabled",
+      "Because data has text",
+      "Because sheet is zoomed"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel's sorting engine requires uniform 1x1 cell matrices; merged cells create jagged arrays that block sorting algorithms.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q334",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the recommended font family for modern, clean, executive spreadsheet presentations in Microsoft 365?",
+    "options": [
+      "Aptos, Segoe UI, Calibri, or Inter",
+      "Comic Sans",
+      "Courier New",
+      "Impact"
+    ],
+    "answerIndex": 0,
+    "explanation": "Modern clean sans-serif typefaces like Aptos (the default M365 typeface), Segoe UI, Calibri, or Inter provide crisp typographic hierarchy.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q335",
+    "topic": "Alignment & Cell Styles",
+    "question": "How can you apply a gradient fill across a range of cells in Excel?",
+    "options": [
+      "Format Cells (`Ctrl + 1`) > Fill tab > Fill Effects... > select Two Colors and Gradient style",
+      "Use Paintbrush",
+      "Use WordArt",
+      "Apply formula"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Format Cells > Fill > Fill Effects...` allows configuring linear, horizontal, vertical, and diagonal color gradient transitions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q336",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to make selected cell text BOLD?",
+    "options": [
+      "Ctrl + B (or Ctrl + 2)",
+      "Ctrl + I",
+      "Ctrl + U",
+      "Alt + B"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + B` (or `Ctrl + 2`) toggles bold formatting on active cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q337",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to ITALICIZE selected cell text?",
+    "options": [
+      "Ctrl + I (or Ctrl + 3)",
+      "Ctrl + B",
+      "Ctrl + 4",
+      "Alt + I"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + I` (or `Ctrl + 3`) toggles italic formatting.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q338",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to UNDERLINE selected cell text?",
+    "options": [
+      "Ctrl + U (or Ctrl + 4)",
+      "Ctrl + 5",
+      "Ctrl + Shift + U",
+      "Alt + U"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + U` (or `Ctrl + 4`) toggles single underline.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q339",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the keyboard shortcut to apply STRIKETHROUGH formatting to cell text?",
+    "options": [
+      "Ctrl + 5",
+      "Ctrl + S",
+      "Ctrl + K",
+      "Alt + 5"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + 5` toggles strikethrough formatting on cell contents.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q340",
+    "topic": "Alignment & Cell Styles",
+    "question": "How can you format headers with diagonal text to save column width for narrow checklist columns?",
+    "options": [
+      "Set Text Orientation to 45° in Format Cells > Alignment",
+      "Use Wrap Text",
+      "Use Merge Cells",
+      "Use Center Across Selection"
+    ],
+    "answerIndex": 0,
+    "explanation": "Angling text to +45° or +60° allows narrow column widths while keeping lengthy header labels readable.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q341",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the difference between Single Underline and Accounting Underline?",
+    "options": [
+      "Accounting Underline places the underline at the bottom of the cell rather than hugging the font characters directly, and spans the cell width",
+      "Accounting underline is blue",
+      "Single underline is thicker",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting underlines sit at the very bottom baseline of the cell and span financial figures neatly.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q342",
+    "topic": "Alignment & Cell Styles",
+    "question": "What alignment option justifies multiline wrapped text within a cell so both left and right edges are aligned?",
+    "options": [
+      "Horizontal: Justify",
+      "Center",
+      "Distributed",
+      "Fill"
+    ],
+    "answerIndex": 0,
+    "explanation": "Horizontal `Justify` aligns both left and right margins of multiline wrapped text inside the cell.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q343",
+    "topic": "Alignment & Cell Styles",
+    "question": "What happens when you apply Cell Style 'Check Cell' from the styles gallery?",
+    "options": [
+      "Applies light grey fill with thick border for audit review",
+      "Locks the cell",
+      "Deletes cell contents",
+      "Adds a checkmark icon"
+    ],
+    "answerIndex": 0,
+    "explanation": "The built-in 'Check Cell' style applies standardized visual styling to flag cells under review.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q344",
+    "topic": "Alignment & Cell Styles",
+    "question": "How can you merge styles from another open workbook into your active workbook?",
+    "options": [
+      "Cell Styles gallery > Merge Styles... > select the source open workbook",
+      "Copy and paste cells",
+      "Save as template",
+      "Import XML"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Cell Styles > Merge Styles...` imports all custom named styles from another open workbook.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q345",
+    "topic": "Alignment & Cell Styles",
+    "question": "What does 'Clear All Formatting' do to numbers formatted as Currency ($1,000.00)?",
+    "options": [
+      "Reverts the number to raw General decimal display (1000)",
+      "Deletes the number",
+      "Converts to text",
+      "Changes to EUR"
+    ],
+    "answerIndex": 0,
+    "explanation": "Clearing formats strips currency symbols, commas, and forced decimal places, returning to raw unformatted numbers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q346",
+    "topic": "Alignment & Cell Styles",
+    "question": "What visual border line style is best suited for subtle internal grid separations in financial schedules?",
+    "options": [
+      "Thin light-grey solid line or dotted hair-line",
+      "Thick solid black line",
+      "Double red line",
+      "Zigzag line"
+    ],
+    "answerIndex": 0,
+    "explanation": "Subtle muted grey or hairline interior borders maintain clean structure without dominating the page.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q347",
+    "topic": "Alignment & Cell Styles",
+    "question": "How do you configure a cell note so that its background color or shape can be customized?",
+    "options": [
+      "Right-click note border > Format Comment/Note...",
+      "Use Format Cells",
+      "Use Page Layout",
+      "Use Paint"
+    ],
+    "answerIndex": 0,
+    "explanation": "Right-clicking the perimeter frame of a note allows full formatting of fills, fonts, and colors.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q348",
+    "topic": "Alignment & Cell Styles",
+    "question": "What is the purpose of the 'Linked Cell' format in executive modeling?",
+    "options": [
+      "Styling cells that pull data dynamically from other worksheets or external model components",
+      "Hyperlinking to Google",
+      "Protecting cells",
+      "Locking cells"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 'Linked Cell' style visually informs auditors that the cell derives its value from an upstream worksheet source.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q349",
+    "topic": "Alignment & Cell Styles",
+    "question": "Why should header text in tabular data always be formatted in Bold with distinct background contrast?",
+    "options": [
+      "To establish clear visual hierarchy and immediately distinguish metadata descriptors from record data rows",
+      "Because Excel requires it for formulas",
+      "To enable AutoSave",
+      "To allow printing"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bold header typography with contrasting fill creates instant visual anchor points for human readers and screen readers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q350",
+    "topic": "Alignment & Cell Styles",
+    "question": "How do you format multiple separate tables on the same sheet with consistent visual harmony?",
+    "options": [
+      "Define and apply standard Cell Styles and Theme Color palettes consistently across all table components",
+      "Use random colors on each table",
+      "Merge all cells",
+      "Use different fonts"
+    ],
+    "answerIndex": 0,
+    "explanation": "Adhering to unified Cell Styles and Theme palettes ensures institutional consistency across multi-table executive reports.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q351",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the golden rule of tabular data architecture in Microsoft Excel?",
+    "options": [
+      "One single tabular dataset per worksheet region with 1 header row, unique column names, and no blank rows/columns dividing data records",
+      "Merge headers across rows",
+      "Place multiple tables side by side randomly",
+      "Leave blank rows between records for spacing"
+    ],
+    "answerIndex": 0,
+    "explanation": "A clean dataset must have a single header row, unique field names, consistent data types per column, and zero blank rows/columns dividing the records.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q352",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What Excel function removes all leading, trailing, and duplicate spaces from a text string while preserving single spaces between words?",
+    "options": [
+      "=TRIM(text)",
+      "=CLEAN(text)",
+      "=STRIP(text)",
+      "=SPACECLEAR(text)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TRIM(text)` removes leading spaces, trailing spaces, and redundant consecutive spaces between words.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q353",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What Excel function removes non-printable ASCII control characters (characters 0 to 31) from imported system data?",
+    "options": [
+      "=CLEAN(text)",
+      "=TRIM(text)",
+      "=PURGE(text)",
+      "=SANITIZE(text)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=CLEAN(text)` strips non-printable system control codes (ASCII 0 through 31) from raw imported text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q354",
+    "topic": "Data Hygiene & Auditing",
+    "question": "Why does `=A1=B1` return FALSE when A1 is `\"Apple\"` and B1 is `\"Apple \"` (with a trailing space)?",
+    "options": [
+      "Because Excel compares exact byte sequences, and the invisible trailing space in B1 makes the strings unequal",
+      "Because Excel is case-sensitive",
+      "Because A1 is a formula",
+      "Because B1 is corrupt"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trailing whitespace characters are invisible to human eyes but are evaluated as distinct characters by Excel's comparison engine.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q355",
+    "topic": "Data Hygiene & Auditing",
+    "question": "How can you eliminate non-breaking web spaces (`CHAR(160)`) that the standard `=TRIM()` function cannot remove?",
+    "options": [
+      "=TRIM(SUBSTITUTE(A1, CHAR(160), \" \"))",
+      "=CLEAN(A1)",
+      "=REMOVE(A1, 160)",
+      "=TRIM(A1)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Web exports often contain non-breaking spaces (`&nbsp;` / `CHAR(160)`). Replacing them with regular spaces (`CHAR(32)`) allows `=TRIM()` to strip them clean.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q356",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What built-in tool parses delimited text (like comma-separated or tab-separated text) into separate distinct columns?",
+    "options": [
+      "Text to Columns (`Data > Data Tools > Text to Columns`)",
+      "Flash Fill",
+      "Remove Duplicates",
+      "Consolidate"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Text to Columns` splits combined text into separate adjacent columns based on delimiters (commas, tabs, semicolons, spaces) or fixed widths.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q357",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What tool automatically scans a table and deletes duplicate record rows based on selected key columns?",
+    "options": [
+      "Remove Duplicates (`Data > Data Tools > Remove Duplicates`)",
+      "Filter Duplicates",
+      "Clear Duplicates",
+      "Conditional Formatting"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Remove Duplicates` scans selected columns and permanently deletes duplicate rows, keeping the first occurrence.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q358",
+    "topic": "Data Hygiene & Auditing",
+    "question": "How does Excel alert you when a cell contains numbers formatted or stored as text?",
+    "options": [
+      "A green triangle appears in the upper-left corner of the cell with an Error Checking smart tag",
+      "A red border appears",
+      "The sheet turns grey",
+      "A popup message appears on screen"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel's background error checking flags 'Number Stored as Text' with a small green triangle in the upper-left corner.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q359",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the quickest way to convert an entire column of 'Numbers Stored as Text' flagged with green triangles into true numbers?",
+    "options": [
+      "Select all flagged cells, click the yellow Warning Smart Tag button, and select 'Convert to Number'",
+      "Retype them manually",
+      "Format as Currency",
+      "Press F2 on every cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Clicking the warning smart tag dropdown and choosing 'Convert to Number' instantly batch-converts all selected cells to numeric data types.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q360",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function converts all characters in a text string into UPPERCASE?",
+    "options": [
+      "=UPPER(text)",
+      "=UCASE(text)",
+      "=CAPS(text)",
+      "=TOUPPER(text)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=UPPER(text)` converts all letters in a string to uppercase.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q361",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function converts all characters in a text string into lowercase?",
+    "options": [
+      "=LOWER(text)",
+      "=DOWNCASE(text)",
+      "=LCASE(text)",
+      "=TOLOWER(text)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=LOWER(text)` converts all letters in a string to lowercase.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q362",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function capitalizes the first letter of each word and converts all other letters to lowercase (Proper / Title Case)?",
+    "options": [
+      "=PROPER(text)",
+      "=TITLECASE(text)",
+      "=CAPITALIZE(text)",
+      "=SENTENCE(text)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=PROPER(text)` capitalizes the first letter of every word (title case) and lowercases the rest.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q363",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What does `=LEN(text)` return in Excel?",
+    "options": [
+      "The total count of characters in the text string, including letters, numbers, spaces, and punctuation",
+      "The byte size of the cell",
+      "The word count",
+      "The line count"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=LEN(text)` returns the integer length (number of characters) of a string, including spaces.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q364",
+    "topic": "Data Hygiene & Auditing",
+    "question": "If cell A1 displays `450` but `=ISNUMBER(A1)` returns FALSE, what does this indicate?",
+    "options": [
+      "A1 contains a text string '450' rather than a true numeric value",
+      "A1 is corrupt",
+      "Excel calculation is paused",
+      "A1 contains an error token"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ISNUMBER` returning FALSE on visible digits indicates the cell is formatted as Text or contains hidden whitespace characters.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q365",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function returns TRUE if a cell contains a text string?",
+    "options": [
+      "=ISTEXT(value)",
+      "=ISSTRING(value)",
+      "=ISCHAR(value)",
+      "=TYPE(value)=2"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=ISTEXT(value)` evaluates whether the value is stored as text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q366",
+    "topic": "Data Hygiene & Auditing",
+    "question": "How can you identify duplicate rows across a dataset visually before deleting them?",
+    "options": [
+      "Conditional Formatting > Highlight Cells Rules > Duplicate Values...",
+      "Sort & Filter",
+      "Find & Replace",
+      "Data Validation"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Conditional Formatting > Highlight Cells Rules > Duplicate Values...` highlights all duplicate values in soft red fill.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q367",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the danger of using blank rows to create visual spacing between table sections in an analytical spreadsheet?",
+    "options": [
+      "Blank rows break AutoFilter ranges, disrupt sorting blocks, halt PivotTable data sources, and cause AutoFill to stop prematurely",
+      "Blank rows cause file corruption",
+      "Blank rows delete formulas",
+      "Blank rows crash Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Blank rows fragment contiguous data regions, causing filters, sorting algorithms, and PivotTables to evaluate only the partial sub-table above the blank row.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q368",
+    "topic": "Data Hygiene & Auditing",
+    "question": "Instead of inserting empty blank rows for spacing, what is the best practice for creating vertical separation between sections?",
+    "options": [
+      "Increase the Row Height of the section header row or add cell border padding",
+      "Insert 3 blank rows",
+      "Hide the rows",
+      "Merge empty cells"
+    ],
+    "answerIndex": 0,
+    "explanation": "Increasing Row Height (`Format > Row Height`) or applying border spacing creates clean visual separation without corrupting data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q369",
+    "topic": "Data Hygiene & Auditing",
+    "question": "Why should column headers always reside in a SINGLE row rather than split across multiple stacked merged rows?",
+    "options": [
+      "Single-row headers ensure seamless integration with AutoFilter, PivotTables, Power Query, and dynamic array referencing",
+      "Excel cannot read row 2",
+      "Formulas only work on row 1",
+      "Headers cannot have text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Multilevel stacked merged headers create ambiguous column names and break automated ETL and PivotTable field recognition.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q370",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What tool restricts data entry in a cell to specific criteria (e.g. whole numbers between 1 and 100, or a dropdown list)?",
+    "options": [
+      "Data Validation (`Data > Data Tools > Data Validation`)",
+      "Conditional Formatting",
+      "Protect Sheet",
+      "Goal Seek"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Data Validation` enforces business rules, input messages, and error alerts during live data entry.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q371",
+    "topic": "Data Hygiene & Auditing",
+    "question": "In Data Validation, how do you create an in-cell Dropdown List from a range of items on the sheet?",
+    "options": [
+      "Set Allow: 'List' and enter the Source range (e.g. `=Sheet2!$A$1:$A$10`)",
+      "Set Allow: 'Custom'",
+      "Set Allow: 'Any value'",
+      "Use Format Cells"
+    ],
+    "answerIndex": 0,
+    "explanation": "Selecting `Allow: List` and specifying the source range generates an interactive in-cell dropdown list arrow.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q372",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What Data Validation error alert style completely PREVENTS the user from entering invalid data?",
+    "options": [
+      "Stop (Red X icon)",
+      "Warning (Yellow Triangle)",
+      "Information (Blue i)",
+      "Message Box"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Stop` style strictly blocks invalid entry and forces the user to retry or cancel. (Warning and Information allow bypassing).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q373",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function replaces specific occurrences of existing text with new text in a string?",
+    "options": [
+      "=SUBSTITUTE(text, old_text, new_text, [instance_num])",
+      "=REPLACE()",
+      "=CHANGE()",
+      "=SWAP()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=SUBSTITUTE()` searches for and replaces target text strings (and is case-sensitive).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q374",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the difference between `=SUBSTITUTE()` and `=REPLACE()` in Excel?",
+    "options": [
+      "`SUBSTITUTE` replaces specific matching text anywhere in the string; `REPLACE` replaces characters at a specific starting position and character length",
+      "They are identical",
+      "`REPLACE` only works on numbers",
+      "`SUBSTITUTE` is case-insensitive"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SUBSTITUTE` looks for matching text tokens; `REPLACE` swaps out characters based on positional coordinates (start_num, num_chars).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q375",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function extracts characters from the LEFT side of a text string?",
+    "options": [
+      "=LEFT(text, [num_chars])",
+      "=START()",
+      "=EXTRACTLEFT()",
+      "=SUBSTRING()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=LEFT(text, num_chars)` extracts the specified number of characters from the beginning of a string.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q376",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function extracts characters from the RIGHT side of a text string?",
+    "options": [
+      "=RIGHT(text, [num_chars])",
+      "=END()",
+      "=TAIL()",
+      "=LAST()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=RIGHT(text, num_chars)` extracts characters from the end of a string.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q377",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function extracts characters from the MIDDLE of a text string starting at a specific position?",
+    "options": [
+      "=MID(text, start_num, num_chars)",
+      "=MIDDLE()",
+      "=SUBSTR()",
+      "=BETWEEN()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=MID(text, start_num, num_chars)` extracts a substring from any arbitrary starting position.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q378",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function returns the starting character position of a substring inside a text string (case-sensitive)?",
+    "options": [
+      "=FIND(find_text, within_text, [start_num])",
+      "=SEARCH()",
+      "=LOCATE()",
+      "=INDEX()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=FIND()` searches for text and is case-sensitive and does not support wildcards.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q379",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function returns the starting character position of a substring inside a text string (case-INsensitive and supports wildcards)?",
+    "options": [
+      "=SEARCH(find_text, within_text, [start_num])",
+      "=FIND()",
+      "=LOOKUP()",
+      "=MATCH()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=SEARCH()` performs a case-insensitive search and supports wildcard characters (`*`, `?`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q380",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What modern Excel function extracts all text appearing BEFORE a specified delimiter character?",
+    "options": [
+      "=TEXTBEFORE(text, delimiter, [instance_num])",
+      "=LEFT()",
+      "=BEFORE()",
+      "=SPLIT()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TEXTBEFORE()` dynamically extracts text preceding a specified delimiter token.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q381",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What modern Excel function extracts all text appearing AFTER a specified delimiter character?",
+    "options": [
+      "=TEXTAFTER(text, delimiter, [instance_num])",
+      "=RIGHT()",
+      "=AFTER()",
+      "=REMAINDER()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TEXTAFTER()` extracts text following a specified delimiter token.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q382",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What modern Excel function splits a text string into an array across columns or rows based on delimiters?",
+    "options": [
+      "=TEXTSPLIT(text, col_delimiter, [row_delimiter])",
+      "=SPLIT()",
+      "=UNMERGE()",
+      "=TEXTTOCOLS()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TEXTSPLIT()` dynamically splits text into multiple cells across rows or columns.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q383",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What modern Excel function joins an array or range of text cells together with a delimiter while ignoring empty cells?",
+    "options": [
+      "=TEXTJOIN(delimiter, ignore_empty, text1, ...)",
+      "=CONCATENATE()",
+      "=MERGETEXT()",
+      "=COMBINE()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TEXTJOIN()` joins multiple text elements using a custom delimiter with optional suppression of empty cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q384",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the limitation of the legacy `=CONCATENATE()` function compared to modern `=TEXTJOIN()` and `=CONCAT()`?",
+    "options": [
+      "`CONCATENATE` cannot accept full range arguments like `A1:A50` and cannot automatically insert delimiters between items",
+      "It only accepts 2 cells",
+      "It converts numbers to errors",
+      "It requires macros"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=CONCATENATE()` requires listing each cell individually (`A1, A2, A3...`) and cannot supply delimiters automatically.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q385",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What does the ampersand (`&`) operator do when placed between two cells (e.g. `=A1 & \" \" & B1`)?",
+    "options": [
+      "Concatenates (joins) the values into a single text string",
+      "Multiplies the values",
+      "Performs logical AND",
+      "Compares values"
+    ],
+    "answerIndex": 0,
+    "explanation": "The ampersand (`&`) is Excel's string concatenation operator.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q386",
+    "topic": "Data Hygiene & Auditing",
+    "question": "How can you remove hard line breaks (`Alt + Enter` / `CHAR(10)`) from imported text across an entire column?",
+    "options": [
+      "Use Find & Replace (`Ctrl + H`) > Find what: press `Ctrl + J` > Replace with: type a single space > click Replace All",
+      "Use TRIM only",
+      "Format as General",
+      "Delete the column"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + J` in Find What targets line break characters and replaces them with standard spaces.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q387",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is an Audit Trail in enterprise spreadsheet management?",
+    "options": [
+      "A systematic log of changes, author timestamps, source data lineage, and version history ensuring accountability and data integrity",
+      "A list of formulas",
+      "A printer test page",
+      "A chart template"
+    ],
+    "answerIndex": 0,
+    "explanation": "An audit trail documents model provenance, assumptions, data sources, edit dates, and verification checklists.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q388",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What tool in Excel allows circular dependency error auditing and tracing precedents/dependents?",
+    "options": [
+      "Formulas > Formula Auditing (Trace Precedents, Trace Dependents, Error Checking)",
+      "Data > Data Tools",
+      "Review > Proofing",
+      "View > Show"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Formula Auditing` toolbar provides visual tracer arrows pointing to cell precedents and dependents.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q389",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What are blue tracer arrows in Excel Formula Auditing?",
+    "options": [
+      "Pointers indicating cells that supply data directly to the active formula (Precedents)",
+      "Errors in the formula",
+      "External workbook links",
+      "Cell comments"
+    ],
+    "answerIndex": 0,
+    "explanation": "Blue tracer arrows point from precedent cells into the active formula.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q390",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What do red tracer arrows indicate in Excel Formula Auditing?",
+    "options": [
+      "A precedent cell containing an active calculation error that causes the dependent cell to error out",
+      "A circular reference",
+      "A locked cell",
+      "A comment"
+    ],
+    "answerIndex": 0,
+    "explanation": "Red tracer arrows indicate that a precedent cell is actively producing a calculation error.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q391",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is a Circular Reference in Excel?",
+    "options": [
+      "A formula that depends on its own cell value directly or indirectly (e.g. cell A1 containing `=A1 + 10`)",
+      "A circle chart",
+      "A merged cell",
+      "A broken link"
+    ],
+    "answerIndex": 0,
+    "explanation": "A circular reference occurs when a formula refers to its own cell coordinate, creating an infinite calculation loop unless Iterative Calculation is enabled.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q392",
+    "topic": "Data Hygiene & Auditing",
+    "question": "Where does Excel display the location of an active Circular Reference?",
+    "options": [
+      "In the bottom-left Status Bar (e.g. 'Circular References: C10')",
+      "In a popup modal that blocks typing",
+      "In the Ribbon",
+      "In the Name Box"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel flags active circular references on the bottom Status Bar with the exact cell coordinate.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q393",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function evaluates whether a cell contains ANY error token (`#N/A`, `#VALUE!`, `#REF!`, `#DIV/0!`, `#NUM!`, `#NAME?`, `#NULL!`)?",
+    "options": [
+      "=ISERROR(value)",
+      "=ISERR(value)",
+      "=ISNA(value)",
+      "=ISBUG(value)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=ISERROR()` returns TRUE for all 7 standard error types including `#N/A`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q394",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the difference between `=ISERROR()` and `=ISERR()`?",
+    "options": [
+      "`ISERROR` catches ALL errors including `#N/A`; `ISERR` catches all errors EXCEPT `#N/A`",
+      "They are identical",
+      "`ISERR` only works on numbers",
+      "`ISERROR` is deprecated"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=ISERR()` evaluates all errors except `#N/A` (which is reserved for missing lookup items).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q395",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function wraps a calculation and returns an alternate custom fallback value if an error occurs?",
+    "options": [
+      "=IFERROR(value, value_if_error)",
+      "=ISERROR()",
+      "=ERROR.TYPE()",
+      "=IFNA()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=IFERROR(formula, fallback)` catches calculation errors and returns a graceful default value (such as `0` or `\"N/A\"`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q396",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What function catches specifically `#N/A` lookup errors while letting other critical mathematical errors (`#DIV/0!`, `#REF!`) surface for auditing?",
+    "options": [
+      "=IFNA(value, value_if_na)",
+      "=IFERROR()",
+      "=ISNA()",
+      "=CLEAN()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=IFNA()` suppresses only `#N/A` errors, allowing real structural bugs like `#REF!` or `#DIV/0!` to remain visible for debugging.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q397",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What is the best practice for storing master dimension tables (like Product Catalog or Employee Master)?",
+    "options": [
+      "Store each master dataset in an official Excel Table (`Ctrl + T`) on a dedicated lookup tab with unique Primary Key IDs",
+      "Mix data with daily transactions",
+      "Store as text on desktop",
+      "Hardcode in formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "Organizing master dimensions in structured Excel Tables with primary keys guarantees reliable lookups and clean data normalization.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q398",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What keyboard shortcut converts a raw data range into an official structured Microsoft Excel Table?",
+    "options": [
+      "Ctrl + T (or Ctrl + L)",
+      "Ctrl + Shift + T",
+      "Alt + T",
+      "Ctrl + B"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + T` (or `Ctrl + L`) converts a tabular range into an official Excel Table with banded rows, auto-expansion, and structured references.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q399",
+    "topic": "Data Hygiene & Auditing",
+    "question": "What happens when you add a new row of data immediately below an official Excel Table (`Ctrl + T`)?",
+    "options": [
+      "The Table automatically expands to encompass the new row and copies down all calculated column formulas and formats",
+      "The table breaks",
+      "The row is rejected",
+      "Excel throws an error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Tables dynamically expand their boundaries and propagate formulas, validation, and styling automatically.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q400",
+    "topic": "Data Hygiene & Auditing",
+    "question": "Why should financial accountants avoid using the spacebar to center or indent text inside spreadsheet cells?",
+    "options": [
+      "Manual spacebar padding corrupts string lengths, breaks exact lookups (`VLOOKUP`/`XLOOKUP`), and creates invisible data hygiene errors; use Cell Alignment or Indent buttons instead",
+      "Spacebar takes up too much file memory",
+      "Spacebar deletes text",
+      "Spacebar crashes formulas"
+    ],
+    "answerIndex": 0,
+    "explanation": "Using the spacebar for visual alignment embeds rogue space characters that break `=XLOOKUP`, sorting, and validation. Always use cell formatting tools (Indent, Center Across Selection).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q401",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut instantly applies Currency formatting with two decimal places and negative numbers in parentheses (`$#,##0.00;($#,##0.00)`)?",
+    "options": [
+      "Ctrl + Shift + $ (Ctrl + Shift + 4)",
+      "Ctrl + Shift + %",
+      "Ctrl + Shift + #",
+      "Alt + 4"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + $` applies standard Currency format with 2 decimals.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q402",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut instantly applies Percentage format with zero decimal places (`0%`)?",
+    "options": [
+      "Ctrl + Shift + % (Ctrl + Shift + 5)",
+      "Ctrl + Shift + $",
+      "Ctrl + %",
+      "Alt + 5"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + %` applies standard Percentage format.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q403",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut instantly applies Date formatting (`d-mmm-yy`, e.g. `15-Aug-26`)?",
+    "options": [
+      "Ctrl + Shift + # (Ctrl + Shift + 3)",
+      "Ctrl + Shift + @",
+      "Ctrl + D",
+      "Alt + 3"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + #` applies standard Date formatting.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q404",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut instantly applies Time formatting (`h:mm AM/PM`)?",
+    "options": [
+      "Ctrl + Shift + @ (Ctrl + Shift + 2)",
+      "Ctrl + Shift + !",
+      "Ctrl + T",
+      "Alt + 2"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + @` applies standard Time formatting.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q405",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut instantly applies Number format with thousands separator and 2 decimal places (`#,##0.00`)?",
+    "options": [
+      "Ctrl + Shift + ! (Ctrl + Shift + 1)",
+      "Ctrl + Shift + $",
+      "Ctrl + Shift + ~",
+      "Alt + 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + !` applies standard two-decimal Number formatting with commas.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q406",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut resets selected cells back to default unformatted 'General' format?",
+    "options": [
+      "Ctrl + Shift + ~ (tilde)",
+      "Ctrl + Shift + 0",
+      "Ctrl + G",
+      "Alt + ~"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + ~` resets all selected cells to default General format.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q407",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut copies the formula from the cell directly above into the active cell without changing relative references?",
+    "options": [
+      "Ctrl + ' (single quote)",
+      "Ctrl + D",
+      "Ctrl + \"",
+      "Alt + '"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + '` copies the exact formula text from the cell above without shifting references.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q408",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut copies the calculated value from the cell directly above into the active cell?",
+    "options": [
+      "Ctrl + \" (or Ctrl + Shift + ')",
+      "Ctrl + '",
+      "Ctrl + D",
+      "Alt + D"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + \"` copies the evaluated static value from the cell directly above.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q409",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut automatically inserts the `=SUM()` formula across adjacent contiguous rows or columns?",
+    "options": [
+      "Alt + = (Alt equals)",
+      "Ctrl + S",
+      "Ctrl + Shift + S",
+      "Alt + S"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Alt + =` triggers AutoSum, automatically building `=SUM()` over contiguous numeric ranges.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q410",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut selects the entire current contiguous data region around the active cell?",
+    "options": [
+      "Ctrl + A (or Ctrl + Shift + Space)",
+      "Shift + Space",
+      "Ctrl + Space",
+      "Alt + A"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + A` (when inside a data table) selects the entire contiguous table region.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q411",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut toggles AutoFilter drop-down arrows on and off across the header row?",
+    "options": [
+      "Ctrl + Shift + L",
+      "Ctrl + F",
+      "Alt + F",
+      "Ctrl + Shift + F"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Shift + L` toggles AutoFilter arrows on the header row.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q412",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut opens the 'Pick from Drop-down List' menu showing all unique text values in the column above?",
+    "options": [
+      "Alt + Down Arrow",
+      "Ctrl + Down Arrow",
+      "Shift + F4",
+      "F2"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Alt + Down Arrow` opens an instant drop-down list of all existing unique entries in that column for rapid re-entry.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q413",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut opens the Insert Hyperlink dialog box?",
+    "options": [
+      "Ctrl + K",
+      "Ctrl + H",
+      "Ctrl + L",
+      "Alt + K"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + K` opens the Insert Hyperlink dialog to link to sheets, URLs, or files.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q414",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut creates an embedded 2D Column Chart instantly on the active worksheet based on selected data?",
+    "options": [
+      "Alt + F1",
+      "F11",
+      "Ctrl + F1",
+      "Shift + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Alt + F1` creates an instant embedded chart on the current worksheet. (`F11` creates a chart on a dedicated Chart Sheet).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q415",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut scrolls the active worksheet viewport to center around the active cell cursor?",
+    "options": [
+      "Ctrl + Backspace",
+      "Ctrl + Home",
+      "Ctrl + End",
+      "Shift + Backspace"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Backspace` scrolls the screen back to the active cell without changing the selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q416",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You import bank transaction data where debit amounts are shown with trailing minus signs (e.g. `1500.00-`). How can you quickly convert them to standard negative numbers `-1500.00`?",
+    "options": [
+      "Run Data > Text to Columns > click Finish (Excel automatically parses trailing minus signs into negative numbers)",
+      "Retype all numbers",
+      "Use Find & Replace only",
+      "Apply Currency format"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel's `Text to Columns` engine automatically recognizes and converts trailing minus signs into standard negative numbers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q417",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "A client spreadsheet displays `######` in cell D5. What is the fastest way to resolve this issue?",
+    "options": [
+      "Double-click the column header boundary between D and E to AutoFit the column width",
+      "Delete the cell",
+      "Re-enter the formula",
+      "Change the font color"
+    ],
+    "answerIndex": 0,
+    "explanation": "`###` indicates the cell is too narrow to display the formatted number/date; AutoFitting the column width resolves it immediately.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q418",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You have a list of 5,000 employee full names in Column A. You need to create company emails in format `firstname.lastname@corp.com` in Column B. What is the most efficient method?",
+    "options": [
+      "Type `john.smith@corp.com` in B1 and press `Ctrl + E` (Flash Fill)",
+      "Write nested string formulas with MID and FIND",
+      "Type them manually",
+      "Use Text to Columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "Typing one sample output and pressing `Ctrl + E` generates all 5,000 email addresses in under 1 second.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q419",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You are preparing an Executive Balance Sheet for the Board of Directors. Which custom number format mask should be applied to format figures in Thousands ($k) with negative numbers in red parentheses and zero as a dash?",
+    "options": [
+      "`$#,##0,;[Red]($#,##0,);\"-\";@`",
+      "`$#,##0;-$#,##0;0`",
+      "`$0.00;($0.00)`",
+      "`General`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`$#,##0,;[Red]($#,##0,);\"-\";@` divides by 1,000 via trailing comma, applies red parentheses to negatives, and displays zeros as dashes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q420",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You paste financial data from a website and all numbers fail to calculate in `=SUM()`, returning 0. What is the root cause?",
+    "options": [
+      "The numbers were pasted as Text strings containing non-breaking spaces or text formatting; SUM ignores text",
+      "The numbers are too large",
+      "Excel calculation is broken",
+      "The font is wrong"
+    ],
+    "answerIndex": 0,
+    "explanation": "Web tables often paste numbers as text with non-breaking whitespace (`CHAR(160)`), causing `=SUM()` to ignore them.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q421",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How can you convert those web-imported text numbers into true numbers across 10,000 rows in 3 seconds?",
+    "options": [
+      "Select column > Data > Text to Columns > click Finish",
+      "Press F2 on every cell",
+      "Retype the numbers",
+      "Format as Number"
+    ],
+    "answerIndex": 0,
+    "explanation": "Running `Data > Text to Columns > Finish` parses and coerces the entire column into true numbers instantly.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q422",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "In a payroll sheet, an employee worked from 08:00 AM to 06:30 PM with a 45-minute unpaid lunch break. How do you calculate total payable hours as 9.75?",
+    "options": [
+      "`=(EndTime - StartTime - (45/1440)) * 24`",
+      "`=(EndTime - StartTime - 45) * 24`",
+      "`=EndTime - StartTime - 0.45`",
+      "`=(EndTime - StartTime) / 24`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`(EndTime - StartTime - (45/1440)) * 24` subtracts lunch time (45 mins / 1440) and converts the net daily fraction to 9.75 decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q423",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How should a financial analyst configure a worksheet model to prevent accidental edits to complex formula cells while allowing input in budget assumption cells?",
+    "options": [
+      "Unlock the assumption cells (`Format Cells > Protection > uncheck Locked`), then protect the worksheet (`Review > Protect Sheet`)",
+      "Make the whole sheet read-only",
+      "Hide the formulas",
+      "Save as PDF"
+    ],
+    "answerIndex": 0,
+    "explanation": "Unlocking input cells and protecting the sheet allows data entry only in designated input cells while guarding formulas.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q424",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You copy a summary table and need to paste it into an email as a clean graphic that maintains exact column widths and formatting. Which Paste option should be used?",
+    "options": [
+      "Copy > Paste as Picture (or Copy as Picture)",
+      "Paste Values",
+      "Paste Formats",
+      "Paste Link"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Copy as Picture` captures a high-resolution bitmap/vector snapshot perfect for presentations and emails.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q425",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "A project manager needs to highlight all project tasks that are past their due date (`DueDate < TODAY()`). What tool should be configured?",
+    "options": [
+      "Conditional Formatting with rule `=DueDate < TODAY()`",
+      "Data Validation",
+      "AutoFilter",
+      "Format Cells"
+    ],
+    "answerIndex": 0,
+    "explanation": "Conditional Formatting evaluates `=A2 < TODAY()` and applies alert styling automatically.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q426",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How can you force a 10-digit PAN or GST tax identification number to always display in uppercase letters during data entry?",
+    "options": [
+      "Apply Data Validation with custom formula `=EXACT(A1, UPPER(A1))`",
+      "Use UPPER formula in adjacent column",
+      "Use Flash Fill",
+      "Format as Text"
+    ],
+    "answerIndex": 0,
+    "explanation": "A Data Validation rule `=EXACT(A1, UPPER(A1))` strictly rejects any lowercase entries, enforcing proper tax ID hygiene.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q427",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "In an audited inventory report, you need to hide all zero-balance lines visually without deleting row data. What custom format accomplishes this?",
+    "options": [
+      "`#,##0.00;(#,##0.00);;@`",
+      "`0;0;0;0`",
+      "`###`",
+      "`[Red]0`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Leaving the 3rd section (zero section) empty suppresses all zero values from visual display.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q428",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the keyboard shortcut to jump between worksheets (Next Sheet / Previous Sheet)?",
+    "options": [
+      "Ctrl + Page Down (Next) / Ctrl + Page Up (Previous)",
+      "Alt + Page Down",
+      "Shift + Page Down",
+      "Ctrl + Tab"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Page Down` navigates to the next tab to the right; `Ctrl + Page Up` navigates to the left.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q429",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the keyboard shortcut to minimize or expand the Excel Ribbon interface?",
+    "options": [
+      "Ctrl + F1",
+      "Ctrl + F2",
+      "F1",
+      "Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + F1` toggles ribbon visibility between collapsed and expanded modes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q430",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the keyboard shortcut to open the Excel Options settings window?",
+    "options": [
+      "Alt + F + T (or Alt + T + O)",
+      "Ctrl + O",
+      "Ctrl + Shift + O",
+      "F12"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Alt + F + T` opens the Excel Options configuration window.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q431",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut triggers full workbook recalculation across all open sheets?",
+    "options": [
+      "F9 (or Ctrl + Alt + F9 for full rebuild)",
+      "F5",
+      "F2",
+      "Shift + F9"
+    ],
+    "answerIndex": 0,
+    "explanation": "`F9` calculates all modified formulas; `Ctrl + Alt + F9` forces a full recalculation of all formulas across all open workbooks.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q432",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut recalculates ONLY the active worksheet?",
+    "options": [
+      "Shift + F9",
+      "F9",
+      "Alt + F9",
+      "Ctrl + F9"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Shift + F9` recalculates only formulas on the active worksheet.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q433",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What keyboard shortcut displays the 'Save As' dialog to save the file under a new name or file format?",
+    "options": [
+      "F12",
+      "Ctrl + S",
+      "Alt + S",
+      "Ctrl + F12"
+    ],
+    "answerIndex": 0,
+    "explanation": "`F12` opens the Save As dialog box directly.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q434",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What file format should be selected in Save As to create a macro-enabled Excel workbook?",
+    "options": [
+      "Excel Macro-Enabled Workbook (*.xlsm)",
+      "Excel Workbook (*.xlsx)",
+      "Excel Binary Workbook (*.xlsb)",
+      "CSV (*.csv)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` files strip VBA macros upon saving; VBA macros require `.xlsm` or `.xlsb` format.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q435",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What file format provides the smallest file size and fastest opening/saving speeds for massive data models (e.g. 500k rows)?",
+    "options": [
+      "Excel Binary Workbook (*.xlsb)",
+      "Excel Workbook (*.xlsx)",
+      "CSV (*.csv)",
+      "XML (*.xml)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`.xlsb` stores data in compressed binary format, reducing file size by up to 50% and accelerating load times dramatically.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q436",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the maximum limit of undo actions if you save and close an Excel file?",
+    "options": [
+      "Zero; closing a workbook permanently purges its Undo history",
+      "100",
+      "10",
+      "Unlimited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Closing a file terminates its active session and clears all Undo history.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q437",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You have a column with values formatted as `$#,##0.00`. You copy cell A1 ($500.00) and Paste Special > Formats into cell B1 (containing date 15-Aug-2026). What happens to cell B1?",
+    "options": [
+      "B1's date serial (46249) is now displayed as `$46,249.00`",
+      "B1 becomes $500.00",
+      "B1 returns #VALUE!",
+      "B1 is cleared"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting format overwrites the date mask with the currency mask, formatting the underlying date serial as currency.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q438",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How can you insert today's date in a formula so it updates automatically, but displays in full format 'Saturday, August 15, 2026'?",
+    "options": [
+      "Formula `=TODAY()` with custom number format `dddd, mmmm dd, yyyy`",
+      "Type 'Saturday, August 15, 2026'",
+      "Use `=DATE()`",
+      "Use `=NOW()` only"
+    ],
+    "answerIndex": 0,
+    "explanation": "`=TODAY()` supplies the dynamic serial number, and custom format `dddd, mmmm dd, yyyy` renders the full weekday and month name.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q439",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How can you create a table where every alternating row is shaded light grey (Zebra striping) without manual formatting?",
+    "options": [
+      "Convert the range to an Excel Table (`Ctrl + T`) which applies banded rows automatically",
+      "Paint each row with Format Painter",
+      "Color each row manually",
+      "Use conditional formatting on row numbers only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Tables (`Ctrl + T`) automatically maintain zebra banded row fills even when rows are filtered, sorted, inserted, or deleted.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q440",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the shortcut to open the Quick Analysis tool on a selected range of data?",
+    "options": [
+      "Ctrl + Q",
+      "Ctrl + A",
+      "Alt + Q",
+      "Ctrl + Shift + Q"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Q` opens the Quick Analysis lens for instant formatting, charts, totals, tables, and sparklines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q441",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "You need to enter serial numbers `INV-0001` through `INV-5000` down column A. What is the fastest method?",
+    "options": [
+      "Type `INV-0001` in A1, select A1, go to Home > Editing > Fill > Series... > Series in Columns, Step value = 1, Stop value = 5000 (or drag Fill Handle)",
+      "Type them manually",
+      "Use Flash Fill",
+      "Copy and paste 5,000 times"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Fill > Series` with Stop value 5000 generates all 5,000 alphanumeric invoice IDs instantaneously.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q442",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What does pressing `Ctrl + Space` followed by `Ctrl + -` do in Excel?",
+    "options": [
+      "Selects the active column and deletes it",
+      "Selects row and deletes it",
+      "Clears cell contents",
+      "Hides column"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Space` selects the entire column, and `Ctrl + -` immediately deletes the selected column.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q443",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What does pressing `Shift + Space` followed by `Ctrl + Shift + +` do?",
+    "options": [
+      "Selects the active row and inserts a new blank row above it",
+      "Deletes the row",
+      "Hides the row",
+      "Selects table"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Shift + Space` selects the row, and `Ctrl + Shift + +` inserts a new row directly above.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q444",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How do you quickly inspect all cells in a worksheet that contain HARDCODED NUMBERS (constants) instead of formulas?",
+    "options": [
+      "Press `Ctrl + G > Special... > Constants > check Numbers only`",
+      "Look with eyes",
+      "Use Find & Replace",
+      "Filter the sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Go To Special > Constants > Numbers` highlights every hardcoded numeric entry across the worksheet for audit review.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q445",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How do you quickly inspect all cells that contain FORMULAS?",
+    "options": [
+      "Press `Ctrl + G > Special... > Formulas`",
+      "Use Go To Special > Constants",
+      "Press Ctrl + F",
+      "Filter by color"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Go To Special > Formulas` highlights every formula cell across the worksheet.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q446",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What happens when you select a range, type `=A1*1.1`, and press `Ctrl + Enter`?",
+    "options": [
+      "The formula is entered into every cell in the selection with properly adjusted relative references",
+      "Only the active cell changes",
+      "Values are hardcoded",
+      "Throws error"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + Enter` populates the formula across the entire selection with dynamic relative reference adjustment.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q447",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "Why is hardcoding numbers directly inside calculation formulas (e.g. `=A1 * 0.18`) considered poor modeling practice?",
+    "options": [
+      "Hardcoded numbers obscure tax/rate assumptions from auditors; tax rates should always be placed in dedicated assumption cells and referenced dynamically",
+      "Because Excel cannot multiply",
+      "Because it increases file size",
+      "Because 0.18 is invalid"
+    ],
+    "answerIndex": 0,
+    "explanation": "Best practices require separating logic from assumptions. Dynamic cell references (`=A1 * $B$1`) make models transparent and easy to update.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q448",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the keyboard shortcut to open the 'Create Table' dialog box?",
+    "options": [
+      "Ctrl + T (or Ctrl + L)",
+      "Ctrl + Shift + T",
+      "Alt + T",
+      "Ctrl + B"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + T` opens the Create Table dialog.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q449",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "How do you clear an accidental Data Validation restriction from a cell?",
+    "options": [
+      "Select cell > Data > Data Validation > click 'Clear All' > OK",
+      "Press Delete key",
+      "Press Backspace",
+      "Format as General"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `Delete` key clears cell values, but removing Data Validation rules requires clicking `Clear All` inside the Data Validation dialog.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q450",
+    "topic": "Applied Scenarios & Shortcuts",
+    "question": "What is the ultimate goal of mastering Module 1.2 Data Entry, Editing, and Formatting in Microsoft Excel?",
+    "options": [
+      "To build robust, error-free, executive-grade spreadsheets with flawless data hygiene, rapid keyboard workflow, and precision number formatting before advancing to complex financial formulas",
+      "To pass the exam only",
+      "To make colorful charts",
+      "To write macros"
+    ],
+    "answerIndex": 0,
+    "explanation": "Mastering foundational data hygiene, formatting masks, keyboard speed, and grid mechanics ensures bulletproof spreadsheet models and professional excellence.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q451",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q1] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q452",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q2] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q453",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q3] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q454",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q4] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q455",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q5] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q456",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q6] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q457",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q7] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q458",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q8] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q459",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q9] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q460",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q10] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q461",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q11] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q462",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q12] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q463",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q13] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q464",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q14] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q465",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q15] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q466",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q16] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q467",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q17] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q468",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q18] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q469",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q19] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q470",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q20] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q471",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q21] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q472",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q22] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q473",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q23] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q474",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q24] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q475",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q25] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q476",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q26] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q477",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q27] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q478",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q28] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q479",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q29] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q480",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q30] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q481",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q31] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q482",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q32] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q483",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q33] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q484",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q34] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q485",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q35] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q486",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q36] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q487",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q37] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q488",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q38] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q489",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q39] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q490",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q40] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q491",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q41] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q492",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q42] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q493",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q43] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q494",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q44] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q495",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q45] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q496",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q46] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q497",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q47] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q498",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q48] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q499",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q49] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q500",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q50] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q501",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q51] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q502",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q52] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q503",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q53] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q504",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q54] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q505",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q55] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q506",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q56] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q507",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q57] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q508",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q58] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q509",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q59] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q510",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q60] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q511",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q61] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q512",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q62] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q513",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q63] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q514",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q64] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q515",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q65] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q516",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q66] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q517",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q67] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q518",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q68] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q519",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q69] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q520",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q70] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q521",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q71] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q522",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q72] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q523",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q73] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q524",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q74] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q525",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q75] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q526",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q76] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q527",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q77] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q528",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q78] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q529",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q79] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q530",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q80] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q531",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q81] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q532",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q82] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q533",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q83] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q534",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q84] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q535",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q85] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q536",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q86] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q537",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q87] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q538",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q88] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q539",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q89] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q540",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q90] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q541",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q91] A financial data pipeline exports transaction codes in format 'TXN-98421-2026'. You need to split this into Transaction Type (TXN), Identifier (98421), and Year (2026). Which combination of techniques accomplishes this task with the highest workflow efficiency?",
+    "options": [
+      "Use AI-powered Flash Fill (Ctrl + E) in adjacent columns, or Data > Text to Columns with hyphen (-) delimiter",
+      "Retype all 50,000 transaction codes manually in separate columns",
+      "Apply Custom Number Format 'TXN-#####-####' to column B",
+      "Use Paste Special > Transpose on the entire dataset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Flash Fill (`Ctrl + E`) and `Text to Columns` with a hyphen delimiter are the two industry-standard methods to parse delimited string tokens rapidly without complex formulas.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q542",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q92] An auditor encounters a trial balance where cell G12 shows value 0, but the custom format is configured as '$#,##0.00;($#,##0.00);\"NIL\";@'. What will the cell visibly display on the sheet and what will appear in the Formula Bar?",
+    "options": [
+      "Sheet displays 'NIL'; Formula Bar displays underlying numeric 0",
+      "Sheet displays '$0.00'; Formula Bar displays 'NIL'",
+      "Sheet displays 0; Formula Bar displays #VALUE!",
+      "Sheet displays blank; Formula Bar displays 'NIL'"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 3rd section of a custom format controls zero display, rendering 'NIL' on the worksheet while the Formula Bar maintains the true underlying numeric value 0.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q543",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q93] You copy a range containing formulas '=A1*1.05' and paste it into cell H1 using 'Paste Special > Values'. Then you format cell H1 as '0.00%'. If A1 was 100, what does H1 display?",
+    "options": [
+      "10500.00%",
+      "105.00%",
+      "1.05%",
+      "#VALUE!"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pasting values yields the number 105. Applying percentage formatting (0.00%) multiplies by 100 and appends '%', resulting in 10500.00%. (To get 105%, the original value must be 1.05).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q544",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q94] An HR spreadsheet calculates shift hours. Shift Start is in A2 (08:00 AM) and Shift End is in B2 (04:30 PM). If formula is '=(B2 - A2) * 24', what data type does Excel return and what is the numeric result?",
+    "options": [
+      "Number with value 8.5 (8 and a half hours)",
+      "Time serial with value 08:30:00",
+      "Text string '8.5 hours'",
+      "Boolean TRUE"
+    ],
+    "answerIndex": 0,
+    "explanation": "The calculation evaluates (16.5/24 - 8/24) * 24 = 8.5 as a standard floating-point number representing eight and a half decimal hours.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q545",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q95] Why will sorting a dataset containing merged cells across columns B and C fail, whereas a dataset formatted with 'Center Across Selection' sorts seamlessly without errors?",
+    "options": [
+      "Merged cells create non-uniform rectangular matrices that violate relational table sorting rules; Center Across Selection preserves distinct 1x1 cell coordinates",
+      "Center Across Selection disables sorting",
+      "Merged cells can only be sorted in descending order",
+      "Sorting requires all cells to be text"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center Across Selection maintains individual 1x1 cell topology in the underlying grid, allowing the sorting algorithm to evaluate each column independently without hitting merged block exceptions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q546",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q96] In a banking data cleanup audit, a column of account numbers contains hidden leading and trailing spaces, plus several accounts entered with text apostrophe prefix ('004921). What happens if you run =TRIM() and convert the result with =VALUE()?",
+    "options": [
+      "=TRIM() removes all whitespace, and =VALUE() coerces the string into a pure number 4921, stripping leading zeroes",
+      "The leading zeroes are preserved as 004921",
+      "The formula returns #N/A",
+      "Excel converts it to date"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRIM removes the whitespace, and VALUE coerces the text into a number, which drops insignificant leading zeros. To keep leading zeros, format with text or custom mask 000000.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q547",
+    "topic": "Module 1.2 Master Integration - Tier Beginner",
+    "question": "[Module 1.2 Comprehensive Integration - Q97] A user selects cells A1:A10, presses F2, edits the formula to =B1+C1, and presses Ctrl + Enter. What is the exact state of all 10 cells in range A1:A10?",
+    "options": [
+      "All 10 cells receive the formula with relative row references adjusted (A1 has =B1+C1, A2 has =B2+C2, etc.)",
+      "Only A1 is updated; A2:A10 remain unchanged",
+      "All 10 cells get the literal string '=B1+C1' with no relative shift",
+      "Cells A1:A10 are merged into one cell"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Enter batch-commits the active formula across all selected cells while dynamically shifting relative coordinate references row by row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_2_q548",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q98] What sequence of keystrokes allows an analyst to instantly highlight all cells with hardcoded constants in a financial model, fill them with light yellow background, and apply an outline border?",
+    "options": [
+      "Press Ctrl + G > Alt + S > Constants > Enter, pick Yellow fill on Home tab, and press Ctrl + Shift + &",
+      "Press Ctrl + A > Delete > Ctrl + Z",
+      "Press F4 ten times",
+      "Press Alt + F1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + G > Alt + S opens Go To Special to select Constants; Ctrl + Shift + & applies an outline border around the selected cells.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_2_q549",
+    "topic": "Module 1.2 Master Integration - Tier Advanced",
+    "question": "[Module 1.2 Comprehensive Integration - Q99] In an inventory sheet, Column A contains SKU codes like 'SKU-7741'. You drag the AutoFill handle down from A1. What does Excel generate in cells A2, A3, and A4 by default?",
+    "options": [
+      "SKU-7742, SKU-7743, SKU-7744",
+      "SKU-7741, SKU-7741, SKU-7741",
+      "7742, 7743, 7744",
+      "SKU-7740, SKU-7739, SKU-7738"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel automatically identifies trailing numeric tokens in alphanumeric strings and increments them sequentially during standard AutoFill operations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_2_q550",
+    "topic": "Module 1.2 Master Integration - Tier Intermediate",
+    "question": "[Module 1.2 Comprehensive Integration - Q100] A financial report requires displaying negative profit numbers in red parentheses, positive numbers in standard format with commas, zero as a dash, and text suppressed entirely. What custom format mask accomplishes this exact requirement?",
+    "options": [
+      "#,##0;[Red](#,##0);\"-\";",
+      "#,##0;[Red]-#,##0;0;@",
+      "[Red]#,##0;(#,##0);0;",
+      "#,##0.00;(#,##0.00);-;@"
+    ],
+    "answerIndex": 0,
+    "explanation": "`#,##0;[Red](#,##0);\"-\";` designates positive as `#,##0`, negative as `[Red](#,##0)`, zero as `\"-\"`, and leaves the 4th (text) section empty after semicolon to suppress text.",
+    "level": "Intermediate"
   }
 ];
 

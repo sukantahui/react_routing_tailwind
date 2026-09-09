@@ -62,7 +62,8 @@
             "Worked Example 5: Customer segmentation",
             "Practice Problems",
             "Short Questions",
-            "Vector"
+            "Vector",
+            "Module Mastery Quiz & Certification Assessment"
           ],
           "learningOutcomes": [
             "Explain the meaning and scope of Machine Learning",
@@ -105,7 +106,7 @@
             "Worked Example 3: Encoding city and gender columns",
             "Worked Example 4: Scaling age and income features",
             "Practice Problems",
-            "Short Questions"
+            "Data Types and Preprocessing Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Identify common data types used in Machine Learning",
@@ -137,7 +138,7 @@
             "Worked Example 2: Splitting a student dataset",
             "Worked Example 3: Identifying data leakage",
             "Practice Problems",
-            "Short Questions"
+            "Feature Selection and Training & Testing Data Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Select suitable features for model building",
@@ -171,7 +172,7 @@
             "Worked Example 2: EDA of house prices",
             "Worked Example 3: Detecting an outlier using a box plot",
             "Practice Problems",
-            "Short Questions"
+            "Exploratory Data Analysis Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Summarize a dataset using basic statistics",
@@ -212,7 +213,7 @@
             "Worked Example 4: Marks prediction from study hours",
             "Numerical Exercises",
             "Practice Problems",
-            "Short Questions"
+            "Simple Linear Regression Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain simple linear regression",
@@ -241,7 +242,7 @@
             "Worked Example 2: Sales using multiple advertising channels",
             "Worked Example 3: Student marks using study hours and attendance",
             "Practice Problems",
-            "Short Questions"
+            "Multiple Linear Regression Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain multiple linear regression",
@@ -272,7 +273,7 @@
             "Worked Example 3: Manual RMSE calculation",
             "Worked Example 4: Comparing two regression models",
             "Numerical Exercises",
-            "Short Questions"
+            "Regression Model Evaluation Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Calculate MAE, MSE and RMSE",
@@ -302,7 +303,7 @@
             "Worked Example 3: Sales forecasting example",
             "Coding Exercises",
             "Numerical Exercises",
-            "Short Questions"
+            "Regression Applications and Practice Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Apply the complete regression workflow",
@@ -339,7 +340,7 @@
             "Worked Example 2: Loan approval prediction",
             "Worked Example 3: Customer churn prediction",
             "Practice Problems",
-            "Short Questions"
+            "Logistic Regression Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain Logistic Regression for classification",
@@ -367,7 +368,7 @@
             "Worked Example 2: Student classification",
             "Worked Example 3: KNN with different values of K",
             "Numerical Exercises",
-            "Short Questions"
+            "K-Nearest Neighbours (KNN) Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain the KNN algorithm",
@@ -396,7 +397,7 @@
             "Worked Example 2: Email spam classification",
             "Worked Example 3: Small student classification problem",
             "Numerical Exercises",
-            "Short Questions"
+            "Naive Bayes Classifier Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain the basic idea of Naive Bayes",
@@ -432,7 +433,7 @@
             "Worked Example 5: Calculating F1-score",
             "Worked Example 6: Comparing Logistic Regression and KNN",
             "Numerical Exercises",
-            "Short Questions"
+            "Classification Model Evaluation Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Construct and interpret a confusion matrix",
@@ -475,7 +476,7 @@
             "Worked Example 4: K-Means with K=2",
             "Worked Example 5: K-Means with K=3",
             "Numerical Exercises",
-            "Short Questions"
+            "K-Means Clustering Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain the purpose of clustering",
@@ -508,7 +509,7 @@
             "Worked Example 2: Loan approval decision tree",
             "Worked Example 3: Simple product classification tree",
             "Practice Problems",
-            "Short Questions"
+            "Decision Tree Concept and Structure Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Identify the main components of a decision tree",
@@ -535,7 +536,7 @@
             "Worked Example 2: Information gain for a feature",
             "Worked Example 3: Selecting the root node",
             "Numerical Exercises",
-            "Short Questions"
+            "Entropy and Information Gain Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain entropy and information gain",
@@ -563,7 +564,7 @@
             "Worked Example 2: Loan approval model",
             "Worked Example 3: Comparing shallow and deep trees",
             "Coding Exercises",
-            "Short Questions"
+            "Decision Tree Model Building and Interpretation Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Build a basic decision tree classifier",
@@ -597,7 +598,7 @@
             "Worked Example 1: Simple train-validation-test workflow",
             "Worked Example 2: Five-fold cross-validation",
             "Practice Problems",
-            "Short Questions"
+            "Model Validation Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain model validation",
@@ -627,7 +628,7 @@
             "Worked Example 1: Detecting overfitting in a decision tree",
             "Worked Example 2: Comparing training and testing accuracy",
             "Practice Problems",
-            "Short Questions"
+            "Overfitting and Underfitting Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Identify overfitting and underfitting",
@@ -655,7 +656,7 @@
             "Worked Example 2: Comparing regression models",
             "Worked Example 3: Selecting the best model using cross-validation",
             "Practice Problems",
-            "Short Questions"
+            "Model Comparison and Selection Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Compare multiple Machine Learning models",
@@ -691,7 +692,7 @@
             "Worked Example 2: Customer churn case study",
             "Worked Example 3: Customer segmentation case study",
             "Mini Project",
-            "Short Questions"
+            "Machine Learning Applications and Case Studies Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Identify real-world applications of Machine Learning",
@@ -725,7 +726,8 @@
             "Example Project 1: House Price Prediction",
             "Example Project 2: Student Performance Prediction",
             "Example Project 3: Customer Segmentation",
-            "Example Project 4: Loan Approval Prediction"
+            "Example Project 4: Loan Approval Prediction",
+            "Module Mastery Quiz & Certification Assessment"
           ],
           "learningOutcomes": [
             "Apply the complete Machine Learning workflow",
@@ -761,7 +763,7 @@
             "Worked Example 1: K-Medoids with a small dataset",
             "Numerical Exercises",
             "Practice Problems",
-            "Short Questions"
+            "K-Medoids Clustering Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain the K-Medoids clustering approach",
@@ -791,7 +793,7 @@
             "Worked Example 1: Agglomerative clustering",
             "Worked Example 2: Constructing a simple dendrogram",
             "Practice Problems",
-            "Short Questions"
+            "Hierarchical Clustering Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain hierarchical clustering",
@@ -1366,7 +1368,7 @@
             "Worked Example 3: Normalizing a dataset manually",
             "Worked Example 4: Random dataset generation",
             "Practice Problems",
-            "Short Questions"
+            "NumPy Essentials Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Create and manipulate NumPy arrays",
@@ -1408,7 +1410,7 @@
             "Worked Example 4: Merging two DataFrames on a key column",
             "Worked Example 5: Filtering and exporting cleaned data",
             "Practice Problems",
-            "Short Questions"
+            "Pandas Essentials Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Load, inspect, and filter tabular data using Pandas",
@@ -1440,7 +1442,7 @@
             "Worked Example 2: Histogram of salary distribution",
             "Worked Example 3: Scatter plot of features",
             "Practice Problems",
-            "Short Questions"
+            "Matplotlib Essentials Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Create basic plots using Matplotlib",
@@ -1471,7 +1473,7 @@
             "Worked Example 2: Heatmap of feature correlations",
             "Worked Example 3: Pair plot for a small dataset",
             "Practice Problems",
-            "Short Questions"
+            "Seaborn Essentials Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Create statistical visualizations using Seaborn",
@@ -1508,7 +1510,7 @@
             "Worked Example 2: End-to-end regression with Scikit-learn",
             "Worked Example 3: K-Means clustering with Scikit-learn",
             "Practice Problems",
-            "Short Questions"
+            "Scikit-learn Overview Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Describe the Scikit-learn estimator API",
@@ -1538,7 +1540,7 @@
             "Worked Example 1: Computing z-scores with SciPy",
             "Worked Example 2: Euclidean distance with scipy.spatial",
             "Practice Problems",
-            "Short Questions"
+            "SciPy Overview Master Quiz & Self-Assessment"
           ],
           "learningOutcomes": [
             "Explain the purpose of SciPy in ML workflows",

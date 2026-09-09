@@ -1,243 +1,7704 @@
+// Auto-generated Master Quiz Questions for 001_001_getting-started-with-excel
 const questions = [
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Grid coordinate system and cell address parsing (Question 1)?",
-    "shortAnswer": "Grid coordinate system and cell address parsing is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Grid coordinate system and cell address parsing represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Grid coordinate system and cell address parsing impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=SUM($A$1:A1)"
+    "id": "m1_1_q1",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 1: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 1)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage OpenXML compressed .xlsx package structure (Question 2)?",
-    "shortAnswer": "OpenXML compressed .xlsx package structure is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, OpenXML compressed .xlsx package structure represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how OpenXML compressed .xlsx package structure impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=$A2 * B$1"
+    "id": "m1_1_q2",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 2: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 2)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Physical row (1,048,576) and column (16,384) bounds (Question 3)?",
-    "shortAnswer": "Physical row (1,048,576) and column (16,384) bounds is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Physical row (1,048,576) and column (16,384) bounds represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Physical row (1,048,576) and column (16,384) bounds impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=CELL(\"address\", A3)"
+    "id": "m1_1_q3",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 3: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 3)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Ribbon keytips and keyboard navigation accessibility (Question 4)?",
-    "shortAnswer": "Ribbon keytips and keyboard navigation accessibility is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Ribbon keytips and keyboard navigation accessibility represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Ribbon keytips and keyboard navigation accessibility impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=SUM($A$1:A4)"
+    "id": "m1_1_q4",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 4: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 4)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Formula Bar expansion and multi-line editing (Ctrl+Shift+U) (Question 5)?",
-    "shortAnswer": "Formula Bar expansion and multi-line editing (Ctrl+Shift+U) is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Formula Bar expansion and multi-line editing (Ctrl+Shift+U) represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Formula Bar expansion and multi-line editing (Ctrl+Shift+U) impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=$A5 * B$1"
+    "id": "m1_1_q5",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 5: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 5)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Status Bar real-time non-destructive aggregation metrics (Question 6)?",
-    "shortAnswer": "Status Bar real-time non-destructive aggregation metrics is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Status Bar real-time non-destructive aggregation metrics represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Status Bar real-time non-destructive aggregation metrics impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=CELL(\"address\", A6)"
+    "id": "m1_1_q6",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 6: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 6)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Used Range memory footprint and file size optimization (Question 7)?",
-    "shortAnswer": "Used Range memory footprint and file size optimization is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Used Range memory footprint and file size optimization represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Used Range memory footprint and file size optimization impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=SUM($A$1:A7)"
+    "id": "m1_1_q7",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 7: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 7)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Binary workbook format (.xlsb) vs OpenXML (.xlsx) (Question 8)?",
-    "shortAnswer": "Binary workbook format (.xlsb) vs OpenXML (.xlsx) is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Binary workbook format (.xlsb) vs OpenXML (.xlsx) represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Binary workbook format (.xlsb) vs OpenXML (.xlsx) impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=$A8 * B$1"
+    "id": "m1_1_q8",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 8: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 8)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Macro-enabled workbook format (.xlsm) and VBA security (Question 9)?",
-    "shortAnswer": "Macro-enabled workbook format (.xlsm) and VBA security is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Macro-enabled workbook format (.xlsm) and VBA security represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Macro-enabled workbook format (.xlsm) and VBA security impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=CELL(\"address\", A9)"
+    "id": "m1_1_q9",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 9: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 9)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage AutoRecover shadow snapshot intervals and restoration (Question 10)?",
-    "shortAnswer": "AutoRecover shadow snapshot intervals and restoration is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, AutoRecover shadow snapshot intervals and restoration represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how AutoRecover shadow snapshot intervals and restoration impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "basic",
-    "codeExample": "=SUM($A$1:A10)"
+    "id": "m1_1_q10",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 10: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 10)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Ctrl + Arrow edge traversal mechanics across data blocks (Question 11)?",
-    "shortAnswer": "Ctrl + Arrow edge traversal mechanics across data blocks is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Ctrl + Arrow edge traversal mechanics across data blocks represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Ctrl + Arrow edge traversal mechanics across data blocks impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=$A11 * B$1"
+    "id": "m1_1_q11",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 11: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 11)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Ctrl + Shift + Arrow range selection techniques (Question 12)?",
-    "shortAnswer": "Ctrl + Shift + Arrow range selection techniques is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Ctrl + Shift + Arrow range selection techniques represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Ctrl + Shift + Arrow range selection techniques impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=CELL(\"address\", A12)"
+    "id": "m1_1_q12",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 12: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 12)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Name Box coordinate input and named range teleportation (Question 13)?",
-    "shortAnswer": "Name Box coordinate input and named range teleportation is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Name Box coordinate input and named range teleportation represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Name Box coordinate input and named range teleportation impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=SUM($A$1:A13)"
+    "id": "m1_1_q13",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 13: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 13)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Go To Special (F5) blank cell batch population (Question 14)?",
-    "shortAnswer": "Go To Special (F5) blank cell batch population is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Go To Special (F5) blank cell batch population represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Go To Special (F5) blank cell batch population impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=$A14 * B$1"
+    "id": "m1_1_q14",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 14: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 14)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Select Visible Cells Only (Alt + ;) during filtered copying (Question 15)?",
-    "shortAnswer": "Select Visible Cells Only (Alt + ;) during filtered copying is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Select Visible Cells Only (Alt + ;) during filtered copying represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Select Visible Cells Only (Alt + ;) during filtered copying impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=CELL(\"address\", A15)"
+    "id": "m1_1_q15",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 15: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 15)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Relative referencing (A1) vector offset calculation (Question 16)?",
-    "shortAnswer": "Relative referencing (A1) vector offset calculation is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Relative referencing (A1) vector offset calculation represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Relative referencing (A1) vector offset calculation impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=SUM($A$1:A16)"
+    "id": "m1_1_q16",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 16: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 16)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Absolute referencing ($A$1) coordinate anchor mechanics (Question 17)?",
-    "shortAnswer": "Absolute referencing ($A$1) coordinate anchor mechanics is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Absolute referencing ($A$1) coordinate anchor mechanics represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Absolute referencing ($A$1) coordinate anchor mechanics impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=$A17 * B$1"
+    "id": "m1_1_q17",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 17: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 17)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Mixed referencing ($A1 vs A$1) in 2D multiplication tables (Question 18)?",
-    "shortAnswer": "Mixed referencing ($A1 vs A$1) in 2D multiplication tables is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Mixed referencing ($A1 vs A$1) in 2D multiplication tables represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Mixed referencing ($A1 vs A$1) in 2D multiplication tables impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=CELL(\"address\", A18)"
+    "id": "m1_1_q18",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 18: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 18)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage 3D cross-sheet calculation referencing (=SUM(Sheet1:Sheet4!A1)) (Question 19)?",
-    "shortAnswer": "3D cross-sheet calculation referencing (=SUM(Sheet1:Sheet4!A1)) is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, 3D cross-sheet calculation referencing (=SUM(Sheet1:Sheet4!A1)) represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how 3D cross-sheet calculation referencing (=SUM(Sheet1:Sheet4!A1)) impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=SUM($A$1:A19)"
+    "id": "m1_1_q19",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 19: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 19)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage F4 reference mode toggle cycling sequence (Question 20)?",
-    "shortAnswer": "F4 reference mode toggle cycling sequence is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, F4 reference mode toggle cycling sequence represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how F4 reference mode toggle cycling sequence impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=$A20 * B$1"
+    "id": "m1_1_q20",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 20: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 20)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Cross-footing mathematical audit verification (Question 21)?",
-    "shortAnswer": "Cross-footing mathematical audit verification is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Cross-footing mathematical audit verification represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Cross-footing mathematical audit verification impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=CELL(\"address\", A21)"
+    "id": "m1_1_q21",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 21: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 21)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Freeze Panes viewport configuration and ergonomics (Question 22)?",
-    "shortAnswer": "Freeze Panes viewport configuration and ergonomics is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Freeze Panes viewport configuration and ergonomics represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Freeze Panes viewport configuration and ergonomics impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "moderate",
-    "codeExample": "=SUM($A$1:A22)"
+    "id": "m1_1_q22",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 22: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 22)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Data type coercion between text, numeric, and date literals (Question 23)?",
-    "shortAnswer": "Data type coercion between text, numeric, and date literals is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Data type coercion between text, numeric, and date literals represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Data type coercion between text, numeric, and date literals impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=$A23 * B$1"
+    "id": "m1_1_q23",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 23: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 23)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Formula view mode (Ctrl + `) for structural auditing (Question 24)?",
-    "shortAnswer": "Formula view mode (Ctrl + `) for structural auditing is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Formula view mode (Ctrl + `) for structural auditing represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Formula view mode (Ctrl + `) for structural auditing impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=CELL(\"address\", A24)"
+    "id": "m1_1_q24",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 24: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 24)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage AutoSum (Alt + =) intelligent boundary detection (Question 25)?",
-    "shortAnswer": "AutoSum (Alt + =) intelligent boundary detection is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, AutoSum (Alt + =) intelligent boundary detection represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how AutoSum (Alt + =) intelligent boundary detection impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=SUM($A$1:A25)"
+    "id": "m1_1_q25",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 25: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 25)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Paste Special Values (Alt + E + S + V) formula freezing (Question 26)?",
-    "shortAnswer": "Paste Special Values (Alt + E + S + V) formula freezing is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Paste Special Values (Alt + E + S + V) formula freezing represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Paste Special Values (Alt + E + S + V) formula freezing impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=$A26 * B$1"
+    "id": "m1_1_q26",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 26: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 26)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Circular reference warning diagnostics and resolution (Question 27)?",
-    "shortAnswer": "Circular reference warning diagnostics and resolution is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Circular reference warning diagnostics and resolution represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Circular reference warning diagnostics and resolution impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=CELL(\"address\", A27)"
+    "id": "m1_1_q27",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 27: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 27)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage #VALUE! error prevention with =SUM() vs direct addition (+) (Question 28)?",
-    "shortAnswer": "#VALUE! error prevention with =SUM() vs direct addition (+) is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, #VALUE! error prevention with =SUM() vs direct addition (+) represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how #VALUE! error prevention with =SUM() vs direct addition (+) impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=SUM($A$1:A28)"
+    "id": "m1_1_q28",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 28: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 28)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage Worksheet tab naming rules and character limitations (Question 29)?",
-    "shortAnswer": "Worksheet tab naming rules and character limitations is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, Worksheet tab naming rules and character limitations represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how Worksheet tab naming rules and character limitations impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=$A29 * B$1"
+    "id": "m1_1_q29",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 29: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 29)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
   },
   {
-    "question": "In the context of Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals, how does Excel evaluate and manage 3-tier spreadsheet design: Inputs, Calculations, Presentation (Question 30)?",
-    "shortAnswer": "3-tier spreadsheet design: Inputs, Calculations, Presentation is handled deterministically by Excel's core engine to ensure high performance and numerical accuracy.",
-    "explanation": "In Microsoft Excel, 3-tier spreadsheet design: Inputs, Calculations, Presentation represents a vital operational mechanism. The calculation subsystem processes internal memory pointers, evaluates cell coordinate references, and updates the dependency tree to maintain consistent spreadsheet state without data corruption.",
-    "hint": "Consider how 3-tier spreadsheet design: Inputs, Calculations, Presentation impacts calculation speed, workbook file size, and auditing reliability in corporate datasets.",
-    "level": "advanced",
-    "codeExample": "=CELL(\"address\", A30)"
+    "id": "m1_1_q30",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 30: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 30)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q31",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 31: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 31)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q32",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 32: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 32)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q33",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 33: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 33)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q34",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 34: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 34)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q35",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 35: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 35)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q36",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 36: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 36)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q37",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 37: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 37)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q38",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 38: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 38)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q39",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 39: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 39)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q40",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 40: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 40)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q41",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 41: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 41)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q42",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 42: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 42)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q43",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 43: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 43)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q44",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 44: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 44)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q45",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 45: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 45)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q46",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 46: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 46)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q47",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 47: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 47)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q48",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 48: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 48)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q49",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 49: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 49)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q50",
+    "topic": "What Excel Is and Where It Is Used",
+    "question": "[What Excel Is and Where It Is Used] Question 50: Which capability fundamentally differentiates Microsoft Excel from simple text editors and database viewer tools? (Item 50)",
+    "options": [
+      "Dynamic recalculation engine with multi-threaded formula parsing and interactive financial modeling",
+      "Word processing grammar checking",
+      "Audio recording capabilities",
+      "Static PDF rendering only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel is an interactive electronic spreadsheet calculation engine that dynamically recalculates formulas, analyzes multi-variable models, and visualizes quantitative data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q51",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 1: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 1)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q52",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 2: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 2)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q53",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 3: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 3)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q54",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 4: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 4)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q55",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 5: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 5)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q56",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 6: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 6)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q57",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 7: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 7)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q58",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 8: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 8)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q59",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 9: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 9)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q60",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 10: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 10)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q61",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 11: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 11)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q62",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 12: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 12)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q63",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 13: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 13)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q64",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 14: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 14)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q65",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 15: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 15)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q66",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 16: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 16)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q67",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 17: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 17)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q68",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 18: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 18)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q69",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 19: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 19)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q70",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 20: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 20)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q71",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 21: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 21)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q72",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 22: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 22)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q73",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 23: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 23)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q74",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 24: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 24)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q75",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 25: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 25)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q76",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 26: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 26)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q77",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 27: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 27)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q78",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 28: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 28)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q79",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 29: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 29)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q80",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 30: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 30)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q81",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 31: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 31)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q82",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 32: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 32)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q83",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 33: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 33)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q84",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 34: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 34)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q85",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 35: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 35)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q86",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 36: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 36)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q87",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 37: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 37)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q88",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 38: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 38)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q89",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 39: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 39)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q90",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 40: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 40)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q91",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 41: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 41)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q92",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 42: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 42)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q93",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 43: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 43)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q94",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 44: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 44)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q95",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 45: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 45)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q96",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 46: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 46)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q97",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 47: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 47)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q98",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 48: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 48)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q99",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 49: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 49)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q100",
+    "topic": "Excel vs Google Sheets vs Competitors",
+    "question": "[Excel vs Google Sheets vs Competitors] Question 50: In terms of computational limits, how does Microsoft Excel's desktop engine compare to cloud-based Google Sheets? (Item 50)",
+    "options": [
+      "Excel supports 1,048,576 rows per sheet and multi-gigabyte memory caching; Google Sheets has a total cell limit (10M cells) and relies on browser RAM",
+      "Google Sheets supports 100 million rows per sheet",
+      "Excel has no formula calculation engine",
+      "There are no structural or memory differences"
+    ],
+    "answerIndex": 0,
+    "explanation": "Excel Desktop leverages 64-bit multi-threaded hardware processing handling 1,048,576 rows by 16,384 columns per sheet, whereas Google Sheets enforces total cell volume caps.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q101",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 1: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 1)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q102",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 2: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 2)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q103",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 3: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 3)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q104",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 4: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 4)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q105",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 5: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 5)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q106",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 6: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 6)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q107",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 7: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 7)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q108",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 8: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 8)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q109",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 9: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 9)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q110",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 10: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 10)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q111",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 11: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 11)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q112",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 12: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 12)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q113",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 13: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 13)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q114",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 14: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 14)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q115",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 15: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 15)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q116",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 16: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 16)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q117",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 17: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 17)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q118",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 18: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 18)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q119",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 19: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 19)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q120",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 20: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 20)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q121",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 21: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 21)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q122",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 22: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 22)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q123",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 23: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 23)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q124",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 24: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 24)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q125",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 25: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 25)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q126",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 26: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 26)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q127",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 27: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 27)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q128",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 28: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 28)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q129",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 29: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 29)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q130",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 30: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 30)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q131",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 31: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 31)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q132",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 32: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 32)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q133",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 33: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 33)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q134",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 34: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 34)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q135",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 35: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 35)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q136",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 36: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 36)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q137",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 37: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 37)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q138",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 38: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 38)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q139",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 39: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 39)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q140",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 40: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 40)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q141",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 41: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 41)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q142",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 42: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 42)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q143",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 43: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 43)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q144",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 44: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 44)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q145",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 45: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 45)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q146",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 46: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 46)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q147",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 47: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 47)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q148",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 48: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 48)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q149",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 49: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 49)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q150",
+    "topic": "Ribbon, Tabs, Formula Bar & Ergonomics",
+    "question": "[Ribbon, Tabs, Formula Bar & Ergonomics] Question 50: What is the function of the Name Box located immediately to the left of the Formula Bar? (Item 50)",
+    "options": [
+      "Displays the address of the active cell and allows direct teleportation to any coordinate or named range",
+      "Displays the student's name",
+      "Counts total worksheets",
+      "Saves the workbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Name Box displays the active cell reference (e.g. A1) and accepts coordinate entries (e.g. XFD1048576) or range names to jump directly to target locations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q151",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 1: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 1)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q152",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 2: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 2)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q153",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 3: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 3)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q154",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 4: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 4)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q155",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 5: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 5)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q156",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 6: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 6)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q157",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 7: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 7)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q158",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 8: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 8)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q159",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 9: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 9)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q160",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 10: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 10)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q161",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 11: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 11)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q162",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 12: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 12)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q163",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 13: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 13)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q164",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 14: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 14)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q165",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 15: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 15)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q166",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 16: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 16)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q167",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 17: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 17)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q168",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 18: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 18)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q169",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 19: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 19)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q170",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 20: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 20)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q171",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 21: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 21)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q172",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 22: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 22)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q173",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 23: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 23)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q174",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 24: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 24)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q175",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 25: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 25)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q176",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 26: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 26)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q177",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 27: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 27)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q178",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 28: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 28)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q179",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 29: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 29)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q180",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 30: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 30)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q181",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 31: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 31)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q182",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 32: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 32)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q183",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 33: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 33)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q184",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 34: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 34)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q185",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 35: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 35)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q186",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 36: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 36)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q187",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 37: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 37)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q188",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 38: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 38)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q189",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 39: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 39)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q190",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 40: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 40)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q191",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 41: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 41)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q192",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 42: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 42)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q193",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 43: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 43)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q194",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 44: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 44)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q195",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 45: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 45)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q196",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 46: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 46)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q197",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 47: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 47)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q198",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 48: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 48)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q199",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 49: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 49)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q200",
+    "topic": "Workbooks, Worksheets, Rows, Columns & Limits",
+    "question": "[Workbooks, Worksheets, Rows, Columns & Limits] Question 50: What are the exact row and column dimensions of a single modern Excel worksheet (.xlsx)? (Item 50)",
+    "options": [
+      "1,048,576 rows by 16,384 columns (Column XFD)",
+      "65,536 rows by 256 columns (Column IV)",
+      "500,000 rows by 1,000 columns",
+      "2,000,000 rows by 32,000 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A modern Excel (.xlsx) sheet contains exactly 1,048,576 rows (2^20) and 16,384 columns (2^14), spanning from column A to XFD.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q201",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 1: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 1)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q202",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 2: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 2)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q203",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 3: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 3)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q204",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 4: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 4)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q205",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 5: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 5)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q206",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 6: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 6)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q207",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 7: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 7)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q208",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 8: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 8)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q209",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 9: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 9)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q210",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 10: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 10)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q211",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 11: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 11)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q212",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 12: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 12)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q213",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 13: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 13)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q214",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 14: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 14)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q215",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 15: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 15)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q216",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 16: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 16)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q217",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 17: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 17)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q218",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 18: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 18)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q219",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 19: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 19)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q220",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 20: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 20)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q221",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 21: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 21)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q222",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 22: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 22)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q223",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 23: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 23)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q224",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 24: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 24)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q225",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 25: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 25)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q226",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 26: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 26)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q227",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 27: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 27)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q228",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 28: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 28)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q229",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 29: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 29)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q230",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 30: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 30)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q231",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 31: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 31)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q232",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 32: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 32)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q233",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 33: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 33)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q234",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 34: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 34)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q235",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 35: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 35)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q236",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 36: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 36)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q237",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 37: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 37)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q238",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 38: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 38)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q239",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 39: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 39)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q240",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 40: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 40)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q241",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 41: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 41)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q242",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 42: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 42)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q243",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 43: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 43)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q244",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 44: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 44)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q245",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 45: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 45)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q246",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 46: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 46)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q247",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 47: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 47)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q248",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 48: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 48)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q249",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 49: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 49)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q250",
+    "topic": "File Formats: .xlsx, .xlsm, .xlsb & .csv",
+    "question": "[File Formats: .xlsx, .xlsm, .xlsb & .csv] Question 50: Which file format should be selected to preserve VBA macros and user-defined automation scripts in Excel? (Item 50)",
+    "options": [
+      "Excel Macro-Enabled Workbook (.xlsm) or Binary Workbook (.xlsb)",
+      "Standard Excel Workbook (.xlsx)",
+      "Comma Separated Values (.csv)",
+      "Single File Web Page (.mht)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard `.xlsx` strips all VBA code for security; macros require `.xlsm` or `.xlsb` (Excel Binary Workbook).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q251",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 1: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 1)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q252",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 2: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 2)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q253",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 3: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 3)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q254",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 4: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 4)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q255",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 5: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 5)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q256",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 6: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 6)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q257",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 7: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 7)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q258",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 8: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 8)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q259",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 9: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 9)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q260",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 10: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 10)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q261",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 11: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 11)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q262",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 12: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 12)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q263",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 13: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 13)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q264",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 14: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 14)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q265",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 15: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 15)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q266",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 16: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 16)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q267",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 17: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 17)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q268",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 18: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 18)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q269",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 19: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 19)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q270",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 20: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 20)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q271",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 21: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 21)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q272",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 22: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 22)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q273",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 23: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 23)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q274",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 24: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 24)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q275",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 25: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 25)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q276",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 26: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 26)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q277",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 27: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 27)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q278",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 28: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 28)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q279",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 29: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 29)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q280",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 30: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 30)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q281",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 31: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 31)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q282",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 32: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 32)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q283",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 33: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 33)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q284",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 34: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 34)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q285",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 35: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 35)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q286",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 36: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 36)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q287",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 37: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 37)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q288",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 38: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 38)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q289",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 39: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 39)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q290",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 40: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 40)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q291",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 41: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 41)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q292",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 42: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 42)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q293",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 43: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 43)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q294",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 44: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 44)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q295",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 45: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 45)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q296",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 46: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 46)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q297",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 47: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 47)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q298",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 48: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 48)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q299",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 49: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 49)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q300",
+    "topic": "Navigation Shortcuts, Name Box & Go To Special",
+    "question": "[Navigation Shortcuts, Name Box & Go To Special] Question 50: What keyboard shortcut opens the Go To Special dialog box to select Formulas, Constants, or Blanks? (Item 50)",
+    "options": [
+      "Ctrl + G (or F5), then Alt + S (Special...)",
+      "Ctrl + F",
+      "Alt + Down Arrow",
+      "Ctrl + Shift + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Ctrl + G` or `F5` launches Go To; pressing `Alt + S` opens Go To Special for surgical cell selection.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q301",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 1: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 1)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q302",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 2: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 2)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q303",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 3: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 3)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q304",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 4: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 4)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q305",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 5: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 5)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q306",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 6: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 6)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q307",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 7: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 7)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q308",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 8: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 8)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q309",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 9: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 9)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q310",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 10: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 10)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q311",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 11: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 11)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q312",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 12: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 12)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q313",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 13: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 13)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q314",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 14: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 14)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q315",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 15: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 15)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q316",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 16: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 16)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q317",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 17: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 17)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q318",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 18: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 18)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q319",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 19: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 19)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q320",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 20: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 20)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q321",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 21: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 21)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q322",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 22: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 22)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q323",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 23: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 23)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q324",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 24: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 24)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q325",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 25: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 25)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q326",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 26: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 26)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q327",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 27: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 27)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q328",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 28: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 28)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q329",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 29: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 29)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q330",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 30: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 30)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q331",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 31: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 31)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q332",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 32: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 32)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q333",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 33: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 33)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q334",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 34: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 34)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q335",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 35: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 35)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q336",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 36: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 36)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q337",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 37: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 37)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q338",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 38: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 38)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q339",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 39: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 39)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q340",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 40: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 40)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q341",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 41: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 41)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q342",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 42: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 42)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q343",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 43: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 43)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q344",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 44: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 44)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q345",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 45: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 45)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q346",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 46: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 46)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q347",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 47: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 47)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q348",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 48: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 48)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q349",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 49: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 49)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q350",
+    "topic": "Cell Referencing: Relative, Absolute, Mixed & 3D",
+    "question": "[Cell Referencing: Relative, Absolute, Mixed & 3D] Question 50: In formula '=$A$1 * B1', what type of cell reference is '$A$1' and what happens when copied down? (Item 50)",
+    "options": [
+      "Absolute reference; both column A and row 1 remain permanently locked when copied",
+      "Relative reference; adjusts row by row",
+      "Mixed reference; only row is locked",
+      "3D reference pointing to external sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "The dollar sign ($) before both column letter and row number locks the coordinate permanently (Absolute Reference).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q351",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 1: What is a 3D cell reference in Microsoft Excel? (Item 1)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q352",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 2: What is a 3D cell reference in Microsoft Excel? (Item 2)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q353",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 3: What is a 3D cell reference in Microsoft Excel? (Item 3)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q354",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 4: What is a 3D cell reference in Microsoft Excel? (Item 4)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q355",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 5: What is a 3D cell reference in Microsoft Excel? (Item 5)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q356",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 6: What is a 3D cell reference in Microsoft Excel? (Item 6)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q357",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 7: What is a 3D cell reference in Microsoft Excel? (Item 7)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q358",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 8: What is a 3D cell reference in Microsoft Excel? (Item 8)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q359",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 9: What is a 3D cell reference in Microsoft Excel? (Item 9)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q360",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 10: What is a 3D cell reference in Microsoft Excel? (Item 10)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q361",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 11: What is a 3D cell reference in Microsoft Excel? (Item 11)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q362",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 12: What is a 3D cell reference in Microsoft Excel? (Item 12)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q363",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 13: What is a 3D cell reference in Microsoft Excel? (Item 13)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q364",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 14: What is a 3D cell reference in Microsoft Excel? (Item 14)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q365",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 15: What is a 3D cell reference in Microsoft Excel? (Item 15)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q366",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 16: What is a 3D cell reference in Microsoft Excel? (Item 16)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q367",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 17: What is a 3D cell reference in Microsoft Excel? (Item 17)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q368",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 18: What is a 3D cell reference in Microsoft Excel? (Item 18)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q369",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 19: What is a 3D cell reference in Microsoft Excel? (Item 19)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q370",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 20: What is a 3D cell reference in Microsoft Excel? (Item 20)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q371",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 21: What is a 3D cell reference in Microsoft Excel? (Item 21)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q372",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 22: What is a 3D cell reference in Microsoft Excel? (Item 22)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q373",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 23: What is a 3D cell reference in Microsoft Excel? (Item 23)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q374",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 24: What is a 3D cell reference in Microsoft Excel? (Item 24)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q375",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 25: What is a 3D cell reference in Microsoft Excel? (Item 25)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q376",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 26: What is a 3D cell reference in Microsoft Excel? (Item 26)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q377",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 27: What is a 3D cell reference in Microsoft Excel? (Item 27)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q378",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 28: What is a 3D cell reference in Microsoft Excel? (Item 28)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q379",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 29: What is a 3D cell reference in Microsoft Excel? (Item 29)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q380",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 30: What is a 3D cell reference in Microsoft Excel? (Item 30)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q381",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 31: What is a 3D cell reference in Microsoft Excel? (Item 31)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q382",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 32: What is a 3D cell reference in Microsoft Excel? (Item 32)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q383",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 33: What is a 3D cell reference in Microsoft Excel? (Item 33)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q384",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 34: What is a 3D cell reference in Microsoft Excel? (Item 34)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q385",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 35: What is a 3D cell reference in Microsoft Excel? (Item 35)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q386",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 36: What is a 3D cell reference in Microsoft Excel? (Item 36)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q387",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 37: What is a 3D cell reference in Microsoft Excel? (Item 37)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q388",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 38: What is a 3D cell reference in Microsoft Excel? (Item 38)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q389",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 39: What is a 3D cell reference in Microsoft Excel? (Item 39)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q390",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 40: What is a 3D cell reference in Microsoft Excel? (Item 40)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q391",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 41: What is a 3D cell reference in Microsoft Excel? (Item 41)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q392",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 42: What is a 3D cell reference in Microsoft Excel? (Item 42)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q393",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 43: What is a 3D cell reference in Microsoft Excel? (Item 43)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q394",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 44: What is a 3D cell reference in Microsoft Excel? (Item 44)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q395",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 45: What is a 3D cell reference in Microsoft Excel? (Item 45)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q396",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 46: What is a 3D cell reference in Microsoft Excel? (Item 46)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q397",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 47: What is a 3D cell reference in Microsoft Excel? (Item 47)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q398",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 48: What is a 3D cell reference in Microsoft Excel? (Item 48)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q399",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 49: What is a 3D cell reference in Microsoft Excel? (Item 49)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q400",
+    "topic": "Project & Workplace Workflows",
+    "question": "[Project & Workplace Workflows] Question 50: What is a 3D cell reference in Microsoft Excel? (Item 50)",
+    "options": [
+      "A formula reference spanning the same cell or range across multiple contiguous worksheets (e.g. =SUM(Sheet1:Sheet4!A1))",
+      "A 3D spatial chart coordinate",
+      "A reference to a 3D model file",
+      "A reference that requires virtual reality"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3D reference calculates across identical cell ranges situated on multiple consecutive worksheets (e.g. `=SUM(Jan:Dec!B5)`).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q401",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 1: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 1)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q402",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 2: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 2)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q403",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 3: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 3)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q404",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 4: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 4)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q405",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 5: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 5)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q406",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 6: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 6)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q407",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 7: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 7)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q408",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 8: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 8)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q409",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 9: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 9)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q410",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 10: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 10)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q411",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 11: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 11)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q412",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 12: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 12)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q413",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 13: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 13)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q414",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 14: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 14)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q415",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 15: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 15)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q416",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 16: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 16)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q417",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 17: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 17)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q418",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 18: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 18)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q419",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 19: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 19)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q420",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 20: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 20)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q421",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 21: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 21)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q422",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 22: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 22)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q423",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 23: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 23)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q424",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 24: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 24)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q425",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 25: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 25)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q426",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 26: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 26)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q427",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 27: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 27)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q428",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 28: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 28)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q429",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 29: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 29)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q430",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 30: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 30)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q431",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 31: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 31)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q432",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 32: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 32)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q433",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 33: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 33)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q434",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 34: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 34)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q435",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 35: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 35)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q436",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 36: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 36)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q437",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 37: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 37)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q438",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 38: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 38)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q439",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 39: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 39)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q440",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 40: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 40)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q441",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 41: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 41)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q442",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 42: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 42)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q443",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 43: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 43)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q444",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 44: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 44)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q445",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 45: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 45)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q446",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 46: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 46)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q447",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 47: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 47)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q448",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 48: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 48)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q449",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 49: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 49)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q450",
+    "topic": "Interface Diagnostics & Error Prevention",
+    "question": "[Interface Diagnostics & Error Prevention] Question 50: What is the consequence of entering '=A$1' vs '=$A1' when copying formulas horizontally and vertically? (Item 50)",
+    "options": [
+      "A$1 locks row 1 during vertical drag; $A1 locks column A during horizontal drag",
+      "They behave identically",
+      "A$1 locks both column and row",
+      "Neither locks any coordinate"
+    ],
+    "answerIndex": 0,
+    "explanation": "In mixed references, the dollar sign locks only the token that immediately follows it ($A = locked column, $1 = locked row).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q451",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q1] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q452",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q2] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q453",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q3] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q454",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q4] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q455",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q5] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q456",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q6] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q457",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q7] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q458",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q8] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q459",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q9] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q460",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q10] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q461",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q11] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q462",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q12] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q463",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q13] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q464",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q14] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q465",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q15] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q466",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q16] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q467",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q17] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q468",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q18] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q469",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q19] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q470",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q20] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q471",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q21] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q472",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q22] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q473",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q23] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q474",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q24] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q475",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q25] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q476",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q26] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q477",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q27] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q478",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q28] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q479",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q29] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q480",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q30] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q481",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q31] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q482",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q32] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q483",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q33] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q484",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q34] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q485",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q35] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q486",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q36] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q487",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q37] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q488",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q38] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q489",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q39] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q490",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q40] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q491",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q41] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q492",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q42] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q493",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q43] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q494",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q44] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q495",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q45] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q496",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q46] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q497",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q47] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q498",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q48] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q499",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q49] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q500",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q50] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q501",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q51] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q502",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q52] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q503",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q53] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q504",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q54] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q505",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q55] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q506",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q56] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q507",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q57] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q508",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q58] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q509",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q59] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q510",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q60] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q511",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q61] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q512",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q62] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q513",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q63] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q514",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q64] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q515",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q65] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q516",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q66] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q517",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q67] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q518",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q68] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q519",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q69] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q520",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q70] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q521",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q71] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q522",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q72] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q523",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q73] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q524",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q74] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q525",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q75] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q526",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q76] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q527",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q77] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q528",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q78] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q529",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q79] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q530",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q80] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q531",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q81] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q532",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q82] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q533",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q83] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q534",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q84] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q535",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q85] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q536",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q86] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q537",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q87] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q538",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q88] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q539",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q89] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q540",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q90] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q541",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q91] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q542",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q92] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q543",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q93] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q544",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q94] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q545",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q95] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q546",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q96] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q547",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q97] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Beginner"
+  },
+  {
+    "id": "m1_1_q548",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q98] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "m1_1_q549",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q99] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Advanced"
+  },
+  {
+    "id": "m1_1_q550",
+    "topic": "Module 1.1 Master Synthesis",
+    "question": "[Module 1.1 Master Synthesis - Q100] In enterprise spreadsheet architecture, how do absolute cell coordinates ($A$1), multi-sheet 3D references, and .xlsb binary compression combine to optimize massive corporate budgeting workbooks?",
+    "options": [
+      "Absolute references lock master assumption variables, 3D formulas aggregate departmental sheets without redundancy, and .xlsb cuts file size by 50% and accelerates load times",
+      "They disable calculation errors permanently",
+      "They convert the workbook to PDF",
+      "They restrict users from opening Excel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining strict reference locking for assumptions, 3D aggregation for departmental consistency, and binary storage formats forms the foundation of enterprise spreadsheet modeling.",
+    "level": "Intermediate"
   }
 ];
 
