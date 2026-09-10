@@ -1,0 +1,496 @@
+================================================================================
+CODER & ACCOTAX - BARRACKPORE, WEST BENGAL
+DEPARTMENT OF COMPUTER APPLICATIONS / COMPUTER SCIENCE
+COURSE: BCAC701B - INTRODUCTION TO MACHINE LEARNING (SEMESTER-VII)
+AUTHOR: SUKANTA HUI
+MODULE 001_001: INTRODUCTION TO MACHINE LEARNING
+MASTER EXAMINATION-READY REVISION NOTES & DEFINITIONS HANDBOOK
+================================================================================
+
+--------------------------------------------------------------------------------
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+1.  Foundational Definitions of Machine Learning
+2.  Traditional Programming vs. Machine Learning Paradigm
+3.  Why Machine Learning is Needed: Key Motivations
+4.  The 4 Core Machine Learning Paradigms
+5.  Supervised Learning: Concepts, Math & Loss Functions
+6.  Unsupervised Learning: Concepts, Formulations & Methods
+7.  Semi-Supervised Learning: Intuition, Axioms & Propagation
+8.  Classification vs. Regression: Comparative Framework
+9.  Clustering Overview: Taxonomy & Evaluation Metrics
+10. Industrial Applications & Domain Case Studies
+11. The 7-Stage End-to-End Machine Learning Pipeline
+12. Data Matrix, Features, Labels & Target Representations
+13. Train, Validation & Test Splitting Strategies
+14. System Architectural Archetypes (Streaming, Batch, Edge)
+15. Summary of Key Worked Numerical Examples (Topics 14-18)
+16. Step-by-Step Computational Problem-Solving Protocols
+17. High-Yield Viva Voce Short Questions & Model Answers
+18. Vector Geometry, Norms & Similarity Formulations
+19. Comprehensive Glossary of 50+ Examination Definitions
+20. 10 Golden Rules & Best Practices for ML Examinations
+
+================================================================================
+SECTION 1: FOUNDATIONAL DEFINITIONS OF MACHINE LEARNING
+================================================================================
+
+1.1 ARTHUR SAMUEL'S DEFINITION (1959):
+"Machine Learning is the subfield of Computer Science that gives computers the 
+ability to learn without being explicitly programmed."
+- Core Focus: Automatic learning of behavioral patterns directly from empirical data.
+
+1.2 TOM MITCHELL'S FORMAL ENGINEERING DEFINITION (1997):
+"A computer program is said to learn from experience E with respect to some class 
+of tasks T and performance measure P, if its performance at tasks in T, as 
+measured by P, improves with experience E."
+- Formal Tuple: <T, P, E>
+- Task (T): The operational objective (e.g., classifying emails as spam or ham).
+- Performance Measure (P): The quantitative evaluation metric (e.g., accuracy, F1-score).
+- Experience (E): The historical dataset of observed samples or environmental interactions.
+
+1.3 DATA-CENTRIC DEFINITION:
+Machine Learning is an algorithmic framework that automatically estimates an 
+underlying unknown target function f: X -> Y by optimizing parameters w over a 
+finite empirical training sample D = {(x_i, y_i)}_{i=1}^N, minimizing expected 
+generalization error on unseen future distributions.
+
+================================================================================
+SECTION 2: TRADITIONAL PROGRAMMING VS. MACHINE LEARNING
+================================================================================
+
+2.1 PARADIGM COMPARISON:
++------------------------+-----------------------------------------------------+
+| TRADITIONAL PROGRAM    | Input: [Data] + [Explicit Rules / Code] -> [Output] |
++------------------------+-----------------------------------------------------+
+| MACHINE LEARNING       | Input: [Data] + [Output / Feedback]     -> [Rules]  |
++------------------------+-----------------------------------------------------+
+
+2.2 KEY ARCHITECTURAL DIFFERENCES:
+1. Rule Construction:
+   - Traditional: Manually designed by human domain experts using if-else logic.
+   - Machine Learning: Automatically induced by optimization algorithms from patterns.
+2. Adaptability:
+   - Traditional: Static and rigid; requires manual source code modification for changes.
+   - Machine Learning: Dynamic and adaptive; model automatically updates with fresh data.
+3. Dimensionality Scalability:
+   - Traditional: Fails exponentially in high-dimensional or perceptual spaces (pixels, audio).
+   - Machine Learning: Scales effectively across thousands or millions of parameters.
+4. Reasoning Paradigm:
+   - Traditional: Deductive reasoning (General Rules -> Specific Instances).
+   - Machine Learning: Inductive reasoning (Specific Data Samples -> General Rule).
+
+================================================================================
+SECTION 3: WHY MACHINE LEARNING IS NEEDED
+================================================================================
+
+3.1 CORE MOTIVATIONS & BOTTLENECKS OF RULE-BASED SYSTEMS:
+1. High-Dimensional Perceptual Complexity:
+   - A 28x28 grayscale image contains 784 dimensions (256^784 possible states). Handcrafting 
+     deterministic nested rules for handwritten digits is humanly intractable.
+2. Dynamic Environment & Concept Drift:
+   - Fraud patterns and user preferences evolve continuously over time. ML pipelines 
+     retrain automatically on streaming distributions without software code rewrites.
+3. Implicit Human Expertise (Polanyi's Paradox):
+   - "We know more than we can tell." Humans recognize faces or speech instantly but 
+     cannot articulate the exact mathematical rules required to write a deterministic parser.
+4. Scale and Non-Linear Feature Interactions:
+   - Complex interactions among hundreds of correlated variables cannot be captured by 
+     human intuition or hardcoded heuristics.
+
+================================================================================
+SECTION 4: THE 4 CORE MACHINE LEARNING PARADIGMS
+================================================================================
+
+4.1 SUPERVISED LEARNING:
+- Definition: Learning a predictive mapping f(x; w) from labeled training pairs D = {(x_i, y_i)}.
+- Supervision: Full ground-truth target y_i is provided for every sample.
+- Output Categories:
+  a) Classification: Discrete category prediction (y in {0, 1} or {C_1, ..., C_K}).
+  b) Regression: Continuous quantity prediction (y in Real Numbers).
+
+4.2 UNSUPERVISED LEARNING:
+- Definition: Discovering latent structures, clusters, probability distributions, or low-
+  dimensional representations from unlabeled datasets D = {x_i}.
+- Supervision: Zero target labels provided (y is absent).
+- Major Sub-Tasks: Clustering, Dimensionality Reduction (PCA), Density Estimation, Anomaly Detection.
+
+4.3 SEMI-SUPERVISED LEARNING:
+- Definition: Training on a hybrid dataset consisting of a small labeled subset D_L = {(x_i, y_i)} 
+  and a vastly larger unlabeled subset D_U = {x_j} where |D_U| >> |D_L|.
+- Motivation: Acquiring ground-truth labels requires expensive human expert annotation, 
+  whereas unlabeled raw data is cheap and abundant.
+
+4.4 REINFORCEMENT LEARNING:
+- Definition: An autonomous agent learns an optimal behavioral policy pi(a|s) through sequential 
+  trial-and-error interaction with a dynamic environment, maximizing cumulative scalar reward R.
+- Formal Model: Markov Decision Process (MDP) tuple <S, A, P, R, gamma>.
+- Supervision: Evaluative scalar feedback (Reward/Penalty), not prescriptive labels.
+
+================================================================================
+SECTION 5: SUPERVISED LEARNING DEEP DIVE & LOSS FUNCTIONS
+================================================================================
+
+5.1 EMPIRICAL RISK MINIMIZATION (ERM):
+The optimal parameter vector w* minimizes the empirical loss over training set D plus 
+an optional regularization penalty:
+   w* = argmin_w [ (1/N) * sum_{i=1}^N L(f(x_i; w), y_i) + lambda * Omega(w) ]
+
+5.2 CORE LOSS FUNCTIONS:
+1. Mean Squared Error (MSE) - For Regression:
+   MSE = (1/N) * sum_{i=1}^N (y_i - y_hat_i)^2
+   - Penalizes larger errors quadratically; highly sensitive to extreme outliers.
+
+2. Mean Absolute Error (MAE) - For Robust Regression:
+   MAE = (1/N) * sum_{i=1}^N |y_i - y_hat_i|
+   - Linear penalty; robust against outlier corruptions.
+
+3. Binary Cross-Entropy Loss (BCE / Log Loss) - For Binary Classification:
+   L_BCE = - (1/N) * sum_{i=1}^N [ y_i * ln(p_i) + (1 - y_i) * ln(1 - p_i) ]
+   where p_i = sigma(w^T x_i + b) = 1 / (1 + exp(-z_i))
+
+4. Categorical Cross-Entropy Loss - For Multi-Class Classification:
+   L_CCE = - (1/N) * sum_{i=1}^N sum_{k=1}^K y_{i,k} * ln(p_{i,k})
+   where p_{i,k} = exp(z_{i,k}) / sum_{j=1}^K exp(z_{i,j})  (Softmax)
+
+================================================================================
+SECTION 6: UNSUPERVISED LEARNING DEEP DIVE
+================================================================================
+
+6.1 CLUSTERING (k-MEANS OBJECTIVE):
+Minimizes Within-Cluster Sum of Squares (WCSS) / Inertia:
+   J(C, mu) = sum_{k=1}^K sum_{x_i in C_k} || x_i - mu_k ||^2
+   where mu_k is the centroid of cluster C_k.
+
+6.2 DIMENSIONALITY REDUCTION (PRINCIPAL COMPONENT ANALYSIS - PCA):
+Finds orthogonal projection vectors (eigenvectors of covariance matrix Sigma) that maximize 
+variance retention while minimizing reconstruction error:
+   Sigma = (1/N) * X_centered^T * X_centered
+   Sigma * v_j = lambda_j * v_j
+
+6.3 ANOMALY DETECTION:
+Estimates the joint probability density p(x). Samples with density below threshold tau 
+(p(x) < tau) are flagged as anomalies.
+
+================================================================================
+SECTION 7: SEMI-SUPERVISED LEARNING & GEOMETRIC AXIOMS
+================================================================================
+
+7.1 THREE CORE GEOMETRIC ASSUMPTIONS:
+1. Smoothness Assumption:
+   If two points x_1 and x_2 reside in a high-density region and are close in feature space, 
+   their corresponding outputs y_1 and y_2 must be identical or close.
+2. Cluster Assumption:
+   Data points tend to form discrete clusters; points belonging to the same cluster share the 
+   same class label.
+3. Low-Density Separation Assumption:
+   The optimal decision boundary must pass through low-density regions, avoiding cutting 
+   through dense clusters.
+
+7.2 LABEL PROPAGATION ALGORITHM:
+Constructs a similarity graph W where edge weights W_{ij} = exp(-||x_i - x_j||^2 / (2 * sigma^2)). 
+Class probabilities propagate iteratively from labeled nodes to unlabeled neighbors along high-
+density manifold paths.
+
+================================================================================
+SECTION 8: CLASSIFICATION VS. REGRESSION COMPARISON
+================================================================================
+
++-------------------+-----------------------------------+-----------------------------------+
+| DIMENSION         | CLASSIFICATION                    | REGRESSION                        |
++-------------------+-----------------------------------+-----------------------------------+
+| Target Variable   | Qualitative / Categorical (Class) | Quantitative / Numerical (Real)   |
+| Output Space      | Discrete set: {0, 1} or {C_1..C_K}| Continuous continuum: (-inf, +inf)|
+| Core Goal         | Partition feature space via       | Fit a continuous response surface |
+|                   | decision boundaries / hyperplanes | or manifold minimizing residuals  |
+| Evaluation Metrics| Accuracy, Precision, Recall, F1,  | MSE, RMSE, MAE, R^2 Score,        |
+|                   | ROC-AUC, Log Loss                 | Adjusted R^2                      |
+| Primary Algorithms| Logistic Regression, SVM, Decision| Linear Regression, Ridge, Lasso,  |
+|                   | Trees, Naive Bayes, Random Forest | SVR, Gradient Boosted Regressor   |
++-------------------+-----------------------------------+-----------------------------------+
+
+================================================================================
+SECTION 9: CLUSTERING OVERVIEW & EVALUATION
+================================================================================
+
+9.1 TAXONOMY OF CLUSTERING ALGORITHMS:
+1. Centroid-Based: k-Means, k-Medoids (Assumes spherical, convex clusters).
+2. Density-Based: DBSCAN, OPTICS (Discovers arbitrary shapes, isolates noise outliers).
+3. Hierarchical: Agglomerative (Bottom-up), Divisive (Top-down) (Produces dendrogram).
+4. Distribution-Based: Gaussian Mixture Models (GMM) with EM algorithm.
+
+9.2 CLUSTER EVALUATION METRIC - SILHOUETTE COEFFICIENT:
+For a sample i:
+   s(i) = (b(i) - a(i)) / max(a(i), b(i))
+   where:
+   - a(i) = Mean intra-cluster distance between sample i and all other points in same cluster.
+   - b(i) = Mean nearest-cluster distance between sample i and points in closest neighboring cluster.
+   Range: -1.0 (Severely misclustered) to +1.0 (Perfect separation). Values > 0.5 indicate solid structure.
+
+================================================================================
+SECTION 10: INDUSTRIAL APPLICATIONS & DOMAIN CASE STUDIES
+================================================================================
+
+1. FINTECH & BANKING:
+   - UPI Real-time Fraud Detection (<50ms latency SLA, Extreme class imbalance ~0.01%).
+   - Credit Risk Scoring (Regulatory explainability requirements).
+2. HEALTHCARE & MEDICAL IMAGING:
+   - X-Ray & MRI Tumor Segmentation (High-recall constraint: false negatives are fatal).
+3. E-COMMERCE & RETAIL:
+   - Two-Stage Recommendation Funnel (Candidate Retrieval ~1000 items -> High-precision Ranking Top-10).
+4. AGRICULTURE & CLIMATE:
+   - Crop Disease Detection via Mobile Vision & Satellite Yield Forecasting.
+5. NATURAL LANGUAGE PROCESSING (NLP):
+   - Bengali/Regional Language Sentiment Analysis, Spam Filtering, Translation.
+
+================================================================================
+SECTION 11: THE 7-STAGE END-TO-END ML WORKFLOW
+================================================================================
+
+1. PROBLEM FRAMING: Define business KPIs, formulate ML task type (T), metrics (P), constraints (SLA).
+2. DATA COLLECTION & INGESTION: Query databases, logs, APIs, scrapers; ensure consent and privacy.
+3. EXPLORATORY DATA ANALYSIS (EDA) & PREPROCESSING: Handle missing values, outliers, normalization.
+4. FEATURE ENGINEERING: Extract domain signals, one-hot encoding, scaling, polynomial features.
+5. MODEL TRAINING & HYPERPARAMETER TUNING: Fit algorithms, optimize hyperparameters via Grid/Random Search.
+6. MODEL EVALUATION & VALIDATION: Out-of-sample evaluation on test set, confusion matrix, error analysis.
+7. DEPLOYMENT & PRODUCTION MONITORING: Model registry, REST API serving, concept drift monitoring.
+
+* CRITICAL WARNING - DATA LEAKAGE:
+  Occurs when information from the test/validation set inadvertently contaminates the training 
+  phase (e.g., computing global mean for imputation before train-test split). Always split first!
+
+================================================================================
+SECTION 12: DATA MATRIX, FEATURES, LABELS & TARGET VARIABLES
+================================================================================
+
+12.1 DESIGN MATRIX NOTATION:
+   X in R^{N x d}  (N rows = observations/samples, d columns = input features)
+   y in R^N        (N-dimensional ground-truth target vector)
+
+12.2 FEATURE DATA TYPES:
+1. Numerical / Continuous: Measurements, age, salary, temperature (Scaled via MinMax/StandardScaler).
+2. Numerical / Discrete: Count of items, visits, children (Integer values).
+3. Categorical / Nominal: Unordered discrete states (e.g., Red, Blue, Green -> One-Hot Encoded).
+4. Categorical / Ordinal: Ordered categories (e.g., Low < Medium < High -> Integer Label Encoded).
+
+================================================================================
+SECTION 13: TRAIN, VALIDATION & TEST SET PARTITIONING
+================================================================================
+
+13.1 THREE-WAY DATASET SPLIT:
+1. Training Set (60% - 80%): Used directly by optimization algorithm to learn model weights (w, b).
+2. Validation Set (10% - 20%): Used to tune hyperparameters, select model architectures, and detect overfitting.
+3. Test Set (10% - 20%): Held-out gold standard; evaluated ONCE at the end to estimate true generalization error.
+
+13.2 K-FOLD CROSS-VALIDATION:
+Partitions dataset into K equal folds. Iterates K times, using K-1 folds for training and 1 fold for 
+validation. Aggregates performance as mean +/- standard deviation.
+- Stratified K-Fold: Ensures each fold preserves identical class distribution percentages as the full dataset.
+
+================================================================================
+SECTION 14: SYSTEM ARCHITECTURAL ARCHETYPES
+================================================================================
+
+1. BATCH PREDICTION (Offline Inference):
+   - Computes predictions over millions of records periodically (e.g., overnight churn scores).
+   - High throughput, low compute cost, non-real-time.
+2. STREAMING / ONLINE INFERENCE (Real-Time Serving):
+   - Ingests single request via REST/gRPC API; responds in <100ms (e.g., UPI fraud detection).
+   - Low latency, high availability, continuous monitoring.
+3. TWO-STAGE RETRIEVAL & RANKING FUNNEL:
+   - Stage 1: Candidate Generation (Retrieves ~1,000 items from millions in <10ms via Approximate Nearest Neighbor).
+   - Stage 2: Heavy Ranking (Scores top 1,000 items using deep model to produce top 10).
+4. EDGE / EMBEDDED INFERENCE:
+   - Runs on local device (smartphones, microcontrollers) without cloud dependencies.
+   - Zero network latency, full data privacy, constrained memory footprint.
+
+================================================================================
+SECTION 15: SUMMARY OF KEY WORKED EXAMPLES (TOPICS 14-18)
+================================================================================
+
+15.1 EXAMPLE 1: STUDENT PASS/FAIL (BINARY LOGISTIC REGRESSION):
+- Linear Combiner: z = w_1 * Hours + w_2 * Attendance + b
+- Activation: p = 1 / (1 + exp(-z))
+- Decision Rule: Predict Pass (1) if p >= 0.50, else Fail (0).
+
+15.2 EXAMPLE 2: HOUSE PRICE PREDICTION (MULTIPLE LINEAR REGRESSION):
+- Hypothesis: y_hat = w_1 * Area + w_2 * Bedrooms + w_3 * Distance + b
+- Optimization: Gradient Descent on MSE: w_j := w_j - alpha * (dL / dw_j)
+- Goodness of Fit: R^2 = 1 - (SS_res / SS_tot)
+
+15.3 EXAMPLE 3: CUSTOMER CHURN PREDICTION (CLASSIFICATION METRICS):
+- Confusion Matrix: TP, FP, TN, FN
+- Accuracy = (TP + TN) / (TP + TN + FP + FN)
+- Precision = TP / (TP + FP)  (Minimizes false alarms)
+- Recall = TP / (TP + FN)     (Minimizes missed churners)
+- F1-Score = 2 * (Precision * Recall) / (Precision + Recall)
+
+15.4 EXAMPLE 4: SPAM EMAIL CLASSIFICATION (NAIVE BAYES NLP):
+- Bayes Theorem: P(Spam | Words) proportional to P(Spam) * prod P(w_j | Spam)
+- Laplace Smoothing (+alpha): P(w_j | Spam) = (count(w_j, Spam) + 1) / (total_words_Spam + |V|)
+- Log-Odds Computation: Prevents arithmetic underflow during floating-point multiplications.
+
+15.5 EXAMPLE 5: CUSTOMER SEGMENTATION (RFM & k-MEANS):
+- RFM Metrics: Recency (days since last purchase), Frequency (total orders), Monetary (total spending).
+- Clustering: Standardize RFM features -> Run k-Means -> Discover VIP, Loyal, and At-Risk customer personas.
+
+================================================================================
+SECTION 16: STEP-BY-STEP COMPUTATIONAL PROBLEM-SOLVING PROTOCOLS
+================================================================================
+
+PROTOCOL 1: EVALUATING CONFUSION MATRIX METRICS
+Given: TP=80, FP=10, FN=20, TN=890
+Step 1: Compute Total Samples N = 80 + 10 + 20 + 890 = 1000
+Step 2: Accuracy = (80 + 890) / 1000 = 970 / 1000 = 97.0%
+Step 3: Precision = 80 / (80 + 10) = 80 / 90 = 88.89%
+Step 4: Recall = 80 / (80 + 20) = 80 / 100 = 80.0%
+Step 5: F1-Score = 2 * (0.8889 * 0.80) / (0.8889 + 0.80) = 1.4222 / 1.6889 = 84.21%
+
+PROTOCOL 2: COMPUTING MEAN SQUARED ERROR (MSE)
+Given Actuals y = [100, 150, 200] and Predictions y_hat = [110, 140, 220]
+Step 1: Residuals e = y - y_hat = [-10, +10, -20]
+Step 2: Squared Residuals e^2 = [100, 100, 400]
+Step 3: Sum of Squares = 100 + 100 + 400 = 600
+Step 4: MSE = 600 / 3 = 200.0
+Step 5: RMSE = sqrt(200.0) = 14.14
+
+================================================================================
+SECTION 17: HIGH-YIELD VIVA VOCE SHORT QUESTIONS & MODEL ANSWERS
+================================================================================
+
+Q1: What is the Fundamental Difference Between Parameters and Hyperparameters?
+Answer:
+- Parameters: Internal variables learned automatically by optimization from data during training (e.g., weights w, bias b).
+- Hyperparameters: External configuration settings set manually by the engineer before training (e.g., learning rate alpha, k in k-Means, regularization lambda).
+
+Q2: Why is Accuracy an Inadequate Metric for Imbalanced Datasets?
+Answer:
+In severe class imbalance (e.g., 99% legitimate, 1% fraud), a trivial model predicting "Legitimate" 100% of the time achieves 99% accuracy while catching 0% of fraud cases. Precision, Recall, F1-Score, and PR-AUC are required.
+
+Q3: What is the Difference Between Overfitting and Underfitting?
+Answer:
+- Underfitting (High Bias): Model is too simple to capture underlying patterns (poor train accuracy, poor test accuracy).
+- Overfitting (High Variance): Model memorizes training noise and idiosyncrasies (perfect train accuracy, poor test accuracy).
+
+Q4: Explain Polanyi's Paradox in the Context of Machine Learning.
+Answer:
+Polanyi's Paradox states "We know more than we can tell." Humans possess tacit knowledge (face recognition, speech) that cannot be coded via deterministic rules. ML solves this by inducing rules directly from data.
+
+Q5: Why Do We Need a Validation Set in Addition to a Test Set?
+Answer:
+If we tune hyperparameters repeatedly using the test set, information leaks from the test set into model selection decisions ("data snooping"). The test set must remain completely unseen until final verification.
+
+================================================================================
+SECTION 18: VECTOR GEOMETRY, NORMS & SIMILARITY FORMULATIONS
+================================================================================
+
+18.1 VECTOR DOT PRODUCT:
+   u . v = sum_{i=1}^d u_i * v_i = ||u|| * ||v|| * cos(theta)
+- If u . v = 0, vectors are strictly orthogonal (perpendicular).
+- If u . v > 0, vectors point in similar directions.
+
+18.2 VECTOR NORMS:
+1. L2 Norm (Euclidean Distance / Magnitude):
+   ||u||_2 = sqrt( sum_{i=1}^d u_i^2 )
+2. L1 Norm (Manhattan Distance / Taxi-cab Norm):
+   ||u||_1 = sum_{i=1}^d |u_i|
+
+18.3 COSINE SIMILARITY:
+   CosineSimilarity(u, v) = (u . v) / ( ||u||_2 * ||v||_2 )
+- Range: -1.0 (Opposite) to +1.0 (Identical direction).
+- Invariant to vector magnitude; measures directional alignment (critical for NLP embeddings).
+
+================================================================================
+SECTION 19: COMPREHENSIVE GLOSSARY OF 50+ EXAMINATION DEFINITIONS
+================================================================================
+
+1. Accuracy: Fraction of total predictions that are correct: (TP+TN)/(Total).
+2. Activation Function: Mathematical function applied to linear combination to introduce non-linearity.
+3. Batch Gradient Descent: Optimization that computes gradients over entire training dataset at each step.
+4. Bias (Statistical): Error introduced by approximating complex real-world phenomenon with simpler model.
+5. Binary Cross-Entropy: Loss function quantifying divergence between predicted probabilities and true binary labels.
+6. Categorical Variable: Qualitative feature taking discrete values representing categories.
+7. Centroid: Geometric center (mean coordinates) of a cluster of data points.
+8. Classification: Supervised learning task predicting discrete class labels.
+9. Cluster: Group of data objects exhibiting high intra-group similarity and low inter-group similarity.
+10. Clustering: Unsupervised process of grouping unlabeled data points based on geometric distance.
+11. Confusion Matrix: Table displaying distribution of true vs. predicted classifications (TP, FP, TN, FN).
+12. Concept Drift: Statistical degradation of model performance when real-world data distribution shifts over time.
+13. Continuous Variable: Quantitative feature capable of taking any infinite real value within an interval.
+14. Cosine Similarity: Metric measuring directional alignment between two vectors regardless of magnitude.
+15. Cross-Validation: Statistical resampling technique partitioning data into K folds to validate generalization.
+16. Data Leakage: Inadvertent inclusion of target or test set information during model training phase.
+17. Decision Boundary: Surface/hyperplane in feature space separating different predicted classes.
+18. Dimensionality Reduction: Process of transforming high-dimensional space into lower-dimensional representation.
+19. Dot Product: Algebraic operation multiplying corresponding elements of two vectors and summing the products.
+20. Early Stopping: Regularization technique halting training when validation loss stops improving.
+21. Empirical Risk Minimization (ERM): Principle of optimizing parameters to minimize average loss over training set.
+22. Epoch: One complete forward and backward pass through the entire training dataset.
+23. Euclidean Distance: Straight-line distance between two points in Euclidean space: sqrt(sum(x_i - y_i)^2).
+24. Explanatory Variable: Independent input feature used to predict or explain the target variable.
+25. F1-Score: Harmonic mean of Precision and Recall: 2 * (P * R) / (P + R).
+26. False Negative (FN): Positive instance incorrectly classified as negative.
+27. False Positive (FP): Negative instance incorrectly classified as positive (False Alarm).
+28. Feature: Individual measurable property or characteristic of an observed phenomenon.
+29. Feature Engineering: Process of transforming raw data into informative input features for ML algorithms.
+30. Feature Matrix (X): 2D array of size N x d containing input features for N observations.
+31. Gradient Descent: First-order iterative optimization algorithm for finding local minimum of a loss function.
+32. Ground Truth: Empirical, verified true label or value of an observation.
+33. Hyperparameter: External configuration variable set by engineer before training begins.
+34. Hypothesis Space: Set of all possible mathematical functions a learning algorithm can select from.
+35. Inductive Bias: Set of assumptions an algorithm uses to predict outputs for unseen inputs.
+36. k-Means: Iterative clustering algorithm partitioning N observations into k clusters via centroids.
+37. L1 Regularization (Lasso): Adds sum of absolute weights to loss function; induces feature sparsity.
+38. L2 Regularization (Ridge): Adds sum of squared weights to loss function; prevents extreme weights.
+39. Label: True target value or class assignment associated with an observation in supervised learning.
+40. Learning Rate (alpha): Hyperparameter controlling step size taken during gradient descent optimization.
+41. Linear Regression: Supervised algorithm modeling relationship between continuous target and features linearly.
+42. Logistic Regression: Supervised classification algorithm modeling probability using the sigmoid function.
+43. Loss Function: Mathematical function measuring penalty for discrepancy between single prediction and true value.
+44. Mean Absolute Error (MAE): Average of absolute differences between predictions and actuals.
+45. Mean Squared Error (MSE): Average of squared differences between predictions and actuals.
+46. One-Hot Encoding: Conversion of categorical variables into binary vectors of 0s and 1s.
+47. Outlier: Data point that differs significantly from remaining observations in the dataset.
+48. Overfitting: Condition where model learns training noise and fails to generalize to unseen data.
+49. Parameter: Internal model variable learned automatically during training (e.g., weights, biases).
+50. Precision: Proportion of positive identifications that were actually correct: TP / (TP + FP).
+51. R-Squared (Coefficient of Determination): Proportion of variance in target variable predictable from features.
+52. Recall (Sensitivity): Proportion of actual positives that were identified correctly: TP / (TP + FN).
+53. Regression: Supervised task predicting continuous numerical outcomes.
+54. Regularization: Technique introducing penalty terms to prevent overfitting and control model complexity.
+55. Reinforcement Learning: Paradigm where agent learns actions via environmental rewards and penalties.
+56. Residual: Difference between observed actual value and predicted value: e = y - y_hat.
+57. Semi-Supervised Learning: Paradigm utilizing small labeled data with large unlabeled data.
+58. Sigmoid Function: S-shaped activation function mapping real numbers to range (0, 1): 1 / (1 + exp(-z)).
+59. Silhouette Coefficient: Metric measuring cluster cohesion and separation quality (-1 to +1).
+60. Stratified Sampling: Splitting strategy maintaining identical class proportions across train/test splits.
+61. Supervised Learning: Paradigm training models on labeled input-output pairs.
+62. Target Variable: Output variable that the machine learning model aims to predict.
+63. Test Set: Independent held-out dataset used exclusively to estimate final model generalization.
+64. Training Set: Dataset used by the algorithm to fit model parameters.
+65. True Negative (TN): Negative instance correctly classified as negative.
+66. True Positive (TP): Positive instance correctly classified as positive.
+67. Underfitting: Condition where model is too simple to capture underlying patterns in data.
+68. Unsupervised Learning: Paradigm discovering hidden structures from unlabeled data.
+69. Validation Set: Dataset used to tune hyperparameters and evaluate model selection.
+70. Vector: Geometric object possessing both magnitude and direction, represented as ordered array of numbers.
+
+================================================================================
+SECTION 20: 10 GOLDEN RULES & BEST PRACTICES FOR ML EXAMINATIONS
+================================================================================
+
+1. ALWAYS STATE THE TOM MITCHELL FORMAL TUPLE <T, P, E> WHEN DEFINING ML.
+2. DISTINGUISH EXPLICITLY BETWEEN PARAMETERS (LEARNED) AND HYPERPARAMETERS (TUNED).
+3. NEVER CONFUSE REGRESSION (CONTINUOUS) WITH CLASSIFICATION (CATEGORICAL).
+4. EMPHASIZE THE DANGER OF DATA LEAKAGE: ALWAYS SPLIT BEFORE NORMALIZATION/IMPUTATION.
+5. REMEMBER: ACCURACY FAILS ON IMBALANCED DATA; CITE PRECISION, RECALL, AND F1-SCORE.
+6. CLARIFY WHY TEST SETS MUST NEVER BE USED FOR HYPERPARAMETER TUNING.
+7. WRITE EQUATIONS WITH CLEAR INDEX DEFINITIONS (sum from i=1 to N).
+8. IN CLUSTERING, HIGHLIGHT THAT UNSUPERVISED METHODS DO NOT USE LABELS.
+9. IN VIVA VOCE, USE CONCRETE REAL-WORLD EXAMPLES (UPI FRAUD, CANCER DETECTION).
+10. KEEP UNITS AND DIMENSIONS IN MIND WHEN EXPLAINING VECTORS AND LOSS METRICS.
+
+================================================================================
+END OF EXAMINATION NOTE - MODULE 001_001 (BCAC701B)
+CODER & ACCOTAX, BARRACKPORE - AUTHOR: SUKANTA HUI
+================================================================================
