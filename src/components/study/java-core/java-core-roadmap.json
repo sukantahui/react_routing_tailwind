@@ -1759,7 +1759,9 @@
             "Splitting & Joining: split(regex), String.join(delimiter, elements)",
             "Converting primitives to String: String.valueOf() vs toString() vs concatenation",
             "Converting String to char array and byte array: toCharArray(), getBytes(StandardCharsets.UTF_8)",
-            "Performance pitfalls of repeated string concatenation in loops"
+            "Performance pitfalls of repeated string concatenation in loops",
+            "Project Work",
+            "Short Question Answer"
           ],
           "learningOutcomes": [
             "Trace String allocation in Stack, Heap, and SCP memory diagrams",
@@ -1777,7 +1779,7 @@
           "exercises": {
             "mcq": 25,
             "coding": 10,
-            "projects": 1
+            "projects": 22
           },
           "assessment": {
             "type": "String Mechanics & SCP Exam",

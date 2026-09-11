@@ -1,0 +1,378 @@
+{
+  "projectCategory": "Core Java (Java SE) Project Work",
+  "subject": "Java Programming (Core Java)",
+  "board": "Professional / Academic",
+  "class": "Module 003_001",
+  "tools": [
+    "JDK 17+",
+    "BlueJ / Eclipse / IntelliJ IDEA"
+  ],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India"
+  },
+  "projects": [
+    {
+      "projectId": 1,
+      "title": "String Constant Pool (SCP) Reference vs Content Equality Verifier",
+      "difficulty": "Beginner",
+      "concepts": [
+        "String literals",
+        "new String() constructor",
+        "== operator (reference equality)",
+        ".equals() method (content equality)",
+        "SCP memory sharing"
+      ],
+      "description": "Demonstrate JVM String Constant Pool mechanics by comparing two string literals against a string object created via constructor allocation (new String()). Inspect reference equality (==) vs content equality (.equals()) to prove that identical literals point to the same SCP memory address while 'new String()' forces a new Heap allocation.",
+      "exampleText": "Compare s1 = \"Java\", s2 = \"Java\", s3 = new String(\"Java\")",
+      "exampleOutput": "Literal vs Literal (==)   : true  [Shared SCP Memory]\nLiteral vs Heap Obj (==)  : false [Distinct Heap Object]\nLiteral vs Heap (.equals) : true  [Equivalent Character Value]",
+      "answer": "public class ScpEqualityVerifier {\n    public static void verifyEquality(String lit1, String lit2, String heapObj) {\n        // Reference checks (memory address comparison)\n        boolean sameLiteralRef = (lit1 == lit2);\n        boolean sameHeapRef = (lit1 == heapObj);\n\n        // Content checks (character-by-character value comparison)\n        boolean sameContent = lit1.equals(heapObj);\n\n        System.out.println(\"Literal vs Literal (==)   : \" + sameLiteralRef + \" [Shared SCP Memory]\");\n        System.out.println(\"Literal vs Heap Obj (==)  : \" + sameHeapRef + \" [Distinct Heap Object]\");\n        System.out.println(\"Literal vs Heap (.equals) : \" + sameContent + \" [Equivalent Character Value]\");\n    }\n}",
+      "learningOutcome": "Differentiate between reference address identity in the String Constant Pool and semantic value equivalence."
+    },
+    {
+      "projectId": 2,
+      "title": "Dynamic String Interning & Deduplication Engine",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "String.intern()",
+        "SCP dynamic caching",
+        "Heap-to-SCP pointer re-alignment",
+        "Garbage collection pressure reduction"
+      ],
+      "description": "Simulate a data ingestion pipeline where duplicate dynamically calculated strings (created via runtime operations or user input in normal Heap memory) are interned using intern() to point to the shared canonical instance inside the String Constant Pool.",
+      "exampleText": "Dynamically build dynamicStr = new String(\"Batch-A\") and invoke .intern()",
+      "exampleOutput": "Before intern(): scpBase == dynamicStr -> false\nAfter intern() : scpBase == dynamicStr.intern() -> true\nMemory Optimization: Canonical reference retrieved from SCP.",
+      "answer": "public class InterningEngine {\n    public static void optimizeMemory(String scpBase, String rawInput) {\n        // Dynamic string created at runtime residing in normal Heap memory\n        String heapCopy = new String(rawInput);\n\n        System.out.println(\"Before intern: \" + (scpBase == heapCopy)); // false\n\n        // Fetch or register canonical reference inside the SCP\n        String canonicalRef = heapCopy.intern();\n\n        System.out.println(\"After intern  : \" + (scpBase == canonicalRef)); // true\n        System.out.println(\"Memory Optimization: Canonical reference retrieved from SCP.\");\n    }\n}",
+      "learningOutcome": "Master the intern() method to enforce string deduplication in memory-constrained JVM services."
+    },
+    {
+      "projectId": 3,
+      "title": "String Immutability Proof & Modification Detector",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Immutability verification",
+        "concat() method",
+        "toUpperCase() method",
+        "Reference re-assignment",
+        "System.identityHashCode()"
+      ],
+      "description": "Prove that String objects in Java cannot be modified in-place. Demonstrate that method calls such as concat() or toUpperCase() generate brand-new String instances in memory without altering the caller's original reference.",
+      "exampleText": "Execute s.concat(\" Developer\") on s = \"Java\" without reassigning the variable",
+      "exampleOutput": "Original before operations: Java [Address: 1989780873]\nResult of concat() call   : Java Developer [Address: 1480010240]\nOriginal after operations : Java [Address: 1989780873] [UNALTERED]\nImmutability Confirmed    : true",
+      "answer": "public class ImmutabilityProof {\n    public static void testImmutability(String original) {\n        int originalHash = System.identityHashCode(original);\n        System.out.println(\"Original before operations: \" + original + \" [Address: \" + originalHash + \"]\");\n\n        // Attempt in-place mutations (return values intentionally ignored)\n        original.concat(\" Developer\");\n        original.toUpperCase();\n        original.replace('a', 'o');\n\n        int afterHash = System.identityHashCode(original);\n        System.out.println(\"Original after operations : \" + original + \" [Address: \" + afterHash + \"]\");\n        System.out.println(\"Immutability Confirmed    : \" + (originalHash == afterHash && original.equals(\"Java\")));\n    }\n}",
+      "learningOutcome": "Understand why all String transformation methods return new instances rather than mutating existing memory buffers."
+    },
+    {
+      "projectId": 4,
+      "title": "Security Clearance Token & Constant Pool Integrity Validator",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Security implications of immutability",
+        "Parameter tampering prevention",
+        "Defensive reference sharing",
+        "Thread-safe state preservation"
+      ],
+      "description": "Model an authorization gateway to illustrate why String immutability is critical for system security: demonstrate how passing immutable role strings guarantees that untrusted methods cannot tamper with user access permissions across application boundaries.",
+      "exampleText": "Pass userRole = \"ROLE_STUDENT\" into an untrusted third-party audit module",
+      "exampleOutput": "Gateway received: ROLE_STUDENT\nThird-party plugin attempted role escalation...\nGateway final evaluation: Access restricted safely to 'ROLE_STUDENT'.",
+      "answer": "public class SecurityTokenValidator {\n    public static boolean validateAccess(String userRole) {\n        System.out.println(\"Entering security checkpoint with role: \" + userRole);\n\n        // Simulate third-party untrusted library invocation\n        untrustedPlugin(userRole);\n\n        // Because String is immutable, userRole cannot be mutated by untrustedPlugin\n        if (userRole.equals(\"ROLE_ADMIN\")) {\n            System.out.println(\"ACCESS GRANTED: Administrator privileges.\");\n            return true;\n        } else {\n            System.out.println(\"ACCESS RESTRICTED: Role remained '\" + userRole + \"' safely.\");\n            return false;\n        }\n    }\n\n    private static void untrustedPlugin(String token) {\n        // Plugin cannot modify caller's String object in Heap\n        token = \"ROLE_ADMIN\"; // Rebinds local stack variable only\n    }\n}",
+      "learningOutcome": "Analyze how String immutability protects Java applications from unauthorized state mutations and security exploits."
+    },
+    {
+      "projectId": 5,
+      "title": "Two-Pointer Palindrome Verification (Zero Heap Garbage)",
+      "difficulty": "Beginner",
+      "concepts": [
+        "charAt()",
+        "length()",
+        "Two-pointer traversal",
+        "Case-insensitive normalization",
+        "Zero-garbage algorithm"
+      ],
+      "description": "Validate whether a given word or alphanumeric sentence reads the same forwards and backwards using symmetric index pointers, avoiding unnecessary reverse string creation or intermediate Heap garbage allocation.",
+      "exampleText": "Evaluate input = \"Madam in Eden, I'm Adam!\"",
+      "exampleOutput": "Input: \"Madam in Eden, I'm Adam!\"\nIs Palindrome: true\nHeap Allocation: 0 additional String objects created",
+      "answer": "public class TwoPointerPalindrome {\n    public static boolean isPalindrome(String input) {\n        if (input == null) return false;\n\n        int left = 0;\n        int right = input.length() - 1;\n\n        while (left < right) {\n            char chLeft = input.charAt(left);\n            char chRight = input.charAt(right);\n\n            // Skip non-alphanumeric characters\n            if (!Character.isLetterOrDigit(chLeft)) {\n                left++;\n            } else if (!Character.isLetterOrDigit(chRight)) {\n                right--;\n            } else {\n                if (Character.toLowerCase(chLeft) != Character.toLowerCase(chRight)) {\n                    return false;\n                }\n                left++;\n                right--;\n            }\n        }\n        return true;\n    }\n}",
+      "learningOutcome": "Implement memory-efficient string inspection algorithms using charAt() and two-pointer loops."
+    },
+    {
+      "projectId": 6,
+      "title": "Student Email Sanitizer & Domain Extractor",
+      "difficulty": "Beginner",
+      "concepts": [
+        "strip() / trim()",
+        "toLowerCase()",
+        "indexOf()",
+        "substring()",
+        "Input boundary validation"
+      ],
+      "description": "Clean messy email entries from campus registration portals (e.g. Barrackpore & Shyamnagar study centers), trimming whitespace, validating structure, and extracting the student username and institutional domain.",
+      "exampleText": "Raw email = \"   Swadeep.Ghosh@Barrackpore-College.EDU   \"",
+      "exampleOutput": "Clean Email : swadeep.ghosh@barrackpore-college.edu\nUsername    : swadeep.ghosh\nDomain      : barrackpore-college.edu\nIs College  : true",
+      "answer": "public class EmailSanitizer {\n    public static void sanitizeAndParse(String rawEmail) {\n        if (rawEmail == null || rawEmail.isBlank()) {\n            System.out.println(\"Invalid email input.\");\n            return;\n        }\n\n        // Clean surrounding whitespace and normalize case\n        String cleanEmail = rawEmail.strip().toLowerCase();\n        int atIndex = cleanEmail.indexOf('@');\n\n        if (atIndex <= 0 || atIndex == cleanEmail.length() - 1) {\n            System.out.println(\"Malformed email address.\");\n            return;\n        }\n\n        String username = cleanEmail.substring(0, atIndex);\n        String domain = cleanEmail.substring(atIndex + 1);\n\n        System.out.println(\"Clean Email : \" + cleanEmail);\n        System.out.println(\"Username    : \" + username);\n        System.out.println(\"Domain      : \" + domain);\n        System.out.println(\"Is College  : \" + domain.endsWith(\".edu\"));\n    }\n}",
+      "learningOutcome": "Utilize strip(), substring(), and indexOf() for robust string parsing and data cleansing."
+    },
+    {
+      "projectId": 7,
+      "title": "Sensitive PII Credit Card & Aadhaar Masking Tool",
+      "difficulty": "Beginner",
+      "concepts": [
+        "substring()",
+        "repeat()",
+        "length()",
+        "Data privacy compliance",
+        "PII sanitization"
+      ],
+      "description": "Mask private identification numbers (12-digit Aadhaar or 16-digit payment cards) by obscuring all leading numbers with asterisks and retaining only the terminal 4 digits for verification.",
+      "exampleText": "Mask card = \"4532789123459876\" and aadhaar = \"789012345678\"",
+      "exampleOutput": "Card Masked   : ************9876\nAadhaar Masked: ********5678",
+      "answer": "public class PiiDataMasker {\n    public static String maskIdentifier(String rawNumber) {\n        if (rawNumber == null || rawNumber.length() < 4) {\n            return \"INVALID_ID\";\n        }\n\n        int maskLength = rawNumber.length() - 4;\n        String visibleDigits = rawNumber.substring(maskLength);\n\n        // Modern Java repeat() method for concise immutable string generation\n        String maskedPrefix = \"*\".repeat(maskLength);\n\n        return maskedPrefix + visibleDigits;\n    }\n}",
+      "learningOutcome": "Combine substring() with repeat() to implement secure data masking workflows."
+    },
+    {
+      "projectId": 8,
+      "title": "Character Category & Frequency Analyzer",
+      "difficulty": "Beginner",
+      "concepts": [
+        "toCharArray()",
+        "Character inspection methods",
+        "Loop counters",
+        "ASCII classification"
+      ],
+      "description": "Parse a paragraph of source text and compute total counts of vowels, consonants, numerical digits, whitespace, and punctuation symbols using primitive char array inspection.",
+      "exampleText": "Analyze text = \"Java 17 @ Ichapur Lab: 100% Immutability!\"",
+      "exampleOutput": "Vowels: 10 | Consonants: 15 | Digits: 5 | Spaces: 6 | Symbols: 4",
+      "answer": "public class CharacterCategoryAnalyzer {\n    public static void analyzeText(String text) {\n        if (text == null) return;\n\n        int vowels = 0, consonants = 0, digits = 0, spaces = 0, symbols = 0;\n        String vowelList = \"AEIOUaeiou\";\n\n        for (char ch : text.toCharArray()) {\n            if (Character.isDigit(ch)) {\n                digits++;\n            } else if (Character.isWhitespace(ch)) {\n                spaces++;\n            } else if (Character.isLetter(ch)) {\n                if (vowelList.indexOf(ch) != -1) {\n                    vowels++;\n                } else {\n                    consonants++;\n                }\n            } else {\n                symbols++;\n            }\n        }\n\n        System.out.println(\"Vowels: \" + vowels + \" | Consonants: \" + consonants);\n        System.out.println(\"Digits: \" + digits + \" | Spaces: \" + spaces + \" | Symbols: \" + symbols);\n    }\n}",
+      "learningOutcome": "Convert strings into primitive char arrays via toCharArray() for high-performance classification."
+    },
+    {
+      "projectId": 9,
+      "title": "Title Case Word Capitalizer",
+      "difficulty": "Beginner",
+      "concepts": [
+        "split()",
+        "substring()",
+        "toUpperCase()",
+        "toLowerCase()",
+        "String.join()"
+      ],
+      "description": "Transform inconsistent or all-caps document titles into standard Title Case, capitalizing the first letter of every word while converting remaining letters to lowercase.",
+      "exampleText": "Format title = \"jAvA sTRiNg cOnSTanT pOOL aRChitECture\"",
+      "exampleOutput": "Formatted Title: Java String Constant Pool Architecture",
+      "answer": "public class TitleCaseCapitalizer {\n    public static String toTitleCase(String title) {\n        if (title == null || title.isBlank()) return \"\";\n\n        String[] words = title.trim().split(\"\\\\s+\");\n\n        for (int i = 0; i < words.length; i++) {\n            String word = words[i].toLowerCase();\n            if (word.length() > 0) {\n                char firstChar = Character.toUpperCase(word.charAt(0));\n                words[i] = firstChar + word.substring(1);\n            }\n        }\n\n        return String.join(\" \", words);\n    }\n}",
+      "learningOutcome": "Combine split(), substring(), and String.join() to perform structured string transformations."
+    },
+    {
+      "projectId": 10,
+      "title": "Substring Occurrence & Overlap Counter",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "indexOf(pattern, fromIndex)",
+        "Loop boundary traversal",
+        "Overlapping patterns",
+        "String searching"
+      ],
+      "description": "Search for a target pattern inside a corpus of text and accurately count both non-overlapping and overlapping occurrences using index-based scanning.",
+      "exampleText": "Search pattern = \"ANA\" in text = \"BANANA BANANAS\"",
+      "exampleOutput": "Non-overlapping matches: 2\nOverlapping matches: 4\nMatch Indices: [1, 3, 8, 10]",
+      "answer": "public class SubstringOccurrenceCounter {\n    public static int countOccurrences(String text, String target, boolean allowOverlap) {\n        if (text == null || target == null || target.isEmpty()) return 0;\n\n        int count = 0;\n        int index = text.indexOf(target);\n\n        while (index != -1) {\n            count++;\n            // If overlap allowed, advance by 1; otherwise advance by target length\n            int step = allowOverlap ? 1 : target.length();\n            index = text.indexOf(target, index + step);\n        }\n\n        return count;\n    }\n}",
+      "learningOutcome": "Leverage indexOf() with index offsets to navigate text buffers without allocating excess objects."
+    },
+    {
+      "projectId": 11,
+      "title": "URL Protocol, Host, Port, and Path Parser",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "startsWith()",
+        "contains()",
+        "indexOf()",
+        "substring()",
+        "Protocol validation"
+      ],
+      "description": "Break down a network URL string into its discrete structural parts: scheme/protocol, hostname, optional port number, and resource endpoint path without external libraries.",
+      "exampleText": "Parse \"https://api.coderaccotax.in:8443/v1/students/records\"",
+      "exampleOutput": "Protocol: https | Host: api.coderaccotax.in | Port: 8443 | Path: /v1/students/records",
+      "answer": "public class CustomUrlParser {\n    public static void parseUrl(String url) {\n        if (url == null || !url.contains(\"://\")) {\n            System.out.println(\"Invalid URL format.\");\n            return;\n        }\n\n        int schemeEnd = url.indexOf(\"://\");\n        String protocol = url.substring(0, schemeEnd);\n\n        String remainder = url.substring(schemeEnd + 3);\n        int pathStart = remainder.indexOf('/');\n\n        String hostAndPort = (pathStart != -1) ? remainder.substring(0, pathStart) : remainder;\n        String path = (pathStart != -1) ? remainder.substring(pathStart) : \"/\";\n\n        String host = hostAndPort;\n        int defaultPort = protocol.equalsIgnoreCase(\"https\") ? 443 : 80;\n        int port = defaultPort;\n\n        if (hostAndPort.contains(\":\")) {\n            String[] parts = hostAndPort.split(\":\");\n            host = parts[0];\n            port = Integer.parseInt(parts[1]);\n        }\n\n        System.out.println(\"Protocol: \" + protocol + \" | Host: \" + host + \" | Port: \" + port + \" | Path: \" + path);\n    }\n}",
+      "learningOutcome": "Decompose complex structured protocol strings using substring and delimiter boundaries."
+    },
+    {
+      "projectId": 12,
+      "title": "CSV Line Parser with Escaped Delimiter Handling",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "toCharArray()",
+        "State machine parsing",
+        "Character accumulation",
+        "Delimiters and quotes"
+      ],
+      "description": "Parse CSV record lines where values containing commas are enclosed in double quotes (e.g. \"Ghosh, Swadeep\"), avoiding erroneous splits from naive comma separation.",
+      "exampleText": "Parse line: 101,\"Hui, Sukanta\",Barrackpore,\"Computer Science, Java\"",
+      "exampleOutput": "Field 1: 101\nField 2: Hui, Sukanta\nField 3: Barrackpore\nField 4: Computer Science, Java",
+      "answer": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class CsvRecordParser {\n    public static List<String> parseCsvLine(String line) {\n        List<String> fields = new ArrayList<>();\n        if (line == null) return fields;\n\n        StringBuilder currentField = new StringBuilder();\n        boolean inQuotes = false;\n\n        for (int i = 0; i < line.length(); i++) {\n            char c = line.charAt(i);\n\n            if (c == '\"') {\n                inQuotes = !inQuotes; // Toggle quoting mode\n            } else if (c == ',' && !inQuotes) {\n                fields.add(currentField.toString().trim());\n                currentField.setLength(0); // Reset for next token\n            } else {\n                currentField.append(c);\n            }\n        }\n        fields.add(currentField.toString().trim());\n\n        return fields;\n    }\n}",
+      "learningOutcome": "Implement stateful character-by-character string parsing to handle complex data formats like CSV."
+    },
+    {
+      "projectId": 13,
+      "title": "Lexicographical String Sorter & Custom compareTo() Inspector",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "compareTo()",
+        "compareToIgnoreCase()",
+        "Lexicographical ordering",
+        "Bubble sort on String arrays"
+      ],
+      "description": "Sort an array of student names alphabetically using bubble sort driven by compareTo(), and demonstrate how underlying ASCII difference math determines ordering.",
+      "exampleText": "Sort names: [\"Tuhina\", \"Abhronila\", \"Swadeep\", \"Debangshu\"]",
+      "exampleOutput": "Sorted: [\"Abhronila\", \"Debangshu\", \"Swadeep\", \"Tuhina\"]\nASCII Difference ('T' - 'A'): 19",
+      "answer": "public class LexicographicalSorter {\n    public static void sortStrings(String[] arr) {\n        int n = arr.length;\n        for (int i = 0; i < n - 1; i++) {\n            for (int j = 0; j < n - i - 1; j++) {\n                // compareTo returns < 0 if arr[j] < arr[j+1], > 0 if arr[j] > arr[j+1]\n                if (arr[j].compareToIgnoreCase(arr[j + 1]) > 0) {\n                    String temp = arr[j];\n                    arr[j] = arr[j + 1];\n                    arr[j + 1] = temp;\n                }\n            }\n        }\n    }\n}",
+      "learningOutcome": "Master the mechanics of compareTo() and lexicographical Unicode collation."
+    },
+    {
+      "projectId": 14,
+      "title": "Custom Word Replacement Engine (Simulating replace())",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "indexOf()",
+        "substring()",
+        "String reconstruction",
+        "Immutability preservation"
+      ],
+      "description": "Implement a replacement algorithm that locates and replaces all occurrences of a target word with a replacement string without using Java's built-in replace() or regex methods.",
+      "exampleText": "In \"Java is fast. Java is versatile.\", replace \"Java\" with \"Python\"",
+      "exampleOutput": "Original: \"Java is fast. Java is versatile.\"\nReplaced: \"Python is fast. Python is versatile.\"",
+      "answer": "public class CustomStringReplacer {\n    public static String replaceWord(String source, String target, String replacement) {\n        if (source == null || target == null || target.isEmpty()) return source;\n\n        StringBuilder result = new StringBuilder();\n        int startIndex = 0;\n        int foundIndex;\n\n        while ((foundIndex = source.indexOf(target, startIndex)) != -1) {\n            // Append segment preceding the match\n            result.append(source.substring(startIndex, foundIndex));\n            result.append(replacement);\n            // Jump past the matched target\n            startIndex = foundIndex + target.length();\n        }\n\n        // Append remaining tail\n        result.append(source.substring(startIndex));\n        return result.toString();\n    }\n}",
+      "learningOutcome": "Construct replacement pipelines using substring and indices while adhering to immutability."
+    },
+    {
+      "projectId": 15,
+      "title": "Anagram Evaluator Using Character Frequency Arrays",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "toLowerCase()",
+        "replaceAll()",
+        "toCharArray()",
+        "Fixed-size frequency arrays",
+        "Normalization"
+      ],
+      "description": "Verify if two candidate phrases are anagrams (contain the exact same letters in different order) by normalizing whitespace and case, then comparing character counts with a fixed 26-element integer array.",
+      "exampleText": "Evaluate phrase1 = \"Debit Card\", phrase2 = \"Bad Credit\"",
+      "exampleOutput": "Normalized: \"debitcard\" vs \"badcredit\"\nAre Anagrams: true",
+      "answer": "public class AnagramEvaluator {\n    public static boolean areAnagrams(String s1, String s2) {\n        if (s1 == null || s2 == null) return false;\n\n        // Strip non-letter characters and normalize to lowercase\n        String clean1 = s1.replaceAll(\"\\\\s+\", \"\").toLowerCase();\n        String clean2 = s2.replaceAll(\"\\\\s+\", \"\").toLowerCase();\n\n        if (clean1.length() != clean2.length()) return false;\n\n        int[] frequency = new int[26];\n\n        for (int i = 0; i < clean1.length(); i++) {\n            frequency[clean1.charAt(i) - 'a']++;\n            frequency[clean2.charAt(i) - 'a']--;\n        }\n\n        for (int count : frequency) {\n            if (count != 0) return false;\n        }\n\n        return true;\n    }\n}",
+      "learningOutcome": "Combine string normalization with frequency array algorithms for fast text comparison."
+    },
+    {
+      "projectId": 16,
+      "title": "Run-Length String Compression & Decompression Utility",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "charAt()",
+        "length()",
+        "Run-length encoding (RLE)",
+        "String expansion"
+      ],
+      "description": "Encode sequential repeating characters into compact character-count pairs (e.g. \"aaaabbc\" -> \"a4b2c1\") and decode it back, comparing memory footprint savings.",
+      "exampleText": "Compress raw = \"WWWWWWWWWWWWBWWWWWWWWWWWWBBB\"",
+      "exampleOutput": "Compressed: W12B1W12B3\nDecompressed: WWWWWWWWWWWWBWWWWWWWWWWWWBBB\nCompression Ratio: 44.4%",
+      "answer": "public class RunLengthCompressor {\n    public static String compress(String input) {\n        if (input == null || input.isEmpty()) return \"\";\n\n        StringBuilder compressed = new StringBuilder();\n        int count = 1;\n\n        for (int i = 0; i < input.length(); i++) {\n            if (i + 1 < input.length() && input.charAt(i) == input.charAt(i + 1)) {\n                count++;\n            } else {\n                compressed.append(input.charAt(i)).append(count);\n                count = 1;\n            }\n        }\n        return compressed.toString();\n    }\n}",
+      "learningOutcome": "Implement lossless compression algorithms leveraging sequential charAt() inspection."
+    },
+    {
+      "projectId": 17,
+      "title": "Caesar Cipher Text Encryptor & Decryptor",
+      "difficulty": "Beginner",
+      "concepts": [
+        "toCharArray()",
+        "ASCII arithmetic",
+        "Modulo arithmetic",
+        "Reversible cryptographic transforms"
+      ],
+      "description": "Build a classical Caesar Cipher encryption tool that shifts alphabetic letters by a secret key while preserving punctuation, case, and whitespace intact.",
+      "exampleText": "Encrypt \"Meet at Barrackpore Station!\" with shift = 4",
+      "exampleOutput": "Encrypted: QIIX EX FEVEGOMTSVI WXEXMSR!\nDecrypted: MEET AT BARRACKPORE STATION!",
+      "answer": "public class CaesarCipher {\n    public static String transform(String text, int shift) {\n        if (text == null) return \"\";\n\n        char[] chars = text.toCharArray();\n        for (int i = 0; i < chars.length; i++) {\n            char c = chars[i];\n            if (Character.isUpperCase(c)) {\n                chars[i] = (char) ('A' + (c - 'A' + shift % 26 + 26) % 26);\n            } else if (Character.isLowerCase(c)) {\n                chars[i] = (char) ('a' + (c - 'a' + shift % 26 + 26) % 26);\n            }\n        }\n        return new String(chars);\n    }\n}",
+      "learningOutcome": "Perform in-memory character transformations on char arrays and construct new String instances."
+    },
+    {
+      "projectId": 18,
+      "title": "Robust Password Security Evaluator & Rule Breakdown",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "length()",
+        "Character inspection",
+        "Boolean flags",
+        "Security validation rules"
+      ],
+      "description": "Inspect a candidate user password across 5 distinct security parameters: minimum length (>= 8), uppercase letters, lowercase letters, numeric digits, and special characters (#, $, %, &, @).",
+      "exampleText": "Evaluate password = \"JavaCore#2026\"",
+      "exampleOutput": "Length: OK (13) | Upper: OK (2) | Lower: OK (6) | Digits: OK (4) | Special: OK (1)\nStrength: VERY STRONG (100/100)",
+      "answer": "public class PasswordStrengthEvaluator {\n    public static void evaluatePassword(String password) {\n        if (password == null || password.length() < 8) {\n            System.out.println(\"WEAK: Minimum 8 characters required.\");\n            return;\n        }\n\n        boolean hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;\n        String specials = \"!@#$%^&*()-_=+[]{}|;:,.<>?\";\n\n        for (char ch : password.toCharArray()) {\n            if (Character.isUpperCase(ch)) hasUpper = true;\n            else if (Character.isLowerCase(ch)) hasLower = true;\n            else if (Character.isDigit(ch)) hasDigit = true;\n            else if (specials.indexOf(ch) != -1) hasSpecial = true;\n        }\n\n        int score = (hasUpper ? 25 : 0) + (hasLower ? 25 : 0) +\n                    (hasDigit ? 25 : 0) + (hasSpecial ? 25 : 0);\n\n        System.out.println(\"Password Score: \" + score + \"/100\");\n        System.out.println(\"Status: \" + (score == 100 ? \"EXCELLENT\" : score >= 75 ? \"GOOD\" : \"NEEDS IMPROVEMENT\"));\n    }\n}",
+      "learningOutcome": "Synthesize string length checks and character inspections into enterprise-grade input validation."
+    },
+    {
+      "projectId": 19,
+      "title": "Essay Word & Sentence Counter with Empty/Blank String Guard",
+      "difficulty": "Beginner",
+      "concepts": [
+        "isEmpty()",
+        "isBlank() (Java 11+)",
+        "split()",
+        "Regular expressions",
+        "Null-safety"
+      ],
+      "description": "Build a document statistics engine that calculates total characters, words, sentences, and average word length, properly distinguishing between empty (\"\") and blank (\"   \") text.",
+      "exampleText": "Process document with varied spacing, tabs, and sentences",
+      "exampleOutput": "Total Words     : 42\nTotal Sentences : 3\nAvg Word Length : 4.82 chars",
+      "answer": "public class DocumentStatisticsEngine {\n    public static void generateStats(String document) {\n        if (document == null || document.isBlank()) {\n            System.out.println(\"Empty or whitespace document provided.\");\n            return;\n        }\n\n        String trimmed = document.trim();\n        String[] words = trimmed.split(\"\\\\s+\");\n        String[] sentences = trimmed.split(\"[.!?]+\");\n\n        int totalCharCount = 0;\n        for (String w : words) totalCharCount += w.length();\n\n        double avgLength = words.length > 0 ? (double) totalCharCount / words.length : 0;\n\n        System.out.println(\"Total Words     : \" + words.length);\n        System.out.println(\"Total Sentences : \" + sentences.length);\n        System.out.println(\"Avg Word Length : \" + String.format(\"%.2f\", avgLength));\n    }\n}",
+      "learningOutcome": "Safely handle null, empty, and blank strings while calculating text metrics."
+    },
+    {
+      "projectId": 20,
+      "title": "String Pool Deduplication Simulator & Memory Footprint Analyzer",
+      "difficulty": "Advanced",
+      "concepts": [
+        "SCP simulation",
+        "Object allocation avoidance",
+        "Reference tables",
+        "Memory savings math"
+      ],
+      "description": "Simulate a miniature String Constant Pool inside a custom repository. Demonstrate how deduplicating 10,000 student records sharing city names (\"Barrackpore\", \"Kolkata\", \"Naihati\") saves heap memory.",
+      "exampleText": "Feed 1,000 city names with only 5 unique variations",
+      "exampleOutput": "Without Pooling: 1000 objects allocated (~32,000 bytes)\nWith Custom Pool: 5 objects allocated (~160 bytes)\nMemory Saved: 99.5%",
+      "answer": "import java.util.HashMap;\nimport java.util.Map;\n\npublic class StringPoolSimulator {\n    private final Map<String, String> pool = new HashMap<>();\n\n    public String getPooled(String input) {\n        if (input == null) return null;\n\n        // If string value already in pool, return pooled reference\n        if (pool.containsKey(input)) {\n            return pool.get(input);\n        }\n\n        // Otherwise store and return canonical reference\n        pool.put(input, input);\n        return input;\n    }\n\n    public int getUniqueObjectCount() {\n        return pool.size();\n    }\n}",
+      "learningOutcome": "Understand how the JVM String Constant Pool prevents redundant heap object proliferation."
+    },
+    {
+      "projectId": 21,
+      "title": "Semantic Version Number Comparator",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "split(\"\\\\.\")",
+        "Integer.parseInt()",
+        "Array traversal",
+        "Numerical vs lexicographical comparison"
+      ],
+      "description": "Compare two software release versions (e.g. \"1.10.2\" vs \"1.2.9\") numerically by segment, overcoming the flaw where alphabetical compareTo() erroneously marks \"1.2.9\" greater than \"1.10.2\".",
+      "exampleText": "Compare v1 = \"2.10.1\" and v2 = \"2.4.9\"",
+      "exampleOutput": "Version 1 : 2.10.1\nVersion 2 : 2.4.9\nComparison: v1 is NEWER (+1)",
+      "answer": "public class SemanticVersionComparator {\n    public static int compareVersions(String v1, String v2) {\n        String[] parts1 = v1.split(\"\\\\.\");\n        String[] parts2 = v2.split(\"\\\\.\");\n\n        int maxLength = Math.max(parts1.length, parts2.length);\n\n        for (int i = 0; i < maxLength; i++) {\n            int num1 = (i < parts1.length) ? Integer.parseInt(parts1[i]) : 0;\n            int num2 = (i < parts2.length) ? Integer.parseInt(parts2[i]) : 0;\n\n            if (num1 != num2) {\n                return (num1 > num2) ? 1 : -1;\n            }\n        }\n        return 0; // Both versions are numerically equivalent\n    }\n}",
+      "learningOutcome": "Parse numerical segments from delimited strings and execute boundary-safe comparisons."
+    },
+    {
+      "projectId": 22,
+      "title": "File Path Extension & MIME Type Resolver",
+      "difficulty": "Beginner",
+      "concepts": [
+        "lastIndexOf('.')",
+        "substring()",
+        "toLowerCase()",
+        "Edge case boundary handling"
+      ],
+      "description": "Extract the extension from complex local file paths (handling hidden UNIX files, dots in directory folders, and files without extensions), mapping the result to its standard MIME content type.",
+      "exampleText": "Inspect \"/home/sukanta/documents/project.v2.final.PDF\"",
+      "exampleOutput": "Filename: project.v2.final.PDF\nExtension: pdf\nMIME Type: application/pdf",
+      "answer": "public class FileExtensionResolver {\n    public static String getMimeType(String filePath) {\n        if (filePath == null) return \"application/octet-stream\";\n\n        int lastSlash = Math.max(filePath.lastIndexOf('/'), filePath.lastIndexOf('\\\\'));\n        String fileName = (lastSlash != -1) ? filePath.substring(lastSlash + 1) : filePath;\n\n        int dotIndex = fileName.lastIndexOf('.');\n\n        // Guard against hidden files without extension (e.g. '.gitignore') or no extension\n        if (dotIndex <= 0 || dotIndex == fileName.length() - 1) {\n            return \"text/plain\";\n        }\n\n        String ext = fileName.substring(dotIndex + 1).toLowerCase();\n\n        switch (ext) {\n            case \"java\": return \"text/x-java-source\";\n            case \"json\": return \"application/json\";\n            case \"html\": return \"text/html\";\n            case \"pdf\":  return \"application/pdf\";\n            case \"png\":  return \"image/png\";\n            default:     return \"application/octet-stream\";\n        }\n    }\n}",
+      "learningOutcome": "Combine lastIndexOf() and substring() to handle edge-case file system metadata parsing."
+    }
+  ]
+}

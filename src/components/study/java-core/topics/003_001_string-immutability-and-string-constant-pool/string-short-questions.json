@@ -1,0 +1,333 @@
+{
+  "subject": "Core Java Programming",
+  "class": "Module 003_001",
+  "board": "Java SE (Core Java)",
+  "topic": "String Immutability & String Constant Pool - 50 Short Questions & Answers",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "coffee",
+    "type": "svg",
+    "path": "/logos/java.svg",
+    "alt": "Java Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "String Basics & Reference Types",
+      "question": "What is java.lang.String in Java?",
+      "answer": "java.lang.String is a reference class in Java that represents an immutable sequence of characters. It is implicitly imported from java.lang and implements Serializable, Comparable<String>, and CharSequence."
+    },
+    {
+      "id": 2,
+      "topic": "String Basics & Reference Types",
+      "question": "Is String a primitive type or an object in Java?",
+      "answer": "String is a reference type (an object), not a primitive type. However, Java provides special syntactic sugar such as string literal syntax (\"...\") and the overloaded '+' concatenation operator."
+    },
+    {
+      "id": 3,
+      "topic": "String Basics & Reference Types",
+      "question": "Why is the String class marked as 'final' in Java?",
+      "answer": "Marking String as final prevents subclassing. This ensures no child class can override its methods to alter its immutability, thread-safety, security guarantees, or String Constant Pool caching mechanics."
+    },
+    {
+      "id": 4,
+      "topic": "String Basics & Reference Types",
+      "question": "What interface enables lexicographical sorting and natural ordering of Strings?",
+      "answer": "Comparable<String>, which defines the compareTo(String anotherString) method for natural alphabetical ordering."
+    },
+    {
+      "id": 5,
+      "topic": "String Basics & Reference Types",
+      "question": "What is CharSequence and how does String relate to it?",
+      "answer": "CharSequence is a standard Java interface for readable character sequences. It is implemented by String, StringBuilder, StringBuffer, and CharBuffer."
+    },
+    {
+      "id": 6,
+      "topic": "String Basics & Reference Types",
+      "question": "How are characters stored internally inside a String in modern Java (Java 9+)?",
+      "answer": "Under Compact Strings (JEP 254 in Java 9+), characters are stored in a private final byte[] array with an encoding flag (LATIN1 for single-byte characters, UTF16 for multi-byte), halving memory consumption for western scripts."
+    },
+    {
+      "id": 7,
+      "topic": "String Basics & Reference Types",
+      "question": "Can a String object ever be garbage collected in Java?",
+      "answer": "Yes. Standard String instances created on the heap via 'new' or dynamic operations are garbage collected once unreachable. Entries in the String Constant Pool can also be collected by modern GC collectors if their defining ClassLoader is unloaded."
+    },
+    {
+      "id": 8,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "What is the String Constant Pool (SCP)?",
+      "answer": "The String Constant Pool is a specialized memory region inside the JVM Heap dedicated to caching unique string literals, enabling memory optimization by sharing identical instances across the application."
+    },
+    {
+      "id": 9,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "Where does the String Constant Pool reside in memory since Java 7?",
+      "answer": "Inside the general JVM Heap memory. Prior to Java 7, it resided in PermGen (Permanent Generation), which had a fixed size and frequently triggered java.lang.OutOfMemoryError: PermGen space."
+    },
+    {
+      "id": 10,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "How does the JVM optimize memory when encountering a string literal?",
+      "answer": "The JVM checks the SCP first. If an identical literal already exists, it returns a reference to that existing object instead of allocating a duplicate instance in Heap memory."
+    },
+    {
+      "id": 11,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "What internal data structure does the JVM use to maintain the String Constant Pool?",
+      "answer": "The JVM implements the SCP using an internal open-addressed fixed-size hash table known as the StringTable, where entries map to pooled string references."
+    },
+    {
+      "id": 12,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "Which JVM command-line flag tunes the size of the String Constant Pool hash table?",
+      "answer": "-XX:StringTableSize=N, which configures the number of buckets in the StringTable to minimize hash collisions when interning large volumes of strings."
+    },
+    {
+      "id": 13,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "What happens to duplicate string literals during class compilation?",
+      "answer": "The Java compiler (javac) deduplicates identical string literals into a single entry in the bytecode constant pool of the .class file, resolved to a shared SCP reference at runtime."
+    },
+    {
+      "id": 14,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "Are strings evaluated at compile-time placed into the SCP?",
+      "answer": "Yes. Constant expressions like '\"a\" + \"b\"' are concatenated into '\"ab\"' at compile time via constant folding and placed directly into the String Constant Pool."
+    },
+    {
+      "id": 15,
+      "topic": "String Constant Pool (SCP) & Memory Architecture",
+      "question": "Are string concatenations involving variables automatically added to the SCP?",
+      "answer": "No. Runtime concatenations involving non-constant variables produce standard Heap objects and are NOT placed in the SCP unless explicitly interned with intern()."
+    },
+    {
+      "id": 16,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "What does 'String immutability' mean in Java?",
+      "answer": "Immutability means that once a String object is created in memory, its character sequence and internal state cannot be modified. Any method that appears to alter a string actually returns a new String object."
+    },
+    {
+      "id": 17,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "Why is String immutability vital for network and database security?",
+      "answer": "Crucial credentials such as database URLs, usernames, passwords, file paths, and socket ports are passed as Strings. If Strings were mutable, an untrusted method could alter the connection target after security authorization checks."
+    },
+    {
+      "id": 18,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "Why does String immutability ensure multithreading safety?",
+      "answer": "Immutable objects cannot undergo state modification after construction. Multiple concurrent threads can safely read and share the same String instance without requiring synchronization, locks, or defensive copies."
+    },
+    {
+      "id": 19,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "How does immutability benefit Hash-based collections like HashMap and HashSet?",
+      "answer": "The hashCode() of a String is computed on first invocation and cached in a private 'hash' field. Immutability guarantees that the hash code will never change, ensuring safe and reliable bucket lookups."
+    },
+    {
+      "id": 20,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "What catastrophic bug would occur if String were mutable and used as a HashMap key?",
+      "answer": "If a key String could be modified after insertion, its computed hashcode would change. When attempting to fetch the value later, the map would calculate a different bucket index and return null (lost key phenomenon)."
+    },
+    {
+      "id": 21,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "How is immutability enforced in the java.lang.String source code?",
+      "answer": "The class is declared final, the internal character buffer (byte[] value) is declared private final, and no mutator or setter methods are exposed."
+    },
+    {
+      "id": 22,
+      "topic": "String Immutability & Security Mechanics",
+      "question": "Why are passwords ideally stored in a char[] instead of a String in security-critical apps?",
+      "answer": "Strings stay in memory until garbage collection and cannot be zeroed out. A char[] can be immediately wiped with zeros (Arrays.fill(pwd, '0')) after use, preventing clear-text passwords from persisting in memory dumps."
+    },
+    {
+      "id": 23,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "How many objects are created in: String s = \"Hello\";?",
+      "answer": "At most 1 object in the String Constant Pool (or 0 if the literal \"Hello\" was already loaded into the pool by a previously loaded class)."
+    },
+    {
+      "id": 24,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "How many objects are created in: String s = new String(\"Hello\");?",
+      "answer": "2 objects: one in the String Constant Pool (if not already present from the literal \"Hello\"), and one independent object on the normal Heap referenced by s."
+    },
+    {
+      "id": 25,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "What is the difference in memory reference between String s1 = \"Java\"; and String s2 = new String(\"Java\");?",
+      "answer": "s1 references the shared canonical object residing in the String Constant Pool, while s2 references a distinct, newly allocated object residing in standard Heap memory."
+    },
+    {
+      "id": 26,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "What is the output of comparing two identical string literals using ==?",
+      "code": "String s1 = \"Test\";\nString s2 = \"Test\";\nSystem.out.println(s1 == s2);",
+      "output": "true",
+      "explanation": "Both s1 and s2 are string literals with identical character contents. The JVM assigns both references to the exact same shared instance inside the String Constant Pool.",
+      "answer": "Outputs 'true' because both variables point to the same shared memory location in the String Constant Pool."
+    },
+    {
+      "id": 27,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "What is the output of comparing a literal with an object created using 'new String()' using ==?",
+      "code": "String s1 = \"Test\";\nString s2 = new String(\"Test\");\nSystem.out.println(s1 == s2);",
+      "output": "false",
+      "explanation": "s1 points to the pooled literal in the SCP, while s2 points to a newly allocated object on the Heap. Since their memory addresses differ, '==' evaluates to false.",
+      "answer": "Outputs 'false' because '==' checks reference memory addresses, and 'new String()' forces a distinct heap allocation."
+    },
+    {
+      "id": 28,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "How many objects are created by: String s = new String();?",
+      "answer": "1 object on the heap (an empty String object containing an empty byte array)."
+    },
+    {
+      "id": 29,
+      "topic": "String Creation: Literals vs new String()",
+      "question": "What does compile-time constant folding do to 'String s = \"a\" + \"b\" + \"c\";'?",
+      "answer": "The compiler evaluates the constant expression during compilation and compiles it as the single literal '\"abc\"'. Only 1 object is created in the SCP."
+    },
+    {
+      "id": 30,
+      "topic": "intern() Method & Heap-to-SCP Caching",
+      "question": "What does the intern() method do in java.lang.String?",
+      "answer": "When intern() is invoked, if the SCP already contains a string equal to this String object (via equals()), the pooled reference is returned. Otherwise, this String object is registered into the pool and returned."
+    },
+    {
+      "id": 31,
+      "topic": "intern() Method & Heap-to-SCP Caching",
+      "question": "What is the output of calling intern() on a heap String object when compared to a literal?",
+      "code": "String s1 = new String(\"BlueJ\").intern();\nString s2 = \"BlueJ\";\nSystem.out.println(s1 == s2);",
+      "output": "true",
+      "explanation": "s1 is assigned the canonical pooled reference returned by .intern(), which points to the same object in the SCP as the literal s2.",
+      "answer": "Outputs 'true' because intern() returns the canonical reference from the String Constant Pool."
+    },
+    {
+      "id": 32,
+      "topic": "intern() Method & Heap-to-SCP Caching",
+      "question": "Does calling s.intern() mutate the calling String variable 's'?",
+      "answer": "No. Because Strings are immutable, intern() returns the pooled reference. You must explicitly reassign it: s = s.intern();"
+    },
+    {
+      "id": 33,
+      "topic": "intern() Method & Heap-to-SCP Caching",
+      "question": "When is manual string interning advantageous in enterprise systems?",
+      "answer": "When ingesting large datasets with repetitive values (such as state abbreviations, country names, HTTP verbs) to deduplicate millions of duplicate heap strings into a single shared instance."
+    },
+    {
+      "id": 34,
+      "topic": "intern() Method & Heap-to-SCP Caching",
+      "question": "What is the risk of uncontrolled string interning?",
+      "answer": "Interning unpredictable or unique dynamic strings (like UUIDs) expands the StringTable hash table, degrading lookup performance due to hash collisions and consuming non-reclaimable memory."
+    },
+    {
+      "id": 35,
+      "topic": "intern() Method & Heap-to-SCP Caching",
+      "question": "What is JVM G1 Garbage Collector String Deduplication (-XX:+UseStringDeduplication)?",
+      "answer": "A JVM feature that transparently inspects live String objects during G1 GC cycles and points duplicate strings to share the exact same underlying byte[] array without modifying application code."
+    },
+    {
+      "id": 36,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "What is the foundational difference between '==' and '.equals()' for Strings?",
+      "answer": "'==' compares reference equality (whether two pointers refer to the exact same memory address), whereas '.equals()' compares content equality (whether two strings have identical character sequences)."
+    },
+    {
+      "id": 37,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "What does equalsIgnoreCase() do and when should it be used?",
+      "answer": "It compares two strings for semantic equivalence while ignoring differences in case (e.g. \"Java\".equalsIgnoreCase(\"java\") returns true). Ideal for case-insensitive commands or usernames."
+    },
+    {
+      "id": 38,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "What does compareTo() return and what do negative, positive, and zero results signify?",
+      "answer": "It returns an integer: 0 if equal, < 0 if the caller string precedes the argument alphabetically, and > 0 if it follows the argument, based on the Unicode difference of the first non-matching characters."
+    },
+    {
+      "id": 39,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "What is the output of comparing 'apple' and 'banana' with compareTo()?",
+      "code": "System.out.println(\"apple\".compareTo(\"banana\"));",
+      "output": "-1",
+      "explanation": "Compares first characters: 'a' (ASCII 97) minus 'b' (ASCII 98) equals -1. Since 'apple' precedes 'banana', the result is negative.",
+      "answer": "Outputs -1 because 'a' (ASCII 97) - 'b' (ASCII 98) = -1."
+    },
+    {
+      "id": 40,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "What is the output of comparing uppercase 'Book' and lowercase 'book' with compareTo()?",
+      "code": "System.out.println(\"Book\".compareTo(\"book\"));",
+      "output": "-32",
+      "explanation": "'B' has ASCII value 66 and 'b' has ASCII value 98. 66 - 98 = -32. Uppercase letters precede lowercase letters in ASCII/Unicode.",
+      "answer": "Outputs -32 because 'B' (66) - 'b' (98) = -32."
+    },
+    {
+      "id": 41,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "Why can '\"cat\" == new String(\"cat\")' be false while '\"cat\".equals(new String(\"cat\"))' is true?",
+      "answer": "Because '==' evaluates memory references (SCP address vs Heap address), while .equals() inspects character elements sequentially ('c'=='c', 'a'=='a', 't'=='t')."
+    },
+    {
+      "id": 42,
+      "topic": "Equality Checks: == vs equals() vs compareTo()",
+      "question": "Why is Objects.equals(s1, s2) safer than s1.equals(s2)?",
+      "answer": "Objects.equals(s1, s2) performs null checks first. If s1 is null, it avoids throwing a NullPointerException and returns true if both are null, or false if only s1 is null."
+    },
+    {
+      "id": 43,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "What is the difference between isEmpty() and isBlank()?",
+      "answer": "isEmpty() returns true only if length() == 0. isBlank() (Java 11+) returns true if the string is empty OR contains exclusively whitespace characters."
+    },
+    {
+      "id": 44,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "What is the difference between trim() and strip()?",
+      "answer": "trim() removes ASCII whitespace (characters <= U+0020). strip() (Java 11+) is Unicode-compliant and removes all characters recognized as whitespace by Character.isWhitespace()."
+    },
+    {
+      "id": 45,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "How do the indices in substring(int beginIndex, int endIndex) function?",
+      "answer": "beginIndex is inclusive (the starting position) and endIndex is exclusive (one position past the last character included). The extracted length is always (endIndex - beginIndex)."
+    },
+    {
+      "id": 46,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "What is the output of the following substring operation?",
+      "code": "String s = \"Barrackpore\";\nSystem.out.println(s.substring(3, 7));",
+      "output": "rack",
+      "explanation": "Index 3 is 'r', index 4 is 'a', index 5 is 'c', index 6 is 'k', and index 7 is exclusive. The extracted substring is 'rack'.",
+      "answer": "Outputs 'rack' (characters at indices 3, 4, 5, and 6)."
+    },
+    {
+      "id": 47,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "Why does repeated string concatenation (+) inside a loop degrade performance?",
+      "answer": "Each concatenation in a loop generates a new intermediate StringBuilder and a new String object, producing O(N^2) complexity and massive garbage collection pressure. Use StringBuilder instead."
+    },
+    {
+      "id": 48,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "What is the difference between replace() and replaceAll() in String?",
+      "answer": "replace() matches literal character sequences (CharSequence) without regex evaluation. replaceAll() treats the search target as a regular expression, incurring regex compilation overhead."
+    },
+    {
+      "id": 49,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "What is the most efficient way to convert an int primitive to a String?",
+      "answer": "Use String.valueOf(intVal) or Integer.toString(intVal), which avoids intermediate object creation associated with concatenation (\"\" + intVal)."
+    },
+    {
+      "id": 50,
+      "topic": "String Methods, Substrings & Performance Optimization",
+      "question": "What method converts a String into an array of primitive characters?",
+      "answer": "s.toCharArray(), which allocates and returns a new char[] containing the entire character sequence of the String."
+    }
+  ]
+}
