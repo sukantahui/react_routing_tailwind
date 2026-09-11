@@ -5568,12 +5568,6 @@
       border-color: color-mix(in oklab, var(--color-purple-500) 60%, transparent);
     }
   }
-  .border-purple-500\/70 {
-    border-color: color-mix(in srgb, oklch(62.7% 0.265 303.9) 70%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-purple-500) 70%, transparent);
-    }
-  }
   .border-purple-500\/80 {
     border-color: color-mix(in srgb, oklch(62.7% 0.265 303.9) 80%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -6349,12 +6343,6 @@
     border-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-slate-800) 40%, transparent);
-    }
-  }
-  .border-slate-800\/50 {
-    border-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-slate-800) 50%, transparent);
     }
   }
   .border-slate-800\/60 {
@@ -15867,6 +15855,12 @@
     color: color-mix(in srgb, oklch(90.2% 0.063 306.703) 80%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       color: color-mix(in oklab, var(--color-purple-200) 80%, transparent);
+    }
+  }
+  .text-purple-200\/90 {
+    color: color-mix(in srgb, oklch(90.2% 0.063 306.703) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-purple-200) 90%, transparent);
     }
   }
   .text-purple-300 {
@@ -25616,13 +25610,6 @@
       }
     }
   }
-  .hover\:text-cyan-200 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-cyan-200);
-      }
-    }
-  }
   .hover\:text-cyan-300 {
     &:hover {
       @media (hover: hover) {
@@ -25798,13 +25785,6 @@
       }
     }
   }
-  .hover\:text-purple-100 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-purple-100);
-      }
-    }
-  }
   .hover\:text-purple-200 {
     &:hover {
       @media (hover: hover) {
@@ -25865,13 +25845,6 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-red-700);
-      }
-    }
-  }
-  .hover\:text-rose-100 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-rose-100);
       }
     }
   }
@@ -29441,11 +29414,6 @@
       gap: calc(var(--spacing) * 6);
     }
   }
-  .sm\:gap-8 {
-    @media (width >= 40rem) {
-      gap: calc(var(--spacing) * 8);
-    }
-  }
   .sm\:space-y-3 {
     @media (width >= 40rem) {
       :where(& > :not(:last-child)) {
@@ -29601,6 +29569,11 @@
   .sm\:py-16 {
     @media (width >= 40rem) {
       padding-block: calc(var(--spacing) * 16);
+    }
+  }
+  .sm\:pb-6 {
+    @media (width >= 40rem) {
+      padding-bottom: calc(var(--spacing) * 6);
     }
   }
   .sm\:pl-7 {
