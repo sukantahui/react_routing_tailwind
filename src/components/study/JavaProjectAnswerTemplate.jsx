@@ -12,9 +12,82 @@ import {
   ChevronDown,
   ChevronUp,
   Sparkles,
+  FileCode,
+  Copy,
+  Check
 } from "lucide-react";
 
 import JavaCodeBlock from "../../common/JavaCodeBlock";
+
+/**
+ * Automatically wraps and formats a raw Java snippet into a clean, well-indented BlueJ class & main method.
+ */
+function formatAsFullProgram(rawCode = "", id = 1) {
+  if (!rawCode) return "";
+
+  const trimmed = rawCode.trim();
+
+  // If already a complete class definition, return as-is
+  if (trimmed.includes("class ") && (trimmed.includes("main(") || trimmed.includes("public static void main"))) {
+    return trimmed;
+  }
+
+  // Indent snippet lines with 8 spaces inside main method
+  const lines = trimmed.split("\n");
+  const formattedBody = lines
+    .map((line) => {
+      const cleanLine = line.replace(/\t/g, "    ");
+      return cleanLine.length > 0 ? "        " + cleanLine : "";
+    })
+    .join("\n");
+
+  const className = `OutputQuestion${id}`;
+
+  return `public class ${className} {\n    public static void main(String[] args) {\n${formattedBody}\n    }\n}`;
+}
+
+/**
+ * Extracts instruction prompt and code block from project object.
+ */
+function extractPromptAndCode(project) {
+  if (project.code && project.code.trim().length > 0) {
+    return {
+      prompt: project.description || "Predict the output of the following Java program:",
+      code: project.code.trim()
+    };
+  }
+
+  const desc = project.description || "";
+  
+  // Check if description has separated prompt and code block by newline
+  if (desc.includes("\n\n")) {
+    const parts = desc.split("\n\n");
+    const prompt = parts[0];
+    const code = parts.slice(1).join("\n\n");
+    return { prompt, code };
+  }
+
+  // Check if description contains inline java code keywords
+  const codeIndicators = ["int ", "for(", "for (", "System.out", "double ", "char ", "boolean ", "String "];
+  const firstCodeIdx = codeIndicators.reduce((minIdx, ind) => {
+    const idx = desc.indexOf(ind);
+    if (idx !== -1 && (minIdx === -1 || idx < minIdx)) {
+      return idx;
+    }
+    return minIdx;
+  }, -1);
+
+  if (firstCodeIdx > 0 && desc.substring(0, firstCodeIdx).includes(":")) {
+    const colonIdx = desc.indexOf(":", firstCodeIdx - 30 > 0 ? firstCodeIdx - 30 : 0);
+    const splitPoint = colonIdx !== -1 && colonIdx < firstCodeIdx ? colonIdx + 1 : firstCodeIdx;
+    return {
+      prompt: desc.substring(0, splitPoint).trim(),
+      code: desc.substring(splitPoint).trim()
+    };
+  }
+
+  return { prompt: desc, code: null };
+}
 
 export default function JavaProjectAnswerTemplate({ data }) {
   if (!data || !data.projects) return null;
@@ -31,13 +104,16 @@ export default function JavaProjectAnswerTemplate({ data }) {
 
   // Track which project IDs have their answers revealed
   const [revealedIds, setRevealedIds] = useState({});
+  const [copiedId, setCopiedId] = useState(null);
 
   const isCode = (answer = "") =>
     answer.includes("\n") ||
     answer.includes("for(") ||
+    answer.includes("for (") ||
     answer.includes("int ") ||
     answer.includes("boolean ") ||
-    answer.includes("while(");
+    answer.includes("while(") ||
+    answer.includes("System.out");
 
   const toggleAnswer = (id) => {
     setRevealedIds((prev) => ({
@@ -59,6 +135,12 @@ export default function JavaProjectAnswerTemplate({ data }) {
       });
       setRevealedIds(allTrue);
     }
+  };
+
+  const copyText = (text, id) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 1500);
   };
 
   return (
@@ -116,25 +198,27 @@ export default function JavaProjectAnswerTemplate({ data }) {
         <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-800/40 border border-slate-700/60 text-xs text-slate-300">
           <Lightbulb size={16} className="text-yellow-400 shrink-0" />
           <span>
-            <b>Interactive Practice Mode:</b> Attempt the logic on your own or in BlueJ first, then click <b>"View Solution"</b> to check the verified answer.
+            <b>Interactive Practice Mode:</b> Trace the code execution on your rough sheet or BlueJ IDE first, then click <b>"View Solution & Trace"</b> to verify the console output and explanation.
           </span>
         </div>
       </header>
 
       {/* ================= PROJECT ANSWERS ================= */}
-      <div className="space-y-6">
+      <div className="space-y-8">
         {projects.map((project) => {
           const isRevealed = !!revealedIds[project.projectId];
+          const { prompt, code } = extractPromptAndCode(project);
+          const fullProgramCode = code ? formatAsFullProgram(code, project.projectId) : null;
 
           return (
             <div
               key={project.projectId}
-              className="rounded-2xl border border-slate-700/80 bg-slate-900/70 p-6 shadow-lg hover:border-slate-600 transition-colors duration-200"
+              className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6 md:p-7 shadow-xl hover:border-slate-700 transition-all duration-200 space-y-4"
             >
               {/* ---------- PROJECT HEADER ---------- */}
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-slate-800/80 pb-3">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-600/20 text-indigo-300 font-semibold text-sm border border-indigo-500/30">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600/20 text-indigo-300 font-bold text-sm border border-indigo-500/30 font-mono">
                     {project.projectId}
                   </span>
 
@@ -159,11 +243,11 @@ export default function JavaProjectAnswerTemplate({ data }) {
 
               {/* ---------- CONCEPTS TAGS ---------- */}
               {project.concepts && project.concepts.length > 0 && (
-                <div className="flex flex-wrap items-center gap-1.5 mt-3">
+                <div className="flex flex-wrap items-center gap-1.5">
                   {project.concepts.map((concept, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-[11px] text-slate-400"
+                      className="px-2.5 py-0.5 rounded-md bg-slate-950 border border-slate-800 text-[11px] text-slate-400 font-mono"
                     >
                       {concept}
                     </span>
@@ -171,33 +255,33 @@ export default function JavaProjectAnswerTemplate({ data }) {
                 </div>
               )}
 
-              {/* ---------- DESCRIPTION ---------- */}
-              <p className="mt-3 text-slate-300 text-sm leading-relaxed max-w-5xl">
-                {project.description}
+              {/* ---------- QUESTION PROMPT / INSTRUCTION ---------- */}
+              <p className="text-slate-200 text-sm leading-relaxed font-medium">
+                {prompt}
               </p>
 
-              {/* ---------- EXAMPLE TEXT ---------- */}
+              {/* ---------- WELL-INDENTED PROGRAM CODE BLOCK ---------- */}
+              {fullProgramCode && (
+                <div className="rounded-xl overflow-hidden border border-slate-800 shadow-inner bg-slate-950">
+                  <JavaCodeBlock
+                    code={fullProgramCode}
+                    title={`OutputQuestion${project.projectId}.java (BlueJ Standard)`}
+                  />
+                </div>
+              )}
+
+              {/* ---------- EXAMPLE / TEST CASE SUMMARY ---------- */}
               {project.exampleText && (
-                <div className="mt-4 flex items-center gap-2 text-sm text-slate-300">
-                  <BookOpen size={16} className="text-indigo-300 shrink-0" />
+                <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <BookOpen size={14} className="text-indigo-400 shrink-0" />
                   <span>
-                    <b>Example:</b> {project.exampleText}
+                    <b>Context / Note:</b> {project.exampleText}
                   </span>
                 </div>
               )}
 
-              {/* ---------- EXAMPLE OUTPUT (PATTERN SAFE) ---------- */}
-              {project.exampleOutput && (
-                <div className="mt-3 rounded-xl border border-slate-700/70 bg-slate-800/40 p-4">
-                  <div className="text-xs text-slate-400 mb-2 font-medium">Example Output</div>
-                  <pre className="text-slate-200 text-sm font-mono leading-snug whitespace-pre overflow-x-auto">
-{project.exampleOutput}
-                  </pre>
-                </div>
-              )}
-
               {/* ---------- ON-DEMAND ANSWER TOGGLE BUTTON ---------- */}
-              <div className="mt-5">
+              <div className="pt-2">
                 {!isRevealed ? (
                   <button
                     type="button"
@@ -206,7 +290,7 @@ export default function JavaProjectAnswerTemplate({ data }) {
                   >
                     <div className="flex items-center gap-2">
                       <Eye size={17} className="text-indigo-400 group-hover:scale-110 transition-transform" />
-                      <span>View Java Solution & Logic</span>
+                      <span>View Output, Solution & Trace</span>
                     </div>
 
                     <span className="text-xs bg-indigo-500/20 group-hover:bg-indigo-500/30 border border-indigo-500/30 text-indigo-300 px-2.5 py-1 rounded-lg flex items-center gap-1 font-mono transition">
@@ -215,21 +299,12 @@ export default function JavaProjectAnswerTemplate({ data }) {
                     </span>
                   </button>
                 ) : (
-                  <div className="border border-indigo-500/30 rounded-xl bg-[#0f172a] overflow-hidden shadow-md animate-fadeIn">
+                  <div className="border border-emerald-500/30 rounded-xl bg-slate-950/90 overflow-hidden shadow-lg animate-fadeIn space-y-3 p-4 md:p-5">
                     {/* Header bar of revealed answer with Hide button */}
-                    <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-800 bg-slate-900/90 text-slate-300 text-sm">
-                      <div className="flex items-center gap-2 font-medium">
-                        {isCode(project.answer) ? (
-                          <>
-                            <Terminal size={16} className="text-indigo-400" />
-                            <span className="text-indigo-300">Java Logic (BlueJ / IDE)</span>
-                          </>
-                        ) : (
-                          <>
-                            <Lightbulb size={16} className="text-yellow-400" />
-                            <span className="text-yellow-300">Verified Answer</span>
-                          </>
-                        )}
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-sm">
+                      <div className="flex items-center gap-2 font-semibold text-emerald-400">
+                        <Terminal size={16} />
+                        <span>Verified Console Output & Trace</span>
                       </div>
 
                       <button
@@ -244,26 +319,50 @@ export default function JavaProjectAnswerTemplate({ data }) {
                       </button>
                     </div>
 
-                    <div className="p-4">
-                      {isCode(project.answer) ? (
-                        <JavaCodeBlock code={project.answer} />
-                      ) : (
-                        <p className="text-slate-300 text-sm leading-relaxed">
+                    {/* Expected Console Output */}
+                    {project.exampleOutput && (
+                      <div className="space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                            Expected Output:
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => copyText(project.exampleOutput, `out-${project.projectId}`)}
+                            className="text-[11px] text-slate-400 hover:text-emerald-300 flex items-center gap-1 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 transition"
+                          >
+                            {copiedId === `out-${project.projectId}` ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                            <span>{copiedId === `out-${project.projectId}` ? "Copied" : "Copy"}</span>
+                          </button>
+                        </div>
+                        <pre className="p-3 bg-black/80 rounded-lg border border-emerald-500/20 font-mono text-xs text-emerald-300 whitespace-pre-wrap leading-relaxed">
+                          {project.exampleOutput}
+                        </pre>
+                      </div>
+                    )}
+
+                    {/* Detailed Answer / Explanation */}
+                    {project.answer && (
+                      <div className="pt-2 border-t border-slate-800/80 text-xs text-slate-300 leading-relaxed space-y-1">
+                        <strong className="text-sky-300 font-semibold flex items-center gap-1.5">
+                          <Lightbulb size={13} className="text-yellow-400" /> Step-by-Step Logic & Explanation:
+                        </strong>
+                        <p className="pl-4 text-slate-300 whitespace-pre-line font-sans">
                           {project.answer}
                         </p>
-                      )}
-                    </div>
+                      </div>
+                    )}
+
+                    {/* Learning Outcome */}
+                    {project.learningOutcome && (
+                      <div className="text-[11px] text-amber-300/90 bg-amber-500/10 border border-amber-500/20 p-2.5 rounded-lg flex items-start gap-1.5">
+                        <Sparkles size={13} className="text-amber-400 mt-0.5 shrink-0" />
+                        <span><b>Key Takeaway:</b> {project.learningOutcome}</span>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
-
-              {/* ---------- LEARNING OUTCOME ---------- */}
-              {project.learningOutcome && (
-                <div className="flex gap-2 mt-4 text-sm text-slate-400">
-                  <Lightbulb size={16} className="text-yellow-300 mt-0.5 shrink-0" />
-                  <span>{project.learningOutcome}</span>
-                </div>
-              )}
             </div>
           );
         })}
@@ -271,9 +370,9 @@ export default function JavaProjectAnswerTemplate({ data }) {
 
       {/* ================= FOOTER NOTE ================= */}
       <div className="rounded-xl border border-slate-700 bg-slate-900 p-4 text-sm text-emerald-300">
-        👩‍🏫 <b>Teacher Note:</b><br />
-        Students should convert logic answers into full BlueJ programs by adding
-        class name, <code>main()</code> method, input handling, and output statements.
+        👩‍🏫 <b>Teacher Note (Sukanta Hui):</b><br />
+        Trace each output test line by line on your rough sheet by maintaining a trace table for variables (<code>i</code>, <code>j</code>, <code>mat[i][j]</code>). 
+        This is the exact method tested in ICSE Class 10 Section A board examinations!
       </div>
     </div>
   );

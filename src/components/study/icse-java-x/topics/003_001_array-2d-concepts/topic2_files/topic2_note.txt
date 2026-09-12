@@ -1,21 +1,73 @@
 ================================================================================
-CODER & ACCOTAX - ICSE CLASS X JAVA TUTORIAL
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS MASTER STUDY NOTE
 MODULE 003_001: Two Dimensional Array Concepts
 TOPIC 2: Row Sum and Column Sum Calculation
-Educator: Sukanta Hui | Barrackpore, West Bengal
+Educator: Sukanta Hui | Barrackpore, Shyamnagar, Naihati (West Bengal)
 ================================================================================
 
-1. CORE CONCEPTS & RULES
+1. CORE MATHEMATICAL & ALGORITHMIC RULES
 --------------------------------------------------------------------------------
-- 2D arrays are declared as type[][] arrayName = new type[rows][cols];
-- Outer loop (i) iterates over rows: 0 to rows - 1.
-- Inner loop (j) iterates over columns: 0 to cols - 1.
-- Primary Diagonal: i == j (for square matrix).
-- Secondary Diagonal: i + j == N - 1 (for square matrix).
+Given an M x N Matrix 'A':
+- Row Sum for Row i (R_i)     = Sum of A[i][j] for j from 0 to N - 1
+- Column Sum for Column j (C_j)= Sum of A[i][j] for i from 0 to M - 1
+- Grand Total (Total Sum)     = Sum of all R_i = Sum of all C_j
 
-2. ESSENTIAL CHECKLIST
+2. ALGORITHM FOR ROW SUMS
 --------------------------------------------------------------------------------
-[✓] Outer loop for rows, inner loop for columns
-[✓] Correct 2D index bounds [i][j]
-[✓] Variable description table documentation for Section B
+Step 1: Loop i from 0 to M - 1 (Outer Loop for Rows)
+Step 2:   Set rowSum = 0 (CRITICAL: Reset accumulator for each new row)
+Step 3:   Loop j from 0 to N - 1 (Inner Loop for Columns)
+Step 4:     rowSum = rowSum + A[i][j]
+Step 5:   End inner loop
+Step 6:   Display "Sum of Row " + i + " = " + rowSum
+Step 7: End outer loop
+
+3. ALGORITHM FOR COLUMN SUMS (LOOP INVERSION)
+--------------------------------------------------------------------------------
+Step 1: Loop j from 0 to N - 1 (Outer Loop for Columns)
+Step 2:   Set colSum = 0 (CRITICAL: Reset accumulator for each new column)
+Step 3:   Loop i from 0 to M - 1 (Inner Loop for Rows)
+Step 4:     colSum = colSum + A[i][j]
+Step 5:   End inner loop
+Step 6:   Display "Sum of Column " + j + " = " + colSum
+Step 7: End outer loop
+
+4. VISUAL CALCULATION MATRIX (3x3 Example)
+--------------------------------------------------------------------------------
+              Col 0   Col 1   Col 2  |  Row Sum (R_i)
+            +-------+-------+-------+|
+     Row 0  |  10   |  15   |  20   ||  --> 10 + 15 + 20 = 45
+            +-------+-------+-------+|
+     Row 1  |  25   |  30   |  35   ||  --> 25 + 30 + 35 = 90
+            +-------+-------+-------+|
+     Row 2  |  40   |  45   |  50   ||  --> 40 + 45 + 50 = 135
+            +-------+-------+-------+|
+    ---------------------------------+
+    Col Sum |  75   |  90   | 105   ||  GRAND TOTAL = 270
+    (C_j)   | (10+25| (15+30| (20+35||
+            |  +40) |  +45) |  +50) ||
+
+5. COMMON BOARD EXAM PITFALLS
+--------------------------------------------------------------------------------
+[!] Error: Declaring 'int rowSum = 0;' outside the outer row loop.
+    Effect: Produces cumulative totals across rows instead of separate sums.
+
+[!] Error: Using 'i' on outer loop and 'j' on inner loop for Column Sums.
+    Remember: Column sums REQUIRE outer loop 'j' (0 to N-1) and inner loop 'i' (0 to M-1).
+
+[!] Error: Forgetting to cast to double when calculating row averages.
+    Fix: double avg = (double) rowSum / cols;
+
+6. ICSE SECTION B CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Prompt user for dimensions and matrix elements.
+[✓] Display original entered matrix in grid format.
+[✓] Print clean row sum and column sum results.
+[✓] Include comprehensive Variable Description Table.
+
+================================================================================
+Teacher's Tip (Sukanta Hui):
+"Notice how in Row Sum, index 'i' is fixed on outer loop, but in Column Sum,
+index 'j' is fixed on outer loop! Memorize this inverted pattern for full
+marks in ICSE Class 10!"
 ================================================================================

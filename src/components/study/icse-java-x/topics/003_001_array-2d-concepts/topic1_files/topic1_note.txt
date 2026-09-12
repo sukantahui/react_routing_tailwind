@@ -1,21 +1,89 @@
 ================================================================================
-CODER & ACCOTAX - ICSE CLASS X JAVA TUTORIAL
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS MASTER STUDY NOTE
 MODULE 003_001: Two Dimensional Array Concepts
 TOPIC 1: Matrix Input and Output Using Nested Loops
-Educator: Sukanta Hui | Barrackpore, West Bengal
+Educator: Sukanta Hui | Barrackpore, Shyamnagar, Naihati (West Bengal)
 ================================================================================
 
-1. CORE CONCEPTS & RULES
+1. CORE CONCEPT: NESTED LOOPS FOR 2D ARRAYS
 --------------------------------------------------------------------------------
-- 2D arrays are declared as type[][] arrayName = new type[rows][cols];
-- Outer loop (i) iterates over rows: 0 to rows - 1.
-- Inner loop (j) iterates over columns: 0 to cols - 1.
-- Primary Diagonal: i == j (for square matrix).
-- Secondary Diagonal: i + j == N - 1 (for square matrix).
+- A 2D array contains elements at coordinates (i, j), where:
+    i = Row Index (0 to Rows - 1)
+    j = Column Index (0 to Columns - 1)
+- Traversal requires two nested loops:
+    * Outer Loop (i): Controls the active row.
+    * Inner Loop (j): Traverses each column in that active row.
+- Total iterations = Rows * Columns.
 
-2. ESSENTIAL CHECKLIST
+2. SCANNER INPUT TEMPLATE (ROW-MAJOR ORDER)
 --------------------------------------------------------------------------------
-[✓] Outer loop for rows, inner loop for columns
-[✓] Correct 2D index bounds [i][j]
-[✓] Variable description table documentation for Section B
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter rows: ");
+int m = sc.nextInt();
+System.out.print("Enter cols: ");
+int n = sc.nextInt();
+
+int[][] matrix = new int[m][n];
+
+System.out.println("Enter " + (m * n) + " elements:");
+for (int i = 0; i < m; i++) {
+    for (int j = 0; j < n; j++) {
+        System.out.print("matrix[" + i + "][" + j + "]: ");
+        matrix[i][j] = sc.nextInt();
+    }
+}
+
+3. FORMATTED TABULAR OUTPUT TEMPLATE
+--------------------------------------------------------------------------------
+System.out.println("--- Formatted Matrix Grid ---");
+for (int i = 0; i < m; i++) {
+    for (int j = 0; j < n; j++) {
+        System.out.print(matrix[i][j] + "\t");   // '\t' provides column alignment
+    }
+    System.out.println();                       // Essential: new line after row
+}
+
+4. ROW-MAJOR VS COLUMN-MAJOR TRAVERSAL
+--------------------------------------------------------------------------------
+Row-Major Traversal (Standard):
+  - Loop i (0 to m-1) on outer, Loop j (0 to n-1) on inner.
+  - Visited order: (0,0), (0,1), (0,2) ... (1,0), (1,1), (1,2) ...
+
+Column-Major Traversal:
+  - Loop j (0 to n-1) on outer, Loop i (0 to m-1) on inner.
+  - Visited order: (0,0), (1,0), (2,0) ... (0,1), (1,1), (2,1) ...
+
+5. EXECUTION TRACE TABLE (2x2 Matrix)
+--------------------------------------------------------------------------------
+Outer (i) | Inner (j) | Accessed Cell | Output Display
+----------+-----------+---------------+-----------------
+    0     |     0     |  mat[0][0]=10 | 10\t
+    0     |     1     |  mat[0][1]=20 | 10\t 20\t \n
+----------+-----------+---------------+-----------------
+    1     |     0     |  mat[1][0]=30 | 30\t
+    1     |     1     |  mat[1][1]=40 | 30\t 40\t \n
+--------------------------------------------------------------------------------
+
+6. COMMON BOARD EXAM PITFALLS
+--------------------------------------------------------------------------------
+[!] Error: Using System.out.println() inside the inner loop.
+    Result: Every number prints on its own line vertically.
+
+[!] Error: Forgetting System.out.println() after inner loop.
+    Result: Entire matrix prints in a single long horizontal line.
+
+[!] Error: Swapping loop limits for non-square matrices.
+    In a 3x5 matrix: outer loop must be i < 3, inner loop must be j < 5.
+
+7. ICSE SECTION B CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Prompting the user clearly before reading input.
+[✓] Using tab space '\t' for neat alignment.
+[✓] Complete Variable Description Table attached at the bottom.
+
+================================================================================
+Teacher's Tip (Sukanta Hui):
+"In ICSE Board Exams, presentation matters! Always ensure your matrix output
+looks like a real mathematical grid using '\\t' and a clean newline after
+each row!"
 ================================================================================

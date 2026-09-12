@@ -1,21 +1,90 @@
 ================================================================================
-CODER & ACCOTAX - ICSE CLASS X JAVA TUTORIAL
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS MASTER STUDY NOTE
 MODULE 003_001: Two Dimensional Array Concepts
 TOPIC 3: Primary and Secondary Diagonal Elements
-Educator: Sukanta Hui | Barrackpore, West Bengal
+Educator: Sukanta Hui | Barrackpore, Shyamnagar, Naihati (West Bengal)
 ================================================================================
 
-1. CORE CONCEPTS & RULES
+1. MATHEMATICAL CRITERIA FOR DIAGONALS (SQUARE MATRIX N x N)
 --------------------------------------------------------------------------------
-- 2D arrays are declared as type[][] arrayName = new type[rows][cols];
-- Outer loop (i) iterates over rows: 0 to rows - 1.
-- Inner loop (j) iterates over columns: 0 to cols - 1.
-- Primary Diagonal: i == j (for square matrix).
-- Secondary Diagonal: i + j == N - 1 (for square matrix).
+a) Primary (Left / Principal / Main) Diagonal:
+   - Extends from Top-Left [0][0] to Bottom-Right [N-1][N-1]
+   - Condition: i == j (Row index equals Column index)
+   - Elements (3x3): [0][0], [1][1], [2][2]
 
-2. ESSENTIAL CHECKLIST
+b) Secondary (Right / Anti / Opposite) Diagonal:
+   - Extends from Top-Right [0][N-1] to Bottom-Left [N-1][0]
+   - Condition: i + j == N - 1 (or Column index j = N - 1 - i)
+   - Elements (3x3): [0][2], [1][1], [2][0]
+
+2. MATRIX REGION CLASSIFICATION MAP (3x3 Example)
 --------------------------------------------------------------------------------
-[✓] Outer loop for rows, inner loop for columns
-[✓] Correct 2D index bounds [i][j]
-[✓] Variable description table documentation for Section B
+                  Col 0           Col 1           Col 2
+             +---------------+---------------+---------------+
+     Row 0   |   [0][0]      |    [0][1]     |    [0][2]     |
+             | PRIMARY DIAG  |  UPPER TRI    | SECONDRY DIAG |
+             |   (i == j)    |   (i < j)     | (i+j == N-1)  |
+             +---------------+---------------+---------------+
+     Row 1   |   [1][0]      |    [1][1]     |    [1][2]     |
+             |  LOWER TRI    |  CENTER CELL  |  UPPER TRI    |
+             |   (i > j)     | (BOTH DIAGS)  |   (i < j)     |
+             +---------------+---------------+---------------+
+     Row 2   |   [2][0]      |    [2][1]     |    [2][2]     |
+             | SECONDRY DIAG |  LOWER TRI    | PRIMARY DIAG  |
+             | (i+j == N-1)  |   (i > j)     |   (i == j)    |
+             +---------------+---------------+---------------+
+
+3. EFFICIENT O(N) LINEAR TRAVERSAL ALGORITHMS
+--------------------------------------------------------------------------------
+// Primary Diagonal Sum (O(N)):
+int primarySum = 0;
+for (int i = 0; i < n; i++) {
+    primarySum += mat[i][i];
+}
+
+// Secondary Diagonal Sum (O(N)):
+int secondarySum = 0;
+for (int i = 0; i < n; i++) {
+    secondarySum += mat[i][n - 1 - i];
+}
+
+4. THE ODD-ORDER MATRIX INTERSECTION RULE
+--------------------------------------------------------------------------------
+- When N is odd (e.g. N = 3, 5, 7), the central cell lies on BOTH diagonals:
+    Coordinate: [N / 2][N / 2]  (e.g., [1][1] in 3x3)
+- If you compute Combined Diagonal Sum by (primarySum + secondarySum), the
+  center element is counted TWICE.
+- Deduplication formula:
+    int combinedSum = primarySum + secondarySum;
+    if (n % 2 != 0) {
+        combinedSum -= mat[n / 2][n / 2]; // Subtract duplicate once
+    }
+
+5. MATRIX TYPES SUMMARY
+--------------------------------------------------------------------------------
+- Diagonal Matrix:  mat[i][j] == 0 for all i != j
+- Scalar Matrix:    Diagonal matrix where all mat[i][i] are equal
+- Identity Matrix:  Scalar matrix where all mat[i][i] == 1 and all mat[i][j] == 0 (i != j)
+- Trace of Matrix:  Sum of all primary diagonal elements (mat[0][0] + ... + mat[N-1][N-1])
+
+6. COMMON BOARD EXAM PITFALLS
+--------------------------------------------------------------------------------
+[!] Error: Using mat[i][n - i] for secondary diagonal.
+    When i = 0, accesses mat[0][n] -> ArrayIndexOutOfBoundsException!
+    Fix: Always use mat[i][n - 1 - i].
+
+[!] Error: Double-counting the central element in 3x3 diagonal sum questions.
+    Remember to subtract mat[N/2][N/2] when N is odd!
+
+7. ICSE SECTION B CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Square matrix size input validation (N > 0).
+[✓] Correct diagonal condition formulas: (i == j) and (i + j == n - 1).
+[✓] Clean output for primary, secondary, and combined sums.
+[✓] Complete Variable Description Table.
+
+================================================================================
+Teacher's Tip (Sukanta Hui):
+"Always remember: Primary is (i == j), Secondary is (i + j == N - 1)!
+For odd N, subtract the middle element mat[N/2][N/2] to avoid double counting!"
 ================================================================================

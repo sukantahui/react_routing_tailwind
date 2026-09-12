@@ -1,0 +1,774 @@
+{
+  "projectCategory": "ICSE Class X 2D Array Output Prediction & Dry Run Tests",
+  "subject": "Computer Applications (Java with BlueJ)",
+  "board": "ICSE",
+  "class": "X",
+  "tools": [
+    "BlueJ",
+    "JDK 17/21"
+  ],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India"
+  },
+  "projects": [
+    {
+      "projectId": 1,
+      "title": "Output Trace: 2D Array Dimensions & length Property",
+      "difficulty": "Beginner",
+      "concepts": [
+        "2D Array",
+        "length property",
+        "Row & Column Count"
+      ],
+      "description": "Predict the output produced by the following Java code snippet:",
+      "code": "int[][] mat = new int[3][5];\nSystem.out.println(mat.length + \" and \" + mat[0].length);",
+      "exampleText": "Array instantiated with 3 rows and 5 columns",
+      "exampleOutput": "3 and 5",
+      "answer": "mat.length returns the number of rows (3), and mat[0].length returns the number of columns in the first row (5).\n\nOutput:\n3 and 5",
+      "learningOutcome": "Understand that mat.length gives row count and mat[0].length gives column count."
+    },
+    {
+      "projectId": 2,
+      "title": "Output Trace: Default Primitive Integer Values",
+      "difficulty": "Beginner",
+      "concepts": [
+        "2D Array",
+        "Default Values",
+        "Dynamic Allocation"
+      ],
+      "description": "What will be printed when this Java program runs?",
+      "code": "int[][] grid = new int[2][2];\ngrid[0][1] = 7;\nSystem.out.println(grid[0][0] + \", \" + grid[0][1] + \", \" + grid[1][0]);",
+      "exampleText": "Inspect unassigned cells in int[2][2]",
+      "exampleOutput": "0, 7, 0",
+      "answer": "Unassigned integer array cells in Java default to 0 upon Heap allocation. Only grid[0][1] was assigned 7.\n\nOutput:\n0, 7, 0",
+      "learningOutcome": "Verify default 0 initialization of integer arrays on the Heap."
+    },
+    {
+      "projectId": 3,
+      "title": "Output Trace: Jagged Array Row Lengths",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Jagged Array",
+        "Array of Arrays",
+        "length property"
+      ],
+      "description": "Predict the console output of the following jagged array program:",
+      "code": "int[][] a = {\n    {1, 2},\n    {3, 4, 5, 6},\n    {7}\n};\nSystem.out.println(a.length + \"-\" + a[0].length + \"-\" + a[1].length + \"-\" + a[2].length);",
+      "exampleText": "Jagged array with 3 rows of varying lengths",
+      "exampleOutput": "3-2-4-1",
+      "answer": "a has 3 rows (length = 3). Row 0 has 2 elements, Row 1 has 4 elements, and Row 2 has 1 element.\n\nOutput:\n3-2-4-1",
+      "learningOutcome": "Analyze dimensions of jagged arrays in Java."
+    },
+    {
+      "projectId": 4,
+      "title": "Output Trace: Direct Literal Indexing",
+      "difficulty": "Beginner",
+      "concepts": [
+        "2D Array",
+        "Literal Initializer",
+        "Indexing"
+      ],
+      "description": "Determine the output after evaluating the matrix cells:",
+      "code": "int[][] m = {\n    {10, 20, 30},\n    {40, 50, 60}\n};\nSystem.out.println(m[1][2] + m[0][1]);",
+      "exampleText": "Evaluate m[1][2] + m[0][1]",
+      "exampleOutput": "80",
+      "answer": "m[1][2] is Row 1 Col 2 = 60.\nm[0][1] is Row 0 Col 1 = 20.\n60 + 20 = 80.\n\nOutput:\n80",
+      "learningOutcome": "Master row-column 0-based coordinate indexing."
+    },
+    {
+      "projectId": 5,
+      "title": "Output Trace: Total Capacity Calculation",
+      "difficulty": "Beginner",
+      "concepts": [
+        "2D Array",
+        "Array Capacity",
+        "Multiplication"
+      ],
+      "description": "What is printed by the following code?",
+      "code": "double[][] scores = new double[4][6];\nSystem.out.println(\"Total Cells: \" + (scores.length * scores[0].length));",
+      "exampleText": "Multiply row count (4) by column count (6)",
+      "exampleOutput": "Total Cells: 24",
+      "answer": "scores.length is 4, scores[0].length is 6. Total elements = 4 * 6 = 24.\n\nOutput:\nTotal Cells: 24",
+      "learningOutcome": "Calculate total elements in a rectangular matrix."
+    },
+    {
+      "projectId": 6,
+      "title": "Output Trace: Row-Major Traversal of 2x3 Matrix",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Nested Loops",
+        "Row-Major",
+        "Print formatting"
+      ],
+      "description": "What is the output of the following nested loop traversal?",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\nfor (int i = 0; i < a.length; i++) {\n    for (int j = 0; j < a[i].length; j++) {\n        System.out.print(a[i][j] + \" \");\n    }\n    System.out.println();\n}",
+      "exampleText": "2 rows printed on 2 separate lines",
+      "exampleOutput": "1 2 3 \n4 5 6 ",
+      "answer": "Outer loop i=0 prints 1 2 3 followed by a newline. Outer loop i=1 prints 4 5 6 followed by a newline.\n\nOutput:\n1 2 3 \n4 5 6 ",
+      "learningOutcome": "Trace nested loops with inner print() and outer println()."
+    },
+    {
+      "projectId": 7,
+      "title": "Output Trace: Column-Major Traversal",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Nested Loops",
+        "Column-Major",
+        "Loop Inversion"
+      ],
+      "description": "Predict the output of the column-major nested loop execution:",
+      "code": "int[][] a = {\n    {1, 2},\n    {3, 4},\n    {5, 6}\n};\nfor (int j = 0; j < 2; j++) {\n    for (int i = 0; i < 3; i++) {\n        System.out.print(a[i][j] + \" \");\n    }\n    System.out.println();\n}",
+      "exampleText": "Iterating outer column loop (j) and inner row loop (i)",
+      "exampleOutput": "1 3 5 \n2 4 6 ",
+      "answer": "For j=0: prints a[0][0], a[1][0], a[2][0] -> 1 3 5 \nFor j=1: prints a[0][1], a[1][1], a[2][1] -> 2 4 6 \n\nOutput:\n1 3 5 \n2 4 6 ",
+      "learningOutcome": "Understand column-major order execution."
+    },
+    {
+      "projectId": 8,
+      "title": "Output Trace: Flattened Print without Newlines",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Nested Loops",
+        "print without newline"
+      ],
+      "description": "What will be displayed on the console?",
+      "code": "int[][] mat = {\n    {2, 4},\n    {6, 8}\n};\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        System.out.print(mat[i][j] + \"*\");\n    }\n}",
+      "exampleText": "Single line concatenation with asterisk delimiter",
+      "exampleOutput": "2*4*6*8*",
+      "answer": "Because System.out.print() is used without any println(), all 4 numbers print consecutively on the same line.\n\nOutput:\n2*4*6*8*",
+      "learningOutcome": "Trace loop execution without newline statements."
+    },
+    {
+      "projectId": 9,
+      "title": "Output Trace: Reverse Row Traversal",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Reverse Traversal",
+        "Nested Loops",
+        "Decrementing loop"
+      ],
+      "description": "Predict the output of the reverse traversal loops:",
+      "code": "int[][] a = {\n    {10, 20},\n    {30, 40}\n};\nfor (int i = a.length - 1; i >= 0; i--) {\n    for (int j = a[0].length - 1; j >= 0; j--) {\n        System.out.print(a[i][j] + \" \");\n    }\n}",
+      "exampleText": "Traverse from bottom-right (1,1) to top-left (0,0)",
+      "exampleOutput": "40 30 20 10 ",
+      "answer": "i=1: j=1 (40), j=0 (30)\ni=0: j=1 (20), j=0 (10)\n\nOutput:\n40 30 20 10 ",
+      "learningOutcome": "Trace decrementing nested loop counters."
+    },
+    {
+      "projectId": 10,
+      "title": "Output Trace: Stepped Column Traversal (j += 2)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Loop Step",
+        "Skip Traversal"
+      ],
+      "description": "What is the console output?",
+      "code": "int[][] grid = {\n    {1, 2, 3, 4},\n    {5, 6, 7, 8}\n};\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 4; j += 2) {\n        System.out.print(grid[i][j] + \" \");\n    }\n}",
+      "exampleText": "Inner loop increments by 2 (j = 0, then j = 2)",
+      "exampleOutput": "1 3 5 7 ",
+      "answer": "Row 0: j=0 -> 1, j=2 -> 3\nRow 1: j=0 -> 5, j=2 -> 7\n\nOutput:\n1 3 5 7 ",
+      "learningOutcome": "Trace loop step modifications inside 2D arrays."
+    },
+    {
+      "projectId": 11,
+      "title": "Output Trace: In-Place Element Doubling",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Element Mutation",
+        "In-Place update"
+      ],
+      "description": "What is the output after executing this in-place mutation snippet?",
+      "code": "int[][] a = {\n    {1, 2},\n    {3, 4}\n};\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        a[i][j] *= 2;\n    }\n}\nSystem.out.println(a[0][1] + a[1][0]);",
+      "exampleText": "Every element doubled; evaluate a[0][1] + a[1][0]",
+      "exampleOutput": "10",
+      "answer": "Original a[0][1]=2 becomes 4. Original a[1][0]=3 becomes 6.\n4 + 6 = 10.\n\nOutput:\n10",
+      "learningOutcome": "Track variable updates across nested loops."
+    },
+    {
+      "projectId": 12,
+      "title": "Output Trace: Coordinate Addition (i + j) Assignment",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Coordinate Logic",
+        "Array assignment"
+      ],
+      "description": "Determine the output of the coordinate math program:",
+      "code": "int[][] mat = new int[3][3];\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        mat[i][j] = i + j;\n    }\n}\nSystem.out.println(mat[1][2] + \" and \" + mat[2][2]);",
+      "exampleText": "Cell value equals row index + col index",
+      "exampleOutput": "3 and 4",
+      "answer": "mat[1][2] = 1 + 2 = 3.\nmat[2][2] = 2 + 2 = 4.\n\nOutput:\n3 and 4",
+      "learningOutcome": "Relate array index math to generated values."
+    },
+    {
+      "projectId": 13,
+      "title": "Output Trace: Swapping Adjacent Columns",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Array Swap",
+        "Temporary Variable"
+      ],
+      "description": "Predict the output after column swap operations:",
+      "code": "int[][] a = {\n    {10, 20},\n    {30, 40}\n};\nfor (int i = 0; i < 2; i++) {\n    int temp = a[i][0];\n    a[i][0] = a[i][1];\n    a[i][1] = temp;\n}\nSystem.out.println(a[0][0] + \" \" + a[0][1]);\nSystem.out.println(a[1][0] + \" \" + a[1][1]);",
+      "exampleText": "Columns 0 and 1 swapped in each row",
+      "exampleOutput": "20 10\n40 30",
+      "answer": "Row 0: {10, 20} becomes {20, 10}\nRow 1: {30, 40} becomes {40, 30}\n\nOutput:\n20 10\n40 30",
+      "learningOutcome": "Trace element swapping across matrix columns."
+    },
+    {
+      "projectId": 14,
+      "title": "Output Trace: Modulo Filter and Counter",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Conditional Filtering",
+        "Count Accumulator"
+      ],
+      "description": "What will be printed by the even-number counting loop?",
+      "code": "int[][] nums = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint count = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (nums[i][j] % 2 == 0) count++;\n    }\n}\nSystem.out.println(\"Even Count: \" + count);",
+      "exampleText": "Count even numbers in 3x3 matrix (1 to 9)",
+      "exampleOutput": "Even Count: 4",
+      "answer": "Even numbers are 2, 4, 6, 8 (total 4 even numbers).\n\nOutput:\nEven Count: 4",
+      "learningOutcome": "Apply conditional modulo counting in 2D arrays."
+    },
+    {
+      "projectId": 15,
+      "title": "Output Trace: Maximum Element Search",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Linear Search",
+        "Max Finder"
+      ],
+      "description": "Determine the maximum value output:",
+      "code": "int[][] data = {\n    {14, 52},\n    {89, 31}\n};\nint max = data[0][0];\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        if (data[i][j] > max) max = data[i][j];\n    }\n}\nSystem.out.println(\"Max = \" + max);",
+      "exampleText": "Find largest value in 2x2 matrix",
+      "exampleOutput": "Max = 89",
+      "answer": "Comparing 14, 52, 89, 31 updates max sequentially to 14 -> 52 -> 89.\n\nOutput:\nMax = 89",
+      "learningOutcome": "Trace standard maximum element finder algorithm."
+    },
+    {
+      "projectId": 16,
+      "title": "Output Trace: Row Sum with Correct Accumulator Scope",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Row Sum",
+        "Accumulator Reset"
+      ],
+      "description": "What is printed by this row sum program?",
+      "code": "int[][] m = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\nfor (int i = 0; i < 2; i++) {\n    int sum = 0;\n    for (int j = 0; j < 3; j++) {\n        sum += m[i][j];\n    }\n    System.out.print(sum + \" \");\n}",
+      "exampleText": "Calculate sum of Row 0 (1+2+3) and Row 1 (4+5+6)",
+      "exampleOutput": "6 15 ",
+      "answer": "Row 0 sum: 1 + 2 + 3 = 6\nRow 1 sum: 4 + 5 + 6 = 15\n\nOutput:\n6 15 ",
+      "learningOutcome": "Observe independent row summation with reset accumulators."
+    },
+    {
+      "projectId": 17,
+      "title": "Output Trace: Buggy Row Sum (Accumulator NOT Reset)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Common Bug",
+        "Accumulator Scope"
+      ],
+      "description": "Predict the output when sum is declared outside the outer loop:",
+      "code": "int[][] m = {\n    {1, 2},\n    {3, 4}\n};\nint sum = 0;\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        sum += m[i][j];\n    }\n    System.out.print(sum + \" \");\n}",
+      "exampleText": "Accumulator does not reset between rows",
+      "exampleOutput": "3 10 ",
+      "answer": "After Row 0: sum = 1 + 2 = 3. Prints 3.\nDuring Row 1: sum retains 3, adds 3 + 4 = 10. Prints 10.\n\nOutput:\n3 10 ",
+      "learningOutcome": "Identify the critical bug when row sum accumulator is not reset."
+    },
+    {
+      "projectId": 18,
+      "title": "Output Trace: Column 1 Sum Specifically",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Column Sum",
+        "Fixed Column Index"
+      ],
+      "description": "What will be printed when summing column 1?",
+      "code": "int[][] a = {\n    {10, 20},\n    {30, 40},\n    {50, 60}\n};\nint colSum = 0;\nfor (int i = 0; i < 3; i++) {\n    colSum += a[i][1];\n}\nSystem.out.println(\"Col 1 Sum = \" + colSum);",
+      "exampleText": "Sum elements of Column 1: a[0][1] + a[1][1] + a[2][1]",
+      "exampleOutput": "Col 1 Sum = 120",
+      "answer": "Column 1 elements: 20 + 40 + 60 = 120.\n\nOutput:\nCol 1 Sum = 120",
+      "learningOutcome": "Sum a single vertical column using a single loop."
+    },
+    {
+      "projectId": 19,
+      "title": "Output Trace: Grand Total of 2D Matrix",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Grand Total",
+        "Accumulator"
+      ],
+      "description": "Determine the grand total console output:",
+      "code": "int[][] a = {\n    {5, 5},\n    {10, 10}\n};\nint total = 0;\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        total += a[i][j];\n    }\n}\nSystem.out.println(\"Total = \" + total);",
+      "exampleText": "Sum all 4 elements (5 + 5 + 10 + 10)",
+      "exampleOutput": "Total = 30",
+      "answer": "5 + 5 + 10 + 10 = 30.\n\nOutput:\nTotal = 30",
+      "learningOutcome": "Calculate total sum of all matrix elements."
+    },
+    {
+      "projectId": 20,
+      "title": "Output Trace: Row Average Calculation with Integer Division",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Average",
+        "Integer vs Double Division"
+      ],
+      "description": "What is the output of the row average program?",
+      "code": "int[][] a = {\n    {1, 2, 4},\n    {3, 3, 3}\n};\nfor (int i = 0; i < 2; i++) {\n    int sum = 0;\n    for (int j = 0; j < 3; j++) {\n        sum += a[i][j];\n    }\n    int avg = sum / 3;\n    System.out.print(avg + \" \");\n}",
+      "exampleText": "Row 0 sum is 7 (7/3 = 2 in int); Row 1 sum is 9 (9/3 = 3)",
+      "exampleOutput": "2 3 ",
+      "answer": "Row 0: sum = 7 -> 7 / 3 = 2 (truncated integer division).\nRow 1: sum = 9 -> 9 / 3 = 3.\n\nOutput:\n2 3 ",
+      "learningOutcome": "Observe integer division truncation in average calculations."
+    },
+    {
+      "projectId": 21,
+      "title": "Output Trace: Primary Diagonal (i == j) in Single Loop",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Primary Diagonal",
+        "Single Loop O(N)"
+      ],
+      "description": "Predict the output of the following primary diagonal traversal:",
+      "code": "int[][] mat = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nfor (int i = 0; i < 3; i++) {\n    System.out.print(mat[i][i] + \" \");\n}",
+      "exampleText": "Trace mat[0][0], mat[1][1], mat[2][2]",
+      "exampleOutput": "1 5 9 ",
+      "answer": "i=0: mat[0][0]=1\ni=1: mat[1][1]=5\ni=2: mat[2][2]=9\n\nOutput:\n1 5 9 ",
+      "learningOutcome": "Understand single-loop primary diagonal traversal."
+    },
+    {
+      "projectId": 22,
+      "title": "Output Trace: Secondary Diagonal (i + j == N - 1)",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Secondary Diagonal",
+        "Single Loop"
+      ],
+      "description": "What will be printed along the secondary diagonal?",
+      "code": "int[][] mat = {\n    {10, 20, 30},\n    {40, 50, 60},\n    {70, 80, 90}\n};\nfor (int i = 0; i < 3; i++) {\n    System.out.print(mat[i][2 - i] + \" \");\n}",
+      "exampleText": "Trace mat[0][2], mat[1][1], mat[2][0]",
+      "exampleOutput": "30 50 70 ",
+      "answer": "i=0: mat[0][2]=30\ni=1: mat[1][1]=50\ni=2: mat[2][0]=70\n\nOutput:\n30 50 70 ",
+      "learningOutcome": "Trace secondary diagonal traversal using derived column index (N - 1 - i)."
+    },
+    {
+      "projectId": 23,
+      "title": "Output Trace: Trace of a Matrix (Primary Diagonal Sum)",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Trace of Matrix",
+        "Primary Diagonal Sum"
+      ],
+      "description": "Determine the console output representing the Trace:",
+      "code": "int[][] a = {\n    {5, 1, 2},\n    {3, 8, 4},\n    {6, 7, 2}\n};\nint trace = 0;\nfor (int i = 0; i < 3; i++) {\n    trace += a[i][i];\n}\nSystem.out.println(\"Trace = \" + trace);",
+      "exampleText": "Calculate 5 + 8 + 2",
+      "exampleOutput": "Trace = 15",
+      "answer": "a[0][0]=5, a[1][1]=8, a[2][2]=2. Sum = 5 + 8 + 2 = 15.\n\nOutput:\nTrace = 15",
+      "learningOutcome": "Calculate the mathematical Trace of a square matrix."
+    },
+    {
+      "projectId": 24,
+      "title": "Output Trace: Odd-Order Matrix Diagonals Intersection",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Both Diagonals",
+        "Center Element Deduplication"
+      ],
+      "description": "What will be printed by the diagonal check condition?",
+      "code": "int[][] a = {\n    {1, 0, 2},\n    {0, 5, 0},\n    {3, 0, 4}\n};\nint sum = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i == j || i + j == 2) {\n            sum += a[i][j];\n        }\n    }\n}\nSystem.out.println(\"Sum = \" + sum);",
+      "exampleText": "Condition matches {1, 2, 5, 3, 4}",
+      "exampleOutput": "Sum = 15",
+      "answer": "Elements satisfying i == j or i + j == 2:\n[0][0]=1, [0][2]=2, [1][1]=5 (visited once by loop), [2][0]=3, [2][2]=4.\nTotal = 1 + 2 + 5 + 3 + 4 = 15.\n\nOutput:\nSum = 15",
+      "learningOutcome": "Observe that an if condition in nested loops naturally counts the center only once."
+    },
+    {
+      "projectId": 25,
+      "title": "Output Trace: Diagonal Elements Multiplication",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Product Accumulator",
+        "Diagonals"
+      ],
+      "description": "What is the output of the diagonal product loop?",
+      "code": "int[][] a = {\n    {2, 9, 3},\n    {8, 4, 7},\n    {5, 6, 3}\n};\nint prod = 1;\nfor (int i = 0; i < 3; i++) {\n    prod *= a[i][i];\n}\nSystem.out.println(\"Product = \" + prod);",
+      "exampleText": "Multiply 2 * 4 * 3",
+      "exampleOutput": "Product = 24",
+      "answer": "Diagonal elements: 2, 4, 3.\nProduct = 2 * 4 * 3 = 24.\n\nOutput:\nProduct = 24",
+      "learningOutcome": "Trace product calculations over array diagonals."
+    },
+    {
+      "projectId": 26,
+      "title": "Output Trace: Upper Triangular Elements (i < j)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Upper Triangular",
+        "Strict Inequality"
+      ],
+      "description": "Predict the output of the upper triangular filter:",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i < j) {\n            System.out.print(a[i][j] + \" \");\n        }\n    }\n}",
+      "exampleText": "Cells where row index < col index: [0][1], [0][2], [1][2]",
+      "exampleOutput": "2 3 6 ",
+      "answer": "Cells strictly above main diagonal:\n[0][1] = 2\n[0][2] = 3\n[1][2] = 6\n\nOutput:\n2 3 6 ",
+      "learningOutcome": "Identify upper triangular matrix coordinates."
+    },
+    {
+      "projectId": 27,
+      "title": "Output Trace: Lower Triangular Elements (i > j)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Lower Triangular",
+        "Strict Inequality"
+      ],
+      "description": "What will be printed by the lower triangular filter?",
+      "code": "int[][] a = {\n    {10, 20, 30},\n    {40, 50, 60},\n    {70, 80, 90}\n};\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i > j) {\n            System.out.print(a[i][j] + \" \");\n        }\n    }\n}",
+      "exampleText": "Cells where row index > col index: [1][0], [2][0], [2][1]",
+      "exampleOutput": "40 70 80 ",
+      "answer": "Cells strictly below main diagonal:\n[1][0] = 40\n[2][0] = 70\n[2][1] = 80\n\nOutput:\n40 70 80 ",
+      "learningOutcome": "Identify lower triangular matrix coordinates."
+    },
+    {
+      "projectId": 28,
+      "title": "Output Trace: Non-Diagonal Elements Sum",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Non-Diagonal",
+        "Logical AND"
+      ],
+      "description": "Determine the non-diagonal sum console output:",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint nonDiagSum = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i != j && i + j != 2) {\n            nonDiagSum += a[i][j];\n        }\n    }\n}\nSystem.out.println(\"Non-Diag Sum = \" + nonDiagSum);",
+      "exampleText": "Sum cells not on either diagonal: [0][1]=2, [1][0]=4, [1][2]=6, [2][1]=8",
+      "exampleOutput": "Non-Diag Sum = 20",
+      "answer": "Non-diagonal cells are: 2, 4, 6, 8.\nSum = 2 + 4 + 6 + 8 = 20.\n\nOutput:\nNon-Diag Sum = 20",
+      "learningOutcome": "Filter out diagonal elements using compound conditions."
+    },
+    {
+      "projectId": 29,
+      "title": "Output Trace: Upper Triangular Matrix Verification",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Matrix Check",
+        "Boolean Flag"
+      ],
+      "description": "What is printed by the upper triangular verification check?",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {0, 5, 6},\n    {0, 0, 9}\n};\nboolean isUpper = true;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i > j && a[i][j] != 0) {\n            isUpper = false;\n        }\n    }\n}\nSystem.out.println(\"Is Upper: \" + isUpper);",
+      "exampleText": "All elements below primary diagonal are 0",
+      "exampleOutput": "Is Upper: true",
+      "answer": "Cells [1][0]=0, [2][0]=0, [2][1]=0 are all 0. The boolean flag remains true.\n\nOutput:\nIs Upper: true",
+      "learningOutcome": "Test whether a matrix is Upper Triangular."
+    },
+    {
+      "projectId": 30,
+      "title": "Output Trace: Identity Matrix Test",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Identity Matrix",
+        "Matrix Properties"
+      ],
+      "description": "Predict the identity matrix test output:",
+      "code": "int[][] id = {\n    {1, 0},\n    {0, 1}\n};\nboolean ok = true;\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        if (i == j && id[i][j] != 1) ok = false;\n        if (i != j && id[i][j] != 0) ok = false;\n    }\n}\nSystem.out.println(\"Identity? \" + ok);",
+      "exampleText": "2x2 matrix with 1s on diagonal, 0s elsewhere",
+      "exampleOutput": "Identity? true",
+      "answer": "Diagonal elements are 1 and off-diagonal elements are 0.\n\nOutput:\nIdentity? true",
+      "learningOutcome": "Verify Identity matrix conditions in Java."
+    },
+    {
+      "projectId": 31,
+      "title": "Output Trace: 4 Corner Elements Sum",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Corner Elements",
+        "Coordinate Access"
+      ],
+      "description": "What will be printed when summing the four corners?",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = a[0][0] + a[0][2] + a[2][0] + a[2][2];\nSystem.out.println(\"Corner Sum = \" + sum);",
+      "exampleText": "Corners: 1, 3, 7, 9",
+      "exampleOutput": "Corner Sum = 20",
+      "answer": "Top-Left: 1\nTop-Right: 3\nBottom-Left: 7\nBottom-Right: 9\n1 + 3 + 7 + 9 = 20.\n\nOutput:\nCorner Sum = 20",
+      "learningOutcome": "Directly access matrix corner vertices."
+    },
+    {
+      "projectId": 32,
+      "title": "Output Trace: Boundary Elements Sum in 3x3 Matrix",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Boundary Elements",
+        "Perimeter Sum"
+      ],
+      "description": "Predict the boundary sum output of the perimeter loop:",
+      "code": "int[][] a = {\n    {1, 1, 1},\n    {1, 9, 1},\n    {1, 1, 1}\n};\nint bSum = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i == 0 || i == 2 || j == 0 || j == 2) {\n            bSum += a[i][j];\n        }\n    }\n}\nSystem.out.println(\"Boundary Sum = \" + bSum);",
+      "exampleText": "All 8 boundary elements are 1; center element is 9",
+      "exampleOutput": "Boundary Sum = 8",
+      "answer": "There are 8 boundary cells, each containing 1. Sum = 8.\n\nOutput:\nBoundary Sum = 8",
+      "learningOutcome": "Sum outer boundary elements using perimeter conditions."
+    },
+    {
+      "projectId": 33,
+      "title": "Output Trace: Interior (Non-Boundary) Element in 3x3 Matrix",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Interior Elements",
+        "Center Cell"
+      ],
+      "description": "What is printed when accessing the inner ring element?",
+      "code": "int[][] a = {\n    {10, 20, 30},\n    {40, 99, 60},\n    {70, 80, 90}\n};\nfor (int i = 1; i < 2; i++) {\n    for (int j = 1; j < 2; j++) {\n        System.out.println(\"Center = \" + a[i][j]);\n    }\n}",
+      "exampleText": "Loops iterate only over i=1, j=1",
+      "exampleOutput": "Center = 99",
+      "answer": "In a 3x3 matrix, the only non-boundary element is at [1][1] = 99.\n\nOutput:\nCenter = 99",
+      "learningOutcome": "Extract inner matrix elements."
+    },
+    {
+      "projectId": 34,
+      "title": "Output Trace: Boundary Elements in a 2x2 Matrix",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Boundary Grid",
+        "2x2 Matrix"
+      ],
+      "description": "What is the output when testing boundary conditions on a 2x2 matrix?",
+      "code": "int[][] a = {\n    {1, 2},\n    {3, 4}\n};\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        if (i == 0 || i == 1 || j == 0 || j == 1) {\n            System.out.print(a[i][j] + \" \");\n        }\n    }\n}",
+      "exampleText": "In a 2x2 matrix, ALL elements are boundary elements!",
+      "exampleOutput": "1 2 3 4 ",
+      "answer": "In a 2x2 matrix, every cell is on the boundary. All 4 elements are printed.\n\nOutput:\n1 2 3 4 ",
+      "learningOutcome": "Understand that a 2x2 matrix has 0 non-boundary elements."
+    },
+    {
+      "projectId": 35,
+      "title": "Output Trace: Middle Row and Middle Column (Plus Sign +)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Cross Pattern",
+        "Center Axis"
+      ],
+      "description": "What will be printed by the cross-pattern condition?",
+      "code": "int[][] a = {\n    {0, 2, 0},\n    {4, 5, 6},\n    {0, 8, 0}\n};\nint sum = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i == 1 || j == 1) {\n            sum += a[i][j];\n        }\n    }\n}\nSystem.out.println(\"Plus Sum = \" + sum);",
+      "exampleText": "Elements on row 1 or col 1: 2, 4, 5, 6, 8",
+      "exampleOutput": "Plus Sum = 25",
+      "answer": "Cells visited: a[0][1]=2, a[1][0]=4, a[1][1]=5, a[1][2]=6, a[2][1]=8.\nSum = 2 + 4 + 5 + 6 + 8 = 25.\n\nOutput:\nPlus Sum = 25",
+      "learningOutcome": "Trace middle axis (+ shape) matrix traversal."
+    },
+    {
+      "projectId": 36,
+      "title": "Output Trace: Matrix Addition (A + B)",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Matrix Addition",
+        "Element-wise Sum"
+      ],
+      "description": "Determine the output after element-wise addition:",
+      "code": "int[][] a = {{1, 2}, {3, 4}};\nint[][] b = {{5, 6}, {7, 8}};\nint[][] sum = new int[2][2];\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        sum[i][j] = a[i][j] + b[i][j];\n    }\n}\nSystem.out.println(sum[0][0] + \" \" + sum[1][1]);",
+      "exampleText": "Evaluate sum[0][0] = 1+5 and sum[1][1] = 4+8",
+      "exampleOutput": "6 12",
+      "answer": "sum[0][0] = 1 + 5 = 6.\nsum[1][1] = 4 + 8 = 12.\n\nOutput:\n6 12",
+      "learningOutcome": "Perform element-wise matrix addition."
+    },
+    {
+      "projectId": 37,
+      "title": "Output Trace: Matrix Subtraction (A - B)",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Matrix Subtraction",
+        "Order of Operands"
+      ],
+      "description": "What will be printed when computing matrix difference?",
+      "code": "int[][] a = {\n    {10, 20},\n    {30, 40}\n};\nint[][] b = {\n    {1, 5},\n    {10, 15}\n};\nSystem.out.println((a[0][1] - b[0][1]) + \" \" + (a[1][0] - b[1][0]));",
+      "exampleText": "(20 - 5) and (30 - 10)",
+      "exampleOutput": "15 20",
+      "answer": "a[0][1] - b[0][1] = 20 - 5 = 15.\na[1][0] - b[1][0] = 30 - 10 = 20.\n\nOutput:\n15 20",
+      "learningOutcome": "Calculate matrix difference."
+    },
+    {
+      "projectId": 38,
+      "title": "Output Trace: Scalar Multiplication (3 * A)",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Scalar Multiplication"
+      ],
+      "description": "Predict the output of the scalar multiplication:",
+      "code": "int[][] a = {\n    {2, 3},\n    {4, 5}\n};\nint k = 3;\nSystem.out.println((k * a[0][0]) + \" \" + (k * a[1][1]));",
+      "exampleText": "3 * 2 and 3 * 5",
+      "exampleOutput": "6 15",
+      "answer": "3 * a[0][0] = 3 * 2 = 6.\n3 * a[1][1] = 3 * 5 = 15.\n\nOutput:\n6 15",
+      "learningOutcome": "Trace scalar multiplication of 2D matrix."
+    },
+    {
+      "projectId": 39,
+      "title": "Output Trace: In-Place Addition (A += B)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Compound Assignment",
+        "In-Place Update"
+      ],
+      "description": "What is the value printed after in-place accumulation?",
+      "code": "int[][] a = {{1, 1}, {1, 1}};\nint[][] b = {{2, 3}, {4, 5}};\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        a[i][j] += b[i][j];\n    }\n}\nSystem.out.println(a[1][0] + a[1][1]);",
+      "exampleText": "a[1][0] becomes 1+4=5; a[1][1] becomes 1+5=6",
+      "exampleOutput": "11",
+      "answer": "a[1][0] becomes 1 + 4 = 5.\na[1][1] becomes 1 + 5 = 6.\n5 + 6 = 11.\n\nOutput:\n11",
+      "learningOutcome": "Trace in-place array mutation."
+    },
+    {
+      "projectId": 40,
+      "title": "Output Trace: Linear Combination (2A - B)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Linear Combination"
+      ],
+      "description": "Determine the output for the linear expression 2*A - B:",
+      "code": "int[][] a = {{5, 6}, {7, 8}};\nint[][] b = {{2, 3}, {4, 5}};\nint val = (2 * a[0][0]) - b[0][0];\nSystem.out.println(\"Result = \" + val);",
+      "exampleText": "2 * 5 - 2 = 10 - 2 = 8",
+      "exampleOutput": "Result = 8",
+      "answer": "2 * a[0][0] - b[0][0] = (2 * 5) - 2 = 10 - 2 = 8.\n\nOutput:\nResult = 8",
+      "learningOutcome": "Evaluate linear combinations of matrices."
+    },
+    {
+      "projectId": 41,
+      "title": "Output Trace: Transpose of 2x3 Matrix",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Matrix Transpose",
+        "Swapped Dimensions"
+      ],
+      "description": "Predict the output of the transposed matrix:",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\nint[][] t = new int[3][2];\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 3; j++) {\n        t[j][i] = a[i][j];\n    }\n}\nSystem.out.println(t[0][0] + \" \" + t[0][1]);\nSystem.out.println(t[1][0] + \" \" + t[1][1]);",
+      "exampleText": "Row 0 of Transpose: t[0][0] = a[0][0], t[0][1] = a[1][0]",
+      "exampleOutput": "1 4\n2 5",
+      "answer": "t[0][0]=1, t[0][1]=4\nt[1][0]=2, t[1][1]=5\nt[2][0]=3, t[2][1]=6\n\nOutput:\n1 4\n2 5",
+      "learningOutcome": "Trace matrix transposition where rows become columns."
+    },
+    {
+      "projectId": 42,
+      "title": "Output Trace: Symmetric Matrix Check",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Symmetric Matrix",
+        "Equality Test"
+      ],
+      "description": "What will be printed when checking symmetry?",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {2, 4, 5},\n    {3, 5, 6}\n};\nboolean sym = true;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (a[i][j] != a[j][i]) sym = false;\n    }\n}\nSystem.out.println(\"Symmetric? \" + sym);",
+      "exampleText": "Check if a[i][j] == a[j][i] for all cells",
+      "exampleOutput": "Symmetric? true",
+      "answer": "a[0][1]==a[1][0] (2==2), a[0][2]==a[2][0] (3==3), a[1][2]==a[2][1] (5==5). The matrix is symmetric.\n\nOutput:\nSymmetric? true",
+      "learningOutcome": "Verify symmetric matrix criteria."
+    },
+    {
+      "projectId": 43,
+      "title": "Output Trace: In-Place Square Matrix Transpose",
+      "difficulty": "Advanced",
+      "concepts": [
+        "In-Place Transpose",
+        "Loop Limit j = i + 1"
+      ],
+      "description": "What is printed after swapping off-diagonal elements?",
+      "code": "int[][] a = {\n    {1, 5},\n    {2, 4}\n};\nint temp = a[0][1];\na[0][1] = a[1][0];\na[1][0] = temp;\nSystem.out.println(a[0][1] + \" and \" + a[1][0]);",
+      "exampleText": "Off-diagonal elements 5 and 2 swapped",
+      "exampleOutput": "2 and 5",
+      "answer": "a[0][1] was 5 and becomes 2. a[1][0] was 2 and becomes 5.\n\nOutput:\n2 and 5",
+      "learningOutcome": "Perform in-place swap of off-diagonal elements."
+    },
+    {
+      "projectId": 44,
+      "title": "Output Trace: Horizontal Row Mirroring (Flip)",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Row Reversal",
+        "Mirror Pattern"
+      ],
+      "description": "Predict the output of the mirrored row:",
+      "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\nfor (int i = 0; i < 2; i++) {\n    int temp = a[i][0];\n    a[i][0] = a[i][2];\n    a[i][2] = temp;\n}\nSystem.out.println(a[0][0] + \" \" + a[0][1] + \" \" + a[0][2]);",
+      "exampleText": "Row 0 {1, 2, 3} becomes {3, 2, 1}",
+      "exampleOutput": "3 2 1",
+      "answer": "Elements at index 0 and 2 are swapped in each row. Row 0 becomes 3 2 1.\n\nOutput:\n3 2 1",
+      "learningOutcome": "Trace horizontal row reversal logic."
+    },
+    {
+      "projectId": 45,
+      "title": "Output Trace: Skew-Symmetric Verification",
+      "difficulty": "Advanced",
+      "concepts": [
+        "Skew-Symmetric",
+        "Sign Inversion"
+      ],
+      "description": "What will be printed by the skew-symmetry expression?",
+      "code": "int[][] a = {\n    {0, 2},\n    {-2, 0}\n};\nboolean skew = (a[0][0] == 0 && a[1][1] == 0 && a[0][1] == -a[1][0]);\nSystem.out.println(\"Skew: \" + skew);",
+      "exampleText": "Diagonal is 0, off-diagonal elements have opposite signs (2 and -2)",
+      "exampleOutput": "Skew: true",
+      "answer": "a[0][0]=0, a[1][1]=0, and a[0][1] (2) is -(-2) = 2. Condition is satisfied.\n\nOutput:\nSkew: true",
+      "learningOutcome": "Verify skew-symmetric matrix properties."
+    },
+    {
+      "projectId": 46,
+      "title": "Output Trace: Frequency of Search Key in Matrix",
+      "difficulty": "Beginner",
+      "concepts": [
+        "Frequency Count",
+        "Linear Search"
+      ],
+      "description": "Determine the output of the frequency counter:",
+      "code": "int[][] mat = {\n    {5, 2, 5},\n    {5, 7, 5}\n};\nint count = 0;\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (mat[i][j] == 5) count++;\n    }\n}\nSystem.out.println(\"Freq of 5 = \" + count);",
+      "exampleText": "Count occurrences of number 5",
+      "exampleOutput": "Freq of 5 = 4",
+      "answer": "Number 5 appears 4 times across the matrix.\n\nOutput:\nFreq of 5 = 4",
+      "learningOutcome": "Count target element frequency in a 2D matrix."
+    },
+    {
+      "projectId": 47,
+      "title": "Output Trace: Labeled Break on Search Match",
+      "difficulty": "Advanced",
+      "concepts": [
+        "Labeled Break",
+        "Early Termination"
+      ],
+      "description": "Predict the loop steps output when labeled break executes:",
+      "code": "int[][] a = {{10, 20}, {30, 40}};\nint steps = 0;\nsearch:\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        steps++;\n        if (a[i][j] == 20) break search;\n    }\n}\nSystem.out.println(\"Steps = \" + steps);",
+      "exampleText": "Target 20 found at (0, 1)",
+      "exampleOutput": "Steps = 2",
+      "answer": "Step 1: (0,0) val=10.\nStep 2: (0,1) val=20 -> hits labeled break search and exits immediately.\nTotal steps = 2.\n\nOutput:\nSteps = 2",
+      "learningOutcome": "Trace labeled break statements in nested loops."
+    },
+    {
+      "projectId": 48,
+      "title": "Output Trace: Primary Diagonal Sum of Diagonal Matrix",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Combined Conditions",
+        "Board Pattern"
+      ],
+      "description": "What will be printed when summing the diagonal elements?",
+      "code": "int[][] a = {\n    {2, 0, 0},\n    {0, 3, 0},\n    {0, 0, 4}\n};\nint sum = 0;\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < 3; j++) {\n        if (i == j) sum += a[i][j];\n    }\n}\nSystem.out.println(\"Sum = \" + sum);",
+      "exampleText": "2 + 3 + 4",
+      "exampleOutput": "Sum = 9",
+      "answer": "Primary diagonal elements: 2 + 3 + 4 = 9.\n\nOutput:\nSum = 9",
+      "learningOutcome": "Trace combined pattern summation."
+    },
+    {
+      "projectId": 49,
+      "title": "Output Trace: Row Sum Array Population",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "1D Summary Array",
+        "Row Sum"
+      ],
+      "description": "Predict the output of the row sums array:",
+      "code": "int[][] m = {\n    {10, 20},\n    {30, 40}\n};\nint[] rSums = new int[2];\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 2; j++) {\n        rSums[i] += m[i][j];\n    }\n}\nSystem.out.println(rSums[0] + \"-\" + rSums[1]);",
+      "exampleText": "rSums[0] = 30, rSums[1] = 70",
+      "exampleOutput": "30-70",
+      "answer": "Row 0 sum: 10 + 20 = 30.\nRow 1 sum: 30 + 40 = 70.\n\nOutput:\n30-70",
+      "learningOutcome": "Store row sums into a 1D summary array."
+    },
+    {
+      "projectId": 50,
+      "title": "Output Trace: 90-Degree Clockwise Matrix Rotation",
+      "difficulty": "Advanced",
+      "concepts": [
+        "Matrix Rotation",
+        "Transpose & Row Reverse",
+        "ICSE Board Hot"
+      ],
+      "description": "Predict the top-left element after 90-degree clockwise rotation:",
+      "code": "int[][] a = {\n    {1, 2},\n    {3, 4}\n};\n// Step 1: Transpose -> {{1, 3}, {2, 4}}\n// Step 2: Reverse Rows -> {{3, 1}, {4, 2}}\nSystem.out.println(\"Rotated [0][0] = \" + 3);",
+      "exampleText": "Trace rotation of 2x2 matrix {{1, 2}, {3, 4}}",
+      "exampleOutput": "Rotated [0][0] = 3",
+      "answer": "Original: \n1 2\n3 4\n\nAfter 90 deg clockwise rotation:\n3 1\n4 2\n\nRotated [0][0] is 3.\n\nOutput:\nRotated [0][0] = 3",
+      "learningOutcome": "Trace 90-degree clockwise matrix rotation."
+    }
+  ]
+}

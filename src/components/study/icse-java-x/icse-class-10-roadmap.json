@@ -317,7 +317,8 @@
             "Row sum and column sum calculation",
             "Primary and secondary diagonal elements",
             "Matrix addition and subtraction",
-            "Board pattern programs on matrices"
+            "Board pattern programs on matrices",
+            "Output Test (50 Dry Run & Matrix Tracing Questions)"
           ],
           "learningOutcomes": [
             "Declare and initialize 2D matrices in Java",
