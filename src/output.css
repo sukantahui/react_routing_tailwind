@@ -4137,6 +4137,12 @@
       border-color: color-mix(in oklab, var(--color-amber-700) 30%, transparent);
     }
   }
+  .border-amber-700\/40 {
+    border-color: color-mix(in srgb, oklch(55.5% 0.163 48.998) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-700) 40%, transparent);
+    }
+  }
   .border-amber-700\/50 {
     border-color: color-mix(in srgb, oklch(55.5% 0.163 48.998) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -5943,6 +5949,12 @@
       border-color: color-mix(in oklab, var(--color-rose-700) 30%, transparent);
     }
   }
+  .border-rose-700\/40 {
+    border-color: color-mix(in srgb, oklch(51.4% 0.222 16.935) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-rose-700) 40%, transparent);
+    }
+  }
   .border-rose-700\/50 {
     border-color: color-mix(in srgb, oklch(51.4% 0.222 16.935) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -6175,6 +6187,12 @@
     border-color: color-mix(in srgb, oklch(50% 0.134 242.749) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-sky-700) 30%, transparent);
+    }
+  }
+  .border-sky-700\/40 {
+    border-color: color-mix(in srgb, oklch(50% 0.134 242.749) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-sky-700) 40%, transparent);
     }
   }
   .border-sky-700\/50 {
@@ -6812,6 +6830,9 @@
   }
   .bg-\[\#0d121d\]\/90 {
     background-color: color-mix(in oklab, #0d121d 90%, transparent);
+  }
+  .bg-\[\#0d1322\] {
+    background-color: #0d1322;
   }
   .bg-\[\#0f172a\] {
     background-color: #0f172a;
@@ -11740,6 +11761,10 @@
     --tw-gradient-from: var(--color-sky-50);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
+  .from-sky-200 {
+    --tw-gradient-from: var(--color-sky-200);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
   .from-sky-300 {
     --tw-gradient-from: var(--color-sky-300);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -12091,6 +12116,16 @@
   .from-zinc-950 {
     --tw-gradient-from: var(--color-zinc-950);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .via-\[\#0a192f\] {
+    --tw-gradient-via: #0a192f;
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .via-\[\#0c192e\] {
+    --tw-gradient-via: #0c192e;
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
   .via-\[\#030712\]\/40 {
     --tw-gradient-via: color-mix(in oklab, #030712 40%, transparent);

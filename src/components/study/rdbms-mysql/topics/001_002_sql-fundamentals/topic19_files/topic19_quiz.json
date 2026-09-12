@@ -1,0 +1,2802 @@
+[
+  {
+    "id": "sql_fund_q1",
+    "topic": "MySQL Data Types",
+    "question": "Why is DECIMAL(10,2) strongly recommended over FLOAT or DOUBLE for storing currency amounts in MySQL?",
+    "options": [
+      "DECIMAL stores exact fixed-point base-10 values, avoiding floating-point binary approximation and precision loss",
+      "DECIMAL uses half the disk storage space of FLOAT",
+      "FLOAT cannot store decimal fractions",
+      "DOUBLE does not support negative monetary amounts"
+    ],
+    "answerIndex": 0,
+    "explanation": "FLOAT and DOUBLE use IEEE 754 floating-point binary approximations, leading to rounding discrepancies. DECIMAL stores exact digits, which is mandatory for financial calculations.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q2",
+    "topic": "MySQL Data Types",
+    "question": "What is the physical storage difference between CHAR(30) and VARCHAR(30) when storing the string 'Kolkata' (7 characters)?",
+    "options": [
+      "CHAR(30) pads 23 spaces to occupy 30 characters, while VARCHAR(30) consumes only 7 bytes plus a 1-byte length prefix",
+      "VARCHAR(30) always occupies exactly 30 bytes on disk regardless of text length",
+      "CHAR(30) dynamically shrinks on disk, while VARCHAR(30) does not",
+      "Both consume identical storage of 30 bytes"
+    ],
+    "answerIndex": 0,
+    "explanation": "CHAR is a fixed-length data type that pads unused space with blanks. VARCHAR is variable-length and only stores the actual characters plus length-prefix metadata.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q3",
+    "topic": "MySQL Data Types",
+    "question": "What is the storage size and unsigned range of a standard MySQL INT data type?",
+    "options": [
+      "4 bytes, with an unsigned range from 0 to 4,294,967,295",
+      "2 bytes, with an unsigned range from 0 to 65,535",
+      "8 bytes, with an unsigned range from 0 to 18.44 quintillion",
+      "1 byte, with an unsigned range from 0 to 255"
+    ],
+    "answerIndex": 0,
+    "explanation": "INT occupies 4 bytes (32 bits). Signed range is -2,147,483,648 to 2,147,483,647, and UNSIGNED range is 0 to 4,294,967,295.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q4",
+    "topic": "MySQL Data Types",
+    "question": "Which integer data type in MySQL is ideal for storing a person's age or a percentage (0-100) using minimal storage?",
+    "options": [
+      "TINYINT UNSIGNED (1 byte, 0 to 255)",
+      "SMALLINT (2 bytes)",
+      "MEDIUMINT (3 bytes)",
+      "BIGINT (8 bytes)"
+    ],
+    "answerIndex": 0,
+    "explanation": "TINYINT UNSIGNED occupies just 1 byte and covers the range 0 to 255, making it the most memory-efficient type for human age or percentages.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q5",
+    "topic": "MySQL Data Types",
+    "question": "What is the primary difference between DATETIME and TIMESTAMP in MySQL regarding timezone handling?",
+    "options": [
+      "TIMESTAMP automatically converts stored values to UTC and converts back to session timezone upon retrieval; DATETIME stores literal datetime without conversion",
+      "DATETIME converts to UTC while TIMESTAMP preserves literal values",
+      "DATETIME occupies 2 bytes while TIMESTAMP occupies 16 bytes",
+      "TIMESTAMP cannot store dates prior to the year 2000"
+    ],
+    "answerIndex": 0,
+    "explanation": "TIMESTAMP is timezone-aware and stored as UTC seconds since Unix epoch (1970-01-01). DATETIME stores literal year/month/day/hour/min/sec regardless of timezone settings.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q6",
+    "topic": "MySQL Data Types",
+    "question": "What is the Year 2038 problem concerning MySQL TIMESTAMP columns?",
+    "options": [
+      "TIMESTAMP uses a 32-bit signed integer counting seconds from 1970-01-01, which overflows on January 19, 2038",
+      "MySQL will discontinue TIMESTAMP in 2038",
+      "InnoDB storage engine cannot read TIMESTAMP after 2038",
+      "TIMESTAMP will automatically convert to VARCHAR after 2038"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because TIMESTAMP is a 32-bit signed integer, its maximum epoch value is reached at 03:14:07 UTC on 19 January 2038. For future dates beyond 2038, DATETIME must be used.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q7",
+    "topic": "MySQL Data Types",
+    "question": "How does MySQL implement the BOOLEAN or BOOL data type internally?",
+    "options": [
+      "As a synonym for TINYINT(1), where 0 is FALSE and 1 (or non-zero) is TRUE",
+      "As a specialized 1-bit native storage type",
+      "As a 4-byte string storing 'TRUE' or 'FALSE'",
+      "As an ENUM('T', 'F')"
+    ],
+    "answerIndex": 0,
+    "explanation": "In MySQL, BOOLEAN / BOOL is syntactic sugar for TINYINT(1). It occupies 1 byte per row.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q8",
+    "topic": "MySQL Data Types",
+    "question": "Why is storing telephone numbers in VARCHAR(15) preferable to INT or BIGINT?",
+    "options": [
+      "Phone numbers may have leading zeros (e.g., '098300...'), country code symbols ('+91'), and do not participate in arithmetic",
+      "BIGINT cannot store 10-digit numbers",
+      "VARCHAR enforces faster index sorting than integers",
+      "Numeric columns cannot be indexed in MySQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "Telephone numbers are categorical identifiers rather than numeric quantities; numeric types strip leading zeros and reject '+' or hyphens.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q9",
+    "topic": "MySQL Data Types",
+    "question": "In the specification DECIMAL(8, 2), what is the maximum numeric value that can be stored in the column?",
+    "options": [
+      "999999.99",
+      "99999999.99",
+      "9999.9999",
+      "888888.22"
+    ],
+    "answerIndex": 0,
+    "explanation": "In DECIMAL(M, D), M is total significant digits (8) and D is fractional digits (2). The integer portion can hold at most (8 - 2) = 6 digits, yielding a maximum of 999,999.99.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q10",
+    "topic": "MySQL Data Types",
+    "question": "Why is `utf8mb4` recommended as the default character set over legacy `utf8` (utf8mb3) in MySQL?",
+    "options": [
+      "`utf8mb4` supports full 4-byte Unicode characters including emojis and supplementary multi-language scripts, whereas `utf8mb3` only supports up to 3 bytes",
+      "`utf8mb4` consumes 50% less disk space than utf8mb3",
+      "`utf8mb4` only supports English ASCII characters",
+      "`utf8mb3` is incompatible with the InnoDB storage engine"
+    ],
+    "answerIndex": 0,
+    "explanation": "Legacy utf8 in MySQL was limited to 3 bytes per character, causing crashes on 4-byte characters like emojis. utf8mb4 supports the complete Unicode standard.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q11",
+    "topic": "MySQL Data Types",
+    "question": "What is the maximum byte limit of a single row in MySQL InnoDB tables (excluding BLOB/TEXT overflow pointers)?",
+    "options": [
+      "65,535 bytes",
+      "16,384 bytes",
+      "1,048,576 bytes",
+      "32,768 bytes"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL imposes a hard row-size limit of 65,535 bytes across all internal column definitions in a single row.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q12",
+    "topic": "MySQL Data Types",
+    "question": "What is the difference between BLOB and TEXT data types in MySQL?",
+    "options": [
+      "BLOB stores raw binary byte streams without character set collation; TEXT stores character strings with character set and collation encoding",
+      "BLOB can only store up to 255 bytes while TEXT stores gigabytes",
+      "TEXT is stored in RAM only, while BLOB is stored on disk",
+      "There is no difference; they are aliases for the same internal type"
+    ],
+    "answerIndex": 0,
+    "explanation": "BLOB (Binary Large Object) is designed for binary files, images, or ciphertext without collation. TEXT is for human-readable character text adhering to character set collations.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q13",
+    "topic": "MySQL Data Types",
+    "question": "How does MySQL store ENUM values internally on disk?",
+    "options": [
+      "As compact 1-byte or 2-byte integers mapped to the corresponding metadata string index",
+      "As variable-length strings identical to VARCHAR",
+      "As encrypted hashes of the string members",
+      "As JSON arrays inside the system dictionary"
+    ],
+    "answerIndex": 0,
+    "explanation": "ENUM members are stored as compact integer indices (1 byte for up to 255 options), saving substantial disk space compared to repeating text.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q14",
+    "topic": "MySQL Data Types",
+    "question": "What is the storage size of a BIGINT UNSIGNED column in MySQL?",
+    "options": [
+      "8 bytes, supporting values from 0 to 18,446,744,073,709,551,615",
+      "4 bytes, supporting values up to 4.29 billion",
+      "16 bytes, supporting values up to 10^38",
+      "2 bytes, supporting values up to 65,535"
+    ],
+    "answerIndex": 0,
+    "explanation": "BIGINT occupies 8 bytes (64 bits). UNSIGNED BIGINT ranges from 0 to 2^64 - 1 (~18.44 quintillion).",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q15",
+    "topic": "MySQL Data Types",
+    "question": "What is the storage format of the TIME data type in MySQL?",
+    "options": [
+      "It stores elapsed hours, minutes, and seconds in the range '-838:59:59' to '838:59:59'",
+      "It only stores the current hour from 0 to 23",
+      "It stores the time in milliseconds since midnight as an unsigned integer",
+      "It requires an accompanying DATE component"
+    ],
+    "answerIndex": 0,
+    "explanation": "TIME in MySQL can represent both time-of-day and accumulated elapsed duration, ranging from -838:59:59 to +838:59:59.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q16",
+    "topic": "MySQL Data Types",
+    "question": "What is the purpose of the UNSIGNED keyword on numeric columns?",
+    "options": [
+      "It disallows negative numbers and doubles the upper limit of positive numbers that can be stored",
+      "It enables scientific floating-point notation",
+      "It allows the column to store alphanumeric characters",
+      "It encrypts the numeric values on disk"
+    ],
+    "answerIndex": 0,
+    "explanation": "UNSIGNED removes the negative portion of the numeric range, reallocating the sign bit to represent larger positive integers.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q17",
+    "topic": "MySQL Data Types",
+    "question": "What happens when you declare a column as `id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY`?",
+    "options": [
+      "It creates an unsigned 64-bit auto-incrementing surrogate primary key that guarantees unique identification across trillions of records",
+      "It restricts table rows to a maximum of 1 million",
+      "It creates a foreign key reference to the system table",
+      "It requires manual insertion of incrementing numbers in every INSERT statement"
+    ],
+    "answerIndex": 0,
+    "explanation": "BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY is the industry standard for scalable surrogate keys capable of accommodating massive data growth.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q18",
+    "topic": "MySQL Data Types",
+    "question": "How does the YEAR(4) data type in MySQL compare to the DATE data type in terms of disk storage?",
+    "options": [
+      "YEAR(4) consumes only 1 byte of storage, whereas DATE consumes 3 bytes",
+      "YEAR(4) consumes 4 bytes, whereas DATE consumes 2 bytes",
+      "Both consume 8 bytes on disk",
+      "YEAR(4) is deprecated in MySQL 8.0"
+    ],
+    "answerIndex": 0,
+    "explanation": "YEAR(4) requires only 1 byte (range 1901-2155), making it 3 times smaller than DATE (3 bytes) when only the 4-digit calendar year is needed.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q19",
+    "topic": "MySQL Data Types",
+    "question": "What happens when inserting a string longer than VARCHAR(10) into MySQL when STRICT SQL mode is enabled?",
+    "options": [
+      "The transaction/statement fails immediately with error 'Data too long for column'",
+      "MySQL silently truncates the string to 10 characters without any error",
+      "MySQL automatically expands the column definition",
+      "The excess characters are stored in a temporary overflow file"
+    ],
+    "answerIndex": 0,
+    "explanation": "Under STRICT_TRANS_TABLES / STRICT_ALL_TABLES, MySQL rejects oversized inserts with error 1406 to guarantee data integrity.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q20",
+    "topic": "MySQL Data Types",
+    "question": "What is the native JSON data type advantage in MySQL 8.0 compared to storing JSON strings in LONGTEXT?",
+    "options": [
+      "It provides automatic JSON syntax validation and optimized binary format for fast key/path extraction without parsing text",
+      "It compresses JSON data using gzip automatically",
+      "It converts all JSON keys into SQL tables in the background",
+      "It limits JSON depth to 1 level only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Native JSON stores documents in a structured binary format, allowing index lookups and fast path evaluations (e.g. `->>`) without full text deserialization.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q21",
+    "topic": "Database Management",
+    "question": "Which SQL statement safely creates a database named `company_crm` only if it does not already exist?",
+    "options": [
+      "CREATE DATABASE IF NOT EXISTS company_crm;",
+      "NEW DATABASE company_crm;",
+      "CREATE SCHEMA FORCE company_crm;",
+      "INIT DATABASE IF NOT EXISTS company_crm;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CREATE DATABASE IF NOT EXISTS db_name;` prevents runtime errors if the database was previously initialized.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q22",
+    "topic": "Database Management",
+    "question": "In MySQL, what is the syntactic relationship between the keywords DATABASE and SCHEMA?",
+    "options": [
+      "They are interchangeable synonyms in MySQL (e.g., CREATE DATABASE is identical to CREATE SCHEMA)",
+      "SCHEMA is a subset of DATABASE in MySQL",
+      "DATABASE is for relational tables, while SCHEMA is for views only",
+      "SCHEMA is deprecated in MySQL 8.0"
+    ],
+    "answerIndex": 0,
+    "explanation": "In MySQL, SCHEMA and DATABASE are completely synonymous and can be used interchangeably in all DDL commands.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q23",
+    "topic": "Database Management",
+    "question": "Which command displays the list of all databases available on the current MySQL server instance?",
+    "options": [
+      "SHOW DATABASES;",
+      "LIST ALL DATABASES;",
+      "DISPLAY SCHEMAS;",
+      "SELECT * FROM sys.databases;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SHOW DATABASES;` lists all schemas accessible by the authenticated user on the server.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q24",
+    "topic": "Database Management",
+    "question": "Which command sets the active database context for subsequent SQL statements in a MySQL session?",
+    "options": [
+      "USE database_name;",
+      "SET DATABASE = database_name;",
+      "CONNECT TO database_name;",
+      "SWITCH database_name;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`USE db_name;` selects the specified database as the default context for unqualified table references.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q25",
+    "topic": "Database Management",
+    "question": "What happens when you execute `DROP DATABASE IF EXISTS test_db;`?",
+    "options": [
+      "The database `test_db` along with all its tables, views, stored procedures, and data files are permanently deleted",
+      "Only the tables are cleared, but the empty database remains",
+      "The database is moved to the MySQL recycle bin for 30 days",
+      "The command requires user confirmation before executing"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DROP DATABASE` permanently and irrevocably removes the schema directory, metadata, and all enclosed database objects.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q26",
+    "topic": "Database Management",
+    "question": "Which SQL query returns the name of the currently active database in the MySQL session?",
+    "options": [
+      "SELECT DATABASE();",
+      "SHOW CURRENT DATABASE;",
+      "SELECT CURRENT_SCHEMA_NAME();",
+      "GET DATABASE();"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SELECT DATABASE();` is the built-in function returning the name of the currently active default database.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q27",
+    "topic": "Database Management",
+    "question": "How can you specify character set and collation during database creation in MySQL?",
+    "options": [
+      "CREATE DATABASE app_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;",
+      "CREATE DATABASE app_db SET ENCODING = 'utf8mb4';",
+      "CREATE DATABASE app_db WITH CHARSET = utf8mb4;",
+      "INIT DATABASE app_db CHARSET(utf8mb4, utf8mb4_unicode_ci);"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CHARACTER SET` and `COLLATE` clauses can be defined on `CREATE DATABASE` to establish default encoding for new tables in that schema.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q28",
+    "topic": "Database Management",
+    "question": "What is the system database in MySQL that stores data dictionary tables, user privileges, and server configuration?",
+    "options": [
+      "`mysql`",
+      "`sys_admin`",
+      "`master_db`",
+      "`root_schema`"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `mysql` system database contains grant tables, time zone data, component registries, and core server configuration.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q29",
+    "topic": "Database Management",
+    "question": "What is the purpose of the `information_schema` virtual database in MySQL?",
+    "options": [
+      "It provides read-only views into metadata about all databases, tables, columns, indexes, and privileges",
+      "It stores user audit logs and slow query logs",
+      "It holds temporary tables created during sorting",
+      "It contains backup copies of dropped databases"
+    ],
+    "answerIndex": 0,
+    "explanation": "`information_schema` is the ANSI-standard metadata repository providing introspective access to database dictionary objects.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q30",
+    "topic": "Database Management",
+    "question": "What happens if you execute `USE nonexistent_db;` in MySQL CLI?",
+    "options": [
+      "MySQL returns Error 1049 (42000): Unknown database 'nonexistent_db'",
+      "MySQL automatically creates the database",
+      "MySQL selects the default `test` database",
+      "The MySQL connection closes abruptly"
+    ],
+    "answerIndex": 0,
+    "explanation": "Attempting to USE a nonexistent database raises Error 1049: Unknown database.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q31",
+    "topic": "Database Management",
+    "question": "Which SQL statement alters the default character set of an existing database `sales_db` to `utf8mb4`?",
+    "options": [
+      "ALTER DATABASE sales_db CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;",
+      "UPDATE DATABASE sales_db SET CHARSET = utf8mb4;",
+      "MODIFY SCHEMA sales_db CHARSET utf8mb4;",
+      "CHANGE DATABASE sales_db ENCODING utf8mb4;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ALTER DATABASE db_name CHARACTER SET = ... COLLATE = ...;` modifies default character settings for future tables in that database.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q32",
+    "topic": "Database Management",
+    "question": "Which system schema in MySQL 8.0 provides high-level diagnostic and performance monitoring views over `performance_schema`?",
+    "options": [
+      "`sys` schema",
+      "`monitor_db`",
+      "`diag_schema`",
+      "`admin_views`"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `sys` schema provides formatted, human-readable diagnostic views summarizing performance schema metrics.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q33",
+    "topic": "Database Management",
+    "question": "Can you execute a query on a table in another database without switching with USE?",
+    "options": [
+      "Yes, by qualifying the table name with the database prefix: `SELECT * FROM other_db.table_name;`",
+      "No, MySQL requires switching with USE first",
+      "Yes, but only if both databases have the same owner",
+      "No, cross-database querying is disallowed in MySQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL allows full dot-notation qualifying (`db_name.table_name`) across databases on the same server instance.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q34",
+    "topic": "Database Management",
+    "question": "Which command shows the exact SQL statement used to create a database named `ecommerce_db`?",
+    "options": [
+      "SHOW CREATE DATABASE ecommerce_db;",
+      "DESCRIBE DATABASE ecommerce_db;",
+      "SHOW DDL ecommerce_db;",
+      "INSPECT DATABASE ecommerce_db;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SHOW CREATE DATABASE db_name;` outputs the exact CREATE DATABASE DDL statement including character set specifications.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q35",
+    "topic": "Database Management",
+    "question": "What permission is required in MySQL to execute `CREATE DATABASE`?",
+    "options": [
+      "The `CREATE` privilege on the global server level (`*.*`)",
+      "The `SELECT` privilege on information_schema",
+      "The `ALTER` privilege on the mysql schema",
+      "The `FILE` privilege"
+    ],
+    "answerIndex": 0,
+    "explanation": "Creating databases requires the global `CREATE` privilege on `*.*`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q36",
+    "topic": "Table DDL",
+    "question": "What is the correct syntax to create a table `customers` with an unsigned 64-bit auto-incrementing primary key?",
+    "options": [
+      "CREATE TABLE customers ( id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL );",
+      "CREATE TABLE customers ( id AUTO_INCREMENT INT, name VARCHAR(100) );",
+      "NEW TABLE customers ( id BIGINT PRIMARY, name VARCHAR(100) );",
+      "CREATE TABLE customers ( id INT IDENTITY(1,1), name VARCHAR(100) );"
+    ],
+    "answerIndex": 0,
+    "explanation": "In MySQL, `id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT` defines an unsigned 64-bit auto-incrementing primary key column.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q37",
+    "topic": "Table DDL",
+    "question": "Which command displays the column names, data types, nullability, keys, and default values of a table `employees`?",
+    "options": [
+      "DESCRIBE employees; (or DESC employees;)",
+      "SHOW COLUMNS IN employees DETAILS;",
+      "LIST TABLE employees;",
+      "VIEW STRUCTURE employees;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DESCRIBE table_name;` or `DESC table_name;` prints table column metadata in tabular format.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q38",
+    "topic": "Table DDL",
+    "question": "Which command returns the complete, exact `CREATE TABLE` DDL statement including engine, charset, and constraints?",
+    "options": [
+      "SHOW CREATE TABLE table_name;",
+      "DESCRIBE FULL table_name;",
+      "GET DDL table_name;",
+      "EXPORT SCHEMA table_name;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SHOW CREATE TABLE table_name;` prints the exact SQL statement that recreates the table schema identically.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q39",
+    "topic": "Table DDL",
+    "question": "What is the default storage engine for tables in modern MySQL (5.5+ and 8.0)?",
+    "options": [
+      "InnoDB",
+      "MyISAM",
+      "MEMORY",
+      "CSV"
+    ],
+    "answerIndex": 0,
+    "explanation": "InnoDB is the default ACID-compliant storage engine featuring row-level locking, foreign keys, and crash recovery.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q40",
+    "topic": "Table DDL",
+    "question": "What does the `NOT NULL` constraint enforce on a table column?",
+    "options": [
+      "It prevents the column from accepting NULL (unknown/missing) values",
+      "It requires the column value to be unique across all rows",
+      "It prevents the column from storing zeros or empty strings",
+      "It automatically populates the column with an incremental number"
+    ],
+    "answerIndex": 0,
+    "explanation": "`NOT NULL` ensures that every row must contain a valid, non-null value for that column.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q41",
+    "topic": "Table DDL",
+    "question": "What does the `DEFAULT` clause specify during column declaration in `CREATE TABLE`?",
+    "options": [
+      "A fallback default value assigned automatically when an INSERT statement does not provide a value for that column",
+      "The maximum permissible length of the column",
+      "The default index algorithm (B-Tree or Hash)",
+      "The collation assigned to string searches"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DEFAULT value` specifies the value to insert when no explicit value is supplied in the INSERT statement.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q42",
+    "topic": "Table DDL",
+    "question": "What is the effect of the `AUTO_INCREMENT` attribute in MySQL?",
+    "options": [
+      "Automatically generates a unique, sequentially increasing integer for new rows when no explicit value is provided",
+      "Automatically creates an index on every column in the table",
+      "Increases the column storage width dynamically",
+      "Increments numeric column values daily"
+    ],
+    "answerIndex": 0,
+    "explanation": "`AUTO_INCREMENT` automatically generates sequential numbers for surrogate primary keys.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q43",
+    "topic": "Table DDL",
+    "question": "Can a table have more than one `AUTO_INCREMENT` column in MySQL?",
+    "options": [
+      "No, a table can contain at most ONE AUTO_INCREMENT column, and it must be indexed (usually PRIMARY KEY)",
+      "Yes, up to 4 AUTO_INCREMENT columns are allowed",
+      "Yes, as long as they have different data types",
+      "Yes, if the table uses the MyISAM engine"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL enforces that a table can have only one AUTO_INCREMENT column, and that column must be defined as an index/key.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q44",
+    "topic": "Table DDL",
+    "question": "Which SQL statement creates a table `orders` only if a table with that name does not already exist in the database?",
+    "options": [
+      "CREATE TABLE IF NOT EXISTS orders ( id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, order_no VARCHAR(20) NOT NULL );",
+      "CREATE TABLE UNLESS EXISTS orders ( ... );",
+      "INIT TABLE orders ( ... );",
+      "CREATE TABLE SAFE orders ( ... );"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CREATE TABLE IF NOT EXISTS table_name (...)` prevents errors when running repeatable deployment scripts.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q45",
+    "topic": "Table DDL",
+    "question": "Which command lists all table names in the currently active MySQL database?",
+    "options": [
+      "SHOW TABLES;",
+      "LIST TABLES;",
+      "SELECT TABLES();",
+      "DISPLAY TABLES;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SHOW TABLES;` lists all base tables and views in the current database.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q46",
+    "topic": "Table DDL",
+    "question": "What does `SHOW FULL TABLES;` output compared to standard `SHOW TABLES;`?",
+    "options": [
+      "It adds a second column indicating the table type (`BASE TABLE` vs `VIEW`)",
+      "It displays table row counts and disk sizes",
+      "It outputs the complete CREATE TABLE DDL for every table",
+      "It displays foreign key dependencies"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SHOW FULL TABLES;` displays `Table_type`, distinguishing standard base tables from views.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q47",
+    "topic": "Table DDL",
+    "question": "How can you create a new table `archived_orders` with the identical structure as `orders` without copying any rows?",
+    "options": [
+      "CREATE TABLE archived_orders LIKE orders;",
+      "CREATE TABLE archived_orders AS SELECT * FROM orders WHERE 1=0;",
+      "CLONE TABLE orders TO archived_orders;",
+      "COPY TABLE orders TO archived_orders EMPTY;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CREATE TABLE new_table LIKE original_table;` duplicates the complete table definition including indexes and auto_increment settings without copying data.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q48",
+    "topic": "Table DDL",
+    "question": "What is the key difference between `CREATE TABLE t2 LIKE t1;` and `CREATE TABLE t2 AS SELECT * FROM t1;`?",
+    "options": [
+      "`LIKE` copies exact column definitions, primary keys, and indexes without rows; `AS SELECT` copies data and column types but drops indexes and auto_increment attributes",
+      "`AS SELECT` copies all indexes and foreign keys, but `LIKE` does not",
+      "`LIKE` is deprecated in MySQL 8.0",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CREATE TABLE ... LIKE` preserves indexes, default values, and constraints. `CREATE TABLE ... AS SELECT` creates a plain structure based on the query result set without original indexes.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q49",
+    "topic": "Table DDL",
+    "question": "What is a temporary table in MySQL created using `CREATE TEMPORARY TABLE temp_data (...)`?",
+    "options": [
+      "A table visible only to the current client session that is automatically dropped when the session closes",
+      "A table that deletes its data every hour",
+      "A table stored purely in browser memory",
+      "A table shared across all active users that resets on server reboot"
+    ],
+    "answerIndex": 0,
+    "explanation": "Temporary tables exist strictly for the lifespan of the creating connection and are isolated from other concurrent user sessions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q50",
+    "topic": "Table DDL",
+    "question": "What happens if you define a column with `COMMENT 'Product Unit Selling Price'` in a `CREATE TABLE` statement?",
+    "options": [
+      "MySQL stores the comment string in the data dictionary metadata for documentation purposes",
+      "MySQL executes the comment as a validation check constraint",
+      "The comment is ignored and discarded by the SQL parser",
+      "The comment is displayed as a tooltip in SQL queries"
+    ],
+    "answerIndex": 0,
+    "explanation": "Column comments are stored in `information_schema.COLUMNS.COLUMN_COMMENT` to provide structured schema documentation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q51",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement adds a new column `email` of type VARCHAR(120) to an existing table `users`?",
+    "options": [
+      "ALTER TABLE users ADD COLUMN email VARCHAR(120) NOT NULL;",
+      "UPDATE TABLE users INSERT COLUMN email VARCHAR(120);",
+      "MODIFY TABLE users ADD email VARCHAR(120);",
+      "ALTER users APPEND email VARCHAR(120);"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ALTER TABLE table_name ADD COLUMN column_name data_type [constraints];` adds a new column to an existing table.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q52",
+    "topic": "Schema Evolution",
+    "question": "Which clause allows you to place a newly added column at the very beginning of the table structure?",
+    "options": [
+      "FIRST (e.g., `ALTER TABLE users ADD COLUMN id BIGINT FIRST;`)",
+      "START",
+      "TOP",
+      "BEFORE ALL"
+    ],
+    "answerIndex": 0,
+    "explanation": "In MySQL, the `FIRST` keyword places the new column in the first physical position in the table schema.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q53",
+    "topic": "Schema Evolution",
+    "question": "Which clause allows you to insert a new column `phone` immediately after an existing column `last_name`?",
+    "options": [
+      "AFTER last_name (e.g., `ALTER TABLE users ADD COLUMN phone VARCHAR(15) AFTER last_name;`)",
+      "NEXT TO last_name",
+      "BEHIND last_name",
+      "FOLLOWING last_name"
+    ],
+    "answerIndex": 0,
+    "explanation": "`AFTER existing_column` positions the newly added column directly after the specified existing column.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q54",
+    "topic": "Schema Evolution",
+    "question": "What is the difference between `ALTER TABLE ... MODIFY COLUMN` and `ALTER TABLE ... CHANGE COLUMN` in MySQL?",
+    "options": [
+      "`MODIFY COLUMN` changes data type or nullability without changing column name; `CHANGE COLUMN` allows renaming the column and altering data type simultaneously",
+      "`CHANGE COLUMN` only works on primary keys",
+      "`MODIFY COLUMN` deletes existing table rows",
+      "They are identical and take the exact same parameters"
+    ],
+    "answerIndex": 0,
+    "explanation": "`MODIFY COLUMN col_name new_type` changes data type without renaming. `CHANGE COLUMN old_name new_name new_type` requires specifying both old and new names.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q55",
+    "topic": "Schema Evolution",
+    "question": "In MySQL 8.0+, which modern, clean syntax is used to rename a column `old_name` to `new_name` without re-declaring its data type?",
+    "options": [
+      "ALTER TABLE table_name RENAME COLUMN old_name TO new_name;",
+      "ALTER TABLE table_name SET COLUMN old_name = new_name;",
+      "MODIFY COLUMN old_name AS new_name;",
+      "RENAME ATTRIBUTE old_name TO new_name ON table_name;"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL 8.0 introduced `RENAME COLUMN old_name TO new_name;`, eliminating the legacy requirement of re-specifying the entire column data type.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q56",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement removes an obsolete column `fax_number` from table `suppliers`?",
+    "options": [
+      "ALTER TABLE suppliers DROP COLUMN fax_number;",
+      "DELETE COLUMN fax_number FROM suppliers;",
+      "REMOVE fax_number FROM suppliers;",
+      "ALTER TABLE suppliers REMOVE COLUMN fax_number;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ALTER TABLE table_name DROP COLUMN column_name;` drops the column and deletes its data permanently.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q57",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement renames an existing table `tbl_usr` to `users`?",
+    "options": [
+      "RENAME TABLE tbl_usr TO users; (or ALTER TABLE tbl_usr RENAME TO users;)",
+      "UPDATE TABLE tbl_usr NAME = 'users';",
+      "CHANGE TABLE tbl_usr TO users;",
+      "MODIFY TABLE tbl_usr SET NAME 'users';"
+    ],
+    "answerIndex": 0,
+    "explanation": "`RENAME TABLE old_name TO new_name;` or `ALTER TABLE old_name RENAME TO new_name;` renames tables atomically.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q58",
+    "topic": "Schema Evolution",
+    "question": "Can you execute multiple column alterations in a single `ALTER TABLE` statement in MySQL?",
+    "options": [
+      "Yes, by separating multiple alteration clauses with commas: `ALTER TABLE t ADD c1 INT, DROP c2, MODIFY c3 VARCHAR(50);`",
+      "No, every alteration requires a distinct ALTER TABLE statement",
+      "Yes, but only if they are all ADD clauses",
+      "No, multi-clause ALTER TABLE is not valid SQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "Grouping multiple alterations into a single `ALTER TABLE` statement is much faster because InnoDB rebuilds the table only once.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q59",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement adds a DEFAULT constraint of 'ACTIVE' to an existing column `status` in table `accounts`?",
+    "options": [
+      "ALTER TABLE accounts ALTER COLUMN status SET DEFAULT 'ACTIVE';",
+      "UPDATE TABLE accounts SET DEFAULT status = 'ACTIVE';",
+      "ALTER TABLE accounts MODIFY DEFAULT status = 'ACTIVE';",
+      "SET DEFAULT 'ACTIVE' ON accounts(status);"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ALTER TABLE table_name ALTER COLUMN col_name SET DEFAULT value;` metadata-only operation sets default value without rewriting table rows.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q60",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement removes the default value from column `status` in table `accounts`?",
+    "options": [
+      "ALTER TABLE accounts ALTER COLUMN status DROP DEFAULT;",
+      "ALTER TABLE accounts REMOVE DEFAULT status;",
+      "UPDATE accounts SET DEFAULT = NULL;",
+      "ALTER TABLE accounts DELETE DEFAULT status;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ALTER TABLE table_name ALTER COLUMN col_name DROP DEFAULT;` removes the column default value.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q61",
+    "topic": "Schema Evolution",
+    "question": "What happens if you attempt to `DROP COLUMN` on the only remaining column in a MySQL table?",
+    "options": [
+      "MySQL rejects the statement with Error 1090: You can't delete all columns with ALTER TABLE; use DROP TABLE instead",
+      "The table becomes an empty schema table with 0 columns",
+      "The table is automatically dropped",
+      "The column is converted to a virtual column"
+    ],
+    "answerIndex": 0,
+    "explanation": "A relational table must contain at least 1 column; deleting all columns throws Error 1090.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q62",
+    "topic": "Schema Evolution",
+    "question": "What is the behavior of ALGORITHM=INPLACE in MySQL 8.0 online DDL operations?",
+    "options": [
+      "It performs the schema modification in-place without creating a full table copy, allowing concurrent DML (reads/writes) during alteration",
+      "It stops all read and write queries on the server",
+      "It writes changes purely to memory without disk persistence",
+      "It converts the table to MyISAM engine automatically"
+    ],
+    "answerIndex": 0,
+    "explanation": "Online DDL with `ALGORITHM=INPLACE` minimizes table locks and avoids expensive table copy overhead for supported schema changes.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q63",
+    "topic": "Schema Evolution",
+    "question": "What happens if you decrease the length of a VARCHAR column (e.g. from VARCHAR(100) to VARCHAR(20)) when existing rows contain 50-character strings in STRICT mode?",
+    "options": [
+      "The ALTER TABLE statement fails with 'Data truncated for column' error and rolls back",
+      "MySQL silently truncates all existing data to 20 characters",
+      "The oversized strings are moved to an archive table",
+      "The operation succeeds but sets the oversized fields to NULL"
+    ],
+    "answerIndex": 0,
+    "explanation": "Under strict SQL mode, reducing column width when data exceeds the new length raises a fatal truncation error and prevents data loss.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q64",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement converts an existing table `orders` to use the `utf8mb4` character set and convert all existing string columns?",
+    "options": [
+      "ALTER TABLE orders CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;",
+      "UPDATE TABLE orders SET CHARSET = utf8mb4;",
+      "MODIFY orders ENCODING utf8mb4 ALL;",
+      "ALTER orders TRANSLATE utf8mb4;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CONVERT TO CHARACTER SET` alters both table metadata and existing string data encodings across all text columns in the table.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q65",
+    "topic": "Schema Evolution",
+    "question": "Which SQL statement changes the AUTO_INCREMENT counter of table `invoices` to start at 5000?",
+    "options": [
+      "ALTER TABLE invoices AUTO_INCREMENT = 5000;",
+      "SET AUTO_INCREMENT = 5000 ON invoices;",
+      "UPDATE TABLE invoices START AUTO_INCREMENT = 5000;",
+      "CHANGE invoices COUNTER 5000;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ALTER TABLE table_name AUTO_INCREMENT = value;` resets the starting sequence number for future auto-increment inserts.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q66",
+    "topic": "Table Deletions",
+    "question": "What is the fundamental difference between `TRUNCATE TABLE` and `DROP TABLE` in MySQL?",
+    "options": [
+      "TRUNCATE deletes all rows and resets AUTO_INCREMENT while preserving table schema; DROP permanently destroys both data and schema definition",
+      "TRUNCATE deletes the table schema, while DROP keeps the schema empty",
+      "DROP can be rolled back, while TRUNCATE cannot",
+      "TRUNCATE only works on temporary tables"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRUNCATE TABLE is a fast DDL command that drops and recreates the empty table structure. DROP TABLE permanently eliminates the table definition from the database.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q67",
+    "topic": "Table Deletions",
+    "question": "How does `TRUNCATE TABLE` differ from `DELETE FROM table_name;` without a WHERE clause?",
+    "options": [
+      "TRUNCATE is a DDL operation that drops/recreates data pages and resets AUTO_INCREMENT; DELETE is a DML operation that deletes rows one-by-one logging undo/redo records",
+      "DELETE is much faster than TRUNCATE on large tables",
+      "DELETE resets AUTO_INCREMENT to 1 in InnoDB, while TRUNCATE preserves it",
+      "TRUNCATE fires row-level DELETE triggers for every row"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRUNCATE is DDL, deallocates entire data pages, resets auto-increment, and does NOT fire row triggers. DELETE is DML, evaluates row-by-row, and generates transaction rollback logs.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q68",
+    "topic": "Table Deletions",
+    "question": "What happens to the `AUTO_INCREMENT` sequence counter after executing `TRUNCATE TABLE` on an InnoDB table?",
+    "options": [
+      "It resets back to the initial value (1 or the declared starting sequence)",
+      "It continues from the last deleted maximum ID",
+      "It is set to NULL",
+      "It throws an error if auto-increment is enabled"
+    ],
+    "answerIndex": 0,
+    "explanation": "TRUNCATE TABLE resets the auto-increment counter back to 1 (or the table's initial value).",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q69",
+    "topic": "Table Deletions",
+    "question": "What happens to the `AUTO_INCREMENT` sequence counter after executing `DELETE FROM table_name;` (without WHERE) on an InnoDB table in MySQL 8.0?",
+    "options": [
+      "In InnoDB, the AUTO_INCREMENT counter is NOT reset and continues from the previous high-water mark",
+      "It always resets to 1",
+      "It becomes undefined",
+      "It is decremented by the count of deleted rows"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DELETE FROM t;` does not reset the auto-increment counter in InnoDB; subsequent inserts continue from the last highest ID + 1.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q70",
+    "topic": "Table Deletions",
+    "question": "Can `TRUNCATE TABLE` be rolled back inside a standard transaction `START TRANSACTION; ... ROLLBACK;` in MySQL?",
+    "options": [
+      "No, because TRUNCATE is a DDL statement that issues an implicit commit immediately before and after execution",
+      "Yes, InnoDB supports rolling back TRUNCATE statements",
+      "Yes, if autocommit is set to 0",
+      "Only if the table contains fewer than 100 rows"
+    ],
+    "answerIndex": 0,
+    "explanation": "DDL statements in MySQL (including TRUNCATE, CREATE, ALTER, DROP) trigger an implicit commit and cannot be rolled back.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q71",
+    "topic": "Table Deletions",
+    "question": "Can `DELETE FROM table_name WHERE condition;` be rolled back inside an uncommitted transaction?",
+    "options": [
+      "Yes, because DELETE is a DML statement that writes undo logs until committed",
+      "No, all deletions in MySQL are permanent immediately",
+      "Only if safe update mode is enabled",
+      "Only if the table is MyISAM"
+    ],
+    "answerIndex": 0,
+    "explanation": "DELETE is a fully transactional DML operation in InnoDB that can be rolled back using `ROLLBACK;` prior to commit.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q72",
+    "topic": "Table Deletions",
+    "question": "Which command will delete only records where `status = 'INACTIVE'` from table `members`?",
+    "options": [
+      "DELETE FROM members WHERE status = 'INACTIVE';",
+      "TRUNCATE members WHERE status = 'INACTIVE';",
+      "DROP FROM members WHERE status = 'INACTIVE';",
+      "REMOVE FROM members WHERE status = 'INACTIVE';"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DELETE FROM table_name WHERE condition;` selectively removes matching rows. TRUNCATE does not accept a WHERE clause.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q73",
+    "topic": "Table Deletions",
+    "question": "Why does `TRUNCATE TABLE` not accept a `WHERE` clause?",
+    "options": [
+      "TRUNCATE operates at the data page and table definition level, not at the individual row level",
+      "WHERE clauses are only valid in SELECT statements",
+      "MySQL parser disables WHERE for performance reasons only",
+      "TRUNCATE converts WHERE clauses into HAVING clauses automatically"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because TRUNCATE deallocates storage structures as a whole DDL operation rather than scanning individual rows, conditional row filtering is impossible.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q74",
+    "topic": "Table Deletions",
+    "question": "What is the effect of `DROP TABLE IF EXISTS t1, t2, t3;` in MySQL?",
+    "options": [
+      "It drops multiple tables `t1`, `t2`, and `t3` in a single command without error if any are missing",
+      "It merges t1, t2, and t3 into a single table",
+      "It drops only the first table that exists",
+      "Syntax error; MySQL only allows dropping one table per command"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL allows comma-separated lists of table names in a single `DROP TABLE` statement.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q75",
+    "topic": "Table Deletions",
+    "question": "What is MySQL Safe Updates Mode (`sql_safe_updates = 1`) designed to prevent?",
+    "options": [
+      "Accidental execution of `UPDATE` or `DELETE` statements that lack a `WHERE` clause or do not use a key/index in the WHERE clause",
+      "Dropping tables during peak hours",
+      "Inserting rows without primary keys",
+      "Creating tables larger than 10GB"
+    ],
+    "answerIndex": 0,
+    "explanation": "When `sql_safe_updates = 1`, MySQL rejects UPDATE/DELETE statements that lack a WHERE clause utilizing an indexed key column, preventing catastrophic table wipes.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q76",
+    "topic": "Table Deletions",
+    "question": "If a table has an `ON DELETE CASCADE` foreign key constraint referencing it, how does `TRUNCATE TABLE` behave?",
+    "options": [
+      "MySQL disallows `TRUNCATE TABLE` if foreign key constraints reference the table, returning Error 1701",
+      "TRUNCATE cascades and truncates all child tables automatically",
+      "TRUNCATE deletes parent rows and sets child foreign keys to NULL",
+      "TRUNCATE converts to DELETE automatically"
+    ],
+    "answerIndex": 0,
+    "explanation": "To prevent orphaned records without trigger evaluation, MySQL rejects TRUNCATE on tables referenced by active foreign keys (Error 1701).",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q77",
+    "topic": "Table Deletions",
+    "question": "Which clause allows you to limit the maximum number of rows deleted by a `DELETE` statement in MySQL?",
+    "options": [
+      "LIMIT (e.g., `DELETE FROM logs WHERE created_at < '2026-01-01' LIMIT 1000;`)",
+      "TOP",
+      "FETCH FIRST",
+      "MAX_ROWS"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL supports `LIMIT` in DELETE statements, enabling chunked batch deletions to minimize lock contention.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q78",
+    "topic": "Table Deletions",
+    "question": "Which clause in a `DELETE` statement guarantees deterministic row deletion order when paired with `LIMIT`?",
+    "options": [
+      "ORDER BY (e.g., `DELETE FROM logs ORDER BY log_date ASC LIMIT 500;`)",
+      "SORT BY",
+      "GROUP BY",
+      "HAVING"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining `ORDER BY` and `LIMIT` in a DELETE statement ensures that specific rows (e.g. oldest entries) are deleted first.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q79",
+    "topic": "Table Deletions",
+    "question": "What is a 'soft delete' pattern in database design compared to a physical SQL DELETE?",
+    "options": [
+      "Updating a boolean flag like `is_deleted = 1` or `deleted_at = NOW()` instead of issuing a physical `DELETE` statement",
+      "Deleting records from cache but retaining them on disk",
+      "Dropping indexes before deleting rows",
+      "Deleting records only during nightly maintenance jobs"
+    ],
+    "answerIndex": 0,
+    "explanation": "Soft deletes retain historical records for auditing by marking an active/deleted status flag rather than executing hard physical DELETEs.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q80",
+    "topic": "Table Deletions",
+    "question": "How can you completely purge soft-deleted records older than 90 days in table `leads`?",
+    "options": [
+      "DELETE FROM leads WHERE is_deleted = 1 AND deleted_at < NOW() - INTERVAL 90 DAY;",
+      "TRUNCATE leads WHERE is_deleted = 1;",
+      "DROP LEADS WHERE deleted_at > 90;",
+      "PURGE TABLE leads FILTER is_deleted = 1;"
+    ],
+    "answerIndex": 0,
+    "explanation": "Hard deletion of soft-deleted records is executed via `DELETE FROM table WHERE is_deleted = 1 AND date_condition;`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q81",
+    "topic": "DML Insert Operations",
+    "question": "What is the syntax for inserting a single row into table `products (name, price)` in MySQL?",
+    "options": [
+      "INSERT INTO products (name, price) VALUES ('Gaming Mouse', 1499.00);",
+      "INSERT INTO products SET VALUES ('Gaming Mouse', 1499.00);",
+      "ADD TO products (name, price) VALUES ('Gaming Mouse', 1499.00);",
+      "INSERT products (name, price) = ('Gaming Mouse', 1499.00);"
+    ],
+    "answerIndex": 0,
+    "explanation": "`INSERT INTO table_name (columns) VALUES (values);` is standard SQL syntax for row insertion.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q82",
+    "topic": "DML Insert Operations",
+    "question": "What is the syntax for multi-row (batch) insertion in MySQL?",
+    "options": [
+      "INSERT INTO products (name, price) VALUES ('Item A', 100.00), ('Item B', 200.00), ('Item C', 300.00);",
+      "INSERT BATCH INTO products (name, price) VALUES ('Item A', 100), ('Item B', 200);",
+      "INSERT INTO products VALUES ('Item A', 100) AND VALUES ('Item B', 200);",
+      "INSERT MULTI products (name, price) ('Item A', 100), ('Item B', 200);"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL allows comma-separated tuple lists in the `VALUES` clause, executing high-throughput batch insertions in a single network round-trip.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q83",
+    "topic": "DML Insert Operations",
+    "question": "What happens if an `INSERT INTO table_name VALUES (...)` statement omits the explicit column list?",
+    "options": [
+      "Values must be provided for every column in the exact ordinal sequence declared in the table schema",
+      "MySQL will automatically map values based on data types",
+      "The query will always result in a syntax error",
+      "Values are inserted into string columns only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Omitting column names requires supplying values for every column in exact schema order. Explicit column specification is strongly recommended.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q84",
+    "topic": "DML Insert Operations",
+    "question": "What happens when you insert a row without specifying a value for a column declared with `DEFAULT 'PENDING'`?",
+    "options": [
+      "MySQL automatically assigns the default string value 'PENDING' to that column for the new row",
+      "The column is assigned NULL",
+      "The insert fails with an incomplete column error",
+      "The column is assigned an empty string"
+    ],
+    "answerIndex": 0,
+    "explanation": "Unspecified columns configured with a `DEFAULT` constraint automatically receive their defined default value.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q85",
+    "topic": "DML Insert Operations",
+    "question": "Which MySQL-specific alternative syntax allows inserting a single row using assignments?",
+    "options": [
+      "INSERT INTO users SET name = 'Rahul', email = 'rahul@mail.com', age = 25;",
+      "INSERT INTO users VALUES name = 'Rahul', email = 'rahul@mail.com';",
+      "INSERT USERS (name = 'Rahul', email = 'rahul@mail.com');",
+      "PUT INTO users (name = 'Rahul', email = 'rahul@mail.com');"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL supports `INSERT INTO table SET col1 = val1, col2 = val2;` as an alternative single-row insert syntax.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q86",
+    "topic": "DML Insert Operations",
+    "question": "How can you insert records into table `archive_orders` directly from the result of a `SELECT` query on `orders`?",
+    "options": [
+      "INSERT INTO archive_orders (id, order_no, total) SELECT id, order_no, total FROM orders WHERE status = 'COMPLETED';",
+      "INSERT INTO archive_orders VALUES (SELECT * FROM orders WHERE status = 'COMPLETED');",
+      "SELECT * FROM orders WHERE status = 'COMPLETED' INTO INSERT archive_orders;",
+      "COPY INTO archive_orders FROM (SELECT * FROM orders);"
+    ],
+    "answerIndex": 0,
+    "explanation": "`INSERT INTO target_table (columns) SELECT ... FROM source_table;` populates target tables directly from query results.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q87",
+    "topic": "DML Insert Operations",
+    "question": "What is the function of `INSERT IGNORE INTO table_name (...) VALUES (...)` in MySQL?",
+    "options": [
+      "If a row causes a duplicate primary/unique key error, MySQL discards that row silently as a warning and proceeds with remaining rows",
+      "It ignores all NOT NULL constraints and inserts NULLs",
+      "It disables table triggers during insertion",
+      "It writes data only to memory"
+    ],
+    "answerIndex": 0,
+    "explanation": "`INSERT IGNORE` downgrades unique key and constraint violations into non-fatal warnings, skipping conflicting rows without aborting the batch.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q88",
+    "topic": "DML Insert Operations",
+    "question": "What is the purpose of `ON DUPLICATE KEY UPDATE` in MySQL `INSERT` statements (UPSERT)?",
+    "options": [
+      "If an inserted row causes a duplicate PRIMARY KEY or UNIQUE key collision, MySQL performs an `UPDATE` on the existing row instead",
+      "It duplicates the row and updates the copy",
+      "It deletes the duplicate row and inserts the new one",
+      "It throws an error and asks user for confirmation"
+    ],
+    "answerIndex": 0,
+    "explanation": "`INSERT INTO ... ON DUPLICATE KEY UPDATE col = VALUES(col)` implements atomic UPSERT (Insert or Update if exists) logic.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q89",
+    "topic": "DML Insert Operations",
+    "question": "Which SQL function returns the automatically generated `AUTO_INCREMENT` ID from the most recent successful `INSERT` in the current session?",
+    "options": [
+      "LAST_INSERT_ID()",
+      "GET_LAST_ID()",
+      "AUTO_INCREMENT_VALUE()",
+      "CURRENT_INSERT_ID()"
+    ],
+    "answerIndex": 0,
+    "explanation": "`LAST_INSERT_ID()` returns the first auto-incremented value generated in the current connection session.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q90",
+    "topic": "DML Insert Operations",
+    "question": "What happens if you explicitly insert `NULL` into an `AUTO_INCREMENT PRIMARY KEY` column in MySQL?",
+    "options": [
+      "MySQL automatically generates the next sequential auto-increment integer for that row",
+      "The insert fails because primary keys cannot be NULL",
+      "The row is stored with ID = 0",
+      "The AUTO_INCREMENT counter is reset to 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Passing `NULL` (or 0) into an AUTO_INCREMENT column signals MySQL to generate the next sequential identifier automatically.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q91",
+    "topic": "DML Insert Operations",
+    "question": "What is the difference between `INSERT INTO` and `REPLACE INTO` in MySQL?",
+    "options": [
+      "`REPLACE INTO` deletes the existing conflicting row (by primary/unique key) and inserts a brand new row; `INSERT INTO` attempts standard insertion",
+      "`REPLACE INTO` only modifies non-key columns in-place",
+      "`REPLACE INTO` is deprecated and replaced by TRUNCATE",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "`REPLACE INTO` deletes the old duplicate row completely before inserting the new row, causing auto-increment and foreign key cascade side-effects.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q92",
+    "topic": "DML Insert Operations",
+    "question": "Why is batch inserting 1,000 rows in a single `INSERT INTO ... VALUES (), (), ...` statement significantly faster than 1,000 individual `INSERT` statements?",
+    "options": [
+      "It reduces network round-trip latency, parser overhead, and groups transaction log (redo log) flushes into a single atomic operation",
+      "MySQL disables indexes during batch inserts",
+      "Batch inserts bypass the InnoDB buffer pool",
+      "Single inserts always convert to text format"
+    ],
+    "answerIndex": 0,
+    "explanation": "Multi-row batch inserts minimize TCP socket handshakes, query parsing, and disk I/O fsync calls by committing in bulk.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q93",
+    "topic": "DML Insert Operations",
+    "question": "What happens when inserting into a table where a column has no DEFAULT value and is defined as `NOT NULL`, but is omitted from the INSERT list in STRICT mode?",
+    "options": [
+      "MySQL throws Error 1364: Field doesn't have a default value",
+      "MySQL inserts an empty string or 0 silently",
+      "MySQL inserts NULL",
+      "The query waits indefinitely"
+    ],
+    "answerIndex": 0,
+    "explanation": "Under strict SQL mode, omitting a required NOT NULL column without a default value throws a fatal runtime error.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q94",
+    "topic": "DML Insert Operations",
+    "question": "Can you insert explicit values into an `AUTO_INCREMENT` column (e.g. `INSERT INTO t (id, name) VALUES (500, 'Test');`)?",
+    "options": [
+      "Yes, MySQL will accept the explicit ID (500) and advance the AUTO_INCREMENT counter to 501 for future inserts if 500 > current counter",
+      "No, AUTO_INCREMENT columns strictly prohibit manual values",
+      "Yes, but the counter is not updated",
+      "Only if the table is locked"
+    ],
+    "answerIndex": 0,
+    "explanation": "Explicit ID insertion is allowed; if the inserted ID is greater than the internal counter, MySQL updates the counter to inserted ID + 1.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q95",
+    "topic": "DML Insert Operations",
+    "question": "How does MySQL handle character escaping in string literals during `INSERT` statements (e.g. inserting \"O'Reilly\")?",
+    "options": [
+      "By escaping the single quote with a backslash (`'O\\'Reilly'`) or doubling the single quote (`'O''Reilly'`)",
+      "By enclosing the entire string in curly braces",
+      "By converting single quotes to HTML entities",
+      "Single quotes cannot be stored in MySQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL string literals, single quotes are escaped either by doubling (`'O''Reilly'`) or by using a backslash escape (`'O\\'Reilly'`).",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q96",
+    "topic": "Basic DQL",
+    "question": "What is the purpose of the `SELECT` statement in SQL?",
+    "options": [
+      "To query and retrieve data rows and columns from one or more database tables or views",
+      "To modify existing data rows in a table",
+      "To create new database schemas",
+      "To grant user privileges"
+    ],
+    "answerIndex": 0,
+    "explanation": "`SELECT` is the foundational Data Query Language (DQL) command used to project and retrieve tabular data.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q97",
+    "topic": "Basic DQL",
+    "question": "Why is `SELECT *` considered an anti-pattern in production backend code and API queries?",
+    "options": [
+      "It wastes network bandwidth, invalidates covering index optimizations, and causes application bugs when table columns change",
+      "`SELECT *` is deprecated in SQL standards",
+      "`SELECT *` converts numbers into strings automatically",
+      "`SELECT *` locks the entire table against read access"
+    ],
+    "answerIndex": 0,
+    "explanation": "Explicitly naming required columns reduces payload size, leverages covering indexes, and decouples backend entity contracts from schema additions.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q98",
+    "topic": "Basic DQL",
+    "question": "What is the purpose of the `AS` keyword in a `SELECT` statement?",
+    "options": [
+      "To assign a temporary display alias to a projected column or table name in the query result",
+      "To permanently rename the column in the physical table",
+      "To cast the data type of the column",
+      "To sort the column in ascending order"
+    ],
+    "answerIndex": 0,
+    "explanation": "`AS alias_name` provides clean, customized column or table aliases for query output without altering physical schema names.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q99",
+    "topic": "Basic DQL",
+    "question": "What is the effect of the `DISTINCT` keyword in `SELECT DISTINCT city FROM customers;`?",
+    "options": [
+      "It eliminates duplicate city values from the query result, returning only unique occurrences",
+      "It sorts the city names in descending order",
+      "It counts the number of distinct cities",
+      "It filters out null values automatically"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DISTINCT` removes duplicate rows from the final result set, ensuring each value combination is returned exactly once.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q100",
+    "topic": "Basic DQL",
+    "question": "What happens if you execute `SELECT DISTINCT department, city FROM employees;`?",
+    "options": [
+      "It returns unique combinations of `department` and `city` together",
+      "It only deduplicates the department column",
+      "It returns two separate uncorrelated tables",
+      "It throws a syntax error because DISTINCT only accepts one column"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DISTINCT` applies across all projected columns combined, evaluating uniqueness on the tuple `(department, city)`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q101",
+    "topic": "Basic DQL",
+    "question": "How can you perform mathematical calculations directly inside a `SELECT` query (e.g. price with 18% GST)?",
+    "options": [
+      "SELECT unit_price, unit_price * 1.18 AS price_with_gst FROM products;",
+      "SELECT unit_price WITH CALC(unit_price * 1.18) FROM products;",
+      "SELECT MATH(unit_price * 1.18) FROM products;",
+      "COMPUTE unit_price * 1.18 FROM products;"
+    ],
+    "answerIndex": 0,
+    "explanation": "SQL allows arithmetic expressions (+, -, *, /, %) directly in the projection list.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q102",
+    "topic": "Basic DQL",
+    "question": "Which function in MySQL concatenates multiple strings into a single column output?",
+    "options": [
+      "CONCAT(first_name, ' ', last_name)",
+      "first_name + ' ' + last_name",
+      "JOIN(first_name, ' ', last_name)",
+      "MERGE(first_name, last_name)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CONCAT(str1, str2, ...)` joins strings together. In MySQL, `+` is an arithmetic addition operator, not string concatenation.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q103",
+    "topic": "Basic DQL",
+    "question": "What does `CONCAT_WS(', ', city, state, country)` do in MySQL?",
+    "options": [
+      "Concatenates strings With Separator (', '), automatically skipping any NULL arguments",
+      "Concatenates only White Space strings",
+      "Converts strings to uppercase before concatenating",
+      "Throws an error if any parameter is NULL"
+    ],
+    "answerIndex": 0,
+    "explanation": "`CONCAT_WS(separator, str1, str2, ...)` concatenates multiple strings using the first argument as separator and gracefully ignores NULLs.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q104",
+    "topic": "Basic DQL",
+    "question": "Can you execute a `SELECT` statement without referencing a `FROM table` clause in MySQL (e.g. `SELECT 25 * 4;`)?",
+    "options": [
+      "Yes, MySQL supports standalone dual/literal expressions without requiring a FROM clause",
+      "No, standard SQL strictly requires `FROM DUAL` in all queries",
+      "Only if you use stored procedures",
+      "No, SELECT without FROM throws a syntax error"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL allows standalone scalar evaluations like `SELECT NOW();` or `SELECT 100 + 50;` without requiring a dummy table.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q105",
+    "topic": "Basic DQL",
+    "question": "What is `DUAL` in MySQL (e.g., `SELECT 'Hello' FROM DUAL;`)?",
+    "options": [
+      "A dummy one-row compatibility table used when standard SQL syntax requires a FROM clause",
+      "A table that duplicates data across two servers",
+      "A dual-core query accelerator",
+      "A table for dual-currency accounting"
+    ],
+    "answerIndex": 0,
+    "explanation": "`DUAL` is a purely virtual dummy table provided for SQL syntax compliance with systems like Oracle.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q106",
+    "topic": "Basic DQL",
+    "question": "What is the result of `SELECT NULL = NULL;` in MySQL standard three-valued logic?",
+    "options": [
+      "NULL (representing UNKNOWN)",
+      "1 (TRUE)",
+      "0 (FALSE)",
+      "Syntax Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "In ANSI SQL three-valued logic, comparing NULL with any equality operator results in NULL (UNKNOWN), never TRUE.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q107",
+    "topic": "Basic DQL",
+    "question": "How can you format a numeric price column with thousands comma separators and 2 decimal places in MySQL?",
+    "options": [
+      "FORMAT(amount, 2) (e.g., FORMAT(125000.5, 2) -> '125,000.50')",
+      "TO_CURRENCY(amount, 2)",
+      "NUMBER_FORMAT(amount, 2)",
+      "PRINT_DECIMAL(amount, 2)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`FORMAT(number, decimals)` formats numbers into locale strings with comma thousands separators.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q108",
+    "topic": "Basic DQL",
+    "question": "What is the result of `SELECT '100' + 50;` in MySQL?",
+    "options": [
+      "150 (MySQL implicitly casts numeric strings to numbers for arithmetic operators)",
+      "'10050' (string concatenation)",
+      "Error: Type mismatch",
+      "NULL"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL uses `+` strictly for arithmetic; it evaluates string `'100'` as number 100 and adds 50 to return 150.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q109",
+    "topic": "Basic DQL",
+    "question": "How do you enclose column aliases that contain spaces or special characters (e.g. `Total Price (INR)`)?",
+    "options": [
+      "In single quotes, double quotes, or backticks: `SELECT price AS 'Total Price (INR)'`",
+      "In parentheses only",
+      "With underscores only",
+      "Spaces are prohibited in column aliases"
+    ],
+    "answerIndex": 0,
+    "explanation": "Column aliases containing spaces or punctuation must be enclosed in quotes (`'...'`, `\"...\"`, or `` `...` ``).",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q110",
+    "topic": "Basic DQL",
+    "question": "What is the output of `SELECT COALESCE(NULL, NULL, 'Kolkata', 'Delhi');` in MySQL?",
+    "options": [
+      "'Kolkata' (the first non-null argument)",
+      "'Delhi'",
+      "NULL",
+      "'Kolkata, Delhi'"
+    ],
+    "answerIndex": 0,
+    "explanation": "`COALESCE(val1, val2, ...)` scans left-to-right and returns the first non-null expression in its argument list.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q111",
+    "topic": "WHERE Filtering",
+    "question": "What is the purpose of the `WHERE` clause in a SQL query?",
+    "options": [
+      "To filter rows retrieved from the table based on specified boolean search conditions",
+      "To specify which columns to display",
+      "To sort the output rows",
+      "To group rows for aggregation"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `WHERE` clause acts as a row filter, retaining only rows where the search condition evaluates to TRUE.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q112",
+    "topic": "WHERE Filtering",
+    "question": "Where must the `WHERE` clause be positioned in a standard SQL `SELECT` query?",
+    "options": [
+      "Immediately after the `FROM` clause and before `GROUP BY`, `ORDER BY`, or `LIMIT`",
+      "At the very beginning before SELECT",
+      "After ORDER BY",
+      "After LIMIT"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL syntax order: `SELECT ... FROM table WHERE ... GROUP BY ... HAVING ... ORDER BY ... LIMIT ...`.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q113",
+    "topic": "WHERE Filtering",
+    "question": "What happens to rows where the `WHERE` clause predicate evaluates to `UNKNOWN` (due to NULL)?",
+    "options": [
+      "The rows are excluded from the result set (only rows evaluating to TRUE are returned)",
+      "The rows are included at the bottom of the result set",
+      "The query aborts with an error",
+      "The rows are returned with NULL values in all columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL filtering, rows are included in the result set IF AND ONLY IF the WHERE condition evaluates strictly to TRUE.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q114",
+    "topic": "WHERE Filtering",
+    "question": "Which query retrieves employees whose basic salary is strictly greater than ₹50,000?",
+    "options": [
+      "SELECT * FROM employees WHERE basic_salary > 50000;",
+      "SELECT * FROM employees WHERE basic_salary >= 50000;",
+      "SELECT * FROM employees HAVING basic_salary > 50000;",
+      "SELECT * FROM employees WHERE basic_salary GREATER 50000;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`>` is the strict greater-than comparison operator in SQL.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q115",
+    "topic": "WHERE Filtering",
+    "question": "Which query filters customers located in the city 'Barrackpore'?",
+    "options": [
+      "SELECT * FROM customers WHERE city = 'Barrackpore';",
+      "SELECT * FROM customers WHERE city == 'Barrackpore';",
+      "SELECT * FROM customers WHERE city IS 'Barrackpore';",
+      "SELECT * FROM customers WHERE city IN 'Barrackpore';"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL, single `=` is the standard equality comparison operator.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q116",
+    "topic": "WHERE Filtering",
+    "question": "How are string comparisons handled by default in MySQL `WHERE` clauses with standard `_ci` collations (e.g. `utf8mb4_0900_ai_ci`)?",
+    "options": [
+      "Comparisons are case-insensitive ('kolkata' matches 'Kolkata' and 'KOLKATA')",
+      "Comparisons are strictly case-sensitive",
+      "Strings are converted to MD5 hashes before comparison",
+      "Comparisons only match if character cases are identical"
+    ],
+    "answerIndex": 0,
+    "explanation": "Collations ending with `_ci` (Case Insensitive) treat uppercase and lowercase variations of characters as equal.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q117",
+    "topic": "WHERE Filtering",
+    "question": "How can you force a strictly case-sensitive string comparison in a MySQL WHERE clause?",
+    "options": [
+      "By using the BINARY operator: `WHERE BINARY city = 'Kolkata'` (or using a `_bin` / `_as_cs` collation)",
+      "By using the CASE_SENSITIVE keyword",
+      "By using the `==` operator",
+      "Case-sensitive filtering is impossible in MySQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "`BINARY` forces byte-by-byte comparison, making string evaluations strictly case-sensitive.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q118",
+    "topic": "WHERE Filtering",
+    "question": "Can you reference a column alias defined in the `SELECT` clause directly inside the `WHERE` clause in MySQL (e.g. `SELECT salary * 12 AS annual_sal FROM emp WHERE annual_sal > 500000;`)?",
+    "options": [
+      "No, because the WHERE clause is evaluated conceptually before the SELECT column projection list",
+      "Yes, column aliases are universally available everywhere in SQL",
+      "Yes, but only for integer columns",
+      "Only if you use the AS keyword"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL logical query processing, FROM and WHERE execute before SELECT; aliases defined in SELECT do not exist yet during WHERE filtering.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q119",
+    "topic": "WHERE Filtering",
+    "question": "What is the correct way to filter by a calculated expression in the WHERE clause?",
+    "options": [
+      "Repeat the calculation expression: `WHERE salary * 12 > 500000`",
+      "Use HAVING salary * 12 > 500000 on non-grouped queries",
+      "Create a trigger to calculate the value",
+      "Calculations are prohibited in WHERE clauses"
+    ],
+    "answerIndex": 0,
+    "explanation": "Expressions must be written directly in the WHERE clause (`WHERE salary * 12 > 500000`) or wrapped inside a subquery/CTE.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q120",
+    "topic": "WHERE Filtering",
+    "question": "Which query selects active products with inventory stock between 10 and 50 units?",
+    "options": [
+      "SELECT * FROM products WHERE status = 'ACTIVE' AND stock_qty BETWEEN 10 AND 50;",
+      "SELECT * FROM products WHERE status = 'ACTIVE' OR stock_qty BETWEEN 10 AND 50;",
+      "SELECT * FROM products WHERE stock_qty IN (10, 50);",
+      "SELECT * FROM products WHERE (status = 'ACTIVE') AND stock_qty = 10 TO 50;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`AND` combines conditions conjunctively; `BETWEEN 10 AND 50` checks the inclusive numerical range.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q121",
+    "topic": "WHERE Filtering",
+    "question": "What does `WHERE 1 = 1` mean in SQL query construction?",
+    "options": [
+      "It is an identity condition that always evaluates to TRUE, commonly used in dynamic SQL builders to simplify appending additional `AND condition` clauses",
+      "It limits the query to exactly 1 row",
+      "It selects the first column of the table",
+      "It forces an index scan on column 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "`WHERE 1=1` is a developer idiom in dynamic query builders that allows appending subsequent `AND ...` conditions cleanly without checking if WHERE exists.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q122",
+    "topic": "WHERE Filtering",
+    "question": "What does `WHERE 1 = 0` (or `WHERE FALSE`) accomplish in a SQL statement?",
+    "options": [
+      "It causes the query to return 0 data rows immediately while returning empty column metadata (useful for schema inspection)",
+      "It deletes all rows from the table",
+      "It creates a new database",
+      "It drops table indexes"
+    ],
+    "answerIndex": 0,
+    "explanation": "`WHERE 1=0` never evaluates to TRUE, allowing client tools to inspect column metadata without transferring data rows.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q123",
+    "topic": "WHERE Filtering",
+    "question": "Which query retrieves all accounts that are NOT in 'SUSPENDED' status?",
+    "options": [
+      "SELECT * FROM accounts WHERE status != 'SUSPENDED'; (or `WHERE status <> 'SUSPENDED'`)",
+      "SELECT * FROM accounts WHERE status NOT 'SUSPENDED';",
+      "SELECT * FROM accounts WHERE NOT status = 'SUSPENDED';",
+      "Both A and C are valid SQL"
+    ],
+    "answerIndex": 3,
+    "explanation": "Both `status != 'SUSPENDED'` and `NOT (status = 'SUSPENDED')` are valid SQL expressions.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q124",
+    "topic": "WHERE Filtering",
+    "question": "What is a SARGable (Search Argument Able) query in relational database optimization?",
+    "options": [
+      "A condition written so that the query optimizer can utilize B-Tree indexes directly (e.g. `WHERE hire_date >= '2026-01-01'` instead of `WHERE YEAR(hire_date) = 2026`)",
+      "A query containing at least 3 subqueries",
+      "A query with no WHERE clause",
+      "A query executing on MyISAM tables only"
+    ],
+    "answerIndex": 0,
+    "explanation": "Wrapping indexed columns inside functions (e.g. `YEAR(date_col)`) breaks SARGability and forces a full table scan. Writing raw bounds preserves index seeks.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q125",
+    "topic": "WHERE Filtering",
+    "question": "Which of the following queries is SARGable and leverages an index on `created_at`?",
+    "options": [
+      "`SELECT * FROM orders WHERE created_at >= '2026-01-01 00:00:00' AND created_at < '2027-01-01 00:00:00';`",
+      "`SELECT * FROM orders WHERE YEAR(created_at) = 2026;`",
+      "`SELECT * FROM orders WHERE DATE_FORMAT(created_at, '%Y') = '2026';`",
+      "`SELECT * FROM orders WHERE SUBSTRING(created_at, 1, 4) = '2026';`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Direct range comparisons on column bounds allow B-Tree index range scans without computing function results per row.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q126",
+    "topic": "Comparison Operators",
+    "question": "What are the two standard SQL operators for testing inequality (Not Equal To)?",
+    "options": [
+      "`!=` and `<>`",
+      "`!==` and `<>`",
+      "`~=` and `!=`",
+      "`#` and `!=`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both `!=` and `<>` represent the not-equal-to comparison operator in ANSI SQL and MySQL.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q127",
+    "topic": "Comparison Operators",
+    "question": "What is the Null-Safe Equal operator in MySQL, and how is it written?",
+    "options": [
+      "`<=>` (e.g. `NULL <=> NULL` evaluates to 1 / TRUE)",
+      "`===`",
+      "`==`",
+      "`SAFE =`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`<=>` is MySQL's null-safe equality operator. It returns TRUE (1) if both operands are NULL and FALSE (0) if only one is NULL.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q128",
+    "topic": "Comparison Operators",
+    "question": "What is the result of `SELECT 5 <=> 5, NULL <=> NULL, 5 <=> NULL;` in MySQL?",
+    "options": [
+      "1, 1, 0",
+      "1, 0, 0",
+      "1, NULL, NULL",
+      "TRUE, UNKNOWN, UNKNOWN"
+    ],
+    "answerIndex": 0,
+    "explanation": "`<=>` returns 1 when both values match (even if both are NULL) and 0 when one is NULL and the other is non-null.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q129",
+    "topic": "Comparison Operators",
+    "question": "Which comparison operator tests if a value is greater than or equal to another value?",
+    "options": [
+      "`>=`",
+      "`=>`",
+      "`>`",
+      "`=>=`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`>=` is the greater-than-or-equal-to comparison operator in SQL.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q130",
+    "topic": "Comparison Operators",
+    "question": "What is the evaluation of `'apple' < 'banana'` in MySQL standard string comparison?",
+    "options": [
+      "1 (TRUE, because 'apple' precedes 'banana' lexicographically in alphabetical collation order)",
+      "0 (FALSE)",
+      "NULL",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "String comparisons follow alphabetical collation ordering where 'apple' is smaller than 'banana'.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q131",
+    "topic": "Comparison Operators",
+    "question": "What is the result of evaluating `10 <> 10` in SQL?",
+    "options": [
+      "0 (FALSE)",
+      "1 (TRUE)",
+      "NULL",
+      "10"
+    ],
+    "answerIndex": 0,
+    "explanation": "`10 <> 10` evaluates to FALSE (0) because 10 is equal to 10.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q132",
+    "topic": "Comparison Operators",
+    "question": "What is the result of evaluating `10 <> NULL` in standard SQL?",
+    "options": [
+      "NULL (UNKNOWN)",
+      "1 (TRUE)",
+      "0 (FALSE)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Any standard comparison with NULL yields UNKNOWN/NULL.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q133",
+    "topic": "Comparison Operators",
+    "question": "Which operator tests if a value is strictly less than another value?",
+    "options": [
+      "`<`",
+      "`<=`",
+      "`<<`",
+      "`<|`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`<` is the strictly less-than comparison operator.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q134",
+    "topic": "Comparison Operators",
+    "question": "How does MySQL evaluate date comparisons like `'2026-09-01' > '2026-08-31'`?",
+    "options": [
+      "It compares chronological ISO dates correctly, evaluating to 1 (TRUE)",
+      "It converts dates to strings and compares character counts",
+      "It throws a type error unless CAST() is used",
+      "It evaluates to FALSE"
+    ],
+    "answerIndex": 0,
+    "explanation": "ISO format dates (`YYYY-MM-DD`) maintain chronological equivalence in string and date comparison semantics.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q135",
+    "topic": "Comparison Operators",
+    "question": "What is the result of `SELECT 0 = '0';` in MySQL?",
+    "options": [
+      "1 (TRUE, MySQL converts string '0' to numeric 0)",
+      "0 (FALSE)",
+      "NULL",
+      "Type Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "In comparisons between numbers and strings, MySQL implicitly coerces strings to numbers.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q136",
+    "topic": "Comparison Operators",
+    "question": "What is the result of `SELECT 0 = 'abc';` in MySQL (prior to 8.0.16 vs modern MySQL)?",
+    "options": [
+      "In legacy MySQL it evaluates to 1 (TRUE) because 'abc' coerces to 0; in MySQL 8.0.16+ it converts number to string or compares with strict type warnings",
+      "Always throws a syntax error",
+      "Always returns NULL",
+      "Returns FALSE without warning"
+    ],
+    "answerIndex": 0,
+    "explanation": "In legacy MySQL, non-numeric strings cast to 0 during numeric comparison. In modern MySQL 8.0+, type consistency is heavily enforced with warnings.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q137",
+    "topic": "Comparison Operators",
+    "question": "Which expression checks that an employee's age is at least 18 and at most 60 using comparison operators?",
+    "options": [
+      "`age >= 18 AND age <= 60`",
+      "`18 <= age <= 60` (Chained comparison)",
+      "`age >= 18 OR age <= 60`",
+      "`age IS 18 TO 60`"
+    ],
+    "answerIndex": 0,
+    "explanation": "SQL does not support chained syntax like `18 <= age <= 60`. Individual conditions must be combined with `AND`.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q138",
+    "topic": "Comparison Operators",
+    "question": "What happens if you write `18 <= age <= 60` in MySQL?",
+    "options": [
+      "It executes `(18 <= age) <= 60`. Since `(18 <= age)` returns 1 or 0, `1 <= 60` is ALWAYS TRUE, leading to subtle logic bugs!",
+      "It produces a syntax error immediately",
+      "It correctly checks the range 18 to 60",
+      "It converts age to NULL"
+    ],
+    "answerIndex": 0,
+    "explanation": "Chained comparisons evaluate left-to-right as boolean values (0 or 1), making `(0 or 1) <= 60` evaluate to TRUE for every single row!",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q139",
+    "topic": "Comparison Operators",
+    "question": "Which operator tests whether a value is strictly between two limits exclusive of endpoints?",
+    "options": [
+      "`val > low AND val < high`",
+      "`val BETWEEN low AND high`",
+      "`val IN (low, high)`",
+      "`val RANGE (low, high)`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`BETWEEN` is inclusive of endpoints. Exclusive bounds require `val > low AND val < high`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q140",
+    "topic": "Comparison Operators",
+    "question": "How does MySQL evaluate `NULL != NULL`?",
+    "options": [
+      "NULL",
+      "0 (FALSE)",
+      "1 (TRUE)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Comparing two unknown states yields UNKNOWN (NULL).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q141",
+    "topic": "Logical Operators",
+    "question": "What are the three core logical operators supported in SQL WHERE clauses?",
+    "options": [
+      "AND, OR, NOT",
+      "&&, ||, !",
+      "NAND, NOR, XOR",
+      "IF, THEN, ELSE"
+    ],
+    "answerIndex": 0,
+    "explanation": "`AND`, `OR`, and `NOT` are the ANSI standard SQL boolean operators.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q142",
+    "topic": "Logical Operators",
+    "question": "What is the operator precedence between `AND` and `OR` in SQL?",
+    "options": [
+      "`AND` has higher precedence than `OR`",
+      "`OR` has higher precedence than `AND`",
+      "Both have identical precedence and evaluate strictly left-to-right",
+      "Precedence depends on table column order"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL operator precedence, `AND` binds tighter than `OR` (similar to multiplication over addition).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q143",
+    "topic": "Logical Operators",
+    "question": "In the condition `WHERE dept = 'IT' OR dept = 'HR' AND salary > 50000`, how does SQL evaluate the logic?",
+    "options": [
+      "`dept = 'IT' OR (dept = 'HR' AND salary > 50000)`",
+      "`(dept = 'IT' OR dept = 'HR') AND salary > 50000`",
+      "`dept = 'IT' AND salary > 50000`",
+      "`dept IN ('IT', 'HR') AND salary > 50000`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because `AND` has higher precedence, `dept = 'HR' AND salary > 50000` evaluates first, matching ALL IT employees regardless of their salary!",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q144",
+    "topic": "Logical Operators",
+    "question": "How do you ensure that an employee belongs to either 'IT' or 'HR' AND has a salary > 50,000?",
+    "options": [
+      "`WHERE (dept = 'IT' OR dept = 'HR') AND salary > 50000`",
+      "`WHERE dept = 'IT' OR dept = 'HR' AND salary > 50000`",
+      "`WHERE dept = 'IT' AND dept = 'HR' OR salary > 50000`",
+      "`WHERE dept IN ('IT' AND 'HR') AND salary > 50000`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Parentheses explicitly override operator precedence to enforce the desired disjunctive grouping.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q145",
+    "topic": "Logical Operators",
+    "question": "What is the result of `TRUE AND NULL` in SQL three-valued logic?",
+    "options": [
+      "NULL (UNKNOWN)",
+      "TRUE",
+      "FALSE",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "In three-valued logic: `TRUE AND UNKNOWN = UNKNOWN`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q146",
+    "topic": "Logical Operators",
+    "question": "What is the result of `FALSE AND NULL` in SQL three-valued logic?",
+    "options": [
+      "FALSE (0, because one operand is definitely FALSE)",
+      "NULL",
+      "TRUE",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "`FALSE AND ANY_VALUE` is definitively FALSE, because the conjunction cannot be satisfied.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q147",
+    "topic": "Logical Operators",
+    "question": "What is the result of `TRUE OR NULL` in SQL three-valued logic?",
+    "options": [
+      "TRUE (1, because one operand is definitely TRUE)",
+      "NULL",
+      "FALSE",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "`TRUE OR ANY_VALUE` is definitively TRUE, because one true disjunct satisfies the condition.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q148",
+    "topic": "Logical Operators",
+    "question": "What is the result of `FALSE OR NULL` in SQL three-valued logic?",
+    "options": [
+      "NULL (UNKNOWN)",
+      "FALSE",
+      "TRUE",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "`FALSE OR UNKNOWN = UNKNOWN` (NULL).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q149",
+    "topic": "Logical Operators",
+    "question": "What is the result of `NOT NULL` in SQL three-valued logic?",
+    "options": [
+      "NULL (UNKNOWN)",
+      "TRUE",
+      "FALSE",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Negating an unknown value yields an unknown value: `NOT UNKNOWN = UNKNOWN` (NULL).",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q150",
+    "topic": "Logical Operators",
+    "question": "What does the `XOR` (Exclusive OR) logical operator do in MySQL?",
+    "options": [
+      "Returns TRUE if exactly ONE of the operands is TRUE, and FALSE if both are TRUE or both are FALSE",
+      "Returns TRUE if both operands are TRUE",
+      "Returns TRUE if neither operand is TRUE",
+      "XOR is not supported in MySQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "`XOR` returns TRUE if and only if one operand is true and the other is false.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q151",
+    "topic": "Logical Operators",
+    "question": "Which expression correctly filters records where `is_verified` is FALSE or 0?",
+    "options": [
+      "`WHERE is_verified = 0` (or `WHERE NOT is_verified` or `WHERE is_verified IS FALSE`)",
+      "`WHERE is_verified = NULL`",
+      "`WHERE is_verified == FALSE`",
+      "`WHERE is_verified NOT`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`WHERE is_verified = 0` or `WHERE NOT is_verified` checks for false boolean flags.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q152",
+    "topic": "Logical Operators",
+    "question": "What does `WHERE NOT (status = 'CANCELLED' OR status = 'REFUNDED')` simplify to using De Morgan's Laws?",
+    "options": [
+      "`WHERE status != 'CANCELLED' AND status != 'REFUNDED'` (or `WHERE status NOT IN ('CANCELLED', 'REFUNDED')`)",
+      "`WHERE status != 'CANCELLED' OR status != 'REFUNDED'`",
+      "`WHERE status = 'CANCELLED' AND status = 'REFUNDED'`",
+      "`WHERE status = 'ACTIVE'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "By De Morgan's Law: `NOT (A OR B) === (NOT A) AND (NOT B)`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q153",
+    "topic": "Logical Operators",
+    "question": "What is the evaluation of `WHERE (category = 'A' OR category = 'B') AND (price < 100 OR price > 500)`?",
+    "options": [
+      "Matches items in Category A or B whose price is outside the 100 to 500 range",
+      "Matches all items in Category A regardless of price",
+      "Matches items in Category B only",
+      "Matches items priced exactly at 100 or 500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both grouped conditions must evaluate to TRUE independently.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q154",
+    "topic": "Logical Operators",
+    "question": "What happens if you combine `NOT` with `IN` (e.g. `WHERE role NOT IN ('ADMIN', 'ROOT')`) when the column contains NULL values?",
+    "options": [
+      "Rows with NULL values in `role` are excluded because `NULL NOT IN (...)` evaluates to UNKNOWN",
+      "Rows with NULL values are included automatically",
+      "The query returns an error",
+      "The query converts NULLs to 'GUEST'"
+    ],
+    "answerIndex": 0,
+    "explanation": "NULL is excluded by `NOT IN` because comparison with NULL yields UNKNOWN.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q155",
+    "topic": "Logical Operators",
+    "question": "Which logical condition checks that a candidate is eligible if they have a degree AND at least 2 years experience, OR have 5+ years experience without a degree?",
+    "options": [
+      "`WHERE (has_degree = 1 AND experience >= 2) OR (experience >= 5)`",
+      "`WHERE has_degree = 1 AND experience >= 2 OR experience >= 5`",
+      "`WHERE (has_degree = 1 OR experience >= 5) AND experience >= 2`",
+      "`WHERE has_degree = 1 XOR experience >= 2`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Parenthesized compound conjunctions model composite eligibility paths clearly.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q156",
+    "topic": "Range & List Membership",
+    "question": "Is the SQL `BETWEEN ... AND ...` operator inclusive or exclusive of its boundary values?",
+    "options": [
+      "It is strictly INCLUSIVE of both the lower and upper boundary values (`val >= low AND val <= high`)",
+      "It is exclusive of both boundary values",
+      "It includes the lower bound but excludes the upper bound",
+      "It includes the upper bound but excludes the lower bound"
+    ],
+    "answerIndex": 0,
+    "explanation": "`val BETWEEN low AND high` is identical to `val >= low AND val <= high`, including both endpoints.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q157",
+    "topic": "Range & List Membership",
+    "question": "What is the result of `WHERE salary BETWEEN 50000 AND 30000` (where lower bound > upper bound)?",
+    "options": [
+      "It returns 0 rows because `salary >= 50000 AND salary <= 30000` is impossible",
+      "MySQL automatically reverses the operands to 30000 AND 50000",
+      "It throws Error 1064",
+      "It returns all rows"
+    ],
+    "answerIndex": 0,
+    "explanation": "`BETWEEN` requires the lower bound first (`BETWEEN min AND max`). Inverted bounds evaluate to FALSE for all rows.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q158",
+    "topic": "Range & List Membership",
+    "question": "Which query retrieves transactions that occurred within the entire month of August 2026?",
+    "options": [
+      "SELECT * FROM transactions WHERE txn_date BETWEEN '2026-08-01' AND '2026-08-31';",
+      "SELECT * FROM transactions WHERE txn_date IN ('2026-08-01', '2026-08-31');",
+      "SELECT * FROM transactions WHERE txn_date LIKE '2026-08-%%';",
+      "SELECT * FROM transactions WHERE txn_date = '2026-08-01' TO '2026-08-31';"
+    ],
+    "answerIndex": 0,
+    "explanation": "`BETWEEN '2026-08-01' AND '2026-08-31'` captures all dates within August 2026 inclusively.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q159",
+    "topic": "Range & List Membership",
+    "question": "What is the equivalent expression for `WHERE city IN ('Kolkata', 'Delhi', 'Mumbai')`?",
+    "options": [
+      "`WHERE city = 'Kolkata' OR city = 'Delhi' OR city = 'Mumbai'`",
+      "`WHERE city = 'Kolkata' AND city = 'Delhi' AND city = 'Mumbai'`",
+      "`WHERE city LIKE 'Kolkata%'`",
+      "`WHERE city BETWEEN 'Kolkata' AND 'Mumbai'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "The `IN` list membership operator is shorthand for multiple `OR` equality comparisons on the same column.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q160",
+    "topic": "Range & List Membership",
+    "question": "Which query retrieves all employees NOT working in 'Sales', 'Marketing', or 'HR'?",
+    "options": [
+      "SELECT * FROM employees WHERE department NOT IN ('Sales', 'Marketing', 'HR');",
+      "SELECT * FROM employees WHERE department != IN ('Sales', 'Marketing', 'HR');",
+      "SELECT * FROM employees WHERE department OUT ('Sales', 'Marketing', 'HR');",
+      "SELECT * FROM employees WHERE department EXCLUDE ('Sales', 'Marketing', 'HR');"
+    ],
+    "answerIndex": 0,
+    "explanation": "`NOT IN (...)` filters out all rows matching any member in the specified list.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q161",
+    "topic": "Range & List Membership",
+    "question": "What critical issue occurs if a `NOT IN (val1, val2, ...)` list contains a `NULL` literal or a subquery returning NULL?",
+    "options": [
+      "The entire `NOT IN` condition evaluates to UNKNOWN for all rows, returning ZERO results!",
+      "MySQL ignores the NULL value automatically",
+      "The query returns all table rows",
+      "MySQL throws Error 1048"
+    ],
+    "answerIndex": 0,
+    "explanation": "`col NOT IN (1, 2, NULL)` expands to `col != 1 AND col != 2 AND col != NULL`. Since `col != NULL` is UNKNOWN, `TRUE AND UNKNOWN = UNKNOWN`, returning 0 rows!",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q162",
+    "topic": "Range & List Membership",
+    "question": "How can you filter records where `grade` is between 'A' and 'C' in alphabetical ordering?",
+    "options": [
+      "SELECT * FROM students WHERE grade BETWEEN 'A' AND 'C';",
+      "SELECT * FROM students WHERE grade IN ('A', 'B', 'C');",
+      "Both A and B achieve the same result for single-letter grades",
+      "Neither A nor B is valid"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both `BETWEEN 'A' AND 'C'` and `IN ('A', 'B', 'C')` match letter grades A, B, and C.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q163",
+    "topic": "Range & List Membership",
+    "question": "What is the effect of `WHERE score NOT BETWEEN 40 AND 100`?",
+    "options": [
+      "Matches scores strictly below 40 or strictly above 100 (`score < 40 OR score > 100`)",
+      "Matches scores between 0 and 40",
+      "Matches scores equal to 40 or 100",
+      "Syntax error; NOT cannot precede BETWEEN"
+    ],
+    "answerIndex": 0,
+    "explanation": "`NOT BETWEEN min AND max` is equivalent to `val < min OR val > max`.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q164",
+    "topic": "Range & List Membership",
+    "question": "Can `IN` accept subqueries returning a single column in SQL?",
+    "options": [
+      "Yes, e.g. `SELECT * FROM orders WHERE customer_id IN (SELECT id FROM customers WHERE country = 'India');`",
+      "No, IN only accepts hardcoded literal constants",
+      "Only if the subquery returns exactly 1 row",
+      "Only in MySQL Enterprise edition"
+    ],
+    "answerIndex": 0,
+    "explanation": "`IN (SELECT col FROM ...)` is valid SQL supported by all relational engines.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q165",
+    "topic": "Range & List Membership",
+    "question": "How does MySQL optimize an `IN (val1, val2, ... val1000)` list with many constant values?",
+    "options": [
+      "It sorts the constant array in memory and uses binary search (`O(log N)`), making large IN lists highly efficient",
+      "It converts the IN list into 1000 nested subqueries",
+      "It performs a full table scan",
+      "It ignores values beyond the 10th entry"
+    ],
+    "answerIndex": 0,
+    "explanation": "MySQL sorts the IN list and applies binary search, making `IN (constants)` much faster than many chained ORs.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q166",
+    "topic": "Range & List Membership",
+    "question": "Which query selects orders placed between 9:00 AM and 5:00 PM using TIME data types?",
+    "options": [
+      "SELECT * FROM orders WHERE order_time BETWEEN '09:00:00' AND '17:00:00';",
+      "SELECT * FROM orders WHERE order_time IN ('09:00:00', '17:00:00');",
+      "SELECT * FROM orders WHERE order_time = 09:00 TO 17:00;",
+      "SELECT * FROM orders WHERE order_time DURING ('09:00', '17:00');"
+    ],
+    "answerIndex": 0,
+    "explanation": "`BETWEEN '09:00:00' AND '17:00:00'` filters elapsed or clock times within the 9 AM to 5 PM range.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q167",
+    "topic": "Range & List Membership",
+    "question": "What is the result of `SELECT 50 IN (10, 20, 30, 40, 50);` in MySQL?",
+    "options": [
+      "1 (TRUE)",
+      "0 (FALSE)",
+      "50",
+      "NULL"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since 50 is present in the list, the IN expression evaluates to 1 (TRUE).",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q168",
+    "topic": "Range & List Membership",
+    "question": "What is the result of `SELECT 99 IN (10, 20, NULL);` in MySQL?",
+    "options": [
+      "NULL (UNKNOWN, because 99 is not 10, not 20, but comparison with NULL is unknown)",
+      "0 (FALSE)",
+      "1 (TRUE)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because 99 != 10 (TRUE), 99 != 20 (TRUE), but 99 = NULL (UNKNOWN), the disjunction `FALSE OR FALSE OR UNKNOWN` yields UNKNOWN.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q169",
+    "topic": "Range & List Membership",
+    "question": "Which expression checks if a car's manufacturing year is 2022, 2024, or 2026?",
+    "options": [
+      "`WHERE model_year IN (2022, 2024, 2026)`",
+      "`WHERE model_year BETWEEN 2022 AND 2026`",
+      "`WHERE model_year = 2022 OR 2024 OR 2026`",
+      "`WHERE model_year LIKE '2022,2024,2026'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`IN (2022, 2024, 2026)` matches discrete discrete integer years.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q170",
+    "topic": "Range & List Membership",
+    "question": "Why is `WHERE model_year = 2022 OR 2024 OR 2026` a critical beginner logic mistake?",
+    "options": [
+      "In MySQL, `2024` evaluates as a standalone truthy boolean (`TRUE`), making the entire WHERE clause match every row in the table!",
+      "It causes a syntax error",
+      "It only checks for 2022",
+      "It converts the year to 2026"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL, each OR condition must be complete (`col = 2022 OR col = 2024`). Standalone integers evaluate to TRUE, matching all rows!",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q171",
+    "topic": "Pattern Matching",
+    "question": "What does the `%` (percent) wildcard represent in a SQL `LIKE` pattern?",
+    "options": [
+      "Zero, one, or multiple arbitrary characters",
+      "Exactly one single character",
+      "Any single numeric digit only",
+      "A mandatory space character"
+    ],
+    "answerIndex": 0,
+    "explanation": "`%` matches any sequence of zero or more characters in SQL pattern matching.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q172",
+    "topic": "Pattern Matching",
+    "question": "What does the `_` (underscore) wildcard represent in a SQL `LIKE` pattern?",
+    "options": [
+      "Exactly ONE single character",
+      "Zero or more characters",
+      "Only whitespace characters",
+      "An escape character"
+    ],
+    "answerIndex": 0,
+    "explanation": "`_` matches exactly one character in the target string.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q173",
+    "topic": "Pattern Matching",
+    "question": "Which `LIKE` pattern matches any email address ending with '@gmail.com'?",
+    "options": [
+      "`WHERE email LIKE '%@gmail.com'`",
+      "`WHERE email LIKE '@gmail.com%'`",
+      "`WHERE email LIKE '_@gmail.com'`",
+      "`WHERE email = '%@gmail.com'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`%@gmail.com` matches any preceding characters ending with '@gmail.com'.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q174",
+    "topic": "Pattern Matching",
+    "question": "Which `LIKE` pattern matches string values that start with 'Dr.'?",
+    "options": [
+      "`WHERE name LIKE 'Dr.%'`",
+      "`WHERE name LIKE '%Dr.'`",
+      "`WHERE name LIKE '%Dr.%'`",
+      "`WHERE name = 'Dr.*'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`Dr.%` matches strings beginning with 'Dr.' followed by zero or more characters.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q175",
+    "topic": "Pattern Matching",
+    "question": "Which `LIKE` pattern matches string values containing the substring 'Tech' anywhere in the text?",
+    "options": [
+      "`WHERE company_name LIKE '%Tech%'`",
+      "`WHERE company_name LIKE 'Tech%'`",
+      "`WHERE company_name LIKE '%Tech'`",
+      "`WHERE company_name LIKE '_Tech_'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`%Tech%` matches 'Tech' at the beginning, middle, or end of the text.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q176",
+    "topic": "Pattern Matching",
+    "question": "Which `LIKE` pattern matches 6-digit Indian postal PIN codes starting with '7000' (e.g. '700001', '700028')?",
+    "options": [
+      "`WHERE pincode LIKE '7000__'` (using two underscores for exactly 2 remaining digits)",
+      "`WHERE pincode LIKE '7000%'`",
+      "`WHERE pincode LIKE '7000*'`",
+      "`WHERE pincode LIKE '7000_2'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`7000__` enforces '7000' followed by exactly two characters, guaranteeing 6 total digits.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q177",
+    "topic": "Pattern Matching",
+    "question": "How can you search for a literal `%` character in a column value (e.g. searching for '100%')?",
+    "options": [
+      "`WHERE discount LIKE '%100\\%%'` (escaping `%` with a backslash or using ESCAPE clause)",
+      "`WHERE discount LIKE '%100%%%'`",
+      "`WHERE discount LIKE '%100[%]%'`",
+      "`WHERE discount = '100%'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "By default in MySQL, `\\%` escapes the wildcard to treat `%` as a literal character.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q178",
+    "topic": "Pattern Matching",
+    "question": "How can you search for a literal `_` (underscore) character in tracking numbers like 'EXP_1024'?",
+    "options": [
+      "`WHERE tracking_no LIKE '%\\_%'` (or using `ESCAPE` keyword)",
+      "`WHERE tracking_no LIKE '%_%'`",
+      "`WHERE tracking_no LIKE '%__%'`",
+      "`WHERE tracking_no = '%_%'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "`\\_` escapes the single-character wildcard so that literal underscores are matched.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q179",
+    "topic": "Pattern Matching",
+    "question": "Why can `WHERE name LIKE '%tech%'` cause poor query performance on large tables with millions of rows?",
+    "options": [
+      "A leading wildcard (`%tech`) prevents the database engine from utilizing standard B-Tree indexes, forcing a full table scan",
+      "LIKE queries lock the entire table exclusively",
+      "LIKE is only executed in single-threaded mode",
+      "Strings cannot be indexed in MySQL"
+    ],
+    "answerIndex": 0,
+    "explanation": "B-Trees index strings by prefix from left-to-right. A leading wildcard `%` disables index range seeks.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q180",
+    "topic": "Pattern Matching",
+    "question": "Which `LIKE` pattern CAN effectively utilize a B-Tree index on `last_name`?",
+    "options": [
+      "`WHERE last_name LIKE 'Mukherjee%'` (prefix match with trailing wildcard only)",
+      "`WHERE last_name LIKE '%Mukherjee'`",
+      "`WHERE last_name LIKE '%Mukherjee%'`",
+      "`WHERE last_name LIKE '_Mukherjee'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Prefix-only matches (`prefix%`) allow index range seeks bounded between 'Mukherjee' and 'Mukherjez'.",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q181",
+    "topic": "Pattern Matching",
+    "question": "What is the purpose of `NOT LIKE` in SQL?",
+    "options": [
+      "To filter rows whose column value does NOT match the specified wildcard pattern",
+      "To reverse the string before matching",
+      "To perform case-sensitive matching",
+      "To match null strings only"
+    ],
+    "answerIndex": 0,
+    "explanation": "`NOT LIKE` excludes rows matching the pattern.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q182",
+    "topic": "Pattern Matching",
+    "question": "Which query selects all customers whose first name has exactly 5 characters?",
+    "options": [
+      "SELECT * FROM customers WHERE first_name LIKE '_____'; (5 underscores)",
+      "SELECT * FROM customers WHERE first_name LIKE '%5';",
+      "SELECT * FROM customers WHERE LENGTH(first_name) == 5;",
+      "SELECT * FROM customers WHERE first_name LIKE '_____ %';"
+    ],
+    "answerIndex": 0,
+    "explanation": "Five underscores `_____` match any string of exactly five characters.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q183",
+    "topic": "Pattern Matching",
+    "question": "What is the function of the `ESCAPE` clause in a `LIKE` predicate (e.g. `LIKE '100!%' ESCAPE '!'`)?",
+    "options": [
+      "It designates '!' as the custom escape character so that `!%` is treated as a literal percent sign",
+      "It stops query execution when '!' is found",
+      "It strips '!' from the result set",
+      "It enables regular expression parsing"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ESCAPE 'char'` defines a custom escape character for wildcard literals.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q184",
+    "topic": "Pattern Matching",
+    "question": "What is the difference between `LIKE` and `REGEXP` (or `RLIKE`) in MySQL?",
+    "options": [
+      "`LIKE` supports simple `%` and `_` wildcards matching the whole string; `REGEXP` supports powerful POSIX/PCRE regular expressions matching anywhere in the string",
+      "`REGEXP` is only available in MySQL 5.0",
+      "`LIKE` is case-sensitive, while `REGEXP` is never case-sensitive",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "`REGEXP` supports full regular expressions (`^`, `$`, `[0-9]+`, `|`, etc.) for complex pattern matching.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q185",
+    "topic": "Pattern Matching",
+    "question": "Which `LIKE` query matches phone numbers with prefix '98' or '99'?",
+    "options": [
+      "`WHERE phone LIKE '98%' OR phone LIKE '99%'`",
+      "`WHERE phone LIKE '9[89]%'` (Note: `[]` is REGEXP, not standard SQL LIKE)",
+      "`WHERE phone LIKE '98% OR 99%'`",
+      "`WHERE phone = '98%' OR '99%'`"
+    ],
+    "answerIndex": 0,
+    "explanation": "Standard SQL LIKE requires two separate clauses: `phone LIKE '98%' OR phone LIKE '99%'`.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q186",
+    "topic": "NULL Handling",
+    "question": "Why is `WHERE discharge_date = NULL` an invalid query in relational databases?",
+    "options": [
+      "NULL represents an unknown or missing state; equality comparison with NULL always evaluates to UNKNOWN (NULL), never TRUE",
+      "MySQL does not permit NULL in columns",
+      "`=` can only compare numbers, not dates",
+      "NULL is a reserved table name"
+    ],
+    "answerIndex": 0,
+    "explanation": "In ANSI SQL three-valued logic, `col = NULL` evaluates to UNKNOWN. You must use `IS NULL`.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q187",
+    "topic": "NULL Handling",
+    "question": "What is the correct SQL syntax to find all records where `email` is missing or unassigned?",
+    "options": [
+      "SELECT * FROM users WHERE email IS NULL;",
+      "SELECT * FROM users WHERE email = NULL;",
+      "SELECT * FROM users WHERE email == NULL;",
+      "SELECT * FROM users WHERE email ISBLANK;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`IS NULL` is the standard SQL predicate for detecting missing or null values.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q188",
+    "topic": "NULL Handling",
+    "question": "What is the correct SQL syntax to find all records where `phone_number` contains a valid, non-null value?",
+    "options": [
+      "SELECT * FROM users WHERE phone_number IS NOT NULL;",
+      "SELECT * FROM users WHERE phone_number != NULL;",
+      "SELECT * FROM users WHERE phone_number <> NULL;",
+      "SELECT * FROM users WHERE phone_number EXISTS;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`IS NOT NULL` filters for populated, non-null records.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q189",
+    "topic": "NULL Handling",
+    "question": "What does `IFNULL(bonus, 0)` do in a MySQL `SELECT` statement?",
+    "options": [
+      "Returns the value of `bonus` if it is not NULL; if `bonus` is NULL, it returns 0",
+      "Checks if bonus equals 0 and converts it to NULL",
+      "Throws an error if bonus is NULL",
+      "Sets the bonus column to 0 permanently in the table"
+    ],
+    "answerIndex": 0,
+    "explanation": "`IFNULL(expr1, expr2)` replaces NULL in expr1 with the fallback expr2.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q190",
+    "topic": "NULL Handling",
+    "question": "What is the ANSI SQL standard equivalent of MySQL's `IFNULL(a, b)` that works across all relational database engines?",
+    "options": [
+      "COALESCE(a, b)",
+      "NVL(a, b)",
+      "ISNULL(a, b)",
+      "NULL_TO_ZERO(a, b)"
+    ],
+    "answerIndex": 0,
+    "explanation": "`COALESCE(a, b)` is the standard ANSI SQL function supported across MySQL, PostgreSQL, Oracle, and SQL Server.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q191",
+    "topic": "NULL Handling",
+    "question": "What is the result of adding a number to NULL in SQL (e.g. `SELECT 100 + NULL;`)?",
+    "options": [
+      "NULL (arithmetic operations involving NULL propagate as NULL)",
+      "100",
+      "0",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Arithmetic operations on NULL produce NULL. Use `COALESCE(col, 0) + 100` to handle nulls safely.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q192",
+    "topic": "NULL Handling",
+    "question": "How does the `COUNT(column_name)` aggregate function treat NULL values?",
+    "options": [
+      "`COUNT(column_name)` ignores NULL values and counts only non-null occurrences",
+      "`COUNT(column_name)` counts NULL values as 1",
+      "`COUNT(column_name)` throws an error if any row contains NULL",
+      "`COUNT(column_name)` stops counting at the first NULL"
+    ],
+    "answerIndex": 0,
+    "explanation": "`COUNT(column_name)` counts non-null rows only. `COUNT(*)` counts all physical rows regardless of nulls.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q193",
+    "topic": "NULL Handling",
+    "question": "What does the `NULLIF(expr1, expr2)` function return if `expr1 = expr2`?",
+    "options": [
+      "NULL",
+      "expr1",
+      "0",
+      "1"
+    ],
+    "answerIndex": 0,
+    "explanation": "`NULLIF(a, b)` returns NULL if $a = b$; otherwise it returns $a$. It is commonly used to prevent division by zero: `val / NULLIF(divisor, 0)`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q194",
+    "topic": "NULL Handling",
+    "question": "How are NULL values positioned by default in MySQL `ORDER BY column ASC` queries?",
+    "options": [
+      "NULLs appear FIRST at the top of the result set in ASC order",
+      "NULLs appear LAST at the bottom in ASC order",
+      "NULLs are excluded from sorted results",
+      "NULLs cause an immediate sort error"
+    ],
+    "answerIndex": 0,
+    "explanation": "In MySQL, NULL is treated as lower than any non-null value, so NULLs appear first in ASC and last in DESC order.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q195",
+    "topic": "NULL Handling",
+    "question": "How can you force NULL values to appear LAST in a MySQL `ORDER BY column ASC` query?",
+    "options": [
+      "`ORDER BY (column IS NULL) ASC, column ASC` (or `ORDER BY -column DESC`)",
+      "`ORDER BY column ASC NULLS LAST` (standard in PG, achieved via boolean expression in MySQL)",
+      "Both A and B achieve null ordering in SQL",
+      "MySQL cannot customize NULL sort position"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ORDER BY (column IS NULL) ASC, column ASC` sorts non-nulls (0) before nulls (1).",
+    "level": "Advanced"
+  },
+  {
+    "id": "sql_fund_q196",
+    "topic": "Sorting & Pagination",
+    "question": "What is the default sort direction when `ORDER BY column_name` is specified without ASC or DESC?",
+    "options": [
+      "ASC (Ascending order, from smallest to largest / A to Z)",
+      "DESC (Descending order)",
+      "Random order",
+      "Physical table insertion order"
+    ],
+    "answerIndex": 0,
+    "explanation": "In SQL, `ORDER BY` defaults to `ASC` (Ascending) order if omitted.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q197",
+    "topic": "Sorting & Pagination",
+    "question": "How does multi-column sorting work in `ORDER BY department ASC, basic_salary DESC`?",
+    "options": [
+      "It sorts rows alphabetically by department first; for rows sharing the same department, it sorts by salary from highest to lowest",
+      "It sorts by basic_salary first, ignoring department",
+      "It averages the two columns and sorts by the result",
+      "It applies ASC to both columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "Multi-column sorting evaluates columns hierarchically from left to right, breaking ties in earlier columns using subsequent columns.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q198",
+    "topic": "Sorting & Pagination",
+    "question": "What is the syntax for retrieving the top 5 highest-priced products in MySQL?",
+    "options": [
+      "SELECT * FROM products ORDER BY unit_price DESC LIMIT 5;",
+      "SELECT TOP 5 * FROM products ORDER BY unit_price DESC;",
+      "SELECT * FROM products FETCH FIRST 5 ROWS ONLY;",
+      "SELECT * FROM products LIMIT 5 ORDER BY unit_price DESC;"
+    ],
+    "answerIndex": 0,
+    "explanation": "`ORDER BY unit_price DESC LIMIT 5;` is standard MySQL syntax for Top-N ranking queries.",
+    "level": "Beginner"
+  },
+  {
+    "id": "sql_fund_q199",
+    "topic": "Sorting & Pagination",
+    "question": "In pagination, which formula determines the `LIMIT` and `OFFSET` parameters for Page $N$ with page size $S$?",
+    "options": [
+      "LIMIT S OFFSET (N - 1) * S",
+      "LIMIT N OFFSET S",
+      "LIMIT S * N OFFSET S",
+      "OFFSET N LIMIT S"
+    ],
+    "answerIndex": 0,
+    "explanation": "For Page 1 (size 10): `OFFSET 0`. For Page 2: `OFFSET 10`. For Page 3: `OFFSET 20`. Formula: `OFFSET (N - 1) * S`.",
+    "level": "Intermediate"
+  },
+  {
+    "id": "sql_fund_q200",
+    "topic": "Sorting & Pagination",
+    "question": "What is the difference between `LIMIT 10, 20` and `LIMIT 20 OFFSET 10` in MySQL?",
+    "options": [
+      "They are identical: both skip the first 10 rows and return the next 20 rows (`LIMIT offset, count` vs `LIMIT count OFFSET offset`)",
+      "`LIMIT 10, 20` takes 10 rows and skips 20",
+      "`LIMIT 10, 20` is invalid in MySQL",
+      "`LIMIT count OFFSET offset` is deprecated"
+    ],
+    "answerIndex": 0,
+    "explanation": "In two-argument `LIMIT offset, row_count`, the first number is the offset and the second is row count. `LIMIT 20 OFFSET 10` is the clearer ANSI standard syntax.",
+    "level": "Intermediate"
+  }
+]

@@ -1,0 +1,48 @@
+================================================================================
+CODER & ACCOTAX - RDBMS USING MYSQL STUDY NOTES
+MODULE 001_002: SQL FUNDAMENTALS - TOPIC 18: PRACTICAL SQL PROJECTS & CASE STUDIES
+FACULTY: SUKANTA HUI | BARRACKPORE & NAIHATI, WEST BENGAL, INDIA
+================================================================================
+
+1. OVERVIEW OF SQL PRACTICAL PROJECTS
+--------------------------------------------------------------------------------
+Practical database engineering requires synthesizing DDL schema modeling, DML
+data manipulation, and DQL data querying to address real-world business scenarios:
+  • DDL (Data Definition Language): CREATE TABLE, ALTER TABLE, DROP, TRUNCATE
+  • DML (Data Manipulation Language): INSERT INTO, UPDATE, DELETE
+  • DQL (Data Query Language): SELECT, WHERE, ORDER BY, LIMIT, OFFSET, AS
+
+2. SUMMARY OF THE 20 PRACTICAL PROJECT CASE STUDIES
+--------------------------------------------------------------------------------
+01. E-Commerce Product Catalog: Schema design, financial DECIMAL, WHERE, ORDER BY.
+02. Hospital Inpatient Care: Nullability handling (IS NULL) and date ranges.
+03. University Student Grading: Schema evolution using ALTER TABLE (ADD & MODIFY).
+04. Banking High-Value Audit: Transaction tracking, filtering, ORDER BY DESC, LIMIT.
+05. Corporate HR Directory: Set membership (IN), manager hierarchy, multi-column sorting.
+06. Airline Flight Schedule: Pattern matching (LIKE with %), TIME data type, fare filter.
+07. OTT Movie Platform: Paginated catalog browsing (LIMIT / OFFSET) & DISTINCT genres.
+08. Luxury Hotel Bookings: Staging table maintenance (TRUNCATE vs DROP) & stay billing.
+09. Express Courier Logistics: Strict character length pattern matching (LIKE with '_').
+10. Central Digital Library: Temporal audits of overdue loans against cutoff dates.
+11. Pharmacy Batch Inventory: Multi-risk analysis using boolean OR (expiry OR shortage).
+12. Food Delivery Restaurant Menu: Boolean TINYINT(1) filtering and reverse multi-sort.
+13. Automobile Dealership: MySQL 8.0+ column renaming and column dropping.
+14. Real Estate Property Finder: Spatial neighborhood sets combined with budget bounds.
+15. Fitness Club Member Directory: Renewal date updates and telecom prefix search.
+16. Online Examination Portal: Academic remedial scoring and disjunctive logic.
+17. Concert Ticket Booking: Contact data auditing with IS NULL and IS NOT NULL.
+18. Smart Meter Utility Billing: Commercial and industrial power billing threshold analysis.
+19. IT Job Candidate Pipeline: ATS shortlisting using experience bounds & skill LIKE.
+20. SaaS Cloud Subscription: End-to-end B2B schema, batch inserts, mutations & C-level DQL.
+
+3. GOLDEN RULES FOR SQL PRODUCTION SCRIPTS
+--------------------------------------------------------------------------------
+  • Use Exact Decimals: Always prefer DECIMAL(M, D) over FLOAT for currency and balances.
+  • Three-Valued Logic: Use IS NULL / IS NOT NULL; never use '= NULL'.
+  • Operator Grouping: Always enclose OR expressions in parentheses when combined with AND.
+  • Index Optimization: In queries with ORDER BY, ensure sorted columns align with indexes.
+  • Safe Deletions: Distinguish between TRUNCATE (keeps schema) and DROP (destroys table).
+
+================================================================================
+END OF STUDY NOTES - CODER & ACCOTAX
+================================================================================

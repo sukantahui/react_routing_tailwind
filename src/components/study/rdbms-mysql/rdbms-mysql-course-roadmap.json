@@ -147,7 +147,9 @@
             "Pattern Matching with LIKE and Wildcards (% and _)",
             "Handling NULL Values with IS NULL and IS NOT NULL",
             "Sorting Query Results with ORDER BY (ASC / DESC)",
-            "Pagination and Record Limiting with LIMIT and OFFSET"
+            "Pagination and Record Limiting with LIMIT and OFFSET",
+            "SQL Fundamentals Practical Projects & Case Studies (20 Industry Scenarios)",
+            "SQL Fundamentals Comprehensive Module Test & Certification (200 MCQs)"
           ],
           "learningOutcomes": [
             "Choose optimal MySQL data types for table columns",
