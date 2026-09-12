@@ -18,7 +18,7 @@ import {
   Copy,
   Check
 } from "lucide-react";
-import JavaCodeBlock from "../common/JavaCodeBlock";
+import JavaCodeBlock from "../../common/JavaCodeBlock";
 
 function shuffleArray(arr) {
   const copy = [...arr];

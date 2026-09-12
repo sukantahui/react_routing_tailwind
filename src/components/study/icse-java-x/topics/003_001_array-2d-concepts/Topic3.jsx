@@ -5,7 +5,10 @@ import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import demoCode from "./topic3_files/MatrixDiagonalsDemo.java?raw";
+import demoCode1 from "./topic3_files/MatrixDiagonalsDemo.java?raw";
+import demoCode2 from "./topic3_files/SingleLoopDiagonalsDemo.java?raw";
+import demoCode3 from "./topic3_files/DiagonalDisplayAndNonDiagonalsDemo.java?raw";
+import demoCode4 from "./topic3_files/DiagonalInterchangeDemo.java?raw";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 import questions from "./topic3_files/topic3_questions";
 
@@ -216,6 +219,43 @@ const InteractiveDiagonalVisualizer = () => {
 };
 
 const Topic3 = () => {
+  const [activeExampleIndex, setActiveExampleIndex] = useState(0);
+
+  const examples = [
+    {
+      id: "diagonals-basic",
+      title: "1. Primary & Secondary Diagonals",
+      file: "MatrixDiagonalsDemo.java",
+      description: "Standard nested loops detecting primary diagonal (i == j) and secondary diagonal (i + j == n - 1) sums with boundary checks.",
+      code: demoCode1,
+      highlights: [20, 21, 26, 27, 53, 54, 55, 63, 64]
+    },
+    {
+      id: "single-loop-diagonals",
+      title: "2. Optimal O(N) Traversal",
+      file: "SingleLoopDiagonalsDemo.java",
+      description: "Traversing both diagonals simultaneously in a single O(N) loop and correctly avoiding double-counting the center element for odd N.",
+      code: demoCode2,
+      highlights: [33, 34, 35, 36, 45, 48, 50]
+    },
+    {
+      id: "x-pattern-non-diagonals",
+      title: "3. 'X' Pattern & Off-Diagonals",
+      file: "DiagonalDisplayAndNonDiagonalsDemo.java",
+      description: "Printing diagonal elements in an 'X' shape with spacing, and accumulating the sum and count of all non-diagonal cells.",
+      code: demoCode3,
+      highlights: [27, 28, 29, 31, 44, 45, 46]
+    },
+    {
+      id: "diagonal-swap",
+      title: "4. Interchanging Diagonals",
+      file: "DiagonalInterchangeDemo.java",
+      description: "Classic ICSE Board practical question: Swapping elements of Left and Right diagonals in an N x N matrix using a single loop.",
+      code: demoCode4,
+      highlights: [23, 24, 26, 27, 28]
+    }
+  ];
+
   return (
     <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
@@ -324,15 +364,59 @@ const Topic3 = () => {
         </div>
       </section>
 
-      {/* 5. Hands-on Code Example Section */}
+      {/* 5. Hands-on Code Example Studio */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Hands-on Java Source Code: <code className="font-mono text-emerald-300">MatrixDiagonalsDemo.java</code>
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Hands-On Java Code Studio: Matrix Diagonals
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              Explore 4 practical BlueJ-compatible Java programs covering standard diagonals, optimal O(N) single-loop traversal, X-patterns, and diagonal interchange.
+            </p>
+          </div>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            4 ICSE Examples
+          </span>
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {examples.map((ex, idx) => (
+            <button
+              key={ex.id}
+              onClick={() => setActiveExampleIndex(idx)}
+              className={clsx(
+                "p-3.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between",
+                activeExampleIndex === idx
+                  ? "bg-emerald-500/10 border-emerald-500/40 text-white shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/30"
+                  : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              )}
+            >
+              <div className="text-xs font-bold text-emerald-400 mb-1">{ex.title}</div>
+              <div className="font-mono text-[11px] text-slate-400 truncate">{ex.file}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Example Detail Card */}
+        <div className="p-4 bg-slate-950/70 rounded-xl border border-slate-800/80 text-xs text-slate-300 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-semibold text-emerald-300 text-sm">{examples[activeExampleIndex].title}</span>
+            <span className="font-mono text-xs text-sky-400 bg-sky-950/50 px-2 py-0.5 rounded border border-sky-800/50">
+              {examples[activeExampleIndex].file}
+            </span>
+          </div>
+          <p className="text-slate-400 text-xs leading-relaxed">
+            {examples[activeExampleIndex].description}
+          </p>
+        </div>
+
+        {/* Code Viewer */}
         <JavaFileLoader
-          fileModule={demoCode}
-          title="MatrixDiagonalsDemo.java"
-          highlightLines={[20, 21, 26, 27]}
+          fileModule={examples[activeExampleIndex].code}
+          title={examples[activeExampleIndex].file}
+          highlightLines={examples[activeExampleIndex].highlights}
         />
       </section>
 

@@ -318,7 +318,8 @@
             "Primary and secondary diagonal elements",
             "Matrix addition and subtraction",
             "Board pattern programs on matrices",
-            "Output Test (50 Dry Run & Matrix Tracing Questions)"
+            "Output Test (50 Dry Run & Matrix Tracing Questions)",
+            "Module Test: 2D Array Master Assessment (200 MCQs)"
           ],
           "learningOutcomes": [
             "Declare and initialize 2D matrices in Java",
@@ -332,7 +333,7 @@
             "Matrix Calculator & Board Pattern Generator"
           ],
           "exercises": {
-            "mcq": 20,
+            "mcq": 200,
             "coding": 10,
             "projects": 1
           },

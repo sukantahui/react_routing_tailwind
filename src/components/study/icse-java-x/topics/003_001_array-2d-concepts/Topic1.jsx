@@ -5,7 +5,10 @@ import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import demoCode from "./topic1_files/MatrixInputOutputDemo.java?raw";
+import demoCode1 from "./topic1_files/MatrixInputOutputDemo.java?raw";
+import demoCode2 from "./topic1_files/ColumnMajorTraversalDemo.java?raw";
+import demoCode3 from "./topic1_files/PrettyMatrixFormattingDemo.java?raw";
+import demoCode4 from "./topic1_files/MatrixSearchAndCountDemo.java?raw";
 import noteText from "./topic1_files/topic1_note.txt?raw";
 import questions from "./topic1_files/topic1_questions";
 
@@ -196,6 +199,43 @@ const InteractiveMatrixSimulator = () => {
 };
 
 const Topic1 = () => {
+  const [activeExampleIndex, setActiveExampleIndex] = useState(0);
+
+  const examples = [
+    {
+      id: "input-output-basic",
+      title: "1. Scanner Input & Output",
+      file: "MatrixInputOutputDemo.java",
+      description: "Standard ICSE Class 10 row-major input loop with user prompts and tabbed grid printing with println() linebreaks.",
+      code: demoCode1,
+      highlights: [14, 21, 23, 34, 38, 39, 41, 47, 50, 53]
+    },
+    {
+      id: "col-major",
+      title: "2. Column-Major Traversal",
+      file: "ColumnMajorTraversalDemo.java",
+      description: "Traversing column-by-column (outer loop cols j, inner loop rows i), contrasting row-major and column-major element streams.",
+      code: demoCode2,
+      highlights: [25, 27, 28, 37, 39, 40, 56, 64]
+    },
+    {
+      id: "pretty-format",
+      title: "3. Formatted Matrix Display",
+      file: "PrettyMatrixFormattingDemo.java",
+      description: "Professional matrix layout with System.out.printf(\"%6d\"), index column headers, and boxed ASCII border frames.",
+      code: demoCode3,
+      highlights: [22, 23, 38, 39, 47, 49, 58, 67]
+    },
+    {
+      id: "search-count",
+      title: "4. Search & Frequency Count",
+      file: "MatrixSearchAndCountDemo.java",
+      description: "Linear search across 2D matrix cells, recording matching row-column coordinate pairs, and counting total key frequency.",
+      code: demoCode4,
+      highlights: [29, 39, 40, 41, 42, 49, 58]
+    }
+  ];
+
   return (
     <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
@@ -300,15 +340,59 @@ const Topic1 = () => {
         </div>
       </section>
 
-      {/* 5. Hands-on Code Example Section */}
+      {/* 5. Hands-on Code Example Studio */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Hands-on Java Source Code: <code className="font-mono text-emerald-300">MatrixInputOutputDemo.java</code>
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Hands-On Java Code Studio: Input, Output & Traversal
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              Explore 4 practical BlueJ-compatible Java programs covering row-major input, column traversal, neat grid formatting, and matrix search.
+            </p>
+          </div>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            4 ICSE Examples
+          </span>
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {examples.map((ex, idx) => (
+            <button
+              key={ex.id}
+              onClick={() => setActiveExampleIndex(idx)}
+              className={clsx(
+                "p-3.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between",
+                activeExampleIndex === idx
+                  ? "bg-emerald-500/10 border-emerald-500/40 text-white shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/30"
+                  : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              )}
+            >
+              <div className="text-xs font-bold text-emerald-400 mb-1">{ex.title}</div>
+              <div className="font-mono text-[11px] text-slate-400 truncate">{ex.file}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Example Detail Card */}
+        <div className="p-4 bg-slate-950/70 rounded-xl border border-slate-800/80 text-xs text-slate-300 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-semibold text-emerald-300 text-sm">{examples[activeExampleIndex].title}</span>
+            <span className="font-mono text-xs text-sky-400 bg-sky-950/50 px-2 py-0.5 rounded border border-sky-800/50">
+              {examples[activeExampleIndex].file}
+            </span>
+          </div>
+          <p className="text-slate-400 text-xs leading-relaxed">
+            {examples[activeExampleIndex].description}
+          </p>
+        </div>
+
+        {/* Code Viewer */}
         <JavaFileLoader
-          fileModule={demoCode}
-          title="MatrixInputOutputDemo.java"
-          highlightLines={[14, 15, 16, 17, 23, 24, 25, 27]}
+          fileModule={examples[activeExampleIndex].code}
+          title={examples[activeExampleIndex].file}
+          highlightLines={examples[activeExampleIndex].highlights}
         />
       </section>
 

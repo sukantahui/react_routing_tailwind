@@ -30,7 +30,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300 overflow-x-hidden">
+    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300 overflow-x-clip">
       {/* Navbar */}
       <div className="fixed top-0 left-0 w-full z-50">
         {isLoggedIn ? (
@@ -41,7 +41,7 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-14">
+      <main className="pt-[106px] lg:pt-14">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </main>
     </div>

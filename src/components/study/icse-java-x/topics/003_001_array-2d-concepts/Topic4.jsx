@@ -5,7 +5,10 @@ import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import demoCode from "./topic4_files/MatrixAdditionSubtractionDemo.java?raw";
+import demoCode1 from "./topic4_files/MatrixAdditionSubtractionDemo.java?raw";
+import demoCode2 from "./topic4_files/ScalarMultiplicationDemo.java?raw";
+import demoCode3 from "./topic4_files/MatrixTransposeDemo.java?raw";
+import demoCode4 from "./topic4_files/SymmetricMatrixCheckDemo.java?raw";
 import noteText from "./topic4_files/topic4_note.txt?raw";
 import questions from "./topic4_files/topic4_questions";
 
@@ -208,6 +211,43 @@ const InteractiveMatrixOperationsLab = () => {
 };
 
 const Topic4 = () => {
+  const [activeExampleIndex, setActiveExampleIndex] = useState(0);
+
+  const examples = [
+    {
+      id: "matrix-add-sub",
+      title: "1. Addition & Subtraction",
+      file: "MatrixAdditionSubtractionDemo.java",
+      description: "Element-wise matrix addition (A + B) and subtraction (A - B) for identical dimensions M x N, validating compatibility.",
+      code: demoCode1,
+      highlights: [22, 23, 24, 33, 34, 35, 59, 60]
+    },
+    {
+      id: "scalar-mult",
+      title: "2. Scalar Multiplication",
+      file: "ScalarMultiplicationDemo.java",
+      description: "Multiplying each element by scalar k, evaluating linear matrix combinations (2*A - 3*B), and formatted grid display.",
+      code: demoCode2,
+      highlights: [31, 33, 40, 42, 49, 51]
+    },
+    {
+      id: "matrix-transpose",
+      title: "3. Matrix Transposition",
+      file: "MatrixTransposeDemo.java",
+      description: "Rectangular dimension flipping (M x N to N x M) and in-place transpose for N x N square matrices without extra memory.",
+      code: demoCode3,
+      highlights: [26, 28, 29, 44, 46, 47, 48]
+    },
+    {
+      id: "symmetric-matrix",
+      title: "4. Symmetric Matrix Test",
+      file: "SymmetricMatrixCheckDemo.java",
+      description: "Efficient verification of symmetric (A == A^T) and skew-symmetric (A^T == -A) matrices with early termination on mismatch.",
+      code: demoCode4,
+      highlights: [24, 30, 36, 44, 46, 56, 57]
+    }
+  ];
+
   return (
     <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
@@ -292,15 +332,59 @@ const Topic4 = () => {
         </div>
       </section>
 
-      {/* 5. Hands-on Code Example Section */}
+      {/* 5. Hands-on Code Example Studio */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Hands-on Java Source Code: <code className="font-mono text-emerald-300">MatrixAdditionSubtractionDemo.java</code>
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Hands-On Java Code Studio: Matrix Arithmetic & Transpose
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              Explore 4 practical BlueJ-compatible Java programs covering matrix addition, scalar operations, matrix transposition, and symmetry testing.
+            </p>
+          </div>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            4 ICSE Examples
+          </span>
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {examples.map((ex, idx) => (
+            <button
+              key={ex.id}
+              onClick={() => setActiveExampleIndex(idx)}
+              className={clsx(
+                "p-3.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between",
+                activeExampleIndex === idx
+                  ? "bg-emerald-500/10 border-emerald-500/40 text-white shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/30"
+                  : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              )}
+            >
+              <div className="text-xs font-bold text-emerald-400 mb-1">{ex.title}</div>
+              <div className="font-mono text-[11px] text-slate-400 truncate">{ex.file}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Example Detail Card */}
+        <div className="p-4 bg-slate-950/70 rounded-xl border border-slate-800/80 text-xs text-slate-300 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-semibold text-emerald-300 text-sm">{examples[activeExampleIndex].title}</span>
+            <span className="font-mono text-xs text-sky-400 bg-sky-950/50 px-2 py-0.5 rounded border border-sky-800/50">
+              {examples[activeExampleIndex].file}
+            </span>
+          </div>
+          <p className="text-slate-400 text-xs leading-relaxed">
+            {examples[activeExampleIndex].description}
+          </p>
+        </div>
+
+        {/* Code Viewer */}
         <JavaFileLoader
-          fileModule={demoCode}
-          title="MatrixAdditionSubtractionDemo.java"
-          highlightLines={[22, 23, 24]}
+          fileModule={examples[activeExampleIndex].code}
+          title={examples[activeExampleIndex].file}
+          highlightLines={examples[activeExampleIndex].highlights}
         />
       </section>
 

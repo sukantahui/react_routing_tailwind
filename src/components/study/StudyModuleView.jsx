@@ -352,7 +352,7 @@ export default function StudyModuleView({
       {/* ========================================================== */}
       {/* Sticky Header Navigation */}
       {/* ========================================================== */}
-      <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md">
+      <header className="sticky top-14 z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
           
           {/* Left: Breadcrumbs & Module Title */}
@@ -423,7 +423,7 @@ export default function StudyModuleView({
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-3.5 sm:px-6 py-5 sm:py-6 space-y-5">
+      <main className="max-w-5xl mx-auto px-3.5 sm:px-6 pt-8 sm:pt-10 pb-14 space-y-6">
 
         {/* ========================================================== */}
         {/* Module Overview Card (Compact & Soothing) */}

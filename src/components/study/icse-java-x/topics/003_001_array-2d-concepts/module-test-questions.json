@@ -1,0 +1,3117 @@
+[
+  {
+    "id": 1,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is a valid syntax to declare and instantiate a 2D integer array of 3 rows and 4 columns in Java?",
+    "options": [
+      "int[][] arr = new int[3][4];",
+      "int arr = new int[3, 4];",
+      "int arr[][] = new int(3)(4);",
+      "int[3][4] arr = new int[][];"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java, 2D arrays are declared using double brackets: 'int[][] arr = new int[3][4];'. The first dimension specifies the number of rows (3) and the second specifies columns (4)."
+  },
+  {
+    "id": 2,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How are 2D arrays structurally represented in JVM Heap memory?",
+    "options": [
+      "As a single continuous 1D block of physical RAM addresses",
+      "As an 'array of arrays', where a master array holds references to independent 1D row array objects",
+      "Inside the Metaspace class loader memory",
+      "Inside the CPU cache registers"
+    ],
+    "answerIndex": 1,
+    "explanation": "In Java, multi-dimensional arrays are arrays of arrays. The top-level array object stores references (pointers) to independent 1D array objects representing the rows."
+  },
+  {
+    "id": 3,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "4 5",
+      "5 4",
+      "20 5",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "arr.length gives the number of rows (4), and arr[0].length gives the number of columns in the first row (5).",
+    "code": "int[][] arr = new int[4][5];\nSystem.out.println(arr.length + \" \" + arr[0].length);"
+  },
+  {
+    "id": 4,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default value of elements in an uninitialized 2D integer array 'int[][] grid = new int[3][3];'?",
+    "options": [
+      "0",
+      "null",
+      "garbage value",
+      "-1"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java, primitive numeric array elements are automatically initialized to 0 upon heap allocation."
+  },
+  {
+    "id": 5,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default value of elements in an array of boolean flags: 'boolean[][] flags = new boolean[2][2];'?",
+    "options": [
+      "false",
+      "true",
+      "0",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "The default value of primitive boolean array elements in Java is false."
+  },
+  {
+    "id": 6,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default value of elements in a String matrix: 'String[][] names = new String[2][3];'?",
+    "options": [
+      "null",
+      "\"\"",
+      "\"null\"",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "String is an object reference type. Uninitialized array elements of reference types default to null."
+  },
+  {
+    "id": 7,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is a 'ragged' or 'jagged' 2D array in Java?",
+    "options": [
+      "An array where different rows have different numbers of columns",
+      "An array containing negative indices",
+      "An array stored on disk instead of RAM",
+      "An array whose elements can only be prime numbers"
+    ],
+    "answerIndex": 0,
+    "explanation": "A ragged (or jagged) array is a multi-dimensional array where each row can have a different length (e.g. row 0 has 2 elements, row 1 has 5 elements)."
+  },
+  {
+    "id": 8,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following jagged array declaration?",
+    "options": [
+      "2 4",
+      "3 3",
+      "2 2",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "jagged[0] is instantiated with 2 elements, so jagged[0].length is 2. jagged[1] has 4 elements, so jagged[1].length is 4.",
+    "code": "int[][] jagged = new int[2][];\njagged[0] = new int[2];\njagged[1] = new int[4];\nSystem.out.println(jagged[0].length + \" \" + jagged[1].length);"
+  },
+  {
+    "id": 9,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the total number of elements in this 2D array?",
+    "options": [
+      "12 elements",
+      "7 elements",
+      "3 elements",
+      "4 elements"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 2D array with 3 rows and 4 columns contains 3 * 4 = 12 total integer elements.",
+    "code": "int[][] m = new int[3][4];"
+  },
+  {
+    "id": 10,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following literal initialization?",
+    "options": [
+      "3",
+      "2",
+      "6",
+      "4"
+    ],
+    "answerIndex": 0,
+    "explanation": "mat[1][0] accesses row index 1 (second row: {3, 4}) and column index 0 (first element: 3).",
+    "code": "int[][] mat = {\n    {1, 2},\n    {3, 4},\n    {5, 6}\n};\nSystem.out.println(mat[1][0]);"
+  },
+  {
+    "id": 11,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "Which element is accessed by mat[0][1] in this matrix?",
+    "options": [
+      "20",
+      "10",
+      "30",
+      "40"
+    ],
+    "answerIndex": 0,
+    "explanation": "mat[0][1] accesses row 0, column 1, which has the value 20.",
+    "code": "int[][] mat = {\n    {10, 20},\n    {30, 40}\n};"
+  },
+  {
+    "id": 12,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following array declarations is INVALID in Java?",
+    "options": [
+      "int[][] arr = new int[][4];",
+      "int[][] arr = new int[3][];",
+      "int arr[][] = new int[3][4];",
+      "int[] arr[] = new int[3][4];"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java, you MUST specify the first dimension (number of rows). You cannot omit the row dimension while specifying the column dimension (e.g. 'new int[][4]' is a compile error)."
+  },
+  {
+    "id": 13,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the value of charArray[0][0] after executing 'char[][] charArray = new char[2][2];'?",
+    "options": [
+      "'\\u0000' (null character)",
+      "'0'",
+      "' ' (space)",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "Primitive char array elements default to '\\u0000' (Unicode null character with integer value 0)."
+  },
+  {
+    "id": 14,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when you run this code?",
+    "options": [
+      "NullPointerException",
+      "ArrayIndexOutOfBoundsException",
+      "0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "a[0] is uninitialized and therefore null. Attempting to access a[0][0] dereferences null, throwing a NullPointerException.",
+    "code": "int[][] a = new int[3][];\nSystem.out.println(a[0][0]);"
+  },
+  {
+    "id": 15,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "3 2",
+      "2 3",
+      "6",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "matrix has 3 outer sub-arrays (rows), and each sub-array contains 2 elements (columns). Hence length is 3 and matrix[0].length is 2.",
+    "code": "int[][] matrix = {{1, 2}, {3, 4}, {5, 6}};\nSystem.out.println(matrix.length + \" \" + matrix[0].length);"
+  },
+  {
+    "id": 16,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "In a 2D array 'int[][] arr = new int[M][N];', what is the index range for valid rows and columns?",
+    "options": [
+      "Rows: 0 to M - 1; Columns: 0 to N - 1",
+      "Rows: 1 to M; Columns: 1 to N",
+      "Rows: 0 to M; Columns: 0 to N",
+      "Rows: -1 to M - 1; Columns: -1 to N - 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Java uses zero-based indexing. A matrix of size M x N has valid row indices from 0 to M - 1 and column indices from 0 to N - 1."
+  },
+  {
+    "id": 17,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What exception is thrown when executing: int[][] a = new int[2][2]; System.out.println(a[2][0]);?",
+    "options": [
+      "java.lang.ArrayIndexOutOfBoundsException",
+      "java.lang.NullPointerException",
+      "java.lang.IllegalArgumentException",
+      "java.lang.ArithmeticException"
+    ],
+    "answerIndex": 0,
+    "explanation": "For an array of 2 rows, valid row indices are 0 and 1. Accessing index 2 throws an ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2."
+  },
+  {
+    "id": 18,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "99",
+      "0",
+      "Compilation error",
+      "ArrayIndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "grid[1][2] updates the element in the 2nd row (index 1) and 3rd column (index 2) to 99.",
+    "code": "int[][] grid = new int[3][3];\ngrid[1][2] = 99;\nSystem.out.println(grid[1][2]);"
+  },
+  {
+    "id": 19,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "How many distinct object instances are created in Heap memory by: 'int[][] a = new int[3][4];'?",
+    "options": [
+      "4 objects (1 master array of references + 3 row arrays of ints)",
+      "1 object",
+      "12 objects",
+      "7 objects"
+    ],
+    "answerIndex": 0,
+    "explanation": "One top-level array object of size 3 (holding references) is created, plus 3 separate 1D array objects of size 4 for each row. Total = 4 objects."
+  },
+  {
+    "id": 20,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the memory size in bytes of a 3x3 int matrix (elements only, excluding JVM object header overhead)?",
+    "options": [
+      "36 bytes (9 elements * 4 bytes)",
+      "18 bytes",
+      "72 bytes",
+      "9 bytes"
+    ],
+    "answerIndex": 0,
+    "explanation": "A 3x3 matrix has 9 elements. Each primitive Java int occupies 4 bytes in memory: 9 * 4 = 36 bytes."
+  },
+  {
+    "id": 21,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "1 2 3",
+      "3 2 1",
+      "3 3 3",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "t[0].length is 1, t[1].length is 2, and t[2].length is 3. This is a triangular ragged array.",
+    "code": "int[][] t = {\n    {1},\n    {2, 3},\n    {4, 5, 6}\n};\nSystem.out.println(t[0].length + \" \" + t[1].length + \" \" + t[2].length);"
+  },
+  {
+    "id": 22,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In the declaration 'double[][] scores = new double[5][10];', which dimension represents the number of rows?",
+    "options": [
+      "5",
+      "10",
+      "50",
+      "15"
+    ],
+    "answerIndex": 0,
+    "explanation": "The first bracket pair [5] represents the number of rows, and the second bracket pair [10] represents the number of columns."
+  },
+  {
+    "id": 23,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "arr[0] is an instance of a 1D int array (int[]), so 'arr[0] instanceof int[]' evaluates to true.",
+    "code": "int[][] arr = new int[2][2];\nSystem.out.println(arr[0] instanceof int[]);"
+  },
+  {
+    "id": 24,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "50",
+      "0",
+      "Compilation error",
+      "ArrayIndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "matrix[1][1] is initialized to 50 in the 2nd row, 2nd column.",
+    "code": "int[][] matrix = new int[2][2];\nmatrix[0][0] = 10;\nmatrix[1][1] = 50;\nSystem.out.println(matrix[1][1]);"
+  },
+  {
+    "id": 25,
+    "topic": "Declaration, Memory Layout & Dimensions",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Can a 2D array be cloned using the clone() method to create a deep copy of all elements?",
+    "options": [
+      "No, clone() on a 2D array performs a shallow copy, duplicating only the top-level row references",
+      "Yes, clone() automatically clones all nested sub-arrays recursively",
+      "Only if the array contains primitive floats",
+      "Yes, clone() is always a deep copy in Java"
+    ],
+    "answerIndex": 0,
+    "explanation": "clone() on multi-dimensional arrays performs a shallow copy. The master array is duplicated, but its elements point to the original row arrays."
+  },
+  {
+    "id": 26,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which loop structure is standard for row-wise traversal of an M x N matrix 'arr'?",
+    "options": [
+      "Outer loop for rows (i from 0 to M - 1), Inner loop for columns (j from 0 to N - 1)",
+      "Outer loop for columns (j from 0 to N - 1), Inner loop for rows (i from 0 to M - 1)",
+      "Single while loop with index i from 0 to M * N",
+      "A do-while loop checking i == j"
+    ],
+    "answerIndex": 0,
+    "explanation": "In row-wise traversal, we iterate row by row: the outer loop iterates over rows (i), and for each row, the inner loop iterates over its columns (j)."
+  },
+  {
+    "id": 27,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In column-wise traversal of a matrix of size R rows and C columns, which loop iterates on the outside?",
+    "options": [
+      "The column loop (j from 0 to C - 1)",
+      "The row loop (i from 0 to R - 1)",
+      "Both loops run in parallel",
+      "No outer loop is needed"
+    ],
+    "answerIndex": 0,
+    "explanation": "In column-wise traversal, we fix a column and visit all rows in that column, so the column loop (j) is outer and the row loop (i) is inner."
+  },
+  {
+    "id": 28,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following nested loops?",
+    "options": [
+      "1 2 3 4 ",
+      "1 3 2 4 ",
+      "4 3 2 1 ",
+      "1234"
+    ],
+    "answerIndex": 0,
+    "explanation": "Traverses row 0: a[0][0]=1, a[0][1]=2; then row 1: a[1][0]=3, a[1][1]=4. Output: 1 2 3 4 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < a.length; i++) {\n    for(int j = 0; j < a[i].length; j++) {\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 29,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by column-wise traversal of this matrix?",
+    "options": [
+      "1 3 2 4 ",
+      "1 2 3 4 ",
+      "4 2 3 1 ",
+      "3 1 4 2 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Column 0: a[0][0]=1, a[1][0]=3. Column 1: a[0][1]=2, a[1][1]=4. Total output: 1 3 2 4 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int j = 0; j < 2; j++) {\n    for(int i = 0; i < 2; i++) {\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 30,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why do we write 'System.out.println();' after the inner loop when printing a matrix in tabular form?",
+    "options": [
+      "To move the cursor to the next line so the next row prints on a new line",
+      "To clear the console screen",
+      "To flush the memory buffer",
+      "To reset the loop variable to 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Printing each element of row i with System.out.print(...) keeps them on the same line. Calling System.out.println() after the inner loop breaks to the next line for row i + 1."
+  },
+  {
+    "id": 31,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this enhanced for-loop code print?",
+    "options": [
+      "10",
+      "0",
+      "4",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Iterates through each row and each element, summing: 1 + 2 + 3 + 4 = 10.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nint sum = 0;\nfor(int[] row : a) {\n    for(int val : row) {\n        sum += val;\n    }\n}\nSystem.out.println(sum);"
+  },
+  {
+    "id": 32,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Scanner method is typically used to read an integer element for matrix cell a[i][j]?",
+    "options": [
+      "in.nextInt()",
+      "in.readInt()",
+      "in.nextInteger()",
+      "in.scanInt()"
+    ],
+    "answerIndex": 0,
+    "explanation": "java.util.Scanner provides nextInt() to scan the next token from input as an int."
+  },
+  {
+    "id": 33,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How many times does the innermost statement execute for a 4x5 matrix?",
+    "options": [
+      "20 times",
+      "9 times",
+      "4 times",
+      "5 times"
+    ],
+    "answerIndex": 0,
+    "explanation": "Outer loop runs 4 times, inner loop runs 5 times for each outer iteration. 4 * 5 = 20 total executions.",
+    "code": "int count = 0;\nfor(int i = 0; i < 4; i++) {\n    for(int j = 0; j < 5; j++) {\n        count++;\n    }\n}\nSystem.out.println(count);"
+  },
+  {
+    "id": 34,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this nested loop printing pattern?",
+    "options": [
+      "00 01 10 11 ",
+      "11 12 21 22 ",
+      "01 10 11 00 ",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "i=0: j=0 -> \"00 \", j=1 -> \"01 \". i=1: j=0 -> \"10 \", j=1 -> \"11 \".",
+    "code": "for(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        System.out.print(i + \"\" + j + \" \");\n    }\n}"
+  },
+  {
+    "id": 35,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the role of '\\t' when printing matrix elements in Java?",
+    "options": [
+      "Inserts a horizontal tab space to format elements neatly in columns",
+      "Terminates the program",
+      "Prints the total of the row",
+      "Converts the integer to text"
+    ],
+    "answerIndex": 0,
+    "explanation": "'\\t' is the escape character for a horizontal tab, aligning output values in standard vertical columns."
+  },
+  {
+    "id": 36,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by reverse row traversal?",
+    "options": [
+      "3 4 1 2 ",
+      "4 3 2 1 ",
+      "1 2 3 4 ",
+      "2 1 4 3 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Starts at row i = 1 ({3, 4}): prints 3 4 . Then row i = 0 ({1, 2}): prints 1 2 . Output: 3 4 1 2 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = a.length - 1; i >= 0; i--) {\n    for(int j = 0; j < a[i].length; j++) {\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 37,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by reverse column traversal of each row?",
+    "options": [
+      "2 1 4 3 ",
+      "4 3 2 1 ",
+      "1 2 3 4 ",
+      "3 4 1 2 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0: j=1 (2), j=0 (1). Row 1: j=1 (4), j=0 (3). Output: 2 1 4 3 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < a.length; i++) {\n    for(int j = a[i].length - 1; j >= 0; j--) {\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 38,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "4 3 2 1 ",
+      "1 2 3 4 ",
+      "2 1 4 3 ",
+      "3 4 1 2 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Both rows and columns are traversed backwards: a[1][1]=4, a[1][0]=3, a[0][1]=2, a[0][0]=1.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 1; i >= 0; i--) {\n    for(int j = 1; j >= 0; j--) {\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 39,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In the expression 'for(int j = 0; j < arr[i].length; j++)', what does 'arr[i].length' evaluate to?",
+    "options": [
+      "The number of elements (columns) in row i",
+      "The total number of rows in the matrix",
+      "The byte size of row i",
+      "The value of element at index i"
+    ],
+    "answerIndex": 0,
+    "explanation": "arr[i] references the 1D array representing row i, so arr[i].length is the number of column elements in that row."
+  },
+  {
+    "id": 40,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix filling loop?",
+    "options": [
+      "12",
+      "9",
+      "15",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "At i=2, j=3: val = (2 + 1) * (3 + 1) = 3 * 4 = 12.",
+    "code": "int[][] mat = new int[3][4];\nfor(int i = 0; i < 3; i++) {\n    for(int j = 0; j < 4; j++) {\n        mat[i][j] = (i + 1) * (j + 1);\n    }\n}\nSystem.out.println(mat[2][3]);"
+  },
+  {
+    "id": 41,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the value of count after this loop completes?",
+    "options": [
+      "3",
+      "6",
+      "2",
+      "4"
+    ],
+    "answerIndex": 0,
+    "explanation": "The even elements are 2, 4, 6. Total count = 3.",
+    "code": "int[][] a = {{1, 2}, {3, 4}, {5, 6}};\nint count = 0;\nfor(int[] row : a) {\n    for(int x : row) {\n        if(x % 2 == 0) count++;\n    }\n}\nSystem.out.println(count);"
+  },
+  {
+    "id": 42,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Can an enhanced for-loop (for-each) be used to modify the elements of a 2D primitive array directly?",
+    "options": [
+      "No, the enhanced for-loop provides only read-only access to primitive values",
+      "Yes, assigning to the loop variable updates the array element in memory",
+      "Only if the array has 2 rows",
+      "Yes, using the 'set' keyword"
+    ],
+    "answerIndex": 0,
+    "explanation": "In 'for(int x : row) x = 10;', x is a local copy of the element. Modifying x does NOT change the array content."
+  },
+  {
+    "id": 43,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "1 2",
+      "10 10",
+      "0 0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Modifying local variable 'x' in the enhanced for-loop has zero effect on the original array elements.",
+    "code": "int[][] a = {{1, 2}};\nfor(int[] row : a) {\n    for(int x : row) {\n        x = 10;\n    }\n}\nSystem.out.println(a[0][0] + \" \" + a[0][1]);"
+  },
+  {
+    "id": 44,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by snake traversal (alternating directions per row)?",
+    "options": [
+      "1 2 4 3 ",
+      "1 2 3 4 ",
+      "2 1 3 4 ",
+      "4 3 2 1 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 (even): left to right -> 1 2 . Row 1 (odd): right to left -> 4 3 . Output: 1 2 4 3 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < 2; i++) {\n    if(i % 2 == 0) {\n        for(int j = 0; j < 2; j++) System.out.print(a[i][j] + \" \");\n    } else {\n        for(int j = 1; j >= 0; j--) System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 45,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the time complexity to traverse and visit every element in an M x N 2D array?",
+    "options": [
+      "O(M * N)",
+      "O(M + N)",
+      "O(M^2)",
+      "O(1)"
+    ],
+    "answerIndex": 0,
+    "explanation": "There are M * N total cells, and nested loops visit each cell exactly once, resulting in O(M * N) time complexity."
+  },
+  {
+    "id": 46,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "4",
+      "2",
+      "0",
+      "1"
+    ],
+    "answerIndex": 0,
+    "explanation": "The condition 'val > 2' is true for 3, 4, 5, 6. Total count = 4.",
+    "code": "int[][] m = {{1, 2, 3}, {4, 5, 6}};\nint count = 0;\nfor(int i = 0; i < m.length; i++) {\n    for(int j = 0; j < m[i].length; j++) {\n        if(m[i][j] > 2) count++;\n    }\n}\nSystem.out.println(count);"
+  },
+  {
+    "id": 47,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this character grid?",
+    "options": [
+      "AB CD ",
+      "ABCD",
+      "A B C D ",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0: 'A' and 'B', followed by space. Row 1: 'C' and 'D', followed by space. Output: AB CD .",
+    "code": "char[][] grid = {{'A', 'B'}, {'C', 'D'}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        System.out.print(grid[i][j]);\n    }\n    System.out.print(\" \");\n}"
+  },
+  {
+    "id": 48,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ArrayIndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Arrays.deepEquals(a, b) recursively checks equality of multidimensional arrays, returning true when elements match.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nint[][] b = {{1, 2}, {3, 4}};\nSystem.out.println(java.util.Arrays.deepEquals(a, b));"
+  },
+  {
+    "id": 49,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "Why does standard Arrays.equals(a, b) return false for two distinct 2D arrays with identical contents?",
+    "options": [
+      "Because Arrays.equals() compares the sub-array references (addresses) rather than their contents",
+      "Because 2D arrays cannot be compared in Java",
+      "Because Arrays.equals() throws an exception",
+      "Because array lengths differ"
+    ],
+    "answerIndex": 0,
+    "explanation": "Arrays.equals() performs 1D element comparisons. On a 2D array, the elements are references to row arrays, which have different addresses in memory."
+  },
+  {
+    "id": 50,
+    "topic": "Matrix Input, Output & Traversal Mechanics",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by Arrays.deepToString()?",
+    "options": [
+      "[[1, 2], [3, 4]]",
+      "[[I@...]",
+      "[1, 2, 3, 4]",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Arrays.deepToString() formats multidimensional arrays into clean nested bracketed strings like [[1, 2], [3, 4]].",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nSystem.out.println(java.util.Arrays.deepToString(a));"
+  },
+  {
+    "id": 51,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Where should the 'rowSum = 0;' accumulator be reset when calculating the sum of each individual row in a matrix?",
+    "options": [
+      "Inside the outer row loop, immediately before the inner column loop starts",
+      "Before the outer loop begins",
+      "Inside the inner column loop",
+      "After both loops finish"
+    ],
+    "answerIndex": 0,
+    "explanation": "To calculate the sum of each row independently, rowSum must be reset to 0 at the start of each row iteration (before the inner column loop)."
+  },
+  {
+    "id": 52,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the row sum calculation for the following matrix?",
+    "options": [
+      "Row 0: 3, Row 1: 7",
+      "Row 0: 7, Row 1: 3",
+      "Row 0: 10, Row 1: 10",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 sum: 1 + 2 = 3. Row 1 sum: 3 + 4 = 7.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < 2; i++) {\n    int rSum = 0;\n    for(int j = 0; j < 2; j++) rSum += a[i][j];\n    System.out.print(\"Row \" + i + \": \" + rSum + \", \");\n}"
+  },
+  {
+    "id": 53,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the column sum of Column 0 in this matrix?",
+    "options": [
+      "4",
+      "3",
+      "7",
+      "6"
+    ],
+    "answerIndex": 0,
+    "explanation": "Column 0 elements are a[0][0] = 1 and a[1][0] = 3. Sum = 1 + 3 = 4.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nint colSum = 0;\nfor(int i = 0; i < 2; i++) colSum += a[i][0];\nSystem.out.println(colSum);"
+  },
+  {
+    "id": 54,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed for column sums of Column 0 and Column 1?",
+    "options": [
+      "4 6",
+      "3 7",
+      "5 5",
+      "10 10"
+    ],
+    "answerIndex": 0,
+    "explanation": "Column 0: 1 + 3 = 4. Column 1: 2 + 4 = 6.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int j = 0; j < 2; j++) {\n    int cSum = 0;\n    for(int i = 0; i < 2; i++) cSum += a[i][j];\n    System.out.print(cSum + \" \");\n}"
+  },
+  {
+    "id": 55,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the maximum element in this matrix?",
+    "options": [
+      "95",
+      "45",
+      "12",
+      "100"
+    ],
+    "answerIndex": 0,
+    "explanation": "The largest value in the matrix is 95 at position [1][1].",
+    "code": "int[][] a = {\n    {12, 45},\n    {78, 95}\n};\nint max = a[0][0];\nfor(int[] row : a) for(int v : row) if(v > max) max = v;\nSystem.out.println(max);"
+  },
+  {
+    "id": 56,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the minimum element in this matrix?",
+    "options": [
+      "3",
+      "5",
+      "15",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "The smallest value is 3 at position [1][0].",
+    "code": "int[][] a = {\n    {15, 8},\n    {3, 22}\n};\nint min = a[0][0];\nfor(int[] r : a) for(int v : r) if(v < min) min = v;\nSystem.out.println(min);"
+  },
+  {
+    "id": 57,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What are the row coordinates (r, c) of the maximum element in this matrix?",
+    "options": [
+      "Row: 1, Col: 0",
+      "Row: 0, Col: 1",
+      "Row: 1, Col: 1",
+      "Row: 0, Col: 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "The maximum value is 88, located at row index 1 and column index 0.",
+    "code": "int[][] a = {{10, 20}, {88, 5}};\nint maxR = 0, maxC = 0;\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        if(a[i][j] > a[maxR][maxC]) { maxR = i; maxC = j; }\n    }\n}\nSystem.out.println(\"Row: \" + maxR + \", Col: \" + maxC);"
+  },
+  {
+    "id": 58,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "Which row has the largest row sum?",
+    "options": [
+      "Row 1 (Sum = 13)",
+      "Row 0 (Sum = 12)",
+      "Row 2 (Sum = 10)",
+      "All equal"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 sum: 2 + 10 = 12. Row 1 sum: 7 + 6 = 13. Row 2 sum: 1 + 9 = 10. Maximum is Row 1.",
+    "code": "int[][] a = {{2, 10}, {7, 6}, {1, 9}};"
+  },
+  {
+    "id": 59,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the average of all elements in this 2x2 matrix?",
+    "options": [
+      "5.0",
+      "10.0",
+      "20.0",
+      "4.0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Sum = 2 + 4 + 6 + 8 = 20. Count = 4. Average = 20.0 / 4 = 5.0.",
+    "code": "int[][] a = {{2, 4}, {6, 8}};\ndouble total = 0;\nfor(int[] r : a) for(int v : r) total += v;\nSystem.out.println(total / 4);"
+  },
+  {
+    "id": 60,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "When finding the maximum value in a matrix, what is the best initial value for 'max'?",
+    "options": [
+      "The first element of the matrix (a[0][0]) or Integer.MIN_VALUE",
+      "0 (which fails if all matrix numbers are negative)",
+      "Integer.MAX_VALUE",
+      "100"
+    ],
+    "answerIndex": 0,
+    "explanation": "Initializing max to a[0][0] or Integer.MIN_VALUE guarantees correctness even when all elements in the matrix are negative numbers."
+  },
+  {
+    "id": 61,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print for a matrix of all negative numbers?",
+    "options": [
+      "-5",
+      "0",
+      "-25",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "max initialized to a[0][0] (-10) correctly finds -5 as the maximum element.",
+    "code": "int[][] a = {{-10, -20}, {-5, -15}};\nint max = a[0][0];\nfor(int[] r : a) for(int v : r) if(v > max) max = v;\nSystem.out.println(max);"
+  },
+  {
+    "id": 62,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of elements in Row 1 of this 3x3 matrix?",
+    "options": [
+      "15",
+      "6",
+      "24",
+      "12"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row index 1 contains elements 4, 5, 6. Sum = 4 + 5 + 6 = 15.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = 0;\nfor(int j = 0; j < 3; j++) sum += a[1][j];\nSystem.out.println(sum);"
+  },
+  {
+    "id": 63,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of Column 2 in this 3x3 matrix?",
+    "options": [
+      "18",
+      "15",
+      "12",
+      "9"
+    ],
+    "answerIndex": 0,
+    "explanation": "Column index 2 contains elements 3, 6, 9. Sum = 3 + 6 + 9 = 18.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = 0;\nfor(int i = 0; i < 3; i++) sum += a[i][2];\nSystem.out.println(sum);"
+  },
+  {
+    "id": 64,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this row-wise product code?",
+    "options": [
+      "6 120 ",
+      "24 120 ",
+      "6 24 ",
+      "0 0 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 product: 1 * 2 * 3 = 6. Row 1 product: 4 * 5 * 6 = 120.",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}};\nfor(int i = 0; i < 2; i++) {\n    int prod = 1;\n    for(int j = 0; j < 3; j++) prod *= a[i][j];\n    System.out.print(prod + \" \");\n}"
+  },
+  {
+    "id": 65,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this search for element 77?",
+    "options": [
+      "Found at: 1, 2",
+      "Found at: 2, 1",
+      "Not found",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "77 is located in the 2nd row (index 1) and 3rd column (index 2).",
+    "code": "int[][] a = {{11, 22, 33}, {44, 55, 77}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 3; j++) {\n        if(a[i][j] == 77) System.out.println(\"Found at: \" + i + \", \" + j);\n    }\n}"
+  },
+  {
+    "id": 66,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In an M x N matrix, what is the length of an array needed to store all individual row sums?",
+    "options": [
+      "M (equal to the number of rows)",
+      "N (equal to the number of columns)",
+      "M * N",
+      "M + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "Each row produces exactly one sum, so an array of size M is required to store all row sums."
+  },
+  {
+    "id": 67,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In an M x N matrix, what is the length of an array needed to store all individual column sums?",
+    "options": [
+      "N (equal to the number of columns)",
+      "M (equal to the number of rows)",
+      "M * N",
+      "M - N"
+    ],
+    "answerIndex": 0,
+    "explanation": "Each column produces one sum, so an array of size N is required to store all column sums."
+  },
+  {
+    "id": 68,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this column search code?",
+    "options": [
+      "0 1",
+      "1 0",
+      "1 1",
+      "0 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "colSum[0] = 1 + 2 = 3. colSum[1] = 5 + 1 = 6. Maximum column sum is 6 at column index 1. Minimum is 3 at column index 0.",
+    "code": "int[][] a = {{1, 5}, {2, 1}};\nint minCol = 0, maxCol = 1;"
+  },
+  {
+    "id": 69,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of the even row elements (Row 0 and Row 2) in this matrix?",
+    "options": [
+      "20",
+      "10",
+      "15",
+      "25"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 sum: 1 + 3 = 4. Row 2 sum: 7 + 9 = 16. Total = 4 + 16 = 20.",
+    "code": "int[][] a = {\n    {1, 3},\n    {4, 6},\n    {7, 9}\n};\nint sum = 0;\nfor(int i = 0; i < 3; i += 2) {\n    for(int j = 0; j < 2; j++) sum += a[i][j];\n}\nSystem.out.println(sum);"
+  },
+  {
+    "id": 70,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this code that replaces all negative numbers with 0?",
+    "options": [
+      "1 0 0 4 ",
+      "1 -2 -3 4 ",
+      "0 0 0 0 ",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Elements -2 and -3 are negative and replaced with 0. Result: 1 0 0 4 .",
+    "code": "int[][] a = {{1, -2}, {-3, 4}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        if(a[i][j] < 0) a[i][j] = 0;\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 71,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code counting occurrences of the value 5?",
+    "options": [
+      "3",
+      "2",
+      "1",
+      "4"
+    ],
+    "answerIndex": 0,
+    "explanation": "The value 5 appears at [0][1], [1][0], and [2][1]. Total count = 3.",
+    "code": "int[][] a = {{1, 5}, {5, 2}, {3, 5}};\nint c = 0;\nfor(int[] r : a) for(int x : r) if(x == 5) c++;\nSystem.out.println(c);"
+  },
+  {
+    "id": 72,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the difference between the max element and min element in this matrix?",
+    "options": [
+      "7",
+      "8",
+      "6",
+      "9"
+    ],
+    "answerIndex": 0,
+    "explanation": "Max = 9, Min = 2. Difference = 9 - 2 = 7.",
+    "code": "int[][] a = {{2, 8}, {5, 9}};\nint max = 9, min = 2;\nSystem.out.println(max - min);"
+  },
+  {
+    "id": 73,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What condition tests if an element a[i][j] is an odd number?",
+    "options": [
+      "a[i][j] % 2 != 0",
+      "a[i][j] % 2 == 0",
+      "a[i][j] / 2 == 1",
+      "a[i][j] * 2 != 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "The modulus operator % returns the remainder after division by 2. If remainder is not 0, the number is odd."
+  },
+  {
+    "id": 74,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by summing only the odd elements of this matrix?",
+    "options": [
+      "8",
+      "14",
+      "6",
+      "10"
+    ],
+    "answerIndex": 0,
+    "explanation": "Odd elements are 1, 3, 4 is even. Wait: {1, 2}, {3, 4}. Odd elements: 1 + 3 = 4. With {1, 3}, {5, 2}: 1 + 3 + 5 = 9. Here: {1, 3}, {4, 4}: 1 + 3 = 4. In this snippet: {1, 3}, {4, 0} has 1 + 3 = 4. Let's check: {1, 3}, {5, 4} -> 1 + 3 + 5 = 9. For code: a = {{1, 7}, {2, 4}}; 1 + 7 = 8.",
+    "code": "int[][] a = {{1, 7}, {2, 4}};\nint sum = 0;\nfor(int[] r : a) for(int v : r) if(v % 2 != 0) sum += v;\nSystem.out.println(sum);"
+  },
+  {
+    "id": 75,
+    "topic": "Row Sum, Column Sum & Extremes",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed when finding the second largest element in this matrix?",
+    "options": [
+      "8",
+      "9",
+      "7",
+      "5"
+    ],
+    "answerIndex": 0,
+    "explanation": "Distinct elements in descending order: 9, 8, 5, 2. The second largest element is 8.",
+    "code": "int[][] a = {{2, 8}, {5, 9}};\nint max = 9, secondMax = 8;\nSystem.out.println(secondMax);"
+  },
+  {
+    "id": 76,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What mathematical condition identifies elements belonging to the Primary (Left / Main) diagonal of an N x N square matrix?",
+    "options": [
+      "i == j",
+      "i + j == N - 1",
+      "i + j == N",
+      "i > j"
+    ],
+    "answerIndex": 0,
+    "explanation": "The primary diagonal runs from top-left (0, 0) to bottom-right (N - 1, N - 1), where the row index equals the column index (i == j)."
+  },
+  {
+    "id": 77,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What mathematical condition identifies elements on the Secondary (Right / Anti) diagonal of an N x N square matrix?",
+    "options": [
+      "i + j == N - 1 (or j == N - 1 - i)",
+      "i == j",
+      "i - j == 1",
+      "i * j == N"
+    ],
+    "answerIndex": 0,
+    "explanation": "The secondary diagonal runs from top-right (0, N - 1) to bottom-left (N - 1, 0), where the sum of indices is always N - 1 (i + j == N - 1)."
+  },
+  {
+    "id": 78,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the sum of the primary diagonal elements in this 3x3 matrix?",
+    "options": [
+      "15",
+      "12",
+      "18",
+      "45"
+    ],
+    "answerIndex": 0,
+    "explanation": "Primary diagonal elements (i == j) are a[0][0]=1, a[1][1]=5, and a[2][2]=9. Sum = 1 + 5 + 9 = 15.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = 0;\nfor(int i = 0; i < 3; i++) sum += a[i][i];\nSystem.out.println(sum);"
+  },
+  {
+    "id": 79,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the sum of the secondary diagonal elements in this 3x3 matrix?",
+    "options": [
+      "15",
+      "18",
+      "12",
+      "25"
+    ],
+    "answerIndex": 0,
+    "explanation": "Secondary diagonal elements (i + j == 2) are a[0][2]=3, a[1][1]=5, and a[2][0]=7. Sum = 3 + 5 + 7 = 15.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = 0;\nfor(int i = 0; i < 3; i++) sum += a[i][2 - i];\nSystem.out.println(sum);"
+  },
+  {
+    "id": 80,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "In an odd-sized square matrix (e.g. 3x3 or 5x5), what special property does the center intersection element have?",
+    "options": [
+      "It belongs to BOTH the primary diagonal and the secondary diagonal simultaneously",
+      "It is always 0",
+      "It cannot be accessed by nested loops",
+      "It has index i == N"
+    ],
+    "answerIndex": 0,
+    "explanation": "For odd N, the element at (N/2, N/2) lies on both diagonals because N/2 == N/2 (primary) and N/2 + N/2 == N - 1 (secondary)."
+  },
+  {
+    "id": 81,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the total sum of all diagonal elements in this 3x3 matrix WITHOUT double-counting the center element?",
+    "options": [
+      "25",
+      "30",
+      "15",
+      "20"
+    ],
+    "answerIndex": 0,
+    "explanation": "Primary: 1 + 5 + 9 = 15. Secondary: 3 + 5 + 7 = 15. Center element (5) is shared. Combined sum without duplicate: 1 + 5 + 9 + 3 + 7 = 25.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};"
+  },
+  {
+    "id": 82,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this single-loop diagonal traversal print?",
+    "options": [
+      "1 5 9 ",
+      "1 2 3 ",
+      "3 5 7 ",
+      "9 5 1 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Using a single loop 'for(int i = 0; i < N; i++) a[i][i]' accesses the primary diagonal in O(N) time: 1 5 9 .",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nfor(int i = 0; i < 3; i++) System.out.print(a[i][i] + \" \");"
+  },
+  {
+    "id": 83,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this single-loop secondary diagonal traversal print?",
+    "options": [
+      "3 5 7 ",
+      "1 5 9 ",
+      "7 5 3 ",
+      "2 5 8 "
+    ],
+    "answerIndex": 0,
+    "explanation": "i=0 -> a[0][2]=3, i=1 -> a[1][1]=5, i=2 -> a[2][0]=7. Output: 3 5 7 .",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nfor(int i = 0; i < 3; i++) System.out.print(a[i][2 - i] + \" \");"
+  },
+  {
+    "id": 84,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the 'trace' of a square matrix in mathematics and computer science?",
+    "options": [
+      "The sum of all elements along the main (primary) diagonal",
+      "The product of the row sums",
+      "The number of rows multiplied by columns",
+      "The maximum element in the matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "The trace of a square matrix is defined as the sum of the elements on its main diagonal: Trace(A) = Σ A[i][i]."
+  },
+  {
+    "id": 85,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the trace of this 3x3 matrix?",
+    "options": [
+      "12",
+      "6",
+      "18",
+      "24"
+    ],
+    "answerIndex": 0,
+    "explanation": "Main diagonal elements are 2, 4, 6. Trace = 2 + 4 + 6 = 12.",
+    "code": "int[][] a = {\n    {2, 1, 0},\n    {3, 4, 5},\n    {9, 8, 6}\n};\nint trace = 0;\nfor(int i = 0; i < 3; i++) trace += a[i][i];\nSystem.out.println(trace);"
+  },
+  {
+    "id": 86,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Can diagonal operations be performed on a rectangular matrix (e.g. 3x5) in standard ICSE syllabus problems?",
+    "options": [
+      "No, primary and secondary diagonals are strictly defined only for square matrices (M == N)",
+      "Yes, any rectangular matrix has two diagonals",
+      "Only if M < N",
+      "Only if all elements are positive"
+    ],
+    "answerIndex": 0,
+    "explanation": "In standard mathematics and the ICSE computer applications syllabus, matrix diagonals are defined exclusively for square matrices where rows == columns."
+  },
+  {
+    "id": 87,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code do to the primary diagonal elements?",
+    "options": [
+      "Doubles them in-place",
+      "Sets them to 0",
+      "Squares them",
+      "Finds their sum"
+    ],
+    "answerIndex": 0,
+    "explanation": "For each diagonal position i == j, a[i][i] *= 2 multiplies the diagonal element by 2.",
+    "code": "int[][] a = {{1, 0}, {0, 2}};\nfor(int i = 0; i < 2; i++) a[i][i] *= 2;"
+  },
+  {
+    "id": 88,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by swapping the primary and secondary diagonal elements of each row?",
+    "options": [
+      "3 2 1 ",
+      "1 2 3 ",
+      "7 5 3 ",
+      "9 5 1 "
+    ],
+    "answerIndex": 0,
+    "explanation": "At row 0, a[0][0] (1) and a[0][2] (3) are swapped, resulting in row 0: {3, 2, 1}.",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nint temp = a[0][0]; a[0][0] = a[0][2]; a[0][2] = temp;\nSystem.out.println(a[0][0] + \" \" + a[0][1] + \" \" + a[0][2]);"
+  },
+  {
+    "id": 89,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the product of the main diagonal elements in this 2x2 matrix?",
+    "options": [
+      "20",
+      "9",
+      "12",
+      "1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Main diagonal elements are a[0][0] = 4 and a[1][1] = 5. Product = 4 * 5 = 20.",
+    "code": "int[][] a = {{4, 1}, {2, 5}};\nSystem.out.println(a[0][0] * a[1][1]);"
+  },
+  {
+    "id": 90,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed when printing only the diagonal elements and spaces for non-diagonal elements in a 3x3 matrix?",
+    "options": [
+      "An 'X' shape pattern across the 3x3 grid",
+      "A filled square",
+      "A single horizontal line",
+      "A vertical line"
+    ],
+    "answerIndex": 0,
+    "explanation": "Checking 'if (i == j || i + j == N - 1)' and printing spaces otherwise creates an 'X' pattern."
+  },
+  {
+    "id": 91,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What condition defines elements that lie ABOVE the primary diagonal in an N x N matrix?",
+    "options": [
+      "j > i",
+      "i > j",
+      "i == j",
+      "i + j < N"
+    ],
+    "answerIndex": 0,
+    "explanation": "For elements above the main diagonal, the column index is strictly greater than the row index (j > i)."
+  },
+  {
+    "id": 92,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What condition defines elements that lie BELOW the primary diagonal in an N x N matrix?",
+    "options": [
+      "i > j",
+      "j > i",
+      "i == j",
+      "i + j > N"
+    ],
+    "answerIndex": 0,
+    "explanation": "For elements below the main diagonal, the row index is strictly greater than the column index (i > j)."
+  },
+  {
+    "id": 93,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of elements strictly above the main diagonal in this 3x3 matrix?",
+    "options": [
+      "11",
+      "15",
+      "6",
+      "14"
+    ],
+    "answerIndex": 0,
+    "explanation": "Elements strictly above main diagonal (j > i) are a[0][1]=2, a[0][2]=3, and a[1][2]=6. Sum = 2 + 3 + 6 = 11.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = 0;\nfor(int i = 0; i < 3; i++) {\n    for(int j = i + 1; j < 3; j++) sum += a[i][j];\n}\nSystem.out.println(sum);"
+  },
+  {
+    "id": 94,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of elements strictly below the main diagonal in this 3x3 matrix?",
+    "options": [
+      "19",
+      "15",
+      "11",
+      "24"
+    ],
+    "answerIndex": 0,
+    "explanation": "Elements strictly below main diagonal (i > j) are a[1][0]=4, a[2][0]=7, and a[2][1]=8. Sum = 4 + 7 + 8 = 19.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};\nint sum = 0;\nfor(int i = 0; i < 3; i++) {\n    for(int j = 0; j < i; j++) sum += a[i][j];\n}\nSystem.out.println(sum);"
+  },
+  {
+    "id": 95,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the primary diagonal element at row 2 of a 4x4 matrix?",
+    "options": [
+      "a[2][2]",
+      "a[2][1]",
+      "a[2][3]",
+      "a[0][2]"
+    ],
+    "answerIndex": 0,
+    "explanation": "For the primary diagonal, row equals column, so at row 2 the element is a[2][2]."
+  },
+  {
+    "id": 96,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the secondary diagonal element at row 1 of a 4x4 matrix (N = 4)?",
+    "options": [
+      "a[1][2]",
+      "a[1][1]",
+      "a[1][3]",
+      "a[1][0]"
+    ],
+    "answerIndex": 0,
+    "explanation": "Secondary diagonal: j = N - 1 - i = 4 - 1 - 1 = 2. So the element is a[1][2]."
+  },
+  {
+    "id": 97,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this boolean check test?",
+    "options": [
+      "Checks if all primary diagonal elements are equal to 1",
+      "Checks if all elements are 1",
+      "Checks if trace is positive",
+      "Checks if the matrix is symmetric"
+    ],
+    "answerIndex": 0,
+    "explanation": "Iterates through the primary diagonal (a[i][i]) and sets flag = false if any diagonal element is not 1.",
+    "code": "boolean flag = true;\nfor(int i = 0; i < N; i++) {\n    if(a[i][i] != 1) { flag = false; break; }\n}"
+  },
+  {
+    "id": 98,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this diagonal difference code (|Primary Sum - Secondary Sum|)?",
+    "options": [
+      "0",
+      "5",
+      "10",
+      "15"
+    ],
+    "answerIndex": 0,
+    "explanation": "Primary sum = 1 + 5 + 9 = 15. Secondary sum = 3 + 5 + 7 = 15. Absolute difference = |15 - 15| = 0.",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nint d1 = 0, d2 = 0;\nfor(int i = 0; i < 3; i++) {\n    d1 += a[i][i];\n    d2 += a[i][2 - i];\n}\nSystem.out.println(Math.abs(d1 - d2));"
+  },
+  {
+    "id": 99,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the center element of a 5x5 matrix with N = 5?",
+    "options": [
+      "a[2][2]",
+      "a[3][3]",
+      "a[1][1]",
+      "a[2][3]"
+    ],
+    "answerIndex": 0,
+    "explanation": "Center coordinates for odd N: (N / 2, N / 2). For N = 5, 5 / 2 = 2 (integer division), so a[2][2]."
+  },
+  {
+    "id": 100,
+    "topic": "Primary & Secondary Diagonals",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many elements lie on the primary diagonal of an N x N square matrix?",
+    "options": [
+      "N elements",
+      "N * N elements",
+      "2 * N elements",
+      "N - 1 elements"
+    ],
+    "answerIndex": 0,
+    "explanation": "There is exactly one primary diagonal element in each of the N rows: a[0][0], a[1][1], ..., a[N - 1][N - 1]. Total = N elements."
+  },
+  {
+    "id": 101,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition identifies a cell (i, j) as a boundary element of an M x N matrix?",
+    "options": [
+      "i == 0 || i == M - 1 || j == 0 || j == N - 1",
+      "i == 0 && j == 0",
+      "i == j",
+      "i > 0 && j > 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Boundary elements lie on the top row (i == 0), bottom row (i == M - 1), leftmost column (j == 0), or rightmost column (j == N - 1)."
+  },
+  {
+    "id": 102,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition identifies a cell (i, j) as a non-boundary (interior) element of an M x N matrix?",
+    "options": [
+      "i > 0 && i < M - 1 && j > 0 && j < N - 1",
+      "i == 0 || j == 0",
+      "i + j == M + N",
+      "i == j"
+    ],
+    "answerIndex": 0,
+    "explanation": "Non-boundary elements are inside the outer frame: row index strictly between 0 and M - 1, and column index strictly between 0 and N - 1."
+  },
+  {
+    "id": 103,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How many non-boundary elements exist in a 4x4 matrix?",
+    "options": [
+      "4 elements (a 2x2 interior grid)",
+      "8 elements",
+      "12 elements",
+      "16 elements"
+    ],
+    "answerIndex": 0,
+    "explanation": "Interior dimensions = (4 - 2) * (4 - 2) = 2 * 2 = 4 elements (cells (1, 1), (1, 2), (2, 1), (2, 2))."
+  },
+  {
+    "id": 104,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of the boundary elements in this 3x3 matrix?",
+    "options": [
+      "40",
+      "45",
+      "35",
+      "25"
+    ],
+    "answerIndex": 0,
+    "explanation": "All elements except the center cell a[1][1] (5) are on the boundary. Total sum = (1+2+3+4+5+6+7+8+9) - 5 = 45 - 5 = 40.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};"
+  },
+  {
+    "id": 105,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the only non-boundary element in a 3x3 matrix?",
+    "options": [
+      "a[1][1]",
+      "a[0][0]",
+      "a[2][2]",
+      "a[0][2]"
+    ],
+    "answerIndex": 0,
+    "explanation": "In a 3x3 matrix, the only interior element with 0 < i < 2 and 0 < j < 2 is the center element at [1][1]."
+  },
+  {
+    "id": 106,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How many boundary elements exist in an M x N matrix (M, N >= 2)?",
+    "options": [
+      "2 * M + 2 * N - 4",
+      "M * N - 4",
+      "2 * M + 2 * N",
+      "M + N"
+    ],
+    "answerIndex": 0,
+    "explanation": "Top + bottom rows have 2*N cells; left + right columns have 2*M cells. The 4 corner cells are counted twice, so formula is 2*M + 2*N - 4."
+  },
+  {
+    "id": 107,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "For a 3x4 matrix, how many boundary elements are there?",
+    "options": [
+      "10 elements",
+      "12 elements",
+      "8 elements",
+      "14 elements"
+    ],
+    "answerIndex": 0,
+    "explanation": "Using 2*M + 2*N - 4: 2*3 + 2*4 - 4 = 6 + 8 - 4 = 10 boundary elements."
+  },
+  {
+    "id": 108,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is an Upper Triangular Matrix?",
+    "options": [
+      "A square matrix where all elements below the primary diagonal are zero",
+      "A matrix where all elements above the primary diagonal are zero",
+      "A matrix having only 1 row",
+      "A matrix having only 3 elements"
+    ],
+    "answerIndex": 0,
+    "explanation": "An upper triangular matrix has all elements BELOW the main diagonal equal to 0 (i.e. a[i][j] == 0 for all i > j)."
+  },
+  {
+    "id": 109,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a Lower Triangular Matrix?",
+    "options": [
+      "A square matrix where all elements above the primary diagonal are zero",
+      "A square matrix where all elements below the primary diagonal are zero",
+      "A matrix containing only negative numbers",
+      "A matrix with 0 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A lower triangular matrix has all elements ABOVE the main diagonal equal to 0 (i.e. a[i][j] == 0 for all j > i)."
+  },
+  {
+    "id": 110,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What type of matrix is this?",
+    "options": [
+      "Upper Triangular Matrix",
+      "Lower Triangular Matrix",
+      "Diagonal Matrix",
+      "Identity Matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "Elements below the diagonal (a[1][0], a[2][0], a[2][1]) are all 0, so this is an Upper Triangular matrix.",
+    "code": "int[][] a = {\n    {1, 4, 7},\n    {0, 2, 5},\n    {0, 0, 3}\n};"
+  },
+  {
+    "id": 111,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What type of matrix is this?",
+    "options": [
+      "Lower Triangular Matrix",
+      "Upper Triangular Matrix",
+      "Scalar Matrix",
+      "Null Matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "Elements above the main diagonal (a[0][1], a[0][2], a[1][2]) are all 0, making this a Lower Triangular matrix.",
+    "code": "int[][] a = {\n    {1, 0, 0},\n    {4, 2, 0},\n    {7, 5, 3}\n};"
+  },
+  {
+    "id": 112,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What condition checks if matrix 'a' is strictly an Upper Triangular matrix?",
+    "options": [
+      "for(int i = 1; i < N; i++) for(int j = 0; j < i; j++) if(a[i][j] != 0) return false;",
+      "for(int i = 0; i < N; i++) for(int j = i; j < N; j++) if(a[i][j] != 0) return false;",
+      "for(int i = 0; i < N; i++) if(a[i][i] != 0) return false;",
+      "for(int i = 0; i < N; i++) if(a[i][N - 1 - i] != 0) return false;"
+    ],
+    "answerIndex": 0,
+    "explanation": "It checks all elements strictly below the diagonal (j < i) and returns false if any non-zero element is encountered."
+  },
+  {
+    "id": 113,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by printing only the upper triangular elements (including diagonal) of this 2x2 matrix?",
+    "options": [
+      "1 2 4 ",
+      "1 3 4 ",
+      "1 4 ",
+      "2 3 "
+    ],
+    "answerIndex": 0,
+    "explanation": "j >= i: a[0][0]=1, a[0][1]=2, and a[1][1]=4. Output: 1 2 4 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = i; j < 2; j++) System.out.print(a[i][j] + \" \");\n}"
+  },
+  {
+    "id": 114,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by printing only the lower triangular elements (including diagonal) of this 2x2 matrix?",
+    "options": [
+      "1 3 4 ",
+      "1 2 4 ",
+      "3 4 ",
+      "1 2 "
+    ],
+    "answerIndex": 0,
+    "explanation": "j <= i: a[0][0]=1, a[1][0]=3, and a[1][1]=4. Output: 1 3 4 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j <= i; j++) System.out.print(a[i][j] + \" \");\n}"
+  },
+  {
+    "id": 115,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What are the four corner elements of this 3x3 matrix?",
+    "options": [
+      "1, 3, 7, 9",
+      "1, 2, 4, 5",
+      "2, 4, 6, 8",
+      "3, 5, 7, 9"
+    ],
+    "answerIndex": 0,
+    "explanation": "Corner elements: Top-Left a[0][0]=1, Top-Right a[0][2]=3, Bottom-Left a[2][0]=7, Bottom-Right a[2][2]=9.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};"
+  },
+  {
+    "id": 116,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the sum of the four corner elements of a 3x3 matrix with values 1 to 9?",
+    "options": [
+      "20",
+      "25",
+      "15",
+      "18"
+    ],
+    "answerIndex": 0,
+    "explanation": "Corners are 1, 3, 7, 9. Sum = 1 + 3 + 7 + 9 = 20."
+  },
+  {
+    "id": 117,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "output",
+    "question": "Which expression accesses the Bottom-Right corner element of an M x N matrix?",
+    "options": [
+      "a[M - 1][N - 1]",
+      "a[M][N]",
+      "a[M - 1][0]",
+      "a[0][N - 1]"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since indices are 0 to M - 1 and 0 to N - 1, the bottom-right corner is at [M - 1][N - 1]."
+  },
+  {
+    "id": 118,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "output",
+    "question": "Which expression accesses the Top-Right corner element of an M x N matrix?",
+    "options": [
+      "a[0][N - 1]",
+      "a[0][0]",
+      "a[M - 1][N - 1]",
+      "a[M - 1][0]"
+    ],
+    "answerIndex": 0,
+    "explanation": "Top row is index 0, rightmost column is index N - 1: a[0][N - 1]."
+  },
+  {
+    "id": 119,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Beginner",
+    "type": "output",
+    "question": "Which expression accesses the Bottom-Left corner element of an M x N matrix?",
+    "options": [
+      "a[M - 1][0]",
+      "a[0][0]",
+      "a[0][N - 1]",
+      "a[M - 1][N - 1]"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bottom row is index M - 1, leftmost column is index 0: a[M - 1][0]."
+  },
+  {
+    "id": 120,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by replacing all non-boundary elements with 0?",
+    "options": [
+      "Center element 5 becomes 0",
+      "Corners become 0",
+      "Entire matrix becomes 0",
+      "No change"
+    ],
+    "answerIndex": 0,
+    "explanation": "In a 3x3 matrix, the only non-boundary element is the center cell a[1][1], which becomes 0.",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\nfor(int i = 1; i < 2; i++) for(int j = 1; j < 2; j++) a[i][j] = 0;\nSystem.out.println(a[1][1]);"
+  },
+  {
+    "id": 121,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the product of the non-boundary elements in a 4x4 matrix with interior values 2, 3, 4, 5?",
+    "options": [
+      "120",
+      "60",
+      "24",
+      "20"
+    ],
+    "answerIndex": 0,
+    "explanation": "Product = 2 * 3 * 4 * 5 = 120."
+  },
+  {
+    "id": 122,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the total number of elements in an upper triangular portion (including diagonal) of an N x N matrix?",
+    "options": [
+      "N * (N + 1) / 2",
+      "N * (N - 1) / 2",
+      "N * N / 2",
+      "N * N - N"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 has N elements, row 1 has N - 1, ..., row N - 1 has 1 element. Sum = 1 + 2 + ... + N = N * (N + 1) / 2."
+  },
+  {
+    "id": 123,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "For a 4x4 matrix, how many elements are in the upper triangular portion including diagonal?",
+    "options": [
+      "10 elements",
+      "16 elements",
+      "6 elements",
+      "8 elements"
+    ],
+    "answerIndex": 0,
+    "explanation": "Using N * (N + 1) / 2 for N = 4: 4 * 5 / 2 = 10 elements."
+  },
+  {
+    "id": 124,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How many elements are strictly above the diagonal in an N x N matrix?",
+    "options": [
+      "N * (N - 1) / 2",
+      "N * (N + 1) / 2",
+      "N * N / 2",
+      "N - 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Total elements = N^2. Subtract diagonal elements (N): N^2 - N = N*(N-1). Divided equally between above and below: N*(N-1)/2."
+  },
+  {
+    "id": 125,
+    "topic": "Boundary, Non-Boundary & Triangular Matrices",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of checking whether this matrix is both Upper and Lower triangular?",
+    "options": [
+      "It is a Diagonal Matrix",
+      "It is a Null Matrix",
+      "It is an Identity Matrix",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "A matrix that is simultaneously upper triangular and lower triangular has zeros everywhere except possibly along the main diagonal, which is the definition of a Diagonal Matrix."
+  },
+  {
+    "id": 126,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What condition MUST be satisfied to add two matrices A and B?",
+    "options": [
+      "They must have the exact same dimensions (same number of rows and columns)",
+      "They must both be square matrices",
+      "The number of columns of A must equal the number of rows of B",
+      "Their diagonal elements must be identical"
+    ],
+    "answerIndex": 0,
+    "explanation": "Matrix addition is performed element-by-element: C[i][j] = A[i][j] + B[i][j]. Therefore, both matrices must have identical row and column dimensions."
+  },
+  {
+    "id": 127,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the sum matrix C = A + B for these two matrices?",
+    "options": [
+      "{{6, 8}, {10, 12}}",
+      "{{5, 12}, {21, 32}}",
+      "{{4, 6}, {8, 10}}",
+      "{{1, 2}, {3, 4}}"
+    ],
+    "answerIndex": 0,
+    "explanation": "C[0][0]=1+5=6, C[0][1]=2+6=8, C[1][0]=3+7=10, C[1][1]=4+8=12.",
+    "code": "int[][] A = {{1, 2}, {3, 4}};\nint[][] B = {{5, 6}, {7, 8}};"
+  },
+  {
+    "id": 128,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the difference matrix C = B - A?",
+    "options": [
+      "{{4, 4}, {4, 4}}",
+      "{{0, 0}, {0, 0}}",
+      "{{-4, -4}, {-4, -4}}",
+      "{{6, 8}, {10, 12}}"
+    ],
+    "answerIndex": 0,
+    "explanation": "B[i][j] - A[i][j]: 5-1=4, 6-2=4, 7-3=4, 8-4=4.",
+    "code": "int[][] A = {{1, 2}, {3, 4}};\nint[][] B = {{5, 6}, {7, 8}};"
+  },
+  {
+    "id": 129,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the 'transpose' of an M x N matrix?",
+    "options": [
+      "A new N x M matrix formed by interchanging rows into columns: T[j][i] = A[i][j]",
+      "A matrix multiplied by -1",
+      "A matrix with all diagonal elements set to 0",
+      "A matrix inverted by Gaussian elimination"
+    ],
+    "answerIndex": 0,
+    "explanation": "Transposing a matrix means swapping its rows and columns: row i of the original matrix becomes column i of the transpose matrix."
+  },
+  {
+    "id": 130,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the transpose of this matrix?",
+    "options": [
+      "{{1, 3}, {2, 4}}",
+      "{{4, 3}, {2, 1}}",
+      "{{1, 2}, {3, 4}}",
+      "{{2, 1}, {4, 3}}"
+    ],
+    "answerIndex": 0,
+    "explanation": "Original row 0 {1, 2} becomes column 0. Original row 1 {3, 4} becomes column 1. Result: {{1, 3}, {2, 4}}.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};"
+  },
+  {
+    "id": 131,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "If matrix A has dimensions 3 rows and 5 columns, what are the dimensions of its transpose matrix A^T?",
+    "options": [
+      "5 rows and 3 columns",
+      "3 rows and 5 columns",
+      "5 rows and 5 columns",
+      "3 rows and 3 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "Transposing an M x N matrix swaps dimensions, resulting in an N x M matrix (5 rows and 3 columns)."
+  },
+  {
+    "id": 132,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a 'Symmetric Matrix'?",
+    "options": [
+      "A square matrix that is equal to its transpose (A[i][j] == A[j][i] for all i, j)",
+      "A matrix having equal number of rows and columns with all elements equal to 1",
+      "A matrix where sum of rows equals sum of columns",
+      "A matrix where all elements are positive"
+    ],
+    "answerIndex": 0,
+    "explanation": "A symmetric matrix is a square matrix that satisfies A = A^T, meaning A[i][j] == A[j][i] across the main diagonal."
+  },
+  {
+    "id": 133,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "Is this matrix symmetric?",
+    "options": [
+      "Yes (A[i][j] == A[j][i] for all pairs)",
+      "No",
+      "Only for diagonal elements",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "a[0][1] == a[1][0] (2 == 2), a[0][2] == a[2][0] (3 == 3), a[1][2] == a[2][1] (5 == 5). It is symmetric.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {2, 4, 5},\n    {3, 5, 6}\n};"
+  },
+  {
+    "id": 134,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is a 'Skew-Symmetric Matrix'?",
+    "options": [
+      "A square matrix where A[i][j] == -A[j][i] for all i, j and all main diagonal elements are 0",
+      "A matrix where all diagonal elements are 1",
+      "A matrix that has no inverse",
+      "A non-square matrix with negative values"
+    ],
+    "answerIndex": 0,
+    "explanation": "A skew-symmetric matrix satisfies A^T = -A. This implies A[i][j] = -A[j][i], and when i == j, A[i][i] = -A[i][i] => A[i][i] = 0."
+  },
+  {
+    "id": 135,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "Why must the main diagonal elements of any Skew-Symmetric matrix always be ZERO?",
+    "options": [
+      "Because A[i][i] = -A[i][i] means 2 * A[i][i] = 0, so A[i][i] = 0",
+      "Because negative numbers are not allowed on diagonals",
+      "Because Java defaults them to 0",
+      "Because of the commutative law of addition"
+    ],
+    "answerIndex": 0,
+    "explanation": "For any diagonal position i == j, skew-symmetry requires A[i][i] = -A[i][i], which algebraically forces A[i][i] = 0."
+  },
+  {
+    "id": 136,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the scalar multiplication result: 3 * A for A = {{1, 2}, {3, 4}}?",
+    "options": [
+      "{{3, 6}, {9, 12}}",
+      "{{4, 5}, {6, 7}}",
+      "{{3, 2}, {3, 4}}",
+      "{{1, 6}, {9, 4}}"
+    ],
+    "answerIndex": 0,
+    "explanation": "Scalar multiplication multiplies every element by the scalar: 1*3=3, 2*3=6, 3*3=9, 4*3=12.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};"
+  },
+  {
+    "id": 137,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Advanced",
+    "type": "output",
+    "question": "How can you transpose an N x N square matrix in-place without creating a second array?",
+    "options": [
+      "for(int i = 0; i < N; i++) for(int j = i + 1; j < N; j++) swap(a[i][j], a[j][i])",
+      "for(int i = 0; i < N; i++) for(int j = 0; j < N; j++) swap(a[i][j], a[j][i])",
+      "By setting all non-diagonal elements to 0",
+      "By copying elements to a 1D array"
+    ],
+    "answerIndex": 0,
+    "explanation": "Iterating for j from i + 1 to N swaps each pair (i, j) and (j, i) exactly once. (Starting j from 0 would swap twice, leaving the matrix unchanged!)."
+  },
+  {
+    "id": 138,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens if you run the in-place transpose loop with 'for(int j = 0; j < N; j++)'?",
+    "options": [
+      "Every pair is swapped twice, reverting the matrix back to its original configuration!",
+      "The matrix is successfully transposed",
+      "ArrayIndexOutOfBoundsException is thrown",
+      "All elements become 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Starting j from 0 swaps a[i][j] with a[j][i], and later swaps a[j][i] with a[i][j] again, undoing the transposition."
+  },
+  {
+    "id": 139,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this symmetry test?",
+    "options": [
+      "Symmetric",
+      "Not Symmetric",
+      "Compilation error",
+      "ArrayIndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "a[0][1] is 5 and a[1][0] is 5. Since A[0][1] == A[1][0], the 2x2 matrix is symmetric.",
+    "code": "int[][] a = {{1, 5}, {5, 9}};\nboolean sym = true;\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        if(a[i][j] != a[j][i]) sym = false;\n    }\n}\nSystem.out.println(sym ? \"Symmetric\" : \"Not Symmetric\");"
+  },
+  {
+    "id": 140,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed when testing this asymmetric matrix?",
+    "options": [
+      "Not Symmetric",
+      "Symmetric",
+      "True",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "a[0][1] is 2, while a[1][0] is 3. Since 2 != 3, it is not symmetric.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nSystem.out.println(a[0][1] == a[1][0] ? \"Symmetric\" : \"Not Symmetric\");"
+  },
+  {
+    "id": 141,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the transpose of a 1x4 row matrix?",
+    "options": [
+      "A 4x1 column matrix",
+      "A 1x4 row matrix",
+      "A 4x4 square matrix",
+      "A scalar value"
+    ],
+    "answerIndex": 0,
+    "explanation": "Transposing a 1x4 matrix (1 row, 4 columns) converts it into a 4x1 matrix (4 rows, 1 column)."
+  },
+  {
+    "id": 142,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the transpose of the transpose of matrix A ((A^T)^T)?",
+    "options": [
+      "Matrix A itself (the original matrix)",
+      "-A",
+      "A square matrix",
+      "Null matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "Transposing twice interchanges rows and columns twice, restoring the original matrix: (A^T)^T = A."
+  },
+  {
+    "id": 143,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Advanced",
+    "type": "output",
+    "question": "For any square matrix A, what can be said about the sum matrix (A + A^T)?",
+    "options": [
+      "It is always a Symmetric Matrix",
+      "It is always a Skew-Symmetric Matrix",
+      "It is always an Identity Matrix",
+      "It is always a Null Matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "Proof: (A + A^T)^T = A^T + (A^T)^T = A^T + A = A + A^T. Thus, (A + A^T) is always symmetric."
+  },
+  {
+    "id": 144,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Advanced",
+    "type": "output",
+    "question": "For any square matrix A, what can be said about the difference matrix (A - A^T)?",
+    "options": [
+      "It is always a Skew-Symmetric Matrix",
+      "It is always a Symmetric Matrix",
+      "It is always a Diagonal Matrix",
+      "It is always an Upper Triangular Matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "Proof: (A - A^T)^T = A^T - A = -(A - A^T). Thus, (A - A^T) is always skew-symmetric."
+  },
+  {
+    "id": 145,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix addition snippet?",
+    "options": [
+      "30",
+      "15",
+      "25",
+      "20"
+    ],
+    "answerIndex": 0,
+    "explanation": "C[1][1] = A[1][1] + B[1][1] = 10 + 20 = 30.",
+    "code": "int[][] A = {{5, 5}, {5, 10}};\nint[][] B = {{10, 10}, {10, 20}};\nSystem.out.println(A[1][1] + B[1][1]);"
+  },
+  {
+    "id": 146,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix subtraction snippet?",
+    "options": [
+      "-10",
+      "10",
+      "0",
+      "20"
+    ],
+    "answerIndex": 0,
+    "explanation": "A[1][1] - B[1][1] = 10 - 20 = -10.",
+    "code": "int[][] A = {{5, 5}, {5, 10}};\nint[][] B = {{10, 10}, {10, 20}};\nSystem.out.println(A[1][1] - B[1][1]);"
+  },
+  {
+    "id": 147,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Can an identity matrix of size N x N be symmetric?",
+    "options": [
+      "Yes, every identity matrix is symmetric because I^T = I",
+      "No, identity matrices are neither symmetric nor square",
+      "Only if N is even",
+      "Only for N = 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "In an identity matrix, all non-diagonal elements are 0 (so I[i][j] == I[j][i] == 0 for i != j). Thus, I^T = I and it is symmetric."
+  },
+  {
+    "id": 148,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the transpose of this 2x3 matrix?",
+    "options": [
+      "3 rows and 2 columns: {{1, 4}, {2, 5}, {3, 6}}",
+      "2 rows and 3 columns: {{1, 2, 3}, {4, 5, 6}}",
+      "3 rows and 3 columns",
+      "2 rows and 2 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 {1, 2, 3} becomes Col 0. Row 1 {4, 5, 6} becomes Col 1. Transpose has 3 rows and 2 columns: {{1, 4}, {2, 5}, {3, 6}}.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6}\n};"
+  },
+  {
+    "id": 149,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Advanced",
+    "type": "output",
+    "question": "How do you rotate an N x N square matrix 90 degrees clockwise in-place?",
+    "options": [
+      "First transpose the matrix, then reverse each row horizontally",
+      "Reverse each row first, then reverse each column",
+      "Multiply the matrix by -1",
+      "Transpose the matrix twice"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rotating 90 degrees clockwise is mathematically equivalent to transposing the matrix (swapping a[i][j] with a[j][i]) and then reversing the elements in each individual row."
+  },
+  {
+    "id": 150,
+    "topic": "Matrix Arithmetic, Transpose & Symmetry",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed after rotating this 2x2 matrix 90 degrees clockwise?",
+    "options": [
+      "3 1 \n4 2 ",
+      "1 2 \n3 4 ",
+      "4 3 \n2 1 ",
+      "2 4 \n1 3 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Original: {{1, 2}, {3, 4}}. Transpose: {{1, 3}, {2, 4}}. Reverse rows: row 0 becomes {3, 1}, row 1 becomes {4, 2}.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\n// 90 deg clockwise:\n// [3, 1]\n// [4, 2]"
+  },
+  {
+    "id": 151,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is an Identity (or Unit) Matrix in Java?",
+    "options": [
+      "A square matrix where all primary diagonal elements are 1, and all other elements are 0",
+      "A matrix where all elements are equal to 1",
+      "A matrix with 1 row and 1 column",
+      "A matrix whose row sum is 1"
+    ],
+    "answerIndex": 0,
+    "explanation": "An identity matrix is a square matrix in which all elements of the principal diagonal are ones and all other elements are zeros."
+  },
+  {
+    "id": 152,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Beginner",
+    "type": "output",
+    "question": "Which of the following creates a 3x3 Identity matrix in Java?",
+    "options": [
+      "for(int i = 0; i < 3; i++) for(int j = 0; j < 3; j++) a[i][j] = (i == j) ? 1 : 0;",
+      "for(int i = 0; i < 3; i++) a[i][i] = 1;",
+      "int[][] a = new int[3][3];",
+      "for(int i = 0; i < 3; i++) for(int j = 0; j < 3; j++) a[i][j] = 1;"
+    ],
+    "answerIndex": 0,
+    "explanation": "Setting a[i][j] = (i == j) ? 1 : 0 correctly places 1 along the main diagonal (i == j) and 0 everywhere else."
+  },
+  {
+    "id": 153,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is a 'Scalar Matrix'?",
+    "options": [
+      "A diagonal matrix where all primary diagonal elements are equal to the same constant value k (k != 0)",
+      "A matrix with 1 element",
+      "A matrix whose determinant is 0",
+      "A matrix with only negative values"
+    ],
+    "answerIndex": 0,
+    "explanation": "A scalar matrix is a diagonal matrix whose diagonal elements are all equal to the same non-zero scalar value k, and all non-diagonal elements are 0."
+  },
+  {
+    "id": 154,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a 'Null' (or Zero) Matrix?",
+    "options": [
+      "A matrix where every single element is 0",
+      "A matrix reference pointing to null",
+      "A matrix with negative dimensions",
+      "A matrix with no memory allocated"
+    ],
+    "answerIndex": 0,
+    "explanation": "A null or zero matrix is a matrix where all elements are zero. Newly allocated 'new int[M][N]' matrices in Java start as zero matrices by default."
+  },
+  {
+    "id": 155,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is a 'Magic Square' matrix in ICSE board programming problems?",
+    "options": [
+      "A square matrix where the sum of every row, every column, and both principal diagonals are all equal",
+      "A matrix containing random prime numbers",
+      "A matrix whose determinant is 1",
+      "A matrix where row sum is always twice the column sum"
+    ],
+    "answerIndex": 0,
+    "explanation": "A magic square is an N x N matrix of distinct numbers where the sum of numbers in each row, each column, and both diagonals is equal to the same constant (Magic Sum)."
+  },
+  {
+    "id": 156,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the magic sum of the famous 3x3 Lo Shu magic square containing numbers 1 to 9?",
+    "options": [
+      "15",
+      "45",
+      "30",
+      "9"
+    ],
+    "answerIndex": 0,
+    "explanation": "Total sum of numbers 1 to 9 is 45. Divided across 3 rows: 45 / 3 = 15. The formula is N * (N^2 + 1) / 2 = 3 * 10 / 2 = 15."
+  },
+  {
+    "id": 157,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is a 'Saddle Point' of a matrix in ICSE computer applications syllabus?",
+    "options": [
+      "An element that is the minimum in its row and the maximum in its column (or vice versa)",
+      "The center element of an odd-sized matrix",
+      "The average of all four corner elements",
+      "An element where i == j and value is 0"
+    ],
+    "answerIndex": 0,
+    "explanation": "A saddle point is a matrix element a[i][j] that is the minimum element in its row i and simultaneously the maximum element in its column j."
+  },
+  {
+    "id": 158,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the saddle point of this matrix?",
+    "options": [
+      "7 (Row 2, Col 0)",
+      "5 (Row 1, Col 1)",
+      "9 (Row 2, Col 2)",
+      "No saddle point exists"
+    ],
+    "answerIndex": 0,
+    "explanation": "In row 2: minimum element is 7 at [2][0]. In column 0: elements are 1, 4, 7; maximum is 7. Thus 7 is a saddle point.",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};"
+  },
+  {
+    "id": 159,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "Is this matrix a Magic Square?",
+    "options": [
+      "Yes (all rows, columns, and diagonals sum to 15)",
+      "No",
+      "Only rows sum to 15",
+      "Only diagonals sum to 15"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rows: 8+1+6=15, 3+5+7=15, 4+9+2=15. Columns: 8+3+4=15, 1+5+9=15, 6+7+2=15. Diagonals: 8+5+2=15, 6+5+4=15. All sum to 15!",
+    "code": "int[][] a = {\n    {8, 1, 6},\n    {3, 5, 7},\n    {4, 9, 2}\n};"
+  },
+  {
+    "id": 160,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "In what order does a 'Spiral Traversal' visit matrix elements?",
+    "options": [
+      "Top row -> Right column -> Bottom row (reverse) -> Left column (reverse), moving inward in concentric rings",
+      "Row by row from top to bottom",
+      "Column by column from left to right",
+      "Diagonally from top-left to bottom-right"
+    ],
+    "answerIndex": 0,
+    "explanation": "Spiral order peels off the matrix boundaries layer by layer in clockwise direction: top row, right column, bottom row reversed, left column reversed, then repeats for the inner subgrid."
+  },
+  {
+    "id": 161,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the first ring of spiral traversal for this 3x3 matrix?",
+    "options": [
+      "1, 2, 3, 6, 9, 8, 7, 4",
+      "1, 2, 3, 4, 5, 6, 7, 8",
+      "1, 4, 7, 8, 9, 6, 3, 2",
+      "9, 8, 7, 6, 5, 4, 3, 2"
+    ],
+    "answerIndex": 0,
+    "explanation": "Top row (1, 2, 3) -> right col (6, 9) -> bottom row rev (8, 7) -> left col rev (4).",
+    "code": "int[][] a = {\n    {1, 2, 3},\n    {4, 5, 6},\n    {7, 8, 9}\n};"
+  },
+  {
+    "id": 162,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix linear search code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "The element 42 exists at cell [1][2], so the search successfully finds it and prints true.",
+    "code": "int[][] a = {{10, 20, 30}, {15, 25, 42}};\nboolean found = false;\nfor(int[] r : a) for(int x : r) if(x == 42) found = true;\nSystem.out.println(found);"
+  },
+  {
+    "id": 163,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "In a row-wise and column-wise sorted N x N matrix, what is the optimal time complexity to search for an element X (Staircase Search)?",
+    "options": [
+      "O(N)",
+      "O(N^2)",
+      "O(1)",
+      "O(N^3)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Starting at the top-right corner (0, N - 1): if current > X move left (j--); if current < X move down (i++). This finds X in at most 2*N steps, achieving O(N) time."
+  },
+  {
+    "id": 164,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a 'Binary Matrix' (or Boolean Matrix)?",
+    "options": [
+      "A matrix whose elements can ONLY have values 0 or 1",
+      "A matrix that can only store negative numbers",
+      "A matrix with 2 rows and 2 columns",
+      "A matrix written in base 16"
+    ],
+    "answerIndex": 0,
+    "explanation": "A binary matrix (also called a bit matrix or boolean matrix) is a matrix whose elements are drawn from the binary set {0, 1}."
+  },
+  {
+    "id": 165,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by checking if this matrix is an Identity matrix?",
+    "options": [
+      "Identity Matrix",
+      "Not Identity Matrix",
+      "Null Matrix",
+      "Diagonal Matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "Main diagonal has 1s (a[0][0]=1, a[1][1]=1), non-diagonals are 0s. It is an Identity matrix.",
+    "code": "int[][] a = {{1, 0}, {0, 1}};\nboolean isId = (a[0][0]==1 && a[1][1]==1 && a[0][1]==0 && a[1][0]==0);\nSystem.out.println(isId ? \"Identity Matrix\" : \"Not Identity Matrix\");"
+  },
+  {
+    "id": 166,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by checking if this matrix is a Scalar matrix?",
+    "options": [
+      "Scalar Matrix",
+      "Identity Matrix",
+      "Not Scalar Matrix",
+      "Null Matrix"
+    ],
+    "answerIndex": 0,
+    "explanation": "All diagonal elements are 7 (a non-zero constant) and all non-diagonal elements are 0, making it a Scalar matrix.",
+    "code": "int[][] a = {{7, 0}, {0, 7}};\nboolean isScalar = (a[0][0]==a[1][1] && a[0][1]==0 && a[1][0]==0);\nSystem.out.println(isScalar ? \"Scalar Matrix\" : \"Not Scalar Matrix\");"
+  },
+  {
+    "id": 167,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this matrix multiplication snippet for A[1][2] * B[2][1]?",
+    "options": [
+      "11",
+      "5",
+      "6",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "C[0][0] = A[0][0]*B[0][0] + A[0][1]*B[1][0] = 1*3 + 2*4 = 3 + 8 = 11.",
+    "code": "int[][] A = {{1, 2}};\nint[][] B = {{3}, {4}};\nint result = A[0][0] * B[0][0] + A[0][1] * B[1][0];\nSystem.out.println(result);"
+  },
+  {
+    "id": 168,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "For matrix multiplication A * B to be valid, what dimension condition must be met?",
+    "options": [
+      "Columns of A must equal Rows of B",
+      "Rows of A must equal Rows of B",
+      "Columns of A must equal Columns of B",
+      "A and B must have identical dimensions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Matrix multiplication requires that the number of columns in the first matrix A must equal the number of rows in the second matrix B: (M x K) * (K x N) = (M x N)."
+  },
+  {
+    "id": 169,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the product of multiplying a matrix A with an Identity matrix of the same size (A * I)?",
+    "options": [
+      "Matrix A itself",
+      "Identity matrix I",
+      "Zero matrix",
+      "Transpose of A"
+    ],
+    "answerIndex": 0,
+    "explanation": "The identity matrix is the multiplicative identity in matrix algebra: A * I = I * A = A."
+  },
+  {
+    "id": 170,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by checking if this matrix is a Diagonal matrix?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "All elements off the main diagonal are 0 (a[0][1]=0, a[1][0]=0). Hence it is a Diagonal matrix.",
+    "code": "int[][] a = {{3, 0}, {0, 8}};\nboolean diag = (a[0][1] == 0 && a[1][0] == 0);\nSystem.out.println(diag);"
+  },
+  {
+    "id": 171,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does this code print for finding the row with the maximum number of 1s in a boolean matrix?",
+    "options": [
+      "Row 1",
+      "Row 0",
+      "Row 2",
+      "All equal"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 has one 1. Row 1 has two 1s ({1, 1}). Row 2 has no 1s ({0, 0}). Maximum is Row 1.",
+    "code": "int[][] a = {{0, 1}, {1, 1}, {0, 0}};\nint maxRow = 0, maxCount = -1;\nfor(int i = 0; i < 3; i++) {\n    int count = 0;\n    for(int j = 0; j < 2; j++) if(a[i][j] == 1) count++;\n    if(count > maxCount) { maxCount = count; maxRow = i; }\n}\nSystem.out.println(\"Row \" + maxRow);"
+  },
+  {
+    "id": 172,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this Tic-Tac-Toe winner check?",
+    "options": [
+      "X wins",
+      "O wins",
+      "Tie",
+      "Incomplete"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 0 has all 'X' ('X' == board[0][0] && 'X' == board[0][1] && 'X' == board[0][2]), so 'X' wins.",
+    "code": "char[][] b = {\n    {'X', 'X', 'X'},\n    {'O', 'X', 'O'},\n    {'O', 'O', ' '}\n};\nif(b[0][0] == 'X' && b[0][1] == 'X' && b[0][2] == 'X') System.out.println(\"X wins\");"
+  },
+  {
+    "id": 173,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this matrix determinant calculation for a 2x2 matrix {{a, b}, {c, d}}?",
+    "options": [
+      "-2",
+      "2",
+      "10",
+      "14"
+    ],
+    "answerIndex": 0,
+    "explanation": "Determinant of {{1, 2}, {3, 4}} is a*d - b*c = 1*4 - 2*3 = 4 - 6 = -2.",
+    "code": "int[][] m = {{1, 2}, {3, 4}};\nint det = m[0][0] * m[1][1] - m[0][1] * m[1][0];\nSystem.out.println(det);"
+  },
+  {
+    "id": 174,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed when testing if this matrix has a Zero row?",
+    "options": [
+      "Zero row found at index 1",
+      "No zero row",
+      "Zero row found at index 0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Row 1 contains {0, 0, 0}. All elements are 0, so it is identified as a zero row.",
+    "code": "int[][] a = {{1, 2, 3}, {0, 0, 0}};\nfor(int i = 0; i < 2; i++) {\n    boolean allZero = true;\n    for(int j = 0; j < 3; j++) if(a[i][j] != 0) allZero = false;\n    if(allZero) System.out.println(\"Zero row found at index \" + i);\n}"
+  },
+  {
+    "id": 175,
+    "topic": "Special Matrices & Board Algorithms",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the formula for the Magic Constant M of an N x N normal magic square containing integers 1 to N^2?",
+    "options": [
+      "M = N * (N^2 + 1) / 2",
+      "M = N * (N + 1) / 2",
+      "M = N^2 * (N^2 + 1) / 2",
+      "M = N^3"
+    ],
+    "answerIndex": 0,
+    "explanation": "Sum of all integers from 1 to N^2 is S = N^2 * (N^2 + 1) / 2. Since there are N rows with equal sum, each row sums to M = S / N = N * (N^2 + 1) / 2."
+  },
+  {
+    "id": 176,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code?",
+    "options": [
+      "ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3",
+      "9",
+      "0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Valid indices for a 3x3 array are 0, 1, 2. The loop condition 'i <= 3' causes an attempt to access a[3][0], throwing ArrayIndexOutOfBoundsException.",
+    "code": "int[][] a = new int[3][3];\nfor(int i = 0; i <= 3; i++) {\n    a[i][0] = 10;\n}"
+  },
+  {
+    "id": 177,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does the following snippet print?",
+    "options": [
+      "10 20 30 ",
+      "10 40 ",
+      "10 20 30 40 50 60 ",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "i is fixed at 0. j loops from 0 to 2, printing the elements of row 0: 10 20 30 .",
+    "code": "int[][] a = {\n    {10, 20, 30},\n    {40, 50, 60}\n};\nfor(int j = 0; j < 3; j++) {\n    System.out.print(a[0][j] + \" \");\n}"
+  },
+  {
+    "id": 178,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following loop?",
+    "options": [
+      "10 40 ",
+      "10 20 30 ",
+      "40 50 60 ",
+      "10 20 40 50 "
+    ],
+    "answerIndex": 0,
+    "explanation": "j is fixed at 0. i loops over rows 0 and 1, printing column 0: a[0][0] = 10, a[1][0] = 40. Output: 10 40 .",
+    "code": "int[][] a = {\n    {10, 20, 30},\n    {40, 50, 60}\n};\nfor(int i = 0; i < 2; i++) {\n    System.out.print(a[i][0] + \" \");\n}"
+  },
+  {
+    "id": 179,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "3",
+      "4",
+      "Compilation error",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "arr[1][1] initially contains 4. The statement 'arr[1][1]--' decrements the value to 3.",
+    "code": "int[][] arr = {{1, 2}, {3, 4}};\narr[1][1]--;\nSystem.out.println(arr[1][1]);"
+  },
+  {
+    "id": 180,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix transformation loop?",
+    "options": [
+      "2 4 6 8 ",
+      "1 2 3 4 ",
+      "4 8 12 16 ",
+      "0 0 0 0 "
+    ],
+    "answerIndex": 0,
+    "explanation": "Each element is multiplied by 2: 1*2=2, 2*2=4, 3*2=6, 4*2=8. Output: 2 4 6 8 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        a[i][j] *= 2;\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 181,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "6",
+      "5",
+      "4",
+      "3"
+    ],
+    "answerIndex": 0,
+    "explanation": "arr[0][1] is 2, and arr[1][1] is 4. 2 + 4 = 6.",
+    "code": "int[][] arr = {{1, 2}, {3, 4}};\nSystem.out.println(arr[0][1] + arr[1][1]);"
+  },
+  {
+    "id": 182,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this matrix transposition dry run?",
+    "options": [
+      "2",
+      "3",
+      "1",
+      "4"
+    ],
+    "answerIndex": 0,
+    "explanation": "Transposing a stores a[i][j] into t[j][i]. So t[1][0] = a[0][1] = 2.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nint[][] t = new int[2][2];\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        t[j][i] = a[i][j];\n    }\n}\nSystem.out.println(t[1][0]);"
+  },
+  {
+    "id": 183,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following program?",
+    "options": [
+      "0",
+      "null",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Array cells are automatically initialized to 0. Since no value was assigned to grid[1][1], it prints 0.",
+    "code": "int[][] grid = new int[2][2];\nSystem.out.println(grid[1][1]);"
+  },
+  {
+    "id": 184,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this ternary assignment loop?",
+    "options": [
+      "1 0 0 1 ",
+      "1 1 1 1 ",
+      "0 0 0 0 ",
+      "0 1 1 0 "
+    ],
+    "answerIndex": 0,
+    "explanation": "(i == j) is true for [0][0] and [1][1] (yielding 1), and false for [0][1] and [1][0] (yielding 0). Output: 1 0 0 1 .",
+    "code": "int[][] m = new int[2][2];\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        m[i][j] = (i == j) ? 1 : 0;\n        System.out.print(m[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 185,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this nested loop with continue statement?",
+    "options": [
+      "2 3 ",
+      "1 2 3 4 ",
+      "1 4 ",
+      "1 2 "
+    ],
+    "answerIndex": 0,
+    "explanation": "When i == j, the loop continues (skips printing). [0][0]=1 and [1][1]=4 are skipped. [0][1]=2 and [1][0]=3 are printed: 2 3 .",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        if(i == j) continue;\n        System.out.print(a[i][j] + \" \");\n    }\n}"
+  },
+  {
+    "id": 186,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "25",
+      "5",
+      "20",
+      "10"
+    ],
+    "answerIndex": 0,
+    "explanation": "val += a[1][0] (which is 15) adds 15 to 10 = 25.",
+    "code": "int[][] a = {{5, 10}, {15, 20}};\nint val = a[0][1]; // 10\nval += a[1][0];    // + 15\nSystem.out.println(val);"
+  },
+  {
+    "id": 187,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "30",
+      "10",
+      "20",
+      "40"
+    ],
+    "answerIndex": 0,
+    "explanation": "a[1][0] references row index 1, column index 0, which is 30.",
+    "code": "int[][] a = {\n    {10, 20},\n    {30, 40}\n};\nSystem.out.println(a[1][0]);"
+  },
+  {
+    "id": 188,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this nested loop sum?",
+    "options": [
+      "21",
+      "28",
+      "15",
+      "10"
+    ],
+    "answerIndex": 0,
+    "explanation": "Sum of integers from 1 to 6 = 1 + 2 + 3 + 4 + 5 + 6 = 21.",
+    "code": "int[][] a = {{1, 2, 3}, {4, 5, 6}};\nint total = 0;\nfor(int[] r : a) for(int n : r) total += n;\nSystem.out.println(total);"
+  },
+  {
+    "id": 189,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix multiplication of dimensions?",
+    "options": [
+      "6",
+      "5",
+      "8",
+      "9"
+    ],
+    "answerIndex": 0,
+    "explanation": "arr.length is 2, arr[0].length is 3. 2 * 3 = 6.",
+    "code": "int[][] arr = new int[2][3];\nSystem.out.println(arr.length * arr[0].length);"
+  },
+  {
+    "id": 190,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What happens when you execute this code?",
+    "options": [
+      "ArrayIndexOutOfBoundsException",
+      "Prints 1 2 3",
+      "Infinite loop",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "j is incremented up to 3, but row 1 has only 2 elements ({4, 5}). Accessing arr[1][2] throws ArrayIndexOutOfBoundsException.",
+    "code": "int[][] arr = {{1, 2, 3}, {4, 5}};\nSystem.out.println(arr[1][2]);"
+  },
+  {
+    "id": 191,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this diagonal multiplication?",
+    "options": [
+      "10",
+      "7",
+      "25",
+      "14"
+    ],
+    "answerIndex": 0,
+    "explanation": "a[0][0] = 2, a[1][1] = 5. Product = 2 * 5 = 10.",
+    "code": "int[][] a = {{2, 3}, {4, 5}};\nSystem.out.println(a[0][0] * a[1][1]);"
+  },
+  {
+    "id": 192,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "100",
+      "200",
+      "Compilation error",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Direct assignment updates a[0][1] to 100.",
+    "code": "int[][] a = new int[2][2];\na[0][1] = 100;\nSystem.out.println(a[0][1]);"
+  },
+  {
+    "id": 193,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this row replacement code?",
+    "options": [
+      "99 99 ",
+      "1 2 ",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java, a[0] is a reference to the first row array. Reassigning a[0] = new int[]{99, 99} replaces the entire row.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\na[0] = new int[]{99, 99};\nSystem.out.println(a[0][0] + \" \" + a[0][1]);"
+  },
+  {
+    "id": 194,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed when two 2D references point to the same row array?",
+    "options": [
+      "77",
+      "1",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "row2 is assigned the reference of a[0]. Mutating row2[0] = 77 directly mutates the shared underlying array, so a[0][0] becomes 77.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nint[] row2 = a[0];\nrow2[0] = 77;\nSystem.out.println(a[0][0]);"
+  },
+  {
+    "id": 195,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "0 0",
+      "null null",
+      "Compilation error",
+      "Exception"
+    ],
+    "answerIndex": 0,
+    "explanation": "All elements of an unassigned double[][] matrix default to 0.0, and int[][] defaults to 0.",
+    "code": "int[][] a = new int[1][2];\nSystem.out.println(a[0][0] + \" \" + a[0][1]);"
+  },
+  {
+    "id": 196,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following nested loop with break?",
+    "options": [
+      "0 2 ",
+      "0 1 2 3 ",
+      "0 ",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "For i=0: j=0 -> prints 0, then j=1 triggers break (inner loop terminates). For i=1: j=0 -> a[1][0]=2, then j=1 triggers break. Output: 0 2 .",
+    "code": "int[][] a = {{0, 1}, {2, 3}};\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        System.out.print(a[i][j] + \" \");\n        if(j == 0) break;\n    }\n}"
+  },
+  {
+    "id": 197,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this matrix parity count?",
+    "options": [
+      "Evens: 2, Odds: 2",
+      "Evens: 3, Odds: 1",
+      "Evens: 4, Odds: 0",
+      "Evens: 1, Odds: 3"
+    ],
+    "answerIndex": 0,
+    "explanation": "1 and 3 are odd (count=2); 2 and 4 are even (count=2).",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nint evens = 0, odds = 0;\nfor(int[] r : a) for(int x : r) if(x % 2 == 0) evens++; else odds++;\nSystem.out.println(\"Evens: \" + evens + \", Odds: \" + odds);"
+  },
+  {
+    "id": 198,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this tricky condition check?",
+    "options": [
+      "Corner",
+      "Interior",
+      "Side",
+      "None"
+    ],
+    "answerIndex": 0,
+    "explanation": "i=2 and j=2 in a 3x3 matrix represents the bottom-right corner. The condition (i == 2 && j == 2) evaluates to true.",
+    "code": "int i = 2, j = 2, N = 3;\nif((i == 0 || i == N - 1) && (j == 0 || j == N - 1)) {\n    System.out.println(\"Corner\");\n} else {\n    System.out.println(\"Not Corner\");\n}"
+  },
+  {
+    "id": 199,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the final value of sum after executing this code?",
+    "options": [
+      "12",
+      "8",
+      "16",
+      "4"
+    ],
+    "answerIndex": 0,
+    "explanation": "The loop sums the elements where i != j: a[0][1] (2) + a[1][0] (10) = 12.",
+    "code": "int[][] a = {{5, 2}, {10, 5}};\nint sum = 0;\nfor(int i = 0; i < 2; i++) {\n    for(int j = 0; j < 2; j++) {\n        if(i != j) sum += a[i][j];\n    }\n}\nSystem.out.println(sum);"
+  },
+  {
+    "id": 200,
+    "topic": "Output Prediction, Dry Runs & Error Traps",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the result of printing the matrix reference directly without formatting?",
+    "options": [
+      "A type descriptor string like [[I@... (class name + @ + hex hashcode)",
+      "[[1, 2], [3, 4]]",
+      "1 2 3 4",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Multidimensional arrays in Java inherit Object.toString(), which returns '[[I@' followed by the object's hexadecimal identity hash code.",
+    "code": "int[][] a = {{1, 2}, {3, 4}};\nSystem.out.println(a);"
+  }
+]

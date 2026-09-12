@@ -5,7 +5,10 @@ import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import demoCode from "./topic2_files/MatrixRowColSumDemo.java?raw";
+import demoCode1 from "./topic2_files/MatrixRowColSumDemo.java?raw";
+import demoCode2 from "./topic2_files/MatrixRowColExtremesDemo.java?raw";
+import demoCode3 from "./topic2_files/StudentMarksReportDemo.java?raw";
+import demoCode4 from "./topic2_files/GrandTotalAndAveragesDemo.java?raw";
 import noteText from "./topic2_files/topic2_note.txt?raw";
 import questions from "./topic2_files/topic2_questions";
 
@@ -107,6 +110,43 @@ const InteractiveRowColSumCalculator = () => {
 };
 
 const Topic2 = () => {
+  const [activeExampleIndex, setActiveExampleIndex] = useState(0);
+
+  const examples = [
+    {
+      id: "row-col-sum-basic",
+      title: "1. Row & Column Sums",
+      file: "MatrixRowColSumDemo.java",
+      description: "Standard calculation of individual row totals and column totals with proper accumulator resets and loop scoping.",
+      code: demoCode1,
+      highlights: [18, 19, 21, 27, 28, 30, 48, 51, 60, 63]
+    },
+    {
+      id: "row-col-extremes",
+      title: "2. Row & Col Max / Min",
+      file: "MatrixRowColExtremesDemo.java",
+      description: "Finding maximum and minimum values per row, per column, and overall matrix extremes with their row and column index coordinates.",
+      code: demoCode2,
+      highlights: [31, 33, 34, 45, 47, 48, 62, 67]
+    },
+    {
+      id: "student-marks",
+      title: "3. Student Marks Grade Sheet",
+      file: "StudentMarksReportDemo.java",
+      description: "Real-world ICSE Board problem: Student x Subject 2D array, computing student totals and percentages alongside subject averages.",
+      code: demoCode3,
+      highlights: [16, 21, 37, 43, 44, 47, 56]
+    },
+    {
+      id: "grand-total-avg",
+      title: "4. Grand Total & Averages",
+      file: "GrandTotalAndAveragesDemo.java",
+      description: "Accumulating grand sum, overall matrix mean, per-row averages, and counting elements above and below the mean.",
+      code: demoCode4,
+      highlights: [25, 30, 31, 34, 38, 50, 51]
+    }
+  ];
+
   return (
     <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
@@ -211,15 +251,59 @@ const Topic2 = () => {
         </div>
       </section>
 
-      {/* 5. Hands-on Code Example Section */}
+      {/* 5. Hands-on Code Example Studio */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Hands-on Java Source Code: <code className="font-mono text-emerald-300">MatrixRowColSumDemo.java</code>
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Hands-On Java Code Studio: Row & Column Aggregations
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              Explore 4 practical BlueJ-compatible Java programs covering row sums, column sums, row/column extremes, student grade sheets, and matrix averages.
+            </p>
+          </div>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            4 ICSE Examples
+          </span>
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {examples.map((ex, idx) => (
+            <button
+              key={ex.id}
+              onClick={() => setActiveExampleIndex(idx)}
+              className={clsx(
+                "p-3.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between",
+                activeExampleIndex === idx
+                  ? "bg-emerald-500/10 border-emerald-500/40 text-white shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/30"
+                  : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              )}
+            >
+              <div className="text-xs font-bold text-emerald-400 mb-1">{ex.title}</div>
+              <div className="font-mono text-[11px] text-slate-400 truncate">{ex.file}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Example Detail Card */}
+        <div className="p-4 bg-slate-950/70 rounded-xl border border-slate-800/80 text-xs text-slate-300 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-semibold text-emerald-300 text-sm">{examples[activeExampleIndex].title}</span>
+            <span className="font-mono text-xs text-sky-400 bg-sky-950/50 px-2 py-0.5 rounded border border-sky-800/50">
+              {examples[activeExampleIndex].file}
+            </span>
+          </div>
+          <p className="text-slate-400 text-xs leading-relaxed">
+            {examples[activeExampleIndex].description}
+          </p>
+        </div>
+
+        {/* Code Viewer */}
         <JavaFileLoader
-          fileModule={demoCode}
-          title="MatrixRowColSumDemo.java"
-          highlightLines={[18, 19, 21, 27, 28, 30]}
+          fileModule={examples[activeExampleIndex].code}
+          title={examples[activeExampleIndex].file}
+          highlightLines={examples[activeExampleIndex].highlights}
         />
       </section>
 

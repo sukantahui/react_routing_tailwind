@@ -1,0 +1,43 @@
+- generic [ref=f11e3]:
+  - banner [ref=f11e5]:
+    - generic [ref=f11e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=f11e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=f11e12]
+        - generic [ref=f11e13]:
+          - generic [ref=f11e14]:
+            - generic [ref=f11e15]: Coder&AccoTax
+            - generic [ref=f11e16]: ISO 9001:2015
+          - generic [ref=f11e18]: Premier Coding & IT Training Institute
+      - navigation [ref=f11e19]:
+        - link " Home" [ref=f11e20] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f11e21]: 
+          - generic [ref=f11e22]: Home
+        - button " Tools " [ref=f11e24] [cursor=pointer]:
+          - generic [ref=f11e25]: 
+          - generic [ref=f11e26]: Tools
+          - generic [ref=f11e27]: 
+        - button " Tutorials " [ref=f11e29] [cursor=pointer]:
+          - generic [ref=f11e30]: 
+          - generic [ref=f11e31]: Tutorials
+          - generic [ref=f11e32]: 
+        - link "🌸 Bijoya 2026  Guest Pass" [ref=f11e33] [cursor=pointer]:
+          - /url: /bijoya
+          - generic [ref=f11e37]: 🌸
+          - generic [ref=f11e38]: Bijoya 2026
+          - generic [ref=f11e39]:
+            - generic [ref=f11e40]: 
+            - text: Guest Pass
+      - generic [ref=f11e41]:
+        - button " Quick Jump... ⌘K" [ref=f11e42] [cursor=pointer]:
+          - generic [ref=f11e43]: 
+          - generic [ref=f11e44]: Quick Jump...
+          - generic [ref=f11e45]: ⌘K
+        - link "Portal Login" [ref=f11e46] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=f11e47]: 
+        - text:   
+    - text:     
+  - main [ref=f11e48]:
+    - paragraph [ref=f11e52]: Loading course curriculum...

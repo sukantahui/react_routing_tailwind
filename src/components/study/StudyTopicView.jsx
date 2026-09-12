@@ -494,7 +494,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   };
 
   return (
-    <div className="dark min-h-screen bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden select-text selection:bg-slate-800 selection:text-slate-200">
+    <div className="dark min-h-screen bg-slate-950 text-slate-100 flex flex-col select-text selection:bg-slate-800 selection:text-slate-200">
 
       {/* ========================================================== */}
       {/* Toast Notification */}
@@ -886,7 +886,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           {/* ============================================================== */}
           <main
             ref={mainContentRef}
-            className="flex-1 px-2 sm:px-4 lg:px-6 py-4 min-w-0 transition-all duration-150 relative"
+            className="flex-1 px-3 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-16 min-w-0 transition-all duration-150 relative"
             style={{
               marginLeft: showSidebar && !focusMode ? "16rem" : "0px",
               marginRight: showRightSidebar && !focusMode ? `${rightSidebarWidth}px` : "0px",

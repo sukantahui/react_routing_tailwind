@@ -5,7 +5,10 @@ import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import demoCode from "./topic0_files/MatrixDeclarationDemo.java?raw";
+import demoCode1 from "./topic0_files/MatrixDeclarationDemo.java?raw";
+import demoCode2 from "./topic0_files/MatrixDimensionsAndMemoryDemo.java?raw";
+import demoCode3 from "./topic0_files/JaggedArrayDemo.java?raw";
+import demoCode4 from "./topic0_files/DifferentDataTypesMatrixDemo.java?raw";
 import noteText from "./topic0_files/topic0_note.txt?raw";
 import questions from "./topic0_files/topic0_questions";
 
@@ -316,6 +319,43 @@ const InteractiveLoopStepper = () => {
 };
 
 const Topic0 = () => {
+  const [activeExampleIndex, setActiveExampleIndex] = useState(0);
+
+  const examples = [
+    {
+      id: "decl-basic",
+      title: "1. Core Declarations",
+      file: "MatrixDeclarationDemo.java",
+      description: "Dynamic allocation using new int[3][3], direct literal initializers, dimension calculation, and default value inspection.",
+      code: demoCode1,
+      highlights: [12, 14, 17, 21, 29, 30, 31, 38, 48]
+    },
+    {
+      id: "mem-dims",
+      title: "2. Memory & References",
+      file: "MatrixDimensionsAndMemoryDemo.java",
+      description: "Stack reference pointer, Heap row reference array, row length inspection, and reassigning entire row arrays.",
+      code: demoCode2,
+      highlights: [16, 21, 22, 23, 24, 28, 30, 48]
+    },
+    {
+      id: "ragged-jagged",
+      title: "3. Jagged Arrays",
+      file: "JaggedArrayDemo.java",
+      description: "Declaring arrays with non-uniform row lengths, per-row memory allocation, and Pascal's triangle construction.",
+      code: demoCode3,
+      highlights: [15, 18, 19, 20, 21, 30, 43, 44]
+    },
+    {
+      id: "mixed-types",
+      title: "4. Various Data Types",
+      file: "DifferentDataTypesMatrixDemo.java",
+      description: "Practical matrices of char[][] (game boards), double[][] (temperatures/coordinates), and String[][] (student seating chart).",
+      code: demoCode4,
+      highlights: [16, 17, 18, 37, 38, 39, 56, 57, 58]
+    }
+  ];
+
   return (
     <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
@@ -329,7 +369,7 @@ const Topic0 = () => {
       `}</style>
 
       {/* 1. Header Section */}
-      <header className="space-y-4 border-b border-slate-800 pb-6 animate-fade-in">
+      <header className="space-y-4 border-b border-slate-800 pb-6 pt-2 sm:pt-4 animate-fade-in">
         <div className="flex flex-wrap items-center gap-3">
           <span className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
             Module 003_001 · Topic 0
@@ -420,15 +460,59 @@ const Topic0 = () => {
         <InteractiveLoopStepper />
       </section>
 
-      {/* 6. Hands-on Code Example Section */}
+      {/* 6. Hands-on Code Example Studio */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Compilable Java Source Code: <code className="font-mono text-emerald-300">MatrixDeclarationDemo.java</code>
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Hands-On Java Code Studio: 2D Array Foundations
+            </h2>
+            <p className="text-sm text-slate-400 mt-1">
+              Explore 4 comprehensive, runnable BlueJ-compatible Java programs illustrating core declaration, memory layout, and jagged arrays.
+            </p>
+          </div>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            4 ICSE Examples
+          </span>
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {examples.map((ex, idx) => (
+            <button
+              key={ex.id}
+              onClick={() => setActiveExampleIndex(idx)}
+              className={clsx(
+                "p-3.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between",
+                activeExampleIndex === idx
+                  ? "bg-emerald-500/10 border-emerald-500/40 text-white shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/30"
+                  : "bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              )}
+            >
+              <div className="text-xs font-bold text-emerald-400 mb-1">{ex.title}</div>
+              <div className="font-mono text-[11px] text-slate-400 truncate">{ex.file}</div>
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Example Detail Card */}
+        <div className="p-4 bg-slate-950/70 rounded-xl border border-slate-800/80 text-xs text-slate-300 space-y-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-semibold text-emerald-300 text-sm">{examples[activeExampleIndex].title}</span>
+            <span className="font-mono text-xs text-sky-400 bg-sky-950/50 px-2 py-0.5 rounded border border-sky-800/50">
+              {examples[activeExampleIndex].file}
+            </span>
+          </div>
+          <p className="text-slate-400 text-xs leading-relaxed">
+            {examples[activeExampleIndex].description}
+          </p>
+        </div>
+
+        {/* Code Viewer */}
         <JavaFileLoader
-          fileModule={demoCode}
-          title="MatrixDeclarationDemo.java"
-          highlightLines={[3, 4, 5, 6, 7, 13, 14, 15]}
+          fileModule={examples[activeExampleIndex].code}
+          title={examples[activeExampleIndex].file}
+          highlightLines={examples[activeExampleIndex].highlights}
         />
       </section>
 
