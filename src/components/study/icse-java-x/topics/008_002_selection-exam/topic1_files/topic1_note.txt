@@ -1,0 +1,62 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS
+MODULE 008_002: Selection Examination & Final ICSE Board Prep
+TOPIC 1: Previous 10-Year CISCE Board Question Paper Solutions & Patterns
+Educator: Sukanta Hui | Barrackpore, Kolkata
+================================================================================
+
+1. CISCE SECTION B PROGRAMMING BLUEPRINT (10-YEAR TREND)
+--------------------------------------------------------------------------------
+Every year, Section B offers 6 programming questions (15 marks each).
+Candidates must attempt ANY FOUR questions (Total: 60 marks).
+
+Recurring Question Archetypes:
+--------------------------------------------------------------------------------
+1. Question 3: Class Design & Encapsulation
+   - Real-world entity with instance variables, constructor/accept(), calculate(), print().
+   - Slab rates (Electricity, Taxi, Library fine, Book fair discount).
+   
+2. Question 4: 1D Numeric Array Processing
+   - Binary Search (ascending/descending sorted array).
+   - Bubble Sort or Selection Sort.
+   - Frequency / Standard deviation / Parallel arrays.
+
+3. Question 5: String Manipulation & Character Processing
+   - Piglatin word transformation.
+   - Capitalizing each word (Title Case).
+   - Palindrome words / Longest word / Vowel counting.
+
+4. Question 6: Method Overloading
+   - Overloading mathematical series (sum of x^n / n).
+   - Overloading geometric area/volume (Circle, Rectangle, Trapezium).
+   - Overloading polygon drawing or number checks.
+
+5. Question 7: Digit Extraction & Special Numbers
+   - Armstrong, Krishnamurthy (Special), Tech, Automorphic, Neon, Disarium, Duck, Spy.
+
+6. Question 8: 2D Matrices / Menu-Driven Applications
+   - 4x4 matrix diagonals, row/col sum, symmetry test.
+   - Switch-case menu driven calculator or utility.
+
+2. HIGH-YIELD SPECIAL NUMBER CHECKS SUMMARY
+--------------------------------------------------------------------------------
+- Armstrong Number  : Sum of digits^total_digits == Number (e.g. 153 = 1^3 + 5^3 + 3^3)
+- Krishnamurthy/Sp. : Sum of factorials of digits == Number (e.g. 145 = 1! + 4! + 5!)
+- Tech Number       : (First_half + Second_half)^2 == Number (e.g. 3025: (30+25)^2 = 3025)
+- Automorphic Number: (Number^2) ends in Number (e.g. 25^2 = 625 -> ends in 25)
+- Neon Number       : Sum of digits of (Number^2) == Number (e.g. 9^2 = 81 -> 8+1 = 9)
+- Disarium Number   : Sum of digit_i^position_i == Number (e.g. 135 = 1^1 + 3^2 + 5^3)
+- Spy Number        : Sum of digits == Product of digits (e.g. 1124: 1+1+2+4 = 8, 1*1*2*4 = 8)
+- Duck Number       : Contains at least one '0' and does NOT start with '0' (e.g. 402)
+
+3. 15-MARK SECTION B SCORING FORMULA
+--------------------------------------------------------------------------------
+[✓] Class & Variable Declaration : 3 Marks
+[✓] Core Algorithmic Logic       : 7 Marks
+[✓] Clean Output & User Prompt   : 2 Marks
+[✓] Variable Description Table   : 3 Marks
+TOTAL                            : 15 Marks
+
+================================================================================
+End of Printable Note
+================================================================================

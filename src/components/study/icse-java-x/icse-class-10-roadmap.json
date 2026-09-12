@@ -1237,6 +1237,89 @@
           ],
           "badge": "ICSE Java Board Master",
           "previousModule": "008_001_pre-selection-exam",
+          "nextModule": "009_001_icse-test-papers"
+        }
+      ]
+    },
+    {
+      "segmentId": "test-paper",
+      "title": "Segment 9 – Test Paper (ICSE Board Solved Papers 2026 – 2022)",
+      "level": "Board Examination Scope",
+      "summary": "Authentic, solved ICSE Class X Computer Applications board examination papers for 2026, 2025, 2024, 2023, and 2022 with complete Section A objective questions and Section B programming solutions with Variable Description Tables.",
+      "allocatedHours": 25,
+      "modules": [
+        {
+          "moduleId": "icse-board-papers",
+          "slug": "009_001_icse-test-papers",
+          "title": "ICSE Solved Board Test Papers (2026, 2025, 2024, 2023, 2022)",
+          "level": "Board Examination Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 17,
+          "estimatedHours": 25,
+          "summary": "Full solved CISCE board examination papers for ICSE Class 10 Computer Applications covering 2026, 2025, 2024, 2023, and 2022 with marking schemes, step-by-step solutions, interactive answer toggles, and A4 printable test sheets.",
+          "tags": [
+            "test-paper",
+            "icse-2026",
+            "icse-2025",
+            "icse-2024",
+            "icse-2023",
+            "icse-2022",
+            "board-exam",
+            "cisce",
+            "solved-papers"
+          ],
+          "topics": [
+            "ICSE 2026 Computer Applications Board Examination (Solved Paper)",
+            "ICSE 2025 Computer Applications Board Examination (Solved Paper)",
+            "ICSE 2024 Computer Applications Board Examination (Solved Paper)",
+            "ICSE 2023 Computer Applications Board Examination (Solved Paper)",
+            "ICSE 2022 Computer Applications Board Examination (Solved Paper)"
+          ],
+          "learningOutcomes": [
+            "Attempt real ICSE Computer Applications board papers within the official 2-hour duration",
+            "Master Section A compulsory 40 marks (MCQs, outputs, mathematical expressions, dry runs)",
+            "Write standard Section B 60-mark programs with perfect Variable Description Tables and BlueJ conventions",
+            "Assess readiness and score 95%+ in ICSE Class X board exams"
+          ],
+          "prerequisites": [
+            "008_002_selection-exam"
+          ],
+          "miniProjects": [
+            "Complete 5-Year ICSE Board Exam Simulation Portfolio"
+          ],
+          "exercises": {
+            "mcq": 100,
+            "coding": 30,
+            "projects": 5
+          },
+          "assessment": {
+            "type": "Full 100-Mark ICSE Board Examination Evaluation",
+            "passScore": 85
+          },
+          "useCases": [
+            "Final revision and timed mock exam practice before CISCE board examinations"
+          ],
+          "careerSkills": [
+            "Standardized board exam problem solving",
+            "Accurate code tracing and variable documentation"
+          ],
+          "commonMistakes": [
+            "Missing variable description table in Section B questions",
+            "Not accounting for 0-based indexing in String substring() and indexOf() questions",
+            "Integer division truncation errors in arithmetic expressions"
+          ],
+          "references": [
+            "CISCE Official ICSE Class X Board Examination Papers 2022, 2023, 2024, 2025, 2026",
+            "ICSE Regulations & Syllabuses Computer Applications"
+          ],
+          "teachingTips": [
+            "Practice writing full programs by hand on paper before typing in BlueJ, following the ICSE presentation scheme."
+          ],
+          "preReading": [
+            "Complete ICSE Class X Computer Applications Curriculum"
+          ],
+          "badge": "ICSE Board Test Paper Master",
+          "previousModule": "008_002_selection-exam",
           "nextModule": null
         }
       ]

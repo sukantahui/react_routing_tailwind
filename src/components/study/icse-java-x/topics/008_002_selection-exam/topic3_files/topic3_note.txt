@@ -1,0 +1,52 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS
+MODULE 008_002: Selection Examination & Final ICSE Board Prep
+TOPIC 3: Final Board Exam Tips, Presentation Rules & Error Prevention
+Educator: Sukanta Hui | Barrackpore, Kolkata
+================================================================================
+
+1. CISCE ANSWER SCRIPT PRESENTATION GOLDEN RULES
+--------------------------------------------------------------------------------
+1. PEN & INK:
+   - Use only BLUE or BLACK ink (ballpoint or fountain pen).
+   - Use pencil and ruler for all borders, underlines, and tables.
+   - Strictly NO red/green ink, NO whitener/correction fluid.
+
+2. HEADINGS & NUMBERING:
+   - Write section headings clearly: SECTION A or SECTION B.
+   - Place question numbers prominently: e.g. "Question 3" in the left margin.
+   - Never write question numbers inside code or body paragraphs.
+   - Start every Section B program on a FRESH PAGE.
+
+3. CORRECTIONS:
+   - To cancel mistaken code, draw a single neat diagonal line.
+   - Never scribble densely or create ink blots.
+
+4. INDENTATION & BRACES:
+   - Indent method bodies and loop blocks by 2-4 spaces.
+   - Match every opening brace { with its closing brace } vertically.
+
+2. TOP 10 LETHAL EXAMINER TRAPS TO PREVENT
+--------------------------------------------------------------------------------
+[1] INTEGER DIVISION   : (5/9) evaluates to 0. Write (5.0/9) or (5/9.0).
+[2] STRING COMPARISON  : s1 == s2 checks heap address! Always use s1.equals(s2).
+[3] MATH RETURN TYPES  : Math.ceil() and Math.floor() return double (e.g. 5.0).
+[4] SCANNER BUFFER     : After sc.nextInt(), call sc.nextLine() before reading text.
+[5] DESTRUCTIVE LOOPS  : Save original number in temp before while(temp > 0).
+[6] SWITCH FALL-THROUGH: Watch out for missing break; statements in snippets.
+[7] LENGTH CONFUSION   : Array uses arr.length (no ()). String uses str.length().
+[8] OFF-BY-ONE STRINGS : Valid indices are 0 to str.length() - 1.
+[9] CASE SENSITIVITY   : 'A' (65) != 'a' (97). Difference is 32.
+[10] VDT OMISSION      : Always draw the 3-column VDT at the end of each program.
+
+3. FINAL PRE-SUBMISSION AUDIT (LAST 10 MINUTES)
+--------------------------------------------------------------------------------
+[✓] Check Question 1: All 20 MCQs written with sub-part and option letter.
+[✓] Check Question 2: All 10 snippets checked with trace tables in rough.
+[✓] Check Section B : Exactly 4 programs attempted.
+[✓] Check Class Code: Scanner imported, class header valid, methods called in main.
+[✓] Check VDTs      : All 4 programs have a neat 3-column Variable Description Table.
+
+================================================================================
+End of Printable Note
+================================================================================

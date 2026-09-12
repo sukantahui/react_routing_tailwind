@@ -182,8 +182,8 @@ const PrintButton = ({ targetId, title, organizationDetails = {} }) => {
               
               /* Questions list - Compact */
               .questions-list {
-                list-style: decimal;
-                padding-left: 25px;
+                list-style: none;
+                padding-left: 0;
                 margin: 0;
               }
               
@@ -365,7 +365,7 @@ const PrintButton = ({ targetId, title, organizationDetails = {} }) => {
               
               /* Improve readability with compact layout */
               p, li {
-                text-align: justify;
+                text-align: left;
                 color: #000000 !important;
               }
               

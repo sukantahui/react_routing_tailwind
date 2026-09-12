@@ -1,0 +1,47 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS
+MODULE 008_002: Selection Examination & Final ICSE Board Prep
+TOPIC 2: Time-Bound Programming & Variable Description Table (VDT) Practice
+Educator: Sukanta Hui | Barrackpore, Kolkata
+================================================================================
+
+1. THE CISCE OFFICIAL VDT STANDARD FORMAT
+--------------------------------------------------------------------------------
+Every Section B program (15 marks) mandates a Variable Description Table.
+Standard 3-Column Table Format:
+
++-------------------+----------------+-----------------------------------------+
+| Variable Name     | Data Type      | Purpose / Description                   |
++-------------------+----------------+-----------------------------------------+
+| sc                | Scanner        | Object reference to read console input  |
+| n                 | int            | Stores consumer units / user input      |
+| arr               | int[]          | 1D array storing 15 sorted integers     |
+| i, j              | int            | Loop counters for row and column passes |
+| sum               | double         | Accumulator for running total of values |
+| found             | boolean        | Flag set to true if search key matches  |
+| temp              | int            | Temporary variable for swapping values  |
++-------------------+----------------+-----------------------------------------+
+
+2. CRITICAL RULES FOR VDT DESCRIPTIONS
+--------------------------------------------------------------------------------
+- RULE 1: Never write vague descriptions like "stores i", "for loop", or "temp".
+- RULE 2: State WHAT data is held and WHY the algorithm needs it.
+- RULE 3: Include ALL variables: instance fields, local variables, loop counters,
+          parameters, and Scanner references.
+- RULE 4: Mention data dimensions: for arrays, specify 1D or 2D and capacity.
+- RULE 5: Place the VDT immediately after the closing brace of the class.
+
+3. TIME ALLOCATION BLUEPRINT (2 HOURS + 15 MINUTES READING)
+--------------------------------------------------------------------------------
+[15 min] Reading Time : Read all Section B questions. Eliminate 2. Select best 4.
+[30 min] Section A    : Question 1 (20 MCQs) + Question 2 (10 Snippets).
+[70 min] Section B    : 4 Programs @ 17.5 minutes each:
+                        - 12 mins: Writing Java class code.
+                        - 3 mins: Drawing Variable Description Table (VDT).
+                        - 2.5 mins: Dry running edge cases & checking syntax.
+[20 min] Final Audit  : Check question numbers, matching braces {}, semicolons,
+                        and ensure all 4 VDTs are complete and bordered.
+
+================================================================================
+End of Printable Note
+================================================================================

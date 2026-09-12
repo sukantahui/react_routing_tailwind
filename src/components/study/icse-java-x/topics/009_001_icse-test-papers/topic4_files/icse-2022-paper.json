@@ -1,0 +1,261 @@
+{
+  "paperId": "ICSE-2022-X-CA",
+  "title": "ICSE Class X 2022 Computer Applications Board Examination (Solved Paper)",
+  "duration": "2 Hours",
+  "totalMarks": 100,
+  "prerequisites": "Complete ICSE Class X Computer Applications syllabus (Java with BlueJ)",
+  "instructions": [
+    "Answers to this Paper must be written on the paper provided separately.",
+    "You will not be allowed to write during the first 15 minutes. This time is to be spent in reading the question paper.",
+    "The time given at the head of this Paper is the time allowed for writing the answers.",
+    "This Paper is divided into two Sections. Attempt all questions from Section A and any four questions from Section B.",
+    "The intended marks for questions or parts of questions are given in brackets [ ]."
+  ],
+  "sections": [
+    {
+      "section": "A (Part 1)",
+      "type": "Question 1 – Multiple Choice Questions (Compulsory)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 20,
+      "description": "Select the correct option for each question. All questions are compulsory. (20 × 1 = 20 Marks)",
+      "questions": [
+        {
+          "q": "1. What is the fundamental unit of Object-Oriented Programming that represents a real-world entity with state and behavior?\n(a) Method\n(b) Object\n(c) Package\n(d) Variable",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Object**\n\n**Explanation:** An object is an identifiable entity with specific characteristics (state) and behavior, representing a real-world instance of a class.",
+          "hint": "An instance of a class that encapsulates state and behavior."
+        },
+        {
+          "q": "2. The return type of `\"BLUEJ\".toLowerCase()` is:\n(a) char\n(b) void\n(c) String\n(d) boolean",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) String**\n\n**Explanation:** `toLowerCase()` returns a new `String` with all characters converted to lowercase (\"bluej\").",
+          "hint": "Returns a transformed string object."
+        },
+        {
+          "q": "3. Which of the following is an invalid identifier name in Java?\n(a) `_total`\n(b) `$amount`\n(c) `2ndNumber`\n(d) `num_2`",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) `2ndNumber`**\n\n**Explanation:** Java identifiers cannot begin with a numeric digit.",
+          "hint": "Identifiers cannot start with a digit."
+        },
+        {
+          "q": "4. What is the output of `Math.pow(3, 3)`?\n(a) 9.0\n(b) 27\n(c) 27.0\n(d) 9",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 27.0**\n\n**Explanation:** `Math.pow(double a, double b)` returns the result as a double value (`27.0`).",
+          "hint": "Math.pow always returns a double."
+        },
+        {
+          "q": "5. Which keyword is used to prevent method overriding in Java?\n(a) static\n(b) final\n(c) abstract\n(d) super",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) final**\n\n**Explanation:** A method declared with the `final` modifier cannot be overridden by any subclass.",
+          "hint": "Makes constants and non-overridable methods."
+        },
+        {
+          "q": "6. What is the output of the expression `5 + 3 + \"Java\"`?\n(a) \"8Java\"\n(b) \"53Java\"\n(c) \"Java8\"\n(d) Compilation Error",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) \"8Java\"**\n\n**Explanation:** Operator evaluation proceeds left to right: `5 + 3` evaluates as integer addition to `8`. Then `8 + \"Java\"` performs string concatenation, resulting in `\"8Java\"`.",
+          "hint": "Left to right: 5 + 3 happens before string concatenation."
+        },
+        {
+          "q": "7. Which wrapper class method converts a String containing numeric digits into a primitive integer?\n(a) `Integer.toString()`\n(b) `Integer.parseInt()`\n(c) `Integer.valueOf()`\n(d) `Integer.toInt()`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) `Integer.parseInt()`**\n\n**Explanation:** `Integer.parseInt(String s)` parses the string argument as a signed decimal `int`.",
+          "hint": "parseInt parses a string into an int."
+        },
+        {
+          "q": "8. What is the length of an array declared as `double[] arr = new double[12];`?\n(a) 11\n(b) 12\n(c) 13\n(d) 96",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 12**\n\n**Explanation:** `arr.length` returns the total number of elements allocated in the array, which is 12.",
+          "hint": "The size allocated in brackets."
+        },
+        {
+          "q": "9. The operator `&&` is called:\n(a) Bitwise AND\n(b) Logical OR\n(c) Logical AND\n(d) Ternary operator",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Logical AND**\n\n**Explanation:** `&&` is the conditional-AND (short-circuit logical AND) operator.",
+          "hint": "Two ampersands."
+        },
+        {
+          "q": "10. What will `\"COMPUTER\".lastIndexOf('P')` return?\n(a) 3\n(b) 4\n(c) 5\n(d) -1",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 3**\n\n**Explanation:** C(0), O(1), M(2), P(3) -> 'P' is at index 3.",
+          "hint": "Count indices starting from 0."
+        },
+        {
+          "q": "11. An explicit conversion of one data type to another by the programmer is known as:\n(a) Implicit casting\n(b) Type conversion\n(c) Type casting\n(d) Boxing",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Type casting**\n\n**Explanation:** Explicit type conversion specified in code using `(type) value` syntax is known as type casting or narrowing conversion.",
+          "hint": "Forced explicit conversion by the programmer."
+        },
+        {
+          "q": "12. What does `Character.isDigit('5')` return?\n(a) 5\n(b) true\n(c) false\n(d) '5'",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) true**\n\n**Explanation:** '5' is a numeric digit character, so the method returns `true`.",
+          "hint": "Checks whether character is between '0' and '9'."
+        },
+        {
+          "q": "13. What is the default value of an uninitialized instance variable of type `char`?\n(a) '0'\n(b) ' '\n(c) '\\u0000' (null character)\n(d) undefined",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) '\\u0000' (null character)**\n\n**Explanation:** In Java, an uninitialized `char` instance variable defaults to the null character `\\u0000` (decimal value 0).",
+          "hint": "Unicode null character."
+        },
+        {
+          "q": "14. A class is a:\n(a) Blueprint or template for objects\n(b) Primitive data type\n(c) Method signature\n(d) Reserved keyword",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Blueprint or template for objects**\n\n**Explanation:** A class defines the blueprint or prototype from which individual objects are instantiated.",
+          "hint": "The template from which objects are created."
+        },
+        {
+          "q": "15. What will `Math.cbrt(27.0)` return?\n(a) 9.0\n(b) 3.0\n(c) 3\n(d) 27.0",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 3.0**\n\n**Explanation:** `Math.cbrt()` returns the cube root of a double value (3.0 × 3.0 × 3.0 = 27.0).",
+          "hint": "Cube root of 27 as a double."
+        },
+        {
+          "q": "16. Which loop executes the test expression at the end of each iteration?\n(a) for\n(b) while\n(c) do-while\n(d) none",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) do-while**\n\n**Explanation:** `do-while` is an exit-controlled loop with the condition verified after loop body execution.",
+          "hint": "Exit-controlled."
+        },
+        {
+          "q": "17. What will be the output of `\"apple\".compareTo(\"banana\")`?\n(a) Positive integer\n(b) Negative integer\n(c) 0\n(d) true",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Negative integer**\n\n**Explanation:** Lexicographically, 'a' precedes 'b' ('a' - 'b' = 97 - 98 = -1), so `compareTo()` returns a negative integer.",
+          "hint": "'a' has a lower ASCII code than 'b'."
+        },
+        {
+          "q": "18. Which statement is used to bypass the remaining lines of the current loop iteration and move to the next iteration?\n(a) break\n(b) continue\n(c) return\n(d) goto",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) continue**\n\n**Explanation:** The `continue` statement skips to the next iteration of the enclosing loop.",
+          "hint": "Continues to the next iteration."
+        },
+        {
+          "q": "19. The process of binding the call to the method definition at compile time is:\n(a) Dynamic binding\n(b) Static binding\n(c) Encapsulation\n(d) Abstraction",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Static binding**\n\n**Explanation:** Static (early) binding resolves method calls during compilation (such as overloaded methods).",
+          "hint": "Early binding."
+        },
+        {
+          "q": "20. What is the value of `x` after: `int a = 12; int x = a > 10 ? 100 : 200;`?\n(a) 200\n(b) 12\n(c) 100\n(d) true",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 100**\n\n**Explanation:** Since `12 > 10` evaluates to `true`, the ternary expression picks the true branch (`100`).",
+          "hint": "Condition is true, so first value is chosen."
+        }
+      ]
+    },
+    {
+      "section": "A (Part 2)",
+      "type": "Question 2 – Short Answer Questions (Compulsory)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "description": "Answer all questions. Each question carries 2 marks. (10 × 2 = 20 Marks)",
+      "questions": [
+        {
+          "q": "1. Evaluate the expression: `int val = ++x * 5 - y--` when `x = 3, y = 10`.",
+          "marks": 2,
+          "answer": "**Solution:**\n- `++x` pre-increments `x` to `4`, value used = `4`.\n- `y--` uses current `y = 10`, then `y` becomes `9`.\n- Expression: `4 * 5 - 10 = 20 - 10 = 10`.\n- **Result:** `val = 10`, `x = 4`, `y = 9`.",
+          "hint": "Pre-increment changes before evaluation; post-decrement changes after."
+        },
+        {
+          "q": "2. What is the purpose of the `default` keyword in a `switch` statement? Is it mandatory?",
+          "marks": 2,
+          "answer": "**Solution:**\n- **Purpose:** The `default` block specifies the code to execute when none of the defined `case` labels match the switch expression.\n- **Mandatory?** No, it is optional, but strongly recommended to handle unexpected or invalid input values gracefully.",
+          "hint": "Catches unmatched cases in a switch construct."
+        },
+        {
+          "q": "3. Write the return type and output of:\n(i) `Character.toUpperCase('m')`\n(ii) `\"SCIENCE\".indexOf('E')`",
+          "marks": 2,
+          "answer": "**Solution:**\n(i) Return type: `char` | Output: `'M'`\n(ii) Return type: `int` | Output: `3` (S:0, C:1, I:2, E:3)",
+          "hint": "Check index of first occurrence of 'E' in SCIENCE."
+        },
+        {
+          "q": "4. State the difference between `print()` and `println()` methods of the PrintStream class.",
+          "marks": 2,
+          "answer": "**Solution:**\n- `System.out.print()`: Prints the specified text and leaves the cursor on the same line.\n- `System.out.println()`: Prints the specified text and automatically appends a newline character, moving the cursor to the beginning of the next line.",
+          "hint": "println appends a newline at the end."
+        },
+        {
+          "q": "5. What will be the output of the following loop?\n```java\nfor (int i = 5; i >= 1; i -= 2) {\n    System.out.print(i + \" \");\n}\n```",
+          "marks": 2,
+          "answer": "**Output:**\n```\n5 3 1 \n```\n**Explanation:**\n- Iteration 1: `i = 5` (prints 5), decrements to 3.\n- Iteration 2: `i = 3` (prints 3), decrements to 1.\n- Iteration 3: `i = 1` (prints 1), decrements to -1.\n- Loop terminates as `-1 >= 1` is false.",
+          "hint": "Starts at 5, steps down by 2 until i < 1."
+        },
+        {
+          "q": "6. Differentiate between syntax errors and runtime errors with an example of each.",
+          "marks": 2,
+          "answer": "**Solution:**\n- **Syntax Error (Compile-time Error):** Occurs when code violates the grammar rules of the Java language, preventing compilation.\n  *Example:* Missing semicolon: `int a = 10`\n- **Runtime Error (Exception):** Occurs during program execution when a legal statement encounters an abnormal condition that causes abrupt termination.\n  *Example:* Division by zero: `int c = 10 / 0;` (throws `ArithmeticException`).",
+          "hint": "Syntax error caught at compilation; runtime error occurs while running."
+        },
+        {
+          "q": "7. How do you find the number of rows and columns in a 2D array named `mat` in Java?",
+          "marks": 2,
+          "answer": "**Solution:**\n- **Number of rows:** `int rows = mat.length;`\n- **Number of columns in row `i`:** `int cols = mat[i].length;` (or `mat[0].length` for a rectangular matrix).",
+          "hint": "mat.length gives rows; mat[0].length gives columns."
+        },
+        {
+          "q": "8. Convert the following `if-else` statement to a single statement using the ternary operator:\n```java\nif (a > b)\n    min = b;\nelse\n    min = a;\n```",
+          "marks": 2,
+          "answer": "**Solution:**\n```java\nmin = (a > b) ? b : a;\n```",
+          "hint": "condition ? true_val : false_val"
+        },
+        {
+          "q": "9. Name the keyword used to inherit a class in Java, and state which class is the superclass of all classes in Java.",
+          "marks": 2,
+          "answer": "**Solution:**\n- Keyword for inheritance: `extends`\n- Universal root superclass: `java.lang.Object`",
+          "hint": "extends keyword; Object class."
+        },
+        {
+          "q": "10. State the output of the following code:\n```java\nString str = \"MALAYALAM\";\nSystem.out.println(str.replace('A', 'O'));\n```",
+          "marks": 2,
+          "answer": "**Output:**\n```\nMOLOYOLOM\n```\n**Explanation:** The `replace(char oldChar, char newChar)` method replaces all occurrences of `'A'` with `'O'` throughout the string.",
+          "hint": "Replaces every 'A' with 'O'."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Section B – Programming Applications (Attempt Any Four)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 6,
+      "description": "Answer any four questions from this section. The answers should include class declaration, variable declaration table, and complete program logic written in Java using BlueJ. (4 × 15 = 60 Marks)",
+      "questions": [
+        {
+          "q": "Question 3 [Class Design - Employee Net Salary]\n\nDefine a class named `Employee` with the following specifications:\n- **Instance variables:**\n  - `int empNo`: employee ID number\n  - `String name`: employee name\n  - `double basic`: basic monthly pay\n  - `double da`, `hra`, `pf`, `netSalary`: allowances and deductions\n- **Member methods:**\n  - `void accept()`: to accept employee number, name, and basic salary.\n  - `void compute()`: to compute allowances and net pay:\n    - DA = 30% of basic\n    - HRA = 15% of basic\n    - PF = 12% of basic\n    - Gross = Basic + DA + HRA\n    - Net Salary = Gross - PF\n  - `void display()`: to display the employee details and salary slip.\n- Write a `main()` method to instantiate an object and call all methods.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class Employee {\n    private int empNo;\n    private String name;\n    private double basic;\n    private double da;\n    private double hra;\n    private double pf;\n    private double netSalary;\n\n    public void accept() {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter Employee Number: \");\n        empNo = sc.nextInt();\n        sc.nextLine(); // consume newline\n        System.out.print(\"Enter Employee Name: \");\n        name = sc.nextLine();\n        System.out.print(\"Enter Basic Salary: Rs. \");\n        basic = sc.nextDouble();\n    }\n\n    public void compute() {\n        da = 0.30 * basic;\n        hra = 0.15 * basic;\n        pf = 0.12 * basic;\n        double gross = basic + da + hra;\n        netSalary = gross - pf;\n    }\n\n    public void display() {\n        System.out.println(\"\\n========================================\");\n        System.out.println(\"            SALARY STATEMENT            \");\n        System.out.println(\"========================================\");\n        System.out.println(\"Emp Number : \" + empNo);\n        System.out.println(\"Emp Name   : \" + name);\n        System.out.printf(\"Basic Pay  : Rs. %.2f\\n\", basic);\n        System.out.printf(\"DA (30%%)   : Rs. %.2f\\n\", da);\n        System.out.printf(\"HRA (15%%)  : Rs. %.2f\\n\", hra);\n        System.out.printf(\"PF (12%%)   : Rs. %.2f\\n\", pf);\n        System.out.println(\"----------------------------------------\");\n        System.out.printf(\"Net Salary : Rs. %.2f\\n\", netSalary);\n        System.out.println(\"========================================\");\n    }\n\n    public static void main(String[] args) {\n        Employee emp = new Employee();\n        emp.accept();\n        emp.compute();\n        emp.display();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n| Variable Name | Data Type | Purpose / Description |\n| :--- | :--- | :--- |\n| `empNo` | `int` | Employee identification number |\n| `name` | `String` | Full name of the employee |\n| `basic` | `double` | Base monthly salary |\n| `da` | `double` | Dearness allowance (30% of basic) |\n| `hra` | `double` | House rent allowance (15% of basic) |\n| `pf` | `double` | Provident fund deduction (12% of basic) |\n| `gross` | `double` | Gross total earnings before deductions |\n| `netSalary` | `double` | Net take-home pay after PF deduction |",
+          "hint": "DA = 0.30 * basic, HRA = 0.15 * basic, PF = 0.12 * basic."
+        },
+        {
+          "q": "Question 4 [1D Array - Linear Search]\n\nWrite a program to input 10 names into a single-dimensional String array. Input a search name from the user. Search for the name using **Linear Search** technique.\n- If found, display `\"Name found at index: \"` with its index and position.\n- If not found, display `\"Name does not exist in the list.\"`. The comparison should be case-insensitive.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class LinearSearchNames {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String[] names = new String[10];\n\n        System.out.println(\"Enter 10 names:\");\n        for (int i = 0; i < 10; i++) {\n            names[i] = sc.nextLine().trim();\n        }\n\n        System.out.print(\"\\nEnter the name to search for: \");\n        String searchName = sc.nextLine().trim();\n\n        int foundIndex = -1;\n        for (int i = 0; i < names.length; i++) {\n            if (names[i].equalsIgnoreCase(searchName)) {\n                foundIndex = i;\n                break;\n            }\n        }\n\n        if (foundIndex != -1) {\n            System.out.println(\"Name found at index: \" + foundIndex + \" (Position: \" + (foundIndex + 1) + \")\");\n        } else {\n            System.out.println(\"Name does not exist in the list.\");\n        }\n        \n        sc.close();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n| Variable Name | Data Type | Purpose / Description |\n| :--- | :--- | :--- |\n| `names` | `String[]` | Array to store 10 student names |\n| `searchName` | `String` | Target name entered for lookup |\n| `foundIndex` | `int` | Holds index if found, initialized to -1 |\n| `i` | `int` | Loop iteration variable |",
+          "hint": "Use equalsIgnoreCase() for case-insensitive matching."
+        },
+        {
+          "q": "Question 5 [String Manipulation - Character Frequency & Case Toggle]\n\nWrite a program to accept a string from the user. Perform the following:\n1. Count and display the number of uppercase alphabets, lowercase alphabets, numeric digits, and special characters.\n2. Convert and display the string with all uppercase letters toggled to lowercase and vice versa (digits and symbols remain unchanged).",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class StringCaseToggle {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"Enter a string:\");\n        String input = sc.nextLine();\n\n        int upperCount = 0;\n        int lowerCount = 0;\n        int digitCount = 0;\n        int specialCount = 0;\n\n        StringBuilder toggled = new StringBuilder();\n\n        for (int i = 0; i < input.length(); i++) {\n            char ch = input.charAt(i);\n\n            if (Character.isUpperCase(ch)) {\n                upperCount++;\n                toggled.append(Character.toLowerCase(ch));\n            } else if (Character.isLowerCase(ch)) {\n                lowerCount++;\n                toggled.append(Character.toUpperCase(ch));\n            } else if (Character.isDigit(ch)) {\n                digitCount++;\n                toggled.append(ch);\n            } else {\n                specialCount++;\n                toggled.append(ch);\n            }\n        }\n\n        System.out.println(\"\\n--- Character Count Summary ---\");\n        System.out.println(\"Uppercase Letters : \" + upperCount);\n        System.out.println(\"Lowercase Letters : \" + lowerCount);\n        System.out.println(\"Numeric Digits    : \" + digitCount);\n        System.out.println(\"Special Characters: \" + specialCount);\n        System.out.println(\"\\nToggled Case String: \" + toggled.toString());\n        \n        sc.close();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n| Variable Name | Data Type | Purpose / Description |\n| :--- | :--- | :--- |\n| `input` | `String` | Stores input string |\n| `upperCount` | `int` | Number of uppercase letters |\n| `lowerCount` | `int` | Number of lowercase letters |\n| `digitCount` | `int` | Number of digits |\n| `specialCount` | `int` | Number of special characters |\n| `toggled` | `StringBuilder` | String with swapped case |",
+          "hint": "Use Character.isUpperCase(), Character.isLowerCase(), and Character.isDigit()."
+        },
+        {
+          "q": "Question 6 [Number Logic - Armstrong Number Check]\n\nAn **Armstrong Number** (for a 3-digit number) is a number where the sum of the cubes of its digits is equal to the number itself.\n\n*Example:* 153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153.\n\nWrite a program to accept a 3-digit integer number and check whether it is an Armstrong number or not. Print an error message if the number entered is not a 3-digit number.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class ArmstrongNumberCheck {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a 3-digit integer: \");\n        int num = sc.nextInt();\n\n        // Validation for 3-digit number\n        if (num < 100 || num > 999) {\n            System.out.println(\"Invalid input. Please enter a valid 3-digit positive number (100 to 999).\");\n            return;\n        }\n\n        int temp = num;\n        int sumCubes = 0;\n\n        while (temp > 0) {\n            int d = temp % 10;\n            sumCubes += (d * d * d);\n            temp /= 10;\n        }\n\n        System.out.println(\"Sum of cubes of digits = \" + sumCubes);\n        if (sumCubes == num) {\n            System.out.println(num + \" is an ARMSTRONG NUMBER.\");\n        } else {\n            System.out.println(num + \" is NOT an Armstrong Number.\");\n        }\n        \n        sc.close();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n| Variable Name | Data Type | Purpose / Description |\n| :--- | :--- | :--- |\n| `num` | `int` | Input 3-digit integer |\n| `temp` | `int` | Copy of number for digit extraction |\n| `d` | `int` | Extracted digit (`temp % 10`) |\n| `sumCubes` | `int` | Sum of cubes of extracted digits |",
+          "hint": "Validate range 100 to 999, then extract digits and sum d * d * d."
+        },
+        {
+          "q": "Question 7 [2D Array - Matrix Row Sum and Column Sum]\n\nWrite a program to input elements into a 3 × 3 integer matrix. Calculate and display:\n1. The sum of elements of each row.\n2. The sum of elements of each column.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class MatrixRowColSum {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[][] mat = new int[3][3];\n\n        System.out.println(\"Enter 9 elements for a 3x3 matrix:\");\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < 3; j++) {\n                mat[i][j] = sc.nextInt();\n            }\n        }\n\n        // Display Matrix\n        System.out.println(\"\\n--- Matrix ---\");\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < 3; j++) {\n                System.out.print(mat[i][j] + \"\\t\");\n            }\n            System.out.println();\n        }\n\n        // Row Sums\n        System.out.println(\"\\n--- Row Sums ---\");\n        for (int i = 0; i < 3; i++) {\n            int rowSum = 0;\n            for (int j = 0; j < 3; j++) {\n                rowSum += mat[i][j];\n            }\n            System.out.println(\"Sum of Row \" + (i + 1) + \" = \" + rowSum);\n        }\n\n        // Column Sums\n        System.out.println(\"\\n--- Column Sums ---\");\n        for (int j = 0; j < 3; j++) {\n            int colSum = 0;\n            for (int i = 0; i < 3; i++) {\n                colSum += mat[i][j];\n            }\n            System.out.println(\"Sum of Column \" + (j + 1) + \" = \" + colSum);\n        }\n        \n        sc.close();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n| Variable Name | Data Type | Purpose / Description |\n| :--- | :--- | :--- |\n| `mat` | `int[][]` | 3 × 3 integer matrix |\n| `i`, `j` | `int` | Row and column indices |\n| `rowSum` | `int` | Sum of elements in current row |\n| `colSum` | `int` | Sum of elements in current column |",
+          "hint": "For column sum, outer loop iterates through j (columns) and inner loop iterates through i (rows)."
+        },
+        {
+          "q": "Question 8 [Method Overloading - Area Calculations]\n\nDesign a class to overload a method named `area()` to calculate the area of different geometrical shapes:\n1. `double area(double radius)`: to calculate and return the area of a circle (\\pi r^2).\n2. `double area(double length, double breadth)`: to calculate and return the area of a rectangle (l × b).\n3. `double area(double a, double b, double c)`: to calculate and return the area of a scalene triangle using Heron's formula:\n   $s = \\frac{a + b + c}{2}$\n   $Area = \\sqrt{s(s - a)(s - b)(s - c)}$\n\nWrite a `main()` method to instantiate an object and test all methods.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\npublic class AreaOverload {\n    // Method 1: Area of Circle\n    public double area(double radius) {\n        return Math.PI * radius * radius;\n    }\n\n    // Method 2: Area of Rectangle\n    public double area(double length, double breadth) {\n        return length * breadth;\n    }\n\n    // Method 3: Area of Triangle (Heron's formula)\n    public double area(double a, double b, double c) {\n        double s = (a + b + c) / 2.0;\n        return Math.sqrt(s * (s - a) * (s - b) * (s - c));\n    }\n\n    public static void main(String[] args) {\n        AreaOverload calc = new AreaOverload();\n\n        System.out.printf(\"Area of Circle (r=7.0): %.2f sq. units\\n\", calc.area(7.0));\n        System.out.printf(\"Area of Rectangle (l=12.0, b=5.0): %.2f sq. units\\n\", calc.area(12.0, 5.0));\n        System.out.printf(\"Area of Triangle (a=3, b=4, c=5): %.2f sq. units\\n\", calc.area(3.0, 4.0, 5.0));\n    }\n}\n```\n\n### Variable Description Table (VDT):\n| Variable Name | Data Type | Purpose / Description |\n| :--- | :--- | :--- |\n| `radius` | `double` | Radius of circle |\n| `length` | `double` | Length of rectangle |\n| `breadth` | `double` | Breadth of rectangle |\n| `a`, `b`, `c` | `double` | Three side lengths of triangle |\n| `s` | `double` | Semi-perimeter of triangle |\n| `calc` | `AreaOverload` | Class object instance |",
+          "hint": "Use Math.PI for circle, and Heron's formula with Math.sqrt() for triangle."
+        }
+      ]
+    }
+  ],
+  "source": "Council for the Indian School Certificate Examinations (CISCE) – Official ICSE Class X Semester 2 Board Examination 2022",
+  "sourceUrl": "https://cisce.org/"
+}
