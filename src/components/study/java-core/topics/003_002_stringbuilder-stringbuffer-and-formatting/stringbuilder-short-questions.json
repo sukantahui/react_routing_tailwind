@@ -1,0 +1,351 @@
+{
+  "subject": "Core Java Programming",
+  "class": "Module 003_002",
+  "board": "Java SE (Core Java)",
+  "topic": "StringBuilder, StringBuffer & String Formatting - 50 Short Questions & Answers",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "coffee",
+    "type": "svg",
+    "path": "/logos/java.svg",
+    "alt": "Java Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "Why is standard String concatenation ('+') inefficient inside loops?",
+      "answer": "Because String is immutable. Every concatenation ('+') in a loop allocates a brand-new String object on the heap, copies all previous characters into it, and abandons the old object, creating an O(N^2) time complexity and massive GC pressure."
+    },
+    {
+      "id": 2,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "What is the primary difference between String and StringBuilder in Java?",
+      "answer": "String is immutable (its character sequence cannot be changed after creation), whereas StringBuilder is mutable (characters can be appended, inserted, deleted, or replaced in-place within the same heap buffer)."
+    },
+    {
+      "id": 3,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "What happens in memory when executing: String s = \"\"; for(int i=0; i<1000; i++) s += i;?",
+      "answer": "The JVM creates 1,000 distinct intermediate String objects (and underlying buffers) on the heap. 999 of them immediately become unreachable garbage requiring garbage collection."
+    },
+    {
+      "id": 4,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "What does the Java compiler do when you write a single-line string concatenation like: String s = \"A\" + \"B\" + \"C\";?",
+      "answer": "For constant literals, the javac compiler performs compile-time constant folding into a single literal (\"ABC\"). For variables, it automatically compiles it into a chained StringBuilder sequence or invokedynamic (StringConcatFactory in Java 9+)."
+    },
+    {
+      "id": 5,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "What is the output of the following code snippet?",
+      "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.append(\" 21\");\nSystem.out.println(sb);",
+      "output": "Java 21",
+      "explanation": "StringBuilder modifies its internal character buffer in-place without generating a new object. The appended characters are added directly to the existing buffer.",
+      "answer": "Java 21"
+    },
+    {
+      "id": 6,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "Which common interface is implemented by both String and StringBuilder?",
+      "answer": "CharSequence, which represents a readable sequence of char values and provides methods like length(), charAt(int index), and subSequence(int start, int end)."
+    },
+    {
+      "id": 7,
+      "topic": "Need for Mutable Strings & Immutability Pitfalls",
+      "question": "Can a StringBuilder instance be stored inside the String Constant Pool (SCP)?",
+      "answer": "No. The String Constant Pool only caches immutable String literal objects. StringBuilder instances always reside directly in standard JVM Heap memory."
+    },
+    {
+      "id": 8,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What is the default initial capacity of a no-argument new StringBuilder() constructor?",
+      "answer": "16 characters. The constructor allocates an internal array capable of holding 16 characters without resizing."
+    },
+    {
+      "id": 9,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What is the difference between length() and capacity() in StringBuilder?",
+      "answer": "length() is the number of actual characters currently stored in the builder, while capacity() is the total number of characters the internal buffer can hold before needing to reallocate."
+    },
+    {
+      "id": 10,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What is the initial capacity of: new StringBuilder(\"Hello\")?",
+      "answer": "21 characters. The formula is: input string length (5) + default capacity (16) = 21."
+    },
+    {
+      "id": 11,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What is Java's geometric buffer growth formula when StringBuilder exceeds its capacity?",
+      "answer": "newCapacity = (oldCapacity * 2) + 2. If this expanded capacity is still insufficient for the new text, the capacity expands directly to the required length."
+    },
+    {
+      "id": 12,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What is the output of the following capacity demonstration code?",
+      "code": "StringBuilder sb = new StringBuilder(); // capacity = 16\nsb.append(\"12345678901234567\"); // 17 chars\nSystem.out.println(sb.capacity());",
+      "output": "34",
+      "explanation": "Appending 17 characters exceeds the default capacity of 16. The JVM triggers growth using (16 * 2) + 2 = 34.",
+      "answer": "34"
+    },
+    {
+      "id": 13,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "Why is it a best practice to initialize StringBuilder with a custom capacity (e.g. new StringBuilder(512))?",
+      "answer": "Pre-sizing allocates a sufficiently large backing array upfront, completely preventing costly dynamic array reallocations and System.arraycopy memory copies during text assembly."
+    },
+    {
+      "id": 14,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What does the ensureCapacity(int minimumCapacity) method do?",
+      "answer": "It ensures that the internal buffer capacity is at least equal to the specified minimum. If current capacity is less, it expands the buffer using the growth formula or the specified minimum."
+    },
+    {
+      "id": 15,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What does trimToSize() do on a StringBuilder instance?",
+      "answer": "It shrinks the backing array so that its capacity matches the exact current character length, reclaiming unused heap memory."
+    },
+    {
+      "id": 16,
+      "topic": "StringBuilder Architecture & Internal Mechanics",
+      "question": "What is the effect of calling setLength(0) on a StringBuilder?",
+      "answer": "It resets the character count (length) to zero without deallocating or reallocating the underlying buffer, allowing the same builder to be reused for the next operation."
+    },
+    {
+      "id": 17,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What data types can be passed to the append() method of StringBuilder?",
+      "answer": "All Java primitive types (int, long, double, float, char, boolean, byte, short), char arrays, CharSequence, String, and any Object (whose toString() method is invoked)."
+    },
+    {
+      "id": 18,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What is the output of the following code snippet?",
+      "code": "StringBuilder sb = new StringBuilder(\"HelloWorld\");\nsb.insert(5, \" \");\nSystem.out.println(sb);",
+      "output": "Hello World",
+      "explanation": "insert(5, \" \") shifts all characters from index 5 onwards to the right by one position and inserts the space at index 5.",
+      "answer": "Hello World"
+    },
+    {
+      "id": 19,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "How does delete(int start, int end) treat its index parameters?",
+      "answer": "The start index is inclusive, while the end index is exclusive (half-open interval [start, end)), matching standard Java substring conventions."
+    },
+    {
+      "id": 20,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What is the output of the following delete operation?",
+      "code": "StringBuilder sb = new StringBuilder(\"Barrackpore\");\nsb.delete(0, 4);\nSystem.out.println(sb);",
+      "output": "ackpore",
+      "explanation": "Indices 0, 1, 2, 3 ('B', 'a', 'r', 'r') are removed, leaving the remaining characters starting from index 4 ('ackpore').",
+      "answer": "ackpore"
+    },
+    {
+      "id": 21,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What does deleteCharAt(int index) do, and what happens if the index is out of bounds?",
+      "answer": "It removes the single character at the specified index and shifts subsequent characters left. If index is negative or >= length(), it throws StringIndexOutOfBoundsException."
+    },
+    {
+      "id": 22,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What is the output of calling reverse() on a StringBuilder?",
+      "code": "StringBuilder sb = new StringBuilder(\"radar\");\nsb.reverse();\nSystem.out.println(sb);",
+      "output": "radar",
+      "explanation": "reverse() causes this character sequence to be replaced by the reverse of the sequence in-place. Because 'radar' is a palindrome, the output is unchanged.",
+      "answer": "radar"
+    },
+    {
+      "id": 23,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "How does the replace(int start, int end, String str) method work in StringBuilder?",
+      "answer": "It removes the characters in the range [start, end) and inserts the given replacement string 'str' at the start index in-place."
+    },
+    {
+      "id": 24,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What is the output of the following replace operation?",
+      "code": "StringBuilder sb = new StringBuilder(\"Java 8\");\nsb.replace(5, 6, \"21\");\nSystem.out.println(sb);",
+      "output": "Java 21",
+      "explanation": "The character at index 5 ('8') is replaced by the two-character string \"21\", resulting in \"Java 21\".",
+      "answer": "Java 21"
+    },
+    {
+      "id": 25,
+      "topic": "StringBuilder Essential Mutation Methods",
+      "question": "What does setCharAt(int index, char ch) do, and what is its return type?",
+      "answer": "It replaces the single character at the specified index with 'ch'. Its return type is void (it cannot be chained).",
+      "explanation": "Unlike append() or insert(), setCharAt() returns void and cannot be used in a fluent method chain."
+    },
+    {
+      "id": 26,
+      "topic": "Method Chaining & Fluent API Design",
+      "question": "Why do methods like append(), insert(), and reverse() return 'this' in StringBuilder?",
+      "answer": "To enable method chaining (Fluent API pattern), allowing developers to cascade multiple operations in a single readable statement on the exact same object reference."
+    },
+    {
+      "id": 27,
+      "topic": "Method Chaining & Fluent API Design",
+      "question": "What is the output of the following chained expression?",
+      "code": "StringBuilder sb = new StringBuilder(\"A\");\nsb.append(\"B\").append(\"C\").reverse();\nSystem.out.println(sb);",
+      "output": "CBA",
+      "explanation": "\"A\" + \"B\" + \"C\" creates \"ABC\" inside the buffer. Calling reverse() inverts it in-place to \"CBA\".",
+      "answer": "CBA"
+    },
+    {
+      "id": 28,
+      "topic": "Method Chaining & Fluent API Design",
+      "question": "Does method chaining in StringBuilder create new objects in memory?",
+      "answer": "No. Every chained method returns 'return this;', which is the reference to the exact same StringBuilder instance on the heap."
+    },
+    {
+      "id": 29,
+      "topic": "Method Chaining & Fluent API Design",
+      "question": "Is assigning the result of a chained call to a new variable necessary in StringBuilder?",
+      "answer": "No. Since the original builder instance itself is modified in-place, assigning the returned reference to another variable is redundant.",
+      "code": "StringBuilder sb1 = new StringBuilder(\"Hi\");\nStringBuilder sb2 = sb1.append(\"!\"); // sb1 and sb2 point to the exact same object!"
+    },
+    {
+      "id": 30,
+      "topic": "Method Chaining & Fluent API Design",
+      "question": "What is the output of comparing two chained StringBuilder references using ==?",
+      "code": "StringBuilder sb1 = new StringBuilder(\"Hello\");\nStringBuilder sb2 = sb1.append(\" World\");\nSystem.out.println(sb1 == sb2);",
+      "output": "true",
+      "explanation": "Because append() returns 'this', sb1 and sb2 point to the exact same memory address on the JVM Heap.",
+      "answer": "true"
+    },
+    {
+      "id": 31,
+      "topic": "Method Chaining & Fluent API Design",
+      "question": "How do you convert a finished StringBuilder back into an immutable String?",
+      "answer": "By calling the toString() method: String result = sb.toString(); which produces a new String containing the builder's characters."
+    },
+    {
+      "id": 32,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "What is java.lang.StringBuffer?",
+      "answer": "StringBuffer is Java's legacy mutable character sequence class introduced in Java 1.0. Unlike StringBuilder, all of its public mutating methods are synchronized, making it thread-safe."
+    },
+    {
+      "id": 33,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "How does StringBuffer achieve thread-safety?",
+      "answer": "By marking its mutating methods with the 'synchronized' keyword. A thread calling any method must acquire the object's intrinsic monitor lock, blocking other threads until completion."
+    },
+    {
+      "id": 34,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "Why is StringBuilder faster than StringBuffer in single-threaded environments?",
+      "answer": "StringBuilder methods are NOT synchronized. It avoids the CPU overhead of acquiring, checking, and releasing monitor locks and thread synchronization barriers."
+    },
+    {
+      "id": 35,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "When was StringBuilder introduced in Java and why?",
+      "answer": "In Java 5 (JDK 1.5), as a drop-in, unsynchronized replacement for StringBuffer to provide maximum performance for single-threaded string building."
+    },
+    {
+      "id": 36,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "Why do local variables inside a method NOT need StringBuffer?",
+      "answer": "Local variables reside entirely on that specific thread's private call stack. No other thread can access them, making synchronization redundant and wasteful."
+    },
+    {
+      "id": 37,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "What happens if two concurrent threads write to the same StringBuilder instance simultaneously?",
+      "answer": "A race condition occurs: characters can be overwritten, the internal count variable can become desynchronized, or an ArrayIndexOutOfBoundsException can be thrown."
+    },
+    {
+      "id": 38,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "When should an enterprise architect still choose StringBuffer over StringBuilder?",
+      "answer": "Only when a single mutable buffer instance is actively shared across multiple concurrent worker threads without external synchronization."
+    },
+    {
+      "id": 39,
+      "topic": "StringBuffer & Thread-Safety Mechanics",
+      "question": "Does StringBuilder or StringBuffer override the equals() method from Object?",
+      "answer": "No! Neither StringBuilder nor StringBuffer overrides equals(). Calling .equals() on them performs reference equality (==), not content equality."
+    },
+    {
+      "id": 40,
+      "topic": "String Formatting Fundamentals & Format Specifiers",
+      "question": "What is the difference between System.out.printf() and String.format()?",
+      "answer": "System.out.printf() directly writes the formatted output to the standard output console stream, while String.format() returns the formatted output as a new String object."
+    },
+    {
+      "id": 41,
+      "topic": "String Formatting Fundamentals & Format Specifiers",
+      "question": "What does the %s format specifier represent in Java?",
+      "answer": "A string conversion. It accepts any object and calls its toString() method, or prints 'null' if the object reference is null."
+    },
+    {
+      "id": 42,
+      "topic": "String Formatting Fundamentals & Format Specifiers",
+      "question": "What is the format specifier for decimal integers and floating-point numbers in Java?",
+      "answer": "%d is used for decimal integers (byte, short, int, long), and %f is used for floating-point numbers (float, double)."
+    },
+    {
+      "id": 43,
+      "topic": "String Formatting Fundamentals & Format Specifiers",
+      "question": "Why is %n preferred over \\n in format strings?",
+      "answer": "%n produces the platform-specific line separator (\\r\\n on Windows, \\n on Linux/macOS), ensuring cross-platform portability."
+    },
+    {
+      "id": 44,
+      "topic": "String Formatting Fundamentals & Format Specifiers",
+      "question": "What is the output of the following format statement?",
+      "code": "String out = String.format(\"%s scored %d points\", \"Rohan\", 95);\nSystem.out.println(out);",
+      "output": "Rohan scored 95 points",
+      "explanation": "%s is replaced by \"Rohan\" and %d is replaced by 95.",
+      "answer": "Rohan scored 95 points"
+    },
+    {
+      "id": 45,
+      "topic": "String Formatting Fundamentals & Format Specifiers",
+      "question": "What exception is thrown if format specifier types mismatch (e.g. String.format(\"%d\", \"abc\"))?",
+      "answer": "java.util.IllegalFormatConversionException (a subclass of IllegalArgumentException)."
+    },
+    {
+      "id": 46,
+      "topic": "Advanced Format Flags, Precision & Alignment",
+      "question": "How do you format a floating-point number to exactly two decimal places in Java?",
+      "answer": "Using the precision specifier '%.2f'. For example, String.format(\"%.2f\", 3.14159) returns \"3.14\"."
+    },
+    {
+      "id": 47,
+      "topic": "Advanced Format Flags, Precision & Alignment",
+      "question": "What flag is used to format numbers with locale-specific thousand grouping commas?",
+      "answer": "The comma (',') flag. For example, String.format(\"%,d\", 1000000) produces \"1,000,000\"."
+    },
+    {
+      "id": 48,
+      "topic": "Advanced Format Flags, Precision & Alignment",
+      "question": "What is the output of the left-alignment flag '-' in: String.format(\"|%-10s|\", \"Java\")?",
+      "code": "System.out.println(String.format(\"|%-10s|\", \"Java\"));",
+      "output": "|Java      |",
+      "explanation": "%-10s left-aligns \"Java\" within a 10-character wide field, appending 6 spaces to the right.",
+      "answer": "|Java      |"
+    },
+    {
+      "id": 49,
+      "topic": "Advanced Format Flags, Precision & Alignment",
+      "question": "What is the output of zero-padding in: String.format(\"%05d\", 42)?",
+      "code": "System.out.println(String.format(\"%05d\", 42));",
+      "output": "00042",
+      "explanation": "%05d specifies a minimum width of 5 characters, padding leading positions with zeros.",
+      "answer": "00042"
+    },
+    {
+      "id": 50,
+      "topic": "Advanced Format Flags, Precision & Alignment",
+      "question": "How do Java 15+ Text Blocks simplify dynamic template formatting with .formatted()?",
+      "answer": "Text Blocks (\"\"\") preserve multi-line formatting without quote escapes. Calling .formatted(args...) directly on the text block fluently interpolates variables using standard format specifiers.",
+      "code": "String json = \"\"\"\n    {\n      \"status\": \"%s\",\n      \"code\": %d\n    }\n    \"\"\".formatted(\"OK\", 200);"
+    }
+  ]
+}

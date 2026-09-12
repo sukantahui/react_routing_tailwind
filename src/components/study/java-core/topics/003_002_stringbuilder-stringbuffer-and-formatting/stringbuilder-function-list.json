@@ -1,0 +1,1210 @@
+[
+  {
+    "id": "fn_sb_append_string",
+    "name": "append",
+    "signature": "public StringBuilder append(String str)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The string to be appended to the current buffer sequence"
+      }
+    ],
+    "use": "Appends the characters of the specified String to the end of the existing character sequence in-place. If the parameter str is null, the four characters \"null\" are appended without throwing a NullPointerException. Automatically triggers internal capacity expansion if length() + str.length() exceeds capacity(). Returns the exact same StringBuilder reference ('this') for fluent chaining.",
+    "example": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.append(\" 21\").append(\" LTS\");\nSystem.out.println(\"Result: \" + sb);\nSystem.out.println(\"Length: \" + sb.length());",
+    "exampleOutput": "Result: Java 21 LTS\nLength: 11",
+    "notes": "Never concatenate with '+' inside loops; call sb.append() instead to prevent quadratic O(N^2) heap allocations."
+  },
+  {
+    "id": "fn_sb_append_int",
+    "name": "append",
+    "signature": "public StringBuilder append(int i)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "i",
+        "type": "int",
+        "description": "The primitive integer value to convert and append"
+      }
+    ],
+    "use": "Appends the string representation of the primitive int argument directly to the internal character buffer without allocating an intermediate java.lang.String or Integer wrapper object on the heap.",
+    "example": "StringBuilder sb = new StringBuilder(\"Port: \");\nint port = 8080;\nsb.append(port);\nSystem.out.println(sb);",
+    "exampleOutput": "Port: 8080",
+    "notes": "Internally delegates to Integer.getChars(int, int, byte[]) in modern JDKs for zero-allocation integer formatting."
+  },
+  {
+    "id": "fn_sb_append_double",
+    "name": "append",
+    "signature": "public StringBuilder append(double d)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "d",
+        "type": "double",
+        "description": "The 64-bit IEEE 754 floating-point value to append"
+      }
+    ],
+    "use": "Appends the string representation of the double argument to this sequence via Double.toString(d). Handles special values such as NaN, POSITIVE_INFINITY, and NEGATIVE_INFINITY cleanly.",
+    "example": "StringBuilder sb = new StringBuilder(\"Price: $\");\ndouble price = 99.95;\nsb.append(price);\nSystem.out.println(sb);",
+    "exampleOutput": "Price: $99.95",
+    "notes": "For strict financial decimal rounding and formatting, prefer String.format(\"%.2f\", price) or BigDecimal."
+  },
+  {
+    "id": "fn_sb_append_char",
+    "name": "append",
+    "signature": "public StringBuilder append(char c)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "c",
+        "type": "char",
+        "description": "The 16-bit UTF-16 character literal to append"
+      }
+    ],
+    "use": "Appends a single char directly into the internal buffer array at index length(), incrementing length by 1. This is the fastest appending method in the entire Java SDK because it requires zero string parsing or object conversion.",
+    "example": "StringBuilder sb = new StringBuilder(\"Grade\");\nsb.append(':').append(' ').append('A');\nSystem.out.println(sb);",
+    "exampleOutput": "Grade: A",
+    "notes": "In high-throughput loops (e.g. CSV line generators), append(';') is significantly faster than append(\";\")."
+  },
+  {
+    "id": "fn_sb_append_boolean",
+    "name": "append",
+    "signature": "public StringBuilder append(boolean b)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "b",
+        "type": "boolean",
+        "description": "The boolean flag (true or false)"
+      }
+    ],
+    "use": "Appends the string representation of the boolean argument (\"true\" or \"false\") directly into the buffer without allocating an intermediate object.",
+    "example": "StringBuilder sb = new StringBuilder(\"Active: \");\nboolean isEnabled = true;\nsb.append(isEnabled);\nSystem.out.println(sb);",
+    "exampleOutput": "Active: true",
+    "notes": "Writes the raw characters 't','r','u','e' directly into the backing buffer."
+  },
+  {
+    "id": "fn_sb_append_object",
+    "name": "append",
+    "signature": "public StringBuilder append(Object obj)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "obj",
+        "type": "Object",
+        "description": "Any Java object or reference"
+      }
+    ],
+    "use": "Appends the string representation of the Object argument by invoking String.valueOf(obj). If obj is null, the four characters \"null\" are safely appended without raising a NullPointerException. Otherwise, obj.toString() is called.",
+    "example": "class User {\n    String name = \"Alice\";\n    public String toString() { return \"User(\" + name + \")\"; }\n}\nStringBuilder sb = new StringBuilder(\"Logged in: \");\nsb.append(new User()).append(\" | Ref: \").append((Object)null);\nSystem.out.println(sb);",
+    "exampleOutput": "Logged in: User(Alice) | Ref: null",
+    "notes": "Ensure custom objects have an efficient toString() implementation to avoid memory overhead when appending."
+  },
+  {
+    "id": "fn_sb_append_char_array_slice",
+    "name": "append",
+    "signature": "public StringBuilder append(char[] str, int offset, int len)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "char[]",
+        "description": "Source character array"
+      },
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Starting index within the source array"
+      },
+      {
+        "name": "len",
+        "type": "int",
+        "description": "Number of characters to copy"
+      }
+    ],
+    "use": "Appends a sub-slice of a character array directly into the buffer using fast system array copying. Avoids the need to create a temporary String(str, offset, len) object, saving GC pressure in parsers and socket streams.",
+    "example": "char[] buffer = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd'};\nStringBuilder sb = new StringBuilder(\"Greeting: \");\nsb.append(buffer, 0, 5);\nSystem.out.println(sb);",
+    "exampleOutput": "Greeting: Hello",
+    "notes": "Throws IndexOutOfBoundsException if offset < 0, len < 0, or offset + len > str.length."
+  },
+  {
+    "id": "fn_sb_append_char_sequence_slice",
+    "name": "append",
+    "signature": "public StringBuilder append(CharSequence s, int start, int end)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "s",
+        "type": "CharSequence",
+        "description": "Any CharSequence instance (String, StringBuilder, CharBuffer)"
+      },
+      {
+        "name": "start",
+        "type": "int",
+        "description": "Starting index (inclusive)"
+      },
+      {
+        "name": "end",
+        "type": "int",
+        "description": "Ending index (exclusive)"
+      }
+    ],
+    "use": "Appends a subsequence of the specified CharSequence. If s is null, this method appends characters from the string \"null\" as if s were \"null\". Extremely useful when slicing data from an existing StringBuilder into another.",
+    "example": "String token = \"TOKEN#8741#EXPIRED\";\nStringBuilder sb = new StringBuilder(\"ID: \");\nsb.append(token, 6, 10);\nSystem.out.println(sb);",
+    "exampleOutput": "ID: 8741",
+    "notes": "The range is half-open: index start is included, but end is excluded."
+  },
+  {
+    "id": "fn_sb_append_codepoint",
+    "name": "appendCodePoint",
+    "signature": "public StringBuilder appendCodePoint(int codePoint)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Core Appenders",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "codePoint",
+        "type": "int",
+        "description": "A 32-bit Unicode code point"
+      }
+    ],
+    "use": "Appends the string representation of the codePoint argument to this sequence. If the code point is within the supplementary character plane (> 0xFFFF), it automatically generates and appends both surrogate pair characters.",
+    "example": "StringBuilder sb = new StringBuilder(\"Status: \");\nint rocketEmoji = 0x1F680; // \ud83d\ude80\nsb.appendCodePoint(rocketEmoji);\nSystem.out.println(sb);",
+    "exampleOutput": "Status: \ud83d\ude80",
+    "notes": "Essential for internationalization (i18n) and modern emoji handling without corrupting multi-byte code units."
+  },
+  {
+    "id": "fn_sb_insert_string",
+    "name": "insert",
+    "signature": "public StringBuilder insert(int offset, String str)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "The zero-based position at which to insert"
+      },
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The string to be inserted"
+      }
+    ],
+    "use": "Inserts the specified String into this character sequence at the specified index offset. Existing characters from offset onwards are shifted to the right. If str is null, \"null\" is inserted. If offset == length(), behavior is equivalent to append(str).",
+    "example": "StringBuilder sb = new StringBuilder(\"Hello World\");\nsb.insert(6, \"Beautiful \");\nSystem.out.println(sb);",
+    "exampleOutput": "Hello Beautiful World",
+    "notes": "Throws StringIndexOutOfBoundsException if offset < 0 or offset > length()."
+  },
+  {
+    "id": "fn_sb_insert_int",
+    "name": "insert",
+    "signature": "public StringBuilder insert(int offset, int i)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "The insertion offset index"
+      },
+      {
+        "name": "i",
+        "type": "int",
+        "description": "The primitive int to convert and insert"
+      }
+    ],
+    "use": "Inserts the string representation of the primitive int into this sequence at the specified offset. Shifts following characters rightward.",
+    "example": "StringBuilder sb = new StringBuilder(\"Order # items\");\nsb.insert(7, 502);\nSystem.out.println(sb);",
+    "exampleOutput": "Order #502 items",
+    "notes": "Does not allocate intermediate String wrappers."
+  },
+  {
+    "id": "fn_sb_insert_char",
+    "name": "insert",
+    "signature": "public StringBuilder insert(int offset, char c)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "The index where the character will be inserted"
+      },
+      {
+        "name": "c",
+        "type": "char",
+        "description": "The character to insert"
+      }
+    ],
+    "use": "Inserts the char argument into this sequence at the specified index. All characters originally at or after index are shifted one slot to the right.",
+    "example": "StringBuilder sb = new StringBuilder(\"AC\");\nsb.insert(1, 'B');\nSystem.out.println(sb);",
+    "exampleOutput": "ABC",
+    "notes": "Useful for inserting delimiter brackets, commas, or quotes inside constructed sequences."
+  },
+  {
+    "id": "fn_sb_insert_boolean",
+    "name": "insert",
+    "signature": "public StringBuilder insert(int offset, boolean b)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Target insertion offset"
+      },
+      {
+        "name": "b",
+        "type": "boolean",
+        "description": "Boolean value to insert"
+      }
+    ],
+    "use": "Inserts the string representation of boolean b (\"true\" or \"false\") into this character sequence at the position indicated by offset.",
+    "example": "StringBuilder sb = new StringBuilder(\"Is VIP:  customer\");\nsb.insert(8, true);\nSystem.out.println(sb);",
+    "exampleOutput": "Is VIP: true customer",
+    "notes": "Shifts trailing characters rightward by 4 (for true) or 5 (for false)."
+  },
+  {
+    "id": "fn_sb_insert_object",
+    "name": "insert",
+    "signature": "public StringBuilder insert(int offset, Object obj)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "The index at which to insert"
+      },
+      {
+        "name": "obj",
+        "type": "Object",
+        "description": "Object whose toString() will be inserted"
+      }
+    ],
+    "use": "Inserts the string representation of the Object argument into this character sequence at offset via String.valueOf(obj).",
+    "example": "StringBuilder sb = new StringBuilder(\"Host: []\");\njava.time.LocalDate today = java.time.LocalDate.of(2026, 9, 12);\nsb.insert(7, today);\nSystem.out.println(sb);",
+    "exampleOutput": "Host: [2026-09-12]",
+    "notes": "If obj is null, the literal \"null\" is inserted safely."
+  },
+  {
+    "id": "fn_sb_insert_char_array_slice",
+    "name": "insert",
+    "signature": "public StringBuilder insert(int index, char[] str, int offset, int len)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "Position in StringBuilder where insertion occurs"
+      },
+      {
+        "name": "str",
+        "type": "char[]",
+        "description": "Source char array"
+      },
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Start offset in char array"
+      },
+      {
+        "name": "len",
+        "type": "int",
+        "description": "Number of characters to insert"
+      }
+    ],
+    "use": "Inserts a sub-array of characters from str into this sequence at the specified index position. High performance bulk copy.",
+    "example": "char[] raw = {'-', '9', '9', '-'};\nStringBuilder sb = new StringBuilder(\"Val: \");\nsb.insert(5, raw, 1, 2);\nSystem.out.println(sb);",
+    "exampleOutput": "Val: 99",
+    "notes": "Throws StringIndexOutOfBoundsException if index < 0 or index > length()."
+  },
+  {
+    "id": "fn_sb_replace",
+    "name": "replace",
+    "signature": "public StringBuilder replace(int start, int end, String str)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "int",
+        "description": "The beginning index, inclusive"
+      },
+      {
+        "name": "end",
+        "type": "int",
+        "description": "The ending index, exclusive"
+      },
+      {
+        "name": "str",
+        "type": "String",
+        "description": "String that will replace the previous contents"
+      }
+    ],
+    "use": "Replaces the characters in a substring of this sequence with characters in the specified String. The substring begins at start and extends to the character at index end - 1. If end > length(), end is capped to length(). The length of str does not need to match end - start.",
+    "example": "StringBuilder sb = new StringBuilder(\"Hello Python\");\nsb.replace(6, 12, \"Java 21\");\nSystem.out.println(sb);",
+    "exampleOutput": "Hello Java 21",
+    "notes": "Returns 'this' allowing method chaining. If start > end or start < 0, throws StringIndexOutOfBoundsException."
+  },
+  {
+    "id": "fn_sb_setcharat",
+    "name": "setCharAt",
+    "signature": "public void setCharAt(int index, char ch)",
+    "returnType": "void",
+    "classSource": "StringBuilder",
+    "category": "Insertion & Replacement",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "Index of the character to modify"
+      },
+      {
+        "name": "ch",
+        "type": "char",
+        "description": "The new character value"
+      }
+    ],
+    "use": "Directly mutates the character at the specified index to ch in-place in O(1) time without shifting any surrounding characters. Note that this method returns void, which means it CANNOT be chained fluently.",
+    "example": "StringBuilder sb = new StringBuilder(\"Boat\");\nsb.setCharAt(0, 'C');\nSystem.out.println(sb);",
+    "exampleOutput": "Coat",
+    "notes": "Throws IndexOutOfBoundsException if index < 0 or index >= length()."
+  },
+  {
+    "id": "fn_sb_delete",
+    "name": "delete",
+    "signature": "public StringBuilder delete(int start, int end)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Deletion & Reversal",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "int",
+        "description": "The beginning index, inclusive"
+      },
+      {
+        "name": "end",
+        "type": "int",
+        "description": "The ending index, exclusive"
+      }
+    ],
+    "use": "Removes the characters in a substring of this sequence from start up to end - 1. The remaining characters are shifted left by end - start slots, and length() is decremented accordingly. If start == end, no changes occur. If end > length(), characters through the end of the buffer are deleted.",
+    "example": "StringBuilder sb = new StringBuilder(\"Java-Deprecated-Feature\");\nsb.delete(4, 15);\nSystem.out.println(sb);",
+    "exampleOutput": "Java-Feature",
+    "notes": "Throws StringIndexOutOfBoundsException if start < 0, start > length(), or start > end."
+  },
+  {
+    "id": "fn_sb_deletecharat",
+    "name": "deleteCharAt",
+    "signature": "public StringBuilder deleteCharAt(int index)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Deletion & Reversal",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "Index of the single character to be removed"
+      }
+    ],
+    "use": "Removes the character at the specified index position from this sequence. Shifts all subsequent characters one position to the left and decrements length() by 1.",
+    "example": "StringBuilder sb = new StringBuilder(\"Javva\");\nsb.deleteCharAt(2);\nSystem.out.println(sb);",
+    "exampleOutput": "Java",
+    "notes": "Throws StringIndexOutOfBoundsException if index < 0 or index >= length()."
+  },
+  {
+    "id": "fn_sb_reverse",
+    "name": "reverse",
+    "signature": "public StringBuilder reverse()",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Deletion & Reversal",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Causes this character sequence to be replaced by the reverse of the sequence directly in place. If there are any surrogate pairs included in the sequence, these are treated as single characters for the reverse operation so emoji and unicode scripts do not get corrupted.",
+    "example": "StringBuilder sb = new StringBuilder(\"madam\");\nsb.reverse();\nSystem.out.println(\"Reversed: \" + sb);\nStringBuilder num = new StringBuilder(\"12345\");\nSystem.out.println(\"Reversed: \" + num.reverse());",
+    "exampleOutput": "Reversed: madam\nReversed: 54321",
+    "notes": "Operates in O(N/2) swaps with zero heap allocations, making it ideal for palindrome verification algorithms."
+  },
+  {
+    "id": "fn_sb_repeat_char_seq",
+    "name": "repeat",
+    "signature": "public StringBuilder repeat(CharSequence s, int count)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Deletion & Reversal",
+    "since": "Java 21",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "s",
+        "type": "CharSequence",
+        "description": "The character sequence to repeat"
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "description": "Number of times to append s (must be >= 0)"
+      }
+    ],
+    "use": "Appends count copies of the specified CharSequence s directly into this builder. Added in Java 21 to eliminate boilerplate for-loops when constructing separators, padding, or indentation lines.",
+    "example": "StringBuilder sb = new StringBuilder(\"Header\\n\");\nsb.repeat(\"=\", 10);\nSystem.out.println(sb);",
+    "exampleOutput": "Header\n==========",
+    "notes": "Throws IllegalArgumentException if count < 0. If count == 0, the builder is unchanged."
+  },
+  {
+    "id": "fn_sb_repeat_codepoint",
+    "name": "repeat",
+    "signature": "public StringBuilder repeat(int codePoint, int count)",
+    "returnType": "StringBuilder",
+    "classSource": "StringBuilder",
+    "category": "Deletion & Reversal",
+    "since": "Java 21",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "codePoint",
+        "type": "int",
+        "description": "Unicode code point to repeat"
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "description": "Repetition frequency"
+      }
+    ],
+    "use": "Appends count copies of the specified Unicode code point to this builder sequence. Native support for surrogate pairs.",
+    "example": "StringBuilder sb = new StringBuilder();\nsb.repeat('*', 5);\nSystem.out.println(sb);",
+    "exampleOutput": "*****",
+    "notes": "Optimized in JDK 21 for single byte fill operations when characters fit Latin-1."
+  },
+  {
+    "id": "fn_sb_capacity",
+    "name": "capacity",
+    "signature": "public int capacity()",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Capacity & Buffer Sizing",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Returns the current capacity of the StringBuilder. Capacity is the total amount of character storage currently allocated in the internal backing buffer, whereas length() is the number of characters currently occupied.",
+    "example": "StringBuilder sb1 = new StringBuilder();\nSystem.out.println(\"Default capacity: \" + sb1.capacity());\nStringBuilder sb2 = new StringBuilder(\"Java\");\nSystem.out.println(\"With 'Java': \" + sb2.capacity()); // 16 + 4 = 20",
+    "exampleOutput": "Default capacity: 16\nWith 'Java': 20",
+    "notes": "Default capacity of empty constructor new StringBuilder() is always 16 characters."
+  },
+  {
+    "id": "fn_sb_length",
+    "name": "length",
+    "signature": "public int length()",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Capacity & Buffer Sizing",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Returns the number of characters currently stored in this sequence (the logical length). Implemented from CharSequence.",
+    "example": "StringBuilder sb = new StringBuilder(\"Hello\");\nSystem.out.println(\"Length: \" + sb.length());\nSystem.out.println(\"Capacity: \" + sb.capacity());",
+    "exampleOutput": "Length: 5\nCapacity: 21",
+    "notes": "length() is always <= capacity()."
+  },
+  {
+    "id": "fn_sb_ensurecapacity",
+    "name": "ensureCapacity",
+    "signature": "public void ensureCapacity(int minimumCapacity)",
+    "returnType": "void",
+    "classSource": "StringBuilder",
+    "category": "Capacity & Buffer Sizing",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "minimumCapacity",
+        "type": "int",
+        "description": "Minimum desired capacity threshold"
+      }
+    ],
+    "use": "Ensures that the internal buffer capacity is at least equal to minimumCapacity. If current capacity is smaller, a larger internal array is allocated using the growth formula: max(minimumCapacity, (oldCapacity * 2) + 2).",
+    "example": "StringBuilder sb = new StringBuilder(); // capacity = 16\nsb.ensureCapacity(20);\nSystem.out.println(\"New Capacity: \" + sb.capacity()); // (16 * 2) + 2 = 34",
+    "exampleOutput": "New Capacity: 34",
+    "notes": "Use ensureCapacity() before a massive append loop to completely prevent repetitive array reallocation and copying overhead."
+  },
+  {
+    "id": "fn_sb_trimtosize",
+    "name": "trimToSize",
+    "signature": "public void trimToSize()",
+    "returnType": "void",
+    "classSource": "StringBuilder",
+    "category": "Capacity & Buffer Sizing",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Attempts to reduce the storage used for the character sequence by reallocating the internal array to match exactly length(). If the buffer is already trimmed, no reallocation takes place.",
+    "example": "StringBuilder sb = new StringBuilder(1000);\nsb.append(\"Done\");\nSystem.out.println(\"Before trim: \" + sb.capacity());\nsb.trimToSize();\nSystem.out.println(\"After trim: \" + sb.capacity());",
+    "exampleOutput": "Before trim: 1000\nAfter trim: 4",
+    "notes": "Useful when a large temporary buffer has finished building its payload and must stay in memory without wasting unused capacity."
+  },
+  {
+    "id": "fn_sb_setlength",
+    "name": "setLength",
+    "signature": "public void setLength(int newLength)",
+    "returnType": "void",
+    "classSource": "StringBuilder",
+    "category": "Capacity & Buffer Sizing",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "newLength",
+        "type": "int",
+        "description": "The new length of this character sequence"
+      }
+    ],
+    "use": "Sets the length of this character sequence. If newLength is smaller than current length(), the sequence is truncated. If newLength is larger, null characters ('\\0') are appended. Calling sb.setLength(0) instantly resets the builder for reuse without releasing the underlying capacity!",
+    "example": "StringBuilder sb = new StringBuilder(\"CacheDataToReuse\");\nSystem.out.println(\"Original: \" + sb + \" | cap: \" + sb.capacity());\nsb.setLength(0); // instant clear\nSystem.out.println(\"Cleared length: \" + sb.length() + \" | cap: \" + sb.capacity());\nsb.append(\"Fresh\");\nSystem.out.println(\"Reused: \" + sb);",
+    "exampleOutput": "Original: CacheDataToReuse | cap: 32\nCleared length: 0 | cap: 32\nReused: Fresh",
+    "notes": "sb.setLength(0) is a high-performance optimization pattern to reuse a single StringBuilder across thousands of loop cycles."
+  },
+  {
+    "id": "fn_sb_charat",
+    "name": "charAt",
+    "signature": "public char charAt(int index)",
+    "returnType": "char",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "Zero-based character index"
+      }
+    ],
+    "use": "Returns the char value in this sequence at the specified index in O(1) time.",
+    "example": "StringBuilder sb = new StringBuilder(\"Rocket\");\nSystem.out.println(\"Char at 0: \" + sb.charAt(0));\nSystem.out.println(\"Char at 5: \" + sb.charAt(5));",
+    "exampleOutput": "Char at 0: R\nChar at 5: t",
+    "notes": "Throws IndexOutOfBoundsException if index < 0 or index >= length()."
+  },
+  {
+    "id": "fn_sb_indexof",
+    "name": "indexOf",
+    "signature": "public int indexOf(String str)",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "Substring to search for"
+      }
+    ],
+    "use": "Returns the index within this sequence of the first occurrence of the specified substring, or -1 if the substring does not occur.",
+    "example": "StringBuilder sb = new StringBuilder(\"Learn Java, Love Java\");\nSystem.out.println(\"First Java at: \" + sb.indexOf(\"Java\"));\nSystem.out.println(\"Kotlin at: \" + sb.indexOf(\"Kotlin\"));",
+    "exampleOutput": "First Java at: 6\nKotlin at: -1",
+    "notes": "Linear search over the internal character buffer."
+  },
+  {
+    "id": "fn_sb_indexof_from",
+    "name": "indexOf",
+    "signature": "public int indexOf(String str, int fromIndex)",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "Substring to search for"
+      },
+      {
+        "name": "fromIndex",
+        "type": "int",
+        "description": "The index from which to start the search"
+      }
+    ],
+    "use": "Returns the index within this sequence of the first occurrence of the specified substring, starting the search forward from fromIndex.",
+    "example": "StringBuilder sb = new StringBuilder(\"Learn Java, Love Java\");\nSystem.out.println(\"Second Java at: \" + sb.indexOf(\"Java\", 7));",
+    "exampleOutput": "Second Java at: 17",
+    "notes": "If fromIndex < 0, search starts at 0. If fromIndex >= length(), returns -1."
+  },
+  {
+    "id": "fn_sb_lastindexof",
+    "name": "lastIndexOf",
+    "signature": "public int lastIndexOf(String str)",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "Substring to locate"
+      }
+    ],
+    "use": "Returns the index within this sequence of the rightmost occurrence of the specified substring, searching backwards from the end.",
+    "example": "StringBuilder sb = new StringBuilder(\"server.prod.backup.log\");\nSystem.out.println(\"Last dot at: \" + sb.lastIndexOf(\".\"));",
+    "exampleOutput": "Last dot at: 18",
+    "notes": "Returns -1 if the substring is not found."
+  },
+  {
+    "id": "fn_sb_lastindexof_from",
+    "name": "lastIndexOf",
+    "signature": "public int lastIndexOf(String str, int fromIndex)",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "Substring to locate"
+      },
+      {
+        "name": "fromIndex",
+        "type": "int",
+        "description": "The index to start searching backwards from"
+      }
+    ],
+    "use": "Returns the index within this sequence of the last occurrence of the specified substring, searching backwards starting at fromIndex.",
+    "example": "StringBuilder sb = new StringBuilder(\"alpha/beta/gamma/delta\");\nSystem.out.println(\"Slash before index 12: \" + sb.lastIndexOf(\"/\", 12));",
+    "exampleOutput": "Slash before index 12: 10",
+    "notes": "Useful in token parsing and reverse string segmentations."
+  },
+  {
+    "id": "fn_sb_substring_start",
+    "name": "substring",
+    "signature": "public String substring(int start)",
+    "returnType": "String",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "int",
+        "description": "Start index (inclusive)"
+      }
+    ],
+    "use": "Returns a new immutable java.lang.String that contains a subsequence of characters currently contained in this character sequence starting from start up to length(). Notice that this returns a String, NOT a StringBuilder!",
+    "example": "StringBuilder sb = new StringBuilder(\"Order-9021\");\nString code = sb.substring(6);\nSystem.out.println(\"Extracted code: \" + code);\nSystem.out.println(\"Original sb unchanged: \" + sb);",
+    "exampleOutput": "Extracted code: 9021\nOriginal sb unchanged: Order-9021",
+    "notes": "Does not mutate the invoking StringBuilder. Allocates a new String on the heap."
+  },
+  {
+    "id": "fn_sb_substring_range",
+    "name": "substring",
+    "signature": "public String substring(int start, int end)",
+    "returnType": "String",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "int",
+        "description": "Beginning index, inclusive"
+      },
+      {
+        "name": "end",
+        "type": "int",
+        "description": "Ending index, exclusive"
+      }
+    ],
+    "use": "Returns a new immutable java.lang.String containing the substring from index start to end - 1.",
+    "example": "StringBuilder sb = new StringBuilder(\"Status: SUCCESS (200)\");\nString status = sb.substring(8, 15);\nSystem.out.println(\"Status: \" + status);",
+    "exampleOutput": "Status: SUCCESS",
+    "notes": "Throws StringIndexOutOfBoundsException if start < 0, start > end, or end > length()."
+  },
+  {
+    "id": "fn_sb_subsequence",
+    "name": "subSequence",
+    "signature": "public CharSequence subSequence(int start, int end)",
+    "returnType": "CharSequence",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "int",
+        "description": "Start index, inclusive"
+      },
+      {
+        "name": "end",
+        "type": "int",
+        "description": "End index, exclusive"
+      }
+    ],
+    "use": "Returns a new CharSequence that is a subsequence of this sequence. Implements CharSequence.subSequence(). Simply calls this.substring(start, end) under the hood.",
+    "example": "StringBuilder sb = new StringBuilder(\"JDK 21 LTS\");\nCharSequence cs = sb.subSequence(0, 6);\nSystem.out.println(cs);",
+    "exampleOutput": "JDK 21",
+    "notes": "Provided for generic CharSequence polymorphism."
+  },
+  {
+    "id": "fn_sb_getchars",
+    "name": "getChars",
+    "signature": "public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)",
+    "returnType": "void",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "srcBegin",
+        "type": "int",
+        "description": "Start index in StringBuilder (inclusive)"
+      },
+      {
+        "name": "srcEnd",
+        "type": "int",
+        "description": "End index in StringBuilder (exclusive)"
+      },
+      {
+        "name": "dst",
+        "type": "char[]",
+        "description": "Destination character array"
+      },
+      {
+        "name": "dstBegin",
+        "type": "int",
+        "description": "Offset in dst array where writing begins"
+      }
+    ],
+    "use": "Fast bulk memory copy of characters from this sequence into a destination char[] array. Zero intermediate heap object creation.",
+    "example": "StringBuilder sb = new StringBuilder(\"HTTP 200 OK\");\nchar[] target = new char[3];\nsb.getChars(5, 8, target, 0);\nSystem.out.println(java.util.Arrays.toString(target));",
+    "exampleOutput": "[2, 0, 0]",
+    "notes": "Optimal for high-throughput networking codecs and protocol serializations."
+  },
+  {
+    "id": "fn_sb_tostring",
+    "name": "toString",
+    "signature": "public String toString()",
+    "returnType": "String",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Returns a standard immutable java.lang.String representing the character sequence currently stored in this StringBuilder. Modern JVMs (Java 9+) use Compact Strings byte arrays and may share storage safely using copy-on-write semantics.",
+    "example": "StringBuilder sb = new StringBuilder(\"Final Output\");\nString str = sb.toString();\nSystem.out.println(\"String value: \" + str);\nSystem.out.println(\"Is String? \" + (str instanceof String));",
+    "exampleOutput": "String value: Final Output\nIs String? true",
+    "notes": "Calling sb.toString() is the final step in any mutable buffer assembly pipeline."
+  },
+  {
+    "id": "fn_sb_compareto",
+    "name": "compareTo",
+    "signature": "public int compareTo(StringBuilder another)",
+    "returnType": "int",
+    "classSource": "StringBuilder",
+    "category": "Inspection & Search",
+    "since": "Java 11",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "another",
+        "type": "StringBuilder",
+        "description": "The StringBuilder to be compared"
+      }
+    ],
+    "use": "Compares two StringBuilder instances lexicographically in Java 11+. Returns 0 if both sequences contain identical characters in the same order, a negative integer if this sequence precedes another, or a positive integer if this sequence follows another.",
+    "example": "StringBuilder a = new StringBuilder(\"Apple\");\nStringBuilder b = new StringBuilder(\"Banana\");\nStringBuilder c = new StringBuilder(\"Apple\");\nSystem.out.println(\"a vs b: \" + a.compareTo(b));\nSystem.out.println(\"a vs c: \" + a.compareTo(c));",
+    "exampleOutput": "a vs b: -1\na vs c: 0",
+    "notes": "Added in Java 11 because StringBuilder now implements Comparable<StringBuilder>!"
+  },
+  {
+    "id": "fn_sbuf_append_sync",
+    "name": "append",
+    "signature": "public synchronized StringBuffer append(String str)",
+    "returnType": "StringBuffer",
+    "classSource": "StringBuffer",
+    "category": "StringBuffer Thread-Safe",
+    "since": "Java 1.0",
+    "isThreadSafe": true,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "String to append"
+      }
+    ],
+    "use": "Appends the string to this thread-safe buffer. Uses the 'synchronized' keyword on the method declaration, which acquires the intrinsic object monitor lock before writing to the internal buffer. Guarantees safety when multiple concurrent threads share the same StringBuffer instance.",
+    "example": "StringBuffer sbuf = new StringBuffer(\"Shared\");\nRunnable task = () -> sbuf.append(\"-Worker\");\nThread t1 = new Thread(task);\nThread t2 = new Thread(task);\nt1.start(); t2.start();\nt1.join(); t2.join();\nSystem.out.println(\"Result length: \" + sbuf.length());",
+    "exampleOutput": "Result length: 20",
+    "notes": "Synchronization introduces locking overhead. Use StringBuilder unless thread safety across shared instances is explicitly required."
+  },
+  {
+    "id": "fn_sbuf_insert_sync",
+    "name": "insert",
+    "signature": "public synchronized StringBuffer insert(int offset, String str)",
+    "returnType": "StringBuffer",
+    "classSource": "StringBuffer",
+    "category": "StringBuffer Thread-Safe",
+    "since": "Java 1.0",
+    "isThreadSafe": true,
+    "arguments": [
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Insertion index"
+      },
+      {
+        "name": "str",
+        "type": "String",
+        "description": "String to insert"
+      }
+    ],
+    "use": "Thread-safe synchronized insertion at index offset. Protects concurrent threads from data corruption and race conditions during buffer reallocation.",
+    "example": "StringBuffer sbuf = new StringBuffer(\"Concurrent\");\nsbuf.insert(0, \"Safe-\");\nSystem.out.println(sbuf);",
+    "exampleOutput": "Safe-Concurrent",
+    "notes": "Synchronized on 'this' monitor."
+  },
+  {
+    "id": "fn_sbuf_delete_sync",
+    "name": "delete",
+    "signature": "public synchronized StringBuffer delete(int start, int end)",
+    "returnType": "StringBuffer",
+    "classSource": "StringBuffer",
+    "category": "StringBuffer Thread-Safe",
+    "since": "Java 1.0",
+    "isThreadSafe": true,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "int",
+        "description": "Start index, inclusive"
+      },
+      {
+        "name": "end",
+        "type": "int",
+        "description": "End index, exclusive"
+      }
+    ],
+    "use": "Thread-safe synchronized deletion of character range [start, end). Acquires the monitor lock before shifting characters left.",
+    "example": "StringBuffer sbuf = new StringBuffer(\"LOCK-Payload\");\nsbuf.delete(0, 5);\nSystem.out.println(sbuf);",
+    "exampleOutput": "Payload",
+    "notes": "Guarantees atomic range removal."
+  },
+  {
+    "id": "fn_sbuf_reverse_sync",
+    "name": "reverse",
+    "signature": "public synchronized StringBuffer reverse()",
+    "returnType": "StringBuffer",
+    "classSource": "StringBuffer",
+    "category": "StringBuffer Thread-Safe",
+    "since": "Java 1.0",
+    "isThreadSafe": true,
+    "arguments": [],
+    "use": "Thread-safe in-place reversal of the character sequence. Ensures that concurrent readers or writers cannot observe an intermediate corrupted state during the swap operations.",
+    "example": "StringBuffer sbuf = new StringBuffer(\"racecar\");\nsbuf.reverse();\nSystem.out.println(\"Reversed: \" + sbuf);",
+    "exampleOutput": "Reversed: racecar",
+    "notes": "Synchronized method."
+  },
+  {
+    "id": "fn_sbuf_tostring_sync",
+    "name": "toString",
+    "signature": "public synchronized String toString()",
+    "returnType": "String",
+    "classSource": "StringBuffer",
+    "category": "StringBuffer Thread-Safe",
+    "since": "Java 1.0",
+    "isThreadSafe": true,
+    "arguments": [],
+    "use": "Synchronized snapshot generation. Creates a new immutable String while holding the monitor lock to ensure the returned String reflects a coherent state.",
+    "example": "StringBuffer sbuf = new StringBuffer(\"SynchronizedLog\");\nString result = sbuf.toString();\nSystem.out.println(result);",
+    "exampleOutput": "SynchronizedLog",
+    "notes": "Historical design; in modern code prefer java.util.concurrent abstractions."
+  },
+  {
+    "id": "fn_fmt_printf_default",
+    "name": "printf",
+    "signature": "public PrintStream printf(String format, Object... args)",
+    "returnType": "PrintStream",
+    "classSource": "PrintStream",
+    "category": "String Formatting & printf",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "format",
+        "type": "String",
+        "description": "Format string with conversion specifiers and flags"
+      },
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Varargs arguments referenced by format specifiers"
+      }
+    ],
+    "use": "A convenience method to write a formatted string to this output stream using the specified format string and varargs. Internally equivalent to out.format(format, args). Returns the PrintStream for convenient chaining.",
+    "example": "String item = \"Widget\";\nint qty = 5;\ndouble price = 19.99;\nSystem.out.printf(\"Item: %-10s | Qty: %03d | Total: $%.2f%n\", item, qty, qty * price);",
+    "exampleOutput": "Item: Widget     | Qty: 005 | Total: $99.95",
+    "notes": "Always use %n instead of \\n for platform-independent newline generation (\\r\\n on Windows, \\n on Linux/macOS)."
+  },
+  {
+    "id": "fn_fmt_printf_locale",
+    "name": "printf",
+    "signature": "public PrintStream printf(Locale l, String format, Object... args)",
+    "returnType": "PrintStream",
+    "classSource": "PrintStream",
+    "category": "String Formatting & printf",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "l",
+        "type": "Locale",
+        "description": "Locale to apply during formatting"
+      },
+      {
+        "name": "format",
+        "type": "String",
+        "description": "Format string"
+      },
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Arguments"
+      }
+    ],
+    "use": "Writes formatted output using an explicit Locale. Critical for internationalization where number grouping, currency signs, and decimal separators vary across countries (e.g. Germany uses ',' for decimal and '.' for thousands).",
+    "example": "double amount = 1234567.89;\nSystem.out.printf(java.util.Locale.US, \"US: %,.2f%n\", amount);\nSystem.out.printf(java.util.Locale.GERMANY, \"DE: %,.2f%n\", amount);",
+    "exampleOutput": "US: 1,234,567.89\nDE: 1.234.567,89",
+    "notes": "Prevents regional server configuration bugs from breaking financial reports."
+  },
+  {
+    "id": "fn_fmt_string_format",
+    "name": "format",
+    "signature": "public static String format(String format, Object... args)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "String Formatting & printf",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "format",
+        "type": "String",
+        "description": "Format control string"
+      },
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Arguments to interpolate"
+      }
+    ],
+    "use": "Returns a formatted String using the default locale and specified format string and arguments. Does NOT print to console; instead creates and returns an immutable formatted String object on the heap.",
+    "example": "int hours = 9, mins = 5, secs = 2;\nString timestamp = String.format(\"%02d:%02d:%02d\", hours, mins, secs);\nSystem.out.println(\"Formatted time: \" + timestamp);",
+    "exampleOutput": "Formatted time: 09:05:02",
+    "notes": "Specifier syntax: %[argument_index$][flags][width][.precision]conversion."
+  },
+  {
+    "id": "fn_fmt_string_format_locale",
+    "name": "format",
+    "signature": "public static String format(Locale l, String format, Object... args)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "String Formatting & printf",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "l",
+        "type": "Locale",
+        "description": "Explicit Locale"
+      },
+      {
+        "name": "format",
+        "type": "String",
+        "description": "Format string"
+      },
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Varargs arguments"
+      }
+    ],
+    "use": "Returns a formatted String evaluated under the specified Locale rules.",
+    "example": "String invoice = String.format(java.util.Locale.ITALY, \"Importo: %,.2f EUR\", 9876.50);\nSystem.out.println(invoice);",
+    "exampleOutput": "Importo: 9.876,50 EUR",
+    "notes": "Essential for generating multi-currency financial invoices."
+  },
+  {
+    "id": "fn_fmt_string_formatted",
+    "name": "formatted",
+    "signature": "public String formatted(Object... args)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "String Formatting & printf",
+    "since": "Java 15",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Arguments referenced by the format specifiers"
+      }
+    ],
+    "use": "Formats using this string as the format string and the supplied arguments. Equivalent to String.format(this, args). Introduced in Java 15 as an instance method specifically to make formatting Java Text Blocks clean, fluid, and readable without nested static calls.",
+    "example": "String query = \"SELECT * FROM users WHERE status = '%s' AND age >= %d\"\n    .formatted(\"ACTIVE\", 18);\nSystem.out.println(query);",
+    "exampleOutput": "SELECT * FROM users WHERE status = 'ACTIVE' AND age >= 18",
+    "notes": "Preferred over String.format(...) when formatting multi-line Text Blocks."
+  },
+  {
+    "id": "fn_fmt_formatter_format",
+    "name": "format",
+    "signature": "public Formatter format(String format, Object... args)",
+    "returnType": "Formatter",
+    "classSource": "Formatter",
+    "category": "String Formatting & printf",
+    "since": "Java 1.5",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "format",
+        "type": "String",
+        "description": "Format template string"
+      },
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Values to format"
+      }
+    ],
+    "use": "Directly appends formatted output into a target Appendable destination, such as a custom StringBuilder instance. Prevents intermediate string object allocation when accumulating formatted reports into a single builder.",
+    "example": "StringBuilder sb = new StringBuilder(\"Report:\\n\");\njava.util.Formatter fmt = new java.util.Formatter(sb);\nfmt.format(\"%-10s: %d%n\", \"CPU Core\", 8);\nfmt.format(\"%-10s: %d GB%n\", \"RAM\", 32);\nSystem.out.print(sb);",
+    "exampleOutput": "Report:\nCPU Core  : 8\nRAM       : 32 GB",
+    "notes": "Always flush() or close() if Formatter wraps an external file or socket stream."
+  },
+  {
+    "id": "fn_tb_stripindent",
+    "name": "stripIndent",
+    "signature": "public String stripIndent()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Java 15+ Text Blocks",
+    "since": "Java 15",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with incidental white space removed from the beginning and end of every line. Calculates the common minimum leading whitespace across all non-empty lines and strips it uniformly.",
+    "example": "String raw = \"    Line 1\\n    Line 2\\n    Line 3\";\nString stripped = raw.stripIndent();\nSystem.out.println(stripped);",
+    "exampleOutput": "Line 1\nLine 2\nLine 3",
+    "notes": "Invoked automatically by the Java 15+ compiler during text block processing, but can also be invoked manually on dynamic strings."
+  },
+  {
+    "id": "fn_tb_translateescapes",
+    "name": "translateEscapes",
+    "signature": "public String translateEscapes()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Java 15+ Text Blocks",
+    "since": "Java 15",
+    "isThreadSafe": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with escape sequences (such as \\n, \\t, \\b, \\r, \\\", \\', and octal/unicode escapes) translated into their corresponding literal characters as if the string was compiled in source code.",
+    "example": "String unescaped = \"First\\\\nSecond\\\\tIndented\";\nString translated = unescaped.translateEscapes();\nSystem.out.println(translated);",
+    "exampleOutput": "First\\nSecond\\tIndented",
+    "notes": "Very useful when reading templates from external configuration files or database tables and interpreting escapes at runtime."
+  },
+  {
+    "id": "fn_tb_indent",
+    "name": "indent",
+    "signature": "public String indent(int n)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Java 15+ Text Blocks",
+    "since": "Java 12",
+    "isThreadSafe": false,
+    "arguments": [
+      {
+        "name": "n",
+        "type": "int",
+        "description": "Number of spaces to add (positive) or strip (negative)"
+      }
+    ],
+    "use": "Adjusts the indentation of each line of this string based on n. If n > 0, n spaces are inserted at the beginning of each line. If n < 0, up to |n| leading whitespace characters are removed from each line. Each line is normalized to end with a \\n newline.",
+    "example": "String block = \"public class App {\\nSystem.out.println();\\n}\";\nString indented = block.indent(4);\nSystem.out.print(indented);",
+    "exampleOutput": "    public class App {\n    System.out.println();\n    }",
+    "notes": "Introduced in Java 12; pairs cleanly with Text Blocks and code generation templates."
+  }
+]

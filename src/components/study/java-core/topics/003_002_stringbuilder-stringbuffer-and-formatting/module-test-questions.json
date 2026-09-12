@@ -1,0 +1,3113 @@
+[
+  {
+    "id": 1,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why does repeated String concatenation with '+' inside a loop lead to poor performance in Java?",
+    "options": [
+      "Because Strings are immutable, creating a new Heap object on every iteration with O(N^2) complexity",
+      "Because Strings use synchronized methods which cause thread contention",
+      "Because the String Constant Pool has a fixed size limit of 256 strings",
+      "Because String objects cannot be garbage collected"
+    ],
+    "answerIndex": 0,
+    "explanation": "String immutability means every concatenation creates a new String object and copies all previous characters, resulting in quadratic O(N^2) time complexity."
+  },
+  {
+    "id": 2,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which interface is implemented by String, StringBuilder, and StringBuffer?",
+    "options": [
+      "java.lang.Cloneable",
+      "java.lang.CharSequence",
+      "java.util.Collection",
+      "java.lang.ReadableSequence"
+    ],
+    "answerIndex": 1,
+    "explanation": "CharSequence is the common interface implemented by String, StringBuilder, StringBuffer, and CharBuffer."
+  },
+  {
+    "id": 3,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "Java",
+      "Java 21",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.concat() returns a new String instance. Because the return value is not assigned back to 's', 's' remains 'Java'.",
+    "code": "String s = \"Java\";\ns.concat(\" 21\");\nSystem.out.println(s);"
+  },
+  {
+    "id": 4,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the fundamental architectural difference between String and StringBuilder?",
+    "options": [
+      "String is stored on the stack while StringBuilder is stored on the heap",
+      "String is immutable whereas StringBuilder maintains a mutable character buffer",
+      "String is thread-safe via synchronized methods while StringBuilder uses ReentrantLock",
+      "String can only hold ASCII characters while StringBuilder supports Unicode"
+    ],
+    "answerIndex": 1,
+    "explanation": "String is immutable (cannot be modified after creation), whereas StringBuilder holds a mutable internal array that can expand and change in-place."
+  },
+  {
+    "id": 5,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does Java 9+ Compact Strings optimize memory for String and StringBuilder?",
+    "options": [
+      "By storing characters in a byte[] with a coder flag (LATIN1 vs UTF16) instead of char[]",
+      "By compressing strings with gzip in the heap",
+      "By limiting all strings to 8-bit ASCII",
+      "By storing all string buffers in CPU L1 cache"
+    ],
+    "answerIndex": 0,
+    "explanation": "Under JEP 254 Compact Strings, the internal storage is byte[] with a coder byte (0 for LATIN-1 requiring 1 byte/char, 1 for UTF-16 requiring 2 bytes/char)."
+  },
+  {
+    "id": 6,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "How many String objects are created during the execution of this loop?",
+    "options": [
+      "1 object",
+      "5 objects",
+      "6 objects",
+      "0 objects"
+    ],
+    "answerIndex": 2,
+    "explanation": "The initial \"\" (1), plus 5 intermediate string objects (\"0\", \"01\", \"012\", \"0123\", \"01234\"), totaling 6 String objects created on the heap.",
+    "code": "String str = \"\";\nfor(int i = 0; i < 5; i++) {\n    str += i;\n}"
+  },
+  {
+    "id": 7,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does the javac compiler optimize string concatenation like: String s = \"A\" + \"B\" + \"C\"; at compile-time?",
+    "options": [
+      "It creates three separate StringBuilder objects",
+      "It folds the constants into a single String literal \"ABC\"",
+      "It delegates concatenation to the Garbage Collector",
+      "It throws a compiler warning about inefficient concatenation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Constant expressions involving string literals are folded by javac into a single constant (\"ABC\") placed in the class constant pool."
+  },
+  {
+    "id": 8,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Where are StringBuilder instances allocated in the JVM memory architecture?",
+    "options": [
+      "String Constant Pool (SCP)",
+      "Metaspace",
+      "Standard JVM Heap memory",
+      "Native Memory Stack"
+    ],
+    "answerIndex": 2,
+    "explanation": "StringBuilder instances are normal Java objects and are always allocated in standard JVM Heap memory, never in the SCP."
+  },
+  {
+    "id": 9,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why is it impossible for a StringBuilder instance to be used as a reliable key in a HashMap?",
+    "options": [
+      "Because StringBuilder does not implement Serializable",
+      "Because StringBuilder does not override equals() and hashCode() from Object",
+      "Because StringBuilder throws an exception when hashed",
+      "Because HashMap only accepts interfaces"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuilder inherits Object.equals() (reference identity) and Object.hashCode(). Furthermore, mutating a key would corrupt hash bucket lookups."
+  },
+  {
+    "id": 10,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of comparing two StringBuilder instances with identical text using equals()?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuilder does NOT override equals(). Therefore, sb1.equals(sb2) performs reference equality (sb1 == sb2), which is false for two distinct objects.",
+    "code": "StringBuilder sb1 = new StringBuilder(\"Java\");\nStringBuilder sb2 = new StringBuilder(\"Java\");\nSystem.out.println(sb1.equals(sb2));"
+  },
+  {
+    "id": 11,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the time complexity of appending N single characters to a StringBuilder?",
+    "options": [
+      "O(N^2)",
+      "O(N) amortized",
+      "O(log N)",
+      "O(1) total"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because the buffer expands geometrically (doubling), each append operates in O(1) amortized time, making N appends O(N) overall."
+  },
+  {
+    "id": 12,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In which Java version was java.lang.StringBuilder introduced?",
+    "options": [
+      "JDK 1.0",
+      "JDK 1.2",
+      "JDK 5.0 (Java 1.5)",
+      "Java 8"
+    ],
+    "answerIndex": 2,
+    "explanation": "StringBuilder was introduced in Java 5 as an unsynchronized, faster alternative to the legacy StringBuffer (from JDK 1.0)."
+  },
+  {
+    "id": 13,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "Code",
+      "Coder",
+      "Error: Cannot modify final reference",
+      "null"
+    ],
+    "answerIndex": 1,
+    "explanation": "The reference 'sb' is final (cannot point to another object), but the StringBuilder object it references remains completely mutable.",
+    "code": "final StringBuilder sb = new StringBuilder(\"Code\");\nsb.append(\"r\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 14,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the return type of StringBuilder.toString()?",
+    "options": [
+      "char[]",
+      "CharSequence",
+      "java.lang.String",
+      "byte[]"
+    ],
+    "answerIndex": 2,
+    "explanation": "StringBuilder.toString() constructs and returns a new immutable java.lang.String containing the current characters."
+  },
+  {
+    "id": 15,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens under the hood when StringConcatFactory (Java 9+) handles dynamic string concatenation with variables?",
+    "options": [
+      "It always allocates a StringBuffer",
+      "It uses invokedynamic bytecode to dynamically generate efficient concatenation bytecodes",
+      "It falls back to C++ native memory calls",
+      "It writes the string to disk cache"
+    ],
+    "answerIndex": 1,
+    "explanation": "JEP 280 introduced invokedynamic with StringConcatFactory to optimize runtime string concatenation without hardcoding StringBuilder bytecodes."
+  },
+  {
+    "id": 16,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "true",
+      "false",
+      "Compilation Error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Converting both builders to String via toString() enables String.equals(), which compares character values and correctly returns true.",
+    "code": "StringBuilder sb1 = new StringBuilder(\"Barrackpore\");\nStringBuilder sb2 = new StringBuilder(\"Barrackpore\");\nSystem.out.println(sb1.toString().equals(sb2.toString()));"
+  },
+  {
+    "id": 17,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which package contains the StringBuilder and StringBuffer classes?",
+    "options": [
+      "java.util",
+      "java.text",
+      "java.lang",
+      "java.io"
+    ],
+    "answerIndex": 2,
+    "explanation": "Both StringBuilder and StringBuffer reside in java.lang and are automatically imported into all Java source files."
+  },
+  {
+    "id": 18,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why is the String class declared as 'final' in Java?",
+    "options": [
+      "To improve compilation speed",
+      "To prevent subclasses from violating immutability and security guarantees",
+      "To force developers to use StringBuilder",
+      "To allow garbage collection"
+    ],
+    "answerIndex": 1,
+    "explanation": "If String could be subclassed, a malicious subclass could override methods to mutate internal character data, breaking security and SCP caching."
+  },
+  {
+    "id": 19,
+    "topic": "Immutability Limitations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "null",
+      "\"null\"",
+      "NullPointerException",
+      "Empty string"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuilder.append((String)null) appends the 4 characters 'n', 'u', 'l', 'l' into the buffer without throwing an exception.",
+    "code": "StringBuilder sb = new StringBuilder();\nString text = null;\nsb.append(text);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 20,
+    "topic": "Immutability Limitations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which method should you use to clear all contents of a StringBuilder for reuse?",
+    "options": [
+      "sb.clear()",
+      "sb.reset()",
+      "sb.setLength(0)",
+      "sb.delete()"
+    ],
+    "answerIndex": 2,
+    "explanation": "setLength(0) resets the logical length to 0 while retaining the existing allocated capacity for zero-allocation reuse."
+  },
+  {
+    "id": 21,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default initial capacity of a StringBuilder created using: new StringBuilder()?",
+    "options": [
+      "0",
+      "10",
+      "16",
+      "32"
+    ],
+    "answerIndex": 2,
+    "explanation": "The default parameterless constructor allocates an initial buffer capacity of 16 characters."
+  },
+  {
+    "id": 22,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the capacity of the StringBuilder created below?",
+    "options": [
+      "4",
+      "16",
+      "20",
+      "36"
+    ],
+    "answerIndex": 2,
+    "explanation": "new StringBuilder(String str) allocates capacity equal to: str.length() + 16. For \"Java\" (length 4), 4 + 16 = 20.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 23,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What are the length and capacity of: new StringBuilder(50)?",
+    "options": [
+      "Length = 0, Capacity = 50",
+      "Length = 50, Capacity = 50",
+      "Length = 0, Capacity = 66",
+      "Length = 16, Capacity = 50"
+    ],
+    "answerIndex": 0,
+    "explanation": "The constructor with an integer argument sets the initial capacity to 50, while the length remains 0 (no characters added yet).",
+    "code": "StringBuilder sb = new StringBuilder(50);\nSystem.out.println(sb.length() + \", \" + sb.capacity());"
+  },
+  {
+    "id": 24,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What exception is thrown if you pass a negative integer to new StringBuilder(-5)?",
+    "options": [
+      "IllegalArgumentException",
+      "NegativeArraySizeException",
+      "ArrayIndexOutOfBoundsException",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "Passing a negative initial capacity attempts to allocate an array of negative size, throwing NegativeArraySizeException."
+  },
+  {
+    "id": 25,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does the following code print?",
+    "options": [
+      "0, 0",
+      "0, 16",
+      "16, 16",
+      "16, 34"
+    ],
+    "answerIndex": 1,
+    "explanation": "An empty builder has length 0 and default capacity 16.",
+    "code": "StringBuilder sb = new StringBuilder();\nSystem.out.println(sb.length() + \", \" + sb.capacity());"
+  },
+  {
+    "id": 26,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What abstract superclass is shared by both StringBuilder and StringBuffer?",
+    "options": [
+      "java.lang.AbstractString",
+      "java.lang.AbstractStringBuilder",
+      "java.lang.CharSequenceAdapter",
+      "java.lang.Buffer"
+    ],
+    "answerIndex": 1,
+    "explanation": "Both StringBuilder and StringBuffer inherit their core buffer logic from the package-private AbstractStringBuilder superclass."
+  },
+  {
+    "id": 27,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "Capacity: 16",
+      "Capacity: 34",
+      "Capacity: 20",
+      "Capacity: 17"
+    ],
+    "answerIndex": 1,
+    "explanation": "Appending 17 characters exceeds the capacity of 16. The expansion formula (16 * 2) + 2 = 34 is applied.",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"12345678901234567\");\nSystem.out.println(\"Capacity: \" + sb.capacity());"
+  },
+  {
+    "id": 28,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does the trimToSize() method do in StringBuilder?",
+    "options": [
+      "Trims leading and trailing whitespace from the string",
+      "Reduces the internal array capacity to match the current length",
+      "Deletes characters past index 16",
+      "Resets the buffer capacity to 16"
+    ],
+    "answerIndex": 1,
+    "explanation": "trimToSize() trims the capacity of the internal buffer to equal the current character length, freeing unused allocated heap memory."
+  },
+  {
+    "id": 29,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the capacity after calling trimToSize() in the snippet below?",
+    "options": [
+      "16",
+      "5",
+      "21",
+      "0"
+    ],
+    "answerIndex": 1,
+    "explanation": "The string \"Hello\" has length 5. Calling trimToSize() shrinks the capacity from 21 down to exactly 5.",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\"); // cap = 21\nsb.trimToSize();\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 30,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does ensureCapacity(int minimumCapacity) guarantee?",
+    "options": [
+      "That capacity is reduced if it exceeds the argument",
+      "That the capacity is at least equal to the specified minimum",
+      "That the length is expanded with whitespace",
+      "That an OutOfMemoryError is thrown immediately"
+    ],
+    "answerIndex": 1,
+    "explanation": "ensureCapacity() guarantees the buffer can hold at least minimumCapacity elements without further reallocation."
+  },
+  {
+    "id": 31,
+    "topic": "Architecture & Mechanics",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the capacity after ensureCapacity(100) on a default StringBuilder?",
+    "options": [
+      "16",
+      "34",
+      "100",
+      "70"
+    ],
+    "answerIndex": 2,
+    "explanation": "Default capacity is 16. Double+2 would only be 34, which is less than 100. Thus, capacity expands directly to 100.",
+    "code": "StringBuilder sb = new StringBuilder(); // cap = 16\nsb.ensureCapacity(100);\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 32,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens if ensureCapacity(10) is called on a StringBuilder with current capacity 16?",
+    "options": [
+      "Capacity shrinks to 10",
+      "Capacity remains unchanged at 16",
+      "Capacity expands to 22",
+      "An IllegalArgumentException is thrown"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the argument to ensureCapacity() is less than or equal to current capacity, the method does nothing."
+  },
+  {
+    "id": 33,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "Length: 0, Capacity: 0",
+      "Length: 4, Capacity: 4",
+      "Length: 4, Capacity: 20",
+      "Length: 20, Capacity: 20"
+    ],
+    "answerIndex": 2,
+    "explanation": "The length of \"Test\" is 4. The initial capacity for new StringBuilder(\"Test\") is 4 + 16 = 20.",
+    "code": "StringBuilder sb = new StringBuilder(\"Test\");\nSystem.out.println(\"Length: \" + sb.length() + \", Capacity: \" + sb.capacity());"
+  },
+  {
+    "id": 34,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does setLength(int newLength) do if newLength is less than current length()?",
+    "options": [
+      "It throws an IndexOutOfBoundsException",
+      "It truncates the sequence, keeping only the first newLength characters",
+      "It shrinks the capacity to newLength",
+      "It deletes the entire buffer"
+    ],
+    "answerIndex": 1,
+    "explanation": "If newLength is smaller than length(), the character sequence is truncated to newLength characters."
+  },
+  {
+    "id": 35,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following setLength() truncation?",
+    "options": [
+      "Barrackpore",
+      "Barrack",
+      "Bar",
+      "ackpore"
+    ],
+    "answerIndex": 1,
+    "explanation": "setLength(7) truncates the text to the first 7 characters: \"Barrack\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Barrackpore\");\nsb.setLength(7);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 36,
+    "topic": "Architecture & Mechanics",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What character is used to pad the buffer when setLength() is greater than current length?",
+    "options": [
+      "Space (' ')",
+      "Null character ('\\u0000')",
+      "Zero ('0')",
+      "Question mark ('?')"
+    ],
+    "answerIndex": 1,
+    "explanation": "When newLength > length(), the builder pads the new character positions with null characters ('\\u0000').",
+    "code": "StringBuilder sb = new StringBuilder(\"Hi\");\nsb.setLength(5);\nSystem.out.println((int) sb.charAt(2));"
+  },
+  {
+    "id": 37,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Can you access characters beyond length() but within capacity() using charAt()?",
+    "options": [
+      "Yes, they return uninitialized random data",
+      "Yes, they return null characters",
+      "No, it throws IndexOutOfBoundsException",
+      "No, it returns EOF (-1)"
+    ],
+    "answerIndex": 2,
+    "explanation": "charAt(int index) checks that 0 <= index < length(). Accessing index >= length() throws IndexOutOfBoundsException, even if index < capacity()."
+  },
+  {
+    "id": 38,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when executing this code?",
+    "options": [
+      "Prints '\\u0000'",
+      "Prints ' '",
+      "Throws StringIndexOutOfBoundsException",
+      "Prints 0"
+    ],
+    "answerIndex": 2,
+    "explanation": "Even though capacity is 16, length is 4. Accessing index 10 throws StringIndexOutOfBoundsException.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nSystem.out.println(sb.charAt(10));"
+  },
+  {
+    "id": 39,
+    "topic": "Architecture & Mechanics",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does StringBuilder protect against memory leaks when reusing builders in high-volume loops?",
+    "options": [
+      "By calling sb.close()",
+      "By invoking sb.setLength(0) and periodically sb.trimToSize()",
+      "By assigning sb = null in every iteration",
+      "The JVM cleans StringBuilder automatically every 5 ms"
+    ],
+    "answerIndex": 1,
+    "explanation": "setLength(0) clears text for reuse. If a previous operation expanded capacity excessively, trimToSize() frees the extra memory."
+  },
+  {
+    "id": 40,
+    "topic": "Architecture & Mechanics",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "true",
+      "false",
+      "Compilation Error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both sb and str share identical character contents (\"Java\"). contentEquals() returns true.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nString str = \"Java\";\nSystem.out.println(str.contentEquals(sb));"
+  },
+  {
+    "id": 41,
+    "topic": "Capacity Growth Formula",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the exact formula used by Java when StringBuilder needs to expand its backing buffer?",
+    "options": [
+      "newCapacity = oldCapacity + 10",
+      "newCapacity = (oldCapacity * 2) + 2",
+      "newCapacity = oldCapacity * 3",
+      "newCapacity = oldCapacity + requiredLength"
+    ],
+    "answerIndex": 1,
+    "explanation": "The standard expansion formula is (oldCapacity * 2) + 2. If this is still insufficient, it expands directly to the required capacity."
+  },
+  {
+    "id": 42,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "If a StringBuilder has capacity 34 and you append characters exceeding 34, what will its new capacity be?",
+    "options": [
+      "35",
+      "68",
+      "70",
+      "100"
+    ],
+    "answerIndex": 2,
+    "explanation": "Using (oldCapacity * 2) + 2: (34 * 2) + 2 = 68 + 2 = 70.",
+    "code": "StringBuilder sb = new StringBuilder(34);\nsb.append(\"A\".repeat(35));\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 43,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the capacity after the following operation on an initially empty StringBuilder?",
+    "options": [
+      "16",
+      "34",
+      "50",
+      "70"
+    ],
+    "answerIndex": 2,
+    "explanation": "Default capacity is 16. (16 * 2) + 2 = 34. Since 50 > 34, the capacity directly jumps to 50.",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"X\".repeat(50));\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 44,
+    "topic": "Capacity Growth Formula",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the maximum capacity a StringBuilder can theoretically expand to in the HotSpot JVM?",
+    "options": [
+      "Integer.MAX_VALUE (2^31 - 1)",
+      "Integer.MAX_VALUE - 8 (SOFT_MAX_ARRAY_LENGTH)",
+      "65,535 characters",
+      "1,048,576 characters"
+    ],
+    "answerIndex": 1,
+    "explanation": "Due to object header overhead and VM implementation limits, arrays in HotSpot are capped at Integer.MAX_VALUE - 8."
+  },
+  {
+    "id": 45,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following sequence?",
+    "options": [
+      "16 -> 34",
+      "16 -> 20",
+      "20 -> 34",
+      "16 -> 17"
+    ],
+    "answerIndex": 0,
+    "explanation": "Empty builder starts at 16. Adding 17 chars triggers (16 * 2) + 2 = 34.",
+    "code": "StringBuilder sb = new StringBuilder();\nint c1 = sb.capacity();\nsb.append(\"12345678901234567\");\nint c2 = sb.capacity();\nSystem.out.println(c1 + \" -> \" + c2);"
+  },
+  {
+    "id": 46,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why does StringBuilder add '+ 2' to the doubled capacity (i.e. (old * 2) + 2)?",
+    "options": [
+      "To account for null terminator characters",
+      "To allow growth even when oldCapacity is 0",
+      "To store hashcode information",
+      "It is a legacy bug from Java 1.0"
+    ],
+    "answerIndex": 1,
+    "explanation": "If initial capacity was 0, multiplying by 2 would still be 0. Adding 2 guarantees capacity increases even from 0."
+  },
+  {
+    "id": 47,
+    "topic": "Capacity Growth Formula",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the capacity of: new StringBuilder(\"\")?",
+    "options": [
+      "0",
+      "16",
+      "18",
+      "32"
+    ],
+    "answerIndex": 1,
+    "explanation": "new StringBuilder(\"\") has length 0 + 16 = 16 characters capacity.",
+    "code": "StringBuilder sb = new StringBuilder(\"\");\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 48,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the capacity of: new StringBuilder(0)?",
+    "options": [
+      "0",
+      "16",
+      "2",
+      "34"
+    ],
+    "answerIndex": 0,
+    "explanation": "Explicitly passing 0 allocates a buffer of capacity 0.",
+    "code": "StringBuilder sb = new StringBuilder(0);\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 49,
+    "topic": "Capacity Growth Formula",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the capacity after appending 'A' to new StringBuilder(0)?",
+    "options": [
+      "1",
+      "2",
+      "16",
+      "34"
+    ],
+    "answerIndex": 1,
+    "explanation": "With oldCapacity = 0, the formula (0 * 2) + 2 evaluates to 2.",
+    "code": "StringBuilder sb = new StringBuilder(0);\nsb.append(\"A\");\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 50,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Does deleting characters from a StringBuilder automatically reduce its capacity?",
+    "options": [
+      "Yes, capacity immediately shrinks to match the new length",
+      "No, capacity remains unchanged until trimToSize() is called",
+      "Yes, but only if more than half the characters are deleted",
+      "It depends on the JVM garbage collector settings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Deleting characters decreases length(), but capacity() never shrinks automatically. You must call trimToSize() explicitly."
+  },
+  {
+    "id": 51,
+    "topic": "Capacity Growth Formula",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What are the length and capacity after calling delete() in the code below?",
+    "options": [
+      "Length: 0, Capacity: 0",
+      "Length: 0, Capacity: 21",
+      "Length: 0, Capacity: 16",
+      "Length: 5, Capacity: 21"
+    ],
+    "answerIndex": 1,
+    "explanation": "Initial capacity was 5 + 16 = 21. Deleting all 5 chars reduces length to 0, but capacity remains 21.",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\"); // cap = 21\nsb.delete(0, 5);\nSystem.out.println(\"Length: \" + sb.length() + \", Capacity: \" + sb.capacity());"
+  },
+  {
+    "id": 52,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the primary performance cost when StringBuilder expands its capacity?",
+    "options": [
+      "CPU thread context switching",
+      "Allocating a new array and performing System.arraycopy() from old to new buffer",
+      "Flushing the L2 CPU cache to disk",
+      "Invoking Java bytecode verification"
+    ],
+    "answerIndex": 1,
+    "explanation": "Array resizing allocates a larger array on the heap and copies all elements over via System.arraycopy(), discarding the old array."
+  },
+  {
+    "id": 53,
+    "topic": "Capacity Growth Formula",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does the following capacity calculation print?",
+    "options": [
+      "70 -> 142",
+      "70 -> 71",
+      "70 -> 140",
+      "70 -> 72"
+    ],
+    "answerIndex": 0,
+    "explanation": "(70 * 2) + 2 = 140 + 2 = 142.",
+    "code": "StringBuilder sb = new StringBuilder(70);\nsb.append(\"Z\".repeat(71));\nSystem.out.println(\"70 -> \" + sb.capacity());"
+  },
+  {
+    "id": 54,
+    "topic": "Capacity Growth Formula",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which constructor should you use when you know your generated string will be approximately 1,000 characters?",
+    "options": [
+      "new StringBuilder()",
+      "new StringBuilder(1000)",
+      "new StringBuilder(\"1000\")",
+      "StringBuilder.getInstance(1000)"
+    ],
+    "answerIndex": 1,
+    "explanation": "new StringBuilder(1000) pre-allocates a buffer of 1,000 characters, completely avoiding all internal buffer reallocations."
+  },
+  {
+    "id": 55,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "16",
+      "20",
+      "42",
+      "58"
+    ],
+    "answerIndex": 2,
+    "explanation": "Initial cap for \"Coder & AccoTax\" (15 chars) is 15 + 16 = 31. Appending 20 chars exceeds 31: (31 * 2) + 2 = 64. Let's see: for 10 chars + 16 = 26, (26*2)+2 = 54. Here: 10 + 16 = 26, (26*2)+2 = 54.",
+    "code": "StringBuilder sb = new StringBuilder(10);\nsb.append(\"12345678901\");\nSystem.out.println(sb.capacity());"
+  },
+  {
+    "id": 56,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the output of sb.capacity() if new StringBuilder(\"Barrackpore\") is created?",
+    "options": [
+      "11",
+      "16",
+      "27",
+      "32"
+    ],
+    "answerIndex": 2,
+    "explanation": "The length of \"Barrackpore\" is 11. Initial capacity is 11 + 16 = 27."
+  },
+  {
+    "id": 57,
+    "topic": "Capacity Growth Formula",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "When ensureCapacity(min) is called, what determines whether it uses (old*2)+2 or min?",
+    "options": [
+      "It always uses min",
+      "It always uses (old*2)+2",
+      "It chooses Math.max((old*2)+2, min)",
+      "It uses (min * 2) + 2"
+    ],
+    "answerIndex": 2,
+    "explanation": "The JVM calculates (oldCapacity * 2) + 2; if minCapacity is greater than that result, it expands to minCapacity."
+  },
+  {
+    "id": 58,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "Capacity: 20",
+      "Capacity: 42",
+      "Capacity: 50",
+      "Capacity: 100"
+    ],
+    "answerIndex": 2,
+    "explanation": "Old capacity is 20. (20 * 2) + 2 = 42. Since 50 > 42, the capacity expands to 50.",
+    "code": "StringBuilder sb = new StringBuilder(20);\nsb.ensureCapacity(50);\nSystem.out.println(\"Capacity: \" + sb.capacity());"
+  },
+  {
+    "id": 59,
+    "topic": "Capacity Growth Formula",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Can you directly decrease the capacity of a StringBuilder without creating a new instance or calling trimToSize()?",
+    "options": [
+      "Yes, by calling setCapacity()",
+      "Yes, by passing a smaller number to ensureCapacity()",
+      "No, there is no public setCapacity() method in Java",
+      "Yes, by calling truncateCapacity()"
+    ],
+    "answerIndex": 2,
+    "explanation": "Java does not provide a setCapacity() method. trimToSize() is the only method to shrink capacity."
+  },
+  {
+    "id": 60,
+    "topic": "Capacity Growth Formula",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this snippet print?",
+    "options": [
+      "true",
+      "false",
+      "Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.length() returns 5, while sb.capacity() returns 21. 5 <= 21 is true.",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\");\nSystem.out.println(sb.length() <= sb.capacity());"
+  },
+  {
+    "id": 61,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following append operation?",
+    "options": [
+      "Java true 100",
+      "Javatrue100",
+      "Java 100 true",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "append() converts primitives directly to their string representations without adding delimiters: \"Java\" + \"true\" + \"100\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.append(true).append(100);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 62,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "Java SE 21",
+      "SE Java 21",
+      "Java 21 SE",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "insert(4, \" SE\") inserts the 3 characters at index 4 (between 'a' and ' 21'), yielding \"Java SE 21\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java 21\");\nsb.insert(4, \" SE\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 63,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this insert operation at index 0?",
+    "options": [
+      "Core Java",
+      "Java Core",
+      "CoreJava",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Inserting at offset 0 prepends the string to the beginning of the buffer.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.insert(0, \"Core \");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 64,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What exception is thrown by sb.insert(-1, \"text\")?",
+    "options": [
+      "IllegalArgumentException",
+      "StringIndexOutOfBoundsException",
+      "NullPointerException",
+      "NegativeArraySizeException"
+    ],
+    "answerIndex": 1,
+    "explanation": "Passing an offset < 0 or > length() throws StringIndexOutOfBoundsException."
+  },
+  {
+    "id": 65,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following delete() call?",
+    "options": [
+      "JScript",
+      "JavaScript",
+      "Script",
+      "Java"
+    ],
+    "answerIndex": 0,
+    "explanation": "delete(1, 4) removes characters at indices 1, 2, 3 ('a', 'v', 'a'), leaving 'J' followed by 'Script'.",
+    "code": "StringBuilder sb = new StringBuilder(\"JavaScript\");\nsb.delete(1, 4);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 66,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens if the 'end' index in sb.delete(start, end) is greater than length()?",
+    "options": [
+      "It throws StringIndexOutOfBoundsException",
+      "It silently deletes up to length() without error",
+      "It pads the buffer with null characters",
+      "It resets the buffer to empty"
+    ],
+    "answerIndex": 1,
+    "explanation": "If end > length(), delete() treats end as length() and deletes to the end of the sequence without throwing an exception."
+  },
+  {
+    "id": 67,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this delete call where end exceeds length?",
+    "options": [
+      "Java",
+      "J",
+      "Empty string",
+      "StringIndexOutOfBoundsException"
+    ],
+    "answerIndex": 1,
+    "explanation": "Indices 1 through length() are deleted, leaving only the character at index 0 ('J').",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.delete(1, 100);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 68,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of deleteCharAt()?",
+    "options": [
+      "Btrackpore",
+      "Brrackpore",
+      "Barackpore",
+      "Barrackpore"
+    ],
+    "answerIndex": 2,
+    "explanation": "deleteCharAt(2) removes the character at index 2 ('r'), producing \"Barackpore\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Barrackpore\");\nsb.deleteCharAt(2);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 69,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens if deleteCharAt(length()) is invoked?",
+    "options": [
+      "It removes the last character",
+      "It does nothing",
+      "It throws StringIndexOutOfBoundsException",
+      "It returns null"
+    ],
+    "answerIndex": 2,
+    "explanation": "Valid indices for deleteCharAt are 0 to length() - 1. Calling it with index == length() throws StringIndexOutOfBoundsException."
+  },
+  {
+    "id": 70,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "How do you remove the very last character of a StringBuilder sb?",
+    "options": [
+      "sb.deleteCharAt(sb.length() - 1)",
+      "sb.deleteLast()",
+      "sb.remove(-1)",
+      "sb.pop()"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.deleteCharAt(sb.length() - 1) or sb.setLength(sb.length() - 1) removes the final character."
+  },
+  {
+    "id": 71,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this delete operation where start == end?",
+    "options": [
+      "Java",
+      "ava",
+      "Jav",
+      "Empty string"
+    ],
+    "answerIndex": 0,
+    "explanation": "When start == end, no characters are deleted, and the buffer remains unchanged.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.delete(2, 2);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 72,
+    "topic": "Mutation Operations",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What exception is thrown if start > end in sb.delete(start, end)?",
+    "options": [
+      "IllegalArgumentException",
+      "StringIndexOutOfBoundsException",
+      "NullPointerException",
+      "UnsupportedOperationException"
+    ],
+    "answerIndex": 1,
+    "explanation": "If start > end, StringIndexOutOfBoundsException is thrown."
+  },
+  {
+    "id": 73,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this append(char[], offset, len) call?",
+    "options": [
+      "CD",
+      "BC",
+      "BCD",
+      "ABCDE"
+    ],
+    "answerIndex": 1,
+    "explanation": "Starting at offset 1 ('B') for length 2 appends 'B' and 'C'.",
+    "code": "StringBuilder sb = new StringBuilder();\nchar[] arr = {'A', 'B', 'C', 'D', 'E'};\nsb.append(arr, 1, 2);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 74,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of appending a boolean value to a StringBuilder?",
+    "options": [
+      "1",
+      "true",
+      "TRUE",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "sb.append(true) appends the lowercase string \"true\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Status: \");\nsb.append(true);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 75,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of appending a sub-sequence of a String?",
+    "options": [
+      "ell",
+      "ello",
+      "Hel",
+      "lo"
+    ],
+    "answerIndex": 0,
+    "explanation": "append(\"Hello\", 1, 4) appends characters from index 1 inclusive to 4 exclusive ('e', 'l', 'l').",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"Hello\", 1, 4);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 76,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of inserting a double into a StringBuilder?",
+    "options": [
+      "PI = 3.14",
+      "PI = 3.14159",
+      "PI = 3",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "insert() converts the double to its string representation \"3.14159\".",
+    "code": "StringBuilder sb = new StringBuilder(\"PI = \");\nsb.insert(5, 3.14159);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 77,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which method efficiently removes all characters starting from an index to the end of the buffer?",
+    "options": [
+      "sb.delete(start, sb.length())",
+      "sb.setLength(start)",
+      "Both A and B achieve this efficiently",
+      "sb.clear(start)"
+    ],
+    "answerIndex": 2,
+    "explanation": "Both sb.delete(start, sb.length()) and sb.setLength(start) truncate the buffer from 'start' onwards."
+  },
+  {
+    "id": 78,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "012345",
+      "01234",
+      "0123456",
+      "12345"
+    ],
+    "answerIndex": 0,
+    "explanation": "The loop appends digits 0 through 5 sequentially.",
+    "code": "StringBuilder sb = new StringBuilder();\nfor(int i = 0; i <= 5; i++) sb.append(i);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 79,
+    "topic": "Mutation Operations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of inserting at index equal to sb.length()?",
+    "options": [
+      "Hello World",
+      "World Hello",
+      "StringIndexOutOfBoundsException",
+      "Hello"
+    ],
+    "answerIndex": 0,
+    "explanation": "Inserting at offset sb.length() is equivalent to append() and places the text at the end.",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\");\nsb.insert(sb.length(), \" World\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 80,
+    "topic": "Mutation Operations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output when appending a character array directly?",
+    "options": [
+      "[C@...",
+      "Java",
+      "J, a, v, a",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unlike Object.toString(), sb.append(char[]) appends the actual characters directly.",
+    "code": "char[] chars = {'J', 'a', 'v', 'a'};\nStringBuilder sb = new StringBuilder();\nsb.append(chars);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 81,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the reverse() method below?",
+    "options": [
+      "madam",
+      "madam in reverse",
+      "null",
+      "madammadam"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"madam\" is a palindrome, so reversing it produces \"madam\".",
+    "code": "StringBuilder sb = new StringBuilder(\"madam\");\nsb.reverse();\nSystem.out.println(sb);"
+  },
+  {
+    "id": 82,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "dcba",
+      "abcd",
+      "d c b a",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "reverse() inverts the character order in-place to \"dcba\".",
+    "code": "StringBuilder sb = new StringBuilder(\"abcd\");\nSystem.out.println(sb.reverse());"
+  },
+  {
+    "id": 83,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What algorithm does StringBuilder.reverse() use under the hood?",
+    "options": [
+      "It allocates a second temporary array and copies backwards",
+      "A two-pointer in-place swap iterating from both ends toward the center",
+      "Recursive method invocation",
+      "JVM Metaspace stack reversal"
+    ],
+    "answerIndex": 1,
+    "explanation": "It uses an in-place two-pointer algorithm swapping characters from opposite ends, with zero temporary array allocation."
+  },
+  {
+    "id": 84,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the replace() operation below?",
+    "options": [
+      "Hello World",
+      "Hello Java",
+      "Java World",
+      "Hello"
+    ],
+    "answerIndex": 1,
+    "explanation": "replace(6, 11, \"Java\") replaces indices 6 to 10 (\"World\") with \"Java\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello World\");\nsb.replace(6, 11, \"Java\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 85,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when the replacement string length differs from the replaced range?",
+    "options": [
+      "The buffer expands or shrinks dynamically to fit the new string",
+      "An exception is thrown",
+      "Characters are truncated",
+      "The extra characters are discarded"
+    ],
+    "answerIndex": 0,
+    "explanation": "The internal buffer automatically shifts subsequent characters to accommodate longer or shorter replacement strings.",
+    "code": "StringBuilder sb = new StringBuilder(\"A-Z\");\nsb.replace(1, 2, \"12345\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 86,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following setCharAt() operation?",
+    "options": [
+      "Java",
+      "JavA",
+      "JAVA",
+      "StringIndexOutOfBoundsException"
+    ],
+    "answerIndex": 1,
+    "explanation": "setCharAt(3, 'A') modifies the character at index 3 in-place from 'a' to 'A'.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.setCharAt(3, 'A');\nSystem.out.println(sb);"
+  },
+  {
+    "id": 87,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why does setCharAt() return 'void' instead of 'StringBuilder'?",
+    "options": [
+      "Because it was designed in Java 1.0 before method chaining patterns were established",
+      "Because it allocates a new buffer",
+      "Because it is an asynchronous method",
+      "Because Java does not allow void returns on mutators"
+    ],
+    "answerIndex": 0,
+    "explanation": "setCharAt() returns void (cannot be chained), preserving backwards compatibility from Java 1.0."
+  },
+  {
+    "id": 88,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "12345",
+      "54321",
+      "15243",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 1,
+    "explanation": "reverse() reverses \"12345\" in-place to \"54321\".",
+    "code": "StringBuilder sb = new StringBuilder(\"12345\");\nsb.reverse();\nSystem.out.println(sb);"
+  },
+  {
+    "id": 89,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of replace(0, 4, \"Python\") on \"Java Developer\"?",
+    "options": [
+      "Python Developer",
+      "Java Python Developer",
+      "Python",
+      "Developer"
+    ],
+    "answerIndex": 0,
+    "explanation": "Indices 0..3 (\"Java\") are replaced by \"Python\", yielding \"Python Developer\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java Developer\");\nsb.replace(0, 4, \"Python\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 90,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does charAt(0) return on a reversed StringBuilder?",
+    "options": [
+      "'A'",
+      "'D'",
+      "'C'",
+      "'B'"
+    ],
+    "answerIndex": 1,
+    "explanation": "Reversing \"ABCD\" results in \"DCBA\". Index 0 is 'D'.",
+    "code": "StringBuilder sb = new StringBuilder(\"ABCD\");\nsb.reverse();\nSystem.out.println(sb.charAt(0));"
+  },
+  {
+    "id": 91,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of calling indexOf() on a StringBuilder?",
+    "options": [
+      "-1",
+      "0",
+      "4",
+      "5"
+    ],
+    "answerIndex": 2,
+    "explanation": "\"World\" starts at index 6. Let's see: \"Hello World\" -> 'W' is at index 6. In \"Java Code\", 'C' is at 5.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java Code\");\nSystem.out.println(sb.indexOf(\"Code\"));"
+  },
+  {
+    "id": 92,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does indexOf() return if the substring is not found in StringBuilder?",
+    "options": [
+      "0",
+      "-1",
+      "throws NoSuchElementException",
+      "null"
+    ],
+    "answerIndex": 1,
+    "explanation": "Like String.indexOf(), it returns -1 when the target substring is not found.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nSystem.out.println(sb.indexOf(\"Python\"));"
+  },
+  {
+    "id": 93,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the substring() method on StringBuilder?",
+    "options": [
+      "Barrack",
+      "pore",
+      "ackpore",
+      "Barrackpore"
+    ],
+    "answerIndex": 1,
+    "explanation": "substring(7) returns a new String from index 7 to the end: \"pore\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Barrackpore\");\nString sub = sb.substring(7);\nSystem.out.println(sub);"
+  },
+  {
+    "id": 94,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Does calling sb.substring(0, 4) mutate the StringBuilder sb?",
+    "options": [
+      "Yes, it truncates sb to 4 characters",
+      "No, it returns a brand-new String without altering the StringBuilder",
+      "Yes, it clears the buffer",
+      "It depends on the return type"
+    ],
+    "answerIndex": 1,
+    "explanation": "substring() returns a new java.lang.String; it does NOT modify the calling StringBuilder."
+  },
+  {
+    "id": 95,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "Java",
+      "Jav",
+      "Ja",
+      "Empty string"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.substring(0, 2) creates a new String \"Ja\", but sb itself remains \"Java\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.substring(0, 2);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 96,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of two consecutive reverse() calls?",
+    "options": [
+      "Original text restored",
+      "Reversed twice in uppercase",
+      "Empty string",
+      "Exception"
+    ],
+    "answerIndex": 0,
+    "explanation": "Reversing twice restores the original character sequence.",
+    "code": "StringBuilder sb = new StringBuilder(\"Barrackpore\");\nsb.reverse().reverse();\nSystem.out.println(sb);"
+  },
+  {
+    "id": 97,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of replace(0, 0, \"Prefix: \")?",
+    "options": [
+      "Prefix: Java",
+      "Java",
+      "StringIndexOutOfBoundsException",
+      ": Java"
+    ],
+    "answerIndex": 0,
+    "explanation": "When start == end, replace() acts as an insert at that position.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.replace(0, 0, \"Prefix: \");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 98,
+    "topic": "In-Place Transformations",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What happens when surrogate pairs (emojis) are reversed using StringBuilder.reverse()?",
+    "options": [
+      "Surrogate pairs are corrupted into invalid question marks",
+      "Java correctly preserves surrogate pairs and UTF-16 code points",
+      "An exception is thrown",
+      "The emoji is deleted"
+    ],
+    "answerIndex": 1,
+    "explanation": "Since Java 5, reverse() is surrogate-pair aware and preserves 32-bit Unicode characters without corrupting them."
+  },
+  {
+    "id": 99,
+    "topic": "In-Place Transformations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of setCharAt(0, 'C') on \"Java\"?",
+    "options": [
+      "Cava",
+      "Java",
+      "C",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The character at index 0 ('J') is replaced by 'C', producing \"Cava\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.setCharAt(0, 'C');\nSystem.out.println(sb);"
+  },
+  {
+    "id": 100,
+    "topic": "In-Place Transformations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "10",
+      "15",
+      "0",
+      "-1"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"Java 21 Core Java\".lastIndexOf(\"Java\") finds the last occurrence at index 13. Let's see: \"Java Java\" -> lastIndexOf is at index 5.",
+    "code": "StringBuilder sb = new StringBuilder(\"Java Java\");\nSystem.out.println(sb.lastIndexOf(\"Java\"));"
+  },
+  {
+    "id": 101,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What design pattern is exemplified by StringBuilder's chained methods like sb.append().append().reverse()?",
+    "options": [
+      "Singleton Pattern",
+      "Fluent Interface / Builder Pattern",
+      "Observer Pattern",
+      "Factory Method Pattern"
+    ],
+    "answerIndex": 1,
+    "explanation": "Returning 'this' from mutator methods implements the Fluent Interface / Builder pattern, allowing expressive cascading calls."
+  },
+  {
+    "id": 102,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this chained expression output?",
+    "options": [
+      "A-B-C",
+      "ABC",
+      "C-B-A",
+      "A B C"
+    ],
+    "answerIndex": 0,
+    "explanation": "Each append adds characters sequentially to the same buffer, yielding \"A-B-C\".",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"A\").append(\"-\").append(\"B\").append(\"-\").append(\"C\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 103,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of comparing chained references using ==?",
+    "options": [
+      "true",
+      "false",
+      "Compilation Error",
+      "ClassCastException"
+    ],
+    "answerIndex": 0,
+    "explanation": "append() returns 'this' (the exact same reference), so sb1 == sb2 is true.",
+    "code": "StringBuilder sb1 = new StringBuilder(\"Hello\");\nStringBuilder sb2 = sb1.append(\" World\");\nSystem.out.println(sb1 == sb2);"
+  },
+  {
+    "id": 104,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this chained expression?",
+    "options": [
+      "olleH!",
+      "!olleH",
+      "Hello!",
+      "!Hello"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"Hello\" reversed is \"olleH\", then append('!') makes it \"olleH!\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\");\nsb.reverse().append('!');\nSystem.out.println(sb);"
+  },
+  {
+    "id": 105,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does the following chain produce?",
+    "options": [
+      "[1, 2, 3]",
+      "[1,2,3]",
+      "1, 2, 3",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The builder chains brackets and values into \"[1, 2, 3]\".",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append('[').append(1).append(\", \").append(2).append(\", \").append(3).append(']');\nSystem.out.println(sb);"
+  },
+  {
+    "id": 106,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following StringBuilder methods CANNOT be chained?",
+    "options": [
+      "append(String str)",
+      "insert(int offset, int i)",
+      "setCharAt(int index, char ch)",
+      "reverse()"
+    ],
+    "answerIndex": 2,
+    "explanation": "setCharAt() returns void, whereas append, insert, and reverse return 'this' (StringBuilder)."
+  },
+  {
+    "id": 107,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following chained code?",
+    "options": [
+      "Java 21",
+      "21 Java",
+      "Java",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "append(\" 21\") modifies the buffer in-place to \"Java 21\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.append(\" \").append(21);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 108,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Does method chaining in StringBuilder have thread-safety guarantees across multiple chained calls?",
+    "options": [
+      "Yes, the entire chain is executed atomically",
+      "No, each method call in the chain is an independent operation, and StringBuilder is unsynchronized",
+      "Yes, the JVM locks the thread during chaining",
+      "Only when using Java 21 Virtual Threads"
+    ],
+    "answerIndex": 1,
+    "explanation": "Chaining does NOT provide compound atomicity. Each method executes independently and without synchronization."
+  },
+  {
+    "id": 109,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "123456",
+      "654321",
+      "123654",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The chain creates \"123456\".",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append(123).append(456);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 110,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code snippet?",
+    "options": [
+      "X_Y_Z",
+      "Z_Y_X",
+      "XYZ",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "The sequence \"X_Y_Z\" is reversed to \"Z_Y_X\".",
+    "code": "StringBuilder sb = new StringBuilder(\"X\");\nsb.append(\"_Y\").append(\"_Z\").reverse();\nSystem.out.println(sb);"
+  },
+  {
+    "id": 111,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of chaining delete and insert?",
+    "options": [
+      "Hi Developer",
+      "Hello Developer",
+      "Developer",
+      "Hi"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"Hello Developer\": delete(0, 5) leaves \" Developer\". insert(0, \"Hi\") produces \"Hi Developer\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello Developer\");\nsb.delete(0, 5).insert(0, \"Hi\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 112,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why does StringBuilder method chaining improve code readability?",
+    "options": [
+      "It avoids redundant local variable declarations and repetitive reference names",
+      "It forces the compiler to run in 64-bit mode",
+      "It prevents garbage collection completely",
+      "It automatically adds error handling"
+    ],
+    "answerIndex": 0,
+    "explanation": "Fluent chaining allows expressive sequential transformations without declaring temporary variables or repeating the variable name."
+  },
+  {
+    "id": 113,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this chain?",
+    "options": [
+      "true: 100",
+      "true100",
+      "Status: true: 100",
+      "Error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Chains the prefix, boolean, and number into \"Status: true: 100\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Status: \");\nsb.append(true).append(\": \").append(100);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 114,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does the following snippet print?",
+    "options": [
+      "10",
+      "5",
+      "15",
+      "0"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.append(\"12345\").length() returns the integer length 10 (\"Hello\" 5 + 5 = 10).",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\");\nSystem.out.println(sb.append(\"12345\").length());"
+  },
+  {
+    "id": 115,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the chained replace and reverse below?",
+    "options": [
+      "avaJ",
+      "Java",
+      "avaC",
+      "Cava"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"Java\": reverse() makes it \"avaJ\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.reverse();\nSystem.out.println(sb);"
+  },
+  {
+    "id": 116,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Can you call String methods directly in a StringBuilder method chain?",
+    "options": [
+      "Yes, StringBuilder inherits all String methods",
+      "No, you must invoke .toString() first to transition to String methods",
+      "Yes, via dynamic casting",
+      "Only in Java 21+"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuilder and String are distinct classes. You must call .toString() before invoking String-specific methods like .toLowerCase() or .split()."
+  },
+  {
+    "id": 117,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of chaining into a String method?",
+    "options": [
+      "java",
+      "JAVA",
+      "Java",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.append(\"va\").toString().toLowerCase() correctly chains into String.toLowerCase() producing \"java\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Ja\");\nString res = sb.append(\"va\").toString().toLowerCase();\nSystem.out.println(res);"
+  },
+  {
+    "id": 118,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this chain?",
+    "options": [
+      "ABBA",
+      "BAAB",
+      "AABB",
+      "BBAA"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"AB\": append(\"BA\") -> \"ABBA\".",
+    "code": "StringBuilder sb = new StringBuilder(\"AB\");\nsb.append(\"BA\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 119,
+    "topic": "Method Chaining",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this snippet print?",
+    "options": [
+      "0-1-2",
+      "012",
+      "-0-1-2-",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The loop appends \"-\" and the digit, creating \"0-1-2\".",
+    "code": "StringBuilder sb = new StringBuilder(\"0\");\nfor(int i = 1; i <= 2; i++) sb.append(\"-\").append(i);\nSystem.out.println(sb);"
+  },
+  {
+    "id": 120,
+    "topic": "Method Chaining",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is returned by sb.appendCodePoint(int codePoint)?",
+    "options": [
+      "int (the code point)",
+      "StringBuilder (return this;)",
+      "char",
+      "void"
+    ],
+    "answerIndex": 1,
+    "explanation": "appendCodePoint() appends the string representation of the codePoint argument and returns 'this' (StringBuilder) for fluent chaining."
+  },
+  {
+    "id": 121,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the defining difference between StringBuffer and StringBuilder?",
+    "options": [
+      "StringBuffer is mutable while StringBuilder is immutable",
+      "StringBuffer methods are synchronized (thread-safe) while StringBuilder methods are not",
+      "StringBuffer stores text in ASCII while StringBuilder supports UTF-16",
+      "StringBuffer can only hold up to 1024 characters"
+    ],
+    "answerIndex": 1,
+    "explanation": "Every mutating method in StringBuffer is marked 'synchronized', providing thread safety at the cost of synchronization lock overhead."
+  },
+  {
+    "id": 122,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In which Java version was java.lang.StringBuffer introduced?",
+    "options": [
+      "JDK 1.0",
+      "Java 2 (JDK 1.2)",
+      "Java 5",
+      "Java 8"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuffer has been part of Java since the original JDK 1.0 release in 1996."
+  },
+  {
+    "id": 123,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What mechanism does StringBuffer use to achieve thread safety at the JVM bytecode level?",
+    "options": [
+      "ReentrantLock",
+      "AtomicReference",
+      "Intrinsic monitor locks (monitorenter and monitorexit bytecodes)",
+      "Optimistic Concurrency Control (OCC)"
+    ],
+    "answerIndex": 2,
+    "explanation": "The synchronized methods in StringBuffer acquire the object's intrinsic monitor lock using monitorenter upon entry and monitorexit upon return."
+  },
+  {
+    "id": 124,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why is StringBuilder preferred over StringBuffer in 99% of modern Java applications?",
+    "options": [
+      "StringBuffer is deprecated and will be removed in Java 25",
+      "Most string operations occur in local method variables where no other thread can access the buffer, making synchronization wasteful",
+      "StringBuilder supports more data types than StringBuffer",
+      "StringBuffer uses more memory per character"
+    ],
+    "answerIndex": 1,
+    "explanation": "Local variables live on a thread's private stack. Acquiring synchronized locks on unshared local buffers wastes CPU cycles with zero benefit."
+  },
+  {
+    "id": 125,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following StringBuffer code?",
+    "options": [
+      "Thread-Safe Java",
+      "Java",
+      "Thread-Safe",
+      "Compilation Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuffer supports the same mutation methods as StringBuilder, including append().",
+    "code": "StringBuffer sbuf = new StringBuffer(\"Thread-Safe\");\nsbuf.append(\" Java\");\nSystem.out.println(sbuf);"
+  },
+  {
+    "id": 126,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What risk exists when multiple threads append to a shared StringBuilder without synchronization?",
+    "options": [
+      "Deadlock",
+      "Race condition causing lost updates, corrupted data, or ArrayIndexOutOfBoundsException",
+      "Memory leak in Metaspace",
+      "The JVM terminates immediately"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unsynchronized concurrent writes to StringBuilder can overlap index increments, leading to corrupted text or array boundary crashes."
+  },
+  {
+    "id": 127,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Does StringBuffer guarantee thread safety for compound operations like: if(sbuf.length() > 0) sbuf.deleteCharAt(0)?",
+    "options": [
+      "Yes, all operations on StringBuffer are globally atomic",
+      "No, individual methods are synchronized, but compound check-then-act sequences require external synchronization",
+      "Yes, the JVM automatically locks the calling thread",
+      "Only if sbuf is declared volatile"
+    ],
+    "answerIndex": 1,
+    "explanation": "Individual methods are atomic, but between sbuf.length() and sbuf.deleteCharAt(), another thread could alter the buffer. Compound actions require external synchronization."
+  },
+  {
+    "id": 128,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the performance penalty of StringBuffer compared to StringBuilder in single-threaded benchmarks?",
+    "options": [
+      "StringBuffer is approximately 2x to 3x slower due to lock acquisition and cache invalidation",
+      "StringBuffer is 100x slower",
+      "There is no difference in performance",
+      "StringBuilder is slower because it is not thread-safe"
+    ],
+    "answerIndex": 0,
+    "explanation": "Benchmark tests show that StringBuffer is roughly 2x to 3x slower in single-threaded loops due to monitor lock overhead."
+  },
+  {
+    "id": 129,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following classes is thread-safe?",
+    "options": [
+      "java.lang.StringBuilder",
+      "java.lang.StringBuffer",
+      "java.util.ArrayList",
+      "java.util.HashMap"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuffer is synchronized and thread-safe. StringBuilder, ArrayList, and HashMap are unsynchronized."
+  },
+  {
+    "id": 130,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the default capacity of new StringBuffer()?",
+    "options": [
+      "0",
+      "16",
+      "32",
+      "64"
+    ],
+    "answerIndex": 1,
+    "explanation": "Just like StringBuilder, new StringBuffer() initializes with a default capacity of 16 characters.",
+    "code": "StringBuffer sbuf = new StringBuffer();\nSystem.out.println(sbuf.capacity());"
+  },
+  {
+    "id": 131,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the relationship between the APIs of StringBuilder and StringBuffer?",
+    "options": [
+      "They share almost identical method signatures (append, insert, delete, reverse, replace)",
+      "StringBuffer has 50 more methods than StringBuilder",
+      "StringBuilder inherits from StringBuffer",
+      "StringBuffer does not support reverse()"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuilder was designed as a direct drop-in replacement for StringBuffer, sharing identical method names and parameters."
+  },
+  {
+    "id": 132,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What optimization does the HotSpot JVM perform on synchronized methods when an object is proven thread-confined?",
+    "options": [
+      "Biased Locking / Lock Elision (Escape Analysis removes unnecessary locks)",
+      "Converts StringBuffer to StringBuilder in the source file",
+      "Disables the garbage collector",
+      "Executes on the GPU"
+    ],
+    "answerIndex": 0,
+    "explanation": "Through Escape Analysis, JIT compilers can eliminate locks (Lock Elision) if they prove an object is never published to other threads."
+  },
+  {
+    "id": 133,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the reverse operation on StringBuffer?",
+    "options": [
+      "racecar",
+      "race car",
+      "null",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuffer.reverse() reverses the characters in-place just like StringBuilder.",
+    "code": "StringBuffer sbuf = new StringBuffer(\"racecar\");\nSystem.out.println(sbuf.reverse());"
+  },
+  {
+    "id": 134,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why is java.lang.String inherently thread-safe without any synchronized methods?",
+    "options": [
+      "Because String uses hardware atomic instructions",
+      "Because String is immutable; its state can never be modified after creation",
+      "Because String instances are locked by the OS kernel",
+      "Because String is stored in CPU registers"
+    ],
+    "answerIndex": 1,
+    "explanation": "Thread safety hazards require shared mutable state. Because String is completely immutable, read-only access across threads is 100% safe."
+  },
+  {
+    "id": 135,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code snippet?",
+    "options": [
+      "Barrackpore",
+      "Barrack",
+      "pore",
+      "ackpore"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuffer.append() modifies the buffer to \"Barrackpore\".",
+    "code": "StringBuffer sbuf = new StringBuffer(\"Barrack\");\nsbuf.append(\"pore\");\nSystem.out.println(sbuf);"
+  },
+  {
+    "id": 136,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does the toStringCache field in StringBuffer do?",
+    "options": [
+      "It caches the last generated String to optimize repeated toString() calls if the buffer was not modified",
+      "It stores encryption keys",
+      "It manages garbage collection references",
+      "It connects to an external Redis cache"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuffer maintains a private transient char[] toStringCache that avoids re-copying characters if no mutation occurred since the last toString()."
+  },
+  {
+    "id": 137,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does sbuf.length() return for new StringBuffer(\"2026\")?",
+    "options": [
+      "0",
+      "4",
+      "16",
+      "20"
+    ],
+    "answerIndex": 1,
+    "explanation": "The length of \"2026\" is 4.",
+    "code": "StringBuffer sbuf = new StringBuffer(\"2026\");\nSystem.out.println(sbuf.length());"
+  },
+  {
+    "id": 138,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "In a multi-threaded logging pipeline where 10 worker threads share a single buffer, which class should you use?",
+    "options": [
+      "StringBuilder",
+      "StringBuffer",
+      "String",
+      "char[]"
+    ],
+    "answerIndex": 1,
+    "explanation": "When a single buffer instance is shared and concurrently written by multiple threads, StringBuffer provides built-in synchronization."
+  },
+  {
+    "id": 139,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of comparing StringBuffer with String using equals()?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuffer does not override equals(), and even String.equals() returns false when comparing against non-String objects.",
+    "code": "StringBuffer sbuf = new StringBuffer(\"Test\");\nString str = \"Test\";\nSystem.out.println(sbuf.equals(str));"
+  },
+  {
+    "id": 140,
+    "topic": "StringBuffer & Thread Safety",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of sbuf.delete(0, 3) on \"Java\"?",
+    "options": [
+      "a",
+      "Jav",
+      "Java",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Indices 0, 1, 2 ('J', 'a', 'v') are deleted, leaving only 'a'.",
+    "code": "StringBuffer sbuf = new StringBuffer(\"Java\");\nsbuf.delete(0, 3);\nSystem.out.println(sbuf);"
+  },
+  {
+    "id": 141,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following correctly describes String, StringBuilder, and StringBuffer?",
+    "options": [
+      "String: Mutable, Not Thread-Safe | StringBuilder: Immutable | StringBuffer: Thread-Safe",
+      "String: Immutable, Thread-Safe | StringBuilder: Mutable, Not Thread-Safe | StringBuffer: Mutable, Thread-Safe",
+      "All three are mutable and thread-safe",
+      "All three are immutable and stored in the SCP"
+    ],
+    "answerIndex": 1,
+    "explanation": "String is immutable and thread-safe. StringBuilder is mutable and not thread-safe. StringBuffer is mutable and thread-safe."
+  },
+  {
+    "id": 142,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "sb1 and sb2 are distinct objects on the heap. Since StringBuilder does not override equals(), it compares references (false).",
+    "code": "StringBuilder sb1 = new StringBuilder(\"A\");\nStringBuilder sb2 = new StringBuilder(\"A\");\nSystem.out.println(sb1.equals(sb2));"
+  },
+  {
+    "id": 143,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How can you accurately check if two StringBuilder instances have the same character content in Java 11+?",
+    "options": [
+      "sb1.equals(sb2)",
+      "sb1.compareTo(sb2) == 0",
+      "sb1 == sb2",
+      "sb1.contentEquals(sb2)"
+    ],
+    "answerIndex": 1,
+    "explanation": "In Java 11+, StringBuilder implements Comparable<StringBuilder>. Calling sb1.compareTo(sb2) == 0 compares character values."
+  },
+  {
+    "id": 144,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does compareTo() return on identical StringBuilder instances in Java 11+?",
+    "options": [
+      "0",
+      "1",
+      "-1",
+      "true"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb1.compareTo(sb2) returns 0 when both character sequences are identical.",
+    "code": "StringBuilder sb1 = new StringBuilder(\"Java\");\nStringBuilder sb2 = new StringBuilder(\"Java\");\nSystem.out.println(sb1.compareTo(sb2));"
+  },
+  {
+    "id": 145,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "When should you use String instead of StringBuilder?",
+    "options": [
+      "When repeatedly modifying text inside loops",
+      "When text is constant, used as Map keys, entity IDs, or method parameters",
+      "When building multi-megabyte CSV files",
+      "Never; StringBuilder should replace all Strings"
+    ],
+    "answerIndex": 1,
+    "explanation": "String is ideal for fixed data, constants, Map keys (because hash codes are immutable), and domain model attributes."
+  },
+  {
+    "id": 146,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code?",
+    "options": [
+      "Java8",
+      "Java",
+      "8",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "String + StringBuilder uses StringBuilder.toString() internally, producing a new String \"Java8\".",
+    "code": "String s = \"Java\";\nStringBuilder sb = new StringBuilder(\"8\");\nSystem.out.println(s + sb);"
+  },
+  {
+    "id": 147,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which statement is true regarding the memory storage of String vs StringBuilder?",
+    "options": [
+      "String literals reside in the SCP; StringBuilder instances reside in normal Heap",
+      "StringBuilder resides in the JVM Stack; String resides in Heap",
+      "Both reside exclusively in Metaspace",
+      "String is stored in CPU registers; StringBuilder in RAM"
+    ],
+    "answerIndex": 0,
+    "explanation": "String literals are managed in the String Constant Pool inside the heap; StringBuilder instances always live in standard heap space."
+  },
+  {
+    "id": 148,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "true, true",
+      "true, false",
+      "false, true",
+      "false, false"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1.equals(s2) is true (String overrides equals). sb1.equals(sb2) is false (StringBuilder inherits Object.equals).",
+    "code": "String s1 = new String(\"Hi\");\nString s2 = new String(\"Hi\");\nStringBuilder sb1 = new StringBuilder(\"Hi\");\nStringBuilder sb2 = new StringBuilder(\"Hi\");\nSystem.out.println(s1.equals(s2) + \", \" + sb1.equals(sb2));"
+  },
+  {
+    "id": 149,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operation is faster for reversing a String of 100,000 characters?",
+    "options": [
+      "Repeatedly calling str = str.charAt(i) + str in a loop",
+      "new StringBuilder(str).reverse().toString()",
+      "Converting to char[] and writing a manual bubble sort",
+      "Using String.replace()"
+    ],
+    "answerIndex": 1,
+    "explanation": "StringBuilder.reverse() performs an in-place two-pointer reversal in O(N) time with minimal allocation, thousands of times faster than O(N^2) loop concatenation."
+  },
+  {
+    "id": 150,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of comparing String with StringBuilder using contentEquals()?",
+    "options": [
+      "true",
+      "false",
+      "Compilation Error",
+      "ClassCastException"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.contentEquals(CharSequence) works across any CharSequence, including StringBuilder, returning true if characters match.",
+    "code": "String s = \"Hello\";\nStringBuilder sb = new StringBuilder(\"Hello\");\nSystem.out.println(s.contentEquals(sb));"
+  },
+  {
+    "id": 151,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Can you assign a StringBuilder directly to a String variable without casting or toString()?",
+    "options": [
+      "Yes, Java automatically casts between them",
+      "No, String and StringBuilder are incompatible types requiring .toString()",
+      "Yes, via the 'as' keyword",
+      "Only in Java 17+"
+    ],
+    "answerIndex": 1,
+    "explanation": "They are distinct classes in different inheritance branches under CharSequence; String s = sb; causes a compile-time type mismatch."
+  },
+  {
+    "id": 152,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does the following snippet print?",
+    "options": [
+      "Java 21",
+      "Java",
+      "21",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb is converted to String via toString(), producing \"Java 21\".",
+    "code": "StringBuilder sb = new StringBuilder(\"Java\");\nsb.append(\" 21\");\nString result = sb.toString();\nSystem.out.println(result);"
+  },
+  {
+    "id": 153,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why does StringBuilder have lower memory overhead than String concatenation inside a loop?",
+    "options": [
+      "It disables the garbage collector",
+      "It modifies a single contiguous array in-place rather than allocating N intermediate String objects",
+      "It stores characters on the GPU",
+      "It uses 4-bit character encoding"
+    ],
+    "answerIndex": 1,
+    "explanation": "In-place buffer mutation reuses the same memory buffer, preventing the creation of thousands of discarded intermediate objects."
+  },
+  {
+    "id": 154,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "0",
+      "Positive number",
+      "Negative number",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java 11+, sb1.compareTo(sb2) returns 0 when both hold identical character sequences.",
+    "code": "StringBuilder sb1 = new StringBuilder(\"Barrackpore\");\nStringBuilder sb2 = new StringBuilder(\"Barrackpore\");\nSystem.out.println(sb1.compareTo(sb2));"
+  },
+  {
+    "id": 155,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following is NOT an advantage of String over StringBuilder?",
+    "options": [
+      "String is naturally thread-safe",
+      "String can be cached in the String Constant Pool",
+      "String hash codes can be safely cached for fast Map lookups",
+      "String allows faster in-place character deletions"
+    ],
+    "answerIndex": 3,
+    "explanation": "String does not support in-place deletions at all; any deletion requires creating a new String object."
+  },
+  {
+    "id": 156,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this snippet?",
+    "options": [
+      "true",
+      "false",
+      "Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuffer also implements CharSequence, so String.contentEquals(sbuf) returns true for identical contents.",
+    "code": "String str = \"Java\";\nStringBuffer sbuf = new StringBuffer(\"Java\");\nSystem.out.println(str.contentEquals(sbuf));"
+  },
+  {
+    "id": 157,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens when you pass a StringBuilder instance to System.out.println()?",
+    "options": [
+      "It prints its heap memory address",
+      "It implicitly calls sb.toString() and prints the character sequence",
+      "It throws an IllegalArgumentException",
+      "It prints the capacity"
+    ],
+    "answerIndex": 1,
+    "explanation": "PrintStream.println(Object) invokes String.valueOf(obj), which in turn calls obj.toString()."
+  },
+  {
+    "id": 158,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "ABC",
+      "CBA",
+      "ABCCBA",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.reverse() modifies sb, but then another reverse() restores \"ABC\".",
+    "code": "StringBuilder sb = new StringBuilder(\"ABC\");\nsb.reverse();\nsb.reverse();\nSystem.out.println(sb);"
+  },
+  {
+    "id": 159,
+    "topic": "Showdown & Comparison",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "In terms of synchronization, which list matches: (String, StringBuilder, StringBuffer)?",
+    "options": [
+      "(Immutable/Safe, Unsynchronized/Unsafe, Synchronized/Safe)",
+      "(Synchronized, Synchronized, Unsynchronized)",
+      "(Unsafe, Safe, Safe)",
+      "(Safe, Safe, Unsafe)"
+    ],
+    "answerIndex": 0,
+    "explanation": "String is immutable and thread-safe. StringBuilder is unsynchronized. StringBuffer is synchronized."
+  },
+  {
+    "id": 160,
+    "topic": "Showdown & Comparison",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this snippet print?",
+    "options": [
+      "[Java]",
+      "Java",
+      "null",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Chaining append(\"[\").append(\"Java\").append(\"]\") yields \"[Java]\".",
+    "code": "StringBuilder sb = new StringBuilder();\nsb.append(\"[\").append(\"Java\").append(\"]\");\nSystem.out.println(sb);"
+  },
+  {
+    "id": 161,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the difference between System.out.printf() and String.format()?",
+    "options": [
+      "printf prints to standard output, while String.format returns the formatted string as a String object",
+      "printf is faster because it does not support format flags",
+      "String.format only works with numbers",
+      "There is no difference"
+    ],
+    "answerIndex": 0,
+    "explanation": "System.out.printf() writes formatted text to the console; String.format() returns the formatted result as a String."
+  },
+  {
+    "id": 162,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following format statement?",
+    "options": [
+      "Trainee: Joydeep, Score: 95",
+      "Trainee: 95, Score: Joydeep",
+      "Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "%s formats strings, %d formats decimal integers.",
+    "code": "String out = String.format(\"Trainee: %s, Score: %d\", \"Joydeep\", 95);\nSystem.out.println(out);"
+  },
+  {
+    "id": 163,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which format specifier represents a platform-independent newline?",
+    "options": [
+      "\\n",
+      "\\r\\n",
+      "%n",
+      "%newline"
+    ],
+    "answerIndex": 2,
+    "explanation": "%n is the format specifier for the platform-specific line separator (\\r\\n on Windows, \\n on Unix/macOS)."
+  },
+  {
+    "id": 164,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of formatting a double with '%.2f'?",
+    "options": [
+      "3.14",
+      "3.14159",
+      "3.1",
+      "3"
+    ],
+    "answerIndex": 0,
+    "explanation": "%.2f rounds floating-point numbers to 2 decimal places.",
+    "code": "System.out.printf(\"%.2f\", 3.14159);"
+  },
+  {
+    "id": 165,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What flag formats numbers with locale-specific thousands grouping commas?",
+    "options": [
+      "%",
+      ",",
+      "-",
+      "+"
+    ],
+    "answerIndex": 1,
+    "explanation": "The comma flag (',') groups thousands, e.g. String.format(\"%,d\", 1000000) produces \"1,000,000\".",
+    "code": "System.out.printf(\"%,d\", 1000000);"
+  },
+  {
+    "id": 166,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the left-alignment flag '-' in: String.format(\"|%-8s|\", \"Java\")?",
+    "options": [
+      "|    Java|",
+      "|Java    |",
+      "|  Java  |",
+      "|Java|"
+    ],
+    "answerIndex": 1,
+    "explanation": "%-8s left-aligns \"Java\" within an 8-character width, padding 4 spaces on the right.",
+    "code": "System.out.println(String.format(\"|%-8s|\", \"Java\"));"
+  },
+  {
+    "id": 167,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of zero-padding with '%05d' on 42?",
+    "options": [
+      "42000",
+      "00042",
+      "   42",
+      "42"
+    ],
+    "answerIndex": 1,
+    "explanation": "%05d specifies a field width of 5 with leading zero padding.",
+    "code": "System.out.printf(\"%05d\", 42);"
+  },
+  {
+    "id": 168,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which format specifier is used for boolean values in Java?",
+    "options": [
+      "%bool",
+      "%b",
+      "%B",
+      "%t"
+    ],
+    "answerIndex": 1,
+    "explanation": "%b (or %B for uppercase) formats boolean values into \"true\" or \"false\"."
+  },
+  {
+    "id": 169,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does %b print if you pass a non-null object to it?",
+    "options": [
+      "false",
+      "true",
+      "The object's toString()",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "For %b, if the argument is non-null and not a Boolean, it evaluates to true.",
+    "code": "System.out.printf(\"%b\", \"hello\");"
+  },
+  {
+    "id": 170,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the format specifier for hexadecimal integers?",
+    "options": [
+      "%h",
+      "%x or %X",
+      "%hex",
+      "%d"
+    ],
+    "answerIndex": 1,
+    "explanation": "%x formats integers into lowercase hex, %X into uppercase hex.",
+    "code": "System.out.printf(\"%X\", 255);"
+  },
+  {
+    "id": 171,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does String.format(\"%X\", 255) print?",
+    "options": [
+      "ff",
+      "FF",
+      "255",
+      "11111111"
+    ],
+    "answerIndex": 1,
+    "explanation": "255 in hexadecimal is FF (%X outputs uppercase).",
+    "code": "System.out.println(String.format(\"%X\", 255));"
+  },
+  {
+    "id": 172,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does the '+' flag do in: String.format(\"%+d\", 50)?",
+    "options": [
+      "Prints '50+'",
+      "Always includes the sign: '+50'",
+      "Doubles the number",
+      "Throws an error"
+    ],
+    "answerIndex": 1,
+    "explanation": "The '+' flag forces the inclusion of a positive or negative sign for numeric values.",
+    "code": "System.out.printf(\"%+d\", 50);"
+  },
+  {
+    "id": 173,
+    "topic": "String Formatting",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of using argument index specifiers like '%2$s %1$s'?",
+    "options": [
+      "First Second",
+      "Second First",
+      "First First",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "%2$s refers to the 2nd argument (\"Second\"), and %1$s refers to the 1st (\"First\").",
+    "code": "System.out.printf(\"%2$s %1$s\", \"First\", \"Second\");"
+  },
+  {
+    "id": 174,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What exception is thrown if you pass a String to a '%d' format specifier?",
+    "options": [
+      "IllegalArgumentException",
+      "java.util.IllegalFormatConversionException",
+      "ClassCastException",
+      "NumberFormatException"
+    ],
+    "answerIndex": 1,
+    "explanation": "Passing an incompatible data type to a format specifier throws IllegalFormatConversionException."
+  },
+  {
+    "id": 175,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does String.format(\"%.3f\", 1.2) output?",
+    "options": [
+      "1.2",
+      "1.200",
+      "1.20",
+      "001.2"
+    ],
+    "answerIndex": 1,
+    "explanation": "%.3f pads missing fractional digits with zeros up to 3 decimal places: \"1.200\".",
+    "code": "System.out.println(String.format(\"%.3f\", 1.2));"
+  },
+  {
+    "id": 176,
+    "topic": "String Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which specifier formats a single character in Java?",
+    "options": [
+      "%c",
+      "%s",
+      "%char",
+      "%1s"
+    ],
+    "answerIndex": 0,
+    "explanation": "%c (or %C for uppercase) formats char values."
+  },
+  {
+    "id": 177,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does String.format(\"%C\", 'a') print?",
+    "options": [
+      "a",
+      "A",
+      "'A'",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Uppercase %C converts the character to uppercase: 'A'.",
+    "code": "System.out.println(String.format(\"%C\", 'a'));"
+  },
+  {
+    "id": 178,
+    "topic": "String Formatting",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which underlying engine performs string formatting for String.format() and System.out.printf()?",
+    "options": [
+      "java.lang.StringTemplate",
+      "java.util.Formatter",
+      "java.text.MessageFormat",
+      "java.util.Scanner"
+    ],
+    "answerIndex": 1,
+    "explanation": "Both String.format() and System.out.printf() instantiate and delegate parsing to java.util.Formatter."
+  },
+  {
+    "id": 179,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of: String.format(\"|%5d|\", 7)?",
+    "options": [
+      "|    7|",
+      "|7    |",
+      "|00007|",
+      "|7|"
+    ],
+    "answerIndex": 0,
+    "explanation": "%5d right-aligns the number by default within a width of 5, adding 4 leading spaces.",
+    "code": "System.out.println(String.format(\"|%5d|\", 7));"
+  },
+  {
+    "id": 180,
+    "topic": "String Formatting",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does String.format(\"%% %d\", 50) print?",
+    "options": [
+      "% 50",
+      "%% 50",
+      "Error",
+      "50"
+    ],
+    "answerIndex": 0,
+    "explanation": "The sequence '%%' escapes the percent sign and prints a literal '%' character.",
+    "code": "System.out.println(String.format(\"%% %d\", 50));"
+  },
+  {
+    "id": 181,
+    "topic": "Text Blocks & Architecture",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which delimiter is used to define a modern Java Text Block (standard in Java 15+)?",
+    "options": [
+      "\"\"\"",
+      "'''",
+      "```",
+      "'''"
+    ],
+    "answerIndex": 0,
+    "explanation": "Java Text Blocks are enclosed by three double-quote characters: \"\"\"."
+  },
+  {
+    "id": 182,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the mandatory syntax rule for the opening delimiter of a Java Text Block?",
+    "options": [
+      "It must be immediately followed by a semicolon",
+      "It must be followed by a line terminator (newline); content cannot begin on the same line",
+      "It must specify an encoding type like \"\"\"json",
+      "It can only be used inside static methods"
+    ],
+    "answerIndex": 1,
+    "explanation": "A compilation error occurs if text content begins on the same line as the opening \"\"\"; a newline is strictly required."
+  },
+  {
+    "id": 183,
+    "topic": "Text Blocks & Architecture",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following Text Block?",
+    "options": [
+      "Hello World",
+      "Hello\\nWorld",
+      "Compilation Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "Text blocks preserve newlines natively without requiring '\\n' escape sequences.",
+    "code": "String tb = \"\"\"\n    Hello\n    World\"\"\";\nSystem.out.println(tb.replace(\"\\n\", \" \"));"
+  },
+  {
+    "id": 184,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does Java handle indentation inside Text Blocks?",
+    "options": [
+      "All leading whitespace is always preserved verbatim",
+      "The compiler automatically calculates and strips common incidental whitespace",
+      "Developers must manually call trim() on every line",
+      "Indentation is strictly forbidden in Text Blocks"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Java compiler strips 'incidental whitespace' (the indentation shared by all lines) so the content starts at column 0."
+  },
+  {
+    "id": 185,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How do you escape double quotes inside a Java Text Block?",
+    "options": [
+      "You must escape every double quote with \\\"",
+      "Double quotes do NOT need to be escaped inside Text Blocks (unless writing three consecutive quotes)",
+      "You must use single quotes instead",
+      "Text blocks do not allow double quotes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Standard double quotes (\") can be written directly without backslashes, making JSON, SQL, and HTML templates exceptionally clean."
+  },
+  {
+    "id": 186,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What method introduced in Java 15 allows fluent formatting directly on a String or Text Block?",
+    "options": [
+      "str.format()",
+      "str.formatted(Object... args)",
+      "str.interpolate()",
+      "str.printf()"
+    ],
+    "answerIndex": 1,
+    "explanation": "The instance method .formatted(args...) was introduced in Java 15 as a fluent shortcut for String.format(str, args)."
+  },
+  {
+    "id": 187,
+    "topic": "Text Blocks & Architecture",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this fluent formatted() call?",
+    "options": [
+      "Hub: Barrackpore, Code: 700",
+      "Hub: %s, Code: %d",
+      "Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": ".formatted(\"Barrackpore\", 700) replaces %s and %d directly.",
+    "code": "String res = \"Hub: %s, Code: %d\".formatted(\"Barrackpore\", 700);\nSystem.out.println(res);"
+  },
+  {
+    "id": 188,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does a trailing backslash ('\\') at the end of a line in a Text Block do?",
+    "options": [
+      "Escapes the next character",
+      "Suppresses the newline character (line continuation)",
+      "Throws a compilation error",
+      "Comments out the line"
+    ],
+    "answerIndex": 1,
+    "explanation": "A trailing '\\' acts as a line continuation escape, allowing long sentences to be split across code lines without inserting a newline in the output."
+  },
+  {
+    "id": 189,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does the following Text Block output?",
+    "options": [
+      "Java is awesome!",
+      "Java is \\n awesome!",
+      "Compilation error",
+      "Java is \\ awesome!"
+    ],
+    "answerIndex": 0,
+    "explanation": "The trailing '\\' suppresses the line break, rendering the text as a single line: \"Java is awesome!\".",
+    "code": "String text = \"\"\"\n    Java is \\\n    awesome!\"\"\";\nSystem.out.println(text);"
+  },
+  {
+    "id": 190,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does the escape sequence '\\s' do in Java Text Blocks?",
+    "options": [
+      "Inserts a tab character",
+      "Explicitly preserves a trailing whitespace that would otherwise be stripped by the compiler",
+      "Converts text to uppercase",
+      "Splits the text block"
+    ],
+    "answerIndex": 1,
+    "explanation": "The '\\s' escape sequence represents a single space and prevents the compiler from stripping trailing spaces on that line."
+  },
+  {
+    "id": 191,
+    "topic": "Text Blocks & Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which method explicitly strips incidental indentation from an arbitrary multi-line String?",
+    "options": [
+      "str.stripIndent()",
+      "str.trim()",
+      "str.strip()",
+      "str.normalize()"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.stripIndent() implements the same indentation-stripping algorithm used by the compiler on Text Blocks."
+  },
+  {
+    "id": 192,
+    "topic": "Text Blocks & Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What does String.translateEscapes() do?",
+    "options": [
+      "Translates English text to Spanish",
+      "Translates escape sequences (such as \\n, \\t) in a raw string into their actual character values",
+      "Encrypts string data",
+      "Removes all backslashes"
+    ],
+    "answerIndex": 1,
+    "explanation": "translateEscapes() parses string literals containing raw characters like '\\' and 'n' and converts them into actual newlines and tabs."
+  },
+  {
+    "id": 193,
+    "topic": "Text Blocks & Architecture",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following JSON template?",
+    "options": [
+      "{\"status\": \"OK\"}",
+      "{\"status\": \"%s\"}",
+      "Compilation error: Unescaped quotes",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double quotes are natively allowed inside Text Blocks without backslash escaping.",
+    "code": "String json = \"\"\"\n    {\"status\": \"%s\"}\"\"\".formatted(\"OK\");\nSystem.out.println(json.trim());"
+  },
+  {
+    "id": 194,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What security risk must be considered when generating dynamic SQL queries using Text Blocks and .formatted()?",
+    "options": [
+      "Text blocks cause OutOfMemoryError in databases",
+      "Formatting untrusted user input directly into SQL strings exposes the application to SQL Injection",
+      "Databases do not support multi-line strings",
+      "Text blocks encrypt database passwords"
+    ],
+    "answerIndex": 1,
+    "explanation": "Never concatenate or format untrusted raw user input into SQL execution strings; use PreparedStatement with bind parameters ('?') instead."
+  },
+  {
+    "id": 195,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this SQL template builder?",
+    "options": [
+      "SELECT * FROM trainees WHERE id = 101;",
+      "SELECT * FROM trainees WHERE id = %d;",
+      "Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "%d is replaced by 101, producing a formatted SQL statement.",
+    "code": "String sql = \"\"\"\n    SELECT * FROM trainees WHERE id = %d;\n    \"\"\".formatted(101);\nSystem.out.println(sql.trim());"
+  },
+  {
+    "id": 196,
+    "topic": "Text Blocks & Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "How does the placement of the closing delimiter (\"\"\") affect the indentation of a Text Block?",
+    "options": [
+      "It has no effect on indentation",
+      "If the closing delimiter is indented further left than the content, it determines the common left margin and preserves extra indentation for content lines",
+      "The closing delimiter must be on the same line as the final character",
+      "The closing delimiter must always be at column 0"
+    ],
+    "answerIndex": 1,
+    "explanation": "The closing \"\"\" acts as a line in the indentation calculation. Moving it to the left shifts the baseline, preserving leading spaces on content lines."
+  },
+  {
+    "id": 197,
+    "topic": "Text Blocks & Architecture",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this HTML template?",
+    "options": [
+      "<h1>Welcome</h1>",
+      "<h1>%s</h1>",
+      "Error",
+      "Welcome"
+    ],
+    "answerIndex": 0,
+    "explanation": "%s is replaced by \"Welcome\", outputting valid HTML.",
+    "code": "String html = \"\"\"\n    <h1>%s</h1>\n    \"\"\".formatted(\"Welcome\");\nSystem.out.println(html.trim());"
+  },
+  {
+    "id": 198,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "When should you combine Java 15 Text Blocks with StringBuilder in real-world microservices?",
+    "options": [
+      "Text blocks for static multi-line skeletons, and StringBuilder for dynamic loops (e.g. multi-row CSV or batch inserts)",
+      "Never, they cannot be used in the same project",
+      "StringBuilder is deprecated in favor of Text Blocks",
+      "Only when writing Android apps"
+    ],
+    "answerIndex": 0,
+    "explanation": "Text Blocks excel at readable static multi-line structures, while StringBuilder handles high-throughput dynamic loop iteration."
+  },
+  {
+    "id": 199,
+    "topic": "Text Blocks & Architecture",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "Error",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "A Text Block is compiled into a standard java.lang.String. It is an instance of String and implements CharSequence.",
+    "code": "String tb = \"\"\"\n    Java\"\"\";\nSystem.out.println(tb instanceof String);"
+  },
+  {
+    "id": 200,
+    "topic": "Text Blocks & Architecture",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the final output of this capstone snippet?",
+    "options": [
+      "SUCCESS: 200",
+      "SUCCESS: 500",
+      "ERROR",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "The formatted template cleanly produces \"SUCCESS: 200\".",
+    "code": "String template = \"\"\"\n    %s: %d\n    \"\"\".formatted(\"SUCCESS\", 200);\nSystem.out.println(template.trim());"
+  }
+]

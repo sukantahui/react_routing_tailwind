@@ -1,0 +1,3204 @@
+[
+  {
+    "id": 1,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following packages contains the java.lang.String class in standard Java SE?",
+    "options": [
+      "java.util",
+      "java.lang",
+      "java.text",
+      "java.io"
+    ],
+    "answerIndex": 1,
+    "explanation": "String belongs to the java.lang package, which is automatically imported into every Java compilation unit by default."
+  },
+  {
+    "id": 2,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why is the java.lang.String class declared as 'final' in the Java class library?",
+    "options": [
+      "To prevent developers from subclassing it and overriding its methods to violate immutability",
+      "To force the JVM to store it exclusively on the call stack",
+      "To allow multiple inheritance of String attributes in other classes",
+      "To prevent String objects from being serialized across network streams"
+    ],
+    "answerIndex": 0,
+    "explanation": "Declaring String as final guarantees that no subclass can override its methods (such as equals(), hashCode(), or charAt()) or introduce mutable behavior."
+  },
+  {
+    "id": 3,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following interfaces is NOT implemented by java.lang.String?",
+    "options": [
+      "java.lang.CharSequence",
+      "java.lang.Comparable<String>",
+      "java.io.Serializable",
+      "java.lang.Cloneable"
+    ],
+    "answerIndex": 3,
+    "explanation": "String does NOT implement java.lang.Cloneable because immutable objects do not require cloning; sharing references is completely safe and preferred."
+  },
+  {
+    "id": 4,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Under JEP 254 (Compact Strings introduced in Java 9), what is the underlying storage type for characters in a String?",
+    "options": [
+      "char[] with 16-bit encoding for every character unconditionally",
+      "byte[] accompanied by a single-byte 'coder' flag indicating LATIN1 (0) or UTF16 (1)",
+      "int[] storing 32-bit Unicode code points directly",
+      "short[] compressed with run-length encoding"
+    ],
+    "answerIndex": 1,
+    "explanation": "Java 9 replaced char[] with byte[] and an encoding byte flag ('coder'). For ISO-8859-1/Latin-1 strings, each char takes only 1 byte instead of 2, cutting heap consumption by up to 50%."
+  },
+  {
+    "id": 5,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Where does a local String reference variable reside compared to the String object it references?",
+    "options": [
+      "Both the reference variable and the object reside on the Java Thread Stack",
+      "The reference variable resides on the Thread Stack, while the String object resides on the JVM Heap",
+      "Both the reference variable and the object reside exclusively in the Metaspace",
+      "The reference variable resides in the String Constant Pool, while the object resides on the Stack"
+    ],
+    "answerIndex": 1,
+    "explanation": "Local variables (references) reside in the stack frame of the executing thread, while the actual String object instance resides on the JVM Heap memory."
+  },
+  {
+    "id": 6,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default value of an uninitialized instance field of type String in a class?",
+    "options": [
+      "\"\"",
+      "\"null\"",
+      "null",
+      "A blank string with length 0"
+    ],
+    "answerIndex": 2,
+    "explanation": "Because String is an object reference type, uninitialized instance variables default to null."
+  },
+  {
+    "id": 7,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the consequence of calling methods on a String reference that points to null (e.g., str.length())?",
+    "options": [
+      "It returns 0 gracefully",
+      "It returns an empty string \"\"",
+      "It throws a NullPointerException at runtime",
+      "It generates a compilation error: 'Variable not initialized'"
+    ],
+    "answerIndex": 2,
+    "explanation": "Dereferencing any null object reference to invoke an instance method triggers a java.lang.NullPointerException at runtime."
+  },
+  {
+    "id": 8,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following classes also implements the CharSequence interface alongside String?",
+    "options": [
+      "StringBuilder, StringBuffer, and CharBuffer",
+      "ArrayList and LinkedList",
+      "Character and Byte",
+      "Scanner and Formatter"
+    ],
+    "answerIndex": 0,
+    "explanation": "CharSequence is the uniform readable sequence interface implemented by String, StringBuilder, StringBuffer, and java.nio.CharBuffer."
+  },
+  {
+    "id": 9,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true true",
+      "true false",
+      "false true",
+      "false false"
+    ],
+    "answerIndex": 0,
+    "explanation": "String implements both CharSequence and Comparable<String>, so both instanceof checks evaluate to true.",
+    "code": "String s = \"Java\";\nSystem.out.println((s instanceof CharSequence) + \" \" + (s instanceof Comparable));"
+  },
+  {
+    "id": 10,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the size in bytes of an empty String object in standard 64-bit HotSpot JVM with Compressed OOPs (Java 11+)?",
+    "options": [
+      "0 bytes",
+      "Approximately 24 to 32 bytes (object header + byte[] reference + coder + hash field)",
+      "Exactly 8 bytes",
+      "128 bytes"
+    ],
+    "answerIndex": 1,
+    "explanation": "In 64-bit JVMs with Compressed OOPs, a String instance includes a 12-byte header, a 4-byte reference to byte[], a 4-byte cached hash code, a 1-byte coder, 3 bytes padding (total 24 bytes) plus the array overhead."
+  },
+  {
+    "id": 11,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Can a primitive char variable be assigned directly to a String reference without conversion?",
+    "options": [
+      "Yes, the JVM automatically autoboxes char into String",
+      "No, char is a 16-bit primitive integer type and cannot be directly assigned to a reference type like String",
+      "Yes, because char and String are aliases in Java",
+      "Only if the char value is between 'A' and 'Z'"
+    ],
+    "answerIndex": 1,
+    "explanation": "Java does not autobox char to String. You must use Character.toString(ch), String.valueOf(ch), or concatenation (\"\" + ch)."
+  },
+  {
+    "id": 12,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why can't any class inherit from java.lang.String to add a setCharAt() mutator method?",
+    "options": [
+      "Because all methods in String are private",
+      "Because java.lang.String is declared with the final class modifier",
+      "Because the compiler only allows inheritance from abstract classes",
+      "Because String does not have a default constructor"
+    ],
+    "answerIndex": 1,
+    "explanation": "The 'final' class modifier explicitly prohibits inheritance, guaranteeing class immutability across the entire Java runtime ecosystem."
+  },
+  {
+    "id": 13,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does the following snippet print?",
+    "options": [
+      "null",
+      "0",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "System.out.println handles null references gracefully by converting them to the string literal \"null\".",
+    "code": "String text = null;\nSystem.out.println(text);"
+  },
+  {
+    "id": 14,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does the internal 'hash' field of java.lang.String store?",
+    "options": [
+      "A pointer to the String Constant Pool index",
+      "The precomputed/cached 32-bit hash code of the string (defaults to 0 until first computed)",
+      "The memory address of the string object",
+      "The length of the byte array"
+    ],
+    "answerIndex": 1,
+    "explanation": "String caches its hashCode in an internal int hash field. Because strings are immutable, the hash code never changes and is calculated at most once."
+  },
+  {
+    "id": 15,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "String",
+      "CharSequence",
+      "Object",
+      "java.lang.String"
+    ],
+    "answerIndex": 3,
+    "explanation": "The getClass().getName() method on any object returns its fully qualified class name, which is 'java.lang.String'.",
+    "code": "Object obj = \"Mastering Java\";\nSystem.out.println(obj.getClass().getName());"
+  },
+  {
+    "id": 16,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which constructor of String creates an exact shallow defensive copy of the character sequence of another String?",
+    "options": [
+      "new String(String original)",
+      "new String(int size)",
+      "new String(boolean flag)",
+      "new String(Object obj)"
+    ],
+    "answerIndex": 0,
+    "explanation": "The constructor new String(String original) initializes a newly created String object so that it represents the same sequence of characters as the argument."
+  },
+  {
+    "id": 17,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What happens to the internal cached hash code of an empty string \"\"?",
+    "options": [
+      "It is always 0",
+      "It throws an ArithmeticException",
+      "It is random",
+      "It is -1"
+    ],
+    "answerIndex": 0,
+    "explanation": "For an empty string, the polynomial hash s[0]*31^(n-1) + ... has 0 terms, producing a hash value of 0."
+  },
+  {
+    "id": 18,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following statements about String serialization in Java is TRUE?",
+    "options": [
+      "String does not implement Serializable and cannot be sent over RMI",
+      "String implements java.io.Serializable and has a custom serialization protocol for compact network transmission",
+      "Strings can only be serialized if all characters are ASCII",
+      "Strings require an external Jackson serializer to be written to an ObjectOutputStream"
+    ],
+    "answerIndex": 1,
+    "explanation": "String implements Serializable and the JVM provides specialized optimization in ObjectOutputStream to write string objects efficiently."
+  },
+  {
+    "id": 19,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "4",
+      "8",
+      "Compilation error",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "s.length() counts characters/code units in the CharSequence, returning 4.",
+    "code": "CharSequence cs = \"Coder\";\nSystem.out.println(cs.subSequence(0, 4).length());"
+  },
+  {
+    "id": 20,
+    "topic": "String Fundamentals & Reference Types",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why does Java 9 Compact Strings improve performance in multi-core processors?",
+    "options": [
+      "It executes SIMD (Single Instruction Multiple Data) vector instructions on smaller byte arrays and reduces memory bus bandwidth/cache misses",
+      "It executes String operations exclusively in GPU shaders",
+      "It disables Garbage Collection for all String instances",
+      "It replaces all pointers with 8-bit integers"
+    ],
+    "answerIndex": 0,
+    "explanation": "By halving the memory footprint of Latin-1 strings from 2 bytes to 1 byte per character, Compact Strings doubles CPU cache density and cuts L1/L2 cache misses significantly."
+  },
+  {
+    "id": 21,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many String objects are created by the statement: String s = \"Hello\"; if \"Hello\" was never used previously in the program?",
+    "options": [
+      "0 objects",
+      "1 object (in the String Constant Pool)",
+      "2 objects (one in Heap, one in SCP)",
+      "3 objects"
+    ],
+    "answerIndex": 1,
+    "explanation": "A string literal creates exactly 1 object in the String Constant Pool (SCP) when the class is loaded and resolved, if it does not already exist."
+  },
+  {
+    "id": 22,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many String objects are created by the statement: String s = new String(\"Hello\"); assuming \"Hello\" was NOT present in the SCP prior to this line?",
+    "options": [
+      "1 object",
+      "2 objects (1 in SCP due to the literal \"Hello\", and 1 in standard Heap memory due to 'new')",
+      "0 objects",
+      "4 objects"
+    ],
+    "answerIndex": 1,
+    "explanation": "Two objects are created: the literal \"Hello\" is placed in the SCP, and 'new String(...)' creates a separate distinct object in standard Heap memory."
+  },
+  {
+    "id": 23,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "If \"World\" already exists in the SCP, how many objects are created by: String s = new String(\"World\");?",
+    "options": [
+      "0 objects",
+      "1 object (only in normal Heap memory)",
+      "2 objects",
+      "3 objects"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because \"World\" is already present in the SCP, only 1 new object is instantiated in the regular Heap by the 'new' keyword."
+  },
+  {
+    "id": 24,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "Runtime Exception"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both s1 and s2 refer to the identical string literal \"Kolkata\", which is stored once in the SCP and shared.",
+    "code": "String s1 = \"Kolkata\";\nString s2 = \"Kolkata\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 25,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "Runtime Exception"
+    ],
+    "answerIndex": 1,
+    "explanation": "The 'new' operator explicitly allocates a new distinct object on the non-pool Heap. Therefore, their reference addresses differ (s1 == s2 is false).",
+    "code": "String s1 = new String(\"India\");\nString s2 = new String(\"India\");\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 26,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of the following comparison?",
+    "options": [
+      "true",
+      "false",
+      "NullPointerException",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1 points to an object in the general Heap created via 'new', while s2 points directly to the pooled literal in the SCP.",
+    "code": "String s1 = new String(\"Java\");\nString s2 = \"Java\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 27,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why should developers generally prefer string literals over 'new String(...)'?",
+    "options": [
+      "Because string literals are immutable, whereas new String() creates mutable strings",
+      "Because string literals are automatically pooled and reused in the SCP, eliminating redundant memory allocation",
+      "Because string literals cannot be garbage collected under any circumstance",
+      "Because new String() is deprecated in Java 17"
+    ],
+    "answerIndex": 1,
+    "explanation": "Literals leverage the String Constant Pool to share instances, saving significant memory. Calling 'new String()' creates unnecessary duplicate Heap instances."
+  },
+  {
+    "id": 28,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How many String objects are created during the execution of the following lines (assuming SCP is empty)?",
+    "options": [
+      "3 objects",
+      "4 objects",
+      "5 objects",
+      "2 objects"
+    ],
+    "answerIndex": 0,
+    "explanation": "1 in SCP for \"Barrackpore\", and 2 separate objects on the Heap created by the two 'new String(...)' calls. Total = 3 objects.",
+    "code": "String a = new String(\"Barrackpore\");\nString b = new String(\"Barrackpore\");"
+  },
+  {
+    "id": 29,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What will this code print?",
+    "options": [
+      "true true",
+      "false true",
+      "true false",
+      "false false"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1 == s2 is false because s2 is in regular heap while s1 is in SCP. s1.equals(s2) is true because both contain identical character contents \"React\".",
+    "code": "String s1 = \"React\";\nString s2 = new String(\"React\");\nSystem.out.println((s1 == s2) + \" \" + s1.equals(s2));"
+  },
+  {
+    "id": 30,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "When are string literals evaluated and placed into the String Constant Pool?",
+    "options": [
+      "Only when garbage collection runs",
+      "During class loading and constant pool resolution by the JVM",
+      "When the user inputs data via Scanner",
+      "Every time a method containing the literal is invoked"
+    ],
+    "answerIndex": 1,
+    "explanation": "String literals are recorded in the constant pool table of the compiled class file and resolved into SCP objects when the class is loaded and verified by the JVM."
+  },
+  {
+    "id": 31,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 0,
+    "explanation": "s1 is \"AB\". In s2, \"A\" + \"B\" is a compile-time constant expression of two literals, which javac folds into \"AB\" at compile-time. Hence s1 and s2 reference the same SCP object.",
+    "code": "String s1 = \"AB\";\nString s2 = \"A\" + \"B\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 32,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "Runtime Exception"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1 is a non-final variable. The expression s1 + \"B\" is evaluated at runtime (creating a new String object in the Heap via StringBuilder/invokedynamic), so s2 == s3 is false.",
+    "code": "String s1 = \"A\";\nString s2 = s1 + \"B\";\nString s3 = \"AB\";\nSystem.out.println(s2 == s3);"
+  },
+  {
+    "id": 33,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output when final variables are used?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because s1 is marked 'final', the compiler inlines its compile-time constant value. Thus, s1 + \"B\" is folded into the literal \"AB\" at compile-time.",
+    "code": "final String s1 = \"A\";\nString s2 = s1 + \"B\";\nString s3 = \"AB\";\nSystem.out.println(s2 == s3);"
+  },
+  {
+    "id": 34,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What does the constructor new String(char[] value) do?",
+    "options": [
+      "Directly uses the provided char[] without copying, creating a security vulnerability",
+      "Allocates a new String and defensively copies the contents of the char array into its internal storage",
+      "Throws an exception if the array length exceeds 10",
+      "Inserts the char array directly into the Metaspace"
+    ],
+    "answerIndex": 1,
+    "explanation": "It creates a defensive copy of the character array so that subsequent modifications to the external char[] cannot mutate the newly created String."
+  },
+  {
+    "id": 35,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed after modifying the original char array?",
+    "options": [
+      "Java",
+      "Xava",
+      "Compilation error",
+      "ArrayStoreException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because the String constructor makes a defensive copy of the char array, mutating chars[0] has no effect on the String.",
+    "code": "char[] chars = {'J', 'a', 'v', 'a'};\nString s = new String(chars);\nchars[0] = 'X';\nSystem.out.println(s);"
+  },
+  {
+    "id": 36,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which constructor is NOT available in java.lang.String?",
+    "options": [
+      "String(byte[] bytes, Charset charset)",
+      "String(StringBuilder builder)",
+      "String(StringBuffer buffer)",
+      "String(int capacity)"
+    ],
+    "answerIndex": 3,
+    "explanation": "String does NOT have a constructor taking an int capacity because String objects are immutable and cannot have dynamic capacity. That constructor belongs to StringBuilder/StringBuffer."
+  },
+  {
+    "id": 37,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "Runtime Exception"
+    ],
+    "answerIndex": 1,
+    "explanation": "Even though both strings represent empty text \"\", new String(\"\") creates a new object in standard Heap, while \"\" resides in the SCP. s1 == s2 is false.",
+    "code": "String s1 = \"\";\nString s2 = new String(\"\");\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 38,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this string concatenation?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both \"Hello\" + \" \" + \"World\" and \"Hello World\" are constant expressions composed solely of string literals. The compiler folds both to \"Hello World\", so they point to the same SCP instance.",
+    "code": "String s1 = \"Hello\" + \" \" + \"World\";\nString s2 = \"Hello World\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 39,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following creates a String on the Heap WITHOUT creating an entry in the SCP immediately?",
+    "options": [
+      "String s = \"test\";",
+      "String s = new String(new char[]{'t', 'e', 's', 't'});",
+      "String s = \"te\" + \"st\";",
+      "String s = \"test\".intern();"
+    ],
+    "answerIndex": 1,
+    "explanation": "Creating a String from a char array (new String(new char[]{...})) does not involve any string literals, so nothing is placed in the SCP until intern() is explicitly invoked."
+  },
+  {
+    "id": 40,
+    "topic": "String Literals vs Constructor Allocations",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 1,
+    "explanation": "new String(s1) explicitly instantiates a new distinct String instance on the Heap, even when passed an existing string reference. Thus s1 == s2 is false.",
+    "code": "String s1 = \"Benchmark\";\nString s2 = new String(s1);\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 41,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In Java 7 and all modern versions (Java 8 to 21+), where is the String Constant Pool located in JVM memory?",
+    "options": [
+      "Inside the Java Heap memory (allowing standard Garbage Collection)",
+      "Inside Permanent Generation (PermGen)",
+      "Inside Native C++ Stack Memory",
+      "Inside the CPU Register space"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since Java 7, the SCP was relocated from PermGen to the main Java Heap memory so interned strings can be garbage collected and to avoid PermGen OutOfMemoryErrors."
+  },
+  {
+    "id": 42,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What primary problem led Oracle/Sun to move the SCP out of PermGen in Java 7?",
+    "options": [
+      "PermGen was too fast and consumed excessive CPU cycles",
+      "PermGen had a fixed default size and did not easily garbage collect unreferenced interned strings, causing java.lang.OutOfMemoryError: PermGen space",
+      "PermGen could only store integers, not characters",
+      "Security sandboxing prevented PermGen from being encrypted"
+    ],
+    "answerIndex": 1,
+    "explanation": "PermGen had a fixed default size and rarely triggered GC. Heavy string interning caused frequent java.lang.OutOfMemoryError: PermGen space crashes."
+  },
+  {
+    "id": 43,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What underlying data structure does the HotSpot JVM use to implement the String Constant Pool?",
+    "options": [
+      "A doubly-linked list",
+      "A fixed-size Red-Black Tree",
+      "A native C++ open-hash table called StringTable with buckets of chained nodes",
+      "A priority heap queue"
+    ],
+    "answerIndex": 2,
+    "explanation": "HotSpot implements the SCP as a native C++ hashtable called StringTable. Each bucket contains a linked list of references to interned String instances on the Java Heap."
+  },
+  {
+    "id": 44,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which JVM command-line flag adjusts the number of buckets in the String Constant Pool hashtable?",
+    "options": [
+      "-XX:StringTableSize=N",
+      "-Xscp:size=N",
+      "-XX:MaxPermSize=N",
+      "-Dpool.capacity=N"
+    ],
+    "answerIndex": 0,
+    "explanation": "The flag -XX:StringTableSize=N sets the number of buckets in the HotSpot StringTable (defaulting to 65536 in modern 64-bit JVMs)."
+  },
+  {
+    "id": 45,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Can objects residing in the String Constant Pool ever be garbage collected in Java 8+?",
+    "options": [
+      "No, objects in the SCP remain forever until JVM shutdown",
+      "Yes, if an interned string has no reachable references from any thread, GC root, or loaded class, it can be collected during normal Heap GC",
+      "Only if the developer invokes System.gc() twice",
+      "Only during JVM startup"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because the SCP resides in the standard Java Heap, interned strings that are no longer reachable by any living reference can be garbage collected."
+  },
+  {
+    "id": 46,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What design pattern is exemplified by the String Constant Pool in Java?",
+    "options": [
+      "Flyweight Design Pattern",
+      "Singleton Design Pattern",
+      "Observer Design Pattern",
+      "Factory Method Pattern"
+    ],
+    "answerIndex": 0,
+    "explanation": "The SCP is a classic implementation of the Flyweight Pattern, where immutable shared objects minimize memory usage by sharing state."
+  },
+  {
+    "id": 47,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "If 10,000 threads simultaneously refer to the literal \"SUCCESS\", how many instances of \"SUCCESS\" exist in the SCP?",
+    "options": [
+      "10,000 instances",
+      "1 instance",
+      "100 instances",
+      "0 instances"
+    ],
+    "answerIndex": 1,
+    "explanation": "The SCP maintains exactly ONE canonical instance of each unique literal. All 10,000 threads share the reference to this single instance."
+  },
+  {
+    "id": 48,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What happens when you tune -XX:StringTableSize to a very small prime number (e.g., 1009) while interning millions of strings?",
+    "options": [
+      "OutOfMemoryError is thrown immediately",
+      "StringTable hash bucket collisions spike dramatically, degrading intern() lookup performance from O(1) to O(N)",
+      "The JVM automatically terminates execution",
+      "Strings are saved to disk swap memory"
+    ],
+    "answerIndex": 1,
+    "explanation": "A small bucket count leads to long collision chains in each hash bucket, causing intern() and literal lookups to degrade from near-instant O(1) to slow linear O(N) linked list scans."
+  },
+  {
+    "id": 49,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which HotSpot diagnostic flag prints StringTable statistics (such as bucket count, literal count, and collision stats) on exit?",
+    "options": [
+      "-XX:+PrintStringTableStatistics",
+      "-Xlog:scp",
+      "-XX:+ShowPoolMemory",
+      "-XX:+TraceStringObjects"
+    ],
+    "answerIndex": 0,
+    "explanation": "Using -XX:+PrintStringTableStatistics causes the HotSpot JVM to dump comprehensive metrics regarding StringTable size, entries, footprints, and bucket depth upon application termination."
+  },
+  {
+    "id": 50,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why does the String Constant Pool NOT store primitive types like int, double, or boolean?",
+    "options": [
+      "Because primitives do not have object references or Heap representations; their values are stored directly on the stack or inline inside object instances",
+      "Because primitives are too large in byte size",
+      "Because the compiler converts all primitives to char arrays",
+      "Because primitives are mutable"
+    ],
+    "answerIndex": 0,
+    "explanation": "Primitives are raw binary values without object identity, headers, or pointers. They are stored directly in stack frames or within object fields, so they cannot be pooled in an object table."
+  },
+  {
+    "id": 51,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this comparison between identical literals?",
+    "options": [
+      "true",
+      "false",
+      "NullPointerException",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Literal pooling ensures that even in separate files or methods, identical string literals resolve to the same canonical SCP instance.",
+    "code": "String a = \"North 24 Parganas\";\nString b = \"North 24 Parganas\";\nSystem.out.println(a == b);"
+  },
+  {
+    "id": 52,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "In Java 6, what did the JVM do when intern() was called on a dynamically created String?",
+    "options": [
+      "It copied the entire char array of the string into PermGen memory and returned that new PermGen reference",
+      "It stored the 64-bit Heap pointer directly in PermGen",
+      "It threw an UnsupportedOperationException",
+      "It converted the string to byte code"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java 6, the SCP was in PermGen, so interning required copying the characters from the Heap into a newly allocated PermGen String object, often exhausting PermGen memory."
+  },
+  {
+    "id": 53,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "In Java 7+, what does the JVM do when intern() is called on a dynamic Heap string whose value is NOT yet in the SCP?",
+    "options": [
+      "It duplicates the object into a separate native memory segment",
+      "It simply records a reference to the existing Heap String object into the StringTable without creating an extra duplicate object",
+      "It converts the String to a StringBuilder",
+      "It denies the request until full GC occurs"
+    ],
+    "answerIndex": 1,
+    "explanation": "Since Java 7, if a string is not yet in the pool, the SCP simply stores a reference pointing directly to the existing Heap object, avoiding an unnecessary duplicate object copy."
+  },
+  {
+    "id": 54,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Does the String Constant Pool exist per thread or per JVM process?",
+    "options": [
+      "Each Java thread has its own private SCP",
+      "There is ONE shared String Constant Pool per JVM process (shared across all threads)",
+      "Each classloader gets its own separate SCP",
+      "The SCP is shared across multiple physical computers via JNI"
+    ],
+    "answerIndex": 1,
+    "explanation": "The SCP is a global JVM-wide resource. All threads within that JVM process share the identical pool."
+  },
+  {
+    "id": 55,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the relationship between the classfile constant pool (in .class files) and the runtime String Constant Pool (SCP)?",
+    "options": [
+      "They are the exact same entity in memory",
+      "The classfile constant pool contains static byte constants; upon class loading, string constants in it are loaded and resolved into the runtime SCP",
+      "The classfile constant pool only stores bytecode instructions",
+      "The runtime SCP replaces the classfile on disk"
+    ],
+    "answerIndex": 1,
+    "explanation": "The classfile constant pool is a static binary table on disk. At runtime, the JVM's class loader parses it and resolves CONSTANT_String_info entries into live SCP instances."
+  },
+  {
+    "id": 56,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string expression?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both expressions consist entirely of compile-time string constants and are evaluated by javac into \"Java21\", referencing the identical SCP object.",
+    "code": "String s1 = \"Java\" + 21;\nString s2 = \"Java21\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 57,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Can two different ClassLoaders load the same string literal into two distinct SCP objects?",
+    "options": [
+      "Yes, each ClassLoader creates its own isolated SCP",
+      "No, the SCP is global at the JVM level; regardless of which ClassLoader resolves the literal, they share the same pooled instance",
+      "Only if one ClassLoader is the Bootstrap ClassLoader",
+      "Only if they run in separate CPU sockets"
+    ],
+    "answerIndex": 1,
+    "explanation": "String interning and literal resolution in HotSpot occur in a single VM-wide StringTable; hence string literals are shared across all class loaders."
+  },
+  {
+    "id": 58,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does String Deduplication (-XX:+UseStringDeduplication in G1 GC) differ from the String Constant Pool?",
+    "options": [
+      "They are identical and use the same JVM flag",
+      "SCP unifies String objects via literals and intern(); String Deduplication identifies distinct String objects that share identical char/byte arrays during G1 GC and shares their internal arrays",
+      "String Deduplication only runs on Metaspace classes",
+      "String Deduplication modifies code at compile-time"
+    ],
+    "answerIndex": 1,
+    "explanation": "G1 String Deduplication operates transparently during garbage collection on the Heap: if two separate String objects have identical character contents, it points both to the same byte[] without changing their object identities."
+  },
+  {
+    "id": 59,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "new String(\"Pool\") creates a distinct Heap instance, while \"Pool\" is in the SCP. Because their addresses differ, == returns false.",
+    "code": "String s1 = \"Pool\";\nString s2 = new String(s1);\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 60,
+    "topic": "String Constant Pool (SCP) Architecture",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the typical default bucket size of the HotSpot StringTable in 64-bit Java 17?",
+    "options": [
+      "1009",
+      "65536",
+      "256",
+      "1048576"
+    ],
+    "answerIndex": 1,
+    "explanation": "In modern 64-bit HotSpot JVMs, -XX:StringTableSize defaults to 65536 buckets (up from 1009 in legacy Java 6/7)."
+  },
+  {
+    "id": 61,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is NOT one of the primary reasons Java Strings are designed to be immutable?",
+    "options": [
+      "Security (Classloading, file paths, database URLs)",
+      "Thread Safety (shared across threads without synchronization locks)",
+      "Caching of Hash Code for high-speed hash map lookups",
+      "To allow developers to modify string characters in-place using index assignment"
+    ],
+    "answerIndex": 3,
+    "explanation": "Strings are immutable specifically so they CANNOT be modified in-place. Index assignment (e.g. s[0] = 'X') is not permitted in Java."
+  },
+  {
+    "id": 62,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does String immutability ensure security in Java class loading (ClassLoader)?",
+    "options": [
+      "By preventing a malicious caller from passing a valid class name (e.g., 'java.lang.System') to a security check and then mutating it to a malicious class before loading",
+      "By encrypting class names on disk",
+      "By disallowing class files from being imported",
+      "By executing classloaders in native assembly"
+    ],
+    "answerIndex": 0,
+    "explanation": "If String were mutable, an attacker could pass a permitted path/class to an access check, then asynchronously mutate the string before the file is opened (Time-Of-Check to Time-Of-Use / TOCTOU vulnerability)."
+  },
+  {
+    "id": 63,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why are immutable String objects inherently thread-safe?",
+    "options": [
+      "Because all String methods are marked with the 'synchronized' keyword",
+      "Because once created, their state cannot be changed by any thread; multiple threads can read them concurrently without locks or race conditions",
+      "Because only one thread is allowed to access JVM Heap memory at a time",
+      "Because the JVM copies the entire String for every thread"
+    ],
+    "answerIndex": 1,
+    "explanation": "An object whose internal state cannot be modified after construction is inherently thread-safe. Multiple threads can read it concurrently without synchronization."
+  },
+  {
+    "id": 64,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does String immutability benefit java.util.HashMap and java.util.HashSet?",
+    "options": [
+      "It allows the string's hashCode to be safely computed once, cached, and reused without risk of hash-bucket corruption",
+      "It prevents HashMap from needing array resizing",
+      "It forces HashMap to store keys in alphabetical order",
+      "It disables equals() comparisons inside the bucket"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because the contents never change, hashCode() is cached upon first call. If a key's contents changed while in a map, its hash code would change and the key could never be retrieved."
+  },
+  {
+    "id": 65,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What would happen to the String Constant Pool (SCP) if Strings were mutable in Java?",
+    "options": [
+      "Nothing, it would continue working as normal",
+      "Mutating one string reference would silently corrupt all other variables pointing to that same literal across the entire JVM",
+      "The JVM would run 10x faster",
+      "All strings would become null"
+    ],
+    "answerIndex": 1,
+    "explanation": "If String were mutable and you changed String a = \"admin\" to \"guest\", then String b = \"admin\" would also become \"guest\", breaking application integrity."
+  },
+  {
+    "id": 66,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this code snippet?",
+    "options": [
+      "JAVASCRIPT",
+      "java",
+      "JAVA",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "String methods like toUpperCase() and concat() return a NEW String instance. Because the return value was not assigned back to 's', 's' remains \"java\".",
+    "code": "String s = \"java\";\ns.toUpperCase();\ns.concat(\"script\");\nSystem.out.println(s);"
+  },
+  {
+    "id": 67,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "Sukanta",
+      "Sukanta Hui",
+      "Hui",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "When you reassign s = s.concat(\" Hui\"), the reference variable 's' is updated to point to the newly created String object \"Sukanta Hui\".",
+    "code": "String s = \"Sukanta\";\ns = s.concat(\" Hui\");\nSystem.out.println(s);"
+  },
+  {
+    "id": 68,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why should sensitive credentials like passwords be stored in char[] instead of String in secure enterprise Java apps?",
+    "options": [
+      "char[] is faster to type for users",
+      "Strings are immutable and stay in Heap/SCP memory until garbage collection; a char[] can be explicitly wiped (e.g. Arrays.fill(pwd, '0')) immediately after use",
+      "char[] is automatically encrypted by the operating system",
+      "String cannot contain special characters like '@' or '#'"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because Strings are immutable, their characters remain in memory until the GC runs and clears them, making them vulnerable to heap dump inspections. A char[] can be zeroed out immediately."
+  },
+  {
+    "id": 69,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of the following code?",
+    "options": [
+      "HELLO",
+      "hello",
+      "HELLO WORLD",
+      "world"
+    ],
+    "answerIndex": 1,
+    "explanation": "s.replace('h', 'H') does not mutate the original String referenced by 's'. Without reassigning, 's' remains \"hello\".",
+    "code": "String s = \"hello\";\ns.replace('h', 'H');\nSystem.out.println(s);"
+  },
+  {
+    "id": 70,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following keywords in Java directly enforces that a class cannot be subclassed?",
+    "options": [
+      "abstract",
+      "final",
+      "static",
+      "sealed"
+    ],
+    "answerIndex": 1,
+    "explanation": "The 'final' modifier on a class declaration prevents any other class from extending it."
+  },
+  {
+    "id": 71,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "immutable",
+      "IMMUTABLE",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "trim() and toUpperCase() both return new String objects. Since neither is assigned to s, s remains \"immutable\".",
+    "code": "String s = \"immutable\";\ns.trim();\ns.toUpperCase();\nSystem.out.println(s);"
+  },
+  {
+    "id": 72,
+    "topic": "Why Strings are Immutable",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Can Java Reflection (setAccessible(true)) mutate the internal byte[] of a String in modern Java (Java 17+ with strong encapsulation)?",
+    "options": [
+      "Yes, reflection can modify anything in Java 17+",
+      "No, JEP 403 (Strongly Encapsulate JDK Internals) blocks reflective access to private fields in java.base unless explicitly opened via JVM arguments",
+      "Yes, but only if running as root/administrator",
+      "Only in 32-bit JVMs"
+    ],
+    "answerIndex": 1,
+    "explanation": "Java 16+ strongly encapsulates JDK internal packages. Reflectively accessing private fields of java.lang.String throws java.lang.reflect.InaccessibleObjectException."
+  },
+  {
+    "id": 73,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "When you execute: String s = \"A\"; s = s + \"B\"; what happens to the original object \"A\"?",
+    "options": [
+      "Object \"A\" is modified in-place to contain \"AB\"",
+      "Object \"A\" remains completely unchanged on the Heap/SCP; a new String \"AB\" is created, and 's' points to the new object",
+      "Object \"A\" is immediately deleted from memory",
+      "Object \"A\" is converted to an int"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability guarantees that object \"A\" cannot change. Concatenation creates a brand new String object containing \"AB\"."
+  },
+  {
+    "id": 74,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What will this code print?",
+    "options": [
+      "null",
+      "Coder",
+      "CoderAccoTax",
+      "AccoTax"
+    ],
+    "answerIndex": 1,
+    "explanation": "Passing 's' into a method passes the object reference by value. Reassigning str inside modify() changes only the local parameter variable, not 's'.",
+    "code": "public class Test {\n  static void modify(String str) {\n    str = str + \"AccoTax\";\n  }\n  public static void main(String[] args) {\n    String s = \"Coder\";\n    modify(s);\n    System.out.println(s);\n  }\n}"
+  },
+  {
+    "id": 75,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which of the following ensures that the internal state of a custom Immutable class cannot be modified via reference leakage?",
+    "options": [
+      "Declaring all fields public",
+      "Making all mutable fields private final, and performing defensive copying in both constructors and getter methods",
+      "Implementing Cloneable",
+      "Providing public setter methods"
+    ],
+    "answerIndex": 1,
+    "explanation": "To guarantee immutability, fields must be private and final, and any mutable objects passed in or out must be defensively copied."
+  },
+  {
+    "id": 76,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "100",
+      "100200",
+      "300",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "s.concat(\"200\") returns a new String \"100200\", but since the result is discarded, 's' remains \"100\".",
+    "code": "String s = \"100\";\ns.concat(\"200\");\nSystem.out.println(s);"
+  },
+  {
+    "id": 77,
+    "topic": "Why Strings are Immutable",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why does java.lang.String declare its internal 'hash' field as non-final even though String is immutable?",
+    "options": [
+      "Because the hash code is lazily computed on demand upon the first invocation of hashCode() and then cached in the field",
+      "Because hash codes can change whenever GC relocates an object",
+      "It is a bug in the JDK design",
+      "Because String implements Cloneable"
+    ],
+    "answerIndex": 0,
+    "explanation": "The hash code is calculated lazily on the first hashCode() call. Because String is immutable, this calculated integer value will never change for the lifetime of that string."
+  },
+  {
+    "id": 78,
+    "topic": "Why Strings are Immutable",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string chaining operation?",
+    "options": [
+      "APPLE",
+      "apple",
+      "banana",
+      "BANANA"
+    ],
+    "answerIndex": 0,
+    "explanation": "Method chaining properly assigns the final result of toUpperCase() to fruit, yielding \"APPLE\".",
+    "code": "String fruit = \"  apple  \";\nfruit = fruit.trim().toUpperCase();\nSystem.out.println(fruit);"
+  },
+  {
+    "id": 79,
+    "topic": "Why Strings are Immutable",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "If String were mutable, what would be the impact on multi-threaded network socket programming?",
+    "options": [
+      "Network throughput would increase 100%",
+      "A host address or IP string could be altered by a rogue thread while a connection is being established, leading to severe socket hijacking and security exploits",
+      "Socket programming would be impossible in Java",
+      "IP addresses would be inverted"
+    ],
+    "answerIndex": 1,
+    "explanation": "Hostnames and IP addresses used for socket authentication could be mutated between security verification and actual connection establishment."
+  },
+  {
+    "id": 80,
+    "topic": "Why Strings are Immutable",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which of the following best describes the 'Thread Safety without Synchronization' property of String?",
+    "options": [
+      "Threads take turns locking the String header using CAS operations",
+      "Because immutable objects never mutate, multiple threads can safely read their state concurrently without any mutex locks or synchronization overhead",
+      "The JVM allocates a separate OS thread for every String instance",
+      "Strings can only be accessed by the Main thread"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability eliminates all state mutation, completely removing the need for synchronization locks or volatile barriers when sharing strings across threads."
+  },
+  {
+    "id": 81,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the public String intern() method do when invoked on a String object?",
+    "options": [
+      "Deletes the string from memory",
+      "Returns a canonical representation from the String Constant Pool (adding it to the SCP if not already present)",
+      "Converts the string characters to lowercase",
+      "Returns the byte count of the string"
+    ],
+    "answerIndex": 1,
+    "explanation": "intern() checks the SCP: if a string with the same contents already exists, its reference is returned. Otherwise, this string is added to the pool and its reference returned."
+  },
+  {
+    "id": 82,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "s1.intern() returns the pooled canonical reference from the SCP, which is identical to the reference of literal s2.",
+    "code": "String s1 = new String(\"Barrackpore\");\nString s2 = \"Barrackpore\";\nSystem.out.println(s1.intern() == s2);"
+  },
+  {
+    "id": 83,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "Runtime Exception"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both s1.intern() and s2.intern() retrieve the single canonical instance for \"Shyamnagar\" from the SCP, so their references are identical.",
+    "code": "String s1 = new String(\"Shyamnagar\");\nString s2 = new String(\"Shyamnagar\");\nSystem.out.println(s1.intern() == s2.intern());"
+  },
+  {
+    "id": 84,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1.intern() returns the pooled reference, but 's1' itself is not reassigned. 's1' still points to the Heap object, so s1 == s2 is false.",
+    "code": "String s1 = new String(\"Java\");\ns1.intern();\nString s2 = \"Java\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 85,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed after reassigning the interned reference?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Here s1 is explicitly reassigned to s1.intern(), making both s1 and s2 point directly to the pooled literal in the SCP.",
+    "code": "String s1 = new String(\"Java\");\ns1 = s1.intern();\nString s2 = \"Java\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 86,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this classic Java 7+ intern() puzzle?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "Runtime Exception"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java 7+, \"ja\"+\"va17\" creates a Heap String \"java17\" without placing \"java17\" in the SCP. Calling intern() puts a reference to that same Heap object into the SCP. Thus s1.intern() == s1 is true.",
+    "code": "String s1 = new String(\"ja\") + new String(\"va17\");\nSystem.out.println(s1.intern() == s1);"
+  },
+  {
+    "id": 87,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "output",
+    "question": "Why does the following snippet print FALSE in standard HotSpot JVM?",
+    "options": [
+      "Because \"java\" is already interned by the JVM during system initialization",
+      "Because \"java\" is a reserved keyword that cannot be interned",
+      "Because intern() always returns false for 4-letter words",
+      "Because '+' cannot concatenate two new String objects"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"java\" is loaded into the SCP by the JVM during early startup (e.g. for java.lang packages). Hence s.intern() returns the pre-existing pool reference, which does not match the newly created heap string 's'.",
+    "code": "String s = new String(\"ja\") + new String(\"va\");\nSystem.out.println(s.intern() == s);"
+  },
+  {
+    "id": 88,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "In what practical business scenario is String.intern() most beneficial?",
+    "options": [
+      "When sorting arrays of integers",
+      "When processing millions of records with massive duplication of string values (such as country codes, state names, gender, or status codes) to save Heap memory",
+      "When writing cryptographic hash functions",
+      "When compressing video streams"
+    ],
+    "answerIndex": 1,
+    "explanation": "In datasets containing millions of duplicate strings (e.g., repeating state names or zip codes), interning ensures that all records reference a single shared instance, drastically reducing heap consumption."
+  },
+  {
+    "id": 89,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the primary risk or drawback of excessively calling String.intern() without tuning the JVM?",
+    "options": [
+      "It causes disk fragmentation",
+      "If millions of unique strings are interned into a fixed-size StringTable, hash collisions increase, degrading intern() lookup time and causing GC overhead",
+      "It changes string contents to ASCII",
+      "It disables class loading"
+    ],
+    "answerIndex": 1,
+    "explanation": "Interning unbounded numbers of unique strings can bloat the StringTable, creating long bucket collision lists and causing significant CPU overhead."
+  },
+  {
+    "id": 90,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Is String.intern() a native method or a pure Java method in the JDK?",
+    "options": [
+      "It is a native method (public native String intern();) implemented in JVM C++ code",
+      "It is a pure Java method written with standard for-loops",
+      "It is an abstract method in Object",
+      "It is a default interface method in CharSequence"
+    ],
+    "answerIndex": 0,
+    "explanation": "intern() is declared as 'public native String intern();' and is implemented directly in C++ inside the JVM to interact with the internal StringTable."
+  },
+  {
+    "id": 91,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"TATA\".intern() returns the SCP instance for \"TATA\", which is the exact same instance as the literal \"TATA\".",
+    "code": "String s = \"TATA\";\nSystem.out.println(s == s.intern());"
+  },
+  {
+    "id": 92,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this snippet?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 1,
+    "explanation": "s2 is created with 'new', residing on the Heap. Calling s2.intern() returns the pooled instance, but does not alter s2 itself. Thus s1 == s2 remains false.",
+    "code": "String s1 = \"Kolkata\";\nString s2 = new String(\"Kolkata\");\ns2.intern();\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 93,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "s3 is assigned the result of s2.intern(), which is the pooled reference matching literal s1. Therefore s1 == s3 is true.",
+    "code": "String s1 = \" Naihati \".trim();\nString s2 = new String(\"Naihati\");\nString s3 = s2.intern();\nSystem.out.println(s1 == s3);"
+  },
+  {
+    "id": 94,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "When should you prefer a custom ConcurrentHashMap cache over String.intern() for string deduplication?",
+    "options": [
+      "Always, because String.intern() was deleted in Java 17",
+      "When you need bounded caches (e.g., LRU cache) to avoid polluting the global JVM StringTable with short-lived dynamic strings",
+      "When all strings have length less than 3",
+      "When running without an operating system"
+    ],
+    "answerIndex": 1,
+    "explanation": "A custom bounded cache (or Caffeine/Guava cache) allows evicting stale strings and prevents filling the global JVM StringTable with temporary data."
+  },
+  {
+    "id": 95,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this intern() comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "The intern() method on an empty string literal returns the pooled empty string \"\", so the reference equals itself.",
+    "code": "String empty = \"\";\nSystem.out.println(empty.intern() == empty);"
+  },
+  {
+    "id": 96,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "IllegalArgumentException"
+    ],
+    "answerIndex": 0,
+    "explanation": "s1 is \"123\". In s2, valueOf(123) produces \"123\" on the heap; calling intern() returns the SCP instance matching s1.",
+    "code": "String s1 = \"123\";\nString s2 = String.valueOf(123).intern();\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 97,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Can an interned string ever be garbage collected if its original variable goes out of scope and no references remain?",
+    "options": [
+      "No, interned strings are permanently pinned until JVM shutdown",
+      "Yes, since Java 7, unreferenced interned strings can be collected during standard garbage collection cycles",
+      "Only if -XX:+AggressiveOpts is supplied",
+      "Only when the CPU is idle"
+    ],
+    "answerIndex": 1,
+    "explanation": "In modern JVMs (Java 7+), the SCP resides on the Heap, and unreferenced interned strings are reclaimed by standard Garbage Collectors."
+  },
+  {
+    "id": 98,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by comparing two different interned literals?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "Different string contents (\"A\" and \"B\") have distinct canonical entries in the SCP, so their references are not equal.",
+    "code": "String s1 = \"A\";\nString s2 = \"B\";\nSystem.out.println(s1.intern() == s2.intern());"
+  },
+  {
+    "id": 99,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the result of this intern() comparison with StringBuilder?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "sb.toString() produces a new String on the Heap. Calling intern() returns the pooled reference, which is identical to the literal s2.",
+    "code": "StringBuilder sb = new StringBuilder(\"Coder\");\nString s1 = sb.toString().intern();\nString s2 = \"Coder\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 100,
+    "topic": "The intern() Method Deep Dive",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the time complexity of the intern() method in an ideal JVM StringTable with low collision depth?",
+    "options": [
+      "O(1) amortized time",
+      "O(N^2) quadratic time",
+      "O(log N) logarithmic time",
+      "O(N!) factorial time"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because StringTable is a hash table, looking up or inserting an interned string operates in amortized O(1) time when bucket collisions are low."
+  },
+  {
+    "id": 101,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the fundamental difference between the '==' operator and the '.equals()' method when applied to Strings?",
+    "options": [
+      "'==' compares memory addresses (reference identity), whereas '.equals()' compares character contents (semantic equality)",
+      "'==' compares character contents, while '.equals()' compares length",
+      "'==' is case-insensitive, while '.equals()' is case-sensitive",
+      "'==' only works with StringBuffers"
+    ],
+    "answerIndex": 0,
+    "explanation": "'==' checks whether both references point to the exact same object address in memory, while String.equals() checks if both objects contain the same sequence of characters."
+  },
+  {
+    "id": 102,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true true",
+      "false true",
+      "true false",
+      "false false"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1 == s2 is false because 'new' created a separate Heap object. s1.equals(s2) is true because both contain \"Java\".",
+    "code": "String s1 = \"Java\";\nString s2 = new String(\"Java\");\nSystem.out.println((s1 == s2) + \" \" + s1.equals(s2));"
+  },
+  {
+    "id": 103,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which idiom is recommended to avoid NullPointerException when comparing a variable String with a known constant literal?",
+    "options": [
+      "variable.equals(\"CONSTANT\")",
+      "\"CONSTANT\".equals(variable)",
+      "variable == \"CONSTANT\"",
+      "\"CONSTANT\" == variable"
+    ],
+    "answerIndex": 1,
+    "explanation": "Calling \"CONSTANT\".equals(variable) is null-safe: if variable is null, equals() gracefully returns false instead of throwing a NullPointerException."
+  },
+  {
+    "id": 104,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "NullPointerException",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Calling equals(null) on any valid non-null object returns false according to the java.lang.Object specification.",
+    "code": "String s = \"AccoTax\";\nSystem.out.println(s.equals(null));"
+  },
+  {
+    "id": 105,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when executing this comparison?",
+    "options": [
+      "false",
+      "true",
+      "NullPointerException",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Invoking an instance method (.equals()) on a reference that evaluates to null throws a java.lang.NullPointerException.",
+    "code": "String s = null;\nSystem.out.println(s.equals(\"AccoTax\"));"
+  },
+  {
+    "id": 106,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does Objects.equals(s1, s2) return when both arguments are null?",
+    "options": [
+      "true",
+      "false",
+      "NullPointerException",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "java.util.Objects.equals(a, b) returns true if both arguments are null, or false if only one is null, or calls a.equals(b) otherwise.",
+    "code": "String s1 = null;\nString s2 = null;\nSystem.out.println(java.util.Objects.equals(s1, s2));"
+  },
+  {
+    "id": 107,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this code comparing a String and a StringBuilder?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 1,
+    "explanation": "String.equals(Object anObject) first checks 'if (this == anObject) return true; if (anObject instanceof String) ...'. Because StringBuilder is not a String, it returns false.",
+    "code": "String s = \"test\";\nStringBuilder sb = new StringBuilder(\"test\");\nSystem.out.println(s.equals(sb));"
+  },
+  {
+    "id": 108,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which method should you use to check if a String and a StringBuilder contain the same sequence of characters?",
+    "options": [
+      "s.equals(sb)",
+      "s.contentEquals(sb)",
+      "s == sb",
+      "s.compareTo(sb)"
+    ],
+    "answerIndex": 1,
+    "explanation": "String.contentEquals(CharSequence cs) accurately compares the characters of a String against any CharSequence (including StringBuilder and StringBuffer)."
+  },
+  {
+    "id": 109,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by contentEquals?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "contentEquals returns true because both s and sb contain the identical sequence of characters 'C', 'o', 'd', 'e'.",
+    "code": "String s = \"Code\";\nStringBuilder sb = new StringBuilder(\"Code\");\nSystem.out.println(s.contentEquals(sb));"
+  },
+  {
+    "id": 110,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "true false",
+      "false true",
+      "true true",
+      "false false"
+    ],
+    "answerIndex": 1,
+    "explanation": "equals() is case-sensitive, so \"JAVA\".equals(\"java\") is false. equalsIgnoreCase() ignores case differences and returns true.",
+    "code": "String s1 = \"JAVA\";\nString s2 = \"java\";\nSystem.out.println(s1.equals(s2) + \" \" + s1.equalsIgnoreCase(s2));"
+  },
+  {
+    "id": 111,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by compareTo() on identical strings?",
+    "options": [
+      "0",
+      "1",
+      "-1",
+      "true"
+    ],
+    "answerIndex": 0,
+    "explanation": "compareTo() returns 0 when both strings are lexicographically equal.",
+    "code": "String a = \"Barrackpore\";\nString b = \"Barrackpore\";\nSystem.out.println(a.compareTo(b));"
+  },
+  {
+    "id": 112,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this compareTo call?",
+    "options": [
+      "A negative integer (-32)",
+      "A positive integer (+32)",
+      "0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "'A' has Unicode value 65 and 'a' has 97. 65 - 97 = -32 (a negative integer).",
+    "code": "String a = \"Apple\";\nString b = \"apple\";\nSystem.out.println(a.compareTo(b));"
+  },
+  {
+    "id": 113,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of compareToIgnoreCase()?",
+    "options": [
+      "0",
+      "-32",
+      "32",
+      "false"
+    ],
+    "answerIndex": 0,
+    "explanation": "compareToIgnoreCase() normalizes case differences before comparing, returning 0 when characters match regardless of case.",
+    "code": "String a = \"Apple\";\nString b = \"apple\";\nSystem.out.println(a.compareToIgnoreCase(b));"
+  },
+  {
+    "id": 114,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does compareTo() return when one string is a prefix of another?",
+    "options": [
+      "The difference in their lengths: this.length() - anotherString.length() (-2)",
+      "Always -1",
+      "Always 0",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "When one string is an exact prefix of another, compareTo() returns the difference in lengths (4 - 6 = -2).",
+    "code": "String s1 = \"Java\";\nString s2 = \"Java21\";\nSystem.out.println(s1.compareTo(s2));"
+  },
+  {
+    "id": 115,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this boolean expression?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since s1 and s2 both point to the same pooled literal \"OK\", both == and .equals() evaluate to true.",
+    "code": "String s1 = \"OK\";\nString s2 = \"OK\";\nSystem.out.println(s1 == s2 && s1.equals(s2));"
+  },
+  {
+    "id": 116,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "According to the Java contract between equals() and hashCode(), which statement is guaranteed?",
+    "options": [
+      "If s1.equals(s2) is true, then s1.hashCode() MUST equal s2.hashCode()",
+      "If s1.hashCode() == s2.hashCode(), then s1.equals(s2) must be true",
+      "Two different strings can never produce the same hashCode()",
+      "hashCode() can never be negative"
+    ],
+    "answerIndex": 0,
+    "explanation": "If two objects are equal according to equals(), their hashCode() values MUST be identical. However, two unequal strings can produce the same hash code (hash collision).",
+    "code": ""
+  },
+  {
+    "id": 117,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by comparing the hash codes of \"FB\" and \"Ea\"?",
+    "options": [
+      "true false",
+      "true true",
+      "false true",
+      "false false"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"FB\" and \"Ea\" produce the exact same 32-bit polynomial hash code (2236) in Java, illustrating a classic hash collision where equals() is false.",
+    "code": "String s1 = \"FB\";\nString s2 = \"Ea\";\nSystem.out.println((s1.hashCode() == s2.hashCode()) + \" \" + s1.equals(s2));"
+  },
+  {
+    "id": 118,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this code?",
+    "options": [
+      "Match",
+      "Mismatch",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "'input' was created with 'new', so input == \"ADMIN\" is false. The code incorrectly uses '==' instead of '.equals()', printing \"Mismatch\".",
+    "code": "String input = new String(\"ADMIN\");\nif (input == \"ADMIN\") {\n    System.out.println(\"Match\");\n} else {\n    System.out.println(\"Mismatch\");\n}"
+  },
+  {
+    "id": 119,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.valueOf(100) on an integer literal returns \"100\". When compared using .equals(\"100\"), it returns true.",
+    "code": "String s = String.valueOf(100);\nSystem.out.println(s.equals(\"100\"));"
+  },
+  {
+    "id": 120,
+    "topic": "String Equality: == vs .equals()",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should you never use '==' to compare strings obtained from user input or network protocols?",
+    "options": [
+      "Because user input and network data are dynamically allocated at runtime outside the SCP, producing distinct memory addresses even if characters match",
+      "Because network strings cannot be processed by the CPU",
+      "Because '==' throws an IOException",
+      "Because Scanner converts strings to arrays"
+    ],
+    "answerIndex": 0,
+    "explanation": "Runtime inputs from console, files, or network sockets are new heap instances with distinct addresses. Comparing them with '==' will almost always return false."
+  },
+  {
+    "id": 121,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the length() method of java.lang.String return?",
+    "options": [
+      "The number of 16-bit Unicode code units (chars) in the string",
+      "The number of bytes occupied in JVM Heap",
+      "The index of the last character",
+      "The capacity of the internal buffer"
+    ],
+    "answerIndex": 0,
+    "explanation": "length() returns the number of 16-bit code units (chars) in the string sequence."
+  },
+  {
+    "id": 122,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the difference between isEmpty() and isBlank() (introduced in Java 11)?",
+    "options": [
+      "isEmpty() checks if length() == 0; isBlank() checks if the string is empty or contains only white space characters",
+      "isBlank() checks if the string is null",
+      "They are identical synonyms",
+      "isEmpty() checks if all characters are uppercase"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"  \".isEmpty() is false (length 2), whereas \"  \".isBlank() is true because all characters are whitespace."
+  },
+  {
+    "id": 123,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code in Java 11+?",
+    "options": [
+      "false true",
+      "true true",
+      "true false",
+      "false false"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"  \".isEmpty() is false (length is 2). \"  \".isBlank() is true (contains only whitespace).",
+    "code": "String str = \"  \";\nSystem.out.println(str.isEmpty() + \" \" + str.isBlank());"
+  },
+  {
+    "id": 124,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What happens when you invoke charAt() with an index equal to s.length()?",
+    "options": [
+      "It returns '\\0'",
+      "It throws java.lang.StringIndexOutOfBoundsException",
+      "It returns the last character",
+      "It returns null"
+    ],
+    "answerIndex": 1,
+    "explanation": "Strings are 0-indexed (valid indices: 0 to length - 1). Accessing index == length throws StringIndexOutOfBoundsException.",
+    "code": "String s = \"Java\";\ns.charAt(4);"
+  },
+  {
+    "id": 125,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How does strip() (Java 11+) differ from the legacy trim() method?",
+    "options": [
+      "trim() only strips ASCII whitespace (<= U+0020); strip() is Unicode-aware and strips all Unicode whitespace points (Character.isWhitespace)",
+      "strip() modifies the string in-place",
+      "trim() only removes spaces on the right side",
+      "strip() converts the string to lowercase"
+    ],
+    "answerIndex": 0,
+    "explanation": "trim() treats any code point <= '\\u0020' as whitespace, whereas strip() uses Character.isWhitespace() to handle all Unicode whitespace (e.g. non-breaking space, em space)."
+  },
+  {
+    "id": 126,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by stripLeading() and stripTrailing() in Java 11+?",
+    "options": [
+      "Hello# #World",
+      "Hello #World",
+      "Hello##World",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "stripLeading() removes only leading whitespace leaving trailing spaces; stripTrailing() removes only trailing whitespace leaving leading spaces.",
+    "code": "String s1 = \"  Hello \".stripLeading();\nString s2 = \" World  \".stripTrailing();\nSystem.out.println(s1 + \"#\" + s2);"
+  },
+  {
+    "id": 127,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does indexOf() return when the specified character or substring is NOT found?",
+    "options": [
+      "0",
+      "-1",
+      "null",
+      "Throws an exception"
+    ],
+    "answerIndex": 1,
+    "explanation": "indexOf() returns -1 if the target character or substring does not occur within the string.",
+    "code": "String s = \"Barrackpore\";\nSystem.out.println(s.indexOf('z'));"
+  },
+  {
+    "id": 128,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this indexOf with fromIndex code?",
+    "options": [
+      "1",
+      "3",
+      "5",
+      "-1"
+    ],
+    "answerIndex": 1,
+    "explanation": "s.indexOf('a', 2) searches for 'a' starting from index 2 onwards. The next 'a' is at index 3 (\"Java\").",
+    "code": "String s = \"Java\";\nSystem.out.println(s.indexOf('a', 2));"
+  },
+  {
+    "id": 129,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by lastIndexOf()?",
+    "options": [
+      "1",
+      "7",
+      "10",
+      "-1"
+    ],
+    "answerIndex": 1,
+    "explanation": "\"banana\": 'a' appears at indices 1, 3, and 5. For \"programming\", 'g' appears at indices 3 and 10. In \"banana\", lastIndexOf('a') is 5. Here in \"Kolkata\", 'a' appears at indices 4 and 6.",
+    "code": "String s = \"Kolkata\";\nSystem.out.println(s.lastIndexOf('a'));"
+  },
+  {
+    "id": 130,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does contains() return for an empty string \"\"?",
+    "options": [
+      "true",
+      "false",
+      "NullPointerException",
+      "StringIndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Every string conceptually contains the empty string \"\" at every position, so s.contains(\"\") always returns true.",
+    "code": "String s = \"Java\";\nSystem.out.println(s.contains(\"\"));"
+  },
+  {
+    "id": 131,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by startsWith and endsWith?",
+    "options": [
+      "true true",
+      "true false",
+      "false true",
+      "false false"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"Spring Boot\".startsWith(\"Spring\") is true, and endsWith(\"Boot\") is true.",
+    "code": "String s = \"Spring Boot\";\nSystem.out.println(s.startsWith(\"Spring\") + \" \" + s.endsWith(\"Boot\"));"
+  },
+  {
+    "id": 132,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by repeat(3) in Java 11+?",
+    "options": [
+      "Echo Echo Echo ",
+      "EchoEchoEcho",
+      "Echo3",
+      "Compilation error"
+    ],
+    "answerIndex": 1,
+    "explanation": "String.repeat(count) concatenates the string with itself 'count' times without adding spaces.",
+    "code": "String s = \"Echo\";\nSystem.out.println(s.repeat(3));"
+  },
+  {
+    "id": 133,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when repeat(0) is called?",
+    "options": [
+      "Returns an empty string \"\"",
+      "Returns null",
+      "Throws an IllegalArgumentException",
+      "Returns the original string"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.repeat(0) returns an empty string \"\". Calling repeat(-1) throws IllegalArgumentException.",
+    "code": "String s = \"Hello\";\nSystem.out.println(s.repeat(0).isEmpty());"
+  },
+  {
+    "id": 134,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should developers use toUpperCase(Locale.ROOT) instead of toUpperCase() in internationalized applications?",
+    "options": [
+      "To prevent unpredictable locale-dependent transformations (such as the Turkish 'i' -> 'İ' instead of 'I')",
+      "Because Locale.ROOT is 10x faster",
+      "Because toUpperCase() without arguments is deprecated",
+      "To compress the characters into 8-bit ASCII"
+    ],
+    "answerIndex": 0,
+    "explanation": "Default toUpperCase() uses the user's host OS default locale. In Turkish, lowercase 'i' becomes 'İ' (dotted capital I) rather than standard 'I', causing subtle bugs in protocol parsers.",
+    "code": ""
+  },
+  {
+    "id": 135,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed when calling toLowerCase() on a string that is already entirely lowercase?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "HotSpot optimizes toLowerCase(): if no character needs changing, it returns 'this' exact reference directly, so s == s.toLowerCase() is true.",
+    "code": "String s = \"lowercasetext\";\nSystem.out.println(s == s.toLowerCase());"
+  },
+  {
+    "id": 136,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "Java",
+      "Java ",
+      " Java",
+      "JAVA"
+    ],
+    "answerIndex": 0,
+    "explanation": "trim() strips leading and trailing ASCII whitespace <= U+0020.",
+    "code": "String s = \"  Java  \";\nSystem.out.println(s.trim());"
+  },
+  {
+    "id": 137,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this contains check?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "contains() is strictly case-sensitive. \"JAVA\" does not contain lowercase \"va\".",
+    "code": "String s = \"JAVA\";\nSystem.out.println(s.contains(\"va\"));"
+  },
+  {
+    "id": 138,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by lines() in Java 11+?",
+    "options": [
+      "3",
+      "1",
+      "2",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The lines() method returns a Stream<String> divided by line terminators (\\n, \\r, \\r\\n). Calling .count() returns 3.",
+    "code": "String multiline = \"One\\nTwo\\nThree\";\nSystem.out.println(multiline.lines().count());"
+  },
+  {
+    "id": 139,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does charAt(0) return on an empty string \"\"?",
+    "options": [
+      "Throws StringIndexOutOfBoundsException",
+      "Returns '\\0'",
+      "Returns null",
+      "Returns -1"
+    ],
+    "answerIndex": 0,
+    "explanation": "An empty string has length 0, so index 0 is out of bounds [0, 0), throwing a StringIndexOutOfBoundsException.",
+    "code": "String s = \"\";\ns.charAt(0);"
+  },
+  {
+    "id": 140,
+    "topic": "Inspection & Transformation Methods",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string length check?",
+    "options": [
+      "0 0",
+      "0 1",
+      "1 0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both \"\" and new String() represent empty string sequences with length 0.",
+    "code": "String s1 = \"\";\nString s2 = new String();\nSystem.out.println(s1.length() + \" \" + s2.length());"
+  },
+  {
+    "id": 141,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of substring(2, 6) on \"Barrackpore\"?",
+    "options": [
+      "rrac",
+      "rrack",
+      "arra",
+      "rack"
+    ],
+    "answerIndex": 0,
+    "explanation": "substring(begin, end) starts at index begin (inclusive) and stops at index end (exclusive). Indices 2 to 5 of \"Barrackpore\" are 'r', 'r', 'a', 'c'.",
+    "code": "String s = \"Barrackpore\";\nSystem.out.println(s.substring(2, 6));"
+  },
+  {
+    "id": 142,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by substring(4) on \"Hello World\"?",
+    "options": [
+      "o World",
+      " World",
+      "lo World",
+      "Hello"
+    ],
+    "answerIndex": 0,
+    "explanation": "substring(4) returns the remainder of the string starting from index 4 ('o') to the end.",
+    "code": "String s = \"Hello World\";\nSystem.out.println(s.substring(4));"
+  },
+  {
+    "id": 143,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What major memory leak issue existed in String.substring() in Java 6, and how was it resolved in Java 7u6?",
+    "options": [
+      "Java 6 shared the original char[] across all substrings with an offset and count; holding a tiny substring retained the entire huge parent array. Java 7u6 copies only the necessary characters into a new array",
+      "Java 6 wrote substrings to disk swap files",
+      "Java 6 did not allow substrings longer than 10 characters",
+      "Java 7u6 prohibited calling substring() in loops"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java 6, substring shared the underlying char[] using offset/count fields. If you parsed a 10MB string to keep a 5-char substring, the entire 10MB array remained pinned in memory. Java 7u6 copies only the substring characters into a new array."
+  },
+  {
+    "id": 144,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does substring(2, 2) return?",
+    "options": [
+      "An empty string \"\"",
+      "The character at index 2",
+      "Throws StringIndexOutOfBoundsException",
+      "null"
+    ],
+    "answerIndex": 0,
+    "explanation": "When beginIndex == endIndex, substring returns an empty string \"\" without throwing an exception.",
+    "code": "String s = \"Master\";\nSystem.out.println(\"[\" + s.substring(2, 2) + \"]\");"
+  },
+  {
+    "id": 145,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the key difference between replace(CharSequence, CharSequence) and replaceAll(String regex, String replacement)?",
+    "options": [
+      "replace treats both arguments as literal string sequences, whereas replaceAll interprets the target as a regular expression",
+      "replace only replaces the first occurrence, while replaceAll replaces all",
+      "replace modifies the string in-place",
+      "replaceAll only works with digits"
+    ],
+    "answerIndex": 0,
+    "explanation": "replace() performs literal matching without regex parsing. replaceAll() treats the target as a regular expression pattern."
+  },
+  {
+    "id": 146,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by replace vs replaceAll with a dot '.'?",
+    "options": [
+      "192-168-1-1 and ------------",
+      "192-168-1-1 and 192-168-1-1",
+      "------------ and 192-168-1-1",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "replace(\".\", \"-\") replaces literal dots. In replaceAll(\".\", \"-\"), the unescaped regex '.' matches ANY character, replacing the entire string with hyphens.",
+    "code": "String ip = \"192.168.1.1\";\nString r1 = ip.replace(\".\", \"-\");\nString r2 = ip.replaceAll(\".\", \"-\");\nSystem.out.println(r1 + \" and \" + r2);"
+  },
+  {
+    "id": 147,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "How should you escape a dot '.' in replaceAll() to match a literal dot?",
+    "options": [
+      "ip.replaceAll(\"\\\\.\", \"-\") or ip.replaceAll(Pattern.quote(\".\"), \"-\")",
+      "ip.replaceAll(\"/.\", \"-\")",
+      "ip.replaceAll(\"[*.]\", \"-\")",
+      "ip.replaceAll(\"dot\", \"-\")"
+    ],
+    "answerIndex": 0,
+    "explanation": "In regex, \\. matches a literal dot. In a Java string literal, backslashes must be escaped as \"\\\\.\" or quoted with Pattern.quote(\".\")."
+  },
+  {
+    "id": 148,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does replaceFirst() do?",
+    "options": [
+      "Replaces only the first matched occurrence of the regex pattern",
+      "Replaces all occurrences",
+      "Replaces the first character at index 0 only",
+      "Returns index of first match"
+    ],
+    "answerIndex": 0,
+    "explanation": "replaceFirst(regex, replacement) replaces only the first substring that matches the given regular expression.",
+    "code": "String s = \"cat cat cat\";\nSystem.out.println(s.replaceFirst(\"cat\", \"dog\"));"
+  },
+  {
+    "id": 149,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the length of the array returned by split(\",\") on this comma-separated string with trailing commas?",
+    "options": [
+      "2",
+      "4",
+      "3",
+      "5"
+    ],
+    "answerIndex": 0,
+    "explanation": "By default, split(regex) discards trailing empty strings. Hence \"a,b,,\".split(\",\") yields only [\"a\", \"b\"], with length 2.",
+    "code": "String csv = \"a,b,,\";\nString[] tokens = csv.split(\",\");\nSystem.out.println(tokens.length);"
+  },
+  {
+    "id": 150,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Advanced",
+    "type": "output",
+    "question": "How do you prevent split() from discarding trailing empty strings?",
+    "options": [
+      "Use split(\",\", -1) with a negative limit",
+      "Use split(\",\", 0)",
+      "Use split(\",\", 2)",
+      "Use splitAll(\",\")"
+    ],
+    "answerIndex": 0,
+    "explanation": "Passing a negative limit (e.g. split(regex, -1)) tells the regex engine to retain all trailing empty matches, producing an array of length 4.",
+    "code": "String csv = \"a,b,,\";\nString[] tokens = csv.split(\",\", -1);\nSystem.out.println(tokens.length);"
+  },
+  {
+    "id": 151,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by String.join (Java 8+)?",
+    "options": [
+      "Java-Python-C++",
+      "-Java-Python-C++-",
+      "Java,Python,C++",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.join(delimiter, elements) joins elements with the specified delimiter between them without leading/trailing delimiters.",
+    "code": "String res = String.join(\"-\", \"Java\", \"Python\", \"C++\");\nSystem.out.println(res);"
+  },
+  {
+    "id": 152,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does String.join print when an element is null?",
+    "options": [
+      "A-null-B",
+      "Throws NullPointerException",
+      "A--B",
+      "A-B"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.join formats null elements as \"null\" without throwing a NullPointerException (as long as the delimiter itself is not null).",
+    "code": "String res = String.join(\"-\", \"A\", null, \"B\");\nSystem.out.println(res);"
+  },
+  {
+    "id": 153,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this split operation?",
+    "options": [
+      "3",
+      "1",
+      "0",
+      "4"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"\\\\s+\" splits on one or more consecutive whitespace characters, parsing \"red   green  blue\" into 3 words.",
+    "code": "String s = \"red   green  blue\";\nString[] words = s.split(\"\\\\s+\");\nSystem.out.println(words.length);"
+  },
+  {
+    "id": 154,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What happens when beginIndex is negative in substring()?",
+    "options": [
+      "Throws StringIndexOutOfBoundsException",
+      "Counts from the end like Python",
+      "Returns an empty string",
+      "Returns null"
+    ],
+    "answerIndex": 0,
+    "explanation": "Java does NOT support negative indices. Negative arguments throw StringIndexOutOfBoundsException.",
+    "code": "String s = \"Java\";\ns.substring(-1);"
+  },
+  {
+    "id": 155,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when beginIndex > endIndex in substring()?",
+    "options": [
+      "Throws StringIndexOutOfBoundsException",
+      "Reverses the substring",
+      "Returns an empty string",
+      "Returns null"
+    ],
+    "answerIndex": 0,
+    "explanation": "If beginIndex > endIndex, Java throws StringIndexOutOfBoundsException.",
+    "code": "String s = \"Java\";\ns.substring(3, 1);"
+  },
+  {
+    "id": 156,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does calling substring(0, s.length()) return on HotSpot?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "StringIndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "When beginIndex == 0 and endIndex == length, substring() returns 'this' exact reference without creating a new instance.",
+    "code": "String s = \"Original\";\nSystem.out.println(s == s.substring(0, s.length()));"
+  },
+  {
+    "id": 157,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by replacing a character that does not exist in the string?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "If the target character is not present in the string, replace() returns the original string reference ('this') without allocating a new object.",
+    "code": "String s = \"Barrackpore\";\nSystem.out.println(s == s.replace('z', 'x'));"
+  },
+  {
+    "id": 158,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this regex replaceAll with capture groups?",
+    "options": [
+      "Doe, John",
+      "John Doe",
+      "$2, $1",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "replaceAll uses $1 and $2 to reference captured regex groups, reversing \"John Doe\" into \"Doe, John\".",
+    "code": "String name = \"John Doe\";\nString formatted = name.replaceAll(\"(\\\\w+) (\\\\w+)\", \"$2, $1\");\nSystem.out.println(formatted);"
+  },
+  {
+    "id": 159,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of split(\"\") on \"Java\"?",
+    "options": [
+      "4",
+      "3",
+      "5",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "In modern Java, s.split(\"\") splits around every character, producing an array of individual letters [\"J\", \"a\", \"v\", \"a\"] with length 4.",
+    "code": "String s = \"Java\";\nSystem.out.println(s.split(\"\").length);"
+  },
+  {
+    "id": 160,
+    "topic": "Substring, Replace, Split & Join",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does String.join print when given an empty collection?",
+    "options": [
+      "\"\" (an empty string)",
+      "null",
+      "Throws NoSuchElementException",
+      "Throws IllegalArgumentException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Joining an empty collection or array produces an empty string \"\" without errors.",
+    "code": "java.util.List<String> list = java.util.Collections.emptyList();\nSystem.out.println(String.join(\",\", list).isEmpty());"
+  },
+  {
+    "id": 161,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the difference between String.valueOf(obj) and obj.toString() when obj is null?",
+    "options": [
+      "String.valueOf(null) safely returns the string \"null\", whereas obj.toString() throws NullPointerException",
+      "Both throw NullPointerException",
+      "Both return empty string \"\"",
+      "obj.toString() returns \"null\""
+    ],
+    "answerIndex": 0,
+    "explanation": "String.valueOf(obj) checks if obj == null and returns the literal \"null\". In contrast, calling null.toString() throws a NullPointerException."
+  },
+  {
+    "id": 162,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when you pass a null char array into String.valueOf((char[]) null)?",
+    "options": [
+      "Throws java.lang.NullPointerException",
+      "Returns \"null\"",
+      "Returns an empty string \"\"",
+      "Returns \"[C@null\""
+    ],
+    "answerIndex": 0,
+    "explanation": "String.valueOf((char[]) data) has an explicit overload for char[] that dereferences data.length internally, throwing NullPointerException when passed null!",
+    "code": "char[] data = null;\nString.valueOf(data);"
+  },
+  {
+    "id": 163,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What does toCharArray() return?",
+    "options": [
+      "A newly allocated defensive copy of the character array backing the String",
+      "A direct reference to the private internal array of the String",
+      "An array of byte primitives",
+      "A read-only CharBuffer"
+    ],
+    "answerIndex": 0,
+    "explanation": "toCharArray() allocates and returns a fresh copy of the character array so that mutating the returned array cannot violate the String's immutability."
+  },
+  {
+    "id": 164,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this toCharArray modification?",
+    "options": [
+      "Tiger",
+      "Liger",
+      "Compilation error",
+      "ArrayStoreException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because toCharArray() returns a defensive copy, modifying arr[0] = 'L' has no effect on the original string 's'.",
+    "code": "String s = \"Tiger\";\nchar[] arr = s.toCharArray();\narr[0] = 'L';\nSystem.out.println(s);"
+  },
+  {
+    "id": 165,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Why should you always specify StandardCharsets.UTF_8 when calling getBytes() or new String(byte[])?",
+    "options": [
+      "Because omitting the charset uses the platform's default charset, which may vary across operating systems and cause data corruption",
+      "Because UTF-8 is the only charset supported in Java",
+      "Because getBytes() without arguments does not compile in Java 17",
+      "To automatically encrypt the bytes"
+    ],
+    "answerIndex": 0,
+    "explanation": "Parameterless getBytes() relies on the host OS default charset. If a file or network payload encoded in UTF-8 is decoded with Windows-1252 on another machine, characters will corrupt."
+  },
+  {
+    "id": 166,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the length in bytes of the ASCII string \"Java\" when encoded in UTF-8?",
+    "options": [
+      "4 bytes",
+      "8 bytes",
+      "2 bytes",
+      "16 bytes"
+    ],
+    "answerIndex": 0,
+    "explanation": "In UTF-8, standard ASCII characters (0-127) take exactly 1 byte each. \"Java\" contains 4 ASCII characters, so it occupies 4 bytes.",
+    "code": "byte[] bytes = \"Java\".getBytes(java.nio.charset.StandardCharsets.UTF_8);\nSystem.out.println(bytes.length);"
+  },
+  {
+    "id": 167,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by converting an int to String with valueOf?",
+    "options": [
+      "42",
+      "\"42\"",
+      "42.0",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.valueOf(42) formats the primitive integer 42 as the string \"42\".",
+    "code": "String s = String.valueOf(42);\nSystem.out.println(s);"
+  },
+  {
+    "id": 168,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by converting boolean true to String?",
+    "options": [
+      "true",
+      "1",
+      "TRUE",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.valueOf(true) returns the pooled literal string \"true\".",
+    "code": "String s = String.valueOf(true);\nSystem.out.println(s);"
+  },
+  {
+    "id": 169,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string concatenation order?",
+    "options": [
+      "Result: 1020",
+      "Result: 30",
+      "30Result:",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Evaluation proceeds left to right: \"Result: \" + 10 becomes \"Result: 10\", and \"Result: 10\" + 20 becomes \"Result: 1020\".",
+    "code": "System.out.println(\"Result: \" + 10 + 20);"
+  },
+  {
+    "id": 170,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed when parenthesis override concatenation precedence?",
+    "options": [
+      "Result: 30",
+      "Result: 1020",
+      "Compilation error",
+      "Result: 10+20"
+    ],
+    "answerIndex": 0,
+    "explanation": "The parentheses (10 + 20) force arithmetic addition first, resulting in 30, which is then concatenated into \"Result: 30\".",
+    "code": "System.out.println(\"Result: \" + (10 + 20));"
+  },
+  {
+    "id": 171,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed when arithmetic addition precedes string concatenation?",
+    "options": [
+      "30Result",
+      "1020Result",
+      "Compilation error",
+      "30"
+    ],
+    "answerIndex": 0,
+    "explanation": "10 + 20 evaluates first as integer addition (30), which is then concatenated with \"Result\" to form \"30Result\".",
+    "code": "System.out.println(10 + 20 + \"Result\");"
+  },
+  {
+    "id": 172,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "195",
+      "ab",
+      "\"ab\"",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "'a' has ASCII value 97 and 'b' has 98. The '+' operator on two primitive chars performs numeric addition: 97 + 98 = 195!",
+    "code": "System.out.println('a' + 'b');"
+  },
+  {
+    "id": 173,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "How do you ensure chars are concatenated as a string rather than added numerically?",
+    "options": [
+      "\"\" + 'a' + 'b'",
+      "'a' + 'b' + \"\"",
+      "char.concat('a', 'b')",
+      "(String) ('a' + 'b')"
+    ],
+    "answerIndex": 0,
+    "explanation": "Starting with \"\" converts the expression to string concatenation from the very first operation: \"\" + 'a' -> \"a\", then \"a\" + 'b' -> \"ab\".",
+    "code": "System.out.println(\"\" + 'a' + 'b');"
+  },
+  {
+    "id": 174,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of Integer.parseInt on a valid numeric string?",
+    "options": [
+      "100",
+      "\"100\"",
+      "Compilation error",
+      "NumberFormatException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Integer.parseInt(\"100\") parses the string into primitive int 100.",
+    "code": "int val = Integer.parseInt(\"100\");\nSystem.out.println(val);"
+  },
+  {
+    "id": 175,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What happens when parsing a non-numeric string like \"100A\" with Integer.parseInt?",
+    "options": [
+      "Throws java.lang.NumberFormatException",
+      "Returns 100",
+      "Returns 0",
+      "Returns -1"
+    ],
+    "answerIndex": 0,
+    "explanation": "Integer.parseInt throws NumberFormatException if the string contains non-digit characters.",
+    "code": "Integer.parseInt(\"100A\");"
+  },
+  {
+    "id": 176,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is a Unicode Supplementary Character (Surrogate Pair) in Java Strings?",
+    "options": [
+      "A code point above U+FFFF (such as emojis like 😃 or ancient scripts) that requires two 16-bit char code units (high surrogate and low surrogate) to represent",
+      "A damaged character caused by memory leaks",
+      "An unprintable character in ASCII",
+      "A character stored only in Metaspace"
+    ],
+    "answerIndex": 0,
+    "explanation": "Java's char is 16-bit (UTF-16 code unit). Supplementary characters with code points > U+FFFF require two char units (surrogate pair) in a String.",
+    "code": ""
+  },
+  {
+    "id": 177,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does length() vs codePointCount() return for a 4-byte emoji string like \"😀\"?",
+    "options": [
+      "length is 2, codePointCount is 1",
+      "length is 1, codePointCount is 1",
+      "length is 4, codePointCount is 4",
+      "length is 1, codePointCount is 2"
+    ],
+    "answerIndex": 0,
+    "explanation": "An emoji above U+FFFF is stored as 2 UTF-16 surrogate chars (length() == 2), but represents exactly 1 Unicode code point.",
+    "code": "String emoji = \"😀\";\nSystem.out.println(emoji.length() + \" \" + emoji.codePointCount(0, emoji.length()));"
+  },
+  {
+    "id": 178,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by reconstructing a String from UTF-8 bytes?",
+    "options": [
+      "Barrackpore",
+      "null",
+      "Compilation error",
+      "[B@15db9742"
+    ],
+    "answerIndex": 0,
+    "explanation": "new String(bytes, StandardCharsets.UTF_8) reconstructs the original string correctly.",
+    "code": "byte[] bytes = \"Barrackpore\".getBytes(java.nio.charset.StandardCharsets.UTF_8);\nString restored = new String(bytes, java.nio.charset.StandardCharsets.UTF_8);\nSystem.out.println(restored);"
+  },
+  {
+    "id": 179,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed when an array object is directly concatenated with a string?",
+    "options": [
+      "Prefix: [I@... or [Ljava.lang... (object class name + @ + hex hashcode)",
+      "Prefix: [1, 2, 3]",
+      "Prefix: 123",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Java arrays do not override toString(); they inherit Object.toString(), producing type descriptor + @ + hex hash code.",
+    "code": "int[] arr = {1, 2, 3};\nSystem.out.println(\"Prefix: \" + arr);"
+  },
+  {
+    "id": 180,
+    "topic": "Conversions, Encodings & Array Interop",
+    "level": "Beginner",
+    "type": "output",
+    "question": "How should an array's contents be properly converted to a human-readable String in Java?",
+    "options": [
+      "java.util.Arrays.toString(arr)",
+      "arr.toString()",
+      "String.valueOf(arr)",
+      "arr.join(\",\")"
+    ],
+    "answerIndex": 0,
+    "explanation": "Arrays.toString(arr) iterates the array elements and formats them as a readable string like [1, 2, 3].",
+    "code": "int[] arr = {1, 2, 3};\nSystem.out.println(java.util.Arrays.toString(arr));"
+  },
+  {
+    "id": 181,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why is repeated String concatenation with '+' inside a large loop (e.g., 50,000 iterations) considered a major performance anti-pattern?",
+    "options": [
+      "Because each concatenation allocates a new String object and copies all previous characters, resulting in quadratic O(N^2) time complexity and massive GC pressure",
+      "Because String concatenation locks all CPU cores",
+      "Because the JVM throws an OutOfMemoryError immediately at iteration 100",
+      "Because '+' cannot be used inside loops in Java"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because Strings are immutable, concatenating in a loop creates an intermediate object on every iteration and copies characters repeatedly, degrading performance from O(N) to O(N^2)."
+  },
+  {
+    "id": 182,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which class should be used to accumulate string modifications inside loops in single-threaded code?",
+    "options": [
+      "java.lang.StringBuilder",
+      "java.lang.StringBuffer",
+      "java.lang.String",
+      "java.util.Vector"
+    ],
+    "answerIndex": 0,
+    "explanation": "StringBuilder maintains a mutable character buffer and is not synchronized, making it the fastest choice for single-threaded string construction."
+  },
+  {
+    "id": 183,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Under JEP 280 (Indify String Concatenation introduced in Java 9), how does javac compile simple string concatenations outside of loops?",
+    "options": [
+      "Using the 'invokedynamic' instruction delegating to StringConcatFactory.makeConcatWithConstants",
+      "By creating hardcoded StringBuilder instances for every line",
+      "By writing custom C++ assembly code inline",
+      "By converting strings to StringBuffer"
+    ],
+    "answerIndex": 0,
+    "explanation": "Java 9+ replaces explicit StringBuilder bytecode with 'invokedynamic' calling StringConcatFactory, allowing the JVM runtime to generate optimized concatenation strategies dynamically."
+  },
+  {
+    "id": 184,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1 is a non-final variable. The expression s1 + \"world\" is evaluated dynamically at runtime, creating a new Heap object. Therefore, s2 == s3 is false.",
+    "code": "String s1 = \"hello \";\nString s2 = s1 + \"world\";\nString s3 = \"hello world\";\nSystem.out.println(s2 == s3);"
+  },
+  {
+    "id": 185,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output when final constants are concatenated?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because both s1 and s2 are marked 'final', javac treats s1 + s2 as a compile-time constant expression and folds it into \"hello world\". Thus s3 == s4 is true.",
+    "code": "final String s1 = \"hello \";\nfinal String s2 = \"world\";\nString s3 = s1 + s2;\nString s4 = \"hello world\";\nSystem.out.println(s3 == s4);"
+  },
+  {
+    "id": 186,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this code involving a method call?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "Even though 'prefix' is final, its value is determined by a method call at runtime. Hence it is NOT a compile-time constant, so s2 is created on the heap and s2 == \"DataScience\" is false.",
+    "code": "final String prefix = getPrefix();\nString s2 = prefix + \"Science\";\nSystem.out.println(s2 == \"DataScience\");\n\nstatic String getPrefix() { return \"Data\"; }"
+  },
+  {
+    "id": 187,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"null\" + null concatenates \"null\" with String.valueOf(null), resulting in \"nullnull\". Both expressions evaluate to identical literals in the SCP.",
+    "code": "String s1 = \"null\" + null;\nString s2 = \"nullnull\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 188,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "nullJava",
+      "Java",
+      "NullPointerException",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Concatenating a null reference variable converts the null reference to the string literal \"null\", producing \"nullJava\".",
+    "code": "String s = null;\ns += \"Java\";\nSystem.out.println(s);"
+  },
+  {
+    "id": 189,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this ternary expression?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "In (b ? \"Java\" : \"Python\"), since 'b' is a compile-time boolean literal (true), the entire expression is constant folded to \"Java\". Thus s1 == s2 is true.",
+    "code": "final boolean b = true;\nString s1 = b ? \"Java\" : \"Python\";\nString s2 = \"Java\";\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 190,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this code snippet?",
+    "options": [
+      "true true",
+      "false true",
+      "false false",
+      "true false"
+    ],
+    "answerIndex": 1,
+    "explanation": "s.trim() on \"Java\" does not change the string and returns 'this'. But \" Java \".trim() creates a new substring on the heap, so \" Java \".trim() == \"Java\" is false.",
+    "code": "String s1 = \"Java\";\nString s2 = \" Java \".trim();\nSystem.out.println((s1 == s2) + \" \" + s1.equals(s2));"
+  },
+  {
+    "id": 191,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by the following loop?",
+    "options": [
+      "0123",
+      "3",
+      "012",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "On each iteration, i is concatenated to str: \"\" -> \"0\" -> \"01\" -> \"012\" -> \"0123\".",
+    "code": "String str = \"\";\nfor(int i = 0; i < 4; i++) {\n    str += i;\n}\nSystem.out.println(str);"
+  },
+  {
+    "id": 192,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "How many String objects are created during 10,000 iterations of: String s = \"\"; for(...) s += i;?",
+    "options": [
+      "Over 10,000 intermediate String objects on the Heap",
+      "Exactly 1 object",
+      "0 objects",
+      "2 objects"
+    ],
+    "answerIndex": 0,
+    "explanation": "Each '+=' iteration instantiates a new String object and discards the old one, allocating over 10,000 temporary objects and causing heavy GC overhead."
+  },
+  {
+    "id": 193,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this string concatenation?",
+    "options": [
+      "102030",
+      "60",
+      "3030",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "\"\" + 10 becomes \"10\", + 20 becomes \"1020\", + 30 becomes \"102030\".",
+    "code": "String s = \"\" + 10 + 20 + 30;\nSystem.out.println(s);"
+  },
+  {
+    "id": 194,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by this arithmetic before string concatenation?",
+    "options": [
+      "3030",
+      "102030",
+      "60",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "10 + 20 evaluates to 30. Then 30 + \"\" becomes \"30\". Finally \"30\" + 30 becomes \"3030\".",
+    "code": "String s = 10 + 20 + \"\" + 30;\nSystem.out.println(s);"
+  },
+  {
+    "id": 195,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this intern equality check?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Calling intern() on both s1 and s2 returns the single shared canonical reference from the SCP, so == returns true.",
+    "code": "String s1 = new String(\"Shyamnagar\");\nString s2 = new String(\"Shyamnagar\");\nSystem.out.println(s1.intern() == s2.intern());"
+  },
+  {
+    "id": 196,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "ClassCastException"
+    ],
+    "answerIndex": 0,
+    "explanation": "s1 is \"test\". In s2, replace('z', 'y') finds no match and returns 'this'. Therefore s1 == s2 is true.",
+    "code": "String s1 = \"test\";\nString s2 = s1.replace('z', 'y');\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 197,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What does this code print?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "replace('t', 'p') actually modifies characters, creating a newly allocated String \"pest\". Therefore s1 == s2 is false.",
+    "code": "String s1 = \"test\";\nString s2 = s1.replace('t', 'p');\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 198,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this string identity hash check?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "System.identityHashCode() returns the memory-identity hash. Since s1 and s2 point to the identical SCP object, their identity hash codes match.",
+    "code": "String s1 = \"Coder\";\nString s2 = \"Coder\";\nSystem.out.println(System.identityHashCode(s1) == System.identityHashCode(s2));"
+  },
+  {
+    "id": 199,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed for two distinct new String instances?",
+    "options": [
+      "false",
+      "true",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Because s1 and s2 are distinct objects in memory, System.identityHashCode will (with near certainty) differ, and s1 == s2 is false.",
+    "code": "String s1 = new String(\"Coder\");\nString s2 = new String(\"Coder\");\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 200,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is printed by this code?",
+    "options": [
+      "CoreJava",
+      "Core",
+      "Java",
+      "Compilation error"
+    ],
+    "answerIndex": 0,
+    "explanation": "s += \"Java\" is equivalent to s = s + \"Java\", reassigning 's' to the new concatenated string \"CoreJava\".",
+    "code": "String s = \"Core\";\ns += \"Java\";\nSystem.out.println(s);"
+  },
+  {
+    "id": 201,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is printed by the following code?",
+    "options": [
+      "null",
+      "\"null\"",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "String.valueOf((Object) null) executes the Object overload and returns the literal string \"null\".",
+    "code": "Object obj = null;\nSystem.out.println(String.valueOf(obj));"
+  },
+  {
+    "id": 202,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output of this equality comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 1,
+    "explanation": "s1 is in the SCP. s2 is dynamically constructed via StringBuilder inside concat(), residing in normal heap. Hence s1 == s2 is false.",
+    "code": "String s1 = \"Java17\";\nString s2 = \"Java\".concat(\"17\");\nSystem.out.println(s1 == s2);"
+  },
+  {
+    "id": 203,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this equals comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "NullPointerException"
+    ],
+    "answerIndex": 0,
+    "explanation": "Both strings contain the identical characters 'J', 'a', 'v', 'a', '1', '7', so equals() returns true.",
+    "code": "String s1 = \"Java17\";\nString s2 = \"Java\".concat(\"17\");\nSystem.out.println(s1.equals(s2));"
+  },
+  {
+    "id": 204,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output of this substring comparison?",
+    "options": [
+      "true",
+      "false",
+      "Compilation error",
+      "IndexOutOfBoundsException"
+    ],
+    "answerIndex": 0,
+    "explanation": "In Java, s.substring(0) on \"AccoTax\" returns 'this' exact reference without creating a new instance.",
+    "code": "String s = \"AccoTax\";\nSystem.out.println(s == s.substring(0));"
+  },
+  {
+    "id": 205,
+    "topic": "Performance Pitfalls & Tricky Outputs",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is printed by this string intern puzzle?",
+    "options": [
+      "true true",
+      "false true",
+      "true false",
+      "false false"
+    ],
+    "answerIndex": 0,
+    "explanation": "s1.intern() returns the SCP reference which equals literal \"Master\". Furthermore, s1.intern() equals s2.intern(). Both evaluate to true.",
+    "code": "String s1 = new String(\"Master\");\nString s2 = new String(\"Master\");\nSystem.out.println((s1.intern() == \"Master\") + \" \" + (s1.intern() == s2.intern()));"
+  }
+]

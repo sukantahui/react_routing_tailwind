@@ -1,14 +1,64 @@
 ================================================================================
 JAVA CORE TUTORIAL - QUICK REVISION GUIDE
 Module 003_002: StringBuilder, StringBuffer & String Formatting
-Topic 2: java.lang.StringBuffer
+Topic 2: java.lang.StringBuffer & The "Thread-Safe" Paradigm
 Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
-1. STRINGBUFFER KEY FACTS:
-   - Introduced in Java 1.0 (Legacy).
-   - Thread-safe: Every public method is 'synchronized'.
-   - Slower due to monitor lock acquisition and release overhead.
+1. WHAT IS "THREAD-SAFE"?
+   - Formal Definition:
+     A class, method, or data structure is Thread-Safe if it functions
+     correctly and maintains internal data consistency when accessed
+     concurrently by multiple threads at the same time, without requiring
+     external synchronization by calling code.
+   - Core Hazard:
+     Shared State + Mutable Data + Multiple Threads = Concurrency Hazard (Race Condition).
+
+2. WHERE IS THREAD-SAFETY USED IN PRODUCTION?
+   a) Banking & Financial Services:
+      - Prevents double-withdrawals and negative balances when multiple
+        transactions hit the same account simultaneously.
+   b) Web Servers & REST APIs (Spring Boot / Tomcat):
+      - Handles thousands of concurrent HTTP worker threads sharing singleton
+        services, session caches, and rate-limit counters.
+   c) E-Commerce Flash Sales:
+      - Stock decrement guarantees inventory never drops below 0 when
+        thousands of customers click "Checkout" at the same second.
+   d) Centralized Logging & Telemetry:
+      - Multi-threaded background workers writing trace messages to a shared
+        logging pipeline without character interleaving.
+
+3. HOW STRINGBUFFER ACHIEVES THREAD SAFETY:
+   - Every public mutating method (append, insert, delete, reverse) is marked
+     with the 'synchronized' keyword.
+   - At the bytecode level, it acquires the object's intrinsic monitor lock:
+     'monitorenter' on method entry, and 'monitorexit' on method exit.
+   - Only ONE thread can execute inside any synchronized method at a time;
+     other threads wait in a BLOCKED queue.
+
+4. THE PERFORMANCE COST OF THREAD SAFETY:
+   - Acquiring and releasing monitor locks incurs significant CPU overhead:
+     thread state transitions, cache invalidation, and blocking.
+   - In single-threaded benchmarks, StringBuffer is 2x to 3x slower than
+     StringBuilder.
+
+5. THE DEVELOPER'S GOLDEN RULE:
+   - Thread-safe classes are ONLY required when an object is SHARED across
+     multiple concurrent writing threads.
+   - For local variables inside methods (which reside on that thread's private
+     stack), NO other thread can access them.
+   - ALWAYS use StringBuilder for local method execution to maximize speed!
+
+6. JAVA CONCURRENCY COMPARISON MATRIX:
+   -----------------------------------------------------------------------------
+   Category          Thread-Safe           Non-Thread-Safe    Mechanism
+   -----------------------------------------------------------------------------
+   Text Buffers      StringBuffer          StringBuilder      synchronized locks
+   Strings           String (Immutable)    -                  Immutable state
+   Key-Value Maps    ConcurrentHashMap     HashMap            Segmented locks/CAS
+   Dynamic Lists     CopyOnWriteArrayList  ArrayList          Copy-on-write
+   Counters          AtomicInteger         int count++        Hardware CAS
+   -----------------------------------------------------------------------------
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

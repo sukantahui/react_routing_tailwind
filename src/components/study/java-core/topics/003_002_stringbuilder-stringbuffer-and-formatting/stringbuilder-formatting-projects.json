@@ -1,0 +1,370 @@
+{
+  "projectCategory": "Core Java (Java SE) Project Work",
+  "subject": "Java Programming (Core Java)",
+  "board": "Professional / Academic",
+  "class": "Module 003_002",
+  "tools": [
+    "JDK 17+",
+    "BlueJ / Eclipse / IntelliJ IDEA / VS Code"
+  ],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India"
+  },
+  "projects": [
+    {
+      "projectId": 1,
+      "title": "High-Performance CSV Line Assembler with Pre-Sized Capacity",
+      "difficulty": "Beginner",
+      "concepts": [
+        "StringBuilder",
+        "Pre-allocating buffer capacity",
+        "append() method",
+        "Eliminating intermediate GC garbage"
+      ],
+      "description": "Construct a high-speed CSV record serializer that converts an array of student records into comma-separated rows. To avoid multiple internal array resizes and memory reallocation, pre-size the StringBuilder with an estimated capacity and append fields fluently.",
+      "exampleText": "Serialize trainee record: id=101, name=\"Rahul Roy\", gpa=8.95, city=\"Barrackpore\"",
+      "exampleOutput": "Generated CSV Row:\n101,Rahul Roy,8.95,Barrackpore\nBuffer Initial Capacity: 64\nFinal Buffer Length: 29",
+      "answer": "public class CsvLineAssembler {\n    public static String assembleRow(int id, String name, double gpa, String city) {\n        // Pre-size capacity to avoid internal reallocations\n        StringBuilder sb = new StringBuilder(64);\n        sb.append(id).append(',')\n          .append(name).append(',')\n          .append(gpa).append(',')\n          .append(city);\n        \n        System.out.println(\"Buffer Initial Capacity: 64\");\n        System.out.println(\"Final Buffer Length: \" + sb.length());\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        String csv = assembleRow(101, \"Rahul Roy\", 8.95, \"Barrackpore\");\n        System.out.println(\"Generated CSV Row:\\n\" + csv);\n    }\n}",
+      "learningOutcome": "Learn to pre-size StringBuilder instances to eliminate memory reallocation overhead during batch text serialization."
+    },
+    {
+      "projectId": 2,
+      "title": "Thread-Safe Concurrent Audit Log Buffer using StringBuffer",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "java.lang.StringBuffer",
+        "synchronized methods",
+        "Multi-threaded execution",
+        "Data consistency across threads"
+      ],
+      "description": "Simulate a financial transaction audit logger where multiple concurrent worker threads append timestamped transaction messages to the same shared buffer. Use StringBuffer to ensure thread safety without character interleaving or lost data.",
+      "exampleText": "Launch 3 worker threads writing 2 log events each to a shared StringBuffer",
+      "exampleOutput": "--- Shared Audit Log ---\n[Thread-1] Transaction TXN-101 Verified\n[Thread-2] Transaction TXN-102 Verified\n[Thread-3] Transaction TXN-103 Verified\n[Thread-1] Transaction TXN-104 Verified\n[Thread-2] Transaction TXN-105 Verified\n[Thread-3] Transaction TXN-106 Verified\nTotal Log Entries: 6",
+      "answer": "public class ConcurrentAuditLogger {\n    private final StringBuffer auditBuffer = new StringBuffer();\n    private int entryCount = 0;\n\n    public synchronized void log(String worker, String txnId) {\n        auditBuffer.append(\"[\").append(worker).append(\"] \")\n                   .append(\"Transaction \").append(txnId)\n                   .append(\" Verified\\n\");\n        entryCount++;\n    }\n\n    public String getLogs() {\n        return auditBuffer.toString();\n    }\n\n    public int getCount() {\n        return entryCount;\n    }\n\n    public static void main(String[] args) throws InterruptedException {\n        ConcurrentAuditLogger logger = new ConcurrentAuditLogger();\n        Thread t1 = new Thread(() -> { logger.log(\"Thread-1\", \"TXN-101\"); logger.log(\"Thread-1\", \"TXN-104\"); });\n        Thread t2 = new Thread(() -> { logger.log(\"Thread-2\", \"TXN-102\"); logger.log(\"Thread-2\", \"TXN-105\"); });\n        Thread t3 = new Thread(() -> { logger.log(\"Thread-3\", \"TXN-103\"); logger.log(\"Thread-3\", \"TXN-106\"); });\n\n        t1.start(); t2.start(); t3.start();\n        t1.join(); t2.join(); t3.join();\n\n        System.out.println(\"--- Shared Audit Log ---\\n\" + logger.getLogs());\n        System.out.println(\"Total Log Entries: \" + logger.getCount());\n    }\n}",
+      "learningOutcome": "Master multi-threaded shared buffer synchronization using StringBuffer's intrinsic monitor locks."
+    },
+    {
+      "projectId": 3,
+      "title": "Internal Capacity Growth & Dynamic Formula Inspector",
+      "difficulty": "Beginner",
+      "concepts": [
+        "capacity() vs length()",
+        "Default initial capacity (16)",
+        "Growth formula ((oldCapacity * 2) + 2)",
+        "ensureCapacity()"
+      ],
+      "description": "Demonstrate the internal array expansion formula of StringBuilder. Start with a default empty builder (16 chars), append text exceeding the boundary, and programmatically inspect how the capacity transitions using ((oldCapacity * 2) + 2).",
+      "exampleText": "Start with new StringBuilder(), check capacity at 0, 16, 17, and 35 characters",
+      "exampleOutput": "Step 0 (Initial)  : Length = 0,  Capacity = 16\nStep 1 (16 chars) : Length = 16, Capacity = 16\nStep 2 (17 chars) : Length = 17, Capacity = 34 (Formula: (16*2)+2 = 34)\nStep 3 (35 chars) : Length = 35, Capacity = 70 (Formula: (34*2)+2 = 70)",
+      "answer": "public class CapacityGrowthInspector {\n    public static void main(String[] args) {\n        StringBuilder sb = new StringBuilder();\n        System.out.println(\"Step 0 (Initial)  : Length = \" + sb.length() + \",  Capacity = \" + sb.capacity());\n\n        sb.append(\"1234567890123456\"); // 16 chars\n        System.out.println(\"Step 1 (16 chars) : Length = \" + sb.length() + \", Capacity = \" + sb.capacity());\n\n        sb.append(\"X\"); // 17th char triggers geometric expansion\n        System.out.println(\"Step 2 (17 chars) : Length = \" + sb.length() + \", Capacity = \" + sb.capacity() + \" (Formula: (16*2)+2 = 34)\");\n\n        sb.append(\"123456789012345678\"); // reach 35 chars\n        System.out.println(\"Step 3 (35 chars) : Length = \" + sb.length() + \", Capacity = \" + sb.capacity() + \" (Formula: (34*2)+2 = 70)\");\n    }\n}",
+      "learningOutcome": "Verify Java's geometric buffer reallocation mechanics and compute capacity changes programmatically."
+    },
+    {
+      "projectId": 4,
+      "title": "Enterprise Financial Invoice & Receipt Formatter using String.format()",
+      "difficulty": "Beginner",
+      "concepts": [
+        "String.format()",
+        "Flags: %,.2f (currency comma & decimals)",
+        "Width and alignment: %-20s",
+        "Header separator lines"
+      ],
+      "description": "Build an enterprise receipt printing utility that accepts line items with unit prices, calculates taxes and totals, and outputs a aligned ASCII receipt with proper decimal precision and comma groupings.",
+      "exampleText": "Generate receipt for Laptop (Rs 65,000.00), Mouse (Rs 1,250.50), GST (18%)",
+      "exampleOutput": "====================================================\n ITEM DESCRIPTION      QTY   UNIT PRICE     TOTAL   \n====================================================\n Dell Vostro Laptop     1    65,000.00    65,000.00 \n Logitech Mouse         2     1,250.50     2,501.00 \n----------------------------------------------------\n Subtotal                                 67,501.00 \n GST Tax (18.0%)                          12,150.18 \n Grand Total                              79,651.18 \n====================================================",
+      "answer": "public class InvoiceFormatter {\n    public static void printInvoice() {\n        String lineFormat = \" %-20s %3d  %,10.2f  %,11.2f %n\";\n        String summaryFormat = \" %-38s %,11.2f %n\";\n\n        double subtotal = 65000.00 + (1250.50 * 2);\n        double gst = subtotal * 0.18;\n        double grandTotal = subtotal + gst;\n\n        StringBuilder out = new StringBuilder();\n        out.append(\"====================================================\\n\");\n        out.append(String.format(\" %-20s %3s  %-10s  %-11s %n\", \"ITEM DESCRIPTION\", \"QTY\", \"UNIT PRICE\", \"TOTAL\"));\n        out.append(\"====================================================\\n\");\n        out.append(String.format(lineFormat, \"Dell Vostro Laptop\", 1, 65000.00, 65000.00));\n        out.append(String.format(lineFormat, \"Logitech Mouse\", 2, 1250.50, 2501.00));\n        out.append(\"----------------------------------------------------\\n\");\n        out.append(String.format(summaryFormat, \"Subtotal\", subtotal));\n        out.append(String.format(summaryFormat, \"GST Tax (18.0%)\", gst));\n        out.append(String.format(summaryFormat, \"Grand Total\", grandTotal));\n        out.append(\"====================================================\");\n\n        System.out.println(out.toString());\n    }\n\n    public static void main(String[] args) {\n        printInvoice();\n    }\n}",
+      "learningOutcome": "Produce professional financial and accounting receipts using precise string format specifiers and alignment flags."
+    },
+    {
+      "projectId": 5,
+      "title": "Dynamic SQL Query Generator with Fluent Filtering Clauses",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "StringBuilder method chaining",
+        "Fluent API pattern",
+        "Dynamic query predicate assembly",
+        "Trailing AND/WHERE clean-up"
+      ],
+      "description": "Implement a dynamic SQL query builder class that constructs SELECT queries with optional WHERE predicates (e.g. city, minimum GPA, active status) fluently. Ensure the builder cleanly handles whether the 'WHERE' keyword is needed without leaving dangling 'AND' clauses.",
+      "exampleText": "Build query for table \"trainees\", filter city=\"Barrackpore\", minGpa=8.5, activeOnly=true",
+      "exampleOutput": "Generated SQL:\nSELECT id, name, gpa, hub FROM trainees WHERE hub = 'Barrackpore' AND gpa >= 8.50 AND is_active = 1 ORDER BY gpa DESC;",
+      "answer": "public class DynamicSqlQueryBuilder {\n    private final StringBuilder query = new StringBuilder();\n    private boolean hasWhere = false;\n\n    public DynamicSqlQueryBuilder(String table, String... columns) {\n        query.append(\"SELECT \").append(String.join(\", \", columns))\n             .append(\" FROM \").append(table);\n    }\n\n    public DynamicSqlQueryBuilder andWhere(String condition) {\n        if (!hasWhere) {\n            query.append(\" WHERE \").append(condition);\n            hasWhere = true;\n        } else {\n            query.append(\" AND \").append(condition);\n        }\n        return this;\n    }\n\n    public DynamicSqlQueryBuilder orderBy(String column, boolean ascending) {\n        query.append(\" ORDER BY \").append(column)\n             .append(ascending ? \" ASC\" : \" DESC\");\n        return this;\n    }\n\n    public String build() {\n        return query.append(\";\").toString();\n    }\n\n    public static void main(String[] args) {\n        String sql = new DynamicSqlQueryBuilder(\"trainees\", \"id\", \"name\", \"gpa\", \"hub\")\n                .andWhere(\"hub = 'Barrackpore'\")\n                .andWhere(String.format(\"gpa >= %.2f\", 8.5))\n                .andWhere(\"is_active = 1\")\n                .orderBy(\"gpa\", false)\n                .build();\n        System.out.println(\"Generated SQL:\\n\" + sql);\n    }\n}",
+      "learningOutcome": "Design fluent builder APIs using StringBuilder to assemble dynamic SQL statements safely."
+    },
+    {
+      "projectId": 6,
+      "title": "Modern REST API JSON Payload Generator using Java 15 Text Blocks",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Java 15 Text Blocks (\"\"\")",
+        ".formatted() method",
+        "JSON payload templating",
+        "Eliminating quote escape characters"
+      ],
+      "description": "Construct a REST API JSON response generator using modern multi-line Text Blocks and fluent .formatted() interpolation. Compare how Text Blocks eliminate ugly backslash escaping (\\\"key\\\") in JSON strings.",
+      "exampleText": "Generate response for status=\"SUCCESS\", code=200, academy=\"Coder & AccoTax\", studentCount=42",
+      "exampleOutput": "{\n  \"meta\": {\n    \"status\": \"SUCCESS\",\n    \"code\": 200,\n    \"timestamp\": 1726090000000\n  },\n  \"academy\": {\n    \"name\": \"Coder & AccoTax\",\n    \"hub\": \"Barrackpore, WB\",\n    \"activeTrainees\": 42\n  }\n}",
+      "answer": "public class RestApiJsonBuilder {\n    public static String buildResponse(String status, int code, long timestamp, String academy, String hub, int trainees) {\n        return \"\"\"\n                {\n                  \"meta\": {\n                    \"status\": \"%s\",\n                    \"code\": %d,\n                    \"timestamp\": %d\n                  },\n                  \"academy\": {\n                    \"name\": \"%s\",\n                    \"hub\": \"%s\",\n                    \"activeTrainees\": %d\n                  }\n                }\n                \"\"\".formatted(status, code, timestamp, academy, hub, trainees);\n    }\n\n    public static void main(String[] args) {\n        String json = buildResponse(\"SUCCESS\", 200, 1726090000000L, \"Coder & AccoTax\", \"Barrackpore, WB\", 42);\n        System.out.println(json);\n    }\n}",
+      "learningOutcome": "Write readable JSON microservice payloads using Java 15+ Text Blocks and .formatted() interpolation."
+    },
+    {
+      "projectId": 7,
+      "title": "Markdown-to-HTML Parser and Content Formatter using StringBuilder",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "StringBuilder mutation",
+        "Scanning lines",
+        "String replacements",
+        "delete() and insert() operations"
+      ],
+      "description": "Build a lightweight Markdown-to-HTML parser. Use StringBuilder to process markdown input line-by-line, converting headers (#, ##), bold text (**text**), italics (*text*), and list bullets (-) into valid HTML markup.",
+      "exampleText": "Parse \"# Welcome to Java\\n- Learn **StringBuilder**\\n- Master *Formatting*\"",
+      "exampleOutput": "<h1>Welcome to Java</h1>\n<ul>\n  <li>Learn <strong>StringBuilder</strong></li>\n  <li>Master <em>Formatting</em></li>\n</ul>",
+      "answer": "public class MarkdownToHtmlParser {\n    public static String parseMarkdown(String markdown) {\n        StringBuilder html = new StringBuilder();\n        String[] lines = markdown.split(\"\\n\");\n        boolean inList = false;\n\n        for (String line : lines) {\n            line = line.trim();\n            if (line.startsWith(\"# \")) {\n                html.append(\"<h1>\").append(line.substring(2)).append(\"</h1>\\n\");\n            } else if (line.startsWith(\"- \")) {\n                if (!inList) {\n                    html.append(\"<ul>\\n\");\n                    inList = true;\n                }\n                String item = line.substring(2)\n                                  .replaceAll(\"\\\\*\\\\*(.*?)\\\\*\\\\*\", \"<strong>$1</strong>\")\n                                  .replaceAll(\"\\\\*(.*?)\\\\*\", \"<em>$1</em>\");\n                html.append(\"  <li>\").append(item).append(\"</li>\\n\");\n            } else {\n                if (inList) {\n                    html.append(\"</ul>\\n\");\n                    inList = false;\n                }\n                if (!line.isEmpty()) {\n                    html.append(\"<p>\").append(line).append(\"</p>\\n\");\n                }\n            }\n        }\n        if (inList) html.append(\"</ul>\\n\");\n        return html.toString().trim();\n    }\n\n    public static void main(String[] args) {\n        String md = \"# Welcome to Java\\n- Learn **StringBuilder**\\n- Master *Formatting*\";\n        System.out.println(parseMarkdown(md));\n    }\n}",
+      "learningOutcome": "Implement text transformation engines by combining StringBuilder line aggregation with token parsing."
+    },
+    {
+      "projectId": 8,
+      "title": "High-Speed Palindrome & Anagram Verifier using StringBuilder.reverse()",
+      "difficulty": "Beginner",
+      "concepts": [
+        "StringBuilder.reverse()",
+        "In-place character array reversal",
+        "Case-insensitive normalization",
+        "Performance optimization"
+      ],
+      "description": "Construct an efficient palindrome detection routine using StringBuilder.reverse(). Cleanse the input string of punctuation and spaces, copy it into a StringBuilder, reverse it in-place with zero extra heap garbage, and compare with the cleaned text.",
+      "exampleText": "Test \"A man, a plan, a canal: Panama!\" and \"Madam, I'm Adam\"",
+      "exampleOutput": "Original Text: A man, a plan, a canal: Panama!\nCleaned Text : amanaplanacanalpanama\nReversed Text: amanaplanacanalpanama\nIs Palindrome: true",
+      "answer": "public class PalindromeVerifier {\n    public static boolean isPalindrome(String input) {\n        // Clean text to alphanumeric lowercase only\n        StringBuilder clean = new StringBuilder();\n        for (char ch : input.toCharArray()) {\n            if (Character.isLetterOrDigit(ch)) {\n                clean.append(Character.toLowerCase(ch));\n            }\n        }\n\n        String forward = clean.toString();\n        String backward = clean.reverse().toString();\n\n        System.out.println(\"Original Text: \" + input);\n        System.out.println(\"Cleaned Text : \" + forward);\n        System.out.println(\"Reversed Text: \" + backward);\n        return forward.equals(backward);\n    }\n\n    public static void main(String[] args) {\n        boolean result = isPalindrome(\"A man, a plan, a canal: Panama!\");\n        System.out.println(\"Is Palindrome: \" + result);\n    }\n}",
+      "learningOutcome": "Utilize StringBuilder.reverse() for high-performance in-place character transformations."
+    },
+    {
+      "projectId": 9,
+      "title": "Sensitive PII Masking Utility using StringBuilder.replace()",
+      "difficulty": "Beginner",
+      "concepts": [
+        "StringBuilder.replace(start, end, str)",
+        "setCharAt()",
+        "Data privacy compliance (PII masking)",
+        "Credit card and Aadhaar masking"
+      ],
+      "description": "Implement a sensitive data sanitizer that masks credit card numbers (showing only the last 4 digits) and Aadhaar numbers (showing only the last 4 digits) by directly modifying the characters in-place using StringBuilder.replace().",
+      "exampleText": "Mask Credit Card: \"4532-8910-1234-5678\", Aadhaar: \"9876-5432-1098\"",
+      "exampleOutput": "Original Card: 4532-8910-1234-5678\nMasked Card  : ****-****-****-5678\nOriginal UID : 9876-5432-1098\nMasked UID   : ****-****-1098",
+      "answer": "public class PiiDataMasker {\n    public static String maskCardNumber(String card) {\n        StringBuilder sb = new StringBuilder(card);\n        // Mask first three blocks of 4 digits separated by dashes\n        sb.replace(0, 4, \"****\");\n        sb.replace(5, 9, \"****\");\n        sb.replace(10, 14, \"****\");\n        return sb.toString();\n    }\n\n    public static String maskAadhaar(String uid) {\n        StringBuilder sb = new StringBuilder(uid);\n        sb.replace(0, 4, \"****\");\n        sb.replace(5, 9, \"****\");\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        String card = \"4532-8910-1234-5678\";\n        String uid = \"9876-5432-1098\";\n        System.out.println(\"Original Card: \" + card);\n        System.out.println(\"Masked Card  : \" + maskCardNumber(card));\n        System.out.println(\"Original UID : \" + uid);\n        System.out.println(\"Masked UID   : \" + maskAadhaar(uid));\n    }\n}",
+      "learningOutcome": "Apply StringBuilder in-place range replacements for regulatory privacy masking."
+    },
+    {
+      "projectId": 10,
+      "title": "URL Query Parameter Serializer with Fluent Encoding",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "StringBuilder chaining",
+        "Handling '?' and '&' delimiters",
+        "URLEncoder integration",
+        "deleteCharAt() for trailing cleanup"
+      ],
+      "description": "Create a fluent URL query parameter builder that accepts key-value pairs, encodes values safely, and appends the proper '?' and '&' delimiters without leaving trailing ampersands.",
+      "exampleText": "Base URL: \"https://api.coderaccotax.com/search\", params: query=\"Java Core\", hub=\"Barrackpore\", page=1",
+      "exampleOutput": "Constructed URL:\nhttps://api.coderaccotax.com/search?query=Java+Core&hub=Barrackpore&page=1",
+      "answer": "import java.net.URLEncoder;\nimport java.nio.charset.StandardCharsets;\n\npublic class UrlQueryBuilder {\n    private final StringBuilder url = new StringBuilder();\n    private boolean firstParam = true;\n\n    public UrlQueryBuilder(String baseUrl) {\n        url.append(baseUrl);\n    }\n\n    public UrlQueryBuilder addParam(String key, Object value) {\n        url.append(firstParam ? '?' : '&');\n        firstParam = false;\n        String encodedVal = URLEncoder.encode(String.valueOf(value), StandardCharsets.UTF_8);\n        url.append(key).append('=').append(encodedVal);\n        return this;\n    }\n\n    public String build() {\n        return url.toString();\n    }\n\n    public static void main(String[] args) {\n        String endpoint = new UrlQueryBuilder(\"https://api.coderaccotax.com/search\")\n                .addParam(\"query\", \"Java Core\")\n                .addParam(\"hub\", \"Barrackpore\")\n                .addParam(\"page\", 1)\n                .build();\n        System.out.println(\"Constructed URL:\\n\" + endpoint);\n    }\n}",
+      "learningOutcome": "Construct clean, robust REST request URLs using state-aware StringBuilder chaining."
+    },
+    {
+      "projectId": 11,
+      "title": "Multi-Row Batch SQL INSERT Generator with setLength() Trimming",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Batch SQL insertion",
+        "setLength() method",
+        "delete(start, end)",
+        "Memory efficiency"
+      ],
+      "description": "Generate high-throughput multi-row batch SQL INSERT statements (e.g. INSERT INTO trainees (id, name, score) VALUES (1, 'A', 90), (2, 'B', 85)...). Use StringBuilder.setLength() to trim off the trailing comma efficiently before appending the final semicolon.",
+      "exampleText": "Generate batch insert for 3 trainees into table \"trainees\"",
+      "exampleOutput": "Generated Batch Statement:\nINSERT INTO trainees (id, name, score) VALUES\n  (101, 'Aheli Sen', 92.50),\n  (102, 'Rohan Das', 88.00),\n  (103, 'Priya Paul', 95.75);",
+      "answer": "public class BatchSqlInsertGenerator {\n    public static String buildBatchInsert(String table, Object[][] rows) {\n        StringBuilder sb = new StringBuilder(256);\n        sb.append(\"INSERT INTO \").append(table).append(\" (id, name, score) VALUES\\n\");\n\n        for (Object[] row : rows) {\n            sb.append(String.format(\"  (%d, '%s', %.2f),\\n\", (int) row[0], (String) row[1], (double) row[2]));\n        }\n\n        // Remove trailing \",\\n\" using setLength\n        sb.setLength(sb.length() - 2);\n        sb.append(\";\");\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        Object[][] data = {\n            {101, \"Aheli Sen\", 92.50},\n            {102, \"Rohan Das\", 88.00},\n            {103, \"Priya Paul\", 95.75}\n        };\n        System.out.println(\"Generated Batch Statement:\\n\" + buildBatchInsert(\"trainees\", data));\n    }\n}",
+      "learningOutcome": "Use StringBuilder.setLength() for instantaneous trailing delimiter truncation in enterprise SQL scripts."
+    },
+    {
+      "projectId": 12,
+      "title": "Hexadecimal & Binary Memory Dump Formatter",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "String.format() flags",
+        "%02X (uppercase two-digit hex)",
+        "%04X (offset hex counter)",
+        "Building Wireshark / Hex Editor style memory views"
+      ],
+      "description": "Create a binary hex-dumper similar to Linux xxd or Wireshark. Convert an array of raw bytes into a formatted multi-column display showing memory offset, hex representation (%02X), and printable ASCII characters.",
+      "exampleText": "Dump string bytes of \"Hello, Barrackpore!\"",
+      "exampleOutput": "OFFSET   HEX DUMP                                          ASCII\n----------------------------------------------------------------\n0000     48 65 6C 6C 6F 2C 20 42 61 72 72 61 63 6B 70 6F  Hello, Barrackpo\n0010     72 65 21                                         re!",
+      "answer": "public class HexDumpFormatter {\n    public static String formatHexDump(byte[] data) {\n        StringBuilder out = new StringBuilder();\n        out.append(String.format(\"%-8s %-48s  %s%n\", \"OFFSET\", \"HEX DUMP\", \"ASCII\"));\n        out.append(\"----------------------------------------------------------------\\n\");\n\n        for (int i = 0; i < data.length; i += 16) {\n            // Offset header\n            out.append(String.format(\"%04X     \", i));\n\n            // Hex bytes\n            StringBuilder hexPart = new StringBuilder();\n            StringBuilder asciiPart = new StringBuilder();\n\n            for (int j = 0; j < 16; j++) {\n                if (i + j < data.length) {\n                    byte b = data[i + j];\n                    hexPart.append(String.format(\"%02X \", b));\n                    char c = (char) b;\n                    asciiPart.append(c >= 32 && c <= 126 ? c : '.');\n                } else {\n                    hexPart.append(\"   \");\n                }\n            }\n            out.append(String.format(\"%-48s  %s%n\", hexPart.toString(), asciiPart.toString()));\n        }\n        return out.toString();\n    }\n\n    public static void main(String[] args) {\n        byte[] data = \"Hello, Barrackpore!\".getBytes();\n        System.out.print(formatHexDump(data));\n    }\n}",
+      "learningOutcome": "Format raw binary and byte streams into professional hex inspector views using %02X specifiers."
+    },
+    {
+      "projectId": 13,
+      "title": "Interactive ASCII Data Table Generator with Dynamic Column Widths",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "String.format() dynamic width",
+        "Padding and alignment (%-Ns)",
+        "Column border lines",
+        "StringBuilder assembly"
+      ],
+      "description": "Construct an automated ASCII table generator. Given arbitrary headers and 2D row data, calculate the maximum width of each column and dynamically generate clean ASCII grid borders with left and right aligned data.",
+      "exampleText": "Headers: [\"ID\", \"STUDENT NAME\", \"GRADE\", \"CITY\"], Rows: 3 trainee records",
+      "exampleOutput": "+-----+------------------+-------+--------------+\n| ID  | STUDENT NAME     | GRADE | CITY         |\n+-----+------------------+-------+--------------+\n| 101 | Joydeep Banerjee | A+    | Barrackpore  |\n| 102 | Sourav Mukherjee | A     | Shyamnagar   |\n| 103 | Tina Karmakar    | A+    | Ichapore     |\n+-----+------------------+-------+--------------+",
+      "answer": "public class AsciiTableGenerator {\n    public static String renderTable(String[] headers, String[][] rows) {\n        int cols = headers.length;\n        int[] widths = new int[cols];\n        for (int c = 0; c < cols; c++) widths[c] = headers[c].length();\n        for (String[] row : rows) {\n            for (int c = 0; c < cols; c++) widths[c] = Math.max(widths[c], row[c].length());\n        }\n\n        StringBuilder sb = new StringBuilder();\n        String border = buildBorder(widths);\n        sb.append(border).append(\"\\n\");\n\n        // Header row\n        sb.append(\"| \");\n        for (int c = 0; c < cols; c++) {\n            sb.append(String.format(\"%-\" + widths[c] + \"s | \", headers[c]));\n        }\n        sb.append(\"\\n\").append(border).append(\"\\n\");\n\n        // Data rows\n        for (String[] row : rows) {\n            sb.append(\"| \");\n            for (int c = 0; c < cols; c++) {\n                sb.append(String.format(\"%-\" + widths[c] + \"s | \", row[c]));\n            }\n            sb.append(\"\\n\");\n        }\n        sb.append(border);\n        return sb.toString();\n    }\n\n    private static String buildBorder(int[] widths) {\n        StringBuilder b = new StringBuilder(\"+\");\n        for (int w : widths) {\n            b.append(\"-\".repeat(w + 2)).append(\"+\");\n        }\n        return b.toString();\n    }\n\n    public static void main(String[] args) {\n        String[] headers = {\"ID\", \"STUDENT NAME\", \"GRADE\", \"CITY\"};\n        String[][] rows = {\n            {\"101\", \"Joydeep Banerjee\", \"A+\", \"Barrackpore\"},\n            {\"102\", \"Sourav Mukherjee\", \"A\", \"Shyamnagar\"},\n            {\"103\", \"Tina Karmakar\", \"A+\", \"Ichapore\"}\n        };\n        System.out.println(renderTable(headers, rows));\n    }\n}",
+      "learningOutcome": "Build flexible, dynamic CLI data tables using calculated width format strings."
+    },
+    {
+      "projectId": 14,
+      "title": "HTML Email Notification Template Engine using Java 15 Text Blocks",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Java 15 Text Blocks",
+        "HTML template design",
+        ".formatted() parameter binding",
+        "Zero quote-escaping"
+      ],
+      "description": "Develop an enterprise transactional email builder for student course admissions. Use multi-line Text Blocks to maintain clean HTML layout and style tags, and interpolate the student's name, course, batch date, and portal link via .formatted().",
+      "exampleText": "Generate welcome email for \"Debolina Paul\", Course: \"Core Java Mastery\", Batch: \"15-Oct-2026\"",
+      "exampleOutput": "<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    .card { font-family: sans-serif; border: 1px solid #e2e8f0; padding: 20px; }\n    .btn { background: #0284c7; color: white; padding: 10px 20px; text-decoration: none; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h2>Welcome to Coder & AccoTax, Debolina Paul!</h2>\n    <p>Your enrollment in <strong>Core Java Mastery</strong> is confirmed for <strong>15-Oct-2026</strong>.</p>\n    <a href=\"https://coderaccotax.co.in/portal\" class=\"btn\">Access Learning Portal</a>\n  </div>\n</body>\n</html>",
+      "answer": "public class EmailTemplateBuilder {\n    public static String generateWelcomeEmail(String studentName, String courseName, String batchDate) {\n        return \"\"\"\n                <!DOCTYPE html>\n                <html>\n                <head>\n                  <style>\n                    .card { font-family: sans-serif; border: 1px solid #e2e8f0; padding: 20px; }\n                    .btn { background: #0284c7; color: white; padding: 10px 20px; text-decoration: none; }\n                  </style>\n                </head>\n                <body>\n                  <div class=\"card\">\n                    <h2>Welcome to Coder & AccoTax, %s!</h2>\n                    <p>Your enrollment in <strong>%s</strong> is confirmed for <strong>%s</strong>.</p>\n                    <a href=\"https://coderaccotax.co.in/portal\" class=\"btn\">Access Learning Portal</a>\n                  </div>\n                </body>\n                </html>\n                \"\"\".formatted(studentName, courseName, batchDate);\n    }\n\n    public static void main(String[] args) {\n        System.out.println(generateWelcomeEmail(\"Debolina Paul\", \"Core Java Mastery\", \"15-Oct-2026\"));\n    }\n}",
+      "learningOutcome": "Construct elegant multi-line HTML emails natively in Java without external templating dependencies."
+    },
+    {
+      "projectId": 15,
+      "title": "Comprehensive Benchmark: String (+) vs StringBuilder vs StringBuffer",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "System.nanoTime()",
+        "String immutability O(N^2) penalty",
+        "StringBuilder unsynchronized speed",
+        "StringBuffer synchronization overhead",
+        "Garbage collection impact"
+      ],
+      "description": "Construct a reproducible performance micro-benchmark that appends 30,000 iterations using: 1) String with '+' concatenation, 2) StringBuilder, and 3) StringBuffer. Measure execution time in milliseconds and print a comparative summary table.",
+      "exampleText": "Execute 30,000 append iterations across all 3 textual mechanisms",
+      "exampleOutput": "Benchmark Results (30,000 iterations):\n1. String (+) Concatenation : ~850 ms  [High GC Churn, O(N^2)]\n2. StringBuilder (Mutable)  : ~2 ms    [Fastest, Zero Lock, O(N)]\n3. StringBuffer (Sync)      : ~4 ms    [Thread-Safe Lock Cost, O(N)]\nSpeedup: StringBuilder is over 400x faster than String (+)!",
+      "answer": "public class TextPerformanceBenchmark {\n    private static final int ITERATIONS = 30000;\n\n    public static void main(String[] args) {\n        // 1. String (+)\n        long start = System.currentTimeMillis();\n        String str = \"\";\n        for (int i = 0; i < ITERATIONS; i++) {\n            str += \"a\";\n        }\n        long strTime = System.currentTimeMillis() - start;\n\n        // 2. StringBuilder\n        start = System.currentTimeMillis();\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < ITERATIONS; i++) {\n            sb.append(\"a\");\n        }\n        long sbTime = System.currentTimeMillis() - start;\n\n        // 3. StringBuffer\n        start = System.currentTimeMillis();\n        StringBuffer sbuf = new StringBuffer();\n        for (int i = 0; i < ITERATIONS; i++) {\n            sbuf.append(\"a\");\n        }\n        long sbufTime = System.currentTimeMillis() - start;\n\n        System.out.println(\"Benchmark Results (\" + ITERATIONS + \" iterations):\");\n        System.out.printf(\"1. String (+) Concatenation : %4d ms  [High GC Churn, O(N^2)]%n\", strTime);\n        System.out.printf(\"2. StringBuilder (Mutable)  : %4d ms  [Fastest, Zero Lock, O(N)]%n\", sbTime);\n        System.out.printf(\"3. StringBuffer (Sync)      : %4d ms  [Thread-Safe Lock Cost, O(N)]%n\", sbufTime);\n        System.out.println(\"Conclusion: Always use StringBuilder for intensive single-threaded loop modifications.\");\n    }\n}",
+      "learningOutcome": "Quantify real-world performance differences and algorithmic complexity between Java's string implementations."
+    },
+    {
+      "projectId": 16,
+      "title": "DNA Genetic Sequence Mutation & Reverse Complement Engine",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "StringBuilder charAt() & setCharAt()",
+        "reverse()",
+        "Bioinformatics sequence manipulation",
+        "Complement mapping (A-T, C-G)"
+      ],
+      "description": "In bioinformatics, calculating the reverse complement of a DNA strand is a standard operation. Create an engine using StringBuilder to replace nucleotides with their complements (A<->T, C<->G) in-place and reverse the entire strand.",
+      "exampleText": "Input DNA strand: \"ATGCGATCGAAT\"",
+      "exampleOutput": "Original Strand   : ATGCGATCGAAT\nComplement Strand : TACGCTAGCTTA\nReverse Complement: ATTCGATCGCAT",
+      "answer": "public class DnaSequenceEngine {\n    public static String getReverseComplement(String dna) {\n        StringBuilder sb = new StringBuilder(dna);\n        // Replace with complements\n        for (int i = 0; i < sb.length(); i++) {\n            char ch = sb.charAt(i);\n            switch (ch) {\n                case 'A' -> sb.setCharAt(i, 'T');\n                case 'T' -> sb.setCharAt(i, 'A');\n                case 'C' -> sb.setCharAt(i, 'G');\n                case 'G' -> sb.setCharAt(i, 'C');\n            }\n        }\n        String complement = sb.toString();\n        String reverseComp = sb.reverse().toString();\n\n        System.out.println(\"Original Strand   : \" + dna);\n        System.out.println(\"Complement Strand : \" + complement);\n        System.out.println(\"Reverse Complement: \" + reverseComp);\n        return reverseComp;\n    }\n\n    public static void main(String[] args) {\n        getReverseComplement(\"ATGCGATCGAAT\");\n    }\n}",
+      "learningOutcome": "Utilize setCharAt() and reverse() for zero-copy character transformations in bioinformatics algorithms."
+    },
+    {
+      "projectId": 17,
+      "title": "Text Block Indentation Normalizer & Line Continuation Processor",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "stripIndent()",
+        "translateEscapes()",
+        "Line continuation with backslash (\\)",
+        "Whitespace preservation (\\s)"
+      ],
+      "description": "Demonstrate the compiler features of Java 15 Text Blocks: incidental whitespace stripping, splitting long paragraphs across code lines using the trailing backslash (\\) without creating newline characters, and preserving trailing spaces using \\s.",
+      "exampleText": "Compare multi-line text block with and without line continuations",
+      "exampleOutput": "Line Continuation Output:\nThis is a very long sentence that is written across three physical lines of Java code but renders as a single uninterrupted sentence without line breaks!\n\nPreserved Trailing Whitespace:\n[Line with 4 spaces]    |",
+      "answer": "public class TextBlockFeaturesDemo {\n    public static void main(String[] args) {\n        // Line continuation using trailing '\\'\n        String singleSentence = \"\"\"\n                This is a very long sentence \\\n                that is written across three physical lines of Java code \\\n                but renders as a single uninterrupted sentence without line breaks!\"\"\";\n\n        // Preserving trailing whitespace using '\\s'\n        String trailingSpaces = \"\"\"\n                Line with 4 spaces\\s\\s\\s\\s\"\"\";\n\n        System.out.println(\"Line Continuation Output:\");\n        System.out.println(singleSentence);\n        System.out.println(\"\\nPreserved Trailing Whitespace:\");\n        System.out.println(\"[\" + trailingSpaces.trim() + \"]    |\");\n    }\n}",
+      "learningOutcome": "Master Java Text Block whitespace semantics, escape translations, and line continuation backslashes."
+    },
+    {
+      "projectId": 18,
+      "title": "Automated Java POJO Class Scaffold & Code Generator",
+      "difficulty": "Advanced",
+      "concepts": [
+        "Java 15 Text Blocks",
+        ".formatted() method",
+        "StringBuilder loop assembly",
+        "Code scaffolding tools"
+      ],
+      "description": "Build an automated code generator that accepts a class name and list of fields, and generates complete, compilable Java source code containing private fields, constructor, getters, setters, and toString().",
+      "exampleText": "Generate POJO class \"Trainee\" with fields: [\"int id\", \"String name\", \"double score\"]",
+      "exampleOutput": "public class Trainee {\n    private int id;\n    private String name;\n    private double score;\n\n    public Trainee(int id, String name, double score) {\n        this.id = id;\n        this.name = name;\n        this.score = score;\n    }\n    // Getters, Setters, and toString() generated\n}",
+      "answer": "public class PojoCodeGenerator {\n    public static String generatePojo(String className, String[][] fields) {\n        StringBuilder fieldDecls = new StringBuilder();\n        StringBuilder constructorParams = new StringBuilder();\n        StringBuilder constructorBody = new StringBuilder();\n        StringBuilder gettersSetters = new StringBuilder();\n\n        for (String[] field : fields) {\n            String type = field[0];\n            String name = field[1];\n            String capName = Character.toUpperCase(name.charAt(0)) + name.substring(1);\n\n            fieldDecls.append(String.format(\"    private %s %s;%n\", type, name));\n            constructorParams.append(String.format(\"%s %s, \", type, name));\n            constructorBody.append(String.format(\"        this.%s = %s;%n\", name, name));\n            gettersSetters.append(String.format(\"    public %s get%s() { return %s; }%n\", type, capName, name));\n            gettersSetters.append(String.format(\"    public void set%s(%s %s) { this.%s = %s; }%n\", capName, type, name, name, name));\n        }\n\n        if (constructorParams.length() > 2) {\n            constructorParams.setLength(constructorParams.length() - 2);\n        }\n\n        return \"\"\"\n                public class %s {\n                %s\n                    public %s(%s) {\n                %s    }\n\n                %s}\n                \"\"\".formatted(className, fieldDecls, className, constructorParams, constructorBody, gettersSetters);\n    }\n\n    public static void main(String[] args) {\n        String[][] fields = {\n            {\"int\", \"id\"},\n            {\"String\", \"name\"},\n            {\"double\", \"score\"}\n        };\n        System.out.println(generatePojo(\"Trainee\", fields));\n    }\n}",
+      "learningOutcome": "Construct enterprise code generators by harmonizing Text Block skeletons with dynamic StringBuilder components."
+    },
+    {
+      "projectId": 19,
+      "title": "Buffer Pre-Sizing Optimizer & trimToSize() Memory Manager",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "trimToSize()",
+        "ensureCapacity()",
+        "Memory footprint reduction",
+        "JVM heap profiling"
+      ],
+      "description": "Demonstrate memory optimization in high-volume microservices. Use ensureCapacity() to accommodate large bursts of text, and once processing completes, invoke trimToSize() to shrink the backing array down to exact character count, releasing excess heap memory.",
+      "exampleText": "Allocate buffer with capacity 1000, write 50 characters, call trimToSize()",
+      "exampleOutput": "Initial Pre-Sized Capacity: 1000\nAfter Writing 50 chars    : Length = 50, Capacity = 1000 (950 unused chars in Heap!)\nAfter calling trimToSize(): Length = 50, Capacity = 50   (Excess memory freed!)",
+      "answer": "public class BufferMemoryOptimizer {\n    public static void main(String[] args) {\n        StringBuilder sb = new StringBuilder();\n        sb.ensureCapacity(1000);\n        System.out.println(\"Initial Pre-Sized Capacity: \" + sb.capacity());\n\n        sb.append(\"Sukanta Hui - Academic Hub Barrackpore, West Bengal\");\n        System.out.println(\"After Writing 50 chars    : Length = \" + sb.length() + \", Capacity = \" + sb.capacity() + \" (Unused space retained)\");\n\n        // Release unused capacity\n        sb.trimToSize();\n        System.out.println(\"After calling trimToSize(): Length = \" + sb.length() + \", Capacity = \" + sb.capacity() + \" (Excess memory freed!)\");\n    }\n}",
+      "learningOutcome": "Manage JVM heap consumption effectively using ensureCapacity() and trimToSize()."
+    },
+    {
+      "projectId": 20,
+      "title": "Concurrent Thread-Safe Telemetry & Metrics Ring Buffer",
+      "difficulty": "Advanced",
+      "concepts": [
+        "java.lang.StringBuffer",
+        "Simultaneous producer threads",
+        "Atomic snapshot extraction",
+        "Thread synchronization"
+      ],
+      "description": "Build an in-memory telemetry buffer using StringBuffer where multiple simulated API gateway threads simultaneously log HTTP status codes and response times. Extract thread-safe periodic snapshots for reporting without halting incoming traffic.",
+      "exampleText": "4 producer threads recording status codes into shared telemetry buffer",
+      "exampleOutput": "--- Telemetry Snapshot ---\n[STATUS: 200, LATENCY: 12ms]\n[STATUS: 200, LATENCY: 18ms]\n[STATUS: 500, LATENCY: 45ms]\n[STATUS: 200, LATENCY: 15ms]\nTotal Metrics Recorded: 4",
+      "answer": "public class TelemetryRingBuffer {\n    private final StringBuffer buffer = new StringBuffer();\n    private int totalMetrics = 0;\n\n    public synchronized void recordMetric(int status, int latencyMs) {\n        buffer.append(\"[STATUS: \").append(status)\n              .append(\", LATENCY: \").append(latencyMs).append(\"ms]\\n\");\n        totalMetrics++;\n    }\n\n    public synchronized String extractSnapshotAndClear() {\n        String snapshot = buffer.toString();\n        buffer.setLength(0); // clear for next window\n        return snapshot;\n    }\n\n    public synchronized int getTotalMetrics() { return totalMetrics; }\n\n    public static void main(String[] args) throws InterruptedException {\n        TelemetryRingBuffer telemetry = new TelemetryRingBuffer();\n        Thread t1 = new Thread(() -> telemetry.recordMetric(200, 12));\n        Thread t2 = new Thread(() -> telemetry.recordMetric(200, 18));\n        Thread t3 = new Thread(() -> telemetry.recordMetric(500, 45));\n        Thread t4 = new Thread(() -> telemetry.recordMetric(200, 15));\n\n        t1.start(); t2.start(); t3.start(); t4.start();\n        t1.join(); t2.join(); t3.join(); t4.join();\n\n        System.out.println(\"--- Telemetry Snapshot ---\\n\" + telemetry.extractSnapshotAndClear().trim());\n        System.out.println(\"Total Metrics Recorded: \" + telemetry.getTotalMetrics());\n    }\n}",
+      "learningOutcome": "Design thread-safe in-memory metric collectors with atomic snapshot and reset capabilities."
+    },
+    {
+      "projectId": 21,
+      "title": "Roman Numeral to Integer & Integer to Roman Converter",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "StringBuilder append",
+        "Algorithmic subtraction loops",
+        "Greedy symbol matching",
+        "Text builder optimization"
+      ],
+      "description": "Implement a bidirectional Roman Numeral conversion utility. Use a StringBuilder to assemble the Roman numeral string efficiently by iteratively appending matched numeral symbols (M, CM, D, CD, C, XC, L, XL, X, IX, V, IV, I) in descending value order.",
+      "exampleText": "Convert 1994, 2026, 49 into Roman numerals",
+      "exampleOutput": "Integer: 1994 -> Roman: MCMXCIV\nInteger: 2026 -> Roman: MMXXVI\nInteger: 49   -> Roman: XLIX",
+      "answer": "public class RomanNumeralConverter {\n    private static final int[] VALUES = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};\n    private static final String[] SYMBOLS = {\"M\", \"CM\", \"D\", \"CD\", \"C\", \"XC\", \"L\", \"XL\", \"X\", \"IX\", \"V\", \"IV\", \"I\"};\n\n    public static String toRoman(int num) {\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < VALUES.length; i++) {\n            while (num >= VALUES[i]) {\n                num -= VALUES[i];\n                sb.append(SYMBOLS[i]);\n            }\n        }\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        System.out.println(\"Integer: 1994 -> Roman: \" + toRoman(1994));\n        System.out.println(\"Integer: 2026 -> Roman: \" + toRoman(2026));\n        System.out.println(\"Integer: 49   -> Roman: \" + toRoman(49));\n    }\n}",
+      "learningOutcome": "Apply StringBuilder in algorithmic greedy-matching number systems and symbol decoders."
+    },
+    {
+      "projectId": 22,
+      "title": "Multi-Line Configuration File Parser & INI/YAML Formatter",
+      "difficulty": "Intermediate",
+      "concepts": [
+        "Java 15 Text Blocks",
+        "StringBuilder structured output",
+        "Property key-value pairing",
+        "Format flags (%-20s)"
+      ],
+      "description": "Construct an application configuration generator that serializes database, server, and security properties into a standardized properties/YAML file layout. Utilize Text Blocks for structural comments and StringBuilder with formatting flags for clean key-value column alignment.",
+      "exampleText": "Format application properties: db.host, db.port, db.user, server.port, app.env",
+      "exampleOutput": "# ==========================================================\n# ENTERPRISE MICROSERVICE APPLICATION CONFIGURATION\n# HUB: Barrackpore | Academic: Coder & AccoTax\n# ==========================================================\n\napp.environment      = PRODUCTION\nserver.port          = 8080\ndatabase.host        = db.cluster.coderaccotax.internal\ndatabase.port        = 5432\ndatabase.username    = svc_trainee_master",
+      "answer": "import java.util.LinkedHashMap;\nimport java.util.Map;\n\npublic class ConfigFileFormatter {\n    public static String buildConfigFile(Map<String, Object> props) {\n        String header = \"\"\"\n                # ==========================================================\n                # ENTERPRISE MICROSERVICE APPLICATION CONFIGURATION\n                # HUB: Barrackpore | Academic: Coder & AccoTax\n                # ==========================================================\n                \"\"\";\n\n        StringBuilder sb = new StringBuilder(header);\n        for (Map.Entry<String, Object> entry : props.entrySet()) {\n            sb.append(String.format(\"%-20s = %s%n\", entry.getKey(), entry.getValue()));\n        }\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        Map<String, Object> config = new LinkedHashMap<>();\n        config.put(\"app.environment\", \"PRODUCTION\");\n        config.put(\"server.port\", 8080);\n        config.put(\"database.host\", \"db.cluster.coderaccotax.internal\");\n        config.put(\"database.port\", 5432);\n        config.put(\"database.username\", \"svc_trainee_master\");\n\n        System.out.println(buildConfigFile(config));\n    }\n}",
+      "learningOutcome": "Synthesize Text Blocks and formatted StringBuilders to generate enterprise configuration files."
+    }
+  ]
+}

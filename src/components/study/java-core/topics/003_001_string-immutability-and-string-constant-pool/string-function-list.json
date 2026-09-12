@@ -1,0 +1,1571 @@
+[
+  {
+    "id": "fn_str_length",
+    "name": "length",
+    "signature": "public int length()",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns the length of this string, which is equal to the number of 16-bit Unicode characters (code units) contained in the sequence. If the string is empty (\" \"), returns 0. For supplementary Unicode characters (e.g., emojis), each surrogate pair counts as 2 code units toward this length.",
+    "example": "String s = \"Barrackpore\";\nSystem.out.println(\"Length: \" + s.length());",
+    "exampleOutput": "Length: 11",
+    "notes": "length is a method in String (s.length()), whereas length is a field on Java arrays (arr.length)."
+  },
+  {
+    "id": "fn_str_isEmpty",
+    "name": "isEmpty",
+    "signature": "public boolean isEmpty()",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.6",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns true if, and only if, length() is 0. Unlike isBlank(), a string containing one or more whitespace characters (e.g. \" \") returns false.",
+    "example": "String s1 = \"\";\nString s2 = \"   \";\nSystem.out.println(\"s1: \" + s1.isEmpty());\nSystem.out.println(\"s2: \" + s2.isEmpty());",
+    "exampleOutput": "s1: true\ns2: false",
+    "notes": "Always verify that the string reference is not null before invoking isEmpty(), or use Objects.requireNonNullElse(str, \"\").isEmpty()."
+  },
+  {
+    "id": "fn_str_isBlank",
+    "name": "isBlank",
+    "signature": "public boolean isBlank()",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 11",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns true if the string is empty or contains only white space code points according to Character.isWhitespace(int). Handles all Unicode white spaces (including non-breaking spaces, em spaces, tabs, and line breaks).",
+    "example": "String s1 = \"\\t \\n \";\nString s2 = \" Java \";\nSystem.out.println(\"s1 isBlank: \" + s1.isBlank());\nSystem.out.println(\"s2 isBlank: \" + s2.isBlank());",
+    "exampleOutput": "s1 isBlank: true\ns2 isBlank: false",
+    "notes": "Prefer isBlank() over custom trim().isEmpty() checks, as isBlank() avoids allocating temporary stripped string instances on the heap."
+  },
+  {
+    "id": "fn_str_charAt",
+    "name": "charAt",
+    "signature": "public char charAt(int index)",
+    "returnType": "char",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "The zero-based index of the char value to retrieve (0 <= index < length())"
+      }
+    ],
+    "use": "Returns the 16-bit char value at the specified zero-based index. Throws IndexOutOfBoundsException if the index is negative or not less than the length of this string.",
+    "example": "String s = \"Master\";\nSystem.out.println(\"First char: \" + s.charAt(0));\nSystem.out.println(\"Last char: \" + s.charAt(s.length() - 1));",
+    "exampleOutput": "First char: M\nLast char: r",
+    "notes": "Strings do not support array indexing syntax (s[0] is illegal in Java). Always use s.charAt(index)."
+  },
+  {
+    "id": "fn_str_codePointAt",
+    "name": "codePointAt",
+    "signature": "public int codePointAt(int index)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "The index to the char values (Unicode code units)"
+      }
+    ],
+    "use": "Returns the character (Unicode code point) at the specified index. If the char value at the given index is in the high-surrogate range and the following index is in the low-surrogate range, the supplementary 32-bit code point is returned.",
+    "example": "String emoji = \"😀\";\nSystem.out.println(\"Code Point: \" + emoji.codePointAt(0));\nSystem.out.println(\"Hex: U+\" + Integer.toHexString(emoji.codePointAt(0)).toUpperCase());",
+    "exampleOutput": "Code Point: 128512\nHex: U+1F600",
+    "notes": "Essential when building internationalized software handling emojis, mathematical symbols, and historic Asian scripts."
+  },
+  {
+    "id": "fn_str_codePointBefore",
+    "name": "codePointBefore",
+    "signature": "public int codePointBefore(int index)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "The index following the code point that should be returned (1 <= index <= length())"
+      }
+    ],
+    "use": "Returns the character (Unicode code point) before the specified index. If the char value at index - 1 is a low surrogate and index - 2 is a high surrogate, the combined supplementary code point is returned.",
+    "example": "String s = \"Java\";\nSystem.out.println(\"Before index 1: \" + (char) s.codePointBefore(1));",
+    "exampleOutput": "Before index 1: J",
+    "notes": "Throws IndexOutOfBoundsException if index is less than 1 or greater than length()."
+  },
+  {
+    "id": "fn_str_codePointCount",
+    "name": "codePointCount",
+    "signature": "public int codePointCount(int beginIndex, int endIndex)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "beginIndex",
+        "type": "int",
+        "description": "The index to the first char of the text range"
+      },
+      {
+        "name": "endIndex",
+        "type": "int",
+        "description": "The index after the last char of the text range"
+      }
+    ],
+    "use": "Returns the number of Unicode code points in the specified text range of this String. Text with surrogate pairs (like emojis) has fewer code points than code units (length).",
+    "example": "String emoji = \"Java😀\";\nSystem.out.println(\"Code units (length): \" + emoji.length());\nSystem.out.println(\"Actual code points: \" + emoji.codePointCount(0, emoji.length()));",
+    "exampleOutput": "Code units (length): 6\nActual code points: 5",
+    "notes": "Use codePointCount to calculate true character counts for user-facing text length constraints."
+  },
+  {
+    "id": "fn_str_offsetByCodePoints",
+    "name": "offsetByCodePoints",
+    "signature": "public int offsetByCodePoints(int index, int codePointOffset)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Inspection & Character Access",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "index",
+        "type": "int",
+        "description": "The starting index"
+      },
+      {
+        "name": "codePointOffset",
+        "type": "int",
+        "description": "The offset in code points"
+      }
+    ],
+    "use": "Returns the index within this String that is offset from the given index by codePointOffset code points. Unpaired surrogates within the text range count as one code point each.",
+    "example": "String s = \"A😀B\";\nint nextIdx = s.offsetByCodePoints(1, 1);\nSystem.out.println(\"Index of 'B': \" + nextIdx);",
+    "exampleOutput": "Index of 'B': 3",
+    "notes": "Crucial for stepping through strings with mixed ASCII and 4-byte Unicode characters without splitting surrogate pairs."
+  },
+  {
+    "id": "fn_str_indexOf_char",
+    "name": "indexOf",
+    "signature": "public int indexOf(int ch)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "ch",
+        "type": "int",
+        "description": "A character (Unicode code point)"
+      }
+    ],
+    "use": "Returns the index of the first occurrence of the character in this string. Returns -1 if the character does not occur.",
+    "example": "String s = \"Barrackpore\";\nSystem.out.println(\"First 'r': \" + s.indexOf('r'));\nSystem.out.println(\"Missing 'z': \" + s.indexOf('z'));",
+    "exampleOutput": "First 'r': 2\nMissing 'z': -1",
+    "notes": "The parameter is an int (accepts char via widening conversion, or any 32-bit Unicode code point)."
+  },
+  {
+    "id": "fn_str_indexOf_char_fromIndex",
+    "name": "indexOf",
+    "signature": "public int indexOf(int ch, int fromIndex)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "ch",
+        "type": "int",
+        "description": "A character (Unicode code point)"
+      },
+      {
+        "name": "fromIndex",
+        "type": "int",
+        "description": "The index to start the search from"
+      }
+    ],
+    "use": "Returns the index of the first occurrence of the character in this string at or after fromIndex. If fromIndex is negative, the entire string is searched (treated as 0). If fromIndex is greater than length, -1 is returned.",
+    "example": "String s = \"banana\";\nint first = s.indexOf('a');\nint second = s.indexOf('a', first + 1);\nSystem.out.println(\"First: \" + first + \", Second: \" + second);",
+    "exampleOutput": "First: 1, Second: 3",
+    "notes": "Ideal for iterating through a string to find all occurrences of a delimiter or character."
+  },
+  {
+    "id": "fn_str_indexOf_str",
+    "name": "indexOf",
+    "signature": "public int indexOf(String str)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The substring to search for"
+      }
+    ],
+    "use": "Returns the index within this string of the first occurrence of the specified substring. Returns -1 if the substring does not occur. If str is empty (\" \"), returns 0.",
+    "example": "String s = \"Spring Boot Java\";\nSystem.out.println(\"Index of 'Boot': \" + s.indexOf(\"Boot\"));",
+    "exampleOutput": "Index of 'Boot': 7",
+    "notes": "Case-sensitive comparison. Use toLowerCase() on both strings or regex Pattern with CASE_INSENSITIVE for case-insensitive search."
+  },
+  {
+    "id": "fn_str_indexOf_str_fromIndex",
+    "name": "indexOf",
+    "signature": "public int indexOf(String str, int fromIndex)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The substring to search for"
+      },
+      {
+        "name": "fromIndex",
+        "type": "int",
+        "description": "The index to start searching forward from"
+      }
+    ],
+    "use": "Returns the index of the first occurrence of the substring starting at the specified index. If fromIndex >= length(), returns -1 (unless str is empty, which returns length()).",
+    "example": "String s = \"one fish two fish\";\nSystem.out.println(\"Second 'fish': \" + s.indexOf(\"fish\", 5));",
+    "exampleOutput": "Second 'fish': 13",
+    "notes": "Internally uses vectorized intrinsics in HotSpot JVM for fast linear search."
+  },
+  {
+    "id": "fn_str_lastIndexOf_char",
+    "name": "lastIndexOf",
+    "signature": "public int lastIndexOf(int ch)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "ch",
+        "type": "int",
+        "description": "A character (Unicode code point)"
+      }
+    ],
+    "use": "Returns the index of the last occurrence of the character in this string, searching backwards starting from length() - 1. Returns -1 if the character is not found.",
+    "example": "String file = \"report.final.pdf\";\nint dot = file.lastIndexOf('.');\nSystem.out.println(\"Extension starts at: \" + dot);",
+    "exampleOutput": "Extension starts at: 12",
+    "notes": "Commonly used for parsing file extensions, URLs, and trailing directory delimiters."
+  },
+  {
+    "id": "fn_str_lastIndexOf_char_fromIndex",
+    "name": "lastIndexOf",
+    "signature": "public int lastIndexOf(int ch, int fromIndex)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "ch",
+        "type": "int",
+        "description": "A character (Unicode code point)"
+      },
+      {
+        "name": "fromIndex",
+        "type": "int",
+        "description": "The index to start searching backward from"
+      }
+    ],
+    "use": "Returns the index of the last occurrence of the character, searching backwards starting at the specified index fromIndex. If fromIndex >= length(), searches from length() - 1. If fromIndex < 0, returns -1.",
+    "example": "String s = \"banana\";\nSystem.out.println(\"Last 'a' before index 4: \" + s.lastIndexOf('a', 4));",
+    "exampleOutput": "Last 'a' before index 4: 3",
+    "notes": "Searches from right to left starting from fromIndex."
+  },
+  {
+    "id": "fn_str_lastIndexOf_str",
+    "name": "lastIndexOf",
+    "signature": "public int lastIndexOf(String str)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The substring to search for"
+      }
+    ],
+    "use": "Returns the index of the rightmost occurrence of the specified substring. Returns -1 if not found. If str is empty, returns length().",
+    "example": "String path = \"/users/admin/data/config.json\";\nint lastSlash = path.lastIndexOf(\"/\");\nSystem.out.println(\"File name starts at: \" + (lastSlash + 1));",
+    "exampleOutput": "File name starts at: 18",
+    "notes": "Often paired with substring(lastSlash + 1) to extract the basename of a path."
+  },
+  {
+    "id": "fn_str_lastIndexOf_str_fromIndex",
+    "name": "lastIndexOf",
+    "signature": "public int lastIndexOf(String str, int fromIndex)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The substring to search for"
+      },
+      {
+        "name": "fromIndex",
+        "type": "int",
+        "description": "The index to start the backward search from"
+      }
+    ],
+    "use": "Returns the index of the rightmost occurrence of the specified substring at or before fromIndex.",
+    "example": "String s = \"cat dog cat dog\";\nSystem.out.println(\"Match: \" + s.lastIndexOf(\"cat\", 10));",
+    "exampleOutput": "Match: 8",
+    "notes": "Throws NullPointerException if str is null."
+  },
+  {
+    "id": "fn_str_contains",
+    "name": "contains",
+    "signature": "public boolean contains(CharSequence s)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "s",
+        "type": "CharSequence",
+        "description": "The sequence to search for (e.g. String, StringBuilder)"
+      }
+    ],
+    "use": "Returns true if and only if this string contains the specified sequence of char values. Equivalent to indexOf(s.toString()) >= 0. Case-sensitive.",
+    "example": "String sentence = \"Coder and AccoTax in Barrackpore\";\nSystem.out.println(\"Has AccoTax: \" + sentence.contains(\"AccoTax\"));\nSystem.out.println(\"Has Python: \" + sentence.contains(\"Python\"));",
+    "exampleOutput": "Has AccoTax: true\nHas Python: false",
+    "notes": "Accepts any CharSequence, meaning you can pass a StringBuilder or StringBuffer directly without converting to String first."
+  },
+  {
+    "id": "fn_str_startsWith",
+    "name": "startsWith",
+    "signature": "public boolean startsWith(String prefix)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "prefix",
+        "type": "String",
+        "description": "The prefix to test"
+      }
+    ],
+    "use": "Tests if this string starts with the specified prefix. Returns true if the character sequence represented by the argument is a prefix of this string; false otherwise. Always returns true if prefix is empty.",
+    "example": "String url = \"https://www.codernaccotax.co.in\";\nSystem.out.println(\"Secure URL: \" + url.startsWith(\"https://\"));",
+    "exampleOutput": "Secure URL: true",
+    "notes": "Case-sensitive comparison. Faster than regex or substring comparisons."
+  },
+  {
+    "id": "fn_str_startsWith_offset",
+    "name": "startsWith",
+    "signature": "public boolean startsWith(String prefix, int toOffset)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "prefix",
+        "type": "String",
+        "description": "The prefix to test"
+      },
+      {
+        "name": "toOffset",
+        "type": "int",
+        "description": "Where to begin looking in this string"
+      }
+    ],
+    "use": "Tests if the substring of this string beginning at the specified index starts with the specified prefix. Returns false if toOffset is negative or greater than length().",
+    "example": "String s = \"order-REF-10029\";\nSystem.out.println(\"Has REF at 6: \" + s.startsWith(\"REF\", 6));",
+    "exampleOutput": "Has REF at 6: true",
+    "notes": "Avoids creating a substring before calling startsWith, saving heap allocation."
+  },
+  {
+    "id": "fn_str_endsWith",
+    "name": "endsWith",
+    "signature": "public boolean endsWith(String suffix)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "suffix",
+        "type": "String",
+        "description": "The suffix to test"
+      }
+    ],
+    "use": "Tests if this string ends with the specified suffix. Equivalent to startsWith(suffix, length() - suffix.length()). Always returns true if suffix is empty.",
+    "example": "String file = \"Resume.pdf\";\nSystem.out.println(\"Is PDF: \" + file.endsWith(\".pdf\"));",
+    "exampleOutput": "Is PDF: true",
+    "notes": "Case-sensitive. If you need case-insensitive suffix checking, use file.toLowerCase().endsWith(\".pdf\")."
+  },
+  {
+    "id": "fn_str_matches",
+    "name": "matches",
+    "signature": "public boolean matches(String regex)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Search & Matching",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "regex",
+        "type": "String",
+        "description": "The regular expression to which this string is to be matched"
+      }
+    ],
+    "use": "Tells whether or not this string matches the given regular expression. Compiles the regex and checks Pattern.matches(regex, str). Matches the ENTIRE string, not just a subsequence.",
+    "example": "String pin = \"743122\";\nSystem.out.println(\"Valid 6-digit PIN: \" + pin.matches(\"\\\\d{6}\"));\nSystem.out.println(\"Alpha match: \" + \"abc\".matches(\"\\\\d{3}\"));",
+    "exampleOutput": "Valid 6-digit PIN: true\nAlpha match: false",
+    "notes": "Compiles Pattern on every call. In performance-critical code or loops, precompile with Pattern.compile(regex) instead."
+  },
+  {
+    "id": "fn_str_equals",
+    "name": "equals",
+    "signature": "public boolean equals(Object anObject)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "anObject",
+        "type": "Object",
+        "description": "The object to compare this String against"
+      }
+    ],
+    "use": "Compares this string to the specified object. The result is true if and only if the argument is not null and is a String object that represents the same sequence of characters as this object. Reference equality (==) is checked first for high speed.",
+    "example": "String s1 = \"Java\";\nString s2 = new String(\"Java\");\nSystem.out.println(\"== : \" + (s1 == s2));\nSystem.out.println(\"equals: \" + s1.equals(s2));",
+    "exampleOutput": "== : false\nequals: true",
+    "notes": "Always use \"CONSTANT\".equals(variable) to avoid NullPointerException when the variable might be null."
+  },
+  {
+    "id": "fn_str_equalsIgnoreCase",
+    "name": "equalsIgnoreCase",
+    "signature": "public boolean equalsIgnoreCase(String anotherString)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "anotherString",
+        "type": "String",
+        "description": "The String to compare this String against"
+      }
+    ],
+    "use": "Compares this String to another String, ignoring case considerations. Two strings are considered equal if they are of the same length and corresponding characters are equal ignoring case. Returns false if anotherString is null.",
+    "example": "String s1 = \"ADMIN\";\nString s2 = \"admin\";\nSystem.out.println(\"Match: \" + s1.equalsIgnoreCase(s2));",
+    "exampleOutput": "Match: true",
+    "notes": "Faster and more memory-friendly than s1.toLowerCase().equals(s2.toLowerCase()), because it avoids creating temporary string copies."
+  },
+  {
+    "id": "fn_str_contentEquals_cs",
+    "name": "contentEquals",
+    "signature": "public boolean contentEquals(CharSequence cs)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "cs",
+        "type": "CharSequence",
+        "description": "The sequence to compare this String against (e.g., StringBuffer, StringBuilder, CharBuffer)"
+      }
+    ],
+    "use": "Compares this string to the specified CharSequence. Returns true if and only if this String represents the same sequence of char values as the specified sequence. Synchronizes if cs is a StringBuffer.",
+    "example": "String s = \"Code\";\nStringBuilder sb = new StringBuilder(\"Code\");\nSystem.out.println(\"equals: \" + s.equals(sb));\nSystem.out.println(\"contentEquals: \" + s.contentEquals(sb));",
+    "exampleOutput": "equals: false\ncontentEquals: true",
+    "notes": "Essential because String.equals() always returns false when passed a StringBuilder."
+  },
+  {
+    "id": "fn_str_contentEquals_sb",
+    "name": "contentEquals",
+    "signature": "public boolean contentEquals(StringBuffer sb)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "sb",
+        "type": "StringBuffer",
+        "description": "The StringBuffer to compare this String against"
+      }
+    ],
+    "use": "Specialized overload for StringBuffer that synchronizes on the buffer to ensure thread-safe content inspection.",
+    "example": "String s = \"TATA\";\nStringBuffer sb = new StringBuffer(\"TATA\");\nSystem.out.println(\"Matches: \" + s.contentEquals(sb));",
+    "exampleOutput": "Matches: true",
+    "notes": "Thread-safe when comparing against a shared StringBuffer instance."
+  },
+  {
+    "id": "fn_str_compareTo",
+    "name": "compareTo",
+    "signature": "public int compareTo(String anotherString)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.2",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "anotherString",
+        "type": "String",
+        "description": "The String to be compared"
+      }
+    ],
+    "use": "Compares two strings lexicographically based on the Unicode value of each character. Returns 0 if equal, a negative integer if this string lexicographically precedes the argument, or a positive integer if this string follows it. Implements Comparable<String>.",
+    "example": "String a = \"Apple\";\nString b = \"Banana\";\nSystem.out.println(\"Comparison: \" + a.compareTo(b));\nSystem.out.println(\"Identical: \" + a.compareTo(\"Apple\"));",
+    "exampleOutput": "Comparison: -1\nIdentical: 0",
+    "notes": "If one string is a prefix of another, returns the difference in lengths (this.length() - anotherString.length())."
+  },
+  {
+    "id": "fn_str_compareToIgnoreCase",
+    "name": "compareToIgnoreCase",
+    "signature": "public int compareToIgnoreCase(String str)",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.2",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "str",
+        "type": "String",
+        "description": "The String to be compared"
+      }
+    ],
+    "use": "Compares two strings lexicographically, ignoring case differences. Normalized using Character.toLowerCase(Character.toUpperCase(character)).",
+    "example": "String a = \"apple\";\nString b = \"APPLE\";\nSystem.out.println(\"Case-insensitive: \" + a.compareToIgnoreCase(b));",
+    "exampleOutput": "Case-insensitive: 0",
+    "notes": "Commonly passed as a comparator (String.CASE_INSENSITIVE_ORDER) to sort lists or arrays ignoring case."
+  },
+  {
+    "id": "fn_str_regionMatches",
+    "name": "regionMatches",
+    "signature": "public boolean regionMatches(int toffset, String other, int ooffset, int len)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "toffset",
+        "type": "int",
+        "description": "The starting offset of the subregion in this string"
+      },
+      {
+        "name": "other",
+        "type": "String",
+        "description": "The string argument"
+      },
+      {
+        "name": "ooffset",
+        "type": "int",
+        "description": "The starting offset of the subregion in the string argument"
+      },
+      {
+        "name": "len",
+        "type": "int",
+        "description": "The number of characters to compare"
+      }
+    ],
+    "use": "Tests if two string regions are equal. A substring of this String object is compared to a substring of the argument other. Returns false if any offset is negative or out of bounds.",
+    "example": "String s1 = \"Order-10029\";\nString s2 = \"Invoice-10029\";\nSystem.out.println(\"Same ID: \" + s1.regionMatches(6, s2, 8, 5));",
+    "exampleOutput": "Same ID: true",
+    "notes": "Compares subregions without creating intermediate substring objects, making it very memory efficient."
+  },
+  {
+    "id": "fn_str_regionMatches_ignoreCase",
+    "name": "regionMatches",
+    "signature": "public boolean regionMatches(boolean ignoreCase, int toffset, String other, int ooffset, int len)",
+    "returnType": "boolean",
+    "classSource": "String",
+    "category": "Comparison & Equality",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "ignoreCase",
+        "type": "boolean",
+        "description": "If true, ignore case when comparing characters"
+      },
+      {
+        "name": "toffset",
+        "type": "int",
+        "description": "The starting offset in this string"
+      },
+      {
+        "name": "other",
+        "type": "String",
+        "description": "The other string argument"
+      },
+      {
+        "name": "ooffset",
+        "type": "int",
+        "description": "The starting offset in the other string"
+      },
+      {
+        "name": "len",
+        "type": "int",
+        "description": "The number of characters to compare"
+      }
+    ],
+    "use": "Tests if two string regions are equal, with optional case insensitivity.",
+    "example": "String s1 = \"Order-CONFIRMED\";\nString s2 = \"status:confirmed\";\nSystem.out.println(\"Match: \" + s1.regionMatches(true, 6, s2, 7, 9));",
+    "exampleOutput": "Match: true",
+    "notes": "Provides zero-allocation case-insensitive partial substring comparisons."
+  },
+  {
+    "id": "fn_str_substring_begin",
+    "name": "substring",
+    "signature": "public String substring(int beginIndex)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Substrings & Slicing",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "beginIndex",
+        "type": "int",
+        "description": "The beginning index, inclusive (0 <= beginIndex <= length())"
+      }
+    ],
+    "use": "Returns a string that is a substring of this string. The substring begins with the character at the specified index and extends to the end of this string.",
+    "example": "String s = \"Kolkata\";\nSystem.out.println(\"Sub: \" + s.substring(3));",
+    "exampleOutput": "Sub: kata",
+    "notes": "If beginIndex is 0, returns 'this' exact reference without creating a new object on HotSpot JVM."
+  },
+  {
+    "id": "fn_str_substring_begin_end",
+    "name": "substring",
+    "signature": "public String substring(int beginIndex, int endIndex)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Substrings & Slicing",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "beginIndex",
+        "type": "int",
+        "description": "The beginning index, inclusive"
+      },
+      {
+        "name": "endIndex",
+        "type": "int",
+        "description": "The ending index, exclusive"
+      }
+    ],
+    "use": "Returns a string that is a substring of this string. The substring begins at the specified beginIndex and extends to the character at index endIndex - 1. Thus the length of the substring is endIndex - beginIndex.",
+    "example": "String s = \"Barrackpore\";\nSystem.out.println(\"Slice: \" + s.substring(0, 8));",
+    "exampleOutput": "Slice: Barrackp",
+    "notes": "Throws IndexOutOfBoundsException if beginIndex < 0, endIndex > length(), or beginIndex > endIndex."
+  },
+  {
+    "id": "fn_str_subSequence",
+    "name": "subSequence",
+    "signature": "public CharSequence subSequence(int beginIndex, int endIndex)",
+    "returnType": "CharSequence",
+    "classSource": "String",
+    "category": "Substrings & Slicing",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "beginIndex",
+        "type": "int",
+        "description": "The beginning index, inclusive"
+      },
+      {
+        "name": "endIndex",
+        "type": "int",
+        "description": "The ending index, exclusive"
+      }
+    ],
+    "use": "Returns a new character sequence that is a subsequence of this sequence. An invocation of this method of the form str.subSequence(begin, end) behaves in exactly the same way as str.substring(begin, end). Implements CharSequence.",
+    "example": "CharSequence cs = \"Enterprise\";\nSystem.out.println(cs.subSequence(0, 5));",
+    "exampleOutput": "Enter",
+    "notes": "Useful when writing generalized algorithms that operate on any CharSequence."
+  },
+  {
+    "id": "fn_str_toLowerCase",
+    "name": "toLowerCase",
+    "signature": "public String toLowerCase()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Converts all characters in this String to lower case using the rules of the default locale. If no characters in the string need conversion, returns 'this' original string.",
+    "example": "String s = \"JAVA CORE\";\nSystem.out.println(s.toLowerCase());",
+    "exampleOutput": "java core",
+    "notes": "In international apps, prefer toLowerCase(Locale.ROOT) to prevent locale-specific casing anomalies."
+  },
+  {
+    "id": "fn_str_toLowerCase_locale",
+    "name": "toLowerCase",
+    "signature": "public String toLowerCase(Locale locale)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 1.1",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "locale",
+        "type": "Locale",
+        "description": "Use the case transformation rules for this locale"
+      }
+    ],
+    "use": "Converts all characters in this String to lower case using the rules of the given Locale.",
+    "example": "String s = \"TITLE\";\nSystem.out.println(s.toLowerCase(java.util.Locale.ROOT));",
+    "exampleOutput": "title",
+    "notes": "Locale.ROOT provides uniform, predictable ASCII case conversions across all operating systems."
+  },
+  {
+    "id": "fn_str_toUpperCase",
+    "name": "toUpperCase",
+    "signature": "public String toUpperCase()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Converts all characters in this String to upper case using the rules of the default locale.",
+    "example": "String s = \"sukanta hui\";\nSystem.out.println(s.toUpperCase());",
+    "exampleOutput": "SUKANTA HUI",
+    "notes": "String immutability means s remains unchanged; you must reassign or consume the return value."
+  },
+  {
+    "id": "fn_str_toUpperCase_locale",
+    "name": "toUpperCase",
+    "signature": "public String toUpperCase(Locale locale)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 1.1",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "locale",
+        "type": "Locale",
+        "description": "Use the case transformation rules for this locale"
+      }
+    ],
+    "use": "Converts all characters in this String to upper case using the rules of the given Locale.",
+    "example": "String s = \"invoice\";\nSystem.out.println(s.toUpperCase(java.util.Locale.ENGLISH));",
+    "exampleOutput": "INVOICE",
+    "notes": "Always pass a locale when building protocol parsers or database identifiers."
+  },
+  {
+    "id": "fn_str_trim",
+    "name": "trim",
+    "signature": "public String trim()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with all leading and trailing space removed, where space is defined as any character whose code point is less than or equal to 'U+0020' (the ASCII space).",
+    "example": "String s = \"  Hello World  \";\nSystem.out.println(\"[\" + s.trim() + \"]\");",
+    "exampleOutput": "[Hello World]",
+    "notes": "Does not remove full Unicode whitespace (like non-breaking space \\u00A0). Use strip() in Java 11+ for Unicode."
+  },
+  {
+    "id": "fn_str_strip",
+    "name": "strip",
+    "signature": "public String strip()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 11",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with all leading and trailing white space removed. Unicode-aware: uses Character.isWhitespace(int).",
+    "example": "String s = \"\\u2005 Java 21 \\u2005\";\nSystem.out.println(\"[\" + s.strip() + \"]\");",
+    "exampleOutput": "[Java 21]",
+    "notes": "Modern replacement for trim(). Handles all Unicode whitespace characters correctly."
+  },
+  {
+    "id": "fn_str_stripLeading",
+    "name": "stripLeading",
+    "signature": "public String stripLeading()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 11",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with all leading white space removed. Leaves trailing whitespace intact.",
+    "example": "String s = \"   indented text   \";\nSystem.out.println(\"[\" + s.stripLeading() + \"]\");",
+    "exampleOutput": "[indented text   ]",
+    "notes": "Ideal for parsing code blocks or indented configuration text lines."
+  },
+  {
+    "id": "fn_str_stripTrailing",
+    "name": "stripTrailing",
+    "signature": "public String stripTrailing()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 11",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with all trailing white space removed. Leaves leading whitespace intact.",
+    "example": "String s = \"   indented text   \";\nSystem.out.println(\"[\" + s.stripTrailing() + \"]\");",
+    "exampleOutput": "[   indented text]",
+    "notes": "Great for cleaning up trailing spaces in source code formatters."
+  },
+  {
+    "id": "fn_str_stripIndent",
+    "name": "stripIndent",
+    "signature": "public String stripIndent()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 15",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with incidental white space removed from the beginning and end of every line. Computes the minimal common indentation of all lines and strips that amount from each line.",
+    "example": "String block = \"    line 1\\n    line 2\";\nSystem.out.println(block.stripIndent());",
+    "exampleOutput": "line 1\nline 2",
+    "notes": "Designed to support Java 15+ Text Blocks (triple quotes \"\"\")."
+  },
+  {
+    "id": "fn_str_translateEscapes",
+    "name": "translateEscapes",
+    "signature": "public String translateEscapes()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 15",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a string whose value is this string, with escape sequences (such as \\b, \\t, \\n, \\f, \\r, \\\", \\', and \\\\) translated as if in a string literal.",
+    "example": "String raw = \"Hello\\\\nWorld\";\nSystem.out.println(raw.translateEscapes());",
+    "exampleOutput": "Hello\nWorld",
+    "notes": "Useful when parsing raw escape sequences from config files or JSON strings."
+  },
+  {
+    "id": "fn_str_indent",
+    "name": "indent",
+    "signature": "public String indent(int n)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 12",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "n",
+        "type": "int",
+        "description": "Number of leading white space characters to add (if positive) or remove (if negative) per line"
+      }
+    ],
+    "use": "Adjusts the indentation of each line of this string based on the value of n, and normalizes line termination characters to \\n.",
+    "example": "String s = \"Line 1\\nLine 2\";\nSystem.out.print(s.indent(2));",
+    "exampleOutput": "  Line 1\n  Line 2\n",
+    "notes": "Passing a negative integer removes up to |n| leading whitespace characters from each line."
+  },
+  {
+    "id": "fn_str_repeat",
+    "name": "repeat",
+    "signature": "public String repeat(int count)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 11",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "count",
+        "type": "int",
+        "description": "Number of times to repeat (>= 0)"
+      }
+    ],
+    "use": "Returns a string whose value is the concatenation of this string repeated count times. If count == 0 or the string is empty, returns an empty string. Throws IllegalArgumentException if count < 0.",
+    "example": "String sep = \"=\".repeat(10);\nSystem.out.println(sep);",
+    "exampleOutput": "==========",
+    "notes": "Much faster than StringBuilder loops for generating repeated headers, dividers, and padding."
+  },
+  {
+    "id": "fn_str_transform",
+    "name": "transform",
+    "signature": "public <R> R transform(Function<? super String, ? extends R> f)",
+    "returnType": "R",
+    "classSource": "String",
+    "category": "Transformations & Trimming",
+    "since": "Java 12",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "f",
+        "type": "Function<? super String, ? extends R>",
+        "description": "The transformation function to apply"
+      }
+    ],
+    "use": "Allows the application of a function to this string. The function should expect a single String argument and produce an R result. Enables fluent pipeline chaining on String instances.",
+    "example": "Integer len = \"Coder\"\n    .transform(String::toUpperCase)\n    .transform(String::length);\nSystem.out.println(\"Length: \" + len);",
+    "exampleOutput": "Length: 5",
+    "notes": "Eliminates intermediate variables in functional method chaining pipelines."
+  },
+  {
+    "id": "fn_str_replace_char",
+    "name": "replace",
+    "signature": "public String replace(char oldChar, char newChar)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Replacement & Modification",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "oldChar",
+        "type": "char",
+        "description": "The old character to be replaced"
+      },
+      {
+        "name": "newChar",
+        "type": "char",
+        "description": "The new character to replace it with"
+      }
+    ],
+    "use": "Returns a string resulting from replacing all occurrences of oldChar in this string with newChar. If oldChar does not occur, 'this' exact reference is returned.",
+    "example": "String s = \"mesquite in your cellar\";\nSystem.out.println(s.replace('e', 'o'));",
+    "exampleOutput": "mosquito in your collar",
+    "notes": "Fast character replacement without regex compilation."
+  },
+  {
+    "id": "fn_str_replace_cs",
+    "name": "replace",
+    "signature": "public String replace(CharSequence target, CharSequence replacement)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Replacement & Modification",
+    "since": "Java 1.5",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "target",
+        "type": "CharSequence",
+        "description": "The sequence of char values to be replaced"
+      },
+      {
+        "name": "replacement",
+        "type": "CharSequence",
+        "description": "The replacement sequence of char values"
+      }
+    ],
+    "use": "Replaces each substring of this string that matches the literal target sequence with the specified literal replacement sequence. Replacement proceeds from the beginning of the string to the end.",
+    "example": "String ip = \"192.168.1.1\";\nSystem.out.println(ip.replace(\".\", \"-\"));",
+    "exampleOutput": "192-168-1-1",
+    "notes": "Unlike replaceAll(), replace() treats dots and special characters as literal text, NOT regular expressions!"
+  },
+  {
+    "id": "fn_str_replaceAll",
+    "name": "replaceAll",
+    "signature": "public String replaceAll(String regex, String replacement)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Replacement & Modification",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "regex",
+        "type": "String",
+        "description": "The regular expression to which this string is to be matched"
+      },
+      {
+        "name": "replacement",
+        "type": "String",
+        "description": "The string to be substituted for each match (supports $1, $2 capture groups)"
+      }
+    ],
+    "use": "Replaces each substring of this string that matches the given regular expression with the given replacement. Supports regex capture group backreferences ($1, $2, etc.).",
+    "example": "String text = \"Price: $100 and $250\";\nString sanitized = text.replaceAll(\"\\\\$\\\\d+\", \"[HIDDEN]\");\nSystem.out.println(sanitized);",
+    "exampleOutput": "Price: [HIDDEN] and [HIDDEN]",
+    "notes": "Throws PatternSyntaxException if regex syntax is invalid. To escape special characters in replacement, use Matcher.quoteReplacement()."
+  },
+  {
+    "id": "fn_str_replaceFirst",
+    "name": "replaceFirst",
+    "signature": "public String replaceFirst(String regex, String replacement)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Replacement & Modification",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "regex",
+        "type": "String",
+        "description": "The regular expression to match"
+      },
+      {
+        "name": "replacement",
+        "type": "String",
+        "description": "The replacement string for the first match"
+      }
+    ],
+    "use": "Replaces the first substring of this string that matches the given regular expression with the given replacement.",
+    "example": "String s = \"red car, red boat, red house\";\nSystem.out.println(s.replaceFirst(\"red\", \"blue\"));",
+    "exampleOutput": "blue car, red boat, red house",
+    "notes": "Stops immediately after substituting the first match, saving regex execution time."
+  },
+  {
+    "id": "fn_str_split",
+    "name": "split",
+    "signature": "public String[] split(String regex)",
+    "returnType": "String[]",
+    "classSource": "String",
+    "category": "Splitting & Joining",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "regex",
+        "type": "String",
+        "description": "The delimiting regular expression"
+      }
+    ],
+    "use": "Splits this string around matches of the given regular expression. Trailing empty strings are not included in the resulting array (equivalent to split(regex, 0)).",
+    "example": "String csv = \"Apple,Banana,Orange\";\nString[] fruits = csv.split(\",\");\nfor (String f : fruits) {\n    System.out.println(f);\n}",
+    "exampleOutput": "Apple\nBanana\nOrange",
+    "notes": "Pitfall: \"a,b,,\".split(\",\") produces an array of length 2, discarding the trailing empty strings."
+  },
+  {
+    "id": "fn_str_split_limit",
+    "name": "split",
+    "signature": "public String[] split(String regex, int limit)",
+    "returnType": "String[]",
+    "classSource": "String",
+    "category": "Splitting & Joining",
+    "since": "Java 1.4",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "regex",
+        "type": "String",
+        "description": "The delimiting regular expression"
+      },
+      {
+        "name": "limit",
+        "type": "int",
+        "description": "The result threshold (positive = max tokens; negative = keep all trailing blanks; 0 = discard trailing blanks)"
+      }
+    ],
+    "use": "Splits this string around matches of the given regular expression. If limit > 0, pattern is applied at most limit - 1 times. If limit < 0, trailing empty strings are preserved. If limit == 0, trailing empty strings are discarded.",
+    "example": "String line = \"key=value=extra\";\nString[] parts = line.split(\"=\", 2);\nSystem.out.println(\"Key: \" + parts[0] + \", Rest: \" + parts[1]);",
+    "exampleOutput": "Key: key, Rest: value=extra",
+    "notes": "Pass limit = -1 when parsing CSV lines to preserve trailing empty cells!"
+  },
+  {
+    "id": "fn_str_splitWithDelimiters",
+    "name": "splitWithDelimiters",
+    "signature": "public String[] splitWithDelimiters(String regex, int limit)",
+    "returnType": "String[]",
+    "classSource": "String",
+    "category": "Splitting & Joining",
+    "since": "Java 21",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "regex",
+        "type": "String",
+        "description": "The delimiting regular expression"
+      },
+      {
+        "name": "limit",
+        "type": "int",
+        "description": "The result threshold"
+      }
+    ],
+    "use": "Splits this string around matches of the given regular expression and returns both the tokens and the matching delimiters in the resulting array.",
+    "example": "String expr = \"10+20*30\";\nString[] tokens = expr.splitWithDelimiters(\"[+*]\", 0);\nSystem.out.println(String.join(\" | \", tokens));",
+    "exampleOutput": "10 | + | 20 | * | 30",
+    "notes": "Modern addition in Java 21 for building mathematical and domain-specific tokenizers."
+  },
+  {
+    "id": "fn_str_join_varargs",
+    "name": "join",
+    "signature": "public static String join(CharSequence delimiter, CharSequence... elements)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Splitting & Joining",
+    "since": "Java 1.8",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "delimiter",
+        "type": "CharSequence",
+        "description": "The delimiter that separates each element"
+      },
+      {
+        "name": "elements",
+        "type": "CharSequence...",
+        "description": "The elements to join together"
+      }
+    ],
+    "use": "Returns a new String composed of copies of the CharSequence elements joined together with a copy of the specified delimiter. If an element is null, \"null\" is added.",
+    "example": "String path = String.join(\"/\", \"usr\", \"local\", \"bin\");\nSystem.out.println(path);",
+    "exampleOutput": "usr/local/bin",
+    "notes": "Static factory method. Does not add leading or trailing delimiters."
+  },
+  {
+    "id": "fn_str_join_iterable",
+    "name": "join",
+    "signature": "public static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Splitting & Joining",
+    "since": "Java 1.8",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "delimiter",
+        "type": "CharSequence",
+        "description": "A sequence of characters that is used to separate each of the elements"
+      },
+      {
+        "name": "elements",
+        "type": "Iterable<? extends CharSequence>",
+        "description": "An Iterable that will have its elements joined together (e.g. List<String>)"
+      }
+    ],
+    "use": "Returns a new String composed of copies of the elements of an Iterable joined together with the specified delimiter.",
+    "example": "java.util.List<String> list = java.util.List.of(\"Java\", \"Spring\", \"Docker\");\nSystem.out.println(String.join(\" -> \", list));",
+    "exampleOutput": "Java -> Spring -> Docker",
+    "notes": "Internally uses java.util.StringJoiner for optimal performance."
+  },
+  {
+    "id": "fn_str_toCharArray",
+    "name": "toCharArray",
+    "signature": "public char[] toCharArray()",
+    "returnType": "char[]",
+    "classSource": "String",
+    "category": "Array & Byte Conversions",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Converts this string to a newly allocated character array. Its length is the length of this string and its contents are initialized to contain the character sequence represented by this string.",
+    "example": "String s = \"Java\";\nchar[] arr = s.toCharArray();\narr[0] = 'X';\nSystem.out.println(\"Array: \" + new String(arr));\nSystem.out.println(\"String: \" + s);",
+    "exampleOutput": "Array: Xava\nString: Java",
+    "notes": "Because toCharArray() returns a defensive copy, mutating the returned array cannot violate String immutability."
+  },
+  {
+    "id": "fn_str_getBytes",
+    "name": "getBytes",
+    "signature": "public byte[] getBytes()",
+    "returnType": "byte[]",
+    "classSource": "String",
+    "category": "Array & Byte Conversions",
+    "since": "Java 1.1",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Encodes this String into a sequence of bytes using the platform's default charset, storing the result into a new byte array.",
+    "example": "byte[] bytes = \"Hello\".getBytes();\nSystem.out.println(\"Byte count: \" + bytes.length);",
+    "exampleOutput": "Byte count: 5",
+    "notes": "Avoid using parameterless getBytes() in cross-platform or network apps; always supply an explicit Charset (StandardCharsets.UTF_8)."
+  },
+  {
+    "id": "fn_str_getBytes_charset",
+    "name": "getBytes",
+    "signature": "public byte[] getBytes(Charset charset)",
+    "returnType": "byte[]",
+    "classSource": "String",
+    "category": "Array & Byte Conversions",
+    "since": "Java 1.6",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "charset",
+        "type": "Charset",
+        "description": "The java.nio.charset.Charset to be used to encode the String"
+      }
+    ],
+    "use": "Encodes this String into a sequence of bytes using the given Charset, storing the result into a new byte array.",
+    "example": "byte[] utf8Bytes = \"Barrackpore\".getBytes(java.nio.charset.StandardCharsets.UTF_8);\nSystem.out.println(\"UTF-8 Bytes: \" + utf8Bytes.length);",
+    "exampleOutput": "UTF-8 Bytes: 11",
+    "notes": "StandardCharsets.UTF_8 is preferred because it never throws UnsupportedEncodingException."
+  },
+  {
+    "id": "fn_str_getChars",
+    "name": "getChars",
+    "signature": "public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)",
+    "returnType": "void",
+    "classSource": "String",
+    "category": "Array & Byte Conversions",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "srcBegin",
+        "type": "int",
+        "description": "Index of the first character in the string to copy"
+      },
+      {
+        "name": "srcEnd",
+        "type": "int",
+        "description": "Index after the last character in the string to copy"
+      },
+      {
+        "name": "dst",
+        "type": "char[]",
+        "description": "The destination array"
+      },
+      {
+        "name": "dstBegin",
+        "type": "int",
+        "description": "The start offset in the destination array"
+      }
+    ],
+    "use": "Copies characters from this string into the destination character array without allocating a new array.",
+    "example": "char[] buffer = new char[10];\n\"HelloWorld\".getChars(0, 5, buffer, 0);\nSystem.out.println(\"Copied: \" + new String(buffer, 0, 5));",
+    "exampleOutput": "Copied: Hello",
+    "notes": "Zero-allocation batch copying method used heavily in high-performance parsers."
+  },
+  {
+    "id": "fn_str_intern",
+    "name": "intern",
+    "signature": "public native String intern()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Memory & SCP Interning",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a canonical representation for the string object. When intern() is invoked, if the String Constant Pool already contains a string equal to this String object (as determined by equals()), then the string from the pool is returned. Otherwise, this String object is added to the pool and a reference to it is returned.",
+    "example": "String s1 = new String(\"Kolkata\");\nString s2 = s1.intern();\nString s3 = \"Kolkata\";\nSystem.out.println(\"s1 == s3: \" + (s1 == s3));\nSystem.out.println(\"s2 == s3: \" + (s2 == s3));",
+    "exampleOutput": "s1 == s3: false\ns2 == s3: true",
+    "notes": "Since Java 7, the SCP is located in the main Heap. Interning identical strings across millions of records dramatically reduces memory footprints."
+  },
+  {
+    "id": "fn_str_hashCode",
+    "name": "hashCode",
+    "signature": "public int hashCode()",
+    "returnType": "int",
+    "classSource": "String",
+    "category": "Memory & SCP Interning",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a hash code for this string. The hash code for a String object is computed as: s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] using int arithmetic. The calculated hash is cached in an internal field so it is calculated at most once.",
+    "example": "String s = \"Java\";\nSystem.out.println(\"Hash: \" + s.hashCode());",
+    "exampleOutput": "Hash: 2301506",
+    "notes": "Because Strings are immutable, the cached hash code never changes, making String the most optimal and secure key for HashMaps."
+  },
+  {
+    "id": "fn_str_toString",
+    "name": "toString",
+    "signature": "public String toString()",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Memory & SCP Interning",
+    "since": "Java 1.0",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns this string itself (returns 'this').",
+    "example": "String s = \"Hello\";\nSystem.out.println(s == s.toString());",
+    "exampleOutput": "true",
+    "notes": "Overridden from Object. Returns the exact reference itself without allocating a copy."
+  },
+  {
+    "id": "fn_str_format",
+    "name": "format",
+    "signature": "public static String format(String format, Object... args)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.5",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "format",
+        "type": "String",
+        "description": "A format string with specifiers (%s, %d, %f, etc.)"
+      },
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Arguments referenced by the format specifiers"
+      }
+    ],
+    "use": "Returns a formatted string using the specified format string and arguments with the default locale. Delegates to java.util.Formatter.",
+    "example": "String res = String.format(\"Item: %s | Price: $%.2f | Qty: %d\", \"Laptop\", 1299.99, 2);\nSystem.out.println(res);",
+    "exampleOutput": "Item: Laptop | Price: $1299.99 | Qty: 2",
+    "notes": "Produces high-precision numbers, padded strings, and formatted dates cleanly."
+  },
+  {
+    "id": "fn_str_formatted",
+    "name": "formatted",
+    "signature": "public String formatted(Object... args)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 15",
+    "isStatic": false,
+    "arguments": [
+      {
+        "name": "args",
+        "type": "Object...",
+        "description": "Arguments referenced by the format specifiers in this string"
+      }
+    ],
+    "use": "Formats using this string as the format string, and the supplied arguments. Equivalent to String.format(this, args). Instance method convenience.",
+    "example": "String template = \"Student: %s, Marks: %d\";\nSystem.out.println(template.formatted(\"Rahul\", 95));",
+    "exampleOutput": "Student: Rahul, Marks: 95",
+    "notes": "Syntactic sugar introduced in Java 15, frequently paired with Text Blocks."
+  },
+  {
+    "id": "fn_str_valueOf_object",
+    "name": "valueOf",
+    "signature": "public static String valueOf(Object obj)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "obj",
+        "type": "Object",
+        "description": "An Object to convert"
+      }
+    ],
+    "use": "Returns the string representation of the Object argument. If the argument is null, then a string equal to \"null\" is returned; otherwise, the value of obj.toString() is returned.",
+    "example": "Object obj = null;\nSystem.out.println(\"Safe valueOf: \" + String.valueOf(obj));",
+    "exampleOutput": "Safe valueOf: null",
+    "notes": "Null-safe alternative to calling obj.toString()."
+  },
+  {
+    "id": "fn_str_valueOf_charArray",
+    "name": "valueOf",
+    "signature": "public static String valueOf(char[] data)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "data",
+        "type": "char[]",
+        "description": "The character array"
+      }
+    ],
+    "use": "Returns the string representation of the char array argument. The contents of the character array are copied; subsequent modification of the character array does not affect the newly created string.",
+    "example": "char[] chars = {'C', 'o', 'd', 'e'};\nString s = String.valueOf(chars);\nSystem.out.println(s);",
+    "exampleOutput": "Code",
+    "notes": "WARNING: Passing (char[]) null triggers NullPointerException, unlike valueOf(Object)!"
+  },
+  {
+    "id": "fn_str_valueOf_charArray_offset",
+    "name": "valueOf",
+    "signature": "public static String valueOf(char[] data, int offset, int count)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "data",
+        "type": "char[]",
+        "description": "The character array"
+      },
+      {
+        "name": "offset",
+        "type": "int",
+        "description": "Initial offset into the char array"
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "description": "Length of the subarray"
+      }
+    ],
+    "use": "Returns the string representation of a specific subarray of the char array argument.",
+    "example": "char[] letters = {'a', 'b', 'c', 'd', 'e'};\nSystem.out.println(String.valueOf(letters, 1, 3));",
+    "exampleOutput": "bcd",
+    "notes": "Copies only count characters starting from offset into a new String."
+  },
+  {
+    "id": "fn_str_valueOf_int",
+    "name": "valueOf",
+    "signature": "public static String valueOf(int i)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "i",
+        "type": "int",
+        "description": "An int value"
+      }
+    ],
+    "use": "Returns the string representation of the int argument. Equivalent to Integer.toString(i).",
+    "example": "String s = String.valueOf(2026);\nSystem.out.println(\"Year: \" + s);",
+    "exampleOutput": "Year: 2026",
+    "notes": "Faster than \"\" + i because it avoids temporary StringBuilder or invokedynamic overhead."
+  },
+  {
+    "id": "fn_str_valueOf_double",
+    "name": "valueOf",
+    "signature": "public static String valueOf(double d)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "d",
+        "type": "double",
+        "description": "A double value"
+      }
+    ],
+    "use": "Returns the string representation of the double argument via Double.toString(d). Handles NaN and Infinity.",
+    "example": "String s = String.valueOf(3.14159);\nSystem.out.println(\"Pi: \" + s);",
+    "exampleOutput": "Pi: 3.14159",
+    "notes": "Correctly outputs NaN, Infinity, -Infinity, and scientific notation where applicable."
+  },
+  {
+    "id": "fn_str_valueOf_boolean",
+    "name": "valueOf",
+    "signature": "public static String valueOf(boolean b)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "b",
+        "type": "boolean",
+        "description": "A boolean value"
+      }
+    ],
+    "use": "Returns \"true\" if the argument is true, or \"false\" if the argument is false. Returns pooled literals directly.",
+    "example": "boolean status = true;\nSystem.out.println(String.valueOf(status));",
+    "exampleOutput": "true",
+    "notes": "Zero allocation: returns the canonical pooled \"true\" or \"false\" literal."
+  },
+  {
+    "id": "fn_str_copyValueOf",
+    "name": "copyValueOf",
+    "signature": "public static String copyValueOf(char[] data)",
+    "returnType": "String",
+    "classSource": "String",
+    "category": "Static Factory & Formatting",
+    "since": "Java 1.0",
+    "isStatic": true,
+    "arguments": [
+      {
+        "name": "data",
+        "type": "char[]",
+        "description": "The character array"
+      }
+    ],
+    "use": "Equivalent to String.valueOf(char[]). Retained for backwards compatibility with early Java editions.",
+    "example": "char[] chars = {'J', 'a', 'v', 'a'};\nSystem.out.println(String.copyValueOf(chars));",
+    "exampleOutput": "Java",
+    "notes": "Historical synonym for valueOf(char[])."
+  },
+  {
+    "id": "fn_str_lines",
+    "name": "lines",
+    "signature": "public Stream<String> lines()",
+    "returnType": "Stream<String>",
+    "classSource": "String",
+    "category": "Stream & Line Utilities",
+    "since": "Java 11",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns a Stream of lines extracted from this string, separated by line terminators (\\n, \\r, \\r\\n). Lazily evaluated.",
+    "example": "String text = \"First\\nSecond\\nThird\";\ntext.lines()\n    .map(String::toUpperCase)\n    .forEach(System.out::println);",
+    "exampleOutput": "FIRST\nSECOND\nTHIRD",
+    "notes": "Far more memory-efficient than split(\"\\n\") on massive multiline strings because it produces a lazy stream."
+  },
+  {
+    "id": "fn_str_chars",
+    "name": "chars",
+    "signature": "public IntStream chars()",
+    "returnType": "IntStream",
+    "classSource": "String",
+    "category": "Stream & Line Utilities",
+    "since": "Java 9",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns an IntStream of char values from this sequence. Any char which maps to a surrogate code point is passed through uninterpreted. Implements CharSequence.",
+    "example": "\"Java\".chars()\n    .forEach(ch -> System.out.print((char)ch + \" \"));\nSystem.out.println();",
+    "exampleOutput": "J a v a ",
+    "notes": "Returns an IntStream because Java primitives byte, short, char do not have dedicated stream types."
+  },
+  {
+    "id": "fn_str_codePoints",
+    "name": "codePoints",
+    "signature": "public IntStream codePoints()",
+    "returnType": "IntStream",
+    "classSource": "String",
+    "category": "Stream & Line Utilities",
+    "since": "Java 9",
+    "isStatic": false,
+    "arguments": [],
+    "use": "Returns an IntStream of code point values from this sequence. Any surrogate pairs encountered in the sequence are combined into single 32-bit Unicode code points.",
+    "example": "String s = \"A😀B\";\nSystem.out.println(\"Total code points: \" + s.codePoints().count());",
+    "exampleOutput": "Total code points: 3",
+    "notes": "Proper way to process modern strings with emojis or extended multilingual scripts using the Stream API."
+  }
+]

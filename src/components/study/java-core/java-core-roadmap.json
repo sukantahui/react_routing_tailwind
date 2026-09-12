@@ -1761,7 +1761,9 @@
             "Converting String to char array and byte array: toCharArray(), getBytes(StandardCharsets.UTF_8)",
             "Performance pitfalls of repeated string concatenation in loops",
             "Project Work",
-            "Short Question Answer"
+            "Short Question Answer",
+            "Module Test",
+            "Function List"
           ],
           "learningOutcomes": [
             "Trace String allocation in Stack, Heap, and SCP memory diagrams",
@@ -1777,7 +1779,7 @@
             "Advanced Text Sanitization & Sensitive PII Masking Engine"
           ],
           "exercises": {
-            "mcq": 25,
+            "mcq": 200,
             "coding": 10,
             "projects": 22
           },
@@ -1844,7 +1846,11 @@
             "Format flags: width, precision (%.2f), left-alignment (-), zero-padding (0), comma grouping (,) (e.g. %,d)",
             "Modern Java Text Blocks (Java 15+ standard): multi-line string literals with triple quotes (\"\"\")",
             "Whitespace stripping and indentation management in Text Blocks (formatted(), stripIndent(), translateEscapes())",
-            "Building SQL queries, JSON payloads, and HTML templates using Text Blocks"
+            "Building SQL queries, JSON payloads, and HTML templates using Text Blocks",
+            "Project Work",
+            "Short Questions",
+            "Module Test",
+            "Function List"
           ],
           "learningOutcomes": [
             "Construct high-performance string manipulation routines using StringBuilder",
@@ -1859,9 +1865,9 @@
             "Dynamic SQL Query & HTML Email Template Builder using Text Blocks"
           ],
           "exercises": {
-            "mcq": 20,
+            "mcq": 200,
             "coding": 10,
-            "projects": 1
+            "projects": 22
           },
           "assessment": {
             "type": "String Formatting & Performance Test",
