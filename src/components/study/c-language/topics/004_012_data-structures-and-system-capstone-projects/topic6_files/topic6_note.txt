@@ -1,0 +1,31 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 6 (MODULE 004_012)
+GRAND FINALE CAPSTONE: DYNAMIC LINKED ENGINE & BINARY FILE PERSISTENCE
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. CAPSTONE ARCHITECTURAL SYNTHESIS
+   This Capstone unites every major concept across the 4 C Language Segments:
+   - Segment 1: Control flow, functions, types, loops, formatting.
+   - Segment 2: Pointers, memory addresses, strings, pointer arithmetic.
+   - Segment 3: Structures, unions, dynamic heap memory, binary file streams.
+   - Segment 4: Macro telemetry, multi-file encapsulation, Makefiles, data structures.
+
+2. CORE ENGINE DESIGN
+   - In-Memory Cache: High-speed Doubly Linked List (StudentNode)
+   - On-Disk Storage: Fixed-width binary record stream (StudentRecord)
+   - CRUD Operations:
+     * Insert: O(1) tail append to DLL cache
+     * Search: O(N) chain traversal (or O(1) hash indexed)
+     * Update: O(1) in-place RAM mutation
+     * Delete: O(1) bidirectional node pointer unlinking + free()
+     * Persist: Sequential serialization via fwrite()
+     * Rehydrate: Sequential deserialization via fread()
+
+3. MEMORY LIFECYCLE MANAGEMENT
+   - Clean recursive/iterative node teardown on shutdown.
+   - Elimination of memory leaks, double frees, and dangling pointers.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

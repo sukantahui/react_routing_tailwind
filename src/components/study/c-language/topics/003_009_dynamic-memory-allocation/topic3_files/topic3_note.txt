@@ -1,0 +1,54 @@
+================================================================================
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 3: HEAP DEALLOCATION (FREE & DANGLING POINTERS)
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
+================================================================================
+
+1. FUNCTION PROTOTYPE & CORE BEHAVIOR
+--------------------------------------------------------------------------------
+Include Header: #include <stdlib.h>
+
+void free(void *ptr);
+- Deallocates the heap memory block pointed to by 'ptr'.
+- Does NOT alter the value of 'ptr' itself (it passes by value).
+- free(NULL) is a guaranteed safe no-op across all C standards.
+
+
+2. THE DANGLING POINTER PHENOMENON
+--------------------------------------------------------------------------------
+    int *p = (int *)malloc(sizeof(int));
+    *p = 42;
+    free(p); // Memory is freed, but 'p' still holds address (DANGLING POINTER!)
+
+    // DANGEROUS USE-AFTER-FREE:
+    // *p = 99; // CRITICAL SECURITY HAZARD / UNDEFINED BEHAVIOR
+
+    // CORRECT DEFENSE:
+    p = NULL; // Neutralizes the dangling pointer!
+
+
+3. WHY SETTING PTR = NULL ELIMINATES DOUBLE FREE CORRUPTION
+--------------------------------------------------------------------------------
+Without NULL assignment:
+    free(p);
+    free(p); // FATAL: Double Free Abort!
+
+With NULL assignment:
+    free(p);
+    p = NULL;
+    free(p); // Equivalent to free(NULL) -> 100% Safe no-op!
+
+
+4. INDUSTRIAL SAFE-FREE UTILITY HELPER
+--------------------------------------------------------------------------------
+    void safe_free(void **pptr) {
+        if (pptr != NULL && *pptr != NULL) {
+            free(*pptr);
+            *pptr = NULL;
+        }
+    }
+    // Usage: safe_free((void**)&buffer);
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
+================================================================================

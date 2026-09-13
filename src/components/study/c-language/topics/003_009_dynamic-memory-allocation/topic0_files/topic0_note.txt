@@ -1,14 +1,60 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 003_009: Dynamic Memory Allocation & Heap Management
-TOPIC 0: Heap Allocation, Reallocation & Freeing
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 0: STACK VS HEAP MEMORY ARCHITECTURE
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
 ================================================================================
 
-1. CORE CONCEPTS
+1. PROCESS VIRTUAL MEMORY ADDRESS SPACE LAYOUT
 --------------------------------------------------------------------------------
-- malloc(bytes): Heap block allocation (uninitialized).
-- calloc(num, size): Zero-initialized heap allocation.
-- realloc(ptr, new_bytes): Resizes existing heap block.
-- free(ptr): Deallocates memory and sets ptr = NULL.
+High Memory (0xFFFFFFFF / 0x7FFFFFFFFFFF)
++-------------------------------------------------------------+
+| Environment Variables & Command-Line Arguments (argc, argv) |
++-------------------------------------------------------------+
+| STACK (Grows DOWNWARDS | Local automatic variables & frames)|
+|   |                                                         |
+|   v                                                         |
+|                                                             |
+|   ^                                                         |
+|   |                                                         |
+| HEAP (Grows UPWARDS | Dynamic runtime memory via malloc)   |
++-------------------------------------------------------------+
+| BSS Segment (.bss | Uninitialized static & global variables)|
++-------------------------------------------------------------+
+| DATA Segment (.data | Initialized static & global variables)|
++-------------------------------------------------------------+
+| TEXT / CODE Segment (Read-Only Machine Instructions)        |
++-------------------------------------------------------------+
+Low Memory (0x00000000 / 0x000000000000)
+
+
+2. STACK VS HEAP COMPARISON CHEAT SHEET
+--------------------------------------------------------------------------------
+Feature           | Stack Memory                   | Heap Memory
+------------------+--------------------------------+----------------------------
+Allocation Type   | Automatic by compiler/CPU      | Manual by programmer
+Allocation Call   | Function entry / scope enter   | malloc(), calloc(), realloc()
+Deallocation Call | Function return / scope exit   | free()
+Allocation Speed  | Ultra fast (single SP adjust)  | Slower (OS runtime search)
+Size Limit        | Small (1 MB to 8 MB typical)   | Large (limited only by RAM)
+Lifetime          | Local function execution only  | Dynamic until free() is run
+Fragmentation     | Zero fragmentation (contiguous)| Subject to fragmentation
+Access Mechanism  | Direct CPU register offset     | Pointer dereference (*ptr)
+
+
+3. CORE RULES FOR PROCESS MEMORY HYGIENE
+--------------------------------------------------------------------------------
+[1] Never return the address of a local stack variable from a function.
+[2] Always verify heap allocation success:
+    int *ptr = (int *)malloc(sizeof(int) * 100);
+    if (ptr == NULL) {
+        // Handle allocation failure gracefully
+    }
+[3] Heap memory pointer variables stored on the stack hold memory addresses
+    pointing to the physical RAM allocated in the heap space.
+[4] Deallocate every heap buffer once done and reset pointer to NULL:
+    free(ptr);
+    ptr = NULL;
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
 ================================================================================

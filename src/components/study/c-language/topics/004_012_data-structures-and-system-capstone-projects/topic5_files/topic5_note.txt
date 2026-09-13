@@ -1,0 +1,35 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 5 (MODULE 004_012)
+BUILD AUTOMATION & MAKEFILES: TARGETS, RULES & AUTOMATIC VARIABLES
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. MAKEFILE ANATOMY & SYNTAX
+   target: prerequisites
+   	recipe_command  <-- CRITICAL: MUST START WITH A REAL TAB (\t)
+
+2. CORE AUTOMATIC VARIABLES
+   - $@ : The file name of the TARGET being built
+   - $< : The FIRST prerequisite (usually the source .c file)
+   - $^ : The list of ALL prerequisites (all .o files)
+   - $* : The stem matching '%' in a pattern rule
+
+3. STANDARD MAKEFILE VARIABLES
+   - CC     := gcc
+   - CFLAGS := -Wall -Wextra -Werror -O2 -std=c11 -Iinclude
+   - LDFLAGS:= -lm
+
+4. PHONY TARGETS
+   .PHONY: all clean rebuild
+   - Prevents collisions if a physical file named 'clean' exists on disk.
+
+5. PATTERN RULE IDIOM
+   obj/%.o: src/%.c | obj
+   	$(CC) $(CFLAGS) -c $< -o $@
+
+6. PARALLEL COMPILATION
+   make -j8  -> Compiles across 8 CPU cores simultaneously.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

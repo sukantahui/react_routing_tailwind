@@ -1,0 +1,41 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 2 (MODULE 004_011)
+PREPROCESSOR OPERATORS: STRINGIZING (#) & TOKEN CONCATENATION (##)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. THE STRINGIZING OPERATOR (#)
+   - Converts a macro formal parameter into a double-quoted string literal.
+   - Example:
+     #define PRINT_INT(var) printf("%s = %d\n", #var, var)
+     PRINT_INT(totalScore); -> printf("%s = %d\n", "totalScore", totalScore);
+
+2. THE TWO-LEVEL EXPANSION TRICK FOR MACRO VALUES
+   - Preprocessor rule: '#' prevents argument prescan/expansion.
+   - To stringize the VALUE of a defined macro constant (e.g. #define VER 2):
+     #define STR_HELPER(x) #x
+     #define STR(x) STR_HELPER(x)
+     STR(VER) -> "2" (whereas STR_HELPER(VER) -> "VER")
+
+3. TOKEN CONCATENATION OPERATOR (##) / TOKEN PASTING
+   - Glues two tokens together to construct new identifiers at compile time.
+   - Example (Generic Struct Generator):
+     #define MAKE_STACK(T) \
+         typedef struct Stack_##T { \
+             T items[100]; \
+             int top; \
+         } Stack_##T;
+     MAKE_STACK(int)    -> typedef struct Stack_int { ... } Stack_int;
+     MAKE_STACK(double) -> typedef struct Stack_double { ... } Stack_double;
+
+4. COMMAND / HANDLER DISPATCH
+   - #define CALL_HANDLER(event) on_event_##event()
+     CALL_HANDLER(click); -> on_event_click();
+
+5. X-MACROS FOR CODE REUSE
+   - Eliminates parallel enum/string synchronization drift by maintaining a
+     single master list expanded in multiple ways.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

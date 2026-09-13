@@ -1,0 +1,49 @@
+================================================================================
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 5: DYNAMIC 2D ARRAYS & MATRICES
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
+================================================================================
+
+1. THE TWO APPROACHES FOR DYNAMIC 2D MATRICES
+--------------------------------------------------------------------------------
+[A] Array of Pointers (int **matrix):
+    // 1. Allocate row pointers
+    int **mat = (int **)malloc(rows * sizeof(int *));
+    // 2. Allocate each row
+    for (int r = 0; r < rows; r++) {
+        mat[r] = (int *)malloc(cols * sizeof(int));
+    }
+    // Access: mat[r][c]
+    // Mandatory Deallocation:
+    for (int r = 0; r < rows; r++) free(mat[r]);
+    free(mat);
+
+[B] Contiguous Single-Block (int *matrix - Cache Optimized):
+    int *mat = (int *)malloc(rows * cols * sizeof(int));
+    // Access: mat[r * cols + c]
+    // Deallocation:
+    free(mat);
+
+
+2. COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Feature               | Array of Pointers (int **) | Contiguous Block (int *)
+----------------------+----------------------------+----------------------------
+Access Syntax         | matrix[r][c]               | matrix[r * cols + c]
+Allocation Calls      | rows + 1 calls             | 1 single call
+Deallocation Calls    | rows + 1 calls             | 1 single call
+Memory Contiguity     | Rows scattered on heap     | 100% Contiguous in physical RAM
+CPU Cache Performance | Slower (cache misses)      | Blazing fast (cache line hits)
+Jagged Rows Support   | Yes (variable col sizes)   | No (fixed rectangular shape)
+
+
+3. CRITICAL DEALLOCATION REVERSAL RULE
+--------------------------------------------------------------------------------
+Always free in REVERSE order of allocation:
+1. Free every individual row first: free(mat[i])
+2. Free the outer pointer array last: free(mat)
+3. Set pointer to NULL: mat = NULL;
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
+================================================================================

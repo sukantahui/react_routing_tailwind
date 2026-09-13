@@ -1,0 +1,36 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 6 (MODULE 003_010)
+CAPSTONE PROJECT: FILE-BASED STUDENT DATABASE ENGINE (CLI BINARY CRUD)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. DATABASE ARCHITECTURE OVERVIEW
+   - The engine implements a fixed-width binary table on disk.
+   - Primary Key: Integer 'id' (Unique Identifier).
+   - CRUD Operations:
+     * CREATE -> fopen("master.dat", "ab") + fwrite(&rec, sizeof(Rec), 1, fp)
+     * READ   -> fopen("master.dat", "rb") + fseek / fread sequential scan
+     * UPDATE -> fopen("master.dat", "rb+") + fseek(offset) + fwrite(&rec)
+     * DELETE -> Soft-delete (tombstone) + deferred background purge
+
+2. THE TOMBSTONE PATTERN (SOFT DELETE)
+   - Why not immediately rewrite the file on delete?
+     Immediate file rewriting is O(N) in time and disk wear.
+   - Soft Delete sets bool isActive = false; in O(1) time.
+   - Filter active records during queries: if (rec.isActive) { ... }
+
+3. COMPACTION & GARBAGE COLLECTION (PURGE)
+   1. Stream active records from "master.dat" to "master_temp.dat".
+   2. Skip inactive records (isActive == false).
+   3. Close and flush both streams.
+   4. Call remove("master.dat") followed by rename("master_temp.dat", "master.dat").
+   5. Atomic filesystem swap guarantees consistency.
+
+4. SAFETY PROTOCOLS
+   - Always check return values of fopen, fread, fwrite, fseek, and fclose.
+   - Use fixed-size struct members (char name[50]) without raw pointers.
+   - Use fflush(fp) after in-place updates to force user-space buffers to disk.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

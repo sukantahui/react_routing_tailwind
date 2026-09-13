@@ -1,12 +1,41 @@
-================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 004_011: Preprocessor Directives & Macro Metaprogramming
-TOPIC 1: Module 004_011 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
-================================================================================
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 1 (MODULE 004_011)
+OBJECT-LIKE & FUNCTION-LIKE MACROS: PITFALLS & DO-WHILE(0) IDIOM
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
 
-1. MODULE PROJECTS SUMMARY
---------------------------------------------------------------------------------
-- Project 1: Cross-Platform Logging & Diagnostic Macro Suite
-- Project 2: Configurable System Diagnostics Framework
-================================================================================
+1. MULTIPLE EVALUATION OF ARGUMENTS (THE SIDE-EFFECT TRAP)
+   - Macro: #define SQUARE(x) ((x) * (x))
+   - Invocation: SQUARE(a++) -> ((a++) * (a++))
+   - Result: Variable 'a' is incremented TWICE!
+   - Golden Rule: Never pass expressions with side effects (i++, *ptr++, func())
+     to function-like macros. Use inline functions instead.
+
+2. THE "DO { ... } WHILE(0)" INDUSTRY IDIOM
+   - Problem: Multi-statement macros wrapped in { ... } break if-else syntax:
+     if (cond)
+         SWAP(a, b); // expands to { ... };
+     else            // ERROR: Semicolon terminates if statement, orphaning else!
+         printf("...");
+
+   - Solution: Wrap in do { ... } while(0):
+     #define SWAP_SAFE(a, b, type) \
+         do { \
+             type temp_ = (a); \
+             (a) = (b); \
+             (b) = temp_; \
+         } while (0)
+
+3. MACRO VS INLINE FUNCTION COMPARISON
+   - Macros: Untyped, text replacement, zero debug symbols, multiple evaluation.
+   - Inline Functions: Strongly typed, evaluated strictly once, debugger-friendly,
+     optimized and inlined by modern compilers with zero call overhead.
+
+4. VARIADIC MACROS (C99)
+   - #define LOG_ERR(fmt, ...) fprintf(stderr, "[ERR] " fmt "\n", ##__VA_ARGS__)
+   - The '##__VA_ARGS__' GCC extension strips the leading comma when no variadic
+     arguments are provided.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

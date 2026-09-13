@@ -1,0 +1,45 @@
+================================================================================
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 6: DYNAMIC VECTOR & MATRIX CAPSTONE PROJECTS
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
+================================================================================
+
+1. DYNAMIC VECTOR ARCHITECTURE (C ENCAPSULATION)
+--------------------------------------------------------------------------------
+typedef struct {
+    int *data;        // Pointer to raw contiguous heap buffer
+    size_t size;      // Number of active elements currently stored
+    size_t capacity;  // Total allocated slots currently available
+} IntVector;
+
+
+2. CORE LIFECYCLE OPERATIONS
+--------------------------------------------------------------------------------
+[1] Creation:
+    IntVector *vec = vector_create(initial_capacity);
+
+[2] Geometric Amortized Push Back:
+    - If size >= capacity, double capacity: new_cap = capacity * 2;
+    - Reallocate buffer: temp = realloc(vec->data, new_cap * sizeof(int));
+    - Insert element: vec->data[vec->size++] = value;
+    - Amortized Time Complexity: O(1)
+
+[3] Safe Destruction (Double Pointer Idiom):
+    void vector_destroy(IntVector **vec_ptr) {
+        if (vec_ptr && *vec_ptr) {
+            free((*vec_ptr)->data);
+            free(*vec_ptr);
+            *vec_ptr = NULL; // Neutralizes caller pointer!
+        }
+    }
+
+
+3. WHY CONTIGUOUS VECTORS OUTPERFORM LINKED LISTS
+--------------------------------------------------------------------------------
+- Random Access: O(1) via direct index offset (vec->data[i])
+- Cache Efficiency: Contiguous memory maximizes CPU L1/L2 prefetching
+- Low Overhead: Zero pointer overhead per element (unlike 8-16 bytes in list nodes)
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
+================================================================================

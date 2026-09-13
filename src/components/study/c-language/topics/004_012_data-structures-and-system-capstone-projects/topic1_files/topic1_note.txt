@@ -1,12 +1,43 @@
-================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 004_012: Data Structures & Systems Capstone Projects
-TOPIC 1: Module 004_012 Hands-on Capstone Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
-================================================================================
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 1 (MODULE 004_012)
+DOUBLY LINKED LISTS & CIRCULAR LINKED LISTS (SENTINELS & LRU BASICS)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
 
-1. MODULE PROJECTS SUMMARY
---------------------------------------------------------------------------------
-- Project 1: Command-Line File Utility & Singly Linked List Data Manager
-- Project 2: Production-Grade Student Record & Inventory Capstone
-================================================================================
+1. DOUBLY LINKED LIST (DLL) NODE STRUCTURE
+   typedef struct DNode {
+       int data;
+       struct DNode *prev;
+       struct DNode *next;
+   } DNode;
+
+2. WHY DLL IS ESSENTIAL: O(1) NODE DELETION
+   - In a Singly Linked List, deleting a node requires O(N) search for its predecessor.
+   - In a Doubly Linked List, given target pointer 'p':
+     p->prev->next = p->next;
+     if (p->next) p->next->prev = p->prev;
+     free(p);
+     Time Complexity: Strictly O(1)!
+
+3. CIRCULAR LINKED LISTS (CLL & CDLL)
+   - Last node's 'next' points to head (instead of NULL).
+   - Head's 'prev' points to tail in a Circular Doubly Linked List.
+   - Traversal Loop Condition:
+     DNode *curr = head;
+     if (curr) do {
+         // process curr
+         curr = curr->next;
+     } while (curr != head);
+
+4. SENTINEL NODE PATTERN
+   - Introducing permanent dummy head and tail nodes removes all NULL boundary checks.
+   - Every active data node always has non-null 'prev' and 'next'.
+
+5. INDUSTRY APPLICATIONS
+   - LRU Cache Engine (O(1) hit promotion & tail eviction)
+   - Browser History (Back / Forward navigation)
+   - OS Round-Robin CPU Process Scheduling (Circular Lists)
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

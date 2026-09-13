@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_010 · TOPIC 2: TEXT FILE OPERATIONS (FGETC, FGETS, FPRINTF, FSCANF)
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
+================================================================================
+
+1. CHARACTER I/O (FGETC & FPUTC)
+--------------------------------------------------------------------------------
+- int fgetc(FILE *fp);
+  * Returns int (must hold 0-255 plus EOF sentinel -1).
+- int fputc(int ch, FILE *fp);
+- Idiom: int c; while ((c = fgetc(fp)) != EOF) { fputc(c, stdout); }
+
+
+2. LINE I/O (FGETS & FPUTS - BUFFER SAFE)
+--------------------------------------------------------------------------------
+- char *fgets(char *buf, int max_len, FILE *fp);
+  * Reads at most max_len - 1 characters until '\n' or EOF.
+  * Stores '\n' in buffer and appends '\0'.
+  * Safe replacement for deprecated gets().
+- int fputs(const char *str, FILE *fp);
+  * Writes string to file without adding extra newline.
+
+
+3. FORMATTED I/O (FPRINTF & FSCANF)
+--------------------------------------------------------------------------------
+- fprintf(fp, "ID: %d Name: %s\n", id, name);
+- fscanf(fp, "%d %49s", &id, name);
+  * ALWAYS specify field width (e.g. %49s for 50-byte buffer) to prevent overflow!
+  * ALWAYS check return value: if (fscanf(fp, "%d %s", &id, name) == 2)
+
+
+4. STRIPPING TRAILING NEWLINE FROM FGETS BUFFER
+--------------------------------------------------------------------------------
+    char line[256];
+    if (fgets(line, sizeof(line), fp) != NULL) {
+        line[strcspn(line, "\r\n")] = '\0'; // Cleans trailing \n or \r\n
+    }
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
+================================================================================

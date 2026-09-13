@@ -1,0 +1,51 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 5 (MODULE 003_010)
+STREAM DIAGNOSTICS & ERROR HANDLING (FEOF, FERROR, CLEARERR, PERROR)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. THE "WHILE (!FEOF(FP))" ANTIPATTERN EXPLAINED
+   - feof(fp) does NOT look into the future to see if EOF is next.
+   - feof(fp) only returns true AFTER an input function has ATTEMPTED to read
+     past EOF and failed.
+   - Result: If you use while(!feof(fp)), the loop body executes ONE EXTRA TIME
+     with stale/garbage data from the previous iteration.
+
+2. CORRECT READ LOOP IDIOMS
+   - Text Lines:
+     while (fgets(buffer, sizeof(buffer), fp) != NULL) { /* process line */ }
+   - Characters:
+     int ch; // MUST BE INT!
+     while ((ch = fgetc(fp)) != EOF) { /* process char */ }
+   - Binary Structs:
+     while (fread(&record, sizeof(record), 1, fp) == 1) { /* process struct */ }
+
+3. STREAM STATUS FUNCTIONS
+   - int feof(FILE *stream);
+     Returns non-zero if EOF indicator is set; 0 otherwise.
+   - int ferror(FILE *stream);
+     Returns non-zero if hardware/stream error flag is set; 0 otherwise.
+   - void clearerr(FILE *stream);
+     Clears both EOF and error flags for the stream.
+
+4. SYSTEM ERROR DIAGNOSTICS (ERRNO & PERROR)
+   - #include <errno.h> provides the global/thread-local variable 'errno'.
+   - perror("Custom message");
+     Prints "Custom message: <system error description>" to stderr.
+   - strerror(errno); (from <string.h>)
+     Returns string description of the error number.
+   - Common errno values:
+     * ENOENT (2)  -> File or directory not found
+     * EACCES (13) -> Permission denied
+     * ENOSPC (28) -> No space left on device
+     * EMFILE (24) -> Too many open files
+
+5. ATOMIC FILE TRANSACTION PATTERN
+   1. Write output to "filename.tmp".
+   2. fflush(fpTmp); fclose(fpTmp);
+   3. Check return value of fclose() for errors.
+   4. rename("filename.tmp", "filename.dat"); // Atomic swap
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

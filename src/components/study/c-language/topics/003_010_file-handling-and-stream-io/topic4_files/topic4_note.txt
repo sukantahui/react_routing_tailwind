@@ -1,0 +1,48 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 4 (MODULE 003_010)
+RANDOM ACCESS FILE POSITIONING (FSEEK, FTELL, REWIND, FGETPOS, FSETPOS)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. RANDOM ACCESS FUNDAMENTALS
+   - Unlike sequential access (O(N) scanning from byte 0), random access
+     moves the file position indicator directly to any arbitrary byte in O(1) time.
+   - Ideal for indexed databases, binary search on sorted files, and in-place updates.
+
+2. KEY FUNCTIONS & CONSTANTS
+   - fseek(FILE *fp, long offset, int whence);
+     Returns 0 on success, non-zero on failure.
+     Whence options:
+       * SEEK_SET (0) -> Offset from Start of File
+       * SEEK_CUR (1) -> Offset from Current Pointer Position
+       * SEEK_END (2) -> Offset from End of File (EOF)
+   - ftell(FILE *fp);
+     Returns current byte position as long (or -1L on error).
+   - rewind(FILE *fp);
+     Equivalent to (void)fseek(fp, 0L, SEEK_SET) + clears EOF and error flags.
+
+3. ESSENTIAL FORMULAS
+   - Jump to Nth record (0-indexed):
+     fseek(fp, (long)N * sizeof(Record), SEEK_SET);
+   - Calculate Total File Size:
+     fseek(fp, 0, SEEK_END);
+     long size = ftell(fp);
+   - Jump to Last Record:
+     fseek(fp, -(long)sizeof(Record), SEEK_END);
+
+4. IN-PLACE RECORD UPDATE WORKFLOW
+   1. fseek to target record offset.
+   2. fread record into RAM buffer.
+   3. Modify struct members.
+   4. fseek back to target record offset (CRITICAL: rewind file pointer).
+   5. fwrite updated struct to disk.
+   6. fflush(fp) to commit stream buffer to kernel.
+
+5. LARGE FILE POSITIONING
+   - For files > 2GB (where 32-bit signed long overflows):
+     Use fgetpos(fp, &pos) and fsetpos(fp, &pos) with fpos_t,
+     or POSIX fseeko() / ftello() with off_t.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

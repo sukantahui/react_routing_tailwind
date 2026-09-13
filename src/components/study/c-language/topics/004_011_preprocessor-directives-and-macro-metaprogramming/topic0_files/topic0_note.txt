@@ -1,14 +1,43 @@
-================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 004_011: Preprocessor Directives & Macro Metaprogramming
-TOPIC 0: Macros, Header Guards & Conditional Compilation
-Educator: Sukanta Hui | Barrackpore, West Bengal
-================================================================================
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 0 (MODULE 004_011)
+THE PREPROCESSOR PIPELINE: TRANSLATION PHASES & TEXT SUBSTITUTION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
 
-1. CORE CONCEPTS
---------------------------------------------------------------------------------
-- Macros (#define): Function-like and object-like text replacement.
-- Stringizing (#): Converts macro parameter to string literal.
-- Token Concatenation (##): Merges two tokens into a single identifier.
-- Header Guards: #ifndef MYHEADER_H / #define MYHEADER_H / #endif prevents double inclusions.
-================================================================================
+1. THE COMPILATION PIPELINE
+   Source Code (.c / .h)
+        |
+   [1. PREPROCESSOR (gcc -E)] -> Strips comments, expands macros, includes headers (.i)
+        |
+   [2. COMPILER (gcc -S)]     -> Synthesizes assembly code (.s)
+        |
+   [3. ASSEMBLER (gcc -c)]    -> Generates relocatable machine object code (.o)
+        |
+   [4. LINKER (gcc -o)]       -> Resolves external symbols into executable binary (.exe)
+
+2. CORE PREPROCESSOR CHARACTERISTICS
+   - Operates entirely on lexical text substitution before semantic analysis.
+   - Has ZERO awareness of C data types, variable scopes, or functions.
+   - Every directive begins with '#' as the first non-whitespace character.
+   - NEVER put a semicolon at the end of a #define directive!
+
+3. OBJECT-LIKE VS FUNCTION-LIKE MACROS
+   - Object-like:   #define BUFFER_SIZE 4096
+   - Function-like: #define SQUARE(x) ((x) * (x))
+
+4. THE PARENTHESIZATION GOLDEN RULE
+   Always enclose:
+   1. The entire macro replacement expression in parentheses.
+   2. Every parameter inside the expression in parentheses.
+   Example:
+   #define MULTIPLY(a, b) ((a) * (b))
+
+5. USEFUL CLI COMMANDS
+   - Generate preprocessed output:
+     gcc -E main.c -o main.i
+   - Pass macro definition via command line:
+     gcc -DDEBUG=1 -DVERSION_MAJOR=2 main.c -o app
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

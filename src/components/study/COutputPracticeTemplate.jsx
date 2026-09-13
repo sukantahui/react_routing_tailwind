@@ -12,6 +12,8 @@ import {
   Check,
   Lightbulb,
   CheckCircle2,
+  XCircle,
+  AlertTriangle,
   HelpCircle,
   Cpu,
   Layers,
@@ -21,7 +23,9 @@ import {
   ChevronUp,
   SlidersHorizontal,
   FileCode,
-  Laptop
+  Laptop,
+  Trash2,
+  SplitSquareVertical
 } from "lucide-react";
 import CodeBlock from "../../common/CodeBlock";
 
@@ -47,16 +51,12 @@ export default function COutputPracticeTemplate({ data }) {
   const [copiedOutputId, setCopiedOutputId] = useState(null);
   const [userGuesses, setUserGuesses] = useState({});
   const [expandedTryIt, setExpandedTryIt] = useState([]);
+  const [verificationResults, setVerificationResults] = useState({});
+  const [showComparison, setShowComparison] = useState({});
 
-  if (!data || !data.questions) {
-    return (
-      <div className="p-8 text-center text-rose-400 bg-rose-950/20 border border-rose-900/30 rounded-2xl">
-        <p className="font-semibold">No questions found in this practice set.</p>
-      </div>
-    );
-  }
-
-  const allQuestions = data.questions;
+  const allQuestions = useMemo(() => {
+    return data && Array.isArray(data.questions) ? data.questions : [];
+  }, [data]);
 
   // Filter questions based on difficulty & search query
   const filteredQuestions = useMemo(() => {
@@ -86,6 +86,37 @@ export default function COutputPracticeTemplate({ data }) {
     return filteredQuestions;
   }, [viewMode, quizStarted, quizQuestions, filteredQuestions]);
 
+  // Difficulty breakdown counts
+  const diffCounts = useMemo(() => {
+    const counts = { all: allQuestions.length, beginner: 0, moderate: 0, intermediate: 0, advanced: 0 };
+    allQuestions.forEach((q) => {
+      const d = (q.difficulty || "").toLowerCase();
+      if (counts[d] !== undefined) counts[d]++;
+    });
+    return counts;
+  }, [allQuestions]);
+
+  // Total predictions checked and correct counts
+  const predictionStats = useMemo(() => {
+    let correct = 0;
+    let checked = 0;
+    Object.values(verificationResults).forEach((res) => {
+      if (res.status === "correct") correct++;
+      if (res.status === "correct" || res.status === "close" || res.status === "incorrect") {
+        checked++;
+      }
+    });
+    return { correct, checked };
+  }, [verificationResults]);
+
+  if (!data || !data.questions) {
+    return (
+      <div className="p-8 text-center text-rose-400 bg-rose-950/20 border border-rose-900/30 rounded-2xl">
+        <p className="font-semibold">No questions found in this practice set.</p>
+      </div>
+    );
+  }
+
   // Toggle single answer reveal
   const toggleReveal = (id) => {
     setRevealedIds((prev) =>
@@ -104,6 +135,17 @@ export default function COutputPracticeTemplate({ data }) {
     }
   };
 
+  // Toggle all prediction pads open/closed
+  const toggleAllPads = () => {
+    const activeIds = activeQuestions.map((q) => q.id);
+    const allOpen = activeIds.every((id) => expandedTryIt.includes(id));
+    if (allOpen) {
+      setExpandedTryIt((prev) => prev.filter((id) => !activeIds.includes(id)));
+    } else {
+      setExpandedTryIt((prev) => Array.from(new Set([...prev, ...activeIds])));
+    }
+  };
+
   // Start Quiz Mode
   const handleStartQuiz = () => {
     const pool = shuffleArray(filteredQuestions);
@@ -111,6 +153,7 @@ export default function COutputPracticeTemplate({ data }) {
     setQuizQuestions(pool.slice(0, count));
     setQuizStarted(true);
     setRevealedIds([]);
+    setVerificationResults({});
   };
 
   // Reset Quiz
@@ -119,9 +162,113 @@ export default function COutputPracticeTemplate({ data }) {
     setQuizQuestions([]);
     setRevealedIds([]);
     setUserGuesses({});
+    setVerificationResults({});
+    setShowComparison({});
   };
 
-  // Copy helper
+  // Global Reset
+  const handleGlobalReset = () => {
+    setRevealedIds([]);
+    setUserGuesses({});
+    setVerificationResults({});
+    setExpandedTryIt([]);
+    setShowComparison({});
+  };
+
+  // Check user's prediction against expected output
+  const handleCheckPrediction = (q) => {
+    const rawGuess = userGuesses[q.id] ?? "";
+    const guess = rawGuess.trim();
+    const actual = (q.output || "").trim();
+
+    if (!guess) {
+      setVerificationResults((prev) => ({
+        ...prev,
+        [q.id]: {
+          status: "empty",
+          message: "Please write your predicted console output above before checking!"
+        }
+      }));
+      return;
+    }
+
+    // Exact match (ignoring only leading/trailing whitespace of entire block)
+    if (guess === actual) {
+      setVerificationResults((prev) => ({
+        ...prev,
+        [q.id]: {
+          status: "correct",
+          message: "🎉 Exact Match! Your prediction is 100% accurate!"
+        }
+      }));
+      return;
+    }
+
+    // Normalizing newline types (\r\n vs \n) and trimming end of each line
+    const normalizeLines = (str) =>
+      str
+        .replace(/\r\n/g, "\n")
+        .split("\n")
+        .map((l) => l.trimEnd())
+        .join("\n")
+        .trim();
+
+    if (normalizeLines(guess) === normalizeLines(actual)) {
+      setVerificationResults((prev) => ({
+        ...prev,
+        [q.id]: {
+          status: "correct",
+          message: "🎉 Match! (Normalized line endings & trailing whitespace match expected output)"
+        }
+      }));
+      return;
+    }
+
+    // Check if whitespace-collapsed string matches
+    const collapseWhitespace = (str) =>
+      str.replace(/\s+/g, " ").trim().toLowerCase();
+
+    if (collapseWhitespace(guess) === collapseWhitespace(actual)) {
+      setVerificationResults((prev) => ({
+        ...prev,
+        [q.id]: {
+          status: "close",
+          message: "⚠️ Very Close! The token values match, but check your exact spaces, commas, or newlines."
+        }
+      }));
+      return;
+    }
+
+    // Incorrect prediction
+    setVerificationResults((prev) => ({
+      ...prev,
+      [q.id]: {
+        status: "incorrect",
+        message: "❌ Output Mismatch. Compare your prediction with the expected output or study the teacher breakdown."
+      }
+    }));
+  };
+
+  // Clear single user prediction pad
+  const handleClearPad = (qId) => {
+    setUserGuesses((prev) => {
+      const copy = { ...prev };
+      delete copy[qId];
+      return copy;
+    });
+    setVerificationResults((prev) => {
+      const copy = { ...prev };
+      delete copy[qId];
+      return copy;
+    });
+    setShowComparison((prev) => {
+      const copy = { ...prev };
+      delete copy[qId];
+      return copy;
+    });
+  };
+
+  // Copy helpers
   const handleCopyCode = (id, code) => {
     navigator.clipboard.writeText(code);
     setCopiedCodeId(id);
@@ -148,16 +295,6 @@ export default function COutputPracticeTemplate({ data }) {
     }
     return "bg-purple-500/10 text-purple-400 border-purple-500/30";
   };
-
-  // Difficulty breakdown counts
-  const diffCounts = useMemo(() => {
-    const counts = { all: allQuestions.length, beginner: 0, moderate: 0, intermediate: 0, advanced: 0 };
-    allQuestions.forEach((q) => {
-      const d = (q.difficulty || "").toLowerCase();
-      if (counts[d] !== undefined) counts[d]++;
-    });
-    return counts;
-  }, [allQuestions]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans p-3 sm:p-6 lg:p-8 space-y-8 rounded-2xl border border-slate-800 shadow-2xl">
@@ -187,20 +324,20 @@ export default function COutputPracticeTemplate({ data }) {
                   {data.class || "All Levels"}
                 </span>
                 <span className="bg-purple-500/20 text-purple-300 border border-purple-500/30 px-2.5 py-0.5 rounded-full text-xs font-semibold">
-                  {data.board || "Standard"}
+                  {data.board || "Technical & University Standard"}
                 </span>
               </div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
                 {data.topic}
               </h1>
               <p className="text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
-                {data.subject} · Master nested loops, 2D coordinate tracing, boundary checks, and character art prediction with instant compiler output verification.
+                {data.subject} · Predict code execution mentally, enter output into the interactive Prediction Pad, and verify against real C compiler results.
               </p>
             </div>
           </div>
 
-          {/* Quick Metrics Badge */}
-          <div className="flex flex-row md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-3 pt-4 md:pt-0 border-t md:border-t-0 border-slate-800">
+          {/* Quick Metrics Badges */}
+          <div className="flex flex-wrap md:flex-col items-center md:items-end justify-between w-full md:w-auto gap-3 pt-4 md:pt-0 border-t md:border-t-0 border-slate-800">
             <div className="text-left md:text-right">
               <span className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">
                 Total Questions
@@ -209,12 +346,23 @@ export default function COutputPracticeTemplate({ data }) {
                 {allQuestions.length}
               </span>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs text-slate-300">
-              <Eye className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Revealed:</span>
-              <strong className="text-emerald-400 font-mono">
-                {revealedIds.length} / {allQuestions.length}
-              </strong>
+            <div className="flex items-center gap-2">
+              {predictionStats.checked > 0 && (
+                <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-purple-500/30 text-xs text-purple-300">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Predicted Correct:</span>
+                  <strong className="text-emerald-400 font-mono">
+                    {predictionStats.correct} / {predictionStats.checked}
+                  </strong>
+                </div>
+              )}
+              <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs text-slate-300">
+                <Eye className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Revealed:</span>
+                <strong className="text-emerald-400 font-mono">
+                  {revealedIds.length} / {allQuestions.length}
+                </strong>
+              </div>
             </div>
           </div>
         </div>
@@ -231,7 +379,7 @@ export default function COutputPracticeTemplate({ data }) {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by pattern, code, logic, or keywords (e.g. Floyd, Pyramid, Diamond)..."
+              placeholder="Search by keyword, code, operator, or logic (e.g. increment, modulo, division, loop)..."
               className="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50 transition"
             />
             {searchQuery && (
@@ -312,7 +460,22 @@ export default function COutputPracticeTemplate({ data }) {
           </div>
 
           {/* Master Action Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Toggle All Prediction Pads */}
+            <button
+              onClick={toggleAllPads}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-950 border border-purple-500/40 hover:border-purple-400 text-purple-300 hover:text-white transition"
+              title="Expand or collapse Prediction Pads for all active questions"
+            >
+              <Laptop className="w-3.5 h-3.5 text-purple-400" />
+              <span>
+                {activeQuestions.length > 0 &&
+                activeQuestions.every((q) => expandedTryIt.includes(q.id))
+                  ? "Close All Pads"
+                  : "Open All Pads"}
+              </span>
+            </button>
+
             {viewMode === "browse" && (
               <button
                 onClick={toggleRevealAll}
@@ -333,14 +496,16 @@ export default function COutputPracticeTemplate({ data }) {
               </button>
             )}
 
-            {revealedIds.length > 0 && (
+            {(revealedIds.length > 0 ||
+              Object.keys(userGuesses).length > 0 ||
+              expandedTryIt.length > 0) && (
               <button
-                onClick={() => setRevealedIds([])}
+                onClick={handleGlobalReset}
                 className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-rose-800 text-slate-400 hover:text-rose-300 transition"
-                title="Reset all revealed answers"
+                title="Reset all revealed answers and prediction pads"
               >
                 <RotateCcw className="w-3 h-3" />
-                <span>Reset</span>
+                <span>Reset All</span>
               </button>
             )}
           </div>
@@ -404,26 +569,33 @@ export default function COutputPracticeTemplate({ data }) {
               Quick Question Jump Index:
             </span>
             <span className="text-[11px] text-slate-500">
-              Click any number to jump to question
+              Click any number to jump directly
             </span>
           </div>
           <div className="flex flex-wrap gap-1.5">
             {activeQuestions.map((q, idx) => {
               const isRevealed = revealedIds.includes(q.id);
+              const vResult = verificationResults[q.id];
+              const isCorrect = vResult?.status === "correct";
+
               return (
                 <a
                   key={q.id}
                   href={`#question-${q.id}`}
                   className={`w-8 h-8 rounded-lg text-xs font-bold font-mono flex items-center justify-center border transition relative ${
-                    isRevealed
-                      ? "bg-emerald-950/60 border-emerald-500/50 text-emerald-300 shadow-sm shadow-emerald-900/50"
+                    isCorrect
+                      ? "bg-emerald-900/80 border-emerald-400 text-emerald-200 shadow-md shadow-emerald-900/60 ring-1 ring-emerald-400/50"
+                      : isRevealed
+                      ? "bg-sky-950/60 border-sky-500/50 text-sky-300 shadow-sm shadow-sky-900/50"
                       : "bg-slate-950 border-slate-800 text-slate-400 hover:border-sky-500/40 hover:text-sky-300"
                   }`}
                 >
                   {idx + 1}
-                  {isRevealed && (
-                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full"></span>
-                  )}
+                  {isCorrect ? (
+                    <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-slate-950"></span>
+                  ) : isRevealed ? (
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-sky-400 rounded-full"></span>
+                  ) : null}
                 </a>
               );
             })}
@@ -440,7 +612,7 @@ export default function COutputPracticeTemplate({ data }) {
             </div>
             <h3 className="text-lg font-bold text-white">Interactive Self-Test Quiz Ready</h3>
             <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto">
-              Select your desired difficulty filter and question count above, then click <strong>Generate Shuffled Practice Quiz</strong> to test your loop tracing skills!
+              Select your desired difficulty filter and question count above, then click <strong>Generate Shuffled Practice Quiz</strong> to test your execution tracing skills!
             </p>
           </div>
         )}
@@ -468,12 +640,20 @@ export default function COutputPracticeTemplate({ data }) {
           const isRevealed = revealedIds.includes(q.id);
           const isTryItOpen = expandedTryIt.includes(q.id);
           const userGuess = userGuesses[q.id] || "";
+          const vResult = verificationResults[q.id];
+          const isComparing = showComparison[q.id];
 
           return (
             <article
               key={q.id}
               id={`question-${q.id}`}
-              className="bg-slate-900/70 border border-slate-800 hover:border-slate-700/80 rounded-3xl p-5 sm:p-7 shadow-xl space-y-5 transition duration-200"
+              className={`bg-slate-900/70 border rounded-3xl p-5 sm:p-7 shadow-xl space-y-5 transition duration-200 ${
+                vResult?.status === "correct"
+                  ? "border-emerald-500/60 shadow-emerald-950/20"
+                  : vResult?.status === "incorrect"
+                  ? "border-rose-900/40"
+                  : "border-slate-800 hover:border-slate-700/80"
+              }`}
             >
               {/* Question Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
@@ -485,9 +665,16 @@ export default function COutputPracticeTemplate({ data }) {
                     <h2 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
                       {q.question}
                     </h2>
-                    <span className="text-[10px] text-slate-500 font-mono">
-                      Question ID: #{q.id}
-                    </span>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-[10px] text-slate-500 font-mono">
+                        Question ID: #{q.id}
+                      </span>
+                      {vResult?.status === "correct" && (
+                        <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-1.5 py-0.2 rounded font-semibold flex items-center gap-1">
+                          <CheckCircle2 className="w-2.5 h-2.5" /> Solved
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -507,9 +694,9 @@ export default function COutputPracticeTemplate({ data }) {
                 <div className="flex items-center justify-between px-3 py-1.5 bg-slate-950 rounded-t-xl border-t border-x border-slate-800 text-xs">
                   <div className="flex items-center gap-2 text-slate-400 font-mono text-[11px]">
                     <FileCode className="w-3.5 h-3.5 text-sky-400" />
-                    <span>pattern_{q.id}.c</span>
+                    <span>snippet_{q.id}.c</span>
                     <span className="bg-slate-800 text-slate-400 px-1.5 py-0.2 rounded text-[9px]">
-                      C (C99)
+                      C (C99 / GCC)
                     </span>
                   </div>
                   <button
@@ -524,7 +711,7 @@ export default function COutputPracticeTemplate({ data }) {
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5" />
-                        <span>Copy C Code</span>
+                        <span>Copy Code</span>
                       </>
                     )}
                   </button>
@@ -534,15 +721,15 @@ export default function COutputPracticeTemplate({ data }) {
                   <CodeBlock
                     code={q.code}
                     language="c"
-                    fileName={`pattern_${q.id}.c`}
+                    fileName={`snippet_${q.id}.c`}
                     showRun={false}
                   />
                 </div>
               </div>
 
-              {/* Action Buttons: Try It & Reveal Expected Output */}
+              {/* Action Buttons: Try Predicting Pad & Reveal Expected Output */}
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                {/* Try It Yourself Notepad Toggle */}
+                {/* Try It Yourself Prediction Pad Toggle */}
                 <button
                   onClick={() =>
                     setExpandedTryIt((prev) =>
@@ -551,12 +738,19 @@ export default function COutputPracticeTemplate({ data }) {
                         : [...prev, q.id]
                     )
                   }
-                  className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-purple-300 transition px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800"
+                  className={`flex items-center gap-1.5 text-xs font-semibold transition px-3.5 py-2 rounded-xl border ${
+                    isTryItOpen
+                      ? "bg-purple-950/70 border-purple-500/60 text-purple-200 shadow-md shadow-purple-900/30"
+                      : "bg-slate-950 border-purple-500/30 text-purple-300 hover:bg-purple-950/40 hover:text-white"
+                  }`}
                 >
                   <Laptop className="w-3.5 h-3.5 text-purple-400" />
                   <span>
-                    {isTryItOpen ? "Close Prediction Pad" : "Try Predicting Output"}
+                    {isTryItOpen ? "Close Prediction Pad" : "Open Prediction Pad"}
                   </span>
+                  {userGuess && !isTryItOpen && (
+                    <span className="w-2 h-2 rounded-full bg-purple-400 inline-block ml-1"></span>
+                  )}
                 </button>
 
                 {/* Main Reveal Answer Toggle Button */}
@@ -571,42 +765,169 @@ export default function COutputPracticeTemplate({ data }) {
                   {isRevealed ? (
                     <>
                       <EyeOff className="w-4 h-4 text-emerald-400" />
-                      <span>Hide Verified Output</span>
+                      <span>Hide Solution &amp; Output</span>
                     </>
                   ) : (
                     <>
                       <Eye className="w-4 h-4" />
-                      <span>Reveal Expected Output</span>
+                      <span>Reveal Solution &amp; Output</span>
                     </>
                   )}
                 </button>
               </div>
 
-              {/* Try It Prediction Notepad (Interactive Self-Guess) */}
+              {/* ------------------- INTERACTIVE PREDICTION PAD ------------------- */}
               {isTryItOpen && (
-                <div className="bg-purple-950/20 border border-purple-800/40 p-4 rounded-2xl space-y-2">
-                  <div className="flex items-center justify-between text-xs text-purple-300 font-semibold">
+                <div className="bg-purple-950/20 border border-purple-800/40 p-4 sm:p-5 rounded-2xl space-y-3 animate-in fade-in duration-200">
+                  {/* Notepad Header */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-purple-300 font-semibold border-b border-purple-800/30 pb-2.5">
                     <span className="flex items-center gap-1.5">
-                      <Terminal className="w-3.5 h-3.5 text-purple-400" />
-                      Your Predicted Output Sketchpad:
+                      <Terminal className="w-4 h-4 text-purple-400" />
+                      Your Output Prediction Pad:
                     </span>
-                    <span className="text-[10px] text-purple-400">
-                      Type your ASCII pattern guess here
+                    <span className="text-[11px] text-purple-400/80 font-normal">
+                      Write your expected console output &amp; press <strong>Check Prediction</strong>
                     </span>
                   </div>
-                  <textarea
-                    rows={4}
-                    value={userGuess}
-                    onChange={(e) =>
-                      setUserGuesses({ ...userGuesses, [q.id]: e.target.value })
-                    }
-                    placeholder="Type or sketch the exact pattern output you expect here..."
-                    className="w-full bg-slate-950 border border-purple-500/30 rounded-xl p-3 text-xs font-mono text-purple-200 placeholder-purple-600/60 focus:outline-none focus:ring-1 focus:ring-purple-400 leading-relaxed"
-                  />
+
+                  {/* Prediction Input Textarea */}
+                  <div className="relative">
+                    <textarea
+                      rows={4}
+                      value={userGuess}
+                      onChange={(e) => {
+                        setUserGuesses({ ...userGuesses, [q.id]: e.target.value });
+                        // Clear verification result when typing new content
+                        if (vResult) {
+                          setVerificationResults((prev) => {
+                            const copy = { ...prev };
+                            delete copy[q.id];
+                            return copy;
+                          });
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        // Support Ctrl+Enter or Cmd+Enter to verify
+                        if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+                          e.preventDefault();
+                          handleCheckPrediction(q);
+                        }
+                      }}
+                      placeholder="Type your predicted console output here (exact spacing/values)..."
+                      className="w-full bg-slate-950 border border-purple-500/30 rounded-xl p-3 text-xs font-mono text-purple-200 placeholder-purple-600/60 focus:outline-none focus:ring-2 focus:ring-purple-400 leading-relaxed shadow-inner"
+                    />
+                  </div>
+
+                  {/* Notepad Action Toolbar */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleCheckPrediction(q)}
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-md shadow-purple-600/30 transition transform active:scale-95"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <span>Check Prediction</span>
+                      </button>
+
+                      {userGuess && (
+                        <button
+                          onClick={() => handleClearPad(q.id)}
+                          className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-rose-800 text-slate-400 hover:text-rose-300 transition"
+                          title="Clear your sketchpad input"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                          <span>Clear</span>
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      {/* Toggle Comparison View if user made a guess */}
+                      {userGuess && isRevealed && (
+                        <button
+                          onClick={() =>
+                            setShowComparison((prev) => ({
+                              ...prev,
+                              [q.id]: !prev[q.id]
+                            }))
+                          }
+                          className="flex items-center gap-1 text-[11px] text-purple-300 hover:text-purple-100 bg-purple-900/30 border border-purple-500/30 px-2.5 py-1 rounded-lg transition"
+                        >
+                          <SplitSquareVertical className="w-3 h-3" />
+                          <span>
+                            {isComparing ? "Hide Side-by-Side" : "Side-by-Side Compare"}
+                          </span>
+                        </button>
+                      )}
+
+                      <span className="text-[10px] text-purple-400/60 font-mono">
+                        {userGuess.length} chars · {userGuess.split("\n").length} line(s)
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Verification Result Feedback Banner */}
+                  {vResult && (
+                    <div
+                      className={`p-3.5 rounded-xl border flex items-start gap-2.5 text-xs animate-in fade-in duration-200 ${
+                        vResult.status === "correct"
+                          ? "bg-emerald-950/60 border-emerald-500/50 text-emerald-200"
+                          : vResult.status === "close"
+                          ? "bg-amber-950/60 border-amber-500/50 text-amber-200"
+                          : vResult.status === "empty"
+                          ? "bg-slate-900 border-slate-700 text-slate-300"
+                          : "bg-rose-950/60 border-rose-500/50 text-rose-200"
+                      }`}
+                    >
+                      {vResult.status === "correct" ? (
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                      ) : vResult.status === "close" ? (
+                        <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                      ) : vResult.status === "empty" ? (
+                        <HelpCircle className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                      ) : (
+                        <XCircle className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5" />
+                      )}
+
+                      <div className="flex-1 space-y-1">
+                        <p className="font-semibold">{vResult.message}</p>
+                        {vResult.status !== "correct" && !isRevealed && (
+                          <button
+                            onClick={() => toggleReveal(q.id)}
+                            className="text-[11px] underline font-medium text-sky-300 hover:text-sky-200 mt-1 block"
+                          >
+                            Click here to reveal the verified compiler output &amp; explanation
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Side-by-Side Comparison Box */}
+                  {isComparing && isRevealed && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                      <div className="space-y-1 bg-slate-950/90 border border-purple-500/30 rounded-xl p-3">
+                        <span className="text-[10px] uppercase font-bold text-purple-400 block tracking-wider">
+                          Your Prediction:
+                        </span>
+                        <pre className="text-xs font-mono text-purple-200 whitespace-pre overflow-x-auto">
+                          {userGuess || "(empty)"}
+                        </pre>
+                      </div>
+                      <div className="space-y-1 bg-slate-950/90 border border-emerald-500/30 rounded-xl p-3">
+                        <span className="text-[10px] uppercase font-bold text-emerald-400 block tracking-wider">
+                          Expected Compiler Output:
+                        </span>
+                        <pre className="text-xs font-mono text-emerald-300 whitespace-pre overflow-x-auto">
+                          {q.output}
+                        </pre>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
-              {/* REVEALED VERIFIED OUTPUT & EXPLANATION PANEL */}
+              {/* ------------------- REVEALED VERIFIED OUTPUT & EXPLANATION PANEL ------------------- */}
               {isRevealed && (
                 <div className="bg-gradient-to-br from-emerald-950/40 via-slate-900 to-slate-950 border-2 border-emerald-500/40 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 animate-in fade-in duration-300">
                   {/* macOS / Linux Terminal Window for Output */}
@@ -619,7 +940,7 @@ export default function COutputPracticeTemplate({ data }) {
                           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
                         </div>
                         <span className="text-[11px] font-mono text-slate-400 ml-2">
-                          gcc -O2 pattern_{q.id}.c -o pattern && ./pattern
+                          gcc -O2 snippet_{q.id}.c -o run && ./run
                         </span>
                       </div>
                       <button
@@ -649,9 +970,9 @@ export default function COutputPracticeTemplate({ data }) {
                   <div className="bg-slate-950/80 border border-emerald-500/20 p-4 rounded-xl space-y-1.5">
                     <div className="flex items-center gap-2 text-xs font-bold text-amber-300">
                       <Lightbulb className="w-4 h-4 text-amber-400" />
-                      <span>Teacher's Logic &amp; Loop Tracing Breakdown:</span>
+                      <span>Teacher's Logic &amp; Execution Breakdown:</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed whitespace-pre-line">
                       {q.explanation}
                     </p>
                   </div>
@@ -665,7 +986,7 @@ export default function COutputPracticeTemplate({ data }) {
       {/* 5. FOOTER & EDUCATOR CREDITS */}
       <footer className="border-t border-slate-800 pt-6 text-center text-xs text-slate-500 space-y-1">
         <p>
-          <strong className="text-slate-400">{data.topic}</strong> · Designed for Systems Rigor &amp; Competitive Exam Mastery
+          <strong className="text-slate-400">{data.topic}</strong> · Designed for Systems Programming Rigor &amp; Technical Interview Mastery
         </p>
         <p>
           Educator: <span className="text-sky-400 font-medium">Sukanta Hui</span> · Coder &amp; AccoTax (Barrackpore &amp; Shyamnagar)

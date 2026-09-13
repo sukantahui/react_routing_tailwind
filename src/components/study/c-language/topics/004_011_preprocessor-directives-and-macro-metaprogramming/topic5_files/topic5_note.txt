@@ -1,0 +1,38 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 5 (MODULE 004_011)
+STANDARD PREDEFINED MACROS (__FILE__, __LINE__, __FUNC__, __DATE__, __TIME__)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. THE STANDARD PREDEFINED MACROS
+   - __FILE__           -> Current source file path as string (e.g. "main.c")
+   - __LINE__           -> Current line number as integer (e.g. 42)
+   - __DATE__           -> Compilation date string (e.g. "Sep 13 2026")
+   - __TIME__           -> Compilation time string (e.g. "14:35:00")
+   - __func__           -> Current function name as identifier (C99)
+   - __STDC__           -> 1 if compiler conforms to ISO C standard
+   - __STDC_VERSION__   -> 199901L (C99), 201112L (C11), 201710L (C17)
+
+2. INDUSTRIAL LOGGING MACRO PATTERN
+   #define LOG_INFO(fmt, ...) \
+       printf("[INFO] [%s:%d in %s()] " fmt "\n", \
+              __FILE__, __LINE__, __func__, ##__VA_ARGS__)
+
+3. CUSTOM RUNTIME ASSERTION PATTERN
+   #define ASSERT_DEBUG(expr) \
+       do { \
+           if (!(expr)) { \
+               fprintf(stderr, "ASSERTION FAILED: '%s' in %s:%d [%s()]\n", \
+                       #expr, __FILE__, __LINE__, __func__); \
+               abort(); \
+           } \
+       } while (0)
+
+4. COMPILER DETECTION MACROS
+   - GCC / Clang : #ifdef __GNUC__
+   - MSVC        : #ifdef _MSC_VER
+   - C++ Wrapper : #ifdef __cplusplus
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

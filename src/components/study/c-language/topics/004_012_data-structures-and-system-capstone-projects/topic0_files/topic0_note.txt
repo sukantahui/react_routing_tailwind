@@ -1,14 +1,50 @@
-================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 004_012: Data Structures & Systems Capstone Projects
-TOPIC 0: Singly Linked List Implementation in Pure C
-Educator: Sukanta Hui | Barrackpore, West Bengal
-================================================================================
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 0 (MODULE 004_012)
+SINGLY LINKED LISTS IN C: NODE ANATOMY, OPERATIONS & MEMORY SAFETY
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
 
-1. CORE CONCEPTS
---------------------------------------------------------------------------------
-- Node Structure: struct Node { int data; struct Node *next; };
-- Insertion: Node **headRef double pointer parameter.
-- Traversal: Loop curr = curr->next until curr == NULL.
-- Deallocation: Free each node pointer iteratively.
-================================================================================
+1. NODE STRUCTURE & HEAP ALLOCATION
+   typedef struct Node {
+       int data;
+       struct Node *next;
+   } Node;
+
+   Node *newNode = (Node *)malloc(sizeof(Node));
+   newNode->data = 100;
+   newNode->next = NULL;
+
+2. WHY USE POINTER-TO-POINTER (NODE **HEADREF)?
+   - In C, arguments are passed by value (copied).
+   - Passing (Node *head) cannot modify the caller's head variable.
+   - Passing (Node **headRef) allows modifying *headRef directly:
+     *headRef = newNode;
+
+3. CORE OPERATIONS & TIME COMPLEXITIES
+   - Insert at Head: O(1)
+   - Insert at Tail: O(N) (or O(1) with a tail pointer)
+   - Search by Value: O(N)
+   - Delete by Value: O(N)
+   - In-Place Reversal: O(N) time, O(1) auxiliary space
+
+4. THE 3-POINTER IN-PLACE REVERSAL ALGORITHM
+   Node *prev = NULL, *current = *headRef, *next = NULL;
+   while (current != NULL) {
+       next = current->next;
+       current->next = prev;
+       prev = current;
+       current = next;
+   }
+   *headRef = prev;
+
+5. CLEAN DEALLOCATION (PREVENTING MEMORY LEAKS)
+   while (curr != NULL) {
+       Node *next = curr->next;
+       free(curr);
+       curr = next;
+   }
+   *headRef = NULL;
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

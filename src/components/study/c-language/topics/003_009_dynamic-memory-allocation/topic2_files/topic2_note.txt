@@ -1,0 +1,54 @@
+================================================================================
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 2: RESIZING BUFFERS WITH REALLOC()
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
+================================================================================
+
+1. FUNCTION SIGNATURE & BEHAVIOR
+--------------------------------------------------------------------------------
+Include Header: #include <stdlib.h>
+
+void *realloc(void *ptr, size_t new_size);
+- Resizes previously allocated heap block 'ptr' to 'new_size' bytes.
+- Preserves existing data up to min(old_size, new_size).
+- If expanded, newly added bytes contain uninitialized garbage values.
+
+
+2. THE SAFE TEMPORARY POINTER IDIOM (AVOID MEMORY LEAKS)
+--------------------------------------------------------------------------------
+    // INCORRECT (Anti-pattern - Leaks memory on failure):
+    ptr = (int *)realloc(ptr, new_size * sizeof(int)); // Bug if realloc returns NULL!
+
+    // CORRECT (Defensive programming standard):
+    int *temp = (int *)realloc(ptr, new_size * sizeof(int));
+    if (temp == NULL) {
+        // Handle allocation failure gracefully
+        // Note: 'ptr' is still valid and uncorrupted!
+        free(ptr);
+        exit(EXIT_FAILURE);
+    }
+    ptr = temp; // Reassign only on success
+
+
+3. REALLOC EXPANSION MECHANICS
+--------------------------------------------------------------------------------
+[A] In-place Expansion:
+    If adjacent heap memory following the block is free, the allocator simply
+    extends the boundary in-place. The pointer address does not change.
+
+[B] Relocation:
+    If adjacent space is already occupied by other allocations:
+    1. Allocator finds a fresh contiguous block of 'new_size' elsewhere on heap.
+    2. Copies old data to the new location.
+    3. Automatically frees the old block.
+    4. Returns the new pointer address.
+
+
+4. SPECIAL ARGUMENT EDGE CASES
+--------------------------------------------------------------------------------
+- realloc(NULL, size) : Equivalent to malloc(size)
+- realloc(ptr, 0)     : Frees memory in C99/C11 (use explicit free() instead)
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
+================================================================================

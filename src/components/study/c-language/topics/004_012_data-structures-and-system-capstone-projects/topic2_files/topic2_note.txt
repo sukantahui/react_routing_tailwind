@@ -1,0 +1,38 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 2 (MODULE 004_012)
+STACK & QUEUE IMPLEMENTATIONS IN C: ARRAY VS LINKED NODE MECHANICS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. STACK (LIFO: LAST-IN, FIRST-OUT)
+   - Core Operations:
+     * push(s, val) -> Insert at top (O(1))
+     * pop(s, &val) -> Remove from top (O(1))
+     * peek(s, &val)-> Inspect top without removing (O(1))
+   - Applications:
+     * Function call stack & recursion
+     * Expression parsing & Shunting-Yard Algorithm
+     * Undo/Redo mechanisms
+     * Backtracking & Depth-First Search (DFS)
+
+2. QUEUE (FIFO: FIRST-IN, FIRST-OUT)
+   - Core Operations:
+     * enqueue(q, val) -> Insert at rear (O(1))
+     * dequeue(q, &val)-> Remove from front (O(1))
+     * peek(q, &val)   -> Inspect front element (O(1))
+   - Applications:
+     * CPU Round-Robin Task Scheduling
+     * Network packet buffering & I/O spooling
+     * Breadth-First Search (BFS) graph traversal
+
+3. ARRAY VS LINKED NODE COMPARISON
+   - Array Stack/Queue: Fast contiguous cache locality, fixed capacity (or realloc cost).
+   - Linked Stack/Queue: Unlimited dynamic heap growth, no resizing, 8B pointer overhead.
+
+4. CLEAN HEAP MEMORY TEARDOWN
+   - Always deallocate every individual heap node in a loop before freeing the
+     metadata container struct.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

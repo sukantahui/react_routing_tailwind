@@ -1,15 +1,48 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 003_010: File Handling & Stream I/O Operations
-TOPIC 0: Text & Binary File Streams
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_010 · TOPIC 0: STANDARD STREAMS & STREAM BUFFERING
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
 ================================================================================
 
-1. CORE CONCEPTS
+1. THE THREE STANDARD I/O STREAMS
 --------------------------------------------------------------------------------
-- FILE* handle: Opaque stream pointer.
-- Modes: "r" (read), "w" (overwrite write), "a" (append), "rb"/"wb" (binary).
-- Text I/O: fprintf, fscanf, fgets, fputs.
-- Binary I/O: fread, fwrite.
-- File positioning: fseek, ftell, rewind.
+Stream Name | File Descriptor | Default Device   | Default Buffering Mode
+------------+-----------------+------------------+------------------------------
+stdin       | 0 (STDIN_FILENO)| Keyboard         | Line-Buffered (_IOLBF)
+stdout      | 1 (STDOUT_FILENO| Terminal Display | Line-Buffered / Full-Buffered
+stderr      | 2 (STDERR_FILENO| Terminal Display | Unbuffered (_IONBF) - Instant!
+
+
+2. THE THREE BUFFERING MODES (_IOFBF, _IOLBF, _IONBF)
+--------------------------------------------------------------------------------
+[A] _IOFBF (Full Buffering):
+    - Flushes ONLY when buffer is completely filled (e.g. 4KB disk blocks).
+    - Default for disk files and redirected stdout.
+
+[B] _IOLBF (Line Buffering):
+    - Flushes whenever a newline '\n' is printed or buffer fills.
+    - Default for interactive terminal stdout.
+
+[C] _IONBF (No Buffering / Unbuffered):
+    - Direct immediate output with zero buffering.
+    - Default for stderr.
+
+
+3. THE FFLUSH() FUNCTION
+--------------------------------------------------------------------------------
+    int fflush(FILE *stream);
+    - Writes any unwritten buffered data to the destination device/file.
+    - fflush(stdout): Ensures prompts and progress dots without '\n' appear.
+    - fflush(NULL)  : Flushes all open output streams.
+    - WARNING: Calling fflush(stdin) is UNDEFINED BEHAVIOR in standard C!
+
+
+4. CUSTOM BUFFERING CONFIGURATION WITH SETVBUF()
+--------------------------------------------------------------------------------
+    char my_buf[2048];
+    setvbuf(fp, my_buf, _IOFBF, sizeof(my_buf));
+    // Must be called BEFORE any read/write operations occur on stream.
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
 ================================================================================

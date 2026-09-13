@@ -1,0 +1,46 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 4 (MODULE 004_012)
+MULTI-FILE PROJECT ARCHITECTURE, SYMBOL LINKAGE & ENCAPSULATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. MODULAR PROJECT STRUCTURE (.H VS .C)
+   - Header File (.h): Public Interface
+     * Struct/Type definitions, typedefs
+     * Function prototypes (external linkage)
+     * extern global variable declarations
+     * Macro definitions & static inline functions
+   - Implementation File (.c): Private Logic
+     * Function bodies and algorithms
+     * Non-static global variable allocations
+     * static internal helper functions (internal linkage)
+
+2. SYMBOL LINKAGE IN C
+   - External Linkage (Default):
+     Functions and non-static globals are visible across all translation units.
+   - Internal Linkage (static):
+     Functions and file-scope variables marked 'static' are restricted strictly
+     to their own .c file, preventing name collisions.
+
+3. COMMON LINKER ERRORS
+   - Multiple Definition of Symbol:
+     Occurs when a non-static variable or function is defined in multiple .c files.
+   - Undefined Reference to Symbol:
+     Occurs when a function is declared in a header and called, but its .o file
+     is omitted during linking.
+
+4. SEPARATE COMPILATION COMMANDS
+   Step 1: Compile individual translation units into object files (.o):
+     gcc -c student.c -o student.o
+     gcc -c main.c -o main.o
+   Step 2: Link object files into final binary:
+     gcc main.o student.o -o student_app
+
+5. THE OPAQUE POINTER PATTERN (ENCAPSULATION)
+   - Declare struct without members in header: typedef struct Database Database;
+   - Client code only interacts via API pointers (db_insert, db_query), preventing
+     client code from tampering with private internal state.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

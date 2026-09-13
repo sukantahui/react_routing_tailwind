@@ -1,12 +1,49 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 003_009: Dynamic Memory Allocation & Heap Management
-TOPIC 1: Module 003_009 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 1: DYNAMIC ALLOCATION (MALLOC VS CALLOC)
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. FUNCTION SIGNATURES & MECHANICS
 --------------------------------------------------------------------------------
-- Project 1: Dynamic Resizable Vector / Array Engine
-- Project 2: Heap-Allocated Dynamic 2D Matrix Engine
+Include Header: #include <stdlib.h>
+
+[A] malloc() - Memory Allocation:
+    void *malloc(size_t size);
+    - Allocates 'size' bytes of contiguous raw heap memory.
+    - Leaves initial memory UNINITIALIZED (contains random garbage values).
+    - Usage: int *arr = (int *)malloc(n * sizeof(int));
+
+[B] calloc() - Contiguous Allocation:
+    void *calloc(size_t num, size_t size);
+    - Allocates 'num * size' bytes of contiguous heap memory.
+    - Explicitly ZEROES OUT all allocated bytes (guaranteed all bits 0).
+    - Usage: int *arr = (int *)calloc(n, sizeof(int));
+
+
+2. CRITICAL NULL CHECKING PATTERN (DEFENSIVE CODING)
+--------------------------------------------------------------------------------
+    int *buffer = (int *)malloc(100 * sizeof(int));
+    if (buffer == NULL) {
+        fprintf(stderr, "FATAL: Heap memory allocation failed!\n");
+        exit(EXIT_FAILURE); // Or return error code
+    }
+    // Safe to use buffer here...
+    free(buffer);
+    buffer = NULL;
+
+
+3. MALLOC VS CALLOC COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Criterion        | malloc()                        | calloc()
+-----------------+---------------------------------+----------------------------
+Parameters       | 1 (total bytes: size)           | 2 (num_elements, elem_size)
+Initialization   | None (Garbage bits retained)    | Zero-initialized (All 0s)
+Performance      | Faster (no clearing step)       | Slightly slower (zero-fill)
+Best Use Case    | Buffers immediately overwritten | Counters, accumulators, flags
+Overflow Safety  | Caller must ensure no overflow  | Allocator checks num * size
+
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
 ================================================================================

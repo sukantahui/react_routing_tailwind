@@ -430,7 +430,8 @@
             "Deallocating memory with free(): returning heap memory to OS",
             "Memory Management Hazards: Memory Leaks, Dangling Pointers, Double Free errors, Wild Pointers",
             "Allocating Dynamic 2D Arrays: array of pointers vs single contiguous block",
-            "Hands-on C Projects & Solutions for Module 003_009"
+            "Hands-on C Projects: Industrial Dynamic Resizable Vector Engine",
+            "Self-Test Module 003_009: 200 Comprehensive MCQs on Dynamic Memory Allocation & Heap Management"
           ],
           "learningOutcomes": [
             "Allocate and manage dynamic heap memory safely at runtime",
@@ -439,7 +440,7 @@
           ],
           "prerequisites": ["003_008_structures-unions-and-typedef"],
           "miniProjects": ["Dynamic Resizable Vector / Array Engine", "Dynamic Matrix Math Allocator"],
-          "exercises": { "mcq": 25, "coding": 10, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 10, "projects": 1 },
           "assessment": { "type": "Heap Memory & Leak Diagnostic Exam", "passScore": 85 },
           "useCases": ["Dynamic collections", "High-performance memory pools"],
           "careerSkills": ["Heap memory management", "Memory leak debugging"],
@@ -462,13 +463,14 @@
           "summary": "Master file handling in C: streams (stdin, stdout, stderr), file pointer (FILE*), opening/closing modes (r, w, a, r+, w+, a+, rb, wb), text vs binary file operations (fgetc, fputc, fgets, fputs, fprintf, fscanf, fread, fwrite), and file positioning (fseek, ftell, rewind).",
           "tags": ["files", "file-pointer", "fopen", "fread", "fwrite", "fprintf", "fscanf", "fseek", "binary-files"],
           "topics": [
-            "Standard I/O Streams: stdin, stdout, stderr, and stream buffering",
-            "File Pointer (FILE*) & opening files with fopen(): read ('r'), write ('w'), append ('a'), update ('+') modes",
-            "Text File Operations: character I/O (fgetc/fputc), line I/O (fgets/fputs), formatted I/O (fprintf/fscanf)",
-            "Binary File Operations: raw block I/O with fread() and fwrite() for struct persistence",
+            "Standard I/O Streams: stdin, stdout, stderr, buffering mechanics (setvbuf, _IOFBF, _IOLBF, _IONBF)",
+            "File Pointer (FILE*) & Opening Modes: 'r', 'w', 'a', '+', 'b' and stream closure lifecycle (fclose)",
+            "Text Stream I/O: character (fgetc/fputc), line (fgets/fputs), and formatted (fprintf/fscanf) operations",
+            "Binary Stream I/O & Struct Serialization: direct memory block transfers with fread() and fwrite()",
             "Random Access File Positioning: fseek(), ftell(), rewind(), SEEK_SET, SEEK_CUR, SEEK_END",
-            "Error handling in file streams: feof(), ferror(), clearing stream errors",
-            "Hands-on C Projects & Solutions for Module 003_010"
+            "Stream Diagnostics & Error Handling: avoiding while(!feof) trap, ferror(), clearerr(), perror(), errno",
+            "Capstone Project: Persistent CLI Binary Student Database Engine with CRUD, Soft Delete & Compaction",
+            "Self-Test Module 003_010: 200 Comprehensive MCQs on File Handling & Stream I/O Operations"
           ],
           "learningOutcomes": [
             "Persist application data structures to disk using binary file streams",
@@ -477,7 +479,7 @@
           ],
           "prerequisites": ["003_009_dynamic-memory-allocation"],
           "miniProjects": ["Persistent File-based Student Database", "Log File Analyzer & Binary Exporter"],
-          "exercises": { "mcq": 25, "coding": 10, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 10, "projects": 1 },
           "assessment": { "type": "File I/O Persistence Lab Exam", "passScore": 80 },
           "useCases": ["Database storage engines", "Log persistence", "Binary asset parsers"],
           "careerSkills": ["File persistence", "Binary stream serialization"],
@@ -509,13 +511,14 @@
           "summary": "Master the C preprocessor: macro definitions (#define), parameterised macro functions, operator stringizing (#), token concatenation (##), conditional compilation (#ifdef, #ifndef, #if, #elif, #else, #endif), header guards, and predefined macros (__FILE__, __LINE__, __DATE__, __TIME__).",
           "tags": ["preprocessor", "macros", "header-guards", "conditional-compilation", "stringizing", "token-concatenation"],
           "topics": [
-            "The Preprocessor Stage: text substitution before compilation",
-            "Object-like and Function-like Macros (#define): evaluation traps and parenthesization rules",
-            "Preprocessor Operators: Stringizing operator (#) and Token Concatenation operator (##)",
-            "Conditional Compilation: #ifdef, #ifndef, #if, #elif, #else, #endif for cross-platform support",
-            "Header Guards & #pragma once: preventing multiple inclusion bugs",
-            "Predefined Compiler Macros: __FILE__, __LINE__, __DATE__, __TIME__, __func__ for custom logging framework",
-            "Hands-on C Projects & Solutions for Module 004_011"
+            "The Preprocessor Pipeline: translation phases (Phase 1-8), text substitution, and gcc -E",
+            "Object-like & Function-like Macros: precedence pitfalls, side-effects, and do { ... } while(0) idiom",
+            "Preprocessor Metaprogramming: stringizing operator (#), token concatenation (##), and X-Macros",
+            "Conditional Compilation: #ifdef, #ifndef, #if, #elif, #else, #endif, defined(), and #error",
+            "Header Guards, Include Guards & #pragma once: preventing multiple inclusion and circular dependencies",
+            "Predefined Compiler Macros: __FILE__, __LINE__, __func__, __DATE__, __TIME__, and __STDC_VERSION__",
+            "Capstone Project: Industrial Diagnostic Logging, Custom Assert & Performance Benchmarking Suite",
+            "Self-Test Module 004_011: 200 Comprehensive MCQs on Preprocessor Directives & Macro Metaprogramming"
           ],
           "learningOutcomes": [
             "Write safe, robust function-like macros without side-effect bugs",
@@ -524,7 +527,7 @@
           ],
           "prerequisites": ["003_010_file-handling-and-stream-io"],
           "miniProjects": ["Cross-Platform Logging & Diagnostic Macro Suite", "Configurable System Diagnostics Framework"],
-          "exercises": { "mcq": 25, "coding": 8, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 8, "projects": 1 },
           "assessment": { "type": "Preprocessor Metaprogramming Test", "passScore": 85 },
           "useCases": ["Cross-platform C SDKs", "Embedded HAL macro layers"],
           "careerSkills": ["Macro metaprogramming", "Cross-platform portability"],
@@ -547,13 +550,14 @@
           "summary": "Implement core data structures in pure C (Singly Linked List, Stack, Queue), handle command-line arguments (argc, argv), organize multi-file modular projects with Makefiles, and build production capstone systems.",
           "tags": ["linked-list", "stack", "queue", "data-structures", "argc-argv", "makefile", "capstone"],
           "topics": [
-            "Implementing Singly Linked Lists in C: node structure, dynamic insertion, deletion, reversal, and traversal",
-            "Implementing Stack & Queue data structures using pointers and linked memory",
-            "Command-Line Arguments processing: argc, argv array parsing, flag handling",
-            "Multi-file Project Architecture: header (.h) vs implementation (.c) separation, linkage",
-            "Build Automation: introduction to Makefiles and build targets",
-            "Capstone Project: Full-featured C System Application with File Persistence and Memory Safety",
-            "Hands-on C Projects & Solutions for Module 004_012"
+            "Singly Linked Lists in C: node anatomy, heap allocation, insertion, deletion, reversal, and traversal",
+            "Doubly Linked Lists & Circular Linked Lists: sentinel nodes, bidirectional traversal, and LRU cache basics",
+            "Stack & Queue Implementations: array-based vs dynamic linked node mechanics (LIFO & FIFO)",
+            "Command-Line Arguments Processing: argc, argv parsing, option flags, and POSIX getopt",
+            "Multi-File Project Architecture: translation units, header encapsulation, extern/static linkage, and opaque pointers",
+            "Build Automation & Makefiles: target rules, prerequisites, automatic variables ($@, $<, $^), and phony targets",
+            "Grand Finale Capstone Project: Dynamic Linked Engine & Persistent Binary Database Storage System",
+            "Course Final Evaluation: 200 Comprehensive Master MCQs on Advanced C Systems Engineering"
           ],
           "learningOutcomes": [
             "Build custom data structures (Linked Lists, Stacks, Queues) from scratch in C",
@@ -562,7 +566,7 @@
           ],
           "prerequisites": ["004_011_preprocessor-directives-and-macro-metaprogramming"],
           "miniProjects": ["Command-Line File Utility & Linked List Manager", "Full-Featured Student Record & Inventory Capstone"],
-          "exercises": { "mcq": 30, "coding": 12, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 12, "projects": 1 },
           "assessment": { "type": "Systems Capstone Project Code Review", "passScore": 85 },
           "useCases": ["Systems software", "Embedded device management", "Custom database storage engines"],
           "careerSkills": ["Custom data structure design", "Multi-file build architecture", "Systems engineering"],

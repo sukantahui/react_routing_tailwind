@@ -1,0 +1,38 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 3 (MODULE 004_011)
+CONDITIONAL COMPILATION: #IFDEF, #IFNDEF, #IF, #ELIF, #ELSE, #ENDIF
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. CONDITIONAL COMPILATION OVERVIEW
+   - Directs the preprocessor to include or exclude code blocks at compile-time.
+   - Excluded code generates ZERO bytes in the final executable binary.
+   - Used for cross-platform portability, debug instrumentation, and feature toggling.
+
+2. DIRECTIVE SYNTAX
+   #ifdef MACRO          // True if MACRO is defined
+   #ifndef MACRO         // True if MACRO is NOT defined
+   #if defined(A) && !defined(B)  // Complex logical expression
+   #if VERSION >= 2      // Integer arithmetic condition
+   #elif CONDITION       // Else-if branch
+   #else                 // Fallback branch
+   #endif                // Closes conditional block
+
+3. PLATFORM IDENTIFICATION MACROS
+   - Windows: _WIN32, _WIN64
+   - Linux:   __linux__, __gnu_linux__
+   - Apple:   __APPLE__, __MACH__
+   - Architecture: __x86_64__, __aarch64__, __arm__
+
+4. COMPILATION HALTING (#ERROR)
+   #if API_VERSION < 2
+       #error "This library requires API_VERSION >= 2 to compile!"
+   #endif
+
+5. COMMENTING OUT CODE SAFELY (#IF 0)
+   - Standard /* ... */ comments cannot be nested in C.
+   - Use #if 0 ... #endif to comment out code containing internal block comments.
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

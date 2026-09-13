@@ -1,0 +1,44 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 4 (MODULE 004_011)
+HEADER GUARDS, INCLUDE GUARDS & #PRAGMA ONCE
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. THE MULTIPLE INCLUSION PROBLEM
+   - In large projects, header B includes header A, and header C includes header A.
+   - When main.c includes both B and C, header A is parsed twice in the same
+     translation unit, causing fatal "redefinition of typedef/struct" errors.
+
+2. STANDARD ANSI/ISO HEADER GUARD PATTERN
+   #ifndef PROJECT_MODULE_FILENAME_H
+   #define PROJECT_MODULE_FILENAME_H
+
+   // Struct definitions, type definitions, static inline functions, prototypes
+   typedef struct {
+       int id;
+       char name[50];
+   } Record;
+
+   #endif /* PROJECT_MODULE_FILENAME_H */
+
+3. #PRAGMA ONCE (MODERN COMPILER DIRECTIVE)
+   #pragma once
+   // Struct and function declarations...
+   - Pros: Single line, no macro name collision risk, faster compiler skip.
+   - Cons: Not strictly part of ISO C standard (though universally supported).
+
+4. WHAT BELONGS IN A HEADER (.H) FILE:
+   - Structure, union, and enum definitions
+   - Typedef aliases
+   - Function prototypes (extern declarations)
+   - Macro definitions (#define)
+   - Static inline function implementations
+   - Global variable declarations: extern int globalState; (NO ALLOCATION!)
+
+5. WHAT NEVER BELONGS IN A HEADER (.H) FILE:
+   - Global variable definitions: int globalState = 0; (causes duplicate symbol linker error!)
+   - Non-inline function bodies
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

@@ -1,0 +1,51 @@
+================================================================================
+CODER & ACCOTAX - C PROGRAMMING STUDY NOTE
+MODULE 003_009 · TOPIC 4: MEMORY HAZARDS & DIAGNOSTIC SANITIZERS
+Educator: Sukanta Hui (Barrackpore, Shyamnagar, West Bengal)
+================================================================================
+
+1. THE FOUR MAJOR DYNAMIC MEMORY HAZARDS
+--------------------------------------------------------------------------------
+Hazard Type        | Cause                              | Impact
+-------------------+------------------------------------+-----------------------
+1. Memory Leak     | Lost reference without calling free| Slow RAM exhaustion
+2. Dangling Pointer| Using pointer after calling free() | Use-After-Free exploit
+3. Double Free     | Calling free() twice on same addr  | Heap metadata crash
+4. Wild Pointer    | Dereferencing uninitialized pointer| Random memory corrupt
+
+
+2. HOW A MEMORY LEAK HAPPENS
+--------------------------------------------------------------------------------
+void function(void) {
+    int *ptr = (int *)malloc(100);
+    // ... work with ptr ...
+    // FUNCTION RETURNS WITHOUT CALLING free(ptr)!
+    // The pointer variable on the stack is destroyed.
+    // The 100 bytes on the heap are permanently stranded (orphaned).
+}
+
+
+3. INDUSTRIAL DIAGNOSTIC COMPILATION TOOLS
+--------------------------------------------------------------------------------
+[A] GCC / Clang AddressSanitizer (ASan):
+    Compile with:
+    $ gcc -fsanitize=address -g -O1 source.c -o app
+    $ ./app
+    (Automatically detects out-of-bounds, use-after-free, double-free, leaks)
+
+[B] Valgrind Memcheck (Linux):
+    Compile with debug symbols:
+    $ gcc -g source.c -o app
+    $ valgrind --leak-check=full ./app
+
+
+4. MEMORY DEFENSE CHECKLIST
+--------------------------------------------------------------------------------
+[x] Initialize all pointers: int *ptr = NULL;
+[x] Validate every allocation: if (ptr == NULL) { /* handle error */ }
+[x] Double deallocation defense: free(ptr); ptr = NULL;
+[x] Run AddressSanitizer on every test suite build!
+
+================================================================================
+Coder & AccoTax Barrackpore · Systems Programming Mastery Series
+================================================================================

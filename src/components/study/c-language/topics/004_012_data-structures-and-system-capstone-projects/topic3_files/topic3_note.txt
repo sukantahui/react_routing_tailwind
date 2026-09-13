@@ -1,0 +1,36 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 3 (MODULE 004_012)
+COMMAND-LINE ARGUMENT PROCESSING: INT ARGC & CHAR *ARGV[]
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. THE MAIN FUNCTION SIGNATURE
+   int main(int argc, char *argv[])
+   - argc: Argument count (total strings passed, >= 1)
+   - argv: Argument vector (array of strings, char *argv[])
+   - argv[0]: Invocation path / program executable name
+   - argv[argc]: Always guaranteed to be NULL by ISO C standard
+
+2. NUMBER CONVERSION IN CLI UTILITIES
+   - NEVER use atoi() (cannot distinguish 0 from failure, ignores overflow).
+   - ALWAYS use strtol() or strtod():
+     char *endptr;
+     long port = strtol(argv[i], &endptr, 10);
+     if (*endptr != '\0' || errno == ERANGE) {
+         fprintf(stderr, "Invalid port number!\n");
+     }
+
+3. CLI OPTION PARSING PATTERN
+   - Loop from i = 1 to argc - 1:
+     * Check flags: strcmp(argv[i], "-v") == 0
+     * Check options with values: strcmp(argv[i], "-i") == 0
+       -> value is at argv[++i] (ensure i + 1 < argc first!)
+     * Support -h / --help manual display
+
+4. EXIT CODE CONVENTIONS
+   - return 0 / exit(EXIT_SUCCESS) -> Normal completion
+   - return 1 / exit(EXIT_FAILURE) -> Error / invalid arguments
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================

@@ -1,0 +1,47 @@
+======================================================================
+C LANGUAGE LESSON NOTE: TOPIC 3 (MODULE 003_010)
+BINARY STREAM I/O & STRUCT SERIALIZATION (FWRITE & FREAD)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE & SHYAMNAGAR)
+======================================================================
+
+1. CORE CONCEPT & MOTIVATION
+   - Text files store information as human-readable ASCII/UTF-8 character
+     sequences (e.g. integer 123456 takes 6 bytes: '1','2','3','4','5','6').
+   - Binary files store data exactly as it resides in RAM (e.g. int 123456
+     takes 4 bytes: 0x40 0xE2 0x01 0x00 in Little Endian).
+   - Direct memory block transfers via fread() and fwrite() bypass character
+     encoding/decoding overhead, achieving peak I/O throughput.
+
+2. FUNCTION SIGNATURES
+   size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);
+   size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
+   - ptr: Pointer to array or struct in memory.
+   - size: Size of each element in bytes (usually sizeof(*ptr)).
+   - count: Number of elements to transfer.
+   - stream: Open file pointer in binary mode ("rb", "wb", "ab", "rb+", "wb+", "ab+").
+   - Return Value: Number of full elements successfully read/written.
+
+3. GOLDEN RULES OF STRUCT SERIALIZATION
+   - ALWAYS use fixed-size fields inside structs intended for disk serialization:
+     char name[50]; instead of char *name;
+   - NEVER serialize raw pointers: Pointers point to ephemeral virtual RAM
+     addresses that become invalid immediately upon termination or relocation.
+   - Zero out structs with memset(&rec, 0, sizeof(rec)) prior to population to
+     avoid writing uninitialized garbage in memory alignment padding bytes.
+   - Use <stdint.h> types (int32_t, uint32_t, etc.) for cross-platform bit consistency.
+
+4. IDIOMATIC READING LOOP
+   Student s;
+   while (fread(&s, sizeof(Student), 1, fp) == 1) {
+       printf("Roll: %d, Name: %s\n", s.rollNumber, s.name);
+   }
+
+5. CALCULATING RECORD COUNT
+   fseek(fp, 0, SEEK_END);
+   long totalBytes = ftell(fp);
+   long recordCount = totalBytes / sizeof(Student);
+   rewind(fp);
+
+======================================================================
+Copyright (c) Sukanta Hui - C Programming Master Series
+======================================================================
