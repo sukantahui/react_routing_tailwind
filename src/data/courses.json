@@ -45,7 +45,7 @@
           "syllabus": [
             "Module 1: Web Fundamentals – HTML5, CSS3, Flexbox, Grid, and Responsive Design",
             "Module 2: CSS Frameworks – Bootstrap 5 and Tailwind CSS",
-            "Module 3: JavaScript (ES6+) – Variables, Functions, Classes, Promises, Async/Await",
+            "Module 3: JavaScript Core to Advanced (ES6+ & ESNext) – Execution Context & Hoisting, Scope Chain & Closures, 'this' Keyword & call/apply/bind, Prototypal Inheritance & ES6 Classes, Advanced Array Methods (map, filter, reduce, find, some, every), DOM Manipulation & Event Bubbling/Delegation, Asynchronous JS (Callbacks, Promises, Promise Combinators, Async/Await), Event Loop & Microtasks/Macrotasks Queue, Fetch API, Error Handling & Custom Errors, Web Storage (LocalStorage, SessionStorage, IndexedDB), and Modular Architecture (ESM)",
             "Module 4: Frontend Frameworks – React (JSX, Components, Hooks, Context API) and Angular (TypeScript, Components, Services, Routing)",
             "Module 5: State Management – Redux (React) and NgRx (Angular)",
             "Module 6: Backend with Node.js & Express – Building REST APIs, Middleware, Error Handling",
@@ -650,7 +650,7 @@
         "courseID": "ACCT1001",
         "title": "Tally Prime",
         "desc": "Become job-ready in financial accounting.",
-        "more": "Covers TallyPrime, GST filing, invoice management, and payroll processing.",
+        "more": "Covers TallyPrime, GST filing, invoice management, bank reconciliation, and financial statements.",
         "image": "taxImg",
         "level": "Intermediate",
         "duration": "3 Months",
@@ -658,7 +658,7 @@
         "badge": "Popular",
         "rating": 4.7,
         "studentsEnrolled": 260,
-        "skills": ["Basic Accounting", "TallyPrime", "Invoicing", "Payroll", "GST Invoicing", "BRS"],
+        "skills": ["Basic Accounting", "TallyPrime", "Invoicing", "GST Invoicing", "BRS", "Financial Statements"],
         "fee": "₹9,000",
         "instructor": "Chandan Das",
         "meritDiscount": {
@@ -669,7 +669,7 @@
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
         "details": {
-          "overview": "Become an industry-ready accountant with **TallyPrime**. Learn accounting principles, company creation, ledger & group management, voucher entries (Purchase, Sales, Payment, Receipt, Journal), inventory tracking, **GST invoicing**, and financial statements.",
+          "overview": "Become an industry-ready accountant with **TallyPrime**. Learn accounting principles, company creation, ledger & group management, voucher entries (Purchase, Sales, Payment, Receipt, Journal), inventory tracking, **GST invoicing**, bank reconciliation, and final financial statements.",
           "syllabus": [
             "Module 1: Accounting Foundations – Golden rules of accounts, debit/credit mechanisms, journal entries, ledger posting",
             "Module 2: TallyPrime Setup – Company creation, configuration, chart of accounts, groups and ledgers",
@@ -677,8 +677,8 @@
             "Module 4: Inventory Management – Stock groups, stock items, units of measure, godowns, purchase orders, sales orders",
             "Module 5: GST Configuration & Invoicing – CGST, SGST, IGST tax rates, HSN/SAC codes, tax invoices, bill of supply",
             "Module 6: Banking & Reconciliation – Cheque management, bank reconciliation statements (BRS), electronic payments",
-            "Module 7: Payroll Management – Pay heads, employee groups, salary processing, payslip generation",
-            "Module 8: Financial Reporting – Trial Balance, Profit & Loss Account, Balance Sheet, Ratio Analysis, Day Book, Cash Flow"
+            "Module 7: Financial Reporting & Final Accounts – Trial Balance, Profit & Loss Account, Balance Sheet, Ratio Analysis, Day Book, Cash Flow",
+            "Module 8: Data Security & Backup – User roles, TallyVault, security controls, backup and restore procedures"
           ],
           "learningOutcomes": [
             "Manage end-to-end corporate accounts on TallyPrime independently",
@@ -691,7 +691,7 @@
             "Complete 1-Year Financial Accounting of a Trading Firm",
             "Manufacturing & Multi-Godown Inventory Setup",
             "GST-Compliant Retail Billing & Invoice Generation",
-            "Corporate Monthly Payroll & Salary Disbursal System"
+            "End-to-End Final Accounts Preparation & Balance Sheet Auditing"
           ],
           "certification": "Yes, an ISO 9001:2015 recognized Tally Certified Professional certificate is awarded."
         }

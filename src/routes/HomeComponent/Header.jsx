@@ -28,7 +28,7 @@ const Header = () => {
 
       {/* SEO Primary H1 — screen-reader accessible, carries full keyword signal */}
       <h1 className="sr-only">
-        Coder &amp; AccoTax — Best GST, TDS, Income Tax, Tally &amp; Accounting Training Institute near Barrackpore, Sodepore, Ichapore, Barasat, Sreerampore | Coding &amp; Programming Classes | Pin 700122
+        Coder &amp; AccoTax — Best Coding, Programming, DSA &amp; Software Training Institute in Barrackpore | Python, Java, React, Web Development &amp; Tally GST Accounting | Pin 700122 &amp; 700121
       </h1>
 
       {/* Hero Center Content */}

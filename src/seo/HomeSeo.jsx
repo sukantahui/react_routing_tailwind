@@ -9,20 +9,21 @@ import { Helmet } from "react-helmet-async";
 
 export default function HomeSEO() {
   const schemaObjects = [
-    // 1. EducationalOrganization + LocalBusiness + AccountingSchool Schema (with areaServed, Review Stars & Geo)
+    // 1. EducationalOrganization + LocalBusiness + ComputerLanguageSchool Schema (with areaServed, Review Stars & Geo)
     {
       "@context": "https://schema.org",
-      "@type": ["EducationalOrganization", "LocalBusiness", "AccountingSchool"],
+      "@type": ["EducationalOrganization", "LocalBusiness", "ComputerLanguageSchool"],
       name: "Coder & AccoTax",
       alternateName: [
         "CNAT",
-        "Coder and AccoTax Barrackpore",
-        "Tally and GST Course near me",
-        "Tally Prime & GST Training Institute",
-        "GST TDS Training Barrackpore",
-        "Tally Institute near Sodepore",
-        "Accounting Classes Barasat",
-        "Tally GST Course 700121 700122",
+        "Coder and AccoTax",
+        "Best Coding Institute in Barrackpore",
+        "Programming Classes Barrackpore",
+        "Python Training Institute Sodepore",
+        "Java and DSA Classes Barasat",
+        "Full Stack Web Development Kolkata",
+        "ICSE ISC Computer Science Tuition",
+        "Tally Prime & GST Training",
       ],
       url: "https://codernaccotax.co.in/",
       logo: "https://codernaccotax.co.in/cnat.ico",
@@ -32,7 +33,7 @@ export default function HomeSEO() {
       telephone: ["+91-9432456083", "+91-7003756860"],
       email: "sukantahui@codernaccotax.co.in",
       description:
-        "Coder & AccoTax is an ISO 9001:2015 certified premier training institute near Barrackpore, Sodepore, Ichapore, Barasat, Sreerampore, and Titagarh (Pin 700122 & 700121). We offer hands-on, job-oriented courses in TallyPrime with GST, GST Return Filing (GSTR-1, 3B), TDS Returns, Income Tax (ITR), Corporate Accounting, Full Stack Web Development, Python, and ICSE/ISC Computer Science.",
+        "Coder & AccoTax is an ISO 9001:2015 certified premier coding and IT training institute in Barrackpore (Pin 700122 & 700121) with 28+ years of legacy. We specialize in Python, Java, C/C++, Data Structures & Algorithms (DSA), React, Full Stack Web Development, and ICSE/ISC/B.Tech computer science, alongside practical corporate accounting in TallyPrime, GST, and TDS.",
       sameAs: [
         "https://www.facebook.com/profile.php?id=61561702110617",
         "https://www.instagram.com/codernaccotax/",
@@ -384,14 +385,14 @@ export default function HomeSEO() {
   return (
     <Helmet>
       {/* Primary Titles & Description */}
-      <title>Best Tally and GST Course near me | GST, TDS, Tally & Coding Institute Barrackpore (700122, 700121) | Coder & AccoTax</title>
+      <title>Best Coding & Programming Institute in Barrackpore | Python, Java, DSA, Web Dev & Tally GST | Coder & AccoTax</title>
       <meta
         name="description"
-        content="Looking for the best Tally and GST course near me? Coder & AccoTax (ISO 9001:2015) offers hands-on TallyPrime, GST filing (GSTR-1, 3B), TDS, & Income Tax training near Barrackpore, Sodepore, Titagarh, Barasat & Pin 700121/700122. 28+ years legacy. Call +91-9432456083 / +91-7003756860."
+        content="Looking for the best coding institute near me? Coder & AccoTax (28+ years legacy, ISO 9001:2015) offers expert Python, Java, DSA, React, Full Stack Web Development, and ICSE/ISC computer training in Barrackpore (700122/700121) with 1-on-1 mentorship, plus professional TallyPrime & GST accounting. Call +91-9432456083."
       />
       <meta
         name="keywords"
-        content="tally and gst course near me, tally gst course 700121, best tally and gst training institute near me, tally prime with gst filing classes near me, GST training institute near Barrackpore, TDS return filing course Sodepore, Income Tax course near Barasat, Tally Prime accounting classes Ichapore, accounting institute Sreerampore, coding institute 700122, GST TDS accounting Barrackpore, income tax training Nonachandanpukur, python programming near Barrackpore, web development courses Kolkata, coder accotax"
+        content="best coding institute near me, best programming institute Barrackpore, coding classes near me, python course Barrackpore, java training Sodepore, DSA course Kolkata, full stack web development classes Barasat, coding institute 700122, ICSE computer science tuition, react js training, tally and gst course near me, tally prime classes Barrackpore, coder accotax"
       />
       <meta name="author" content="Coder & AccoTax" />
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -410,10 +411,10 @@ export default function HomeSEO() {
       {/* Open Graph (Facebook, LinkedIn) */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Coder & AccoTax" />
-      <meta property="og:title" content="Coder & AccoTax | Best Tally and GST Course near me & Coding Training Barrackpore" />
+      <meta property="og:title" content="Coder & AccoTax | Best Coding & Programming Institute in Barrackpore" />
       <meta
         property="og:description"
-        content="Learn Tally Prime with GST Filing, TDS Returns, Income Tax, Corporate Accounting, Python & Full Stack Web Dev near Barrackpore, Sodepore, Ichapore, Barasat & Pin 700121 / 700122. ISO 9001:2015 certified."
+        content="Barrackpore's top coding institute for Python, Java, DSA, React, Full Stack Web Dev, ICSE/ISC, & TallyPrime GST accounting. 28+ years legacy. ISO 9001:2015 certified."
       />
       <meta property="og:url" content="https://codernaccotax.co.in/" />
       <meta property="og:image" content="https://codernaccotax.co.in/og-home.png" />
@@ -424,10 +425,10 @@ export default function HomeSEO() {
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@codernaccotax" />
-      <meta name="twitter:title" content="Coder & AccoTax | Best Tally & GST Course near me | Barrackpore" />
+      <meta name="twitter:title" content="Coder & AccoTax | Best Coding & Programming Institute in Barrackpore" />
       <meta
         name="twitter:description"
-        content="Expert Tally and GST course, TDS returns, Income Tax & coding courses near Barrackpore, Sodepore, Ichapore, Barasat, Sreerampore — Pin 700122, 700121."
+        content="Premier coding, DSA, Python, Java, React, Web Dev & Tally GST accounting institute near Barrackpore, Sodepore, Barasat (700122, 700121)."
       />
       <meta name="twitter:image" content="https://codernaccotax.co.in/og-home.png" />
 

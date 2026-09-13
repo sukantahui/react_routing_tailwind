@@ -23,15 +23,15 @@ const serviceAreas = [
 ];
 
 const subjectKeywords = [
-  { label: "Tally & GST Course", icon: "bi-calculator-fill", color: "text-purple-400" },
-  { label: "GST Return Filing", icon: "bi-receipt-cutoff", color: "text-emerald-400" },
-  { label: "TDS Returns", icon: "bi-file-earmark-text", color: "text-sky-400" },
-  { label: "Income Tax (ITR)", icon: "bi-bank", color: "text-amber-400" },
-  { label: "Tally Prime ERP", icon: "bi-laptop", color: "text-fuchsia-400" },
-  { label: "Corporate Accounting", icon: "bi-journal-bookmark", color: "text-pink-400" },
-  { label: "Python & Java", icon: "bi-code-slash", color: "text-cyan-400" },
+  { label: "Coding & DSA", icon: "bi-braces", color: "text-sky-400" },
+  { label: "Python Programming", icon: "bi-code-slash", color: "text-emerald-400" },
+  { label: "Java & OOPs", icon: "bi-terminal-fill", color: "text-cyan-400" },
   { label: "Full Stack Web Dev", icon: "bi-globe", color: "text-indigo-400" },
-  { label: "DSA & Coding", icon: "bi-braces", color: "text-rose-400" },
+  { label: "React.js & Node.js", icon: "bi-layers-fill", color: "text-blue-400" },
+  { label: "ICSE/ISC Computer Science", icon: "bi-mortarboard-fill", color: "text-purple-400" },
+  { label: "Tally Prime ERP", icon: "bi-laptop", color: "text-fuchsia-400" },
+  { label: "GST & TDS Compliance", icon: "bi-receipt-cutoff", color: "text-amber-400" },
+  { label: "Corporate Accounting", icon: "bi-journal-bookmark", color: "text-pink-400" },
 ];
 
 export default function LocalSEO() {
@@ -39,7 +39,7 @@ export default function LocalSEO() {
     <section
       id="local-area"
       className="relative py-20 bg-slate-950 text-slate-100 overflow-hidden border-t border-slate-800/60"
-      aria-label="Tally and GST courses near Barrackpore, Titagarh, Sodepore, Barasat, 700121, 700122"
+      aria-label="Best Coding and Programming Institute near Barrackpore, Titagarh, Sodepore, Barasat, 700121, 700122"
     >
       {/* Soft ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-500/8 blur-[140px] rounded-full pointer-events-none" />
@@ -69,12 +69,12 @@ export default function LocalSEO() {
           className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-center"
         >
           Premier{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-emerald-400 to-sky-400">
-            Tally &amp; GST Course
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400">
+            Coding &amp; Software Training
           </span>{" "}
           &amp;{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-amber-400 to-cyan-400">
-            Coding Training
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-emerald-400 to-cyan-400">
+            Accounting Institute
           </span>{" "}
           near You
         </motion.h2>
@@ -107,14 +107,13 @@ export default function LocalSEO() {
           className="mt-8 bg-slate-900/60 backdrop-blur-xl border border-slate-800/90 rounded-3xl p-6 sm:p-8 shadow-xl text-slate-300 text-sm sm:text-base leading-relaxed space-y-4"
         >
           <p>
-            Searching for the <strong className="text-amber-400 font-semibold">best Tally and GST course near me</strong>? At{" "}
-            <strong className="text-white">Coder &amp; AccoTax</strong>, we offer industry-standard, 100% practical hands-on training in{" "}
-            <span className="text-purple-300 font-medium">TallyPrime ERP Bookkeeping</span>,{" "}
-            <span className="text-emerald-300 font-medium">GST Return Filing (GSTR-1, GSTR-3B, E-Way Bill)</span>,{" "}
-            <span className="text-sky-300 font-medium">TDS Deduction &amp; TDS Challan Filing</span>,{" "}
-            <span className="text-amber-300 font-medium">Income Tax Return Preparation (ITR-1, ITR-4)</span>,{" "}
-            <span className="text-pink-300 font-medium">Full Stack Web Development</span>, and{" "}
-            <span className="text-cyan-300 font-medium">Python &amp; Java Programming</span>.
+            Searching for the <strong className="text-sky-400 font-semibold">best coding and programming institute near me</strong>? At{" "}
+            <strong className="text-white">Coder &amp; AccoTax</strong>, we are widely recognized as Barrackpore’s benchmark training institute for{" "}
+            <span className="text-cyan-300 font-medium">Python Programming</span>,{" "}
+            <span className="text-sky-300 font-medium">Java &amp; Data Structures (DSA)</span>,{" "}
+            <span className="text-indigo-300 font-medium">Full Stack Web Development (React &amp; Node.js)</span>,{" "}
+            <span className="text-purple-300 font-medium">ICSE / ISC / CBSE Computer Science</span>, as well as job-ready{" "}
+            <span className="text-emerald-300 font-medium">TallyPrime ERP Bookkeeping &amp; GST Return Filing</span>.
           </p>
 
           <p>
@@ -122,7 +121,7 @@ export default function LocalSEO() {
             <span className="font-medium text-sky-400">
               PIN 700121, PIN 700122, Titagarh, Sodepore, Ichapore, Barasat, Sreerampore, Naihati, Shyamnagar, Palta, Belgharia, and Agarpara
             </span>
-            . Whether you want an in-depth <em>Tally and GST course near Sodepore or Barasat</em>, a <em>practical GST return filing course near Titagarh (700121/700119)</em>, or an <em>income tax class near Sreerampore</em> — we provide 1-on-1 expert mentorship with live real-world company ledgers.
+            . Whether you want to master <em>Python or Java near Sodepore or Barasat</em>, prepare for <em>coding interviews &amp; DSA near Titagarh (700121/700119)</em>, or learn <em>practical Tally &amp; GST accounting near Sreerampore</em> — we provide 1-on-1 expert mentorship with live real-world projects.
           </p>
 
           <p className="text-xs text-slate-400 border-t border-slate-800/80 pt-3">

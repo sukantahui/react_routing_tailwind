@@ -11,7 +11,7 @@ const schema = [
     "@type": "Course",
     name: "Tally and GST Course | TallyPrime & Practical Accounting — near Barrackpore, 700121",
     description:
-      "Comprehensive Tally and GST Course with practical accounting near Barrackpore, Titagarh, Sodepore, Ichapore, Barasat, and Sreerampore (Pin 700122 & 700121). Learn corporate bookkeeping, inventory, payroll, GST in Tally, TDS entries, and final accounts preparation.",
+      "Comprehensive Tally and GST Course with practical accounting near Barrackpore, Titagarh, Sodepore, Ichapore, Barasat, and Sreerampore (Pin 700122 & 700121). Learn corporate bookkeeping, inventory, GST in Tally, TDS entries, and final accounts preparation.",
     provider: {
       "@type": "EducationalOrganization",
       name: "Coder & AccoTax",
@@ -66,7 +66,7 @@ export default function TallyAccountingPage() {
   return (
     <CoursePage
       title="Best Tally and GST Course near me | TallyPrime Classes Barrackpore, 700121 | Coder & AccoTax"
-      metaDescription="Looking for the best Tally and GST course near me? Learn TallyPrime & practical accounting near Barrackpore, Titagarh, Sodepore, Barasat (Pin 700121/700122). Covers bookkeeping, inventory, payroll, GST in Tally, TDS & final accounts. Call +91-9432456083."
+      metaDescription="Looking for the best Tally and GST course near me? Learn TallyPrime & practical accounting near Barrackpore, Titagarh, Sodepore, Barasat (Pin 700121/700122). Covers bookkeeping, inventory, GST in Tally, TDS & final accounts. Call +91-9432456083."
       metaKeywords="tally and gst course near me, tally gst course 700121, best tally and gst training institute near me, Tally institute near Barrackpore, TallyPrime classes Sodepore, Tally accounting course Ichapore, Tally GST training Barasat, accounting institute Sreerampore, Tally Prime class 700122, practical accounting training near me, Tally bookkeeping Barrackpore"
       canonical="https://codernaccotax.co.in/courses/tally-accounting"
       ogImage="https://codernaccotax.co.in/og-courses.png"
@@ -90,7 +90,7 @@ export default function TallyAccountingPage() {
           </span>
         </>
       }
-      heroSubtitle="Master TallyPrime bookkeeping, inventory management, payroll, live GST return filing (GSTR-1, GSTR-3B) from Tally, TDS entries, and final accounts preparation with real company ledgers. Serving Barrackpore, Titagarh, Sodepore, Barasat & Pin 700121 / 700122."
+      heroSubtitle="Master TallyPrime bookkeeping, inventory management, live GST return filing (GSTR-1, GSTR-3B) from Tally, TDS entries, and final accounts preparation with real company ledgers. Serving Barrackpore, Titagarh, Sodepore, Barasat & Pin 700121 / 700122."
       highlights={[
         { icon: "📊", label: "Software", value: "TallyPrime" },
         { icon: "🏢", label: "Real Company", value: "Live Data" },
@@ -157,12 +157,12 @@ export default function TallyAccountingPage() {
           ],
         },
         {
-          title: "Payroll, TDS & Final Accounts",
+          title: "TDS, Final Accounts & Security",
           topics: [
-            "Payroll processing in TallyPrime",
-            "Salary structure, PF & ESI",
             "TDS deduction & challan entries in Tally",
-            "Final accounts: balance sheet in Tally",
+            "Trading, Profit & Loss A/c and Balance Sheet",
+            "Ratio analysis & cash flow statements",
+            "TallyVault & user security permissions",
             "Tally backup, restore & company data security",
           ],
         },

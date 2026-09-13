@@ -105,14 +105,16 @@ export default function WebDevelopmentPage() {
           ],
         },
         {
-          title: "JavaScript (ES6+)",
+          title: "JavaScript (ES6+ to ESNext) — Core to Advanced",
           topics: [
-            "Variables, functions, arrays, objects",
-            "DOM manipulation & events",
-            "ES6+: arrow functions, destructuring, spread",
-            "Promises, async/await & fetch API",
-            "Local storage & session storage",
-            "JavaScript modules",
+            "Execution context, hoisting, scope chain & closures",
+            "Prototypes, ES6 classes & 'this' keyword (call, apply, bind)",
+            "Advanced array methods (map, filter, reduce, find, some, every)",
+            "DOM manipulation, event bubbling & event delegation",
+            "Asynchronous JS: Event loop, Promises, Promise combinators & async/await",
+            "Fetch API, Axios, error handling & REST API integration",
+            "Web storage (localStorage, sessionStorage, IndexedDB)",
+            "Modular architecture: ES Modules (import/export)",
           ],
         },
         {
