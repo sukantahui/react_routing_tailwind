@@ -6,7 +6,9 @@
     "image": "teacher1.jpg",
     "bio": "Mr. Sukanta Hui is a seasoned full-stack developer and programming expert with over 20 years of experience guiding learners from beginner to professional level. With deep expertise in modern programming languages and software development, he has mentored engineers from diverse organizations and guided countless B.Tech and M.Tech students throughout their academic and professional journeys. Beyond technical mastery, Mr. Sukanta is a passionate educator with vast insight into the education system, a dedicated career guide, and a motivational speaker who inspires future technologists to achieve excellence. A true problem solver at heart, he continues to shape the next generation of software engineers through his mentorship and leadership.",
     "email": "sukantahui@codernaccotax.co.in",
-    "github": "sukantahui"
+    "github": "sukantahui",
+    "dco": "1998",
+    "doc": "1998"
   },
   {
     "order": 20,
@@ -15,7 +17,9 @@
     "image": "teacher2.jpg",
     "bio": "Ms. Tanusree Hui is an accomplished educator and programming instructor with over 18 years of experience teaching a wide range of programming languages and mathematical concepts. With a strong command over complex algorithms and a deep understanding of how students learn, she excels at guiding learners from the fundamentals to advanced problem-solving. As a dedicated high school computer teacher and co-founder of Coder & AccoTax, Ms. Tanusree has developed a unique approach that bridges academic knowledge with real-world application. Her expertise in both mathematics and computer science, combined with her insights into modern education systems, makes her a highly respected mentor who empowers students to build confidence and achieve excellence in technology and learning.",
     "email": "tanusreehui@codernaccotax.co.in",
-    "github": "tanusreehui"
+    "github": "tanusreehui",
+    "dco": "2003",
+    "doc": "2003"
   },
   {
     "order": 30,
@@ -23,7 +27,9 @@
     "title": "Data Analytics and Taxation Expert",
     "image": "teacher3.jpg",
     "bio": "Mr. Chandan Das has 15+ years of experience in taxation and data analytics for small and large businesses.",
-    "email": "chandandas@codernaccotax.co.in"
+    "email": "chandandas@codernaccotax.co.in",
+    "dco": "2008",
+    "doc": "2008"
   },
   {
     "order": 40,
@@ -32,7 +38,9 @@
     "image": "teacher4.jpg",
     "bio": "Ms. Sreeparna Das simplifies complex DSA topics and focuses on logic building with hands-on coding sessions.",
     "email": "sreeparnadas@codernaccotax.co.in",
-    "github": "sreeparnadas"
+    "github": "sreeparnadas",
+    "dco": "2019",
+    "doc": "2019"
   },
   {
     "order": 50,
@@ -41,7 +49,9 @@
     "image": "teacher5.jpg",
     "bio": "Ms. Mounita Bhandari ensures practical knowledge through lab-based learning, supporting students step-by-step.",
     "email": "mounitabhandari@codernaccotax.co.in",
-    "github": "mounitbhandari"
+    "github": "mounitbhandari",
+    "dco": "2021",
+    "doc": "2021"
   },
   {
     "order": 60,
@@ -50,7 +60,9 @@
     "image": "teacher6.jpg",
     "bio": "Ms. Ritaja Ghosh guides students in lab sessions with patience and precision, helping them gain real-world skills. She encourages hands-on practice and ensures every student is confident with the tools.",
     "email": "ritajaghosh@codernaccotax.co.in",
-    "github": "ritajaghosh"
+    "github": "ritajaghosh",
+    "dco": "2022",
+    "doc": "2022"
   },
   {
     "order": 70,
@@ -58,7 +70,9 @@
     "title": "Accounts & Tally",
     "image": "teacher7.jpg",
     "bio": "Mr. Sourav Bhattachariya is an Accounts and Tally professional with over 3 years of experience in taxation and data analytics. He has worked with both small and large businesses, providing practical insights and efficient financial solutions. His expertise lies in managing accounts, optimizing tax processes, and leveraging data analytics to support informed business decisions.",
-    "email": "bhattacharjeesourav12@gmail.com"
+    "email": "bhattacharjeesourav12@gmail.com",
+    "dco": "2022",
+    "doc": "2022"
   },
   {
     "order": 35,
@@ -66,6 +80,8 @@
     "title": "Chartered Accountant",
     "image": "teacher8.jpg",
     "bio": "CA Keshav Mishra is a highly experienced professional and educator in advanced corporate accounting, auditing, and taxation.",
-    "email": "keshavmishra@codernaccotax.co.in"
+    "email": "keshavmishra@codernaccotax.co.in",
+    "dco": "2023",
+    "doc": "2023"
   }
 ]

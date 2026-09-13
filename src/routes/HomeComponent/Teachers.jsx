@@ -29,10 +29,30 @@ const TeacherCard = ({ teacher }) => {
   const [showFullBio, setShowFullBio] = useState(false);
   const avatar = imageMap[teacher.image] || teacher1;
 
+  const commencementYear = teacher.dco || teacher.doc;
+  const expYears = React.useMemo(() => {
+    if (!commencementYear) return null;
+    const startYear = isNaN(commencementYear)
+      ? new Date(commencementYear).getFullYear()
+      : parseInt(commencementYear, 10);
+    if (!startYear || isNaN(startYear)) return null;
+    const currentYear = new Date().getFullYear();
+    const diff = currentYear - startYear;
+    return diff >= 0 ? diff : 0;
+  }, [commencementYear]);
+
+  // Dynamically update experience in bio text to match calculated experience
+  const formattedBio = React.useMemo(() => {
+    if (!teacher.bio || expYears === null) return teacher.bio;
+    return teacher.bio
+      .replace(/over\s+\d+\s+years\s+of\s+experience/gi, `over ${expYears} years of experience`)
+      .replace(/\b\d+\+?\s+years\s+of\s+experience/gi, `${expYears}+ years of experience`);
+  }, [teacher.bio, expYears]);
+
   return (
-    <div className="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-sky-500/50 transition-all duration-300 shadow-xl">
+    <div className="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-sky-500/50 transition-all duration-300 shadow-xl group">
       <div className="flex flex-col items-center text-center">
-        {/* Mentor Image with generous spacing */}
+        {/* Mentor Image with experience badge */}
         <div className="mb-5 relative">
           <img
             src={avatar}
@@ -40,6 +60,14 @@ const TeacherCard = ({ teacher }) => {
             loading="lazy"
             className="w-24 h-24 rounded-full object-cover border-2 border-sky-400/90 shadow-xl shadow-sky-500/10 bg-slate-800"
           />
+          {expYears !== null && (
+            <span
+              className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-950 font-bold text-[11px] px-2.5 py-0.5 rounded-full shadow-md whitespace-nowrap border border-amber-300/60"
+              title={`Date of Commencement: ${commencementYear} (${expYears}+ years)`}
+            >
+              {expYears}+ Yrs Exp
+            </span>
+          )}
         </div>
 
         {/* Name with proper margin */}
@@ -47,18 +75,29 @@ const TeacherCard = ({ teacher }) => {
           {teacher.name}
         </h3>
 
-        {/* Title with distinct styling and generous bottom spacing */}
-        <p className="text-xs sm:text-sm text-sky-400 font-medium mb-5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 inline-block">
+        {/* Title with distinct styling */}
+        <p className="text-xs sm:text-sm text-sky-400 font-medium mb-3 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 inline-block">
           {teacher.title}
         </p>
 
+        {/* Dynamic Experience Badge based on dco */}
+        {commencementYear && expYears !== null && (
+          <div className="flex items-center gap-1.5 text-xs text-amber-400/95 font-semibold mb-4 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 shadow-sm">
+            <i className="bi bi-award-fill text-amber-400 text-xs"></i>
+            <span>{expYears}+ Years Experience</span>
+            <span className="text-slate-400 text-[11px] font-normal">
+              (Since {commencementYear})
+            </span>
+          </div>
+        )}
+
         {/* Bio text with clear separation */}
-        {teacher.bio && (
+        {formattedBio && (
           <div className="text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/90 pt-4 mb-4 text-left w-full">
             <p className={!showFullBio ? "line-clamp-3" : ""}>
-              {teacher.bio}
+              {formattedBio}
             </p>
-            {teacher.bio.length > 120 && (
+            {formattedBio.length > 120 && (
               <button
                 type="button"
                 onClick={() => setShowFullBio(!showFullBio)}

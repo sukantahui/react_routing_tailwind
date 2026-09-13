@@ -77,11 +77,20 @@ export function getTeacherInfoResponse(userQuery) {
     const isNameMatch = nameParts.some(part => part.length >= 4 && q.includes(part));
     
     if (isNameMatch) {
+      const commencementYear = t.dco || t.doc;
+      const expYears = commencementYear ? Math.max(0, new Date().getFullYear() - parseInt(commencementYear, 10)) : null;
+      let bioText = t.bio || "";
+      if (expYears !== null && bioText) {
+        bioText = bioText
+          .replace(/over\s+\d+\s+years\s+of\s+experience/gi, `over ${expYears} years of experience`)
+          .replace(/\b\d+\+?\s+years\s+of\s+experience/gi, `${expYears}+ years of experience`);
+      }
+
       return `### 👨‍🏫 Mentor Profile: ${t.name}\n\n` +
-        `- **Role & Title:** **${t.title}**\n` +
+        `- **Role & Title:** **${t.title}**` + (expYears !== null ? ` (*${expYears}+ Years Experience, since ${commencementYear}*)\n` : `\n`) +
         `- **Email:** **${t.email}**\n` +
         (t.github ? `- **GitHub:** [https://github.com/${t.github}](https://github.com/${t.github})\n` : '') +
-        `\n**About ${t.name}:**\n${t.bio}`;
+        `\n**About ${t.name}:**\n${bioText}`;
     }
   }
 
@@ -89,7 +98,10 @@ export function getTeacherInfoResponse(userQuery) {
   if (isTeacherQuery) {
     let summary = `### 👨‍🏫 Faculty & Mentors at Coder & AccoTax\n\n`;
     teachersData.forEach((t) => {
-      summary += `- **${t.name}** (*${t.title}*)\n  - Email: **${t.email}** ${t.github ? `| GitHub: [${t.github}](https://github.com/${t.github})` : ''}\n`;
+      const commencementYear = t.dco || t.doc;
+      const expYears = commencementYear ? Math.max(0, new Date().getFullYear() - parseInt(commencementYear, 10)) : null;
+      const expStr = expYears !== null ? ` • ${expYears}+ Yrs Exp` : "";
+      summary += `- **${t.name}** (*${t.title}${expStr}*)\n  - Email: **${t.email}** ${t.github ? `| GitHub: [${t.github}](https://github.com/${t.github})` : ''}\n`;
     });
     summary += `\n*CNAT Mam's Tip:* Ask me about any specific teacher (e.g. *"Tell me about Tanusree Hui"*) for their full bio!`;
     return summary;
