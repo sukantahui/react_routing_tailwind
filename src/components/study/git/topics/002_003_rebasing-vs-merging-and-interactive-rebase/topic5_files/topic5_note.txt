@@ -1,0 +1,56 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 5: HANDLING CONFLICTS DURING REBASE: STAGING & GIT REBASE --CONTINUE
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHY DO CONFLICTS HAPPEN DURING REBASE?
+--------------------------------------------------------------------------------
+During `git rebase main`, Git replays your feature commits one by one on top of the
+new base commit. If an incoming patch modifies the exact same lines of a file that
+were changed in `main`, Git pauses execution, creates conflict markers in your
+working files, and waits for you to resolve the clash.
+
+2. THE 3-STEP REBASE CONFLICT RESOLUTION WORKFLOW
+--------------------------------------------------------------------------------
+STEP 1: INSPECT AND RESOLVE
+Check which files are conflicting:
+    git status
+Open each conflicted file and choose the correct code between:
+    <<<<<<< HEAD (Base code from main or previously applied rebase commit)
+    =======
+    >>>>>>> <commit_hash> (Your patch's incoming change)
+
+STEP 2: STAGE RESOLVED FILES
+Stage the clean, resolved file:
+    git add <resolved_file.js>
+
+STEP 3: CONTINUE THE REBASE
+Resume the rebase replay queue:
+    git rebase --continue
+
+*** CRITICAL RULE ***
+DO NOT RUN `git commit`!
+Running `git commit` creates a standalone detached commit and breaks Git's internal
+rebase sequencer. Always use `git rebase --continue`!
+
+3. REBASE RESCUE TOOLS
+--------------------------------------------------------------------------------
+- Abort completely (safe rewind):
+    git rebase --abort
+- Skip a redundant commit:
+    git rebase --skip
+- Auto-reuse conflict resolutions across repetitive commits:
+    git config --global rerere.enabled true
+
+4. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Sachin and Swadeep both modified the tax slab calculation
+in `TaxEngine.js`. When Sachin rebased on `main`, Git stopped at commit 2 of 4.
+Sachin opened the file, unified the ₹10 Lakh rebate logic, staged the file with
+`git add TaxEngine.js`, and ran `git rebase --continue`. The remaining 2 commits
+applied flawlessly!
+
+================================================================================
+END OF NOTE - TOPIC 5
+================================================================================

@@ -1,0 +1,72 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 4: UNDERSTANDING COMMIT REWRITING RISKS & REMOTE DIVERGENCE
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. CORE CONCEPT: COMMIT IMMUTABILITY & THE REWRITING TRAP
+--------------------------------------------------------------------------------
+- In Git, every commit object is cryptographically identified by a SHA-1/SHA-256 hash.
+- This hash is computed from:
+  1. The Tree object (snapshot of all files and directories).
+  2. The Parent commit hash(es).
+  3. The Author metadata (name, email, timestamp).
+  4. The Committer metadata (name, email, timestamp).
+  5. The Commit message.
+- If ANY byte in any of these components changes (e.g., modifying the message via 'git commit --amend', altering a staged file, or amending the author), a BRAND NEW commit object with a totally DIFFERENT SHA hash is created.
+- The original commit is not deleted immediately; it simply becomes unreferenced (dangling).
+
+2. WHY REWRITING PUSHED COMMITS CAUSES REMOTE DIVERGENCE
+--------------------------------------------------------------------------------
+- Scenario:
+  1. Developer A commits C1 (hash: 7a3f89) and pushes it to 'origin/main'.
+  2. Teammate B pulls 'origin/main' and branches off C1 or adds commit C2 on top of C1.
+  3. Developer A realizes a typo in C1 and runs:
+     git commit --amend -m "Fixed message"
+     -> Git generates C1' (hash: e41b9c).
+  4. Developer A attempts to push:
+     git push origin main
+     -> Git REJECTS the push with "[rejected - non-fast-forward]"!
+- Why does Git reject it?
+  Because the remote branch has C1 (7a3f89), but Developer A's local branch tip is C1' (e41b9c). C1' does NOT have C1 as an ancestor; they are sibling divergent commits!
+
+3. THE DANGERS OF FORCED PUSHING ('git push --force')
+--------------------------------------------------------------------------------
+- If Developer A runs 'git push origin main --force' (or -f):
+  1. The remote 'main' pointer is forcefully overwritten to C1' (e41b9c).
+  2. When Teammate B attempts to pull or push, their local repository has C1 + C2.
+  3. Teammate B's subsequent 'git pull' will trigger a messy and redundant merge or re-introduce the old destroyed commit C1 back into remote history!
+  4. Other team members may lose work or encounter inexplicable merge conflicts.
+
+4. THE GOLDEN RULE OF GIT HISTORY REWRITING
+--------------------------------------------------------------------------------
+"NEVER rewrite (amend, rebase, reset) commits that have already been pushed to a public or shared branch."
+
+- PRIVATE LOCAL BRANCHES:
+  * Safe to amend, rebase, squash, or reset.
+  * History is yours alone to craft cleanly before review.
+
+- SHARED/PUBLIC BRANCHES (main, dev, release, shared PR branches):
+  * Strictly forbidden to amend or force-push.
+  * Use non-destructive 'git revert' instead to generate an inverse commit.
+
+5. DEFENSIVE PRACTICES: '--force-with-lease'
+--------------------------------------------------------------------------------
+- If history rewriting is strictly necessary on a personal feature branch:
+  USE: git push --force-with-lease
+  INSTEAD OF: git push --force
+
+- Why?
+  '--force-with-lease' verifies that the remote-tracking ref (origin/my-feature) matches the actual remote ref on GitHub before overwriting. If a teammate has pushed work in the meantime, Git will protectively reject your push, preventing data loss.
+
+6. SUMMARY COMMAND CHEATSHEET
+--------------------------------------------------------------------------------
+- View diverged history with upstream:
+  git fetch origin
+  git status (shows "Your branch and 'origin/main' have diverged...")
+- View graphical divergence:
+  git log --graph --oneline --decorate HEAD @{u}
+- Safe push when rewriting your own isolated feature branch:
+  git push --force-with-lease origin feature-login
+- Safe undo for public commits:
+  git revert <commit-sha>

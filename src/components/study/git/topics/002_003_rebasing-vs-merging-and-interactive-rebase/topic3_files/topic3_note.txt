@@ -1,0 +1,63 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 3: HOW REBASE WORKS UNDER THE HOOD: MERGE BASE, PATCH DELTAS & REPLAY
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE LOW-LEVEL GIT REBASE ENGINE ARCHITECTURE
+--------------------------------------------------------------------------------
+When you execute `git rebase <upstream>`, Git coordinates several low-level internal
+subsystems. Here is the step-by-step mechanical lifecycle:
+
+PHASE 1: MERGE BASE CALCULATION
+Git executes internal `git merge-base <upstream> <branch>` to identify the lowest
+common ancestor commit object (LCA) in the commit DAG.
+
+PHASE 2: PATCH DELTA GENERATION & TEMPORARY STORAGE
+Git generates formatted patch files for every commit on `<branch>` that occurred
+after the merge base (`git format-patch merge-base..branch`).
+These patches and control files are saved in:
+    .git/rebase-merge/   (modern rebase engine)
+    or .git/rebase-apply/ (legacy engine)
+
+Key control files created:
+- `head-name`: Name of the original branch (e.g. refs/heads/feature/gst)
+- `onto`: SHA-1 hash of the target base commit
+- `orig-head`: SHA-1 hash of the branch tip before rebase began
+- `done`: Commits successfully replayed so far
+- `git-rebase-todo`: The queue of remaining commits to be replayed
+
+PHASE 3: DETACHED HEAD INITIALIZATION (RESET)
+Git updates the `HEAD` reference to point directly to `<onto>` (the tip of upstream).
+HEAD is now in a detached state. The index and working tree are updated to match `<onto>`.
+
+PHASE 4: SEQUENTIAL PATCH REPLAY
+For each patch in the rebase queue:
+1. Git attempts to apply the patch using 3-way merge logic.
+2. If clean: Git writes a new tree object, creates a new commit object (pointing to current HEAD
+   as its single parent), and advances HEAD to this new commit.
+3. If conflict: Git halts, writes conflict markers to working tree files, records the paused state
+   in `.git/rebase-merge/stopped-sha`, and yields control to the developer.
+
+PHASE 5: REF UPDATE & CLEANUP
+Once the last patch is applied:
+1. Git updates the branch ref (`.git/refs/heads/<branch>`) to point to the current HEAD commit.
+2. Git attaches HEAD back to the branch ref.
+3. Git deletes the temporary `.git/rebase-merge` directory.
+
+2. WHAT HAPPENS TO THE OLD COMMITS?
+--------------------------------------------------------------------------------
+The original commit objects (and their tree/blob children) are NOT immediately deleted.
+They lose their branch pointer and become "dangling commits".
+They remain stored in `.git/objects/` and can be retrieved via `git reflog` until the
+garbage collector (`git gc` / `git prune`) runs after the `gc.reflogExpire` window (default 30-90 days).
+
+3. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Sukanta Sir opens the `.git/rebase-merge` directory in the terminal
+while Susmita and Sachin watch in awe as Git writes patch files `0001-feat-tax.patch` and
+switches HEAD between commits in real-time.
+
+================================================================================
+END OF NOTE - TOPIC 3
+================================================================================

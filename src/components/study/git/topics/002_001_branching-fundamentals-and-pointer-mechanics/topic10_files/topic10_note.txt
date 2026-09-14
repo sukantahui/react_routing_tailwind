@@ -1,0 +1,48 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 10: NAVIGATING & EXPERIMENTING IN DETACHED HEAD (GARBAGE COLLECTION RISKS)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. COMMITTING IN A DETACHED HEAD STATE
+--------------------------------------------------------------------------------
+- When in detached HEAD, you can run `git add` and `git commit` normally.
+- What happens under the hood?
+  1. Git creates a new commit object C_exp.
+  2. Git sets C_exp's parent to the old detached commit.
+  3. Git updates `.git/HEAD` with the new commit's SHA hash.
+  4. CRUCIAL: No branch pointer inside `.git/refs/heads/` is created or updated!
+
+2. THE RISK: WHY UNREFERENCED COMMITS GET GARBAGE COLLECTED
+--------------------------------------------------------------------------------
+- In Git, commit objects that are NOT reachable from any:
+  * Local branch (`refs/heads/*`)
+  * Remote tracking branch (`refs/remotes/*`)
+  * Tag (`refs/tags/*`)
+  are called "DANGLING" or "UNREACHABLE" commits.
+- When Git runs its automatic maintenance or `git gc` (Garbage Collection):
+  * Git deletes unreachable objects whose reflog entries expire (default 30-90 days).
+  * If reflogs are pruned, the commits are permanently deleted from disk.
+
+3. HOW GIT WARNS YOU UPON SWITCHING AWAY
+--------------------------------------------------------------------------------
+- When you run `git switch main` after making detached commits:
+    "Warning: you are leaving 2 commits behind, not connected to any of your branches:
+     d9e8f7a feat: experimental AI tax forecaster
+     1a2b3c4 feat: prototype machine learning model
+     If you want to keep them by creating a new branch, this may be a good time
+     to do so with:
+       git branch <new-branch-name> d9e8f7a"
+
+4. BEST PRACTICES FOR DETACHED HEAD SANDBOXING
+--------------------------------------------------------------------------------
+- Experiment freely!
+- If the experiment fails: Switch to `main` and let Git abandon the commits.
+- If the experiment succeeds: Immediately create a branch before switching:
+    $ git switch -c feature/ai-tax-forecaster
+
+5. TEACHER ADVICE (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Detached HEAD is the ultimate zero-risk scratchpad. Use it to try wild ideas.
+  Just remember: promote good ideas to a named branch before walking away!
+================================================================================

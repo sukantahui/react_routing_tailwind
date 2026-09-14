@@ -1,0 +1,54 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 7: RENAMING BRANCHES (`git branch -m` & `git branch -M`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT DOES RENAMING A BRANCH REALLY DO UNDER THE HOOD?
+--------------------------------------------------------------------------------
+- In Git, renaming a branch is simply renaming a file on disk!
+- Example: Renaming `feature-tax` to `feature-gst-calc`
+  Git executes:
+  `mv .git/refs/heads/feature-tax .git/refs/heads/feature-gst-calc`
+  and moves its reflog file:
+  `mv .git/logs/refs/heads/feature-tax .git/logs/refs/heads/feature-gst-calc`
+- If the renamed branch is your currently checked-out branch, Git automatically
+  updates `.git/HEAD` to point to the new name:
+  `ref: refs/heads/feature-gst-calc`
+
+2. COMMAND SYNTAX & FLAGS
+--------------------------------------------------------------------------------
+- Renaming the CURRENT active branch:
+    $ git branch -m <new-branch-name>
+    $ git branch -m main (e.g. converting master to main)
+
+- Renaming any ARBITRARY local branch while on a different branch:
+    $ git branch -m <old-name> <new-name>
+    $ git branch -m feat-discount feature/promotional-discount
+
+- Force renaming (Overwriting existing branch if conflict occurs):
+    $ git branch -M <new-name>
+    (Uppercase -M forces the rename even if <new-name> already exists)
+
+3. SYNCING A RENAMED BRANCH WITH GITHUB / REMOTE
+--------------------------------------------------------------------------------
+Renaming a branch locally does NOT automatically rename it on GitHub!
+To sync the rename with a remote repository:
+1. Rename local branch:
+    $ git branch -m old-name new-name
+2. Push new branch and reset upstream:
+    $ git push -u origin new-name
+3. Delete old branch from remote:
+    $ git push origin --delete old-name
+
+4. INDUSTRY STANDARD: MIGRATING MASTER TO MAIN
+--------------------------------------------------------------------------------
+    $ git branch -m master main
+    $ git push -u origin main
+    $ git push origin --delete master
+
+5. TEACHER NOTE (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Tell students (Tuhina, Sachin) never to panic if they make a typo like
+  `feat-gsts-calculatr`. A quick `git branch -m` fixes it in 1 millisecond.
+================================================================================

@@ -1,0 +1,54 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 10: CLEANING UNTRACKED FILES & DIRECTORIES - GIT CLEAN
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. WHAT IS GIT CLEAN?
+--------------------------------------------------------------------------------
+- Commands like 'git restore' and 'git reset' only operate on TRACKED files.
+- When new files, scratch notes, build folders (like dist/, build/), or temporary artifacts are generated, they appear as UNTRACKED files in 'git status'.
+- 'git clean' is Git's dedicated tool for pruning untracked files and directories from the working tree.
+
+2. SAFETY FIRST: THE BUILT-IN GUARDRAIL
+--------------------------------------------------------------------------------
+- Running 'git clean' without any arguments will REFUSE to run:
+  "fatal: clean.requireForce defaults to true and neither -i, -n, nor -f given; refusing to clean"
+- This protective safety mechanism prevents accidental deletion of source files.
+
+3. THE CORE FLAGS OF GIT CLEAN
+--------------------------------------------------------------------------------
+- '-n' (--dry-run):
+  * MANDATORY FIRST STEP. Shows what would be deleted without actually deleting anything.
+  * Example: git clean -nd
+
+- '-f' (--force):
+  * Required by Git to execute actual deletion.
+  * Example: git clean -fd
+
+- '-d':
+  * Removes untracked whole DIRECTORIES in addition to individual untracked files.
+
+- '-x':
+  * Removes IGNORED files (matching .gitignore) in addition to untracked files.
+  * Great for nuking 'node_modules/' or build caches.
+  * Example: git clean -fdx
+
+- '-X':
+  * Removes ONLY ignored files, preserving non-ignored untracked files.
+
+4. STEP-BY-STEP PROFESSIONAL CLEAN WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Inspect what untracked files exist:
+  git status --short
+
+Step 2: Perform a DRY RUN with directory support:
+  git clean -nd
+  Output: "Would remove temp_report.txt", "Would remove build/"
+
+Step 3: Confirm everything listed is disposable, then force clean:
+  git clean -fd
+
+Step 4: Ultimate repository reset (wipes all uncommitted tracked edits + untracked files + build artifacts):
+  git reset --hard HEAD
+  git clean -fdx

@@ -1,0 +1,45 @@
+================================================================================
+GIT MASTER CLASSROOM NOTES · MODULE 001_004 · TOPIC 2
+UNSTAGING STAGED CHANGES (git restore --staged vs git reset HEAD)
+Educator: Sukanta Hui · Founder, Coder & AccoTax · Barrackpore, WB, India
+================================================================================
+
+1. WHAT IS git restore --staged?
+--------------------------------------------------------------------------------
+'git restore --staged <file>' (or '-S') removes a file from the Staging Index
+and copies the version from HEAD into the Index.
+It is 100% NON-DESTRUCTIVE to your Working Tree disk edits!
+
+2. KEY COMMANDS & SHORTCUTS
+--------------------------------------------------------------------------------
+1. Unstage a single file:
+   $ git restore --staged src/config/database.js
+
+2. Unstage all staged files across the repository:
+   $ git restore --staged .
+
+3. Short flag syntax:
+   $ git restore -S src/config/database.js
+
+4. Interactive partial un-staging (hunk-by-hunk):
+   $ git restore --staged -p src/controllers/userController.js
+
+3. SHORT STATUS (git status -s) COLOR TRANSITIONS
+--------------------------------------------------------------------------------
++-------------------+--------------------+------------------------------------+
+| State             | Indicator (Status) | Meaning                            |
++-------------------+--------------------+------------------------------------+
+| Before unstage    | M  app.js (GREEN)  | Staged in Index, ready to commit   |
+| After unstage     |  M app.js (RED)    | Unstaged in Working Tree (Safe!)   |
+| New file staged   | A  new.js (GREEN)  | Added to Index                     |
+| New file unstage  | ?? new.js (WHITE)  | Untracked on disk (Safe!)          |
++-------------------+--------------------+------------------------------------+
+
+4. MODERN VS LEGACY SYNTAX
+--------------------------------------------------------------------------------
+Modern (Git 2.23+):   $ git restore --staged <file>
+Legacy (pre-2.23):    $ git reset HEAD <file>
+
+================================================================================
+Coder & AccoTax · Barrackpore · https://github.com/codernaccotax
+================================================================================

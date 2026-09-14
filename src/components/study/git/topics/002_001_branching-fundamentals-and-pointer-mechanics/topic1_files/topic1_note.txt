@@ -1,0 +1,43 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 1: HOW GIT BRANCHING DIFFERS FROM OTHER VCS (CENTRALIZED VS DISTRIBUTED)
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. HISTORICAL VCS BRANCHING: THE DIRECTORY DUPLICATION MODEL
+--------------------------------------------------------------------------------
+- In Centralized VCS (Subversion/SVN, CVS, Perforce, TFS):
+  * A branch is implemented as a server-side DIRECTORY COPY.
+  * To branch in SVN:
+    svn copy http://svn.example.com/repos/trunk http://svn.example.com/repos/branches/feature-tax -m "create branch"
+  * Drawbacks:
+    1. Network Latency: Requires connecting to the central server for every branch.
+    2. Disk Inefficiency: Severely inflates server disk usage with duplicate directory structures.
+    3. Slow Branching: Takes seconds or minutes for large codebases (e.g. 50,000 files).
+    4. Heavyweight Merging: Tracking merge history in SVN required manual revision range tracking (e.g., -r 100:150).
+
+2. GIT'S REVOLUTIONARY POINTER MODEL
+--------------------------------------------------------------------------------
+- In Git:
+  * A branch is a 41-byte text pointer referencing a commit object in the Directed Acyclic Graph (DAG).
+  * Branches cost O(1) time and O(1) space to create.
+  * Local & Offline: Branch creation occurs locally on your machine in 1 millisecond without requiring server connectivity.
+  * SHA-Based Ancestry: Every commit stores a pointer to its parent commit(s), making merge base calculation automatic and mathematically deterministic.
+
+3. ARCHITECTURAL COMPARISON TABLE
+--------------------------------------------------------------------------------
+| Feature               | Centralized VCS (SVN / CVS)          | Git (Distributed VCS)                |
+|-----------------------|--------------------------------------|---------------------------------------|
+| Branch Mechanism      | Directory copy on central server     | 41-byte text pointer in local DAG     |
+| Creation Time         | O(N) where N = number of files       | O(1) instantaneous (<1ms)            |
+| Disk Consumption      | High (Duplicate tree copies)         | Negligible (41 bytes per branch)      |
+| Offline Capability    | None (Requires server connection)   | 100% Offline & Local                 |
+| Branch Lifecycle      | Long-lived, expensive to create      | Short-lived, disposable topic branches|
+| Context Switching     | Checks out entire tree over network  | Instantaneous local inode updates    |
+
+4. THE "BRANCH EARLY, BRANCH OFTEN" CULTURE
+--------------------------------------------------------------------------------
+- Because Git branches are zero-cost:
+  * Developers create disposable "topic branches" or "spike branches" for 1-hour experiments.
+  * If the experiment fails, delete the branch with 'git branch -D <name>' (deletes 41 bytes).
+  * If the experiment succeeds, merge into main cleanly.

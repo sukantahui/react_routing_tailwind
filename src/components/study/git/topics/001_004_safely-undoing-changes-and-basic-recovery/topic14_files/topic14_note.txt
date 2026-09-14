@@ -1,0 +1,52 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 14: MODULE 004 COMPREHENSIVE MASTERY & VIVA REVISION NOTE
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. MODULE SUMMARY: THE 5 PILLARS OF UNDOING IN GIT
+--------------------------------------------------------------------------------
+1. UNSTAGED WORKING TREE CHANGES:
+   - Discard single file: git restore <file>
+   - Discard directory:   git restore <directory>/
+   - Discard entire repo: git restore .
+
+2. STAGED INDEX CHANGES:
+   - Unstage single file: git restore --staged <file>
+   - Unstage all files:   git restore --staged .   (or git reset)
+   - Unstage & discard:   git restore --staged --worktree <file>
+
+3. RECENT LOCAL COMMITS (Unpushed):
+   - Polish/add files:    git commit --amend --no-edit
+   - Rewind & keep staged: git reset --soft HEAD~1
+   - Rewind & unstage:     git reset --mixed HEAD~1 (Default)
+   - Rewind & wipe disk:   git reset --hard HEAD~1
+
+4. PUBLIC / SHARED COMMITS (Pushed to GitHub):
+   - Invert single commit: git revert <commit-sha> --no-edit
+   - Invert merge commit:  git revert -m 1 <merge_sha> --no-edit
+   - Re-revert feature:    git revert <revert_commit_sha>
+
+5. UNTRACKED JUNK & BUILD ARTIFACTS:
+   - Dry run preview:      git clean -nd
+   - Force clean:          git clean -fd
+   - Nuclear clean:        git clean -fdx
+   - Interactive clean:    git clean -id
+
+2. DATA SAFETY & RECOVERY PRINCIPLES
+--------------------------------------------------------------------------------
+- Committed code is safe: Stored in .git/objects/ and tracked by 'git reflog' (90 days).
+- Staged code is stored: Generates a blob in .git/objects/ (recoverable via git fsck).
+- Uncommitted edits are volatile: Overwritten by 'git reset --hard' without Git recovery.
+- Golden Rule of History: Never rewrite (amend/reset) commits on public/shared branches!
+
+3. COMMON VIVA & INTERVIEW CHEATSHEET
+--------------------------------------------------------------------------------
+Q: Why use 'git restore' instead of legacy 'git checkout'?
+A: 'git checkout' was overloaded with switching branches and discarding files. Git 2.23 introduced 'git switch' (for branches) and 'git restore' (for files).
+
+Q: What does 'git reset --soft' do?
+A: Moves the HEAD ref to target commit without modifying Index or Working Tree, keeping all changes staged.
+
+Q: Why does 'git revert -m 1' require '-m 1'?
+A: Merge commits have multiple parents. '-m 1' designates Parent 1 (mainline) as the baseline for calculating the inverse diff.

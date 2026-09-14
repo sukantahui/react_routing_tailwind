@@ -1,0 +1,65 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 5: DEMYSTIFYING GIT RESET & THREE-TREE MECHANICS
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. WHAT IS GIT RESET?
+--------------------------------------------------------------------------------
+- 'git reset' is one of Git's most fundamental plumbing/porcelain tools.
+- Contrary to beginner intuition, 'git reset' does NOT destroy history by default.
+- Its primary job is to REWIND THE CURRENT BRANCH POINTER (HEAD) to an earlier commit in the Directed Acyclic Graph (DAG).
+- Depending on the mode specified, it optionally syncs the Staging Area (Index) and the Working Tree.
+
+2. THE THREE-TREE ARCHITECTURE RECAP
+--------------------------------------------------------------------------------
+Tree 1: HEAD (Last commit snapshot in the current branch)
+Tree 2: INDEX / STAGING AREA (Proposed next commit snapshot)
+Tree 3: WORKING DIRECTORY (Actual files and folders on physical disk)
+
+3. HOW GIT RESET OPERATES IN THREE DISTINCT PHASES
+--------------------------------------------------------------------------------
+When you run: git reset <target-commit>
+
+Phase 1 (Always performed):
+  - Move the current branch pointer (and HEAD) to <target-commit>.
+  - This is what 'git reset --soft' does and stops here!
+
+Phase 2 (Default behavior):
+  - Update the Staging Index to match the snapshot of <target-commit>.
+  - This is what 'git reset --mixed' (or just 'git reset') does and stops here!
+
+Phase 3 (Destructive working copy step):
+  - Overwrite the Working Tree files to match the snapshot of <target-commit>.
+  - This is what 'git reset --hard' does!
+
+4. RESET VS CHECKOUT / SWITCH: THE CRUCIAL DISTINCTION
+--------------------------------------------------------------------------------
+- 'git checkout <branch>' or 'git switch <branch>':
+  * Moves the HEAD symbolic pointer to point to a DIFFERENT branch name.
+  * The branches themselves DO NOT MOVE.
+  * Completely safe for existing commit pointers.
+
+- 'git reset <commit>':
+  * Moves the CURRENT branch pointer itself to an earlier commit.
+  * The branch pointer moves with HEAD.
+  * Rewinds branch history.
+
+5. RELATIVE COMMIT SPECIFIERS FOR RESET
+--------------------------------------------------------------------------------
+- HEAD~1  : 1 commit before HEAD (parent)
+- HEAD~2  : 2 commits before HEAD (grandparent)
+- HEAD^   : First parent of HEAD
+- HEAD~n  : n commits behind current tip
+- <commit-sha> : Arbitrary historical commit hash
+
+6. SUMMARY COMMAND CHEATSHEET
+--------------------------------------------------------------------------------
+- Undo last commit but keep changes staged:
+  git reset --soft HEAD~1
+- Undo last commit and unstage changes (keep working files):
+  git reset HEAD~1   (or git reset --mixed HEAD~1)
+- Undo last commit and wipe working changes (DANGER):
+  git reset --hard HEAD~1
+- Unstage a single file without moving HEAD:
+  git reset HEAD <path/to/file>

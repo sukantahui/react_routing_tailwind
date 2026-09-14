@@ -1,0 +1,63 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 8: SAFE UNDO FOR PUBLIC/SHARED BRANCHES - GIT REVERT
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. WHAT IS GIT REVERT?
+--------------------------------------------------------------------------------
+- 'git revert <commit-sha>' is a forward-moving, non-destructive undo command.
+- Instead of rewinding or removing commits from the history (like git reset does), git revert:
+  1. Computes the EXACT INVERSE DIFF of the target commit.
+  2. Applies those opposite changes to your Working Tree and Index.
+  3. Creates a BRAND NEW COMMIT that records the undo action.
+- The historical commits remain completely intact in the repository DAG.
+
+2. WHY GIT REVERT IS ESSENTIAL FOR SHARED / PUBLIC BRANCHES
+--------------------------------------------------------------------------------
+- When changes are pushed to remote repositories (GitHub/GitLab) shared by a team:
+  * Using 'git reset' rewinds the branch ref, causing remote divergence and requiring a dangerous force-push.
+  * Using 'git revert' appends a new commit (e.g., "Revert 'feat(pay): buggy logic'").
+  * All teammates pull cleanly via standard fast-forward merges without any conflicts or diverged histories.
+
+3. REVERT VS RESET: THE ARCHITECTURAL DIFFERENCE
+--------------------------------------------------------------------------------
+| Feature                | git reset                              | git revert                             |
+|------------------------|----------------------------------------|----------------------------------------|
+| History Modification   | Rewinds / rewrites commit history      | Appends new inverse commit forward     |
+| Remote Branch Safety   | DANGEROUS on shared branches           | 100% SAFE on public/shared branches    |
+| Pushing requirement    | Requires 'git push --force'            | Requires standard 'git push'           |
+| Audit Trail Integrity  | Erases visibility of mistake           | Preserves full audit log of mistake    |
+| Conflict Likelihood    | Causes divergence for teammates        | Clean linear synchronization           |
+
+4. COMMON GIT REVERT COMMAND FLAGS
+--------------------------------------------------------------------------------
+- Revert the most recent commit:
+  git revert HEAD
+
+- Revert a specific historical commit:
+  git revert <commit-sha>
+
+- Revert without automatically opening commit editor (custom message):
+  git revert -m "revert: rollback flawed discount formula" <commit-sha>
+
+- Stage inverse changes without committing immediately:
+  git revert -n <commit-sha>   (or --no-commit)
+  * Useful for reverting multiple commits together into a single rollback commit.
+
+- Reverting a range of commits:
+  git revert commitA..commitB
+
+5. STEP-BY-STEP REVERT WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Identify the faulty commit SHA:
+  git log --oneline -n 5
+
+Step 2: Execute revert:
+  git revert 7a9b12c
+
+Step 3: Save the default commit message (or edit):
+  "Revert \"feat: broken tax calculation\"\n\nThis reverts commit 7a9b12c..."
+
+Step 4: Push cleanly to GitHub:
+  git push origin main

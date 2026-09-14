@@ -1,0 +1,48 @@
+================================================================================
+MODULE 002_002: MERGING STRATEGIES & CONFLICT RESOLUTION
+TOPIC 2: THREE-WAY (3-WAY) MERGES & FINDING THE MERGE BASE
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHY IS IT CALLED A "3-WAY" MERGE?
+--------------------------------------------------------------------------------
+- Traditional diffing tools compare only 2 files (File A vs File B).
+  If line 10 differs between A and B, a 2-way diff cannot tell WHO made the change!
+- Git uses a 3-WAY comparison involving THREE snapshots:
+  1. BASE SNAPSHOT (Common Ancestor / Merge Base)
+  2. OURS SNAPSHOT (Tip commit of current branch / HEAD)
+  3. THEIRS SNAPSHOT (Tip commit of incoming branch being merged)
+
+2. THE 3-WAY DECISION MATRIX
+--------------------------------------------------------------------------------
+For every line / hunk of code:
+- If BASE == OURS, but BASE != THEIRS:
+  -> Incoming branch made the change. Git AUTOMATICALLY accepts THEIRS!
+- If BASE == THEIRS, but BASE != OURS:
+  -> Current branch made the change. Git AUTOMATICALLY keeps OURS!
+- If OURS == THEIRS (both made the identical change):
+  -> Git keeps the change cleanly.
+- If BASE != OURS and BASE != THEIRS and OURS != THEIRS:
+  -> BOTH branches modified the same lines differently! Git triggers a CONFLICT!
+
+3. FINDING THE MERGE BASE PROGRAMMATICALLY
+--------------------------------------------------------------------------------
+- The "Merge Base" is the lowest common ancestor (LCA) in the commit DAG:
+    $ git merge-base main feature-gst
+    Output: 7a8b9c0d1e2f3456789abcdef0123456789abcde
+
+- Testing if a branch is an ancestor of another:
+    $ git merge-base --is-ancestor commitA commitB
+    (Exit code 0 = True, Exit code 1 = False)
+
+4. WHAT HAPPENS WHEN MULTIPLE MERGE BASES EXIST? (CRISS-CROSS MERGES)
+--------------------------------------------------------------------------------
+- In complex workflows with reciprocal merges, two branches may have two or more
+  competing common ancestors.
+- Git's Recursive / ORT merge strategies handle this by creating a virtual merge base!
+
+5. TEACHER NOTE FROM SUKANTA HUI (ACCOTAX BARRACKPORE)
+--------------------------------------------------------------------------------
+- "The 3-way merge is Git's superpower. Because Git knows what the file looked like
+  on Monday morning (the merge base), it never has to guess whose edits are newer!"
+================================================================================

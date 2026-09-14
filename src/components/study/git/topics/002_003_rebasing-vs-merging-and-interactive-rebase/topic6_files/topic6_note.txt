@@ -1,0 +1,51 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 6: REBASE CONTROL COMMANDS: GIT REBASE --SKIP & GIT REBASE --ABORT
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE REBASE CONTROL TOOLKIT
+--------------------------------------------------------------------------------
+When a rebase is in progress and pauses due to a conflict or directive, Git provides
+three primary steering controls:
+
+1. `git rebase --continue`:
+   Applies staged changes, records the replayed commit, and advances to the next patch.
+
+2. `git rebase --skip`:
+   Completely drops the current conflicting commit from the replayed branch.
+   When to use:
+   - When the change introduced in this commit has already been implemented or merged
+     on `main` by another developer.
+   - When resolving the conflict would result in an empty or meaningless commit.
+
+3. `git rebase --abort`:
+   The emergency eject button / safe bailout.
+   What it does:
+   - Instantly halts the rebase operation.
+   - Restores the working tree and staging area to the clean pre-rebase state.
+   - Restores the branch reference to `orig-head`.
+   - Cleans up `.git/rebase-merge/`.
+   - Guarantee: Zero data loss!
+
+4. `git rebase --edit-todo`:
+   Allows you to modify the remaining rebase directives while paused.
+
+2. HOW GIT REBASE --SKIP WORKS UNDER THE HOOD
+--------------------------------------------------------------------------------
+When you run `git rebase --skip`:
+1. Git discards working tree changes for the current patch.
+2. Git marks the commit in `.git/rebase-merge/done` as skipped.
+3. Git pops the next commit from `.git/rebase-merge/git-rebase-todo` and continues replay.
+
+3. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, developer Mahima created a commit adding `GST_RATE = 0.18`.
+Meanwhile, Sukanta Sir had already merged `const GST_RATE = 0.18` into `main`.
+When Mahima rebased, Git paused on the duplicate line. Recognizing that the commit
+was 100% redundant, Mahima ran `git rebase --skip`. Git dropped the redundant commit
+and replayed the rest of her feature branch cleanly!
+
+================================================================================
+END OF NOTE - TOPIC 6
+================================================================================

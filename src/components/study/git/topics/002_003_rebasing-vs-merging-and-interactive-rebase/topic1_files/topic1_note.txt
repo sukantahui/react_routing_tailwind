@@ -1,0 +1,62 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 1: REBASE VS MERGE PHILOSOPHICAL COMPARISON: HISTORICAL TRUTH VS STORYTELLING
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE TWO COMPETING PHILOSOPHIES OF VERSION CONTROL
+--------------------------------------------------------------------------------
+In the software engineering and Git communities, a long-standing philosophical
+debate exists regarding commit history:
+
+CAMP 1: HISTORICAL TRUTH / RECORD OF EXACT EVENTS (The Merge Camp)
+- Core Belief: Commit history is an immutable, sacred record of what actually happened.
+- Values: Preserves every branch, chronological timestamp, and intermediate state.
+- Perspective: Merge commits are not clutter; they are genuine milestones documenting
+  when a feature branched off and when it was integrated.
+- Advantages: Complete audit trail, zero risk of rewriting history, non-destructive.
+- Drawbacks: Spider-web graph topologies ("Git knot salad"), difficult to read in git log.
+
+CAMP 2: REPOSITORY AS A PRISTINE STORYBOOK (The Rebase Camp)
+- Core Belief: Commit history is a curated story of how the software was constructed.
+- Values: Clean, linear, logical commits where each commit represents a working, atomic step.
+- Perspective: Intermediate typos, "fixed typo", "wip", and synchronization merge bubbles
+  should be polished before public sharing.
+- Advantages: Straightforward `git log`, painless `git bisect`, easier code reviews.
+- Drawbacks: Rewrites commit hashes; dangerous if used on shared public branches.
+
+2. COMPARISON SUMMARY TABLE
+--------------------------------------------------------------------------------
+Metric                  Git Merge                  Git Rebase
+--------------------------------------------------------------------------------
+Graph Topology          Divergent / Multi-path     Strictly Linear (1 straight line)
+Commit Hashes           Preserved unchanged        Recalculated (Brand new SHA-1s)
+Historical Authenticity 100% Real-time truth       Curated & Polished narrative
+Merge Knots / Bubbles   Visible explicitly         Eliminated entirely
+Conflict Handling       Resolved once per merge    Resolved per replayed commit
+Safety on Remote        Completely Safe            Requires Force Push (Risky!)
+Tooling Compatibility   Great for team branching   Ideal for Bisect & PR Reviews
+
+3. HYBRID WORKFLOW: THE INDUSTRY GOLD STANDARD
+--------------------------------------------------------------------------------
+Top technology companies (Google, Microsoft, Netflix) and modern Git teams do NOT
+choose one exclusively; they adopt a pragmatic hybrid workflow:
+
+1. LOCAL DEVELOPMENT (Rebase):
+   While developing on your private feature branch, keep it rebased on `main` to
+   maintain a clean linear progression and resolve integration conflicts early.
+2. PULL REQUEST INTEGRATION (Squash & Merge / Semi-linear):
+   - Squash commits into 1-2 atomic, well-described commits.
+   - Fast-forward or create a single clean integration merge commit onto `main`.
+
+4. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, the tax filing audit ledger requires absolute compliance.
+Sukanta Sir explains to Debangshu and Swadeep:
+"For internal private feature branches (e.g. ₹ TDS calculation engine), use Rebase
+to keep your PR clean and tidy. But when merging release branches to `main` for our
+annual financial audits, we preserve the explicit milestone merge commits!"
+
+================================================================================
+END OF NOTE - TOPIC 1
+================================================================================

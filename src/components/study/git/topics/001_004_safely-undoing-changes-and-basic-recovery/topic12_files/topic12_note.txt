@@ -1,0 +1,43 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 12: CLASSROOM CASE STUDY - DATABASE MIGRATION RECOVERY
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. THE REAL-WORLD EMERGENCY SCENARIO
+--------------------------------------------------------------------------------
+- Setting: Software Architecture Lab at Coder & AccoTax, Barrackpore.
+- Developers: Abhronila and Tuhina working on an enterprise invoicing & GST portal.
+- The Crisis:
+  1. While debugging, Abhronila modified 4 production SQL migration scripts in 'db/migrations/'.
+  2. Tuhina accidentally staged 2 of those broken migration scripts ('git add db/migrations/001_users.sql db/migrations/002_tax_rates.sql').
+  3. Meanwhile, 2 other migration scripts ('003_invoices.sql', '004_payments.sql') were left modified but UNSTAGED in the working tree.
+  4. In addition, 5 temporary SQL dump files and scratch notes were cluttering the directory as UNTRACKED files.
+  5. Panic set in: "If we commit this, the production database will crash; if we reset blindly, we might lose our new valid queries!"
+
+2. SUKANTA SIR'S 4-STEP FORENSIC RESTORATION PROTOCOL
+--------------------------------------------------------------------------------
+
+STEP 1: INSPECTION & TRIAGE (NO DESTRUCTIVE ACTIONS)
+  git status
+  git diff --stat
+  git diff --staged
+  -> Audit which files are Staged (Green), Unstaged (Red), and Untracked.
+
+STEP 2: UNSTAGE THE STAGED MIGRATIONS
+  git restore --staged db/migrations/001_users.sql db/migrations/002_tax_rates.sql
+  -> The changes are pulled out of the Index back into the working directory without losing any lines.
+
+STEP 3: RESTORE WORKING TREE MIGRATION FILES TO HEAD
+  git restore db/migrations/
+  -> All 4 SQL migration files are instantly reverted to match the pristine HEAD commit snapshot.
+
+STEP 4: INTERACTIVELY PRUNE UNTRACKED SCRATCH DUMPS
+  git clean -nd   (Dry run to preview the 5 scratch dumps)
+  git clean -fd   (Safely remove the temporary dumps)
+
+3. KEY LESSONS LEARNED
+--------------------------------------------------------------------------------
+- Never panic when a mistake happens; Git gives you surgical precision at every stage.
+- Always inspect before touching: 'git status' and 'git diff' first.
+- Move step-by-step: Unstage -> Restore Working Tree -> Clean Untracked.

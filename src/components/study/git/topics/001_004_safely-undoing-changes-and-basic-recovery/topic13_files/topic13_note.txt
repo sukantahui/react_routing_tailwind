@@ -1,0 +1,51 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 13: HANDS-ON TERMINAL LAB & MASTER DRILLS
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. LAB OBJECTIVES
+--------------------------------------------------------------------------------
+This hands-on terminal lab tests and reinforces your practical mastery across all four major undo mechanisms in Git:
+  Drill 1: Working Tree Discard & Unstaging with 'git restore'.
+  Drill 2: Amending the tip commit with 'git commit --amend'.
+  Drill 3: The Three Reset Modes (--soft, --mixed, --hard) & Reflog recovery.
+  Drill 4: Safe Public Rollbacks with 'git revert' and Re-Reverting.
+  Drill 5: Workspace sanitation with 'git clean -nd' and 'git clean -fd'.
+
+2. DRILL EXECUTION GUIDE
+--------------------------------------------------------------------------------
+
+DRILL 1: RESTORE & UNSTAGE
+  - Modify a file: echo "bad line" >> app.js
+  - Discard working tree edit: git restore app.js
+  - Stage an edit: echo "staged line" >> app.js && git add app.js
+  - Unstage back to working tree: git restore --staged app.js
+
+DRILL 2: AMEND LAST COMMIT
+  - Commit initial version: git commit -m "feat: initial"
+  - Stage forgotten file: git add helper.js
+  - Amend without altering message: git commit --amend --no-edit
+
+DRILL 3: RESET MODES & REFLOG
+  - Create 3 commits (C1, C2, C3).
+  - Soft reset to squash: git reset --soft HEAD~2 -> Re-commit as single unit.
+  - Mixed reset to unstage: git reset HEAD~1 -> Re-organize files.
+  - Hard reset disaster: git reset --hard HEAD~1.
+  - Reflog recovery: git reflog -> git reset --hard HEAD@{1}.
+
+DRILL 4: REVERT PUBLIC HISTORY
+  - Revert buggy commit: git revert --no-edit <buggy_sha>
+  - Inspect forward log: git log --oneline
+  - Re-revert to restore: git revert --no-edit <revert_sha>
+
+DRILL 5: SANITIZE WITH CLEAN
+  - Create untracked folders: mkdir scratch && touch scratch/log.txt
+  - Preview deletion: git clean -nd
+  - Force delete: git clean -fd
+
+3. AUTOMATED VERIFICATION CRITERIA
+--------------------------------------------------------------------------------
+- All drills must leave the repository in a clean, non-corrupted state.
+- No dangling unrecoverable working tree data lost unexpectedly.
+- Reflog must demonstrate complete traceability of pointer operations.

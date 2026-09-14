@@ -1,0 +1,46 @@
+================================================================================
+MODULE 002_002: MERGING STRATEGIES & CONFLICT RESOLUTION
+TOPIC 4: PRESERVING BRANCH TOPOLOGIES (`git merge --no-ff`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS `--no-ff` (NO FAST-FORWARD)?
+--------------------------------------------------------------------------------
+- By default, if the target branch has not diverged, Git performs a fast-forward merge.
+- The `--no-ff` flag FORCES Git to create an explicit merge commit even when a
+  fast-forward merge is mathematically possible!
+- Syntax:
+    $ git switch main
+    $ git merge --no-ff feature-gst -m "Merge feature/gst-calculation (v1.2)"
+
+2. WHY USE `--no-ff` IN PROFESSIONAL TEAMS? (THE GITFLOW PARADIGM)
+--------------------------------------------------------------------------------
+1. Historical Context: When you delete the feature branch, the merge commit preserves
+   the visual bubble in `git log --graph`, proving the feature was developed together.
+2. Easy Rollback: You can revert the ENTIRE feature in a single command (`git revert -m 1 <merge-sha>`)
+   rather than hunting down 10 individual micro-commits.
+3. PR Audit Trails: Clear correlation with Jira / GitHub Pull Request ticket numbers.
+
+3. GRAPH COMPARISON: FF VS NO-FF
+--------------------------------------------------------------------------------
+- Fast-Forward (`--ff`):
+  (main) C1 --- C2 --- C3 --- C4
+  (Feature history is flattened and indistinguishable from main commits)
+
+- Non-Fast-Forward (`--no-ff`):
+  (main) C1 -------------------- M (Merge Commit)
+          \                    /
+  (feat)   C2 --- C3 --- C4 --/
+  (Visual bubble clearly marks feature boundary!)
+
+4. GLOBAL CONFIGURATION FOR NO-FF
+--------------------------------------------------------------------------------
+- Configure all merges to use `--no-ff` by default:
+    $ git config --global merge.ff false
+
+5. TEACHER NOTE FROM SUKANTA HUI (ACCOTAX BARRACKPORE)
+--------------------------------------------------------------------------------
+- "At AccoTax, for release milestones, we always use `--no-ff`. If an entire billing
+  module has a bug, Sukanta can revert the single merge commit M in 1 second without
+  undoing 20 individual helper commits!"
+================================================================================

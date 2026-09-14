@@ -1,0 +1,53 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 7
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Step-by-Step Conflict Resolution Workflow: Identifying, Reviewing Diffs, Editing Markers, Staging, and Completing the Merge
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. THE STANDARD 5-STEP RESOLUTION LIFECYCLE:
+   Step 1: IDENTIFY THE CONFLICT
+     - Command: `git status`
+     - Git highlights unmerged paths in red under "Unmerged paths:"
+       (e.g., both modified: src/taxCalculator.js)
+   
+   Step 2: REVIEW THE CONFLICTING CHUNKS & DIFFS
+     - Command: `git diff`
+     - Inspect raw conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>>`)
+     - Consult teammates (or code history) to understand the business intent.
+
+   Step 3: EDIT AND CLEAN THE CODE
+     - Open the file in your preferred editor (VS Code / Vim / Nano / IDE).
+     - Select the correct logic: Keep ours, Keep theirs, or Synthesize both.
+     - CRITICAL: Delete every delimiter line (`<<<<<<<`, `|||||||`, `=======`, `>>>>>>>`).
+     - Run unit tests or local compiler to verify zero syntax errors.
+
+   Step 4: STAGE THE RESOLVED FILES
+     - Command: `git add <conflicted_file>` (or `git add .` if multiple files resolved)
+     - `git status` will now show the files in green under "Changes to be committed".
+     - This signals to Git that Stage 1, 2, and 3 have been consolidated into Stage 0.
+
+   Step 5: FINALIZE AND COMPLETE THE MERGE
+     - Command: `git commit` (or `git merge --continue`)
+     - Git automatically opens the default merge commit message editor with details from `.git/MERGE_MSG`.
+     - Save and exit. The merge commit is minted, and HEAD moves forward!
+
+2. SPECIAL CONFLICT SCENARIOS:
+   a) Binary File Conflicts (PNG, PDF, ZIP):
+      - Git cannot insert text markers.
+      - Use: `git checkout --ours -- assets/logo.png && git add assets/logo.png`
+      - Or: `git checkout --theirs -- assets/logo.png && git add assets/logo.png`
+   b) Modify / Delete Conflicts:
+      - If you want to keep the modified file: `git add <file>`
+      - If you want to accept the deletion: `git rm <file>`
+   c) Bailout / Abort:
+      - If you want to completely cancel and restore: `git merge --abort`
+
+3. WHAT HAPPENS INTERNALLY IN GIT:
+   - Git clears `.git/MERGE_HEAD`, `.git/MERGE_MSG`, and `.git/MERGE_MODE`.
+   - Index stages 1, 2, 3 are collapsed to standard stage 0.
+   - A new commit object is created pointing to both parent commits.
+
+================================================================================
+PROFESSIONAL TIP: Always run your test suite (`npm test`, `pytest`, etc.) BEFORE committing a resolved merge to verify that integrating both branches didn't break runtime logic!
+================================================================================

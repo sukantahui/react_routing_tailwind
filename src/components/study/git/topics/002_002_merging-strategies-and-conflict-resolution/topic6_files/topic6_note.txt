@@ -1,0 +1,54 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 6
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Anatomy of Conflict Markers: <<<<<<< HEAD, =======, and >>>>>>> feature
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT ARE CONFLICT MARKERS?
+   - When Git's 3-way merge algorithm discovers unresolvable modifications in a file, it does NOT fail silently or corrupt files.
+   - Instead, Git writes standard textual delimiter markers directly into your working tree file around the conflicting lines of code.
+
+2. THE STANDARD 2-WAY CONFLICT MARKER SYNTAX:
+   <<<<<<< HEAD
+   // Current Change (Ours / Local branch where merge was triggered)
+   const GST_RATE = 0.18;
+   =======
+   // Incoming Change (Theirs / Remote or feature branch being merged)
+   const GST_RATE = 0.28;
+   >>>>>>> feature/luxury-tax
+
+   Deconstruction of the Markers:
+   a) `<<<<<<< HEAD` (7 Less-Than Signs + Branch Identifier):
+      - Marks the start of the conflicting section.
+      - Represents the code currently residing in HEAD (your active branch).
+   b) `=======` (7 Equals Signs):
+      - The central dividing boundary.
+      - Separates YOUR changes (above) from INCOMING changes (below).
+   c) `>>>>>>> <branch_or_commit>` (7 Greater-Than Signs + Branch Identifier):
+      - Marks the end of the conflicting section.
+      - Indicates the incoming commit hash or branch name being merged in.
+
+3. ADVANCED 3-WAY CONFLICT MARKERS (DIFF3):
+   - By default, Git only shows HEAD and Incoming. It does NOT show what the line looked like before either branch changed it!
+   - Enabling Diff3 Style:
+     `git config --global merge.conflictStyle diff3` (or `zdiff3` in Git 2.35+)
+   - Diff3 Syntax:
+     <<<<<<< HEAD
+     const GST_RATE = 0.18;
+     ||||||| base
+     const GST_RATE = 0.05;
+     =======
+     const GST_RATE = 0.28;
+     >>>>>>> feature/luxury-tax
+   - Advantage: You immediately see the ancestor value (₹0.05 / 5%), which makes understanding why Sachin and Susmita made their respective changes instantly obvious!
+
+4. RESOLUTION RULES:
+   - Rule 1: Every single marker line (`<<<<<<<`, `|||||||`, `=======`, `>>>>>>>`) MUST be completely deleted.
+   - Rule 2: Decide whether to keep HEAD, keep Incoming, combine both, or write a brand new logic block.
+   - Rule 3: Test and stage with `git add <file>`.
+   - Rule 4: Run `git commit` to finalize the merge commit.
+
+================================================================================
+CRITICAL WARNING: If you leave `<<<<<<<` or `>>>>>>>` inside a JavaScript or Python file, your compiler/interpreter will crash with syntax errors!
+================================================================================

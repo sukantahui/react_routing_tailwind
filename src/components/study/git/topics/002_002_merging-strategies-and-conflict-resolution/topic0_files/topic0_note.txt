@@ -1,0 +1,46 @@
+================================================================================
+MODULE 002_002: MERGING STRATEGIES & CONFLICT RESOLUTION
+TOPIC 0: THE CONCEPT OF MERGING (INTEGRATING DIVERGENT HISTORIES)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS MERGING IN GIT?
+--------------------------------------------------------------------------------
+- In Git, branching allows developers to fork off and develop features in isolation.
+- Merging is the fundamental operation of joining two or more divergent histories
+  back into a single unified branch (typically integrating a feature into `main`).
+- Syntax:
+    $ git switch main
+    $ git merge <feature-branch-name>
+- CRITICAL RULE: You must always be checked out ON THE TARGET BRANCH that will
+  RECEIVE the merged changes!
+
+2. HOW DOES GIT KNOW WHAT TO MERGE?
+--------------------------------------------------------------------------------
+- Git analyzes three primary points in the commit DAG:
+  1. The common ancestor commit (Merge Base): where the branches diverged.
+  2. The tip of your current active branch (HEAD).
+  3. The tip of the incoming branch being merged.
+- Git computes the diffs from the merge base to both tips and synthesizes them.
+
+3. THE TWO MAJOR CATEGORIES OF MERGES
+--------------------------------------------------------------------------------
+- Category 1: Fast-Forward (FF) Merge
+  * Occurs when the target branch has NOT progressed since the feature branched off.
+  * Git simply advances the target pointer forward without creating a new commit.
+- Category 2: Three-Way (3-Way / True) Merge
+  * Occurs when BOTH branches have diverged with independent commits.
+  * Git creates a new "Merge Commit" with two parent commits.
+
+4. SAFETY & WORKING TREE PRE-REQUISITES
+--------------------------------------------------------------------------------
+- Always run `git status` before merging.
+- Ensure your working directory and staging index are CLEAN before initiating a merge.
+- If you have uncommitted changes, stash or commit them first to avoid aborts.
+
+5. TEACHER NOTE FROM SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+--------------------------------------------------------------------------------
+- "At AccoTax, we explain merging like combining two accountants' tally sheets.
+  If Sachin audited payments and Mahima audited receipts, merging is synthesizing
+  both into the master balance sheet. Git automates 95% of this mathematics!"
+================================================================================

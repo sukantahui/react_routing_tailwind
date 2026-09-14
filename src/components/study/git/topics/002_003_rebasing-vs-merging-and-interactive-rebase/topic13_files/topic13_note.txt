@@ -1,0 +1,53 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 13: HANDS-ON TERMINAL LAB: COMPLETE REBASE & SQUASH WALKTHROUGH
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. LAB OVERVIEW & OBJECTIVES
+--------------------------------------------------------------------------------
+In this hands-on terminal sandbox laboratory, you will build and practice the entire
+end-to-end Git rebase lifecycle from scratch:
+1. Initialize a sandbox repository with automated unit tests.
+2. Author divergent commits on `main` and a feature branch `feature/tax-audit`.
+3. Perform a standard `git rebase main` to linearize the branch.
+4. Execute an interactive rebase (`git rebase -i main`) to:
+   - Squash WIP and typo commits into atomic conventional commits.
+   - Inject automated testing validation using the `exec` directive.
+   - Drop unwanted debug logs.
+5. Fast-forward merge the linear feature branch into `main`.
+6. Inspect the resulting DAG using `git log --graph --oneline --all`.
+
+2. THE 6 TERMINAL DRILLS
+--------------------------------------------------------------------------------
+DRILL 1: Repository Initialization & Base Setup
+    git init && git config user.name "Sukanta Hui"
+
+DRILL 2: Divergent Development Simulation
+    git switch -c feature/tax-audit
+    (Add 4 feature commits)
+    git switch main
+    (Add 2 main commits)
+
+DRILL 3: History Linearization
+    git switch feature/tax-audit
+    git rebase main
+
+DRILL 4: Interactive Restructuring & Testing
+    git rebase -i --exec "./test.sh" main
+
+DRILL 5: Fast-Forward Merge
+    git switch main && git merge feature/tax-audit
+
+DRILL 6: Verification & DAG Forensics
+    git log --graph --oneline --decorate --all
+
+3. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, students Swadeep and Tuhina successfully completed this lab,
+linearizing a 6-commit divergent tax ledger branch, validating automated tests with
+`exec`, and achieving a 100% linear production audit trail for fiscal year 2026-27.
+
+================================================================================
+END OF NOTE - TOPIC 13
+================================================================================

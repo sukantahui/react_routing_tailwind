@@ -1,0 +1,49 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 8
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Using Graphical & Visual Merge Tools: Configuring git mergetool (VS Code 3-Way Editor, Meld, KDiff3)
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS `git mergetool`?
+   - While editing conflict markers manually in CLI is foundational, complex multi-file conflicts involving hundreds of lines can be tedious.
+   - `git mergetool` is Git's built-in command that launches an external graphical 3-way visual merge tool for each conflicted file sequentially.
+
+2. POPULAR VISUAL MERGE TOOLS:
+   a) Visual Studio Code (VS Code 3-Way Merge Editor):
+      - Built-in, zero-install for VS Code users.
+      - 3-pane layout: Incoming (left/theirs) | Current (right/ours) | Result (bottom).
+      - Checkbox toggles to accept specific changes with live result preview.
+   b) Meld:
+      - Clean, open-source multi-pane visual diff & merge GUI.
+   c) KDiff3:
+      - Advanced 3-way merge tool showing Base, Local, and Remote simultaneously with character-level diff highlighting.
+   d) Beyond Compare / P4Merge:
+      - Industry-grade commercial diff/merge engines.
+
+3. CONFIGURING VS CODE AS DEFAULT MERGETOOL:
+   Run in terminal:
+   ```bash
+   git config --global merge.tool vscode
+   git config --global mergetool.vscode.cmd 'code --wait --merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"'
+   git config --global mergetool.prompt false
+   git config --global mergetool.keepBackup false
+   ```
+
+4. THE 4 VARIABLES PASSED TO MERGETOOL:
+   - `$LOCAL`: Temporary file containing YOUR branch changes (Stage 2 / Ours).
+   - `$REMOTE`: Temporary file containing INCOMING branch changes (Stage 3 / Theirs).
+   - `$BASE`: Temporary file containing the COMMON ANCESTOR version (Stage 1 / Merge Base).
+   - `$MERGED`: The actual file in your working tree where the final resolved result is written.
+
+5. THE `git mergetool` WORKFLOW:
+   1. Trigger conflict with `git merge feature`.
+   2. Run `git mergetool`.
+   3. Visual GUI opens automatically. Resolve conflict and click Save.
+   4. Close editor window. Git automatically stages the resolved `$MERGED` file.
+   5. If multiple files exist, Git automatically opens the next conflicted file.
+   6. Once finished, run `git commit` to complete the merge.
+
+================================================================================
+CRITICAL CONFIG NOTE: Set `mergetool.keepBackup false` to prevent Git from generating unwanted `*.orig` backup files across your repository after merging!
+================================================================================

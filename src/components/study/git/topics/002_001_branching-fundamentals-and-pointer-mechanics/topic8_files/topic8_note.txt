@@ -1,0 +1,49 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 8: DELETING BRANCHES (`git branch -d` VS `git branch -D`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT DOES DELETING A BRANCH MEAN IN GIT?
+--------------------------------------------------------------------------------
+- In Git, deleting a branch simply deletes the 41-byte text file in `.git/refs/heads/<name>`.
+- IMPORTANT: Deleting a branch DOES NOT immediately delete the commits or files!
+  The commit objects remain inside `.git/objects/` and can be retrieved via the reflog
+  until Git's garbage collector (`git gc`) purges unreferenced dangling objects (30-90 days).
+
+2. SAFE DELETION: `git branch -d <branch-name>`
+--------------------------------------------------------------------------------
+- The `-d` flag is lowercase (Safe Delete).
+- Git performs a safety check before deletion:
+  * Has this branch been fully merged into your current active branch (or upstream)?
+  * If YES: Git deletes the branch ref smoothly.
+  * If NO (unmerged commits exist): Git REFUSES and throws an error:
+    "error: The branch '<name>' is not fully merged.
+     If you are sure you want to delete it, run 'git branch -D <name>'."
+
+3. FORCE DELETION: `git branch -D <branch-name>`
+--------------------------------------------------------------------------------
+- Uppercase `-D` is a shortcut for `git branch --delete --force`.
+- It overrides Git's merge safety checks and deletes the branch pointer unconditionally.
+- Use cases:
+  * Discarding a failed or abandoned experiment.
+  * Cleaning up branches merged via GitHub Squash & Merge (where merge bases differ).
+
+4. DELETING REMOTE BRANCHES
+--------------------------------------------------------------------------------
+- Deleting a branch on GitHub:
+    $ git push origin --delete <branch-name>
+    (or legacy: `git push origin :<branch-name>`)
+
+5. DELETING THE CURRENT ACTIVE BRANCH?
+--------------------------------------------------------------------------------
+- Git will NEVER allow you to delete the branch you are currently standing on!
+  Attempting `git branch -d main` while on `main` returns:
+  "error: Cannot delete branch 'main' checked out at '/path/to/repo'"
+- You must first switch to another branch before deleting.
+
+6. TEACHING SUMMARY (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Tell students: always try `-d` first. Only use `-D` when you are 100% intentional
+  about discarding unintegrated commits.
+================================================================================

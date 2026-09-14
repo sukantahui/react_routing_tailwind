@@ -1,0 +1,54 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 11: INTERACTIVE CLEANING WITH GIT CLEAN -I
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. WHAT IS GIT CLEAN -I (INTERACTIVE MODE)?
+--------------------------------------------------------------------------------
+- 'git clean -i' (or '--interactive') launches a command-line interactive menu.
+- Instead of guessing or writing complex regex glob flags to clean specific files, interactive mode presents all untracked candidates and lets you decide item-by-item.
+- It is the safest, most deliberate way to prune untracked workspace artifacts.
+
+2. THE INTERACTIVE MENU OPTIONS EXPLAINED
+--------------------------------------------------------------------------------
+When you launch 'git clean -id', Git displays:
+
+*** Commands ***
+  1: clean                - Execute deletion of all currently selected candidates.
+  2: filter by pattern    - Exclude files matching a pattern (e.g., exclude *.env or *.sql).
+  3: select by numbers    - Choose specific files to delete by entering item numbers (e.g., 1-3, 5).
+  4: ask each             - Prompt for individual confirmation (y/n) on every single file.
+  5: quit                 - Abort and exit without deleting anything.
+  6: help                 - Display explanation of each command.
+
+3. STEP-BY-STEP INTERACTIVE WORKFLOW
+--------------------------------------------------------------------------------
+Scenario: You have 10 untracked files, including 2 precious test dumps and 8 junk files.
+
+Step 1: Launch interactive clean with directory recursion:
+  git clean -id
+
+Step 2: Choose Option 3 ('select by numbers'):
+  Select items to delete>> 1, 2, 4-7
+
+Step 3: Press Enter with an empty line to confirm the selection list.
+
+Step 4: Choose Option 1 ('clean') to execute deletion of the chosen items only.
+
+4. COMBINING FLAGS WITH INTERACTIVE MODE
+--------------------------------------------------------------------------------
+- Interactive with directory support:
+  git clean -id
+
+- Interactive including ignored files (.gitignore):
+  git clean -idx
+
+5. SUMMARY CHEATSHEET
+--------------------------------------------------------------------------------
+- Launch interactive clean:
+  git clean -i
+- Interactive with directories:
+  git clean -id
+- Safe exit without changes:
+  Type 5 (quit)

@@ -1,0 +1,56 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 6: LISTING & INSPECTING BRANCHES (`git branch`, `-v`, `-vv`, `-a`, `-r`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. COMMAND FLAVORS FOR BRANCH INSPECTION
+--------------------------------------------------------------------------------
+- Standard local branch listing:
+    $ git branch
+    Shows names of all local branches with * and color on the active HEAD branch.
+
+- Verbose listing with SHA and commit subject (`-v`):
+    $ git branch -v
+    Displays: <branch-name> <short-sha> <commit-subject-message>
+
+- Very verbose listing with Upstream tracking (`-vv`):
+    $ git branch -vv
+    Displays: <branch-name> <short-sha> [origin/<branch>: ahead X, behind Y] <commit-subject>
+
+- Remote branch listing (`-r`):
+    $ git branch -r
+    Lists all remote-tracking branches in .git/refs/remotes/ (e.g. origin/main).
+
+- All branches (Local + Remote combined) (`-a`):
+    $ git branch -a
+
+2. FILTERING BRANCHES BY MERGE STATUS
+--------------------------------------------------------------------------------
+- List branches already merged into current HEAD (safe to delete):
+    $ git branch --merged
+
+- List unmerged branches containing unique unintegrated commits:
+    $ git branch --no-merged
+
+- List branches containing a specific commit SHA:
+    $ git branch --contains 7a8b9c0
+
+3. SORTING AND CUSTOM FORMATTING
+--------------------------------------------------------------------------------
+- Sort branches by most recent commit date:
+    $ git branch --sort=-committerdate
+
+- Custom formatting for scripting:
+    $ git branch --format="%(refname:short) | %(committerdate:relative) | %(authorname)"
+
+4. SCRIPTING QUICK-CHECK:
+--------------------------------------------------------------------------------
+- Get active branch name with zero formatting:
+    $ git branch --show-current
+
+5. CLASSROOM TAKEAWAY (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Before pushing or deleting anything, always run `git branch -vv` to see if your
+  local branch is ahead or behind GitHub!
+================================================================================

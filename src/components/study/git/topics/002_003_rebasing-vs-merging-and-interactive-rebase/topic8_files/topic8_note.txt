@@ -1,0 +1,61 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 8: INTERACTIVE DIRECTIVES: PICK, REWORD, EDIT, SQUASH, FIXUP, DROP & EXEC
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE 7 CORE INTERACTIVE DIRECTIVES EXPLAINED
+--------------------------------------------------------------------------------
+When you open an interactive rebase TODO file, you can prefix any commit line with
+one of the following 7 command keywords (or their single-letter shortcuts):
+
+1. `pick` (or `p`):
+   Use the commit as-is. Do not alter its message or code content.
+
+2. `reword` (or `r`):
+   Use the commit's code changes, but pause execution to open your text editor and
+   edit the commit message. Perfect for fixing typos in Conventional Commit headers.
+
+3. `edit` (or `e`):
+   Use the commit, but pause execution at this commit so you can:
+   - Amend files (`git add <file> && git commit --amend`).
+   - Split the commit into multiple smaller atomic commits (`git reset HEAD~`).
+   - Resume when done with `git rebase --continue`.
+
+4. `squash` (or `s`):
+   Meld (combine) this commit's changes into the PREVIOUS commit in the list.
+   Pauses to open an editor allowing you to concatenate or rewrite both commit messages.
+
+5. `fixup` (or `f`):
+   Meld this commit's changes into the PREVIOUS commit, but DISCARD this commit's
+   message entirely (retains the previous commit's message).
+   Optionally: `fixup -C <commit>` to replace message with this commit's message.
+
+6. `drop` (or `d`):
+   Completely remove (delete) this commit from the branch history.
+   (Alternatively, deleting the line from the TODO file has the exact same effect).
+
+7. `exec` (or `x`):
+   Run an arbitrary shell command (such as `npm test`, `pytest`, `cargo check`)
+   after applying the previous commit. If the command fails (non-zero exit code),
+   Git halts the rebase so you can fix the broken test!
+
+2. EXAMPLE TODO SCRIPT
+--------------------------------------------------------------------------------
+pick 1a2b3c4 feat(auth): add JWT login endpoint
+squash 5d6e7f8 fix(auth): validate token expiration
+reword 9g0h1i2 chore: update npm dependencies
+exec npm test
+drop 3k4l5m6 wip: console log debugging
+fixup 7n8o9p0 fix: typo in readme
+
+3. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Susmita authored 6 commits on `feature/tds-reporting`.
+Sukanta Sir demonstrated using `fixup` to absorb minor typos, `reword` to conform to
+Conventional Commits (`feat: add Section 194C TDS calculation`), and `exec npm test`
+to guarantee every replayed commit passes the company's automated financial test suite.
+
+================================================================================
+END OF NOTE - TOPIC 8
+================================================================================

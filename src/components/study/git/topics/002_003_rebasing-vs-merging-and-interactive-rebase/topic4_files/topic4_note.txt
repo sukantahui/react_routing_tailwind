@@ -1,0 +1,56 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 4: THE GOLDEN RULE OF REBASING: NEVER REBASE SHARED PUBLIC COMMITS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE GOLDEN RULE OF GIT REBASE
+--------------------------------------------------------------------------------
+"NEVER REBASE COMMITS THAT EXIST OUTSIDE YOUR PRIVATE REPOSITORY AND THAT OTHERS
+MAY HAVE BASED WORK ON."
+
+2. THE ANATOMY OF THE DISASTER (WHAT HAPPENS WHEN YOU BREAK THE RULE)
+--------------------------------------------------------------------------------
+Scenario:
+1. Developer A pushes commits C and D on branch `feature-payment` to GitHub.
+2. Developer B pulls `feature-payment` and writes commit E on top of commit D.
+3. Developer A decides to rebase `feature-payment` onto `main`, replacing C & D with C' & D'.
+4. Developer A force-pushes (`git push --force`) to GitHub, wiping out C & D.
+5. Developer B tries to `git pull`:
+   - Developer B's Git sees that remote `feature-payment` has diverged.
+   - When Developer B merges or pulls, Git tries to reconcile C, D, E with C' & D'.
+   - Commits C and D are RE-INTRODUCED into the remote repository alongside C' and D'!
+   - Result: Duplicate commits, duplicated code, conflicting diffs, and developer rage.
+
+3. WHEN IS REBASING SAFE VS DANGEROUS?
+--------------------------------------------------------------------------------
+SAFE TO REBASE (Green Zone):
+- Private feature branches that only YOU work on.
+- Commits that have never been pushed to a remote server.
+- Feature branches where you are the sole contributor and the PR is still a draft.
+
+DANGEROUS / FORBIDDEN TO REBASE (Red Zone):
+- The `main`, `master`, `develop`, or release branches.
+- Shared feature branches worked on by two or more teammates simultaneously.
+- Any commit that has been tagged as a public release.
+
+4. SAFE FORCE PUSHING: `--force-with-lease`
+--------------------------------------------------------------------------------
+If you must force-push a rebased private feature branch to GitHub, NEVER use:
+    git push --force
+Instead, ALWAYS use:
+    git push --force-with-lease
+
+`--force-with-lease` checks if anyone else has updated the remote branch reference
+since your last fetch. If a teammate pushed a commit, Git will refuse to overwrite it!
+
+5. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, junior developer Abhronila rebased the shared `staging` branch
+and force-pushed to origin. Tuhina's automated test suite crashed with 14 duplicate GST
+deduction functions. Sukanta Sir had to step in with `git reflog` and reset the team's
+origin pointer back to the pre-rebased state!
+
+================================================================================
+END OF NOTE - TOPIC 4
+================================================================================

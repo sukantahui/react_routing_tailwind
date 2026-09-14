@@ -1,0 +1,53 @@
+================================================================================
+GIT MASTER CLASSROOM NOTES · MODULE 001_004 · TOPIC 0
+THE DECISION MATRIX FOR UNDOING CHANGES IN GIT
+Educator: Sukanta Hui · Founder, Coder & AccoTax · Barrackpore, WB, India
+================================================================================
+
+1. THE FOUR LOCATIONS OF CODE IN GIT
+--------------------------------------------------------------------------------
+Before typing any undo command, answer: "WHERE IS THE CHANGE LOCATED?"
+
+  [ Level 1: Working Tree (Unstaged) ]
+      |  Files on disk modified, not yet added to index.
+      |  Command: git restore <file>
+      v
+  [ Level 2: Staging Area (Index) ]
+      |  Files added via 'git add', staged for next commit.
+      |  Command: git restore --staged <file>
+      v
+  [ Level 3: Local Commit (Unpushed) ]
+      |  Committed to local DAG, not shared with remote team.
+      |  Command: git commit --amend  OR  git reset [--soft|--mixed|--hard]
+      v
+  [ Level 4: Shared Remote Commit (Pushed) ]
+      |  Pushed to GitHub / GitLab / production main.
+      |  Command: git revert <commit-sha>
+
+2. MASTER DECISION MATRIX SUMMARY
+--------------------------------------------------------------------------------
++-----------------------+--------------------------+---------------------------+
+| Current State         | Desired Outcome          | Recommended Command       |
++-----------------------+--------------------------+---------------------------+
+| Unstaged disk edits   | Discard disk edits       | git restore <file>        |
+| Unstaged disk edits   | Discard ALL edits        | git restore .             |
+| Staged in index       | Unstage, keep disk edits | git restore --staged <f>  |
+| Staged in index       | Discard staged + disk    | git restore -S -W <file>  |
+| Untracked files       | Delete new untracked     | git clean -fd (after -nd) |
+| Latest local commit   | Fix typo / add file      | git commit --amend        |
+| Local commit(s)       | Undo commit, keep staged | git reset --soft HEAD~1   |
+| Local commit(s)       | Undo commit, unstage     | git reset --mixed HEAD~1  |
+| Local commit(s)       | Wipe commit + disk edits | git reset --hard HEAD~1   |
+| Pushed public commit  | Undo safely without pushf| git revert <commit-sha>   |
++-----------------------+--------------------------+---------------------------+
+
+3. CRITICAL DEFENSIVE RULES (SUKANTA SIR'S MENTORSHIP)
+--------------------------------------------------------------------------------
+RULE #1: Never run 'git reset --hard' without checking 'git status' first!
+RULE #2: Uncommitted changes discarded via 'git restore' cannot be recovered.
+RULE #3: Never rewrite public history (no reset -f on shared branches).
+RULE #4: When in doubt, commit or stash your work before experimenting!
+
+================================================================================
+Coder & AccoTax · Barrackpore · https://github.com/codernaccotax
+================================================================================

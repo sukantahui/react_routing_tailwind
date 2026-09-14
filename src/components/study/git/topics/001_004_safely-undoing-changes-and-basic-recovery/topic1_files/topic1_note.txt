@@ -1,0 +1,51 @@
+================================================================================
+GIT MASTER CLASSROOM NOTES · MODULE 001_004 · TOPIC 1
+DISCARDING UNSTAGED CHANGES (git restore vs legacy git checkout)
+Educator: Sukanta Hui · Founder, Coder & AccoTax · Barrackpore, WB, India
+================================================================================
+
+1. WHAT IS git restore?
+--------------------------------------------------------------------------------
+Introduced in Git 2.23, 'git restore' is the modern, dedicated command for
+restoring Working Tree and Index files. It replaces the confusing dual role
+previously held by 'git checkout'.
+
+2. KEY COMMAND SYNTAX & USE CASES
+--------------------------------------------------------------------------------
+1. Discard unstaged changes in a specific file:
+   $ git restore src/App.jsx
+
+2. Discard all unstaged changes in current directory & subfolders:
+   $ git restore .
+
+3. Restore a single file from a specific commit snapshot (without moving HEAD):
+   $ git restore --source=HEAD~2 src/config/database.js
+
+4. Discard unstaged changes interactively (hunk by hunk):
+   $ git restore -p src/components/Cart.jsx
+
+5. Recreate a tracked file that was deleted on disk:
+   $ rm index.html
+   $ git restore index.html
+
+3. MODERN VS LEGACY SYNTAX COMPARISON
+--------------------------------------------------------------------------------
++-------------------------------+--------------------------+-----------------------+
+| Task                          | Modern Git (2.23+)       | Legacy Git (pre-2.23) |
++-------------------------------+--------------------------+-----------------------+
+| Discard file edits            | git restore <file>       | git checkout -- <file>|
+| Discard all edits             | git restore .            | git checkout -- .     |
+| Restore from commit           | git restore --source=<c> | git checkout <c> -- <f|
+| Switch branches               | git switch <branch>      | git checkout <branch> |
++-------------------------------+--------------------------+-----------------------+
+
+4. SAFETY WARNING (SUKANTA SIR'S MENTORSHIP)
+--------------------------------------------------------------------------------
+⚠️ PERMANENT DATA LOSS RISK:
+Unstaged modifications in the Working Tree have NEVER been recorded into Git's
+object database. Once you run 'git restore <file>', those edits are GONE FOREVER.
+Always run 'git diff' to review your code before typing 'git restore'.
+
+================================================================================
+Coder & AccoTax · Barrackpore · https://github.com/codernaccotax
+================================================================================

@@ -1,0 +1,55 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 11: AUTOMATING FIXUPS WITH AUTOSQUASH: GIT COMMIT --FIXUP & AUTOSQUASH
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS AUTOSQUASH?
+--------------------------------------------------------------------------------
+Manually opening `git rebase -i`, hunting down commit hashes, reordering lines, and
+typing `fixup` by hand is tedious.
+Git provides a powerful feature called **Autosquash** that completely automates
+this workflow!
+
+2. THE 2-STEP AUTOSQUASH WORKFLOW
+--------------------------------------------------------------------------------
+STEP 1: Create a targeted fixup commit
+When you fix a bug or typo related to an earlier commit (`3a1f94d`), stage your changes and run:
+    git commit --fixup 3a1f94d
+
+Git automatically creates a commit with the special header:
+    fixup! <original commit subject>
+
+STEP 2: Run interactive rebase with --autosquash
+When ready to clean up, run:
+    git rebase -i --autosquash main
+
+MAGIC RESULT:
+Git automatically reorders the TODO script, placing every `fixup!` commit directly
+below its target commit with the `fixup` directive already applied!
+All you do is inspect and save!
+
+3. ENABLING AUTOSQUASH GLOBALLY (RECOMMENDED)
+--------------------------------------------------------------------------------
+Run:
+    git config --global rebase.autoSquash true
+
+Once enabled, every interactive rebase automatically performs autosquashing without
+needing the `--autosquash` flag!
+
+4. SQUASH VS FIXUP VARIANTS
+--------------------------------------------------------------------------------
+- `git commit --fixup <commit>`: Melds and discards message.
+- `git commit --squash <commit>`: Melds and prompts to edit both messages.
+- `git commit --fixup=reword:<commit>`: Updates the target commit's message directly.
+
+5. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Sachin implements ₹50,000 threshold validation in commit `c1`.
+Two hours later, he spots a small calculation bug. Instead of committing "fix bug",
+he runs `git commit --fixup HEAD~3`. During the evening cleanup, `git rebase -i --autosquash main`
+folds the fix into `c1` in 2 seconds!
+
+================================================================================
+END OF NOTE - TOPIC 11
+================================================================================

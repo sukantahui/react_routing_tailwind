@@ -1,0 +1,50 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 6: THE THREE MODES OF GIT RESET (--SOFT, --MIXED, --HARD)
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. COMPREHENSIVE RESET COMPARISON TABLE
+--------------------------------------------------------------------------------
+| Reset Mode | Moves HEAD? | Updates Index (Staging)? | Modifies Working Tree? | Safety Level |
+|------------|-------------|--------------------------|------------------------|--------------|
+| --soft     | YES         | NO (Staged in green)     | NO (Files safe)        | Very Safe    |
+| --mixed    | YES         | YES (Unstaged in red)    | NO (Files safe)        | Safe (Def)   |
+| --hard     | YES         | YES                      | YES (Wiped to commit)  | DANGEROUS    |
+
+2. DETAILED BREAKDOWN OF EACH MODE
+--------------------------------------------------------------------------------
+
+A. 'git reset --soft <target>'
+- Scope: Moves HEAD to <target>.
+- What happens to code: Everything between target and original HEAD is preserved in the STAGING INDEX.
+- Best for: Squashing recent experimental commits into one cohesive commit, or re-committing with a new author/date.
+- Terminal Status: 'git status' shows changes staged in GREEN.
+
+B. 'git reset --mixed <target>' (Default when no flag is specified)
+- Scope: Moves HEAD to <target> AND syncs the Staging Index to match <target>.
+- What happens to code: Changes between target and original HEAD remain in your WORKING DIRECTORY, but are NOT staged.
+- Best for: Re-organizing file groups, splitting one monolithic commit into multiple small atomic commits.
+- Terminal Status: 'git status' shows changes unstaged in RED.
+
+C. 'git reset --hard <target>'
+- Scope: Moves HEAD, updates Index, AND forcibly updates the Working Tree to match <target>.
+- What happens to code: All changes made since <target> in both Index and Working Directory are completely removed from active files.
+- Best for: Truly discarding experimental work that has failed and starting fresh from an earlier commit.
+- Risk: Any UNCOMMITTED changes on disk before running --hard are PERMANENTLY LOST (cannot be recovered via reflog).
+
+3. STEP-BY-STEP WORKFLOW EXAMPLES
+--------------------------------------------------------------------------------
+Example 1: Squashing 3 commits with --soft
+  git reset --soft HEAD~3
+  git commit -m "feat(billing): implement invoice generator with full test coverage"
+
+Example 2: Splitting a commit into 2 atomic commits with --mixed
+  git reset HEAD~1
+  git add src/auth.js
+  git commit -m "feat(auth): add login handler"
+  git add src/db.js
+  git commit -m "feat(db): add user model migration"
+
+Example 3: Discarding broken work with --hard
+  git reset --hard HEAD~1

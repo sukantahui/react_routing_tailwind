@@ -1,0 +1,40 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 11
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Merge Strategies & Algorithms: Recursive Strategy vs Modern ORT (Ostensibly Recursive's Twin)
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS A GIT MERGE STRATEGY?
+   - When merging branches, Git uses specific algorithmic strategies to analyze commit trees and reconcile differences.
+   - You can pass strategies via `-s <strategy>` and strategy options via `-X <option>`.
+
+2. THE EVOLUTION: RECURSIVE STRATEGY VS ORT STRATEGY:
+   a) Legacy `recursive` Strategy (Default from Git ~0.99 to Git 2.32):
+      - Handles 3-way merges with multiple common ancestors by recursively constructing a virtual merge base.
+      - Limitations: Slow rename detection, high memory footprint on large monorepos, and complex edge cases with directory renames.
+   b) Modern `ort` Strategy ("Ostensibly Recursive's Twin" - Default since Git 2.33+ in 2021):
+      - Complete architectural rewrite by Elijah Newren.
+      - Over 500x faster in large rebase/merge scenarios.
+      - Detects file renames and directory renames with unprecedented precision.
+      - Conflict resolution state caching and memoization.
+      - Clean error handling with robust rollback.
+
+3. OTHER SPECIALIZED GIT MERGE STRATEGIES:
+   - `resolve`: Classic 3-way merge algorithm with a single merge base (fast, but fails on criss-cross merges).
+   - `octopus`: Merges MORE THAN TWO branches simultaneously in a single merge commit (cannot resolve conflicts; all must merge cleanly).
+   - `ours`: Merges any number of branches, but silently DISCARDS all incoming changes and retains HEAD's exact tree (useful for declaring a branch obsolete).
+   - `subtree`: Modified recursive strategy that adjusts directory tree paths when embedding one repo inside a subfolder of another.
+
+4. STRATEGY OPTIONS (-X / --strategy-option):
+   Passed to `ort` or `recursive` to guide conflict decisions:
+   - `-X ours`: In conflicting line collisions, automatically pick local HEAD changes while still cleanly integrating non-conflicting incoming lines!
+   - `-X theirs`: In conflicting line collisions, automatically pick incoming branch changes while cleanly integrating non-conflicting local lines!
+   - `-X ignore-space-change` / `-X ignore-all-space`: Ignores whitespace/tab formatting changes during 3-way merge.
+   - `-X diff-algorithm=histogram`: Uses advanced histogram diff algorithm for better code alignment.
+
+================================================================================
+DIFFERENCE BETWEEN -s ours AND -X ours:
+- `-s ours`: Strategy that throws away ALL code from the incoming branch (even non-conflicting files).
+- `-X ours`: Strategy Option for ORT that automatically favors our version ONLY on conflicting lines, while properly merging all non-conflicting files!
+================================================================================

@@ -1,0 +1,49 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 9: REORDERING COMMITS & SPLITTING COMMITS DURING INTERACTIVE REBASE
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. REORDERING COMMITS
+--------------------------------------------------------------------------------
+In an interactive rebase TODO file, commits are replayed top-to-bottom.
+To reorder commits:
+1. Simply cut and paste lines into your desired logical sequence.
+2. Save and quit the editor.
+3. Git replays them in the new order.
+* Tip: Ensure that moving a commit does not break a file dependency required by
+  an earlier commit, otherwise a conflict will occur.
+
+2. SPLITTING A LARGE COMMIT INTO ATOMIC COMMITS
+--------------------------------------------------------------------------------
+If you accidentally bundled multiple unrelated features or bug fixes into one
+massive "megacommit", you can split it into pristine atomic commits using `edit`:
+
+STEP-BY-STEP SPLIT WORKFLOW:
+1. Start interactive rebase:
+    git rebase -i HEAD~N
+2. Change the directive for the target commit from `pick` to `edit` (or `e`).
+3. Save and exit the editor. Git pauses execution at that commit.
+4. Uncommit the changes while keeping all modified files in the working tree:
+    git reset HEAD~
+5. Stage the first logical group of changes and commit:
+    git add file1.js
+    git commit -m "feat: implement first atomic feature"
+6. Stage the second logical group of changes and commit:
+    git add file2.js
+    git commit -m "fix: resolve unrelated bug"
+7. Continue the rebase:
+    git rebase --continue
+
+Result: The 1 monolithic commit is cleanly split into 2 or more standalone atomic commits!
+
+3. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, developer Swadeep committed both the ₹5 Lakh GST penalty
+calculator and an unrelated database connection fix in one massive commit.
+Sukanta Sir showed Swadeep how to mark the commit with `edit`, run `git reset HEAD~`,
+and craft two atomic Conventional Commits for code review.
+
+================================================================================
+END OF NOTE - TOPIC 9
+================================================================================

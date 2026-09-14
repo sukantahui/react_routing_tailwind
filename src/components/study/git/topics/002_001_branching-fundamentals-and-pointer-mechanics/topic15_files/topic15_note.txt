@@ -1,0 +1,26 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 15: COMPREHENSIVE MODULE SELF-ASSESSMENT & MASTERY SUMMARY
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. MODULE 002_001 CORE CONCEPTS REVIEW
+--------------------------------------------------------------------------------
+- Branch Definition: A movable 41-byte text pointer in `.git/refs/heads/` storing a SHA-1 hash.
+- Zero-Cost Architecture: Git creates branches in O(1) constant time (~2ms), consuming 41 bytes.
+- The Role of HEAD: A symbolic reference (`.git/HEAD`) pointing to the active branch ref file.
+- Creating Branches: `git branch <name>` creates the ref; does not switch HEAD.
+- Modern Switching: `git switch <branch>` (clean & dedicated) vs `git restore` (file unstage/discard).
+- Atomic Workhorse: `git switch -c <name>` creates and switches in one step.
+- Inspection Power: `git branch -vv` shows upstream tracking and ahead/behind commit deltas.
+- Safe Renaming: `git branch -m <old> <new>` simply renames the pointer and reflog files.
+- Defensive Deletion: `git branch -d` enforces merge checks; `git branch -D` overrides for experiments.
+- Detached HEAD State: HEAD points directly to a commit SHA; ideal for read-only time travel & prototyping.
+- Rescue Mechanism: Dangling commits in detached HEAD are recovered with `git switch -c rescue <sha>` via reflog.
+- Comparison Syntax: `git diff main...feature` (3-dot) shows pure PR deltas from the common merge base.
+
+2. TRANSITION TO NEXT MODULE
+--------------------------------------------------------------------------------
+Next Module: 002_002_merging-strategies-and-conflict-resolution
+Topics: Fast-Forward merges, 3-Way Recursive/ORT merges, Merge Base calculation, and resolving manual merge conflicts.
+================================================================================

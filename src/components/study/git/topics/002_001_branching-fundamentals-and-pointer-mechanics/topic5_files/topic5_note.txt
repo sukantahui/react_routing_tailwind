@@ -1,0 +1,46 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 5: CREATING & SWITCHING IN ONE STEP (`git switch -c` / `git checkout -b`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE ATOMIC SHORTCUT COMMAND
+--------------------------------------------------------------------------------
+- In real-world software engineering, developers rarely run `git branch new-feat`
+  and `git switch new-feat` as two separate commands.
+- Instead, Git provides atomic one-step creation and checkout shortcuts:
+  * Modern standard (Git 2.23+): `git switch -c <branch-name>`
+  * Legacy alternative:         `git checkout -b <branch-name>`
+
+2. WHAT HAPPENS UNDER THE HOOD?
+--------------------------------------------------------------------------------
+When you execute `git switch -c feature-invoice-pdf`:
+1. Git validates that the branch name `feature-invoice-pdf` does not already exist.
+2. Git writes a new 41-byte ref file: `.git/refs/heads/feature-invoice-pdf` pointing
+   to the current commit SHA.
+3. Git updates `.git/HEAD` to point symbolically to `ref: refs/heads/feature-invoice-pdf`.
+4. Your working tree and staging index remain seamlessly aligned with the commit.
+
+3. ADVANCED CREATION FLAGS WITH `git switch`
+--------------------------------------------------------------------------------
+- Create and switch from a specific starting commit:
+    $ git switch -c hotfix-v1.2 7a8b9c0
+
+- Force-create/reset an existing branch and switch to it:
+    $ git switch -C existing-branch   (Uppercase -C resets if it exists)
+    (Equivalent legacy: `git checkout -B existing-branch`)
+
+- Create an orphaned branch (clean slate with no history/commits):
+    $ git switch --orphan gh-pages
+
+4. COMPARISON: `-c` VS `-C` VS `--orphan`
+--------------------------------------------------------------------------------
+- `-c <name>`: Fails safely if `<name>` already exists.
+- `-C <name>`: Overwrites and resets `<name>` pointer if it exists.
+- `--orphan <name>`: Creates a new branch with zero commits and an empty parent pointer.
+
+5. TEACHING SUMMARY (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Encourage students (Debangshu, Swadeep, Sachin) to make `git switch -c <name>`
+  their automatic daily muscle memory for any new feature or bugfix.
+================================================================================

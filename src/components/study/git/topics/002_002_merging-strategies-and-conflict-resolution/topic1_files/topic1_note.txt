@@ -1,0 +1,52 @@
+================================================================================
+MODULE 002_002: MERGING STRATEGIES & CONFLICT RESOLUTION
+TOPIC 1: FAST-FORWARD (FF) MERGES
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A FAST-FORWARD MERGE?
+--------------------------------------------------------------------------------
+- A Fast-Forward (FF) merge is the simplest, cleanest, and fastest merge in Git.
+- Condition for Fast-Forward:
+  * The target branch (`main`) has NOT added any new commits since the feature branch diverged.
+  * In graph terms: the tip of `main` is a DIRECT ANCESTOR of the `feature` branch tip.
+- What happens internally?
+  * Git does NOT create a new merge commit.
+  * Git does NOT run a 3-way merge algorithm.
+  * Git simply advances the 41-byte pointer `.git/refs/heads/main` forward to match
+    the SHA-1 commit hash of the `feature` branch tip!
+
+2. TERMINAL OUTPUT OF A FAST-FORWARD MERGE
+--------------------------------------------------------------------------------
+$ git switch main
+$ git merge feature-gst
+Updating 7a8b9c0..3f4a5b6
+Fast-forward
+ gst_calc.js | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+3. ADVANTAGES & DISADVANTAGES OF FAST-FORWARD MERGES
+--------------------------------------------------------------------------------
+- ADVANTAGES:
+  * Creates a perfectly straight, clean, and linear commit history.
+  * Eliminates clutter of redundant "Merge branch..." commits for small fixes.
+  * Blame and bisect operations are straightforward.
+- DISADVANTAGES:
+  * Loses the historical boundary / context of the feature branch.
+  * Deleting the feature branch erases the record that these commits were developed
+    as part of a distinct feature sprint.
+
+4. ENFORCING OR DISABLING FAST-FORWARD MERGES
+--------------------------------------------------------------------------------
+- Force Fast-Forward Only (Aborts if a 3-way merge commit would be required):
+    $ git merge --ff-only feature-gst
+
+- Disable Fast-Forward (Forces an explicit merge commit to preserve branch shape):
+    $ git merge --no-ff feature-gst
+
+5. TEACHER NOTE FROM SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+--------------------------------------------------------------------------------
+- "At AccoTax, Sachin thought fast-forward merge took 10 minutes to rewrite history.
+  I showed him `.git/refs/heads/main`: Git simply took the 40 characters from Mahima's
+  branch file and pasted it into Sachin's branch file in 1 millisecond!"
+================================================================================

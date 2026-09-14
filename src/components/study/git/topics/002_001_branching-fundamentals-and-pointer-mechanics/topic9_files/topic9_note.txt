@@ -1,0 +1,53 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 9: THE DETACHED HEAD STATE (CAUSES & DIRECT COMMIT CHECKOUT)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS THE DETACHED HEAD STATE?
+--------------------------------------------------------------------------------
+- Normally (Attached HEAD):
+  .git/HEAD points symbolically to a branch ref:
+  `ref: refs/heads/main`
+  When you commit, the branch pointer moves forward automatically.
+
+- Detached HEAD:
+  HEAD points DIRECTLY to a commit SHA-1 hash:
+  `7a8b9c0d1e2f3456789abcdef0123456789abcde`
+  No branch reference stands between HEAD and the commit object.
+
+2. WHAT CAUSES A DETACHED HEAD STATE?
+--------------------------------------------------------------------------------
+1. Checking out a commit SHA directly:
+    $ git checkout 7a8b9c0
+    (or modern: `git switch --detach 7a8b9c0`)
+
+2. Checking out a release Tag:
+    $ git checkout v1.0.0
+    (Tags are fixed bookmarks, not movable branch pointers)
+
+3. Checking out a remote-tracking branch without local branch creation:
+    $ git checkout origin/main
+
+4. Checking out a relative parent:
+    $ git checkout HEAD~2
+
+5. During an interactive rebase (`git rebase -i`) or git bisect session.
+
+3. GIT'S FAMOUS DETACHED HEAD WARNING
+--------------------------------------------------------------------------------
+"You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch."
+
+4. WHY IS DETACHED HEAD USEFUL?
+--------------------------------------------------------------------------------
+- Time Travel & Inspection: Test historical releases or reproduce old bugs.
+- Bisecting: `git bisect` uses detached HEAD to binary-search regressions.
+- Disposable Experiments: Try an idea; if it fails, simply switch back to main.
+
+5. TEACHER NOTE (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Tell students: detached HEAD is NOT an error or repository crash! It is a
+  powerful read-only and sandbox testing mode.
+================================================================================

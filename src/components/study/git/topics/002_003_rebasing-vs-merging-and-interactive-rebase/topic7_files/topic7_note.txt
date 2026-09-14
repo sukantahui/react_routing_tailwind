@@ -1,0 +1,57 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 7: INTERACTIVE REBASE MASTERY: GIT REBASE -I HEAD~N & BASE COMMITS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS INTERACTIVE REBASING?
+--------------------------------------------------------------------------------
+Interactive rebasing (`git rebase -i` or `git rebase --interactive`) gives you complete,
+granular surgical control over your commit history. Instead of automatically replaying
+commits, Git opens a script (a TODO file) in your configured text editor containing
+every commit in the selected range, allowing you to modify the sequence, squash commits,
+edit messages, remove commits, or inject automated shell commands before finalizing.
+
+2. TARGETING COMMIT RANGES
+--------------------------------------------------------------------------------
+Syntax 1: Rebase the last N commits
+    git rebase -i HEAD~4
+
+Syntax 2: Rebase everything since branching from main
+    git rebase -i main
+
+Syntax 3: Rebase starting after a specific commit hash
+    git rebase -i <commit_sha>^
+
+* CRITICAL RULE OF INTERACTIVE REBASE ORDERING:
+In `git log`, commits are listed with the newest commit at the TOP.
+In the interactive rebase TODO file, commits are listed in CHRONOLOGICAL ORDER:
+The OLDEST commit is at the TOP, and the NEWEST commit is at the BOTTOM.
+(Git plays the file from top to bottom).
+
+3. THE TODO FILE STRUCTURE
+--------------------------------------------------------------------------------
+Example TODO file:
+    pick 3a1f94d feat: add GSTIN validation
+    pick 8d2c01a fix: typo in error message
+    pick 7f4b82e feat: add e-way bill export
+    pick 9c0e21a wip: debugging payment gateway
+
+4. SAFETY BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Create a backup bookmark before starting:
+    git branch backup-pr-clean
+2. If you make a mistake in the editor and want to cancel before saving:
+    Delete all lines in the editor or run `git rebase --abort`.
+3. Never rebase shared/public commits (The Golden Rule).
+
+5. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Sachin had 4 disorganized commits: "feat: initial GST",
+"fixed typo", "wip", and "feat: final GST logic".
+Using `git rebase -i HEAD~4`, Sachin reordered and squashed them into 1 clean,
+pristine Conventional Commit: "feat(gst): implement automated 18% calculation with validation".
+
+================================================================================
+END OF NOTE - TOPIC 7
+================================================================================

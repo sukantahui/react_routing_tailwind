@@ -1,0 +1,40 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 9
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Aborting a Merge Safely: Canceling an In-Progress Merge with git merge --abort
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS `git merge --abort`?
+   - When Git encounters conflicts during a 3-way merge, the repository enters an unmerged transitional state.
+   - If the developer realizes that they merged the wrong branch, need further clarification, or want to start fresh, `git merge --abort` safely cancels the merge operation.
+
+2. WHAT DOES `git merge --abort` DO INTERNALLY?
+   a) Restores Working Tree:
+      - Discards all conflict markers and unmerged file changes.
+      - Reconstructs working tree files to their exact pre-merge state.
+   b) Cleans Index Stages:
+      - Clears Stage 1 (Base), Stage 2 (Ours), and Stage 3 (Theirs) entries.
+      - Reverts index to Stage 0 corresponding to the HEAD commit.
+   c) Deletes Temporary Merge Metadata:
+      - Removes `.git/MERGE_HEAD` (the SHA of the incoming branch).
+      - Removes `.git/MERGE_MSG` (the draft commit message).
+      - Removes `.git/MERGE_MODE`.
+   d) Restores Pre-Merge Uncommitted Changes:
+      - If you had uncommitted changes before initiating the merge that did not conflict with the merge, `git merge --abort` attempts to preserve them!
+
+3. WHAT `git merge --abort` CANNOT DO:
+   - It cannot be run AFTER a merge commit has already been completed with `git commit` (in that case, use `git reset --hard HEAD~1` or `git revert -m 1 <commit_sha>`).
+   - If you made manual uncommitted edits before merging and those files were overwritten, recovery might require reflog or stashes. Always stash before merging!
+
+4. ALTERNATIVE RECOVERY TECHNIQUES:
+   - `git merge --quit`: Cleans up `.git/MERGE_HEAD` and merge state, but LEAVES your working tree files intact with their current edits.
+   - `git reset --merge`: Older equivalent of `git merge --abort`.
+
+5. SAFETY BEST PRACTICE AT CODER & ACCOTAX:
+   - When in doubt, abort!
+   - Run `git merge --abort`, switch to your branch, pull latest upstream updates, and re-attempt the integration with full team alignment.
+
+================================================================================
+CRITICAL TAKEAWAY: Never manually delete conflicted files with rm! Use `git merge --abort` to let Git handle complete atomic rollback cleanly.
+================================================================================

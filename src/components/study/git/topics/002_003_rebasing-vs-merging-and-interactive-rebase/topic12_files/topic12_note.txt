@@ -1,0 +1,64 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 12: CLASSROOM DEEP-DIVE: TRANSFORMING 12 MESSY COMMITS INTO 2 PRISTINE COMMITS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE CLASSROOM CHALLENGE AT BARRACKPORE
+--------------------------------------------------------------------------------
+During an advanced workshop at Coder & AccoTax Barrackpore, student Debangshu built
+an end-to-end ₹ GST Invoicing & PDF generation feature over 4 days.
+His branch `feature/invoice-pdf` contained 12 chaotic commits:
+1. `pick a1b2c3d start invoice form`
+2. `pick e4f5g6h fixed typo in state`
+3. `pick i7j8k9l added gst calculation`
+4. `pick m0n1o2p fixed gst rounding bug`
+5. `pick q3r4s5t added pdf export library`
+6. `pick u6v7w8x pdf layout looks ugly`
+7. `pick y9z0a1b fixed pdf margins`
+8. `pick c2d3e4f console.log debug statements`
+9. `pick g5h6i7j added company logo`
+10. `pick k8l9m0n fixed broken unit test`
+11. `pick o1p2q3r clean up code`
+12. `pick s4t5u6v final touches`
+
+2. SUKANTA SIR'S SURGICAL RESTRUCTURING STRATEGY
+--------------------------------------------------------------------------------
+Sukanta Sir showed the entire class how to group these 12 commits into exactly TWO
+atomic, pristine Conventional Commits:
+
+TARGET COMMIT 1: CORE INVOICE & GST ENGINE
+`feat(invoice): implement invoice generation and ₹ GST calculation engine`
+(Absorbs commits 1, 2, 3, 4, 10, 11)
+
+TARGET COMMIT 2: PDF EXPORT & TEMPLATE RENDERING
+`feat(pdf): add PDF export generator with Barrackpore regional header`
+(Absorbs commits 5, 6, 7, 9; drops commit 8; absorbs commit 12)
+
+3. THE TRANSFORMED REBASE TODO SCRIPT
+--------------------------------------------------------------------------------
+# Group 1: Invoice Core
+pick a1b2c3d feat(invoice): implement invoice generation and GST calculation engine
+fixup e4f5g6h fixed typo in state
+fixup i7j8k9l added gst calculation
+fixup m0n1o2p fixed gst rounding bug
+fixup k8l9m0n fixed broken unit test
+fixup o1p2q3r clean up code
+
+# Group 2: PDF Export
+pick q3r4s5t feat(pdf): add PDF export generator with Barrackpore regional header
+fixup u6v7w8x pdf layout looks ugly
+fixup y9z0a1b fixed pdf margins
+drop c2d3e4f console.log debug statements
+fixup g5h6i7j added company logo
+fixup s4t5u6v final touches
+
+4. OUTCOME & VERIFICATION
+--------------------------------------------------------------------------------
+- Test Suite: 100% PASS on both commits.
+- Git Diff: Exactly identical to the original branch (`git diff backup...HEAD` is empty).
+- Pull Request Approval: Approved in under 5 minutes by the enterprise client!
+
+================================================================================
+END OF NOTE - TOPIC 12
+================================================================================

@@ -1,0 +1,49 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 10
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Squash Merging: Consolidating an Entire Feature Branch into a Single Commit via git merge --squash
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS SQUASH MERGING?
+   - During feature development, a developer might generate 15 micro-commits:
+     ("WIP: add button", "fix typo", "oops fixed syntax error", "testing again", "almost done", "final fix").
+   - While valuable during private local prototyping, merging 15 messy micro-commits into production `main` pollutes the shared log.
+   - `git merge --squash <feature-branch>` compresses all changes from the feature branch into a SINGLE staged change on the target branch.
+
+2. HOW SQUASH MERGE WORKS UNDER THE HOOD:
+   a) Calculates 3-way reconciliation between Merge Base, HEAD, and Feature tip.
+   b) Applies the cumulative diff to the working directory and stages all modified/added files.
+   c) DOES NOT automatically create a commit!
+   d) DOES NOT record the feature branch as a parent commit in DAG history!
+      (The resulting commit will have only ONE parent: the pre-squash HEAD).
+   e) Populates `.git/SQUASH_MSG` containing a collated list of all original commit messages.
+   f) Requires you to run `git commit` to finalize the unified commit with a clean descriptive message.
+
+3. SQUASH MERGE VS STANDARD MERGE VS REBASE:
+   +-------------------+-------------------+-------------------+-------------------+
+   | Feature           | Standard Merge    | Merge --no-ff     | Squash Merge      |
+   +-------------------+-------------------+-------------------+-------------------+
+   | Parents Count     | 2 (or 1 if FF)    | 2                 | 1 (Single parent) |
+   | Preserves Commits | Yes               | Yes               | No (Compressed)   |
+   | Log Cleanliness   | Moderate / Knots  | Explicit Knots    | 100% Linear       |
+   | Future Re-merging | Smooth (base moves| Smooth            | Complex (no parent|
+   |                   | forward)          |                   | link recorded)    |
+   +-------------------+-------------------+-------------------+-------------------+
+
+4. THE GOLDEN RULE OF SQUASH MERGES:
+   - After squash-merging a feature branch into `main` and committing, DELETE the feature branch!
+   - Because Git did not record a merge parent relationship, attempting to continue developing on that same feature branch and re-merging later will cause false duplicate conflicts.
+
+5. CLI EXECUTION WORKFLOW:
+   ```bash
+   git switch main
+   git merge --squash feature/invoice-engine
+   git status
+   git commit -m "feat(invoice): implement complete Indian GST multi-tier invoice engine (₹ slabs)"
+   git branch -D feature/invoice-engine
+   ```
+
+================================================================================
+CLASSROOM SUMMARY: Squash merging delivers the cleanest production history for pull requests while allowing complete freedom for messy local experimentation!
+================================================================================

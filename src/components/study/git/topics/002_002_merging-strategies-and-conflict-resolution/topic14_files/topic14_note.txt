@@ -1,0 +1,50 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 14
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Self-Assessment Quiz & Comprehensive Exam Review for Module 002_002
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. MODULE 002_002 SUMMARY & KEY CONCEPTS:
+   a) Fast-Forward (FF) Merges:
+      - Occurs when target branch pointer is an ancestor of the incoming branch.
+      - Simply advances pointer forward; creates 0 merge commits.
+   b) Three-Way (3-Way) Merges:
+      - Requires 3 commit snapshots: Common Ancestor (Merge Base), HEAD, and Incoming tip.
+      - Calculated via `git merge-base branchA branchB`.
+   c) Merge Commits:
+      - Has 2 (or more) parent commit hashes recorded in its DAG header.
+   d) Preserving Topologies (--no-ff):
+      - Enforces creation of explicit merge commits to maintain feature boundaries in history.
+   e) Merge Conflict Mechanics:
+      - Triggered by concurrent changes to the same lines or modify/delete collisions.
+      - Expressed via conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>>`).
+      - Enhanced via `merge.conflictStyle = zdiff3` to show ancestor base.
+   f) The 5-Step Resolution Protocol:
+      - Status -> Diff -> Edit & Test -> Stage (`git add`) -> Commit.
+   g) Tooling & Rollback:
+      - `git mergetool` for 3-way visual editing (VS Code, Meld, KDiff3).
+      - `git merge --abort` for atomic zero-loss cancellation.
+   h) Squash Merging:
+      - `git merge --squash`: consolidates feature commits into 1 single-parent commit on target.
+      - Feature branch must be deleted immediately after squash.
+   i) Merge Engines:
+      - Modern `ort` engine (Git 2.33+) vs legacy `recursive`.
+      - Strategy options: `-X ours`, `-X theirs`, `-X ignore-all-space`.
+
+2. MODULE 002_002 SELF-ASSESSMENT CHECKLIST:
+   [ ] Can you explain why a fast-forward merge cannot create a merge commit?
+   [ ] Can you calculate the merge base between two branches using `git merge-base`?
+   [ ] Can you decode raw conflict markers and explain the difference between standard and `zdiff3` styles?
+   [ ] Can you resolve a multi-file merge conflict and verify zero marker errors with `git diff --check`?
+   [ ] Can you safely abort a broken merge with `git merge --abort`?
+   [ ] Can you distinguish between `-s ours` and `-X ours`?
+   [ ] Can you execute a squash merge with `git merge --squash` and explain why it has only 1 parent?
+
+3. NEXT MODULE PREVIEW:
+   - Module 002_003: "Git Rebase, History Linearization & Interactive Rebase"
+   - Master rewinding commits, the Golden Rule of Rebasing, and interactive rebase directives (`pick`, `reword`, `edit`, `squash`, `fixup`, `drop`, `exec`).
+
+================================================================================
+CONGRATULATIONS ON MASTERING MODULE 002_002: MERGING STRATEGIES & CONFLICT RESOLUTION!
+================================================================================

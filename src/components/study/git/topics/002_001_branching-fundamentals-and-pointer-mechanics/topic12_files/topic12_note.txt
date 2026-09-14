@@ -1,0 +1,50 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 12: COMPARING BRANCHES (TWO-DOT `..` VS THREE-DOT `...` NOTATION)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE CRUCIAL DIFFERENCE BETWEEN TWO-DOT AND THREE-DOT IN `git diff`
+--------------------------------------------------------------------------------
+- TWO-DOT DIFF (`git diff branchA..branchB` or `git diff branchA branchB`):
+  * Direct endpoint-to-endpoint comparison.
+  * Compares the tip snapshot of branchA directly against the tip snapshot of branchB.
+  * Shows ALL differences, including commits added to branchA since they diverged.
+
+- THREE-DOT DIFF (`git diff branchA...branchB`):
+  * Merge-base to endpoint comparison!
+  * First finds the COMMON ANCESTOR (merge-base) of branchA and branchB.
+  * Compares that common ancestor snapshot against the tip of branchB.
+  * Shows ONLY the changes introduced on branchB since it branched off branchA!
+  * THIS IS EXACTLY WHAT GITHUB PULL REQUESTS DISPLAY!
+
+2. CONTRAST WITH `git log` (OPPOSITE BEHAVIOR!)
+--------------------------------------------------------------------------------
+CAUTION: Two-dot and Three-dot have DIFFERENT meanings in `git log` vs `git diff`:
+
+| Command        | Meaning in `git diff`                     | Meaning in `git log`                         |
+|----------------|-------------------------------------------|----------------------------------------------|
+| branchA..branchB | Direct difference between tip snapshots   | Commits reachable from B but NOT from A     |
+| branchA...branchB| Difference between merge-base & B tip (PR)| Symmetric difference (Commits on A OR B only)|
+
+3. PR REVIEW BEST PRACTICE
+--------------------------------------------------------------------------------
+- When reviewing a feature branch before merging into main:
+    $ git diff main...feature-gst
+  This isolates your teammate's actual pull request contributions without
+  getting confused by new commits that landed on main in the meantime.
+
+4. FINDING THE MERGE BASE PROGRAMMATICALLY
+--------------------------------------------------------------------------------
+- Find common ancestor commit SHA:
+    $ git merge-base main feature-gst
+    Output: 7a8b9c0d1e2f...
+
+- Hence, `git diff main...feature` is identical to:
+    $ git diff $(git merge-base main feature) feature
+
+5. TEACHER SUMMARY (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- "Always remember: in code reviews, use THREE-DOT (`...`) for `git diff` to see
+  only what the feature branch wrote!"
+================================================================================

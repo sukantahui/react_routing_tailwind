@@ -1,0 +1,36 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 14: FINAL SELF-ASSESSMENT EXAM & MODULE 002_003 GRADUATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. MODULE 002_003 SUMMARY REVIEW
+--------------------------------------------------------------------------------
+Congratulations on mastering Module 002_003: Git Rebase, History Linearization & Interactive Rebase!
+Key architectural milestones mastered:
+1. Rebase mechanics: Replaying patch deltas on top of a new base tip.
+2. Rebase vs Merge philosophy: Historical Truth vs Clean Linear Storytelling.
+3. Standard 4-step rebase workflow with `git switch` and `git rebase main`.
+4. Low-level engine internals: Merge-base calculation, `.git/rebase-merge/`, patch replay, and detached HEAD.
+5. THE GOLDEN RULE OF REBASING: Never rebase shared public branch commits!
+6. Handling conflicts: Staging with `git add` and resuming with `git rebase --continue` (NO git commit!).
+7. Control steering commands: `git rebase --skip` and `git rebase --abort`.
+8. Interactive rebase mastery: `git rebase -i HEAD~N` and `git rebase -i main`.
+9. The 7 command directives: `pick`, `reword`, `edit`, `squash`, `fixup`, `drop`, `exec`.
+10. Surgical operations: Reordering commits and splitting megacommits with `git reset HEAD~`.
+11. PR preparation: Squashing messy WIP commits into Conventional Commits.
+12. Automating workflows with `git commit --fixup` and `git rebase -i --autosquash`.
+
+2. MODULE 002_003 BADGE UNLOCKED
+--------------------------------------------------------------------------------
+Badge Awarded: REBASE WIZARD BADGE 🧙‍♂️✨
+Authorized By: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+3. NEXT MODULE PREVIEW
+--------------------------------------------------------------------------------
+Next Module: `002_004_git-stash-and-worktrees`
+Topics: Git Stash (push, pop, apply, branch, drop) & Git Worktree (parallel multi-branch directories).
+
+================================================================================
+END OF NOTE - TOPIC 14
+================================================================================

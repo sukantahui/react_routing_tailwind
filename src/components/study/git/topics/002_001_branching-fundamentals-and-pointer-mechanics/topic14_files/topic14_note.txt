@@ -1,0 +1,40 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 14: HANDS-ON TERMINAL LAB: COMPLETE BRANCHING & POINTER DRILLS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. LAB DRILL OBJECTIVES
+--------------------------------------------------------------------------------
+- Drill 1: Multi-feature branch creation and atomic switching (`git switch -c`).
+- Drill 2: Navigating into Detached HEAD on a past commit SHA.
+- Drill 3: Making isolated experimental commits in Detached HEAD.
+- Drill 4: Rescuing unreferenced commits by attaching a rescue branch.
+- Drill 5: Comparing divergent branches using 3-dot diff (`git diff main...feature`).
+- Drill 6: Pruning and safe branch deletion (`git branch -d` vs `-D`).
+
+2. COMMAND RUNBOOK
+--------------------------------------------------------------------------------
+# Step 1: Initialize
+$ git init && git config user.name "Terminal Pro"
+
+# Step 2: Create feature branches
+$ git switch -c feature/gst-calc
+$ git commit -am "feat: gst calc"
+
+# Step 3: Detached HEAD experiment
+$ git switch --detach <base-sha>
+$ git commit -am "feat: prototype"
+
+# Step 4: Rescue
+$ git switch -c feature/rescued-prototype
+
+# Step 5: Clean up
+$ git switch main
+$ git merge feature/gst-calc
+$ git branch -d feature/gst-calc
+
+3. TEACHER SUMMARY (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- Complete this script in your terminal to gain 100% muscle memory for branching!
+================================================================================

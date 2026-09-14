@@ -1,0 +1,68 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 0: WHAT IS GIT REBASE? REPLAYING COMMITS ON A NEW BASE TIP
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS GIT REBASE?
+--------------------------------------------------------------------------------
+In Git, "rebasing" is the process of moving or combining a sequence of commits to a
+new base commit. Instead of integrating changes via a merge commit (which records
+two parent branches coming together), rebasing takes the changes (diffs/patches)
+introduced in your branch and *re-applies* them one-by-one on top of another branch.
+
+Key Concept:
+When you run:
+    git switch feature
+    git rebase main
+
+Git performs the following operations:
+1. Identifies the common ancestor (merge base) between 'feature' and 'main'.
+2. Extracts the changes introduced by each commit on 'feature' since the merge base
+   and stores them as temporary patch files (in .git/rebase-apply or .git/rebase-merge).
+3. Resets the current branch ('feature') to point directly to the tip of 'main'.
+4. Re-applies each saved patch in sequential order on top of 'main', creating
+   BRAND NEW commit objects with new SHA-1/SHA-256 hashes and new parent pointers.
+5. Updates the 'feature' branch pointer to point to the newly created tip commit.
+
+2. WHY REBASE INSTEAD OF MERGE?
+--------------------------------------------------------------------------------
+- Linear History: Eliminates unnecessary diamond-shaped merge commits ("Merge branch 'main' into feature").
+- Clean Bisecting: `git bisect` can effortlessly find bugs without jumping across merge webs.
+- Clear Storytelling: The project history reads like a single, straight chronological sequence.
+- Code Review Clarity: Reviewers see your changes as if they were written on the absolute latest codebase.
+
+3. UNDER THE HOOD: COMMIT REWRITING
+--------------------------------------------------------------------------------
+Original DAG:
+          C---D  [feature] (branched from B)
+         /
+    A---B---E---F  [main]
+
+After `git switch feature && git rebase main`:
+                  C'---D'  [feature] (replayed on top of F)
+                 /
+    A---B---E---F  [main]
+
+* Note: C' and D' have identical code diffs to C and D, but their commit hashes,
+  timestamps, and parent references are completely new. The old commits (C and D)
+  are dereferenced and eventually garbage collected.
+
+4. THE FUNDAMENTAL DIFFERENCE
+--------------------------------------------------------------------------------
+- `git merge`: Preserves actual historical timeline and branch topologies by creating
+  a special merge commit with 2 parents. Non-destructive.
+- `git rebase`: Rewrites history by recreating commits on a new base tip. Linear,
+  pristine, but rewrites commit hashes.
+
+5. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, GST invoicing updates are developed on `feature/gst-e-waybill`.
+Meanwhile, senior engineer Sukanta commits hotfixes to `main` for financial year 2026-27.
+Instead of polluting the audit trail with 5 different "Merged main into feature" commits,
+the developer rebases `feature/gst-e-waybill` on `main`, keeping the GST module commits
+crisply stacked on top of the latest fiscal core.
+
+================================================================================
+END OF NOTE - TOPIC 0
+================================================================================

@@ -1,0 +1,50 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 4: SWITCHING BRANCHES (MODERN `git switch` VS LEGACY `git checkout`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHY GIT INTRODUCED `git switch` IN GIT 2.23 (2019)
+--------------------------------------------------------------------------------
+- Historically, `git checkout` was dangerously overloaded with two totally different tasks:
+  1. Navigating branches and commits: `git checkout <branch>`
+  2. Discarding uncommitted file modifications: `git checkout -- <file>`
+- Beginners regularly lost unsaved code when trying to switch branches and typos occurred.
+- In Git 2.23, the Git core team split `git checkout` into two single-purpose, safe commands:
+  * `git switch`  ---> Exclusively for switching branches / navigating commits.
+  * `git restore` ---> Exclusively for restoring/discarding working tree & index files.
+
+2. WHAT HAPPENS INTERNALLY WHEN YOU RUN `git switch <branch>`
+--------------------------------------------------------------------------------
+1. Git updates `.git/HEAD` to point symbolically to `refs/heads/<branch>`.
+2. Git compares the index and working tree with the target branch commit.
+3. Git swaps and updates all files in your Working Tree to match the target commit.
+4. Git clears staged files that are no longer part of the new branch state.
+
+3. SWITCHING COMMANDS SYNTAX COMPARISON
+--------------------------------------------------------------------------------
+| Action / Goal                   | Modern Command (Git 2.23+)     | Legacy Command (Deprecated)   |
+|---------------------------------|--------------------------------|-------------------------------|
+| Switch to existing branch       | git switch feature-gst         | git checkout feature-gst      |
+| Switch back to previous branch  | git switch - (or git switch @{-1}) | git checkout -            |
+| Discard changes in a file       | git restore filename.js        | git checkout -- filename.js   |
+| Unstage a staged file           | git restore --staged file.js   | git reset HEAD file.js        |
+
+4. HANDLING DIRTY WORKING DIRECTORIES (CONFLICTS ON SWITCH)
+--------------------------------------------------------------------------------
+- If you have uncommitted changes in your working tree when switching branches:
+  * Case A (Non-conflicting files): Git carries over your uncommitted changes into the new branch.
+  * Case B (Conflicting files): Git safely ABORTS the switch and prevents data loss:
+    "error: Your local changes to the following files would be overwritten by checkout.
+     Please commit your changes or stash them before you switch branches."
+- Safe remedies:
+  1. Stash changes: `git stash` -> `git switch <branch>` -> `git stash pop`
+  2. Commit temporary work: `git commit -am "WIP"`
+  3. Discard unneeded work: `git restore .`
+
+5. TEACHER TIP FROM SUKANTA HUI (ACCOTAX BARRACKPORE)
+--------------------------------------------------------------------------------
+- Always advise students to adopt `git switch` in all modern projects and code reviews.
+- It prevents catastrophic mistakes where a student meant to switch branches but
+  accidentally wiped their hours of unstaged coding work!
+================================================================================

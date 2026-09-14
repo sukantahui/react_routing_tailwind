@@ -1,0 +1,49 @@
+================================================================================
+MODULE 002_002: MERGING STRATEGIES & CONFLICT RESOLUTION
+TOPIC 3: THE MERGE COMMIT (MULTI-PARENT OBJECT MECHANICS)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A MERGE COMMIT?
+--------------------------------------------------------------------------------
+- Standard commits have exactly ONE parent commit (the commit that came before it).
+- Root commits (the very first commit in a repo) have ZERO parents.
+- A MERGE COMMIT is a unique commit object that contains TWO (or more) parent hashes!
+
+2. LOW-LEVEL ANATOMY OF A MERGE COMMIT
+--------------------------------------------------------------------------------
+When you inspect a merge commit using `git cat-file -p <merge-commit-sha>`:
+```
+tree 9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
+parent 7a8b9c0d1e2f3456789abcdef0123456789abcde   <-- Parent 1 (HEAD / main)
+parent 3f4a5b6c7d8e9f0123456789abcdef0123456789   <-- Parent 2 (feature-gst)
+author Sukanta Hui <sukanta@accotax.in> 1726330000 +0530
+committer Sukanta Hui <sukanta@accotax.in> 1726330000 +0530
+
+Merge branch 'feature-gst' into main
+```
+
+3. THE PARENT ORDER MATTERS!
+--------------------------------------------------------------------------------
+- Parent 1 (`HEAD^1`): The branch you were currently on when executing `git merge` (e.g. `main`).
+- Parent 2 (`HEAD^2`): The incoming branch you merged in (e.g. `feature-gst`).
+- Parent 3+ (in Octopus merges): Additional merged branches.
+
+4. RELATIVE ANCESTRY FROM A MERGE COMMIT
+--------------------------------------------------------------------------------
+- `HEAD^1`: Move to Parent 1 (main lineage).
+- `HEAD^2`: Move to Parent 2 (feature lineage).
+- `HEAD~1`: Synonym for `HEAD^1` (first parent).
+- `HEAD~2`: Grandparent along the first parent lineage (`HEAD^1^1`).
+
+5. REVERTING A MERGE COMMIT: THE `-m` PARENT SPECIFIER
+--------------------------------------------------------------------------------
+- Because a merge commit has 2 parents, running `git revert <merge-sha>` fails unless
+  you specify which parent's mainline state to keep:
+    $ git revert -m 1 <merge-commit-sha>
+
+6. TEACHER SUMMARY (SUKANTA HUI, BARRACKPORE)
+--------------------------------------------------------------------------------
+- "A merge commit is like a marriage certificate in AccoTax legal records: it has two
+  signatures linking two family trees into one unified ancestry."
+================================================================================

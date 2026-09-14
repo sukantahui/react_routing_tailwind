@@ -1,0 +1,49 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 12
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Classroom Drama: Sachin & Susmita Editing AuthController.js Simultaneously (The Ultimate Conflict Case Study)
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. THE DRAMATIC SETUP AT CODER & ACCOTAX, BARRACKPORE:
+   - Base state: The accounting portal's authentication controller `AuthController.js` verifies client credentials with a basic session cookie.
+   - Sachin is assigned: Implement JWT Token authentication with 1-hour expiry.
+   - Susmita is assigned: Implement Multi-Factor Authentication (OTP via SMS) and Rate Limiting for security.
+   - Both developers branch from commit C1 (`feat: initial basic auth controller`).
+   - Neither checks in with the other before making extensive edits across the same login functions.
+
+2. THE DIVERGENT DEVELOPMENTS:
+   a) Sachin on branch `feature/jwt-auth`:
+      - Replaces cookie logic with `jsonwebtoken` library.
+      - Modifies `loginUser(req, res)` signature and return payload: `{ token, user, feeBalance: 1200 }`.
+      - Commits 3 times and merges into `main`.
+   b) Susmita on branch `feature/mfa-otp`:
+      - Introduces `sendSMSOTP(phone)` and session validation.
+      - Modifies `loginUser(req, res)` signature to require `otpToken`.
+      - Return payload: `{ isMfaVerified: true, user, sessionExpiry: 3600 }`.
+
+3. THE COLLISION:
+   - Susmita runs `git switch main && git merge feature/mfa-otp`.
+   - Git ORT engine halts immediately with:
+     `CONFLICT (content): Merge conflict in src/controllers/AuthController.js`
+     `Automatic merge failed; fix conflicts and then commit the result.`
+
+4. SUKANTA SIR'S GUIDED RESOLUTION METHOD:
+   - Step 1: Do not panic. Identify with `git status`.
+   - Step 2: Open `src/controllers/AuthController.js` in VS Code 3-way merge editor.
+   - Step 3: Analyze the business goals:
+     * Sachin's JWT is required for API statelessness.
+     * Susmita's MFA OTP is required for security compliance.
+     * Solution: We need BOTH! A 2-step authentication flow where OTP verification issues the JWT token!
+   - Step 4: Write clean unified code combining JWT generation upon successful OTP verification.
+   - Step 5: Delete all marker lines (`<<<<<<<`, `=======`, `>>>>>>>`).
+   - Step 6: Run test suite `npm test` & verify 100% pass rate.
+   - Step 7: `git add src/controllers/AuthController.js && git commit -m "merge: integrate JWT stateless auth with MFA OTP verification"`.
+
+5. KEY LESSONS LEARNED:
+   - Conflicts are team communication prompts, not technical failures.
+   - The best conflict resolutions create superior architecture by synthesizing competing features into unified workflows.
+
+================================================================================
+BARRACKPORE MANTRA: Great developers don't choose "mine vs yours"—they craft "ours"!
+================================================================================

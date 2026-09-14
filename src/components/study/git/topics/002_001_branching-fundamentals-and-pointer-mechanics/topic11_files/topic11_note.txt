@@ -1,0 +1,43 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 11: RECOVERING FROM DETACHED HEAD (SAVING EXPERIMENTAL COMMITS)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE TWO RESCUE SCENARIOS
+--------------------------------------------------------------------------------
+- SCENARIO A: YOU ARE STILL IN DETACHED HEAD
+  * You just finished making experimental commits and haven't switched away yet.
+  * Rescue command (Atomic 1-step):
+    $ git switch -c feature-rescue-experiment
+    (or: `git branch feature-rescue-experiment`)
+  * Result: HEAD is now attached to the new branch, perfectly securing all commits!
+
+- SCENARIO B: YOU ALREADY SWITCHED AWAY TO MAIN (COMMITS SEEM LOST)
+  * You ran `git switch main` and your experimental code vanished from your folder.
+  * Rescue sequence:
+    1. Inspect reflog to find the commit SHA:
+       $ git reflog
+       Output: d9e8f7a HEAD@{1}: commit: add experimental tax equation
+    2. Create and switch to a rescue branch using that SHA:
+       $ git switch -c feature-rescued-work d9e8f7a
+    3. Verify with git log:
+       $ git log --oneline
+
+2. MERGING RESCUED COMMITS INTO MAIN
+--------------------------------------------------------------------------------
+- Once rescued into a branch, you can merge or cherry-pick cleanly:
+    $ git switch main
+    $ git merge feature-rescued-work
+
+3. CHERRY-PICKING SELECTIVE COMMITS FROM DETACHED HEAD
+--------------------------------------------------------------------------------
+- If you only want 1 of 5 experimental commits:
+    $ git switch main
+    $ git cherry-pick d9e8f7a
+
+4. TEACHER TIP FROM SUKANTA HUI (ACCOTAX BARRACKPORE)
+--------------------------------------------------------------------------------
+- "In Git, data recovery is simple because Git never forgets a SHA-1 hash for
+  at least 30 days. Don't panic; just consult the reflog compass!"
+================================================================================

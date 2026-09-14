@@ -1,0 +1,70 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 2: THE ROLE OF HEAD (.git/HEAD SYMBOLIC REFERENCE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS HEAD IN GIT?
+--------------------------------------------------------------------------------
+- In Git, HEAD is a special pointer that answers the fundamental question:
+  "Where am I right now in the repository?"
+- HEAD tells Git which branch or commit is currently checked out into your
+  Working Tree and Staging Area (Index).
+- In 99% of regular development, HEAD is a SYMBOLIC REFERENCE (symref).
+  Instead of pointing directly to a 40-character commit SHA-1 hash, HEAD points
+  to a branch reference file inside .git/refs/heads/.
+
+2. THE FILESYSTEM ANATOMY OF .git/HEAD
+--------------------------------------------------------------------------------
+- When you are on branch 'main':
+    $ cat .git/HEAD
+    ref: refs/heads/main
+
+- When you are on branch 'feature-gst':
+    $ cat .git/HEAD
+    ref: refs/heads/feature-gst
+
+- The pointer chain works in two steps:
+    HEAD ---> refs/heads/main ---> 7a8b9c0d1e2f3456789abcdef0123456789abcde (Commit C2)
+
+3. HOW HEAD CONTROLS COMMIT CREATION
+--------------------------------------------------------------------------------
+- When you execute `git commit -m "message"`:
+  1. Git creates a new commit object C3 with its parent set to the commit HEAD is currently on.
+  2. Git reads .git/HEAD to identify the active branch (e.g. 'main').
+  3. Git updates .git/refs/heads/main to store the new commit C3 SHA hash.
+  4. HEAD continues to point symbolically to `refs/heads/main`, so HEAD automatically
+     advances with the branch!
+
+4. LOW-LEVEL PLUMBING COMMANDS TO INSPECT HEAD
+--------------------------------------------------------------------------------
+- Inspect what HEAD points to:
+    $ git symbolic-ref HEAD
+    refs/heads/main
+
+- Resolve HEAD to the exact 40-character commit SHA:
+    $ git rev-parse HEAD
+    7a8b9c0d1e2f3456789abcdef0123456789abcde
+
+- Check short commit SHA:
+    $ git rev-parse --short HEAD
+    7a8b9c0
+
+5. ATTACHED HEAD VS DETACHED HEAD
+--------------------------------------------------------------------------------
+- Attached HEAD (Normal state):
+    .git/HEAD contains: "ref: refs/heads/<branch-name>"
+    Commits automatically move the branch pointer forward.
+
+- Detached HEAD (Direct commit checkout):
+    .git/HEAD contains: "<40-character SHA-1 hash>"
+    HEAD points directly to a commit, not a branch.
+    Commits made here do not belong to any branch!
+
+6. KEY TAKEAWAYS FOR BARRACKPORE STUDENTS (SACHIN, MAHIMA & SWADEEP)
+--------------------------------------------------------------------------------
+- HEAD is like the physical magnetic read/write head on a turntable or hard drive platter.
+- Moving HEAD changes which files appear in your workspace directory.
+- Never manually edit .git/HEAD with Notepad unless troubleshooting corruption; always
+  use `git switch` or `git checkout`.
+================================================================================

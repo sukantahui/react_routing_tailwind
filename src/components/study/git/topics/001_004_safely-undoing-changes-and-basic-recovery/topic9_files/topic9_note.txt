@@ -1,0 +1,60 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 9: REVERTING MERGE COMMITS & RE-REVERTING (GIT REVERT -M 1)
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. THE MERGE COMMIT PROBLEM IN GIT REVERT
+--------------------------------------------------------------------------------
+- Standard commits have exactly ONE parent. When you run 'git revert <sha>', Git easily knows what diff to invert (Current Commit vs its 1 Parent).
+- MERGE COMMITS have TWO (or more) parents:
+  * Parent 1: The mainline branch receiving the merge (e.g., 'main').
+  * Parent 2: The branch being merged in (e.g., 'feat-payments').
+- If you run 'git revert <merge_commit_sha>' without specifying a parent, Git throws a fatal error:
+  "error: commit <sha> is a merge but no -m option was given."
+
+2. THE '-m' (MAINLINE) OPTION EXPLAINED
+--------------------------------------------------------------------------------
+- The '-m' flag tells Git which parent should be preserved as the "mainline".
+- When you pass '-m 1':
+  * Parent 1 is treated as the mainline (the baseline state you want to retain).
+  * All changes introduced by Parent 2 (the feature branch) are calculated and inverted.
+- Command syntax:
+  git revert -m 1 <merge_commit_sha>
+
+3. THE FAMOUS "LINUS TORVALDS RE-MERGE TRAP"
+--------------------------------------------------------------------------------
+- What happens after you revert a merge commit with '-m 1'?
+  1. The code changes from the feature branch are removed from 'main'.
+  2. BUT in Git's DAG history, the merge commit STILL EXISTS and still references the feature branch's commit SHAs!
+- If the feature developer later fixes the bug on the original feature branch and attempts to merge it back into 'main':
+  * Git looks at the common ancestor and sees that the earlier commits were ALREADY merged!
+  * Git will ONLY bring in the new bug-fix commit, leaving the original reverted feature code MISSING!
+- Solution: You must RE-REVERT THE REVERT COMMIT before or during the new merge!
+  git revert <revert-commit-sha>
+
+4. STEP-BY-STEP REVERT & RE-REVERT WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Identify the merge commit hash and its parents:
+  git show <merge_commit_sha>
+  (Look for "Merge: 1a2b3c 4d5e6f" -> 1a2b3c is Parent 1, 4d5e6f is Parent 2)
+
+Step 2: Revert the merge commit targeting mainline (Parent 1):
+  git revert -m 1 <merge_commit_sha> --no-edit
+  git push origin main
+
+Step 3: When the feature branch is ready to be re-introduced:
+  Option A: Revert the revert commit on main:
+    git revert <sha-of-revert-commit>
+  Option B: Rebase the feature branch onto new main to create fresh commit SHAs.
+
+5. SUMMARY CHEATSHEET
+--------------------------------------------------------------------------------
+- Inspect parents of a merge commit:
+  git cat-file -p <merge_sha>
+- Revert a merge commit preserving main:
+  git revert -m 1 <merge_sha>
+- Revert a merge commit preserving feature branch:
+  git revert -m 2 <merge_sha>
+- Bring the reverted feature back later:
+  git revert <revert_commit_sha>

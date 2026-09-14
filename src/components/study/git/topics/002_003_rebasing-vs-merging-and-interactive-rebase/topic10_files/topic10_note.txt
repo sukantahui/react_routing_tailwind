@@ -1,0 +1,54 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 10: SQUASHING WIP & BUGFIX COMMITS BEFORE SUBMITTING PULL REQUESTS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE PROBLEM OF WIP / "SAVE PROGRESS" COMMITS
+--------------------------------------------------------------------------------
+During everyday development, developers frequently make messy local commits:
+- `wip: payment form half done`
+- `fixed typo`
+- `debugging console log`
+- `fixed syntax error`
+- `final touches`
+
+If pushed directly to GitHub as a Pull Request, reviewers face a chaotic 15-commit
+maze with broken intermediate states.
+
+2. SQUASHING STRATEGY (CLEANING UP BEFORE REVIEW)
+--------------------------------------------------------------------------------
+Before opening a Pull Request, use interactive rebase to squash noise into 1-2 clean,
+meaningful Conventional Commits.
+
+TODO script before:
+    pick 1a2b3c4 feat: add GST invoice calculation
+    fixup 5d6e7f8 fix typo in tax rate
+    fixup 9g0h1i2 remove debug console.log
+    squash 3k4l5m6 feat: add invoice PDF download
+
+TODO script after execution:
+    e7f8a9b feat(gst): implement automated tax invoice calculation & PDF export
+
+3. CONVENTIONAL COMMITS FORMAT FOR SQUASHED PR COMMITS
+--------------------------------------------------------------------------------
+Format:
+    <type>(<scope>): <short summary>
+
+    [optional detailed body explaining why the change was made]
+
+    [optional footer, e.g. Closes #123]
+
+Types: `feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `chore`.
+
+4. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Abhronila had 8 messy commits on `feature/gstr1-export`.
+Before submitting the PR to senior architect Sukanta Sir, she squashed the 8 commits
+into 1 pristine Conventional Commit:
+`feat(compliance): add automated GSTR-1 quarterly JSON export for ₹50,000+ invoices`.
+The PR was reviewed and merged in 5 minutes!
+
+================================================================================
+END OF NOTE - TOPIC 10
+================================================================================

@@ -1,0 +1,59 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 0: WHAT IS A BRANCH IN GIT? THE 41-BYTE TEXT POINTER
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. WHAT IS A GIT BRANCH REALLY?
+--------------------------------------------------------------------------------
+- In most centralized VCS (like SVN or CVS), creating a branch makes a full duplicate copy of every single project file in a new directory on the server.
+- In Git, a branch is NOT a copy of your files.
+- A Git branch is simply a LIGHTWEIGHT, MOVABLE 41-BYTE TEXT FILE containing a 40-character hexadecimal SHA-1 commit hash followed by a newline character (\n).
+- Where do branch pointers live?
+  Inside the '.git/refs/heads/' directory!
+  Example:
+  File: .git/refs/heads/main
+  Content: 7a8b9c0d1e2f3456789abcdef0123456789abcde\n (Exactly 41 bytes)
+
+2. COMMIT IMMUTABILITY VS BRANCH POINTER MUTABILITY
+--------------------------------------------------------------------------------
+- Commit Objects:
+  * Permanently immutable.
+  * Stored in '.git/objects/'.
+  * Never change once written.
+
+- Branch References:
+  * Highly mutable text pointers.
+  * Stored in '.git/refs/heads/'.
+  * Automatically advance to point to the newest commit whenever a new commit is created while on that branch.
+
+3. ZERO-COST BRANCHING PERFORMANCE
+--------------------------------------------------------------------------------
+- Because a branch is just a 41-byte text file:
+  * Creating a branch takes ~1 millisecond (writing 41 bytes to disk).
+  * Deleting a branch takes ~1 millisecond (deleting a 41-byte file).
+  * Switching branches updates the working files to match the commit snapshot pointed to by that 41-byte ref.
+- You can create hundreds of branches in a Git repository without consuming extra disk space or slowing down Git.
+
+4. INSPECTING BRANCH POINTERS IN THE TERMINAL
+--------------------------------------------------------------------------------
+- List branch ref files directly on disk:
+  ls -la .git/refs/heads/
+
+- View the exact SHA-1 stored inside the main branch ref:
+  cat .git/refs/heads/main
+  (Outputs: 40-char SHA)
+
+- View the active branch symbolic reference:
+  cat .git/HEAD
+  (Outputs: ref: refs/heads/main)
+
+- Resolve branch name to SHA via Git plumbing:
+  git rev-parse main
+
+5. SUMMARY CHEATSHEET
+--------------------------------------------------------------------------------
+- Create branch: git branch <name> (Writes .git/refs/heads/<name>)
+- List local branches: git branch
+- Show branch with latest commit SHA: git branch -v
+- Check current HEAD symbolic ref: cat .git/HEAD

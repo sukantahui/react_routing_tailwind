@@ -1,0 +1,56 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 5
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: What Causes Merge Conflicts? Concurrent Modifications to the Same Lines in Divergent Branches
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS A MERGE CONFLICT?
+   - Git is remarkably smart at automated integration (3-way merge algorithms like ORT and recursive).
+   - If Branch A modifies line 10 of server.js and Branch B modifies line 90 of server.js, Git reconciles both changes automatically without human intervention.
+   - If Branch A adds a new file utils.js and Branch B modifies database.js, Git merges cleanly.
+   - A MERGE CONFLICT occurs when Git's automated algorithm CANNOT deterministically deduce the author's intent because two divergent branches made conflicting changes relative to their common ancestor (Merge Base).
+
+2. THE ROOT CAUSES OF MERGE CONFLICTS:
+   a) Same File, Same Line(s) Conflict (Content Conflict):
+      - In the Merge Base (commit C0), line 15 reads: `const PORT = 3000;`
+      - In Branch `main` (commit C1), Sachin changed line 15 to: `const PORT = 5000;`
+      - In Branch `feature` (commit C2), Susmita changed line 15 to: `const PORT = 8080;`
+      - Git cannot guess whether ₹5000 or ₹8080 (or 5000 vs 8080 port) is intended. Git pauses and asks the developer to decide.
+   b) Modify / Delete Conflict:
+      - In Branch `main`, Sachin refactors functions in `legacyAuth.js`.
+      - In Branch `feature`, Susmita deletes `legacyAuth.js` (`git rm legacyAuth.js`).
+      - Git stops: should the file be kept with modifications or deleted?
+   c) File Rename / Rename or Rename / Modify Conflict:
+      - Branch A renames `config.json` to `settings.json` and edits it.
+      - Branch B renames `config.json` to `appConfig.json`.
+      - Git's ORT engine detects rename divergence and flags a structural conflict.
+   d) Non-Conflicting Changes (Clean Merges):
+      - Changes to different files merge cleanly.
+      - Changes to distinct lines within the same file (separated by context lines) merge cleanly.
+
+3. THE MATHEMATICAL TRUTH (THE 3-WAY MATRIX):
+   - Common Base (O), Current/HEAD (A), Incoming/Feature (B)
+   - If O == A and O != B  ==> Git takes B (Only B changed it)
+   - If O != A and O == B  ==> Git takes A (Only A changed it)
+   - If O == A and O == B  ==> No change, keep O
+   - If O != A and O != B and A == B ==> Both made the identical change! Clean merge (takes A/B).
+   - If O != A and O != B and A != B ==> CONFLICT! Git cannot decide. Halts merge.
+
+4. REAL-WORLD SCENARIO AT CODER & ACCOTAX, BARRACKPORE:
+   - Sachin (working on Tax Engine) sets GST rate variable to 18%: `const GST_RATE = 0.18;`
+   - Susmita (working on Luxury Goods branch) sets GST rate variable to 28%: `const GST_RATE = 0.28;`
+   - Both branched from Base commit where `const GST_RATE = 0.05;`
+   - When merging `luxury-tax` into `main`, Git halts with:
+     `CONFLICT (content): Merge conflict in src/taxCalculator.js`
+     `Automatic merge failed; fix conflicts and then commit the result.`
+
+5. REPOSITORY SAFETY DURING CONFLICT:
+   - Your repository is NOT broken or corrupted.
+   - Git simply sets index stage markers (Stage 1: Base, Stage 2: HEAD, Stage 3: Remote/Incoming).
+   - Working tree files are populated with standard conflict markers.
+   - You can inspect with `git status` or bail out cleanly with `git merge --abort`.
+
+================================================================================
+SUMMARY: Conflicts are not errors—they are safety checkpoints where Git refuses to make dangerous assumptions with your code!
+================================================================================

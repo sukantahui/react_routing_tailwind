@@ -1,0 +1,36 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 13: CLASSROOM EXPERIMENT: SACHIN & MAHIMA INSPECTING .git/refs/heads/
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CASE STUDY BACKGROUND & OBJECTIVE
+--------------------------------------------------------------------------------
+- Location: Coder & AccoTax Classroom, Barrackpore, West Bengal.
+- Participants: Sachin Sharma & Mahima Ghosh.
+- Lead Instructor: Sukanta Hui.
+- Objective: Prove through real-time terminal inspection that Git branches are
+  merely movable text files containing 40-character commit hashes that update
+  atomically with every `git commit`.
+
+2. THE EXPERIMENT PROTOCOL
+--------------------------------------------------------------------------------
+- Step 1: Initial repository setup and inspection of `.git/refs/heads/` before commits.
+- Step 2: Sachin creates `main` with Commit C1. Both inspect `cat .git/refs/heads/main`.
+- Step 3: Mahima creates branch `feature-gst-calc`. Both inspect `cat .git/refs/heads/feature-gst-calc`.
+  They observe that both files contain the IDENTICAL SHA-1 hash!
+- Step 4: Mahima switches to `feature-gst-calc` and commits C2.
+- Step 5: They inspect both files again:
+  * `.git/refs/heads/main` is UNCHANGED (still points to C1).
+  * `.git/refs/heads/feature-gst-calc` has ADVANCED to C2!
+- Step 6: Sachin switches to `main` and commits C3.
+  * `.git/refs/heads/main` has ADVANCED to C3!
+  * They verify branch divergence directly in the filesystem.
+
+3. LESSONS LEARNED & KEY TAKEAWAYS
+--------------------------------------------------------------------------------
+- Branches are not parallel universes or whole-folder duplicates.
+- Committing on a branch simply updates a 41-byte text file with the newest commit SHA.
+- Branch divergence is just two separate text files pointing to different commit objects
+  in the same shared object database!
+================================================================================

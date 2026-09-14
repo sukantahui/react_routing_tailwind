@@ -1,0 +1,50 @@
+================================================================================
+GIT & GITHUB MASTER CLASS NOTE: TOPIC 13
+MODULE: 002_002_merging-strategies-and-conflict-resolution
+TOPIC: Hands-on Terminal Lab: Simulating Divergent Branches, 3-Way Merge Conflicts, and Merge Base Verification
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. LAB OVERVIEW:
+   - This comprehensive terminal lab puts all theoretical concepts from Module 002_002 into practical terminal execution.
+   - You will build a realistic accounting project, establish divergent branches, inspect the exact merge base commit, trigger multi-file conflicts, resolve them, verify stages, and complete 3-way merge commits.
+
+2. LAB EXECUTION PHASES:
+   Phase 1: Environment Setup & Repository Initialization
+     - Initialize Git repository with `main` branch.
+     - Configure user credentials and global conflict styles (`zdiff3`).
+   
+   Phase 2: Baseline Commit Creation
+     - Create `src/taxCalculator.js` and `src/rateConfig.json` with base GST rates (18% and ₹1,500/hr).
+     - Commit C1 (The future Merge Base).
+
+   Phase 3: Branching and Divergent Commit Construction
+     - Create `feature/corporate-tax`: update tax to 28% luxury tier and rate to ₹3,500.
+     - Switch to `main`: update tax to 12% reduced tier and rate to ₹2,000.
+
+   Phase 4: Merge Base Calculation & Verification
+     - Command: `git merge-base main feature/corporate-tax`
+     - Verify against `git rev-parse HEAD~1` or commit hash C1.
+
+   Phase 5: Conflict Triggering & State Inspection
+     - Attempt: `git merge feature/corporate-tax`
+     - Inspect index stages: `git ls-files -u`
+     - Inspect `.git/MERGE_HEAD` and `.git/MERGE_MSG`.
+
+   Phase 6: Professional Conflict Resolution
+     - Clean conflict markers, synthesize tiered pricing supporting both slabs.
+     - Run unit test suite.
+     - Stage resolved files: `git add .`
+
+   Phase 7: Merge Finalization & DAG Graph Verification
+     - Execute `git commit -m "merge: ..."`
+     - Inspect resulting 2-parent topology with `git log --graph --oneline --all`.
+
+3. ADVANCED VERIFICATION COMMANDS:
+   - `git diff --check`: Verifies 0 leftover conflict markers.
+   - `git rev-list --parents -n 1 HEAD`: Verifies 2 parent hashes.
+   - `git log --graph --oneline --boundary`: Shows branch convergence points.
+
+================================================================================
+COMPLETE HANDS-ON MASTERY: Run `hands_on_merge_conflict_terminal_lab.sh` in any bash terminal to experience the entire workflow end-to-end!
+================================================================================

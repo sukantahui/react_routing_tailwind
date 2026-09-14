@@ -1,0 +1,42 @@
+================================================================================
+GIT MASTER CLASSROOM NOTES · MODULE 001_004 · TOPIC 3
+AMENDING THE MOST RECENT COMMIT (git commit --amend)
+Educator: Sukanta Hui · Founder, Coder & AccoTax · Barrackpore, WB, India
+================================================================================
+
+1. WHAT IS git commit --amend?
+--------------------------------------------------------------------------------
+'git commit --amend' replaces the current HEAD commit with a new commit object
+combining the staged changes and/or updated commit message.
+
+2. CORE USE CASES & COMMANDS
+--------------------------------------------------------------------------------
+1. Fix a typo in the latest commit message:
+   $ git commit --amend -m "feat(tax): implement 18% standard GST rate"
+
+2. Add a forgotten file to the latest commit without editing the message:
+   $ git add test/taxCalculator.test.js
+   $ git commit --amend --no-edit
+
+3. Fix both code and commit message in default editor:
+   $ git add forgotten_module.js
+   $ git commit --amend
+
+4. Update author identity to match current config:
+   $ git commit --amend --reset-author --no-edit
+
+3. WHAT HAPPENS UNDER THE HOOD?
+--------------------------------------------------------------------------------
+- Git does NOT edit the existing commit in-place (Git objects are immutable!).
+- Git creates a NEW commit object with a NEW SHA-1 hash.
+- The branch pointer (e.g. 'main') is moved to point to the new commit.
+- The old commit becomes 'dangling' and can be recovered via 'git reflog'.
+
+4. THE GOLDEN SAFETY RULE (SUKANTA SIR'S MENTORSHIP)
+--------------------------------------------------------------------------------
+- LOCAL UNPUSHED COMMITS: Amend freely! It keeps your PR history atomic and clean.
+- PUSHED SHARED COMMITS: NEVER amend! It causes diverged histories for teammates.
+
+================================================================================
+Coder & AccoTax · Barrackpore · https://github.com/codernaccotax
+================================================================================

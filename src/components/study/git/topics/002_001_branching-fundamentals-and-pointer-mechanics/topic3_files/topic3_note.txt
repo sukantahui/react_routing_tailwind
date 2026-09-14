@@ -1,0 +1,61 @@
+================================================================================
+MODULE 002_001: BRANCHING FUNDAMENTALS & POINTER MECHANICS
+TOPIC 3: CREATING BRANCHES (`git branch <name>` & `.git/refs/heads/`)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT DOES `git branch <branch-name>` REALLY DO?
+--------------------------------------------------------------------------------
+- Running `git branch <name>` does exactly ONE thing:
+  It creates a new 41-byte plain text file inside `.git/refs/heads/<name>`.
+- Inside that file, Git writes the 40-character SHA-1 hash of the commit
+  that HEAD is currently pointing to (plus a trailing newline character \n).
+- CRITICAL POINT: `git branch <name>` DOES NOT switch your working directory to
+  the new branch! Your active branch remains unchanged. HEAD still points to your
+  current branch.
+
+2. CREATING A BRANCH AT A SPECIFIC COMMIT
+--------------------------------------------------------------------------------
+- Default (starts at current HEAD):
+    $ git branch feature-discount
+
+- Branching from a past commit SHA:
+    $ git branch hotfix-old-bug 7a8b9c0
+
+- Branching from a tag or another branch:
+    $ git branch release-v1.0 v1.0.0
+    $ git branch experiment-ai feature-gst
+
+3. BRANCH NAMING RULES & BEST PRACTICES
+--------------------------------------------------------------------------------
+- Valid characters: Alphanumeric, hyphens (-), underscores (_), slashes (/) for grouping.
+- Prohibited names / characters:
+  * Cannot start or end with a slash `/` (e.g. `/feature` or `feature/`)
+  * Cannot contain two consecutive dots `..` (reserved for revision ranges)
+  * Cannot contain spaces, tildes `~`, carets `^`, colons `:`, question marks `?`, asterisks `*`
+  * Cannot end with `.lock`
+  * Cannot be a single character `@`
+- Recommended naming conventions:
+  * feature/gst-calculation
+  * bugfix/login-null-pointer
+  * hotfix/invoice-discount-bug
+  * experiment/graphql-migration
+
+4. HIERARCHICAL BRANCH NAMES (SLASH NAMESPACES)
+--------------------------------------------------------------------------------
+- When you create `git branch feature/billing/gst`:
+  Git creates subdirectories on disk:
+  `.git/refs/heads/feature/billing/gst`
+- CAUTION: You cannot create a branch named `feature` AND another named `feature/billing`
+  simultaneously, because on the filesystem `feature` cannot be both a file and a directory.
+
+5. LOW-LEVEL VERIFICATION IN TERMINAL
+--------------------------------------------------------------------------------
+- Inspect newly created branch ref:
+    $ cat .git/refs/heads/feature-discount
+    7a8b9c0d1e2f3456789abcdef0123456789abcde
+
+- Verify pointer identity with main:
+    $ diff .git/refs/heads/main .git/refs/heads/feature-discount
+    (No output, identical 41 bytes!)
+================================================================================

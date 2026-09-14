@@ -1,0 +1,56 @@
+================================================================================
+GIT STUDY GUIDE - MODULE 001_004: SAFELY UNDOING CHANGES & BASIC RECOVERY
+TOPIC 7: THE GOLDEN SAFETY RULE OF GIT RESET --HARD
+CODER & ACCOTAX - BARRACKPORE | EDUCATOR: SUKANTA HUI
+================================================================================
+
+1. WHAT IS COMMITTED VS UNCOMMITTED DATA IN GIT?
+--------------------------------------------------------------------------------
+- COMMITTED DATA:
+  * Has been converted into a Commit object and stored in '.git/objects/'.
+  * Referenced in 'git reflog'.
+  * ALMOST IMPOSSIBLE TO LOSE ACCIDENTALLY (persists for at least 30-90 days until git gc).
+  * A 'git reset --hard' that rewinds over committed code CAN ALWAYS BE UNDONE via reflog!
+
+- UNCOMMITTED DATA (Edits sitting only in Working Tree):
+  * Has never been committed or staged.
+  * Exists only in volatile OS memory / physical disk files.
+  * A 'git reset --hard' OVERWRITES these files immediately.
+  * THIS DATA IS PERMANENTLY UNRECOVERABLE BY GIT!
+
+- STAGED (INDEXED) DATA (Ran 'git add', but not 'git commit'):
+  * Has generated a Blob object in '.git/objects/'.
+  * Not tracked by reflog, but the dangling blob exists in the object store.
+  * Can theoretically be recovered using 'git fsck --lost-found', but is tedious.
+
+2. THE GOLDEN SAFETY RULES BEFORE RUNNING 'git reset --hard'
+--------------------------------------------------------------------------------
+Rule 1: Always check 'git status' before running reset.
+Rule 2: If there are uncommitted edits you might ever want again:
+        Run 'git stash -u' OR
+        Create a temporary safety branch: 'git branch safety-checkpoint'
+Rule 3: Never run 'git reset --hard' on remote/public branches.
+
+3. DISASTER RECOVERY VIA GIT REFLOG
+--------------------------------------------------------------------------------
+Scenario: You ran 'git reset --hard HEAD~5' by mistake and lost 5 commits.
+
+Step 1: Check the reference log:
+  git reflog
+  Output:
+  7a8b9c0 (HEAD -> main) HEAD@{0}: reset: moving to HEAD~5
+  3d4e5f6 HEAD@{1}: commit: feat(billing): last good commit
+
+Step 2: Reset forward to the commit right before the reset:
+  git reset --hard HEAD@{1}
+  OR:
+  git reset --hard 3d4e5f6
+
+Step 3: Verify with 'git log --oneline' - all 5 commits are completely restored!
+
+4. RECOVERING STAGED BUT UNCOMMITTED FILES ('git fsck')
+--------------------------------------------------------------------------------
+- If a file was added with 'git add' before a hard reset:
+  Run: git fsck --lost-found
+  Look in: .git/lost-found/other/
+  Inspect blob files with: git show <blob-sha>

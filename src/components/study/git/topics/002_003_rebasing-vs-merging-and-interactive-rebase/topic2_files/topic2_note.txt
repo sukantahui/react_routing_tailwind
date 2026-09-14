@@ -1,0 +1,58 @@
+================================================================================
+GIT & GITHUB MASTER CURRICULUM - REBASING & INTERACTIVE REBASE
+TOPIC 2: STEP-BY-STEP STANDARD REBASE WORKFLOW: GIT SWITCH FEATURE && GIT REBASE MAIN
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE STANDARD REBASE WORKFLOW (STEP-BY-STEP)
+--------------------------------------------------------------------------------
+When working on a feature branch (`feature/gst-invoice`) and wanting to update it
+with recent changes from `main`, follow this standard 4-step workflow:
+
+STEP 1: Ensure Working Tree is Clean
+Before running rebase, ensure you have no uncommitted changes.
+Run:
+    git status
+If dirty, either commit them (`git commit -m "..."`) or stash them (`git stash push -m "WIP"`).
+
+STEP 2: Update Local `main` Branch from Remote
+Ensure your local `main` has the latest commits from GitHub/GitLab:
+    git switch main
+    git pull origin main
+
+STEP 3: Switch to Feature Branch and Run Rebase
+Switch back to your feature branch and rebase onto `main`:
+    git switch feature/gst-invoice
+    git rebase main
+
+Alternative One-Liner:
+    git rebase main feature/gst-invoice
+(This switches to feature/gst-invoice and rebases it on main automatically).
+
+STEP 4: Review and Fast-Forward Merge to `main` (When PR is Ready)
+Once the rebase finishes cleanly, you can fast-forward `main`:
+    git switch main
+    git merge feature/gst-invoice
+
+2. HOW GIT EXECUTES THE WORKFLOW INTERNALLY
+--------------------------------------------------------------------------------
+1. Git saves the commits on `feature/gst-invoice` since the merge-base as temporary patches.
+2. Git resets the current branch to `main`'s tip commit.
+3. Git re-applies each patch sequentially.
+4. Git points `feature/gst-invoice` to the new top replayed commit.
+
+3. REBASE STATUS & RECOVERY
+--------------------------------------------------------------------------------
+- Check state during rebase: `git status`
+- Complete conflict step: `git add <resolved-files> && git rebase --continue`
+- Abort completely: `git rebase --abort`
+
+4. BARRACKPORE ACCOTAX CASE STUDY
+--------------------------------------------------------------------------------
+At AccoTax Barrackpore, Sachin implements the ₹5,000 threshold e-way bill export.
+Before creating his Pull Request, he runs `git switch feature/eway && git rebase main`.
+All 3 of his commits sit smoothly on top of Sukanta Sir's latest ledger updates.
+
+================================================================================
+END OF NOTE - TOPIC 2
+================================================================================
