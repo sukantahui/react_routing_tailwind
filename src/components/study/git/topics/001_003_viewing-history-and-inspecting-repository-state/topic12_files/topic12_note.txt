@@ -1,0 +1,54 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 12
+Tracking Renamed and Moved Files: git log --follow across Refactorings
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+In modern software engineering, files get renamed and moved constantly:
+- 'src/calc.js' -> 'src/tax/gst_calculator.js'
+- 'UserHelper.js' -> 'src/services/UserService.ts'
+
+When you run standard 'git log -- <new_path>', Git tracks history strictly by
+the current filename string. As soon as it hits the commit where the file was
+renamed or moved, Git STOPs and omits all pre-rename history!
+
+To traverse backwards through past renames and directory migrations, Git provides
+the '--follow' flag:
+   git log --follow -- <file>
+
+2. HOW GIT DETECTS RENAMES
+--------------------------------------------------------------------------------
+Unlike Subversion (SVN) or Perforce which track explicit file identity metadata,
+Git does NOT store file rename operations explicitly in objects.
+Instead, Git dynamically detects renames at query time:
+- It compares blob similarity content hashes between tree objects.
+- If an old file was deleted and a new file was created in the same commit with
+  >= 50% identical content, Git concludes: "This file was renamed!"
+
+3. COMMAND VARIATIONS & EXAMPLES
+--------------------------------------------------------------------------------
+A. Basic Rename Tracking:
+   - git log --follow --oneline -- src/tax/gst_calculator.js
+   - Shows the entire lineage from its genesis commit under the old name up to now.
+
+B. Rename Tracking with Unified Diff Patch:
+   - git log --follow -p -- src/tax/gst_calculator.js
+
+C. Adjusting Similarity Detection Threshold (-M<percent>):
+   - git log --follow -M80% -- src/tax/gst_calculator.js
+   - Requires 80% content similarity to classify as a rename.
+
+D. Combined with git blame:
+   - git blame -C -- src/tax/gst_calculator.js
+   - Tracks line attribution across renames and moves.
+
+4. IMPORTANT LIMITATIONS OF '--follow'
+--------------------------------------------------------------------------------
+- Single-File Limitation: In standard Git, '--follow' only works on a SINGLE file,
+  not directories (e.g. 'git log --follow -- src/' is not supported).
+- Exact Renames vs 100% Rewrites: If a file was completely rewritten from scratch
+  at the same time it was renamed, similarity drops below 50% and Git may treat it
+  as a separate deletion and creation.
+================================================================================

@@ -1,0 +1,67 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 2
+Custom Log Formatting with Pretty Print & Format Placeholders
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+While '--oneline' provides a basic summary, real-world engineering teams often
+need specific structured log outputs for:
+- Automated release note and changelog generators
+- CI/CD auditing and compliance reports
+- Beautiful customized terminal dashboards with author, relative time, and tags
+
+Git's '--pretty=format:' (or '--format=') engine enables pixel-perfect string
+interpolation using placeholder tokens.
+
+2. ESSENTIAL PRETTY PRINT PLACEHOLDER TOKENS
+--------------------------------------------------------------------------------
+A. Commit Identification & Hashes:
+   - %H : Full 40-character commit SHA-1
+   - %h : Abbreviated commit hash (7 hex characters)
+   - %T : Full tree hash
+   - %t : Abbreviated tree hash
+   - %P : Parent commit hashes
+   - %p : Abbreviated parent commit hashes
+
+B. Author & Committer Metadata:
+   - %an : Author name
+   - %ae : Author email
+   - %ad : Author date (formatted according to --date=...)
+   - %ar : Author date, relative (e.g. "2 hours ago", "3 days ago")
+   - %cn : Committer name
+   - %ce : Committer email
+   - %cd : Committer date
+   - %cr : Committer date, relative
+
+C. Commit Subject & Decorations:
+   - %s : Subject line of the commit
+   - %b : Body of the commit message
+   - %B : Raw commit message (subject + body)
+   - %d : Ref decorations (branches, tags, HEAD)
+   - %D : Ref names without parenthetical wrappers
+
+D. ANSI Color Formatting:
+   - %C(color)     : Switch text color (e.g. %C(yellow), %C(auto), %C(bold blue))
+   - %C(reset)     : Reset text color back to default
+   - %C(bold red)  : Bold styling with color
+
+3. HIGH-YIELD FORMAT STRINGS
+--------------------------------------------------------------------------------
+1. Clean Short Date View:
+   git log --pretty=format:'%h %ad | %s%d [%an]' --date=short
+
+2. Colored Team Dashboard View:
+   git log --pretty=format:'%C(yellow)%h%C(reset) %C(cyan)%ad%C(reset) %C(green)%s%C(reset) %C(auto)%d%C(reset) [%C(bold blue)%an%C(reset)]' --date=relative
+
+3. Machine-Readable TSV / CSV Export for Auditing:
+   git log --pretty=format:'%h%x09%an%x09%ae%x09%ad%x09%s' --date=iso > changelog.tsv
+
+4. DATE FORMAT OPTIONS (--date=...)
+--------------------------------------------------------------------------------
+- --date=relative : "20 minutes ago", "3 days ago"
+- --date=short    : YYYY-MM-DD (e.g., 2026-09-14)
+- --date=iso / --date=iso-strict : ISO 8601 standard timestamp with timezone
+- --date=format:'%Y-%m-%d %H:%M:%S' : Custom strftime format string
+================================================================================

@@ -1,0 +1,83 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 11
+COMMON .gitignore TEMPLATES: NODE.JS, PYTHON, JAVA & IDE CONFIGURATIONS
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+Every runtime environment and programming language generates transient build
+artifacts, dependency trees, and cache files that must never be checked into
+version control.
+
+Standardizing `.gitignore` templates per tech stack prevents repository bloating
+(e.g., committing 300MB of `node_modules/` or compiled `.class` binaries).
+
+2. CORE ECOSYSTEM TEMPLATES
+-------------------------------------------------------------------------------
+
+A. NODE.JS / JAVASCRIPT / TYPESCRIPT
+-------------------------------------------------------------------------------
+  node_modules/
+  dist/
+  build/
+  .env
+  .env.local
+  .env.*.local
+  npm-debug.log*
+  yarn-debug.log*
+  yarn-error.log*
+  .next/
+  .nuxt/
+  coverage/
+
+B. PYTHON / DJANGO / FASTAPI
+-------------------------------------------------------------------------------
+  __pycache__/
+  *.py[cod]
+  *$py.class
+  .venv/
+  env/
+  venv/
+  *.egg-info/
+  dist/
+  build/
+  .pytest_cache/
+  .coverage
+  *.sqlite3
+
+C. JAVA / KOTLIN / SPRING BOOT
+-------------------------------------------------------------------------------
+  *.class
+  *.jar
+  *.war
+  *.ear
+  target/
+  .gradle/
+  build/
+  !gradle/wrapper/gradle-wrapper.jar
+
+D. IDE & OS SYSTEM CLUTTER
+-------------------------------------------------------------------------------
+  # VS Code (local user settings)
+  .vscode/*
+  !.vscode/settings.json
+  !.vscode/extensions.json
+  !.vscode/launch.json
+
+  # JetBrains (IntelliJ, WebStorm, PyCharm)
+  .idea/
+  *.iml
+
+  # OS Clutter
+  .DS_Store
+  Thumbs.db
+  desktop.ini
+
+3. GITHUB/GITIGNORE REPOSITORY STANDARD
+-------------------------------------------------------------------------------
+The official repository `github/gitignore` contains curated, battle-tested
+templates maintained by the open-source community for over 100 languages.
+You can generate merged templates instantly using tools like `gitignore.io`
+or `npx gitignore <language>`.
+===============================================================================

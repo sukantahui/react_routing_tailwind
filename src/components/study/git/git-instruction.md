@@ -2,9 +2,10 @@
 
 - **Repository**: `react_routing_tailwind`
 - **Subject**: Git Version Control & GitHub Enterprise Collaboration (Master Edition)
-- **Educator Persona**: Sukanta Hui (Barrackpore, West Bengal, India)
+- **Designated Educator & Course Mentor**: **Sukanta Hui** (Senior Software Architect & Mentor, Coder & AccoTax, Barrackpore, West Bengal, India)
 - **Personal GitHub Profile**: [https://github.com/sukantahui](https://github.com/sukantahui)
 - **Official Organization GitHub**: [https://github.com/codernaccotax](https://github.com/codernaccotax)
+- **Organization / Institution**: Coder & AccoTax (Barrackpore, WB, India)
 - **Target Environment**: React 19 + Vite + Tailwind CSS (No `tailwind.config.js` required)
 - **Primary Students**: Sachin, Mahima, Susmita, Abhronila, Debangshu, Swadeep, Tuhina
 - **Key Localities**: Barrackpore, Kolkata, Chandan Pukur, Jadavpur, Shyamnagar, Ichapur, Naihati
@@ -478,23 +479,20 @@ import noteText from "./topic0_files/topic0_note.txt?raw";
 
 ---
 
-### E. Teacher's Note Template (`<Teacher>`)
+### E. Teacher's Note & Mentorship Component (`<Teacher>`)
 
-#### Teacher's Note Requirements
+#### Teacher's Note Requirements & Educator Identity
+- **Designated Educator**: **Sukanta Hui** (Senior Mentor & Architect, Coder & AccoTax, Barrackpore).
+- Every Git topic component must import and mount the `<Teacher />` component (`import Teacher from "../../../common/TeacherSukantaHui";`).
+- The Teacher section embeds Sukanta Hui's verified educator profile, student interaction history (with Sachin, Mahima, Susmita, Abhronila, Debangshu, Swadeep, Tuhina), and pedagogical guidance:
 
-The Teacher section must contain:
-
-1. One memorable teaching principle.
-2. One warning about the most dangerous misconception.
-3. One practical habit students should develop.
-4. One short motivational statement.
-
-Keep it concise.
-
-Do not repeat the entire topic.
+1. **One Memorable Teaching Principle**: Core mental model or architectural truth.
+2. **One Defensive Warning**: Highlight dangerous misconceptions or high-risk commands (e.g. `git reset --hard`, destructive force pushes).
+3. **One Practical Professional Habit**: Daily workflow discipline (e.g. `git status` checks, atomic commits, staging reviews).
+4. **One Motivational Statement**: Encouraging mastery of terminal internals and problem-solving confidence.
 
 ```jsx
-import Teacher from "../../common/TeacherSukantaHui";
+import Teacher from "../../../common/TeacherSukantaHui";
 
 // Inside Topic Component:
 <Teacher
@@ -558,9 +556,40 @@ const TopicNavigation = () => {
 };
 ```
 
+### G. Vocabulary & Computer Dictionary Lookup Integration (`<WordDictionary>`)
+
+All tutorial topics and tracks are integrated with the global **Vocabulary & Computer Dictionary Lookup System**:
+
+1. **Automatic Text Selection Lookup**:
+   - Whenever any student selects or highlights a word or tech term (e.g. *catastrophic*, *immutable*, *idempotent*, *rebase*, *detached HEAD*), a sleek floating tooltip automatically appears near their cursor.
+   - Provides 1-click **"Define [word]"**, instant pronunciation audio, and direct links to:
+     - 💻 **Computer Hope** (Authoritative computer dictionary & IT jargon reference)
+     - ⚡ **TechTerms Computer Dictionary**
+     - 🦖 **MDN Web Docs**
+     - 🌿 **GeeksforGeeks CS Reference**
+     - 🚀 **DevDocs API & Tech Reference**
+     - 🌐 **Webopedia Tech Encyclopedia**
+     - 🏛️ **Cambridge Dictionary**
+     - 📚 **Merriam-Webster**
+     - 🔍 **Google Search Definition**
+     - 🎓 **Oxford Learner's Dictionaries**
+     - 🌐 **Wikipedia / Wiktionary**
+
+2. **Master Topic View & Workspace Integration**:
+   - In `StudyTopicView.jsx`, students have a persistent **"Dictionary"** button in the top header and a dedicated **"Dictionary" tab** in the right workspace panel for side-by-side study.
+
+3. **Optional In-Topic Vocabulary & Tech Glossary Highlights**:
+   - Topic authors may optionally embed a custom vocabulary card using `<WordDictionary>` when introducing heavy or domain-specific terminology:
+   ```jsx
+   import WordDictionary from "../../../common/WordDictionary";
+
+   // Inside Topic Component for a dedicated vocabulary / tech glossary helper card:
+   <WordDictionary initialWord="catastrophic" showTitle={true} />
+   ```
+
 ---
 
-### G. Cross-Module Navigation
+### H. Cross-Module Navigation
 
 When the current topic is the final topic of a module:
 
@@ -587,9 +616,9 @@ Navigation must follow the roadmap across segments and modules.
 1. **Full File Generation**: Always output 100% complete, copy-paste-ready, un-truncated topic JSX files.
 2. **Strict Relative Pathing**:
    - `roadmapData`: `import roadmapData from "../../git-roadmap.json";` (from `topics/[slug]/TopicN.jsx`).
-   - Common components: `import FAQTemplate from "../../common/FAQTemplate";`
-   - Common components: `import PlainTextPrint from "../../common/PlainTextPrint";`
-   - Common components: `import Teacher from "../../common/TeacherSukantaHui";`
+   - Common components: `import FAQTemplate from "../../../common/FAQTemplate";`
+   - Common components: `import PlainTextPrint from "../../../common/PlainTextPrint";`
+   - Common Teacher component: `import Teacher from "../../../common/TeacherSukantaHui";` (Teacher Sukanta Hui Mentorship Card)
 3. **Zero Placeholder Policy**: No empty functions, no placeholder TODOs, and no fake code snippets. Every command, diagram, analogy, and example must be completely authentic, functional, and deeply educational.
 
 ---

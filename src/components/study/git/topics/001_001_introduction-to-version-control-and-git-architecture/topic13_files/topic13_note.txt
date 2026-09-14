@@ -1,0 +1,86 @@
+================================================================================
+TOPIC 13: HANDS-ON TERMINAL LAB: ENVIRONMENT SETUP & AUDIT
+MODULE 001_001: Introduction to Version Control & Git Architecture
+COURSE: Version Control with Git & DevOps Workflow
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. LAB GOAL & OBJECTIVES
+--------------------------------------------------------------------------------
+This terminal laboratory executes the complete professional developer setup
+sequence required on every new development workstation.
+
+Lab Objectives:
+1. Verify Git installation, architecture, and version.
+2. Configure mandatory global author identity (user.name & user.email).
+3. Set the global default initial branch name to 'main'.
+4. Configure cross-platform line ending normalization (core.autocrlf).
+5. Bind default text/code editor (VS Code, Nano, Vim, or Notepad++).
+6. Enable automatic ANSI terminal UI colorization.
+7. Configure Git pull behavior (pull.rebase false/true).
+8. Verify configuration cascade with 'git config --list --show-origin'.
+
+
+2. THE MASTER TERMINAL COMMAND SEQUENCE
+--------------------------------------------------------------------------------
+# Step 1: Check Version
+$ git --version
+
+# Step 2: Global Identity Configuration
+$ git config --global user.name "Sukanta Hui"
+$ git config --global user.email "sukanta.developer@example.com"
+
+# Step 3: Modern Default Branch Standard
+$ git config --global init.defaultBranch main
+
+# Step 4: Line Endings
+# On Windows:
+$ git config --global core.autocrlf true
+# On macOS / Linux:
+$ git config --global core.autocrlf input
+
+# Step 5: Default Code Editor Configuration
+# For VS Code:
+$ git config --global core.editor "code --wait"
+# For Nano:
+$ git config --global core.editor "nano"
+# For Vim:
+$ git config --global core.editor "vim"
+
+# Step 6: UI Colorization & Useful Defaults
+$ git config --global color.ui auto
+$ git config --global pull.rebase false
+
+# Step 7: Useful Productivity Aliases
+$ git config --global alias.st status
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.lg "log --oneline --graph --all --decorate"
+
+# Step 8: Comprehensive Verification
+$ git config --list --show-origin
+
+
+3. GENERATING AUTOMATED VERIFICATION AUDIT
+--------------------------------------------------------------------------------
+To verify that everything was configured correctly in bash:
+  $ which git
+  $ git config --get user.name
+  $ git config --get user.email
+  $ git config --get init.defaultBranch
+  $ git config --get core.autocrlf
+  $ git config --get core.editor
+
+
+4. COMMON ERRORS & RECOVERY
+--------------------------------------------------------------------------------
+- Error: "editor returned non-zero exit code"
+  Fix: Ensure VS Code 'code' binary is in your system PATH and include '--wait'.
+- Error: "user.email not set in commit"
+  Fix: Run 'git config --global user.email "your_email@example.com"'.
+- Error: Multiple conflicting values for key
+  Fix: Run 'git config --global --unset-all <key>' and re-add.
+
+================================================================================
+Produced by Sukanta Hui | Barrackpore Coding & Web Architecture Master Series
+================================================================================

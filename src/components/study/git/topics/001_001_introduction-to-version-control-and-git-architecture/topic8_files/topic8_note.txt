@@ -1,0 +1,72 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 8
+TOPIC: Handling Line Endings Across Operating Systems: core.autocrlf & .gitattributes
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE LINE ENDING PROBLEM (CRLF VS LF)
+--------------------------------------------------------------------------------
+Different operating systems use different invisible character sequences to denote
+the end of a line in text files:
+
+• Windows (DOS format): CRLF (`\r\n` - Carriage Return + Line Feed).
+• Linux & macOS (Unix format): LF (`\n` - Line Feed).
+
+If a Windows developer edits a Linux project without proper normalization:
+- Every single line in every file will show as modified in `git diff`.
+- Git history and merge operations become cluttered with invisible whitespace diffs.
+- Shell scripts (`.sh`) deployed to Linux cloud servers fail with `\r: command not found`.
+
+================================================================================
+2. THE CORE.AUTOCRLF SOLUTION MATRIX
+================================================================================
+Operating System      Recommended Setting                   Command
+--------------------------------------------------------------------------------
+Windows               core.autocrlf = true                  $ git config --global core.autocrlf true
+                      (Converts LF -> CRLF on checkout,
+                       converts CRLF -> LF on commit)
+
+macOS & Linux         core.autocrlf = input                 $ git config --global core.autocrlf input
+                      (Leaves LF on checkout,
+                       converts accidental CRLF -> LF on commit)
+
+Strict / CI Servers   core.autocrlf = false                 $ git config --global core.autocrlf false
+                      (Does not touch line endings;
+                       relies strictly on .gitattributes)
+
+================================================================================
+3. ENTERPRISE REPOSITORY STANDARD: .GITATTRIBUTES
+================================================================================
+The modern gold standard across enterprise software engineering is defining a
+`.gitattributes` file at the root of your repository:
+
+# Sample .gitattributes:
+* text=auto eol=lf
+
+# Force Unix LF for shell scripts and source code:
+*.sh text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.py text eol=lf
+
+# Binary files must NEVER be converted:
+*.png binary
+*.jpg binary
+*.pdf binary
+*.zip binary
+
+================================================================================
+4. NORMALIZING AN EXISTING REPOSITORY (RENORMALIZATION)
+================================================================================
+# Fix line endings across all files in an existing repo:
+$ git add --renormalize .
+$ git commit -m "chore: normalize line endings to Unix LF via .gitattributes"
+
+================================================================================
+5. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"Never let invisible CRLF line endings break your Linux deployments. Set core.autocrlf
+true on Windows and always include a .gitattributes file in your project root!"
+— Sukanta Hui, Coder & AccoTax
+================================================================================

@@ -1,0 +1,45 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 6
+CREATING COMMITS: `git commit -m` VS FULL EDITOR MULTI-LINE COMMIT MESSAGES
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+`git commit` takes the current snapshot staged in the Staging Area (Index) and
+records it as an immutable commit object in `.git/objects/`. It links to the root
+tree object, points to parent commit SHA(s), captures author and committer
+signatures, timestamps, and the descriptive commit message.
+
+2. COMMIT MESSAGE INVOCATION METHODS
+-------------------------------------------------------------------------------
+  Method                           Command                         Best Used For
+  -----------------------------------------------------------------------------
+  Single-line flag                 `git commit -m "title"`         Trivial typo/docs
+  Multi-flag (Title + Body)        `git commit -m "T" -m "Body"`   Scripted CLI
+  Full interactive editor          `git commit`                    Professional commits
+  Amend previous commit            `git commit --amend`            Fix typo in last HEAD
+  Bypass staging (tracked only)    `git commit -am "title"`        Quick edits (careful!)
+
+3. THE 50/72 RULE OF PROFESSIONAL COMMIT MESSAGES
+-------------------------------------------------------------------------------
+Line 1: Capitalized, imperative summary (Max 50 characters, NO trailing period).
+Line 2: Blank line (Strictly required to separate title from body in git log).
+Line 3+: Detailed explanation of the *WHY* and *WHAT* (wrapped at 72 chars).
+  - Explain the business context or problem being solved.
+  - Explain why this approach was chosen over alternatives.
+  - Reference bug tracker / issue IDs (e.g., `Closes #142`).
+
+4. CONFIGURING YOUR DEFAULT COMMIT EDITOR
+-------------------------------------------------------------------------------
+  VS Code: `git config --global core.editor "code --wait"`
+  Nano:    `git config --global core.editor "nano"`
+  Vim:     `git config --global core.editor "vim"`
+
+5. CLASSROOM CASE STUDY (BARRACKPORE CODER & ACCOTAX LAB)
+-------------------------------------------------------------------------------
+Sachin wrote `git commit -m "fixed stuff"`.
+Susmita reviewing git log 6 months later: <em>"What stuff? Which tax formula? Why?"</em>
+Sukanta Hui showed how opening the full editor produces structured, searchable
+documentation that saves engineering hours during production incidents.
+===============================================================================

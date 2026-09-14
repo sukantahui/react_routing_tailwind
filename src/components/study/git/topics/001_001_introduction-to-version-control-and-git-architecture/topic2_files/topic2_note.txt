@@ -1,0 +1,67 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 2
+TOPIC: Centralized vs Distributed VCS: Single Point of Failure, Offline Working, Branching Performance
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. ARCHITECTURAL COMPARISON: CVCS VS DVCS
+--------------------------------------------------------------------------------
+Understanding the architectural differences between Centralized Version Control
+Systems (like Subversion / SVN, CVS, Perforce) and Distributed Version Control Systems
+(like Git, Mercurial) is fundamental for every software engineer.
+
+A. THE THREE CORE ARCHITECTURAL PILLARS:
+
+1. Single Point of Failure (SPOF):
+   • CVCS: A single central server houses the entire repository database. If the server's
+     disk is corrupted or suffers catastrophic data loss without a recent off-site
+     backup, the complete revision history of the project is wiped out.
+   • DVCS (Git): Every developer clone is a complete mirror of the repository. Every
+     laptop in Barrackpore or Kolkata is an active hot backup. If the central server
+     (e.g., GitHub) is destroyed, any developer's local repo can restore the full history.
+
+2. Offline Working Capability:
+   • CVCS: Operations like committing code, viewing past diffs, reading commit logs, and
+     switching branches require an active TCP/IP network connection to the central server.
+     Without network access, development halts.
+   • DVCS (Git): 100% of commits, diffs, branches, tags, and log inspections occur
+     locally on your SSD with sub-millisecond execution times. Network connection is only
+     needed during asynchronous push/pull synchronization.
+
+3. Branching Performance:
+   • CVCS (SVN): Branching creates a full copy of the directory tree on the server.
+     Branching is slow, consumes server disk space, and developers are discouraged
+     from branching frequently.
+   • DVCS (Git): A branch is simply a 41-byte plain-text file containing a 40-character
+     SHA-1 commit hash. Creating, switching, and deleting branches takes ~0.001 seconds
+     regardless of repository size.
+
+================================================================================
+2. PERFORMANCE METRICS TABLE
+================================================================================
+Operation               Subversion (SVN)           Git (DVCS)
+--------------------------------------------------------------------------------
+Branch Creation         ~5 to 30 seconds (Network) ~0.001 seconds (Local 41B file)
+Commit Execution        ~2 to 10 seconds (Network) ~0.010 seconds (Local SSD)
+Log Viewing (git log)   ~3 to 15 seconds (Network) ~0.005 seconds (Local DAG)
+Diff with Previous Rev  ~2 to 8 seconds (Network)  ~0.003 seconds (Local Blobs)
+Server Outage Impact    Total engineering stoppage Zero local impact (continue work)
+
+================================================================================
+3. COMMAND CHEATSHEET
+================================================================================
+# Test local repository independence:
+$ git log --oneline -n 10
+$ git diff HEAD~1 HEAD
+$ git branch feature/offline-architecture
+$ git switch feature/offline-architecture
+$ git commit -am "feat: independent local commit"
+
+================================================================================
+4. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"In CVCS, branching was an expensive luxury. In Git, branching is your everyday
+thinking pad. Branch freely, commit atomically, and merge confidently."
+— Sukanta Hui, Coder & AccoTax
+================================================================================

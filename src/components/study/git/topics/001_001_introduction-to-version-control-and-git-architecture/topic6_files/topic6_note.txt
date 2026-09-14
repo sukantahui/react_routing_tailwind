@@ -1,0 +1,59 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 6
+TOPIC: Configuring Git Identity: git config --global user.name and user.email
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. EXECUTIVE OVERVIEW: THE IMPORTANCE OF GIT IDENTITY
+--------------------------------------------------------------------------------
+The first thing you must do after installing Git is set your user name and email
+address. This is critical because every Git commit embeds this information immutably
+into the commit metadata:
+
+• Author: The developer who originally wrote the code.
+• Committer: The developer who applied the commit to the repository.
+
+Once a commit is created, this identity is baked into the SHA-1/SHA-256 calculation.
+
+================================================================================
+2. CONFIGURATION COMMANDS
+================================================================================
+# Set Global User Name:
+$ git config --global user.name "Sukanta Hui"
+
+# Set Global User Email (must match your GitHub/GitLab verified email):
+$ git config --global user.email "sukanta@codernaccotax.co.in"
+
+# Set Local (Per-Repository) Identity (e.g. for work vs personal repos):
+$ cd /path/to/enterprise-client-repo
+$ git config --local user.name "Sukanta Hui (Enterprise)"
+$ git config --local user.email "sukanta.hui@enterprise-corp.com"
+
+================================================================================
+3. CONFIGURATION FILE STORAGE LOCATIONS
+================================================================================
+Scope        Flag         File Path on Disk
+--------------------------------------------------------------------------------
+System       --system     /etc/gitconfig (Linux/macOS) or C:\Program Files\Git\etc\gitconfig
+Global       --global     ~/.gitconfig (or ~/.config/git/config)
+Local        --local      .git/config (inside specific repository root)
+Worktree     --worktree   .git/config.worktree (when using multi-worktree)
+
+================================================================================
+4. VERIFYING YOUR ACTIVE IDENTITY
+================================================================================
+# Check active name and email:
+$ git config user.name
+$ git config user.email
+
+# Check with origin file location:
+$ git config --list --show-origin | grep user
+
+================================================================================
+5. TEACHER'S GOLDEN PRINCIPLE
+--------------------------------------------------------------------------------
+"Your Git author email is your professional digital signature. Always use your verified
+professional email so your contributions, pull requests, and commit streaks map
+accurately to your professional profile!" — Sukanta Hui, Coder & AccoTax
+================================================================================

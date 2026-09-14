@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 4
+TOPIC: Core Design Principles of Git: Speed, Simple Design, Non-linear Dev, Full Distribution, Data Integrity
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE FIVE CORE DESIGN PRINCIPLES
+--------------------------------------------------------------------------------
+When Linus Torvalds engineered Git in 2005, he defined five immutable design
+principles that govern how Git functions:
+
+1. SPEED (Raw Sub-Second Performance):
+   • Direct filesystem manipulation in pure C.
+   • Memory-mapped files (mmap) and index stat caching.
+   • Local operations execute in milliseconds without network round-trips.
+
+2. SIMPLE DESIGN & ARCHITECTURAL PURITY:
+   • The core data model consists of just 4 basic object types:
+     - Blob: File content data (compressed with zlib).
+     - Tree: Directory listing mapping filenames and modes to SHA-1 hashes.
+     - Commit: Snapshot pointer containing author, committer, timestamp, message, parent SHA.
+     - Tag: Named immutable annotation pointing to a specific commit.
+
+3. NON-LINEAR DEVELOPMENT SUPPORT (Branching & Merging):
+   • Frictionless branching: A branch is merely a 41-byte text pointer.
+   • Automatic 3-way merge computation using common ancestor merge bases.
+   • Developers can maintain dozens of concurrent feature and hotfix branches.
+
+4. FULLY DISTRIBUTED ARCHITECTURE:
+   • Every local clone contains the entire object database and commit history.
+   • Zero reliance on a central server; peer-to-peer sync is fully supported.
+   • Eliminates Single Point of Failure (SPOF).
+
+5. CRYPTOGRAPHIC DATA INTEGRITY:
+   • Every object is named and referenced by its 160-bit SHA-1 (or 256-bit SHA-256) hash.
+   • History is structured as an immutable Merkle Directed Acyclic Graph (DAG).
+   • Impossible to alter past code without invalidating all subsequent commit hashes.
+
+================================================================================
+2. THE FOUR CORE OBJECT TYPES
+================================================================================
+Object Type   Description                           Command to Inspect
+--------------------------------------------------------------------------------
+blob          Raw compressed file content           git cat-file -p <blob-sha>
+tree          Directory representation (folders)    git cat-file -p <tree-sha>
+commit        Permanent snapshot metadata & parent  git cat-file -p <commit-sha>
+tag           Annotated cryptographic release sign  git cat-file -p <tag-sha>
+
+================================================================================
+3. COMMAND CHEATSHEET
+================================================================================
+# Inspect the 4 object types in your repository:
+$ git cat-file -t HEAD              # Output: commit
+$ git cat-file -p HEAD              # View commit author, tree SHA, parent SHA
+$ git cat-file -p HEAD^{tree}       # View tree directory contents
+$ git hash-object -w README.md      # Manually create a blob object
+
+================================================================================
+4. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"Git is not a complex mystery; it is an elegant, simple content-addressable key-value
+store with a VCS user interface on top." — Sukanta Hui, Coder & AccoTax
+================================================================================

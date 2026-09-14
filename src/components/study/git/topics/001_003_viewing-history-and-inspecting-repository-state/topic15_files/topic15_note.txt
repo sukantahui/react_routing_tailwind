@@ -1,0 +1,55 @@
+================================================================================
+COMPREHENSIVE ENGINEERING MODULE NOTE & CAPSTONE SYNTHESIS
+MODULE 001_003: VIEWING HISTORY AND INSPECTING REPOSITORY STATE
+================================================================================
+Module: 001_003 - Viewing History & Inspecting Repository State
+Topic 15: Module Self-Assessment, Short Questions & Capstone Synthesis
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+Target Audience: Senior Software Engineers, DevOps Leads, Systems Architects
+
+--------------------------------------------------------------------------------
+1. MODULE 001_003 EXECUTIVE RECAP & TAXONOMY
+--------------------------------------------------------------------------------
+Throughout Module 001_003, we explored the complete Git inspection surface:
+  - Topic 0: The Log Engine & Commit Graph DAG Traversal.
+  - Topic 1: Formatting: `--oneline`, `--decorate`, `--graph --all`.
+  - Topic 2: Custom Pretty Formats (`--pretty=format:"%h %ad %an %s"`).
+  - Topic 3: Filtering by Count (`-n`), Date Bounds (`--since`/`--until`), & Author (`--author`).
+  - Topic 4: Filtering by Commit Messages (`--grep`, `--invert-grep`, `--all-match`).
+  - Topic 5: Path-Specific History (`git log -- <path>`).
+  - Topic 6: Diff Patches (`-p`) & Modification Statistics (`--stat`).
+  - Topic 7: Point-in-Time Inspection with `git show <revision>:<path>`.
+  - Topic 8: Comparing Revisions with `git diff` (Two-Dot `A..B` vs Triple-Dot `A...B`).
+  - Topic 9: Line Provenance Forensics with `git blame`.
+  - Topic 10: Advanced Blame Modifiers (`-w` whitespace, `-L` line range, `-C` move detection).
+  - Topic 11: The Pickaxe Operator (`-S` symbol count change vs `-G` regex search).
+  - Topic 12: Renamed and Moved File Histories (`--follow`).
+  - Topic 13: Case Study: Production Bug Diagnosis with blame & Pickaxe.
+  - Topic 14: Hands-on Terminal Lab: History Reconstruction & Forensics.
+
+--------------------------------------------------------------------------------
+2. MASTER REFERENCE FORMULA CHEAT SHEET
+--------------------------------------------------------------------------------
+1. Topology Visualizer:
+   git log --graph --oneline --decorate --all
+2. Fast Author Output Breakdown:
+   git shortlog -sn --no-merges
+3. Deleted Function Search:
+   git log -S "<identifier>" --stat -p --oneline
+4. Line Range Provenance without Formatting Noise:
+   git blame -w -C -C -L <start>,<end> <path>
+5. Outgoing Local Commits:
+   git log origin/main..HEAD --oneline
+6. Incoming Remote Commits:
+   git log HEAD..origin/main --oneline
+7. Branch Divergence Since Fork:
+   git log --left-right --graph --oneline main...feature
+8. Inspect File Blob at Revision:
+   git show <commit-sha>:<path/to/file>
+
+--------------------------------------------------------------------------------
+3. PASS CRITERIA FOR SELF-ASSESSMENT
+--------------------------------------------------------------------------------
+- Score >= 80% (24/30) indicates readiness for Module 001_004: "Safely Undoing Changes and Basic Recovery" (reset, revert, checkout, restore, reflog).
+- Score < 80% indicates review is required for diff semantics, blame modifiers, or pickaxe distinctions.
+================================================================================

@@ -1,0 +1,75 @@
+================================================================================
+TOPIC 0: GIT'S THREE-TREE ARCHITECTURE (WORKING TREE, INDEX, HEAD)
+MODULE 001_002: The Three-Tree Architecture & Core Workflow
+COURSE: Version Control with Git & DevOps Workflow
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT ARE THE THREE TREES?
+--------------------------------------------------------------------------------
+Unlike traditional VCS systems (like SVN) that directly commit modified files
+from disk to the central server, Git introduces an intermediate layer called the
+Staging Area (Index). Git manages three distinct "trees" (collections of files):
+
++--------------------+-------------------------+-------------------------+
+| Tree Name          | Physical Location       | Role & Description      |
++--------------------+-------------------------+-------------------------+
+| 1. Working Tree    | Project files on disk   | The files you edit, run |
+|    (Sandbox)       | (outside .git/)         | and compile in your IDE |
++--------------------+-------------------------+-------------------------+
+| 2. Staging Area    | .git/index              | Binary cache of staged  |
+|    (Index / Cache) | (binary file)           | snapshots for next commit|
++--------------------+-------------------------+-------------------------+
+| 3. Repository      | .git/objects/           | Immutable permanent     |
+|    (HEAD Commit)   | (object database)       | snapshot of last commit |
++--------------------+-------------------------+-------------------------+
+
+
+2. THE THREE-STAGE WORKFLOW LIFECYCLE
+--------------------------------------------------------------------------------
+Step 1: EDIT files in your Working Tree (sandbox edits).
+Step 2: STAGE files using 'git add' to copy snapshots into the Index.
+Step 3: COMMIT staged snapshots from Index into HEAD commit object via 'git commit'.
+
+Workflow Diagram:
+[ Working Tree ] --- git add ---> [ Staging Index ] --- git commit ---> [ HEAD Repo ]
+       ^                                 |                                    |
+       |---------------- git checkout / restore ------------------------------|
+
+
+3. WHY DOES THE STAGING AREA EXIST?
+--------------------------------------------------------------------------------
+1. Fine-Grained Precision: You can edit 10 files, but stage and commit only 2
+   related files to keep commits atomic and focused.
+2. Patch-Level Staging: With 'git add -p', you can stage individual lines within
+   a single file without committing unfinished debugging code.
+3. Conflict Resolution: During merge conflicts, the index stores multiple stages
+   (Stage 1: Base, Stage 2: Ours, Stage 3: Theirs) to facilitate clean merges.
+4. Performance: The binary index makes 'git status' and 'git diff' virtually
+   instantaneous even in repositories containing 500,000 files.
+
+
+4. INSPECTING THE THREE TREES WITH CLI COMMANDS
+--------------------------------------------------------------------------------
+- Compare Working Tree vs Staging Index:
+    $ git diff
+- Compare Staging Index vs HEAD Commit:
+    $ git diff --staged   (or git diff --cached)
+- Compare Working Tree vs HEAD Commit:
+    $ git diff HEAD
+- Inspect binary Index contents directly:
+    $ git ls-files --stage
+- Pretty-print HEAD commit tree:
+    $ git cat-file -p HEAD^{tree}
+
+
+5. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"Never view Git as a direct disk backup. Think of the Staging Area as a photographer's
+viewfinder: you arrange the exact subjects you want in the shot, adjust the lighting,
+and press the shutter button (git commit) only when the frame is perfect!"
+— Sukanta Hui, Coder & AccoTax
+
+================================================================================
+Produced by Sukanta Hui | Barrackpore Coding & Web Architecture Master Series
+================================================================================

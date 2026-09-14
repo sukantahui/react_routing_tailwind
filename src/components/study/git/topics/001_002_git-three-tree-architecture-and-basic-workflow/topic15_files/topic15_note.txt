@@ -1,0 +1,34 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 15
+MODULE 001_002 COMPREHENSIVE SELF-ASSESSMENT & EXAM PREPARATION
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. MODULE 001_002 CURRICULUM REVIEW SUMMARY
+-------------------------------------------------------------------------------
+This module mastered the foundational architecture of Git version control:
+  1. The Three-Tree Architecture (Working Directory, Staging Index, HEAD).
+  2. File Lifecycle States (Untracked ??, Unmodified, Modified  M, Staged M ).
+  3. Repository Creation (`git init -b main` vs `git clone`).
+  4. Inspection Cockpit (`git status -sb` and XY status column matrix).
+  5. Staging Mastery (`git add <file>`, `git add .`, `git add -A`, `git add -u`).
+  6. Interactive Patch Mode (`git add -p` with y, n, s, e, q, a, d keys).
+  7. Commit Formatting (The 50/72 Rule, `core.editor`, `git commit --amend`).
+  8. Philosophy of Atomic Commits (Singularity of purpose, bisectability, green builds).
+  9. Conventional Commits v1.0.0 (`feat`, `fix`, `docs`, `refactor`, `perf`, `test`, `!`).
+  10. Diff Inspection (`git diff`, `git diff --staged`, `git diff HEAD`).
+  11. Exclusion Engineering (`.gitignore`, wildcards, directory slashes, negation `!`).
+  12. Ecosystem Templates (Node.js, Python, Java, IDE clutter, lockfile rules).
+  13. Three-Tier Ignore Hierarchy (`.gitignore`, `.git/info/exclude`, `~/.gitignore_global`).
+
+2. KEY EXAMINATION PRINCIPLES
+-------------------------------------------------------------------------------
+- Git stores compressed object snapshots (blobs & trees), not delta diffs.
+- `git status -s` Left Column = Index vs HEAD; Right Column = Working Tree vs Index.
+- `git add -p` cannot auto-split (`s`) contiguous adjacent lines without context lines.
+- `.gitignore` only applies to UNTRACKED files. Already-tracked files require `git rm --cached`.
+- `.git/info/exclude` is private to that single local clone and never pushed to remotes.
+
+===============================================================================
+SUCCESS TARGET: Achieve 90%+ on the 30-question comprehensive assessment!
+===============================================================================

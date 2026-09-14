@@ -1,0 +1,52 @@
+===============================================================================
+GIT FOUNDATION SERIES: MODULE 001_003: TOPIC 0
+DEEP DIVE INTO `git log`: DEFAULT OUTPUT, SHA-1 HASHES, AUTHOR VS COMMITTER
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. WHAT IS `git log`?
+-------------------------------------------------------------------------------
+`git log` is the primary history navigation tool in Git. It traverses the
+Directed Acyclic Graph (DAG) starting from the current commit pointed to by
+`HEAD`, following parent pointers backwards in reverse-chronological order.
+
+2. ANATOMY OF DEFAULT `git log` OUTPUT
+-------------------------------------------------------------------------------
+Each standard commit entry contains 4 essential components:
+  1. Commit Checksum (SHA-1): A 40-character hexadecimal string uniquely
+     identifying the immutable snapshot.
+  2. Author Information: The developer who wrote the original code.
+  3. Date / Timestamp: When the original author created the commit.
+  4. Commit Message: The developer's explanation of what was changed and why.
+
+3. AUTHOR VS COMMITTER: THE CRITICAL DISTINCTION
+-------------------------------------------------------------------------------
+Git strictly separates two identities for every commit object:
+  - Author (`GIT_AUTHOR_NAME` / `GIT_AUTHOR_EMAIL`):
+    The individual who wrote the original code and crafted the initial patch.
+  - Committer (`GIT_COMMITTER_NAME` / `GIT_COMMITTER_EMAIL`):
+    The person (or automated bot) who actually applied or recorded the commit
+    into the current branch (e.g. via `git rebase`, `git cherry-pick`, or
+    `git commit --amend`).
+
+To view both Author and Committer side-by-side:
+  `git log --format=fuller`
+
+4. HOW `git log` TRAVERSES HISTORY (DAG PARENT POINTERS)
+-------------------------------------------------------------------------------
+  HEAD -> [commit C] -> parent -> [commit B] -> parent -> [commit A] (Root)
+
+  - Each commit object stores the 40-char SHA-1 hash of its parent commit(s).
+  - Git starts at `HEAD`, prints commit C, looks up parent SHA (B), prints B,
+    looks up parent SHA (A), prints A, and stops when a commit has no parent (root).
+
+5. BARRACKPORE CODER & ACCOTAX CLASSROOM CASE
+-------------------------------------------------------------------------------
+Sachin wrote a tax calculation patch on Monday. On Friday, Sukanta Hui rebased
+Sachin's branch onto main.
+When Susmita checked `git log --format=fuller`:
+  - Author: Sachin (Monday timestamp)
+  - Committer: Sukanta Hui (Friday timestamp)
+Lesson: Rebase preserves author attribution while recording the committer who
+applied the patch!
+===============================================================================

@@ -1,0 +1,59 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 10
+Advanced git blame Filtering: Ignoring Whitespace (-w) & Line Ranges (-L)
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+In active codebases, two major obstacles frequently disrupt 'git blame':
+1. Formatting noise: A developer or CI linter runs 'prettier' or changes tabs to
+   spaces across 500 lines, claiming authorship of all lines without changing logic.
+2. File length: Blaming a 2,000-line file floods the terminal when you only care
+   about a 10-line calculation function.
+
+Git provides advanced filtering flags to eliminate these obstacles:
+- 'git blame -w' : Ignores whitespace when attributing line changes.
+- 'git blame -L <start>,<end>' : Scopes attribution strictly to a line range or function.
+
+2. CORE ADVANCED BLAME OPTIONS
+--------------------------------------------------------------------------------
+A. Ignoring Whitespace Changes (-w):
+   - git blame -w src/tax/gst_calculator.js
+   - If a commit only changed indentation, spaces, or tabs, Git looks *past* that
+     commit and attributes the line to the previous author who wrote the actual code.
+
+B. Restricting by Line Range (-L start,end):
+   - By line numbers:
+     git blame -L 15,30 src/tax/gst_calculator.js
+     (Blames lines 15 through 30 inclusive).
+   - Relative offset (+offset):
+     git blame -L 15,+10 src/tax/gst_calculator.js
+     (Blames 10 lines starting from line 15).
+
+C. Restricting by Function / Regex Pattern (-L :funcname or -L /regex/):
+   - By function name:
+     git blame -L :calculateGST src/tax/gst_calculator.js
+   - By regex boundary:
+     git blame -L "/function calculateGST/",/^}/ src/tax/gst_calculator.js
+
+D. Ignoring Specific Commits (--ignore-rev / --ignore-revs-file):
+   - git blame --ignore-rev <formatting_commit_hash> <file>
+   - Team standard: Configure a '.git-blame-ignore-revs' file:
+     git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+3. CODE MOVEMENT & COPY DETECTION (-C and -M)
+--------------------------------------------------------------------------------
+- 'git blame -C' : Detects lines moved or copied from other files in the same commit.
+- 'git blame -C -C' : Looks back across files in the commit that created the file.
+- 'git blame -C -C -C' (or -CCC) : Looks back across ALL commits in history for copied code.
+- 'git blame -M' : Detects lines moved or copied within the same file.
+
+4. PRODUCTION FORENSIC RECIPES
+--------------------------------------------------------------------------------
+1. Isolate function authorship ignoring formatting noise:
+   git blame -w -L 10,25 src/tax/gst_calc.js
+
+2. Find original author across historical code refactor:
+   git blame -w -C -C -L :computeTotal src/billing.js
+================================================================================

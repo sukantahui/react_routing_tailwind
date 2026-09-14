@@ -1,0 +1,53 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 8
+Comparing Revisions with git diff: Trees, Staging, and Arbitrary Commits
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+Git is a Directed Acyclic Graph of trees. 'git diff' is the primary comparison
+engine capable of calculating unified line-level differences across any two
+states in the Git ecosystem:
+- Working Directory vs. Staging Area (Index)
+- Staging Area vs. Last Committed HEAD
+- Working Directory vs. Any Commit / Branch
+- Arbitrary Commit A vs. Arbitrary Commit B (or two branches)
+
+2. THE 4 FUNDAMENTAL GIT DIFF MODES
+--------------------------------------------------------------------------------
+1. git diff (Unstaged Changes):
+   - Compares: Working Directory vs. Staging Area (Index).
+   - Shows: Modifications made in your code editor that have NOT yet been staged with 'git add'.
+
+2. git diff --staged (or git diff --cached):
+   - Compares: Staging Area (Index) vs. HEAD (Last Commit).
+   - Shows: Exactly what will be permanently committed if you run 'git commit' right now.
+
+3. git diff HEAD:
+   - Compares: Working Directory vs. HEAD (bypassing the index).
+   - Shows: All changes (both staged and unstaged) since the last commit.
+
+4. git diff <commitA> <commitB> (Two-Dot Diff):
+   - Compares: The exact snapshot of Commit A vs. Commit B.
+   - Example: git diff v1.0.0 v2.0.0
+   - Example: git diff main feature/tax
+
+3. TWO-DOT (..) VS THREE-DOT (...) COMPARISONS
+--------------------------------------------------------------------------------
+A. Two-Dot Range: git diff branchA..branchB (or git diff branchA branchB)
+   - Directly compares the tip of branchA with the tip of branchB.
+   - Shows all differences needed to turn branchA into branchB.
+
+B. Three-Dot Range: git diff branchA...branchB
+   - Compares the common merge-base ancestor of branchA and branchB with the tip of branchB.
+   - Shows only the changes introduced on branchB since it branched off from branchA!
+   - This matches exactly how GitHub / GitLab displays Pull Request diffs.
+
+4. ADVANCED DIFF FLAGS
+--------------------------------------------------------------------------------
+- git diff --stat : Shows high-level line change statistics.
+- git diff -w / --ignore-all-space : Ignores whitespace when comparing lines.
+- git diff --name-only : Prints only the names of files that differ.
+- git diff --check : Warns about trailing whitespace errors and merge conflict markers.
+================================================================================

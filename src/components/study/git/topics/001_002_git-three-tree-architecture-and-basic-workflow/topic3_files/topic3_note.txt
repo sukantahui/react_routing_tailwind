@@ -1,0 +1,62 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 3
+INSPECTING WORKING TREE STATUS: `git status` AND SHORT FORMAT (`git status -s`)
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+The `git status` command is the diagnostic dashboard of your Git repository. It
+queries the state of the Three Trees simultaneously:
+  1. Compares HEAD (committed snapshot) vs Index (Staging Area).
+  2. Compares Index (Staging Area) vs Working Directory (uncommitted files on disk).
+  3. Identifies untracked files residing in the working tree not known to the index.
+
+2. LONG FORMAT (`git status`)
+-------------------------------------------------------------------------------
+Outputs three distinct sections:
+  A. "Changes to be committed:" (Staged changes - Index differs from HEAD).
+  B. "Changes not staged for commit:" (Tracked modifications - Working Tree differs from Index).
+  C. "Untracked files:" (Files present on disk that have never been staged and are not ignored).
+
+3. SHORT FORMAT MATRIX (`git status -s` or `git status --short`)
+-------------------------------------------------------------------------------
+The short status format uses a two-column status code:
+  Column 1 (Left Column)  : Staged status (Index vs HEAD)
+  Column 2 (Right Column) : Unstaged status (Working Tree vs Index)
+
+Matrix of Common Status Combinations:
+  XY  Meaning
+  ----------------------------------------------------------------------
+  ??  Untracked file (never staged, not ignored)
+  A_  Added to Staging Area (new file in Index, not yet committed)
+  _M  Modified in Working Tree (tracked file changed, but not staged)
+  M_  Modified and Staged (file staged in Index ready for commit)
+  MM  Staged AND Modified (staged version in Index, but modified again on disk)
+  D_  Deleted in Index (staged deletion)
+  _D  Deleted in Working Tree (file deleted on disk, but deletion not staged)
+  RD  Renamed in Index, then deleted in Working Tree
+  UU  Unmerged (Merge conflict present, needs resolution)
+  !!  Ignored file (matching .gitignore patterns, shown with --ignored)
+
+4. POWER FLAGS FOR REAL-WORLD AUDITING
+-------------------------------------------------------------------------------
+  `git status -s`              -> Compact 2-column short output.
+  `git status -sb`             -> Short output with branch tracking info & ahead/behind count.
+  `git status -uall`           -> Show individual files inside untracked directories.
+  `git status --ignored`       -> Reveal files that match .gitignore rules.
+
+5. CLASSROOM GOTCHA (BARRACKPORE CODER & ACCOTAX LAB)
+-------------------------------------------------------------------------------
+Sachin made changes to `invoice.js`, ran `git add invoice.js`, and then edited
+`invoice.js` again to fix a typo before committing. When he ran `git status -s`,
+he saw `MM invoice.js`.
+Explanation:
+  - Left 'M' = The first version is staged in the Index.
+  - Right 'M' = The second version with the typo fix is in the Working Tree unstaged!
+  - If Sachin ran `git commit -m "update"` immediately, only the FIRST edit would be committed!
+  - Solution: Run `git add invoice.js` again before committing to sync the Index.
+
+===============================================================================
+SUMMARY: Keep `git status -sb` aliased as `git st` for rapid daily inspection.
+===============================================================================

@@ -1648,7 +1648,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
         {/* ========================================================== */}
         {/* Teacher / Instructor Profile & Institutional Card */}
         {/* ========================================================== */}
-        <TeacherProfileCard teacher={teacher} />
+        <TeacherProfileCard teacher={roadmapData?.teacher} />
 
 
         {/* ========================================================== */}

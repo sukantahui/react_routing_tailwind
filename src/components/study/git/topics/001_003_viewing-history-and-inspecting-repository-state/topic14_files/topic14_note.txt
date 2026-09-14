@@ -1,0 +1,59 @@
+================================================================================
+COMPREHENSIVE ENGINEERING LECTURE NOTE: HANDS-ON TERMINAL LAB
+RECONSTRUCTING TIMELINES, AUTHOR METRICS, AND PICKAXE FORENSICS
+================================================================================
+Module: 001_003 - Viewing History & Inspecting Repository State
+Topic 14: Hands-on Terminal Lab: History Reconstruction & Pickaxe Forensics
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+Target Audience: Senior Software Engineers, DevOps Leads, Systems Architects
+
+--------------------------------------------------------------------------------
+1. ARCHITECTURAL & OPERATIONAL OVERVIEW
+--------------------------------------------------------------------------------
+In modern software engineering ecosystems, history inspection is not a passive reading activity; it is an active investigative workflow. Repositories with hundreds of contributors, tens of thousands of commits, and multi-year life cycles inevitably face critical operational issues:
+  1. Regression Analysis: Identifying the exact commit that introduced a performance regression or security vulnerability without git-bisect (or as a precursor to bisect).
+  2. Deleted Code Archeology: Locating business logic, schema migrations, or legacy algorithms that were deleted months or years ago whose file path is unknown.
+  3. Contributor Analytics: Profiling author contribution velocities, commit distributions, and refactoring ownership without third-party SaaS tools.
+  4. Cross-Branch Discrepancy Audits: Reconstructing how bugfixes or feature branches diverged from production staging using asymmetric commit log ranges (`A...B` and `A..B`).
+
+This hands-on lab synthesizes all the atomic commands studied throughout Module 001_003:
+  - `git log --graph --oneline --decorate --all`
+  - `git log --pretty=format:"..."`
+  - `git log --since / --until / --author / --grep`
+  - `git shortlog -sn --no-merges`
+  - `git log -S / -G --pickaxe-regex`
+  - `git blame -w -C -M -L`
+  - `git show --stat --patch`
+  - `git diff branch1...branch2`
+
+--------------------------------------------------------------------------------
+2. LAB WORKFLOW & SHELL SCRIPT ARCHITECTURE
+--------------------------------------------------------------------------------
+The companion lab script (`history_forensics_lab.sh`) creates an isolated, deterministic multi-author Git repository (`tax_engine_forensics_lab`) featuring:
+  - 4 fictional engineering personas (Debangshu, Swadeep, Mahima, Susmita).
+  - 10 chronological commits across 2 branches (`main` and `feature/gst-optimization`).
+  - Deliberate file renames (`src/tax_calc.js` -> `src/calculators/gst_engine.js`).
+  - Inadvertent deletion of an emergency VAT fallback function (`calculateEmergencyVatExemption()`).
+  - Whitespace-only formatting commits that pollute standard blame outputs.
+
+Key Forensic Challenges & Command Formulas:
+  1. Author Metrics:
+     `git shortlog -sn --no-merges --since="2026-01-01"`
+  2. Finding the Deleted Function:
+     `git log -S "calculateEmergencyVatExemption" --stat --oneline`
+     `git show <commit-sha> -- src/calculators/gst_engine.js`
+  3. Blaming Through Whitespace & File Movement:
+     `git blame -w -C -C -L 12,28 src/calculators/gst_engine.js`
+  4. Symmetric Difference (Divergence Audit):
+     `git log --left-right --graph --oneline main...feature/gst-optimization`
+  5. Custom Timeline Export:
+     `git log --pretty=format:"[%h] %ad | %an <%ae> | %s" --date=short -n 5`
+
+--------------------------------------------------------------------------------
+3. INDUSTRY BEST PRACTICES & COMMON TRAPS
+--------------------------------------------------------------------------------
+- Never rely on default `git blame` when auditing legacy code refactored by Prettier or ESLint; always supply `-w` (ignore whitespace) and `-C` (detect intra/inter-file code movement).
+- Avoid running unbounded `git log -p` in massive monolithic repositories; always scope down with pathspec (`-- <path>`), commit limit (`-n <count>`), or date bounds (`--since`).
+- Remember that `git log -S` tracks changes in string *symbol occurrence count*, making it ideal for tracking function declarations or constants, whereas `git log -G` tracks *regex pattern modifications* anywhere in hunk diffs.
+- Use `git shortlog -sn` for clean, consolidated release notes and contributor lists during quarterly sprint reviews.
+================================================================================

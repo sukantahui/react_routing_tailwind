@@ -1,0 +1,75 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 1
+TOPIC: Evolution of VCS: Local VCS -> Centralized VCS -> Distributed VCS
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. EXECUTIVE OVERVIEW
+--------------------------------------------------------------------------------
+Version Control Systems have evolved through three distinct technical generations
+over the last four decades:
+
+Generation 1: Local VCS (e.g. SCCS, RCS)
+- Architecture: Simple local database on a single machine.
+- Mechanics: Stored patchsets (deltas) locally in a special format.
+- Major Flaw: Zero team collaboration. If disk crashed, all history was lost.
+
+Generation 2: Centralized VCS (e.g. CVS, SVN, Perforce)
+- Architecture: Single centralized server holds all revision databases. Clients check
+  out working copies of files.
+- Mechanics: Every commit, diff, branch, and log requires an active network round-trip.
+- Major Flaw: Single Point of Failure (SPOF). Network bottleneck. Offline work is
+  severely limited or impossible.
+
+Generation 3: Distributed VCS (e.g. Git, Mercurial, BitKeeper)
+- Architecture: Every developer clone is a complete, self-contained mirror of the entire
+  repository database, commit history, and branch pointers.
+- Mechanics: Commits, diffs, branches, and logs happen locally with near-zero latency.
+- Advantage: Cryptographic integrity (SHA-1/SHA-256), peer-to-peer resilience, offline
+  productivity, and lightweight branching.
+
+================================================================================
+2. THREE GENERATIONS COMPARISON MATRIX
+================================================================================
+Feature                  Local VCS (RCS)     Centralized (SVN)    Distributed (Git)
+--------------------------------------------------------------------------------
+Repository Storage       Single Machine      Central Server Only  Every Local Clone
+Offline Commit Support   Yes (Single user)   NO (Requires Server) YES (Full history)
+Branch Creation Speed    N/A                 Slow (Server copy)   Instant (~41 bytes)
+Single Point of Failure  Local Disk Only     Central Server       NONE (Peer clones)
+Network Dependency       Zero                High (Every action)  Low (Sync only)
+History Cryptography     None                Revision Numbers     SHA-1 / SHA-256 DAG
+Team Collaboration       Impossible          Lock/Central Merge   Non-linear Branching
+
+================================================================================
+3. PRACTICAL WORKFLOWS & TERMINAL COMMANDS
+================================================================================
+# Inspecting local history in Git (fully offline):
+$ git log --oneline --graph --all
+
+# Compare working tree with last commit (instant local diff):
+$ git diff HEAD
+
+# Create a new experimental branch (instant pointer creation):
+$ git branch feature/offline-experiment
+$ git switch feature/offline-experiment
+
+================================================================================
+4. KEY VOCABULARY & GLOSSARY
+================================================================================
+• SCCS / RCS: Source Code Control System / Revision Control System (Generation 1).
+• CVCS: Centralized Version Control System (Generation 2).
+• DVCS: Distributed Version Control System (Generation 3).
+• Single Point of Failure (SPOF): A central vulnerability where one server failure
+  halts all engineering operations.
+• Directed Acyclic Graph (DAG): The immutable mathematical data structure Git uses to
+  chain commit snapshots together.
+
+================================================================================
+5. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"In CVCS like SVN, the server is the vault. If the vault burns down, all history is
+lost. In Git, every developer in Barrackpore, Kolkata, or anywhere has a full copy
+of the vault on their laptop." — Sukanta Hui, Coder & AccoTax
+================================================================================

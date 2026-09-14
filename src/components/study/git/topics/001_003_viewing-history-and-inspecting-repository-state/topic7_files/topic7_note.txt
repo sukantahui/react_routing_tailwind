@@ -1,0 +1,58 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 7
+Inspecting Specific Commits with git show: Metadata, Parents, and Patch Diff
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+While 'git log' is a history stream traverser, 'git show' is the premier forensic
+inspection tool for examining a *single* exact Git object (commit, tag, tree, or blob).
+
+Running 'git show <object>' outputs:
+1. Full commit metadata (commit SHA, Author, AuthorDate, CommitDate, PGP signature)
+2. The commit message header and body
+3. The unified diff patch introduced specifically by that commit against its parent(s)
+
+2. CORE COMMAND VARIATIONS & EXAMPLES
+--------------------------------------------------------------------------------
+A. Inspecting the Current HEAD:
+   - git show (or git show HEAD)
+   - Displays the latest committed snapshot.
+
+B. Inspecting an Arbitrary Commit by Hash or Tag:
+   - git show 7b1e4a8
+   - git show v1.0.0
+   - git show HEAD~2  (grandparent of HEAD)
+
+C. Inspecting Statistics without Full Diff:
+   - git show --stat 7b1e4a8
+   - Displays modified file names and insertion/deletion line counts.
+
+D. Scoping git show to a Specific File in That Commit:
+   - git show 7b1e4a8 -- src/tax/gst_calc.js
+   - Shows the patch for only that specific file in commit 7b1e4a8.
+
+E. Viewing Historical File Contents Directly:
+   - git show 7b1e4a8:src/tax/gst_calc.js
+   - Dumps the *exact entire file content* as it existed in commit 7b1e4a8 to stdout
+     without switching branches or checking out!
+
+F. Inspecting Tag Objects & Annotated Tags:
+   - git show v1.0.0
+   - Shows the tagger, tag message, GPG signature, and the commit it points to.
+
+3. UNDERSTANDING MERGE COMMITS IN git show
+--------------------------------------------------------------------------------
+When inspecting a 2-parent merge commit:
+- By default, 'git show' outputs a "combined diff" ('diff --cc') showing only
+  conflicts or unique lines that differ from *both* parents.
+- To see the diff against the 1st parent specifically:
+  git show -m --first-parent <merge-commit>
+
+4. BEST PRACTICES
+--------------------------------------------------------------------------------
+- Use 'git show <SHA>:path/to/file' to read older versions of code without
+  modifying your working tree!
+- Combine with '--stat' or '--name-only' when you only need to know what was touched.
+================================================================================

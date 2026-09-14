@@ -1,0 +1,55 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 12
+REPOSITORY-SPECIFIC EXCLUSIONS: `.git/info/exclude` & GLOBAL `~/.gitignore_global`
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. THE THREE TIERS OF GIT IGNORING
+-------------------------------------------------------------------------------
+Git provides three distinct tiers for ignoring files, ranging from repository-wide
+team rules to system-wide personal preferences:
+
+  Tier  Mechanism                  Scope                       Version Controlled?
+  -----------------------------------------------------------------------------
+  1     `.gitignore`               Team & Repository           YES (Committed)
+  2     `.git/info/exclude`        Single Local Repo Only      NO (Private to you)
+  3     `core.excludesfile`        All Repos on Your Machine   NO (User Global)
+        (`~/.gitignore_global`)
+
+2. TIER 2: `.git/info/exclude` (LOCAL REPOSITORY ONLY)
+-------------------------------------------------------------------------------
+  Located at: `<repo-root>/.git/info/exclude`
+  Purpose:
+    - Ignore files specific to YOUR local workflow on THIS project only.
+    - Example: You created a local test script `my_test.js` or private notes `notes.md`
+      that you do not want to commit, but do NOT want to alter the shared team `.gitignore`.
+  Behavior:
+    - Exactly the same syntax as `.gitignore`.
+    - Never committed or pushed to remote GitHub.
+
+3. TIER 3: GLOBAL GITIGNORE (`core.excludesfile`)
+-------------------------------------------------------------------------------
+  Located at: `~/.gitignore_global` (or `~/.config/git/ignore`)
+  Configuration:
+    `git config --global core.excludesfile ~/.gitignore_global`
+  Purpose:
+    - Ignore OS and IDE clutter across EVERY Git repository on your workstation.
+    - Typical contents:
+        .DS_Store
+        Thumbs.db
+        .idea/
+        *.swp
+        *.sublime-workspace
+        .vscode/
+  Benefit:
+    - Keeps shared `.gitignore` clean and free from developer-specific editor noise.
+
+4. BARRACKPORE CODER & ACCOTAX BEST PRACTICES
+-------------------------------------------------------------------------------
+Susmita uses Sublime Text (creates `*.sublime-project`), Sachin uses VS Code, and
+Mahima uses Vim (creates `*.swp`).
+Sukanta Hui's rule:
+  - Do NOT clutter the team `.gitignore` with individual editor files.
+  - Add personal editor files to each developer's `~/.gitignore_global`!
+  - Add local scratch scripts to `.git/info/exclude`!
+===============================================================================

@@ -1,0 +1,63 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 1
+Formatting Log Output: --oneline, --decorate, --graph, and --all
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+By default, 'git log' outputs full multi-line commit records (commit hash, author,
+date, commit message body). In large production projects with hundreds or
+thousands of commits, scrolling through default output is slow and cumbersome.
+
+Git provides high-efficiency output formatting flags to condense history and
+visualize non-linear branching topologies directly in the terminal:
+- git log --oneline: Compresses each commit to a 7-character abbreviated hash and
+  the subject line.
+- git log --decorate: Annotates commits with ref pointers (HEAD, branch names,
+  tags, remote-tracking branches).
+- git log --graph: Draws an ASCII graphical representation of the commit history
+  and branch merges on the left side of the output.
+- git log --all: Traverses and displays commits from all references (all local
+  branches, remote branches, stashes, and tags), not just the current HEAD.
+
+2. COMMAND VARIATIONS & MEANINGS
+--------------------------------------------------------------------------------
+A. git log --oneline
+   - Equivalent to: git log --pretty=oneline --abbrev-commit
+   - Output format: <abbrev-hash> <commit-subject>
+   - Use case: Rapid scanning of recent project changes.
+
+B. git log --decorate[=short|full|no|auto]
+   - Shows ref names pointing to commits.
+   - Example output: 7b1e4a8 (HEAD -> main, origin/main, tag: v1.0.0) feat: init
+   - 'auto' is default in Git 2.13+.
+
+C. git log --graph
+   - Uses ASCII characters (*, |, /, \) to render the Directed Acyclic Graph (DAG).
+   - Shows where branches diverged and where merge commits combined histories.
+
+D. git log --graph --oneline --decorate --all
+   - The ultimate developer terminal alias:
+     git config --global alias.lg "log --graph --oneline --decorate --all"
+   - Gives a complete bird's-eye view of all branches across the entire repository.
+
+3. ASCII DAG VISUALIZATION EXAMPLE
+--------------------------------------------------------------------------------
+* 3a4f891 (HEAD -> main) feat(billing): merge discount module
+|\
+| * c81d290 (feature/discount) feat(discount): add festive 10% coupon calculation
+| * e4a9012 feat(discount): define promo code schema
+|/
+* 98ca7a4 (origin/main) fix(tax): correct GST rounding precision
+* 7b1e4a8 (tag: v1.0.0) feat(core): initial repository setup
+
+4. BEST PRACTICES & COMMON PITFALLS
+--------------------------------------------------------------------------------
+- Pitfall 1: Forgetting '--all' and assuming a branch is lost because it does
+  not appear when on 'main'.
+- Pitfall 2: Overly long commit subjects (>50-72 chars) that get truncated or
+  wrap awkwardly in '--oneline' mode.
+- Recommendation: Set up a global Git alias 'git lg' immediately in every dev
+  environment.
+================================================================================

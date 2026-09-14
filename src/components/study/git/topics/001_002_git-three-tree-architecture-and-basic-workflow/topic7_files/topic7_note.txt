@@ -1,0 +1,61 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 7
+THE PHILOSOPHY OF ATOMIC COMMITS: BISECTABILITY & CODE REVIEW EXCELLENCE
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. WHAT IS AN ATOMIC COMMIT?
+-------------------------------------------------------------------------------
+An atomic commit is a commit that embodies ONE single logical change, bug fix,
+or refactor. It represents an indivisible, coherent unit of work that leaves the
+codebase in a compiling, fully testable, and working state.
+
+"Atomic" comes from physics/chemistry: an atom cannot be split without losing its
+fundamental identity.
+
+2. THE 4 PILLARS OF ATOMIC COMMITS
+-------------------------------------------------------------------------------
+  1. Singularity of Purpose : Solves one specific problem or implements one feature.
+  2. Completeness           : Includes the implementation, associated unit tests,
+                              and documentation in that same commit.
+  3. Green Build Guarantee  : The repository compiles and all automated tests pass
+                              at this exact commit hash.
+  4. Independent Revertability: Can be cleanly reverted using `git revert <SHA>`
+                              without breaking unrelated features.
+
+3. WHY ATOMIC COMMITS MATTER
+-------------------------------------------------------------------------------
+  A. Automated Root-Cause Finding (`git bisect`):
+     If a regression occurred, `git bisect` binary-searches your history. If commits
+     are atomic, `git bisect` pinpoints the EXACT commit in seconds. If a commit
+     bundled 50 unrelated changes, finding the culprit is a nightmare!
+
+  B. Effortless Reverts (`git revert`):
+     If Feature A breaks in production, you can revert Feature A's single commit
+     instantly without un-shipping Feature B and Bugfix C.
+
+  C. Fast, Joyful Code Reviews (PRs):
+     Reviewers can read each atomic commit step-by-step to understand the
+     developer's thought process chronologically.
+
+  D. Clean Cherry-Picking (`git cherry-pick`):
+     Port a critical hotfix from `main` directly to a `release-1.0` branch with
+     zero merge conflicts.
+
+4. THE "MEGA-COMMIT" ANTI-PATTERN
+-------------------------------------------------------------------------------
+Bundling:
+  - Database schema migration
+  - Button styling changes
+  - Prettier auto-formatting across 150 files
+  - Bugfix in tax calculator
+into one commit `git commit -m "Friday updates"` is the single worst anti-pattern
+in software engineering.
+
+5. BARRACKPORE CODER & ACCOTAX GOLD STANDARD
+-------------------------------------------------------------------------------
+Separate refactoring from functional changes:
+  Commit 1: `refactor(billing): extract discount calculation into helper`
+  Commit 2: `test(billing): add test coverage for discount calculation`
+  Commit 3: `feat(billing): support festive promotional coupon codes`
+===============================================================================

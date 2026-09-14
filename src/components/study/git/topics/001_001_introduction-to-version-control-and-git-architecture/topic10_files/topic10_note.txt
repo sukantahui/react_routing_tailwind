@@ -1,0 +1,107 @@
+================================================================================
+TOPIC 10: INSPECTING ACTIVE CONFIGURATION & TRACING CONFIG ORIGINS
+MODULE 001_001: Introduction to Version Control & Git Architecture
+COURSE: Version Control with Git & DevOps Workflow
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & THE "WHERE DID THIS SETTING COME FROM?" DILEMMA
+--------------------------------------------------------------------------------
+In modern software development, Git configurations accumulate from multiple
+sources:
+  - System-wide defaults installed by system administrators or packages
+  - Global user profile settings in ~/.gitconfig
+  - Repository-specific overrides in .git/config
+  - Linked worktree customizations in .git/config.worktree
+  - Included include/includeIf directive files
+  - Environment variables (GIT_AUTHOR_NAME, GIT_COMMITTER_EMAIL, etc.)
+  - Command-line runtime flags (git -c user.name="...")
+
+When multiple configurations define the same key (for instance, user.email),
+Git silently picks the most specific value based on scope precedence (Command
+Line > Worktree > Local > Global > System). However, this creates confusion
+when an unintended setting overrides your expected config.
+
+The gold standard diagnostic command introduced in Git 2.8 is:
+    git config --list --show-origin
+
+
+2. THE DIAGNOSTIC COMMANDS MATRIX
+--------------------------------------------------------------------------------
+A) View ALL active settings with originating file paths:
+   $ git config --list --show-origin
+
+B) View settings with origin for a specific key:
+   $ git config --show-origin --get user.email
+   $ git config --show-origin --get-all user.email
+
+C) Query active value resolved by Git (effective value):
+   $ git config user.email
+
+D) List only values from a specific scope:
+   $ git config --system --list
+   $ git config --global --list
+   $ git config --local --list
+   $ git config --worktree --list
+
+E) Inspect raw configuration file directly in default editor:
+   $ git config --global --edit
+   $ git config --local --edit
+   $ git config --system --edit
+
+
+3. PARSING "--show-origin" TERMINAL OUTPUT
+--------------------------------------------------------------------------------
+Output format:
+  file:<PATH_TO_CONFIG_FILE><TAB><KEY>=<VALUE>
+
+Real-world Example on Windows (Git Bash):
+  file:C:/Program Files/Git/etc/gitconfig  core.symlinks=false
+  file:C:/Program Files/Git/etc/gitconfig  core.autocrlf=true
+  file:C:/Users/Sukanta/.gitconfig         user.name=Sukanta Hui
+  file:C:/Users/Sukanta/.gitconfig         user.email=sukanta@example.com
+  file:C:/Users/Sukanta/.gitconfig         init.defaultBranch=main
+  file:.git/config                         core.repositoryformatversion=0
+  file:.git/config                         core.filemode=false
+  file:.git/config                         user.email=sukanta.office@accotax.in
+
+Explanation of Key Collision Resolution:
+In the output above, 'user.email' appears twice:
+  1. ~/.gitconfig (Global) -> sukanta@example.com
+  2. .git/config (Local)   -> sukanta.office@accotax.in
+Git reads system, then global, then local. The last parsed value wins. Thus,
+commits made inside this repository will carry author 'sukanta.office@accotax.in'.
+
+
+4. DYNAMIC CONFIGURATION VIA "includeIf"
+--------------------------------------------------------------------------------
+Git supports conditional configuration loading based on repository directory:
+
+In ~/.gitconfig:
+  [includeIf "gitdir:~/work/"]
+      path = ~/.gitconfig-work
+
+  [includeIf "gitdir:~/personal/"]
+      path = ~/.gitconfig-personal
+
+When running 'git config --list --show-origin' inside ~/work/project-alpha:
+Git prints:
+  file:/home/sukanta/.gitconfig-work   user.email=developer@company.com
+Confirming that the conditional include successfully activated.
+
+
+5. BEST PRACTICES & TROUBLESHOOTING CHECKLIST
+--------------------------------------------------------------------------------
+1. Always run 'git config --list --show-origin' whenever a commit shows the wrong
+   author name or email.
+2. If you see duplicate keys in 'git config --list', note that the bottom-most
+   entry is the active winning setting.
+3. Use 'git config --get-regexp "^user\."' to inspect all user namespace keys.
+4. Avoid editing .git/config manually with notepad if you are not sure of syntax;
+   prefer 'git config --local key value' or 'git config --local --edit'.
+5. To remove a lingering rogue key:
+   $ git config --global --unset user.signingkey
+
+================================================================================
+Produced by Sukanta Hui | Barrackpore Coding & Web Architecture Master Series
+================================================================================

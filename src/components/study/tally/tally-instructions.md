@@ -372,3 +372,10 @@ export default function Topic[N]() {
    • Double-Entry Debit / Credit Ledger Flow Diagram (ASCII format).
    • Statutory Tax Rules & Rate Matrix (GST, TDS, TCS, PF/ESI where applicable).
    • Audit Scrutiny & Common Pitfall Avoidance Checklist.
+
+================================================================================
+6. VOCABULARY & WORD MEANING LOOKUP INTEGRATION
+================================================================================
+All Tally and Accounting topics automatically support the global Vocabulary & Word Meaning engine:
+• Selection Auto-Lookup: Highlighting any accounting or English term (e.g. "accrual", "amortization", "depreciation", "statutory") displays a floating tooltip with 1-click definition, audio pronunciation, and external dictionary links (Cambridge, Merriam-Webster, Google Search, Oxford).
+• Optional In-Topic Component: Import `<WordDictionary initialWord="..." />` from `../../../../../common/WordDictionary` for dedicated accounting terminology lookup cards.

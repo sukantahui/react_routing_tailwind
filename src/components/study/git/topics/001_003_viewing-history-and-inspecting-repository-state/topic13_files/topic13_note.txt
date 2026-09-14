@@ -1,0 +1,47 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 13
+Classroom Case Study: Diagnosing Production Discount Bug with blame & Pickaxe
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+Cohort: Debangshu, Swadeep, Sachin, Mahima, Susmita, Abhronila, Tuhina
+================================================================================
+
+1. INCIDENT BACKGROUND & SYMPTOMS
+--------------------------------------------------------------------------------
+At Coder & AccoTax in Barrackpore, client invoices suddenly showed an unauthorized
+50% discount instead of the standard 10% loyalty discount.
+- Bug description: VIP customers were billed half price due to an unexpected
+  'discountMultiplier = 0.5' in the calculation engine.
+- Urgency: High severity financial bug affecting production revenue.
+- Forensic Goal:
+  1. Pinpoint who modified the formula and when.
+  2. Determine why it was changed (was it malicious, accidental, or a debug test?).
+  3. Locate when the variable 'MAX_DISCOUNT_CAP' was removed from the codebase.
+  4. Restore the correct business formula safely and verify with unit tests.
+
+2. FORENSIC INVESTIGATION WORKFLOW
+--------------------------------------------------------------------------------
+Step 1: Identify Line Attribution with git blame:
+   $ git blame -w -L 12,18 src/billing/discount_engine.js
+   Result: Commit 7b1e4a8 authored by Debangshu 3 days ago.
+
+Step 2: Inspect Commit Context with git show:
+   $ git show 7b1e4a8
+   Commit Message: "test(promo): temp 50% discount test for festive flash sale"
+   Root Cause: Debangshu committed a temporary local debugging value directly to
+   the main branch without reverting before push!
+
+Step 3: Track Down the Deleted Safety Cap with Pickaxe (git log -S):
+   $ git log -S "MAX_DISCOUNT_CAP" -p
+   Result: Shows commit e4a9012 where a previous developer removed the safety guard.
+
+Step 4: Hotfix & Verification:
+   Restore the cap and enforce standard 10% multiplier with test suite verification.
+
+3. KEY PEDAGOGICAL LESSONS
+--------------------------------------------------------------------------------
+- Never use 'git blame' to humiliate team members; Debangshu immediately owned
+  the mistake once the commit intent was verified.
+- 'git show' provided the critical context: it was an accidental debug leak, not fraud.
+- 'git log -S' unmasked an older regression where the safety cap had been removed.
+- Combining blame + pickaxe + show is the golden tri-factor of software forensics.
+================================================================================

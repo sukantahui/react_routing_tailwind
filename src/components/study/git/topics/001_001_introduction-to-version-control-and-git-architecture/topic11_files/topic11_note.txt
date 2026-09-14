@@ -1,0 +1,104 @@
+================================================================================
+TOPIC 11: ANATOMY OF THE .git DIRECTORY
+MODULE 001_001: Introduction to Version Control & Git Architecture
+COURSE: Version Control with Git & DevOps Workflow
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS THE .git DIRECTORY?
+--------------------------------------------------------------------------------
+When you execute 'git init' inside any directory, Git creates a hidden folder
+named '.git'. This directory IS the repository. Everything outside of '.git'
+is merely your temporary "Working Tree" (the checked-out files you edit).
+
+If you delete the '.git' folder:
+  - You lose your entire commit history, all branches, tags, stashes, and remote links.
+  - Your current files remain in the working tree, but version control is gone.
+
+If you copy the '.git' directory to another machine:
+  - You have cloned the 100% complete repository and all history.
+
+
+2. DIRECTORY TREE OF A FRESH .git FOLDER
+--------------------------------------------------------------------------------
+.git/
+|-- HEAD                 -> Text file pointing to currently checked out ref/branch
+|-- config               -> Local repository-specific configuration file
+|-- description          -> Used primarily by GitWeb (default project description)
+|-- hooks/               -> Directory of client & server-side event scripts (.sample)
+|   |-- pre-commit.sample
+|   |-- pre-push.sample
+|   `-- commit-msg.sample
+|-- info/                -> Additional repository information
+|   `-- exclude          -> Local ignore patterns (not committed/shared with team)
+|-- objects/             -> Content-addressable object store (blobs, trees, commits, tags)
+|   |-- info/
+|   `-- pack/            -> Compressed packfiles and index files (.pack / .idx)
+`-- refs/                -> Pointers to commit objects (branches, tags, remotes)
+    |-- heads/           -> Local branches (e.g., refs/heads/main)
+    |-- tags/            -> Annotated and lightweight tags (e.g., refs/tags/v1.0)
+    `-- remotes/         -> Remote-tracking branches (e.g., refs/remotes/origin/main)
+
+After staging files and committing:
+|-- index                -> Binary staging area / cache between working tree and HEAD
+`-- logs/                -> Reference logs (reflog history for HEAD and branches)
+    |-- HEAD
+    `-- refs/
+
+
+3. CORE COMPONENTS DEEP-DIVE
+--------------------------------------------------------------------------------
+1. HEAD:
+   - Contains a plain text string: 'ref: refs/heads/main'
+   - In "detached HEAD" state, contains a raw 40-character commit SHA-1/SHA-256 hash.
+
+2. objects/:
+   - The heart of Git: Content-Addressable Object Database.
+   - Stores 4 object types:
+     * blob: raw file content (without metadata or filenames)
+     * tree: directory listings mapping names to blob/tree SHAs + permissions
+     * commit: pointer to root tree, parent commit(s), author, timestamp, message
+     * annotated tag: pointer to commit with GPG signature and tag message
+   - Objects are stored in subdirectories named by the first 2 characters of their SHA,
+     and the file name is the remaining 38 characters (e.g., objects/4b/825dc642cb6eb9a060e54bf8d69288fbee4904).
+
+3. refs/:
+   - Short for references. Each file in 'refs/heads/' simply contains a 40-character
+     hex string pointing to the tip commit of that branch.
+   - Creating a branch in Git is literally creating a 41-byte text file containing a hash.
+
+4. index (Staging Area):
+   - A high-performance binary file listing all tracked files, their permissions,
+     timestamps, and the SHA hash of their staged content.
+
+5. config:
+   - Repository-specific INI file containing remotes, branch tracking, and local overrides.
+
+6. hooks/:
+   - Executable scripts triggered by Git actions (pre-commit, post-checkout, pre-push).
+   - By default, files end in '.sample' and are inactive.
+
+
+4. INSPECTING .git INTERNALS WITH PLUMBING COMMANDS
+--------------------------------------------------------------------------------
+- View HEAD content:
+    $ cat .git/HEAD
+- View active branch commit hash:
+    $ cat .git/refs/heads/main
+- Inspect object type:
+    $ git cat-file -t <hash>
+- View object content:
+    $ git cat-file -p <hash>
+- Inspect binary index contents:
+    $ git ls-files --stage
+
+
+5. SUMMARY RULES
+--------------------------------------------------------------------------------
+1. The .git directory is self-contained: it contains all history and snapshots.
+2. Never manually delete files inside .git/objects unless using 'git gc'.
+3. Branching in Git is instantaneous and lightweight because it only writes a single text file in .git/refs/heads/.
+
+================================================================================
+Produced by Sukanta Hui | Barrackpore Coding & Web Architecture Master Series
+================================================================================

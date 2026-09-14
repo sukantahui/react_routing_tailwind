@@ -1,0 +1,54 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 5
+INTERACTIVE STAGING: STAGING PARTIAL FILE CHUNKS USING `git add -p`
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+`git add -p` (or `git add --patch`) allows you to interactively review diff hunks
+within a single file and choose whether to stage, skip, split, or manually edit
+each individual hunk.
+
+This is the quintessential power tool for crafting strict Atomic Commits when you
+have made multiple logical changes in a single file during a coding session.
+
+2. INTERACTIVE HUNK COMMAND CHEAT SHEET
+-------------------------------------------------------------------------------
+When Git presents a hunk `Stage this hunk [y,n,q,a,d,s,e,?]?`, the keys mean:
+
+  Key  Command Name   Action
+  -----------------------------------------------------------------------------
+  y    Stage Hunk     Stage this hunk into the Index.
+  n    Skip Hunk      Do NOT stage this hunk (leave in Working Tree).
+  q    Quit           Exit interactive patch mode immediately (keep what was staged).
+  a    Stage All      Stage this hunk and all remaining hunks in this file.
+  d    Skip All       Do not stage this hunk or any remaining hunks in this file.
+  s    Split Hunk     Split current hunk into smaller sub-hunks (if separated by lines).
+  e    Edit Hunk      Manually open the diff in your text editor to customize staging.
+  /    Search Regex   Search for a regex matching a hunk.
+  j    Leave Hunk     Leave undecided, go to next hunk.
+  k    Leave Hunk     Leave undecided, go to previous hunk.
+  ?    Help           Print help explanation for all hunk commands.
+
+3. UNDERSTANDING HUNK SPLITTING (`s`) & MANUAL EDITING (`e`)
+-------------------------------------------------------------------------------
+- If two different changes have at least one unchanged line between them, Git can
+  automatically split them using `s`.
+- If changes are adjacent on neighboring lines, Git cannot auto-split: you press `e`
+  to open the patch editor. In the editor:
+    - Replace `+` with a space to exclude an added line from staging.
+    - Delete `-` line and replace with original line to exclude a deletion.
+    - NEVER delete context lines starting with space.
+
+4. BARRACKPORE CODER & ACCOTAX BEST PRACTICES
+-------------------------------------------------------------------------------
+Susmita added a new VAT calculation function AND inserted `console.log("debug")`
+debugging statements in the same `tax.js` file.
+Workflow:
+  1. `git add -p tax.js`
+  2. Press `y` on the VAT calculation hunk.
+  3. Press `n` on the `console.log` debugging hunk.
+  4. `git commit -m "feat(tax): implement VAT calculation algorithm"`
+  5. Clean up the debug logs in working tree without polluting Git history!
+===============================================================================

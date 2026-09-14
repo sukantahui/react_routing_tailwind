@@ -1,0 +1,53 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 10
+IGNORING FILES WITH `.gitignore`: SYNTAX, WILDCARDS, NEGATION & RULES
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+The `.gitignore` file specifies intentionally untracked files that Git should
+ignore. Files matching patterns in `.gitignore` will not appear in `git status`
+untracked files (`??`) and cannot be accidentally staged with `git add .` or `-A`.
+
+2. SYNTAX RULES & PATTERN MATCHING MATRIX
+-------------------------------------------------------------------------------
+  Pattern          Rule Type                 Matches
+  -----------------------------------------------------------------------------
+  `# comment`      Comment                   Ignored by parser
+  `*.log`          Asterisk Wildcard         Matches any string in filename (`debug.log`, `app.log`)
+  `temp?`          Question Mark Wildcard    Matches any single character (`temp1`, `tempA`)
+  `[0-9].txt`      Character Range           Matches single digit filename (`1.txt`, `9.txt`)
+  `logs/`          Directory Suffix Slash    Matches `logs` DIRECTORY anywhere (not files named logs)
+  `/build`         Leading Slash             Matches `build` at the ROOT of the repo only
+  `build/`         Trailing Slash            Matches directory `build/` and all its contents recursively
+  `**/temp`        Double Asterisk (Glob)    Matches `temp` file/directory in any nested folder depth
+  `doc/**/*.pdf`   Nested Glob               Matches all `.pdf` files inside `doc/` and any subdirectories
+  `!important.log` Negation Operator (!)     Un-ignores a previously ignored file (exception rule)
+
+3. CRITICAL NEGATION GOTCHA
+-------------------------------------------------------------------------------
+You CANNOT re-include a file (`!file.txt`) if its parent directory is ignored!
+Example:
+  `logs/`
+  `!logs/important.log`  <- THIS DOES NOT WORK! Git does not traverse ignored dirs.
+Correct Syntax:
+  `logs/*`
+  `!logs/important.log`  <- THIS WORKS!
+
+4. THE "ALREADY TRACKED" GOLDEN GOTCHA
+-------------------------------------------------------------------------------
+`.gitignore` prevents UNTRACKED files from being added.
+If a file was ALREADY committed in Git history before being added to `.gitignore`,
+Git will CONTINUE tracking it!
+Solution:
+  1. Add rule to `.gitignore`.
+  2. Untrack from index: `git rm --cached <file>`
+  3. Commit: `git commit -m "chore: untrack <file> via .gitignore"`
+
+5. DEBUGGING .gitignore RULES
+-------------------------------------------------------------------------------
+To test why a file is being ignored:
+  `git check-ignore -v <path/to/file>`
+Outputs the exact `.gitignore` file path and line number that matched!
+===============================================================================

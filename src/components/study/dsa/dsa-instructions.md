@@ -276,5 +276,13 @@ export default function Topic[N]() {
 ```
 
 ================================================================================
+8. VOCABULARY & COMPUTER DICTIONARY LOOKUP INTEGRATION
+================================================================================
+All DSA topics automatically support the global Vocabulary & Computer Dictionary engine:
+• Selection Auto-Lookup: Highlighting any term (e.g. "asymptotic", "amortized", "idempotent", "recurrence") displays a floating toolbar with 1-click definition, audio pronunciation, and external links to Computer Dictionaries (Computer Hope, TechTerms, MDN, GeeksforGeeks, DevDocs) as well as English Dictionaries (Cambridge, Merriam-Webster, Oxford).
+• Optional In-Topic Component: Import `<WordDictionary initialWord="..." />` from `../../../../../common/WordDictionary` for dedicated data structure terminology cards.
+
+================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
 ================================================================================
+

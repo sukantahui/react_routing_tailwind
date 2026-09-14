@@ -1,0 +1,56 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 9
+Line-by-Line Code Forensics with git blame: Attribution, Commits & Timestamps
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+When reviewing legacy code, tracking down when a bizarre bug was introduced, or
+figuring out *why* a specific function was written, 'git blame' is the ultimate
+forensic attribution tool.
+
+'git blame' annotates every single line in a file with:
+1. The 7-to-40 character commit hash that last modified that line
+2. The author's name (or email)
+3. The timestamp (date and time)
+4. The exact 1-indexed line number and code text
+
+2. BASIC SYNTAX & OUTPUT ANATOMY
+--------------------------------------------------------------------------------
+Basic execution:
+   git blame src/tax/gst_calculator.js
+
+Output format:
+   7b1e4a8c (Sukanta Hui 2026-09-14 18:30:15 +0530 1) function calculateGST(amount) {
+   98ca7a41 (Susmita    2026-09-14 18:35:00 +0530 2)   const rate = 0.18;
+   c81d290f (Debangshu  2026-09-14 18:40:00 +0530 3)   return amount * rate;
+   7b1e4a8c (Sukanta Hui 2026-09-14 18:30:15 +0530 4) }
+
+3. USEFUL BLAME FLAGS & VARIATIONS
+--------------------------------------------------------------------------------
+A. Showing Author Email instead of Name:
+   - git blame -e src/tax/gst_calculator.js
+
+B. Showing Timestamp in Relative Format:
+   - git blame --date=relative src/tax/gst_calculator.js
+   - Example: "(Debangshu 2 days ago 3) return amount * rate;"
+
+C. Suppressing Author Name (Showing Commit Hash Only):
+   - git blame -s src/tax/gst_calculator.js
+
+D. Showing Full 40-character SHA-1 Hashes:
+   - git blame -l src/tax/gst_calculator.js
+
+E. Blaming a Historical Revision:
+   - git blame v1.0.0 -- src/tax/gst_calculator.js
+   - Annotates lines as they existed at tag v1.0.0 without needing to checkout!
+
+4. ETHICAL TEAM CULTURE: "BLAME" AS CONTEXT DISCOVERY
+--------------------------------------------------------------------------------
+Despite its aggressive name ('blame'), professional senior engineers use 'git blame'
+NOT for finger-pointing, but to:
+- Find the original author to ask clarifying questions about domain requirements.
+- Extract the commit hash and run 'git show <hash>' to read the architectural
+  commit message body explaining *why* the code was designed this way.
+================================================================================

@@ -1,0 +1,61 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 9
+TOPIC: Configuration Scope Hierarchy: System vs Global vs Local vs Worktree
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE 4-TIER CONFIGURATION HIERARCHY
+--------------------------------------------------------------------------------
+Git resolves configuration values using a strict cascading precedence hierarchy.
+More specific scopes always override broader scopes:
+
+Precedence Order (Lowest to Highest Priority):
+
+1. SYSTEM LEVEL (`--system`):
+   • Scope: Applies to every user and repository on the entire computer.
+   • Path: `/etc/gitconfig` (Linux/Mac) or `C:\Program Files\Git\etc\gitconfig` (Windows).
+   • Requires root/Admin privileges to modify.
+
+2. GLOBAL LEVEL (`--global`):
+   • Scope: Applies to all repositories for the currently logged-in user.
+   • Path: `~/.gitconfig` (or `~/.config/git/config`).
+   • Where personal identity (`user.name`, `user.email`), default branch, and editor live.
+
+3. LOCAL LEVEL (`--local`):
+   • Scope: Applies only to the current repository directory.
+   • Path: `.git/config` inside the repository.
+   • Overrides global settings (e.g. corporate client email override).
+   • This is the default scope when running `git config` without flags inside a repo.
+
+4. WORKTREE LEVEL (`--worktree`):
+   • Scope: Applies to a specific linked worktree when using `git worktree`.
+   • Path: `.git/config.worktree` or `.git/worktrees/<name>/config.worktree`.
+   • Enabled via `git config extensions.worktreeConfig true`.
+
+5. ENVIRONMENT VARIABLES (Highest Precedence):
+   • `GIT_AUTHOR_NAME`, `GIT_AUTHOR_EMAIL`, `GIT_CONFIG_GLOBAL`, etc. override everything.
+
+================================================================================
+2. CONFIGURATION SCOPE COMMAND SUMMARY
+================================================================================
+Scope        Command Example
+--------------------------------------------------------------------------------
+System       $ git config --system core.autocrlf true
+Global       $ git config --global user.name "Sukanta Hui"
+Local        $ git config --local user.email "sukanta.hui@corporate.com"
+Worktree     $ git config --worktree user.name "Sukanta (Hotfix Worktree)"
+
+================================================================================
+3. RESOLUTION TRACING COMMAND
+================================================================================
+# Check where each active setting originated from:
+$ git config --list --show-origin
+
+================================================================================
+4. TEACHER'S GOLDEN PRINCIPLE
+--------------------------------------------------------------------------------
+"Think of Git configuration like CSS specificity: System is the browser default,
+Global is your main stylesheet, and Local is an inline style tag that overrides
+everything." — Sukanta Hui, Coder & AccoTax
+================================================================================

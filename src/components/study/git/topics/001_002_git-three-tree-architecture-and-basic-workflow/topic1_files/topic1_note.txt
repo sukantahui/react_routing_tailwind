@@ -1,0 +1,81 @@
+================================================================================
+TOPIC 1: THE LIFECYCLE OF FILE STATUS IN GIT
+MODULE 001_002: The Three-Tree Architecture & Core Workflow
+COURSE: Version Control with Git & DevOps Workflow
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. THE FOUR PRIMARY FILE STATES
+--------------------------------------------------------------------------------
+Every file in your working directory is in one of two main classifications:
+  A) Tracked: Files that were in the last snapshot (HEAD) or are staged.
+  B) Untracked: Files in your working directory that are not in the index/HEAD.
+
+Within Tracked files, there are three distinct states:
+  1. Unmodified: File matches the last commit snapshot in HEAD.
+  2. Modified: File has been changed in the Working Tree since the last commit.
+  3. Staged: Modified file has been marked in .git/index to go into the next commit.
+
+
+2. THE STATE TRANSITION CYCLE
+--------------------------------------------------------------------------------
+                  +--------------------------------+
+                  |           UNTRACKED            |
+                  +--------------------------------+
+                                  |
+                              git add
+                                  |
+                                  v
++------------+   git commit   +------------+   git add    +------------+
+| UNMODIFIED | <------------- |   STAGED   | <----------- |  MODIFIED  |
++------------+                +------------+              +------------+
+      |                                                         ^
+      |------------------- Edit the file -----------------------|
+      |
+      |------------------- Remove the file (git rm) ------------> [Untracked]
+
+
+3. SHORT STATUS FLAGS ('git status -s' / 'git status --short')
+--------------------------------------------------------------------------------
+The short format prints a 2-character column code:
+  Column 1 (X) = Status of the STAGING INDEX (compared to HEAD)
+  Column 2 (Y) = Status of the WORKING TREE (compared to Index)
+
+Common Code Combinations:
+  ??  Untracked new file (not in repository or index)
+  A_  Added & staged in index (new file staged)
+  _M  Modified in working tree, NOT staged in index
+  M_  Modified and STAGED in index
+  MM  Staged, then modified AGAIN in working tree (Dual state!)
+  D_  Deleted and staged
+  _D  Deleted in working tree, not staged
+
+
+4. TRANSITION COMMANDS MATRIX
+--------------------------------------------------------------------------------
+- Untracked -> Staged:
+    $ git add <file>
+- Staged -> Unmodified:
+    $ git commit -m "feat: ..."
+- Unmodified -> Modified:
+    (Edit file in VS Code)
+- Modified -> Staged:
+    $ git add <file>
+- Modified -> Unmodified (Discard working tree edits):
+    $ git restore <file>
+- Staged -> Modified (Unstage without losing edits):
+    $ git restore --staged <file>
+- Tracked -> Untracked (Stop tracking but keep on disk):
+    $ git rm --cached <file>
+
+
+5. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"Never guess the state of your files. Run 'git status -s' after every terminal
+command to observe the two-column status. When both columns are empty, your
+workbench is clean and ready for new adventures!"
+— Sukanta Hui, Coder & AccoTax
+
+================================================================================
+Produced by Sukanta Hui | Barrackpore Coding & Web Architecture Master Series
+================================================================================

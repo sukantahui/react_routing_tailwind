@@ -1,0 +1,62 @@
+================================================================================
+TOPIC 14: MODULE 001_001 SELF-ASSESSMENT & COMPREHENSIVE REVISION
+MODULE 001_001: Introduction to Version Control & Git Architecture
+COURSE: Version Control with Git & DevOps Workflow
+EDUCATOR: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. MODULE 001_001 HIGH-LEVEL REVISION SUMMARY
+--------------------------------------------------------------------------------
+Congratulations on completing Module 001_001! Here is the master synthesis of
+everything you have mastered:
+
+1. FUNDAMENTALS & HISTORY:
+   - Version Control System (VCS): Tracks revisions, prevents collisions, provides
+     time-travel undo.
+   - Evolution: Local VCS (RCS) -> Centralized VCS (CVS, SVN) -> Distributed VCS (Git, Mercurial).
+   - Single Point of Failure (SPOF): Centralized systems fail if server goes down.
+     Distributed systems give every developer a 100% complete repository copy.
+   - 2005 Linux Kernel Crisis: Linus Torvalds engineered Git in 2 weeks to replace
+     BitKeeper with high speed, data integrity, and non-linear branching.
+
+2. CORE DESIGN PRINCIPLES:
+   - Speed (C-based low overhead)
+   - Simple, elegant content-addressable storage
+   - Non-linear branching & merging (O(1) pointer updates)
+   - Cryptographic data integrity via SHA-1/SHA-256
+   - Full distribution (100% offline capability)
+
+3. CONFIGURATION SCOPE HIERARCHY:
+   - Runtime CLI flags (-c)  [Highest Precedence]
+   - Worktree (.git/config.worktree)
+   - Local (.git/config)
+   - Global (~/.gitconfig)
+   - System (/etc/gitconfig)  [Lowest Precedence]
+
+4. ESSENTIAL CONFIGURATION COMMANDS:
+   - Identity: git config --global user.name "..." && git config --global user.email "..."
+   - Default Branch: git config --global init.defaultBranch main
+   - Line Endings: core.autocrlf = true (Windows) / input (macOS/Linux)
+   - Default Editor: core.editor = "code --wait"
+   - Active Audit: git config --list --show-origin
+
+5. INTERNAL ANATOMY OF .git:
+   - HEAD: Pointer to active checked-out branch (e.g. ref: refs/heads/main).
+   - index: Binary staging cache bridging working tree and objects.
+   - objects/: Content-addressable object store (blobs, trees, commits, tags).
+   - refs/: Lightweight pointer files (heads/, tags/, remotes/).
+   - hooks/: Lifecycle automation scripts (pre-commit, commit-msg, pre-push).
+
+
+2. SELF-ASSESSMENT DRILL CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Can you explain the 3 architectural differences between SVN and Git?
+[ ] Can you list all 4 configuration scopes and their evaluation order?
+[ ] Can you explain what happens under the hood when you run 'git init'?
+[ ] Can you describe the role of .git/HEAD during detached HEAD state?
+[ ] Can you execute 'git config --list --show-origin' and explain each line?
+[ ] Can you explain why CRLF causes phantom diffs on cross-platform teams?
+
+================================================================================
+Produced by Sukanta Hui | Barrackpore Coding & Web Architecture Master Series
+================================================================================

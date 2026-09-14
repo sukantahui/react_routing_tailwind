@@ -1,0 +1,49 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 9
+INSPECTING UNSTAGED VS STAGED CHANGES: `git diff` VS `git diff --staged`
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+While `git status` tells you WHICH files have changed, `git diff` shows you the
+EXACT line-by-line character changes.
+
+The Three-Tree architecture defines three distinct diff comparisons:
+  1. `git diff`             : Working Tree vs Staging Area (Index) [Unstaged changes]
+  2. `git diff --staged`    : Staging Area (Index) vs HEAD [Staged changes ready to commit]
+     (Synonym: `git diff --cached`)
+  3. `git diff HEAD`        : Working Tree vs HEAD [Total accumulated uncommitted changes]
+
+2. COMPARISON MATRIX
+-------------------------------------------------------------------------------
+  Command                  Source A (Baseline)    Source B (Target)   Shows What?
+  -----------------------------------------------------------------------------
+  `git diff`               Staging Area (Index)   Working Tree        What you CAN stage with `git add`
+  `git diff --staged`      HEAD Commit            Staging Area        What you WILL commit with `git commit`
+  `git diff HEAD`          HEAD Commit            Working Tree        All uncommitted work on disk
+  `git diff branchA..B`    Commit in branchA      Commit in branchB   Branch divergence
+
+3. READING UNIFIED DIFF HEADERS
+-------------------------------------------------------------------------------
+  `--- a/file.js`          -> Represents version in Source A (older/baseline)
+  `+++ b/file.js`          -> Represents version in Source B (newer/target)
+  `@@ -10,4 +10,6 @@`      -> Hunk Header:
+                              - Source A: starts at line 10, spans 4 lines
+                              - Source B: starts at line 10, spans 6 lines
+  `- line of code`         -> Deleted from Source A
+  `+ line of code`         -> Added in Source B
+  `  context line`         -> Unchanged code for readability
+
+4. POWER DIFF FLAGS
+-------------------------------------------------------------------------------
+  `git diff --stat`        -> Displays high-level summary of insertions/deletions per file.
+  `git diff -w`            -> Ignores all whitespace changes (indentation/spaces).
+  `git diff --word-diff`   -> Shows inline word-by-word changes instead of whole lines.
+  `git diff --name-only`   -> Prints only the list of modified filenames.
+
+5. BARRACKPORE CODER & ACCOTAX CLASSROOM GOLDEN RULE
+-------------------------------------------------------------------------------
+Before typing `git add`, run `git diff` to review your unstaged changes.
+After typing `git add`, run `git diff --staged` to verify your upcoming commit!
+===============================================================================

@@ -1,0 +1,55 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 11
+The Pickaxe Operator: Finding String Additions & Deletions with git log -S
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+Imagine you are looking for a function named 'calculateFestiveDiscount' or a
+constant 'TAX_RATE_WEST_BENGAL' that was completely deleted from your repository
+6 months ago.
+- 'git grep' will NOT find it (because the code is deleted from current disk).
+- 'git log --grep' will NOT find it (unless the developer happened to mention the
+  exact variable name in their commit message).
+
+The Pickaxe Operator ('git log -S') solves this exact forensic problem.
+It mines through the entire commit history diff stream, finding every commit
+where the number of occurrences of the search string changed (i.e. added or deleted).
+
+2. THE PICKAXE OPERATORS: -S VS -G
+--------------------------------------------------------------------------------
+A. The Exact String Pickaxe: git log -S "exact_string"
+   - Counts occurrences in the pre-image vs. post-image.
+   - If the count changed (e.g. 0 -> 1 on addition, or 1 -> 0 on deletion), the
+     commit is logged.
+   - Commits that merely moved the string without changing its count are NOT shown.
+
+B. The Regex Pickaxe: git log -G "regex_pattern"
+   - Scans diff hunks where added or removed lines match the regex pattern.
+   - Logs commits even if the occurrence count did not change (e.g. modifying an
+     argument inside a function call that matches the regex).
+
+3. HIGH-YIELD COMMAND COMBINATIONS
+--------------------------------------------------------------------------------
+1. Find when a deleted function was added or removed:
+   git log -S "calculateFestiveDiscount" --oneline
+
+2. Show the exact diff patch where the string was modified:
+   git log -S "calculateFestiveDiscount" -p
+
+3. Scope pickaxe to a specific file:
+   git log -S "GST_RATE" -p -- src/tax/gst_calc.js
+
+4. Combine with pickaxe regex across all branches:
+   git log -G "function.*Discount" --all --oneline
+
+4. PRODUCTION FORENSIC RECIPE: "REVIVING DELETED CODE"
+--------------------------------------------------------------------------------
+Step 1: Find the commit where the function was deleted:
+        git log -S "myOldFunction" --oneline
+Step 2: Inspect the diff patch of the deleting commit:
+        git show <commit_hash>
+Step 3: Recover the function cleanly from its parent:
+        git show <commit_hash>~1:path/to/file.js
+================================================================================

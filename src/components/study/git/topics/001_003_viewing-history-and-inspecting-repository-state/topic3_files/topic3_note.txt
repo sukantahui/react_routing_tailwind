@@ -1,0 +1,58 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 3
+Limiting and Filtering History: Count (-n), Date Ranges, and Author
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+In active enterprise repositories with thousands of commits dating back years,
+running an unfiltered 'git log' is inefficient and overwhelms the terminal.
+Git provides powerful filtering flags that allow developers to narrow down
+history based on:
+- Numeric count limits (-n or -<number>)
+- Calendar and relative date ranges (--since, --after, --until, --before)
+- Author identity filtering (--author)
+- Committer identity filtering (--committer)
+
+2. CORE FILTERING FLAGS & EXAMPLES
+--------------------------------------------------------------------------------
+A. Limiting by Commit Count:
+   - git log -n 5  (or shorthand: git log -5)
+   - Restricts output strictly to the latest 5 commits reachable from HEAD.
+
+B. Limiting by Date Ranges:
+   - git log --since="2 weeks ago"
+   - git log --after="2026-09-01"
+   - git log --until="yesterday"
+   - git log --before="2026-08-31"
+   - Combined range:
+     git log --since="2026-09-01" --until="2026-09-14"
+
+C. Filtering by Author / Committer:
+   - git log --author="Debangshu"
+     Matches any commit where Author Name or Author Email contains "Debangshu"
+     (supports regex pattern matching).
+   - git log --committer="Sukanta"
+     Matches commits applied by the specified committer.
+   - Case-insensitive regex search:
+     git log --author="debangshu" -i
+
+D. Combining Filters for Precision Audits:
+   - Example: Find all commits by Debangshu in the past 7 days:
+     git log --author="Debangshu" --since="7 days ago" --oneline
+
+3. UNDERSTANDING FILTER SEMANTICS
+--------------------------------------------------------------------------------
+- Date filters evaluate the 'AuthorDate' by default.
+- You can pass human relative phrases: "yesterday", "2 months ago", "3.weeks.ago",
+  "noon", "midnight", or ISO timestamps ("2026-09-14T00:00:00").
+- Multiple '--author' flags: By default, specifying multiple '--author' flags
+  uses OR logic in modern Git when combined with '--all-match' (which requires
+  all criteria to be satisfied).
+
+4. COMMON PITFALLS
+--------------------------------------------------------------------------------
+- Pitfall: Thinking '--author' searches the commit message (use '--grep' instead).
+- Pitfall: Timezone confusion when filtering by dates across distributed teams.
+================================================================================

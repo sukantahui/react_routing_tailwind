@@ -42,11 +42,14 @@ import {
   ShieldCheck,
   Compass,
   Sigma,
-  Binary
+  Binary,
+  BookA
 } from "lucide-react";
 
 // Lazy-loaded auxiliary study tools (canvas, annotator, dictionary)
 const MathSymbolDictionary = React.lazy(() => import("../../common/MathSymbolDictionary"));
+const WordDictionary = React.lazy(() => import("../../common/WordDictionary"));
+const SelectionWordLookup = React.lazy(() => import("../../common/SelectionWordLookup"));
 const ScreenAnnotator = React.lazy(() => import("../../common/ScreenAnnotator"));
 const StudyWhiteboard = React.lazy(() => import("../../common/StudyWhiteboard"));
 const CNATMamChatbot = React.lazy(() => import("./common/CNATMamChatbot"));
@@ -182,6 +185,8 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   const [focusMode, setFocusMode] = useState(false); // hides sidebars for reading focus
   const [drawAnywhere, setDrawAnywhere] = useState(false);
   const [showMathSymbols, setShowMathSymbols] = useState(false);
+  const [showWordDictionary, setShowWordDictionary] = useState(false);
+  const [dictionaryWord, setDictionaryWord] = useState("catastrophic");
   const [fontSize, setFontSize] = useState('normal'); // 'normal' | 'large'
   const [copiedLink, setCopiedLink] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -600,6 +605,18 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
               >
                 <PenTool size={13} className={drawAnywhere ? "text-rose-400" : "text-slate-400"} />
                 <span className="hidden md:inline">{drawAnywhere ? "Stop" : "Annotate"}</span>
+              </button>
+
+              {/* Vocabulary & Word Meaning Dictionary button */}
+              <button
+                onClick={() => {
+                  setShowWordDictionary(true);
+                }}
+                className="px-2.5 py-1 rounded-lg text-xs font-semibold border transition flex items-center gap-1 bg-sky-950/40 border-sky-800/80 text-sky-300 hover:bg-sky-900/60 hover:text-white hover:border-sky-600 shadow-sm"
+                title="Lookup Word Meaning & Vocabulary Dictionary"
+              >
+                <BookA size={13} className="text-sky-400" />
+                <span className="hidden xl:inline">Dictionary</span>
               </button>
 
               {/* Math Symbol Dictionary button */}
@@ -1112,6 +1129,16 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                     >
                       Symbols
                     </button>
+
+                    <button
+                      onClick={() => setActiveRightTab('dict')}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${activeRightTab === 'dict'
+                          ? "bg-sky-900/80 text-sky-200 border border-sky-700 shadow-sm"
+                          : "text-slate-400 hover:text-slate-200"
+                        }`}
+                    >
+                      Dictionary
+                    </button>
                   </div>
 
                   <button
@@ -1275,6 +1302,23 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                   </div>
                 )}
 
+                {/* TAB 6: VOCABULARY & WORD MEANING DICTIONARY */}
+                {activeRightTab === 'dict' && (
+                  <div className="flex-1 overflow-y-auto pr-1">
+                    <Suspense fallback={
+                      <div className="p-4 text-center text-slate-400 text-sm">
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-sky-400 mx-auto mb-2" />
+                        Loading Vocabulary Dictionary...
+                      </div>
+                    }>
+                      <WordDictionary
+                        initialWord={dictionaryWord}
+                        className="p-3 sm:p-4 rounded-xl border border-slate-800 bg-slate-900/90 shadow-none"
+                      />
+                    </Suspense>
+                  </div>
+                )}
+
               </div>
             </aside>
           )}
@@ -1317,6 +1361,52 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           </div>
         </div>
       )}
+
+      {/* ============================================================== */}
+      {/* GLOBAL WORD MEANING & EXTERNAL DICTIONARY MODAL DIALOG */}
+      {/* ============================================================== */}
+      {showWordDictionary && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+          <div className="bg-slate-900 border border-sky-500/50 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3 sticky top-0 bg-slate-900 z-10">
+              <div className="flex items-center gap-2.5">
+                <BookA size={22} className="text-sky-400" />
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">English Vocabulary &amp; Word Meaning</h3>
+                  <p className="text-xs text-slate-400">Instant definitions, phonetics, audio, &amp; external reference dictionaries</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowWordDictionary(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer text-base font-bold"
+              >
+                ✕
+              </button>
+            </div>
+
+            <Suspense fallback={
+              <div className="py-12 text-center text-slate-400 text-sm">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-sky-400 mx-auto mb-3" />
+                Loading Dictionary...
+              </div>
+            }>
+              <WordDictionary initialWord={dictionaryWord} showTitle={false} />
+            </Suspense>
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================== */}
+      {/* FLOATING TEXT SELECTION WORD LOOKUP TOOLBAR */}
+      {/* ============================================================== */}
+      <Suspense fallback={null}>
+        <SelectionWordLookup
+          onOpenDictionaryModal={(word) => {
+            setDictionaryWord(word);
+            setShowWordDictionary(true);
+          }}
+        />
+      </Suspense>
 
       {/* ========================================================================= */}
       {/* CNAT MAM AI CHATBOT STUDENT ASSISTANT */}

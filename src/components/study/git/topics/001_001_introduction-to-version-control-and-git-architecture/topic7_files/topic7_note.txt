@@ -1,0 +1,64 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 7
+TOPIC: Configuring Essential Preferences: core.editor, init.defaultBranch, color.ui
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. ESSENTIAL GLOBAL DEVELOPER PREFERENCES
+--------------------------------------------------------------------------------
+Beyond user name and email, every modern software engineer must configure three
+essential global preferences:
+
+1. DEFAULT BRANCH NAME (init.defaultBranch):
+   • In 2020, the software industry and Git community transitioned the default initial
+     branch name from 'master' to 'main'.
+   • Command:
+     $ git config --global init.defaultBranch main
+
+2. DEFAULT TEXT EDITOR (core.editor):
+   • Controls which editor opens when writing multi-line commit messages, interactive
+     rebases (`git rebase -i`), and merge conflict reviews.
+   • VS Code (Recommended):
+     $ git config --global core.editor "code --wait"
+   • Nano:
+     $ git config --global core.editor "nano"
+   • Notepad (Windows simple):
+     $ git config --global core.editor "notepad"
+   • Vim:
+     $ git config --global core.editor "vim"
+
+3. TERMINAL COLORIZATION (color.ui):
+   • Enables rich terminal syntax highlighting for branches (green), untracked files (red),
+     and commit graphs.
+   • Command:
+     $ git config --global color.ui auto
+
+================================================================================
+2. VERIFYING AND EDITING CONFIGURATION
+================================================================================
+# Inspect all configured properties:
+$ git config --list
+
+# Open the global config file directly in VS Code:
+$ git config --global --edit
+
+# Sample ~/.gitconfig contents:
+[user]
+  name = Sukanta Hui
+  email = sukanta@codernaccotax.co.in
+[init]
+  defaultBranch = main
+[core]
+  editor = code --wait
+  autocrlf = true
+[color]
+  ui = auto
+
+================================================================================
+3. TEACHER'S GOLDEN PRINCIPLE
+--------------------------------------------------------------------------------
+"Configuring 'code --wait' as your core.editor turns interactive rebasing and merge
+commit reviews into an intuitive, visual experience right inside VS Code."
+— Sukanta Hui, Coder & AccoTax
+================================================================================

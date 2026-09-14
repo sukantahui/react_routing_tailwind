@@ -1,0 +1,62 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 3
+TOPIC: Origins of Git: How Linus Torvalds Built Git in 2005 for Linux Kernel Development
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. HISTORICAL CHRONOLOGY: HOW GIT WAS BORN (APRIL 2005)
+--------------------------------------------------------------------------------
+The creation of Git is one of the most legendary stories in computer science:
+
+• 1991 – 2002: The Linux kernel project managed patches by emailing raw tarballs
+  and diff patch files back and forth.
+• 2002 – 2005: The kernel team started using a proprietary Distributed VCS called
+  BitKeeper (created by BitMover).
+• April 2005: Andrew Tridgell (creator of Samba) reverse-engineered the BitKeeper
+  network protocols. BitMover revoked the free license for the Linux kernel community.
+• April 3, 2005: Linus Torvalds took a break from kernel maintenance, disappeared for
+  a weekend, and wrote the initial architecture of Git in pure C.
+• April 7, 2005: Git became self-hosting (Git source code was tracked using Git).
+• June 16, 2005: Linux Kernel 2.6.12 was released entirely managed by Git.
+• July 2005: Linus handed maintenance over to Junio Hamano, who remains the lead
+  maintainer of Git to this day.
+
+================================================================================
+2. LINUS TORVALDS' NON-NEGOTIABLE DESIGN REQUIREMENTS
+================================================================================
+When designing Git, Linus rejected CVS, SVN, Monotone, and Arch based on strict
+principles:
+
+1. Extreme Raw Speed:
+   • Applying a diff patch and committing must take < 3 seconds across millions of lines.
+2. Non-Linear Development & Frictionless Merging:
+   • Thousands of concurrent branches must exist without blocking each other.
+3. Fully Distributed (DVCS):
+   • No central server required; any two kernel maintainers can exchange patches.
+4. Cryptographic Data Integrity:
+   • Every object is addressed by its SHA-1 hash; historical tampering is mathematically
+     impossible.
+5. Content-Addressable Storage:
+   • Git does not track filenames; it stores immutable content snapshots (blobs & trees).
+
+================================================================================
+3. COMMANDS USED IN EARLY GIT (PLUMBING COMMANDS)
+================================================================================
+# Compute cryptographic SHA-1 hash of text:
+$ echo "Linux Kernel 2.6.12" | git hash-object --stdin
+
+# Read raw object content from Git's object database:
+$ git cat-file -p HEAD
+
+# Verify cryptographic consistency:
+$ git fsck --full
+
+================================================================================
+4. TEACHER'S GOLDEN PRINCIPLE
+--------------------------------------------------------------------------------
+"Git was not created in an academic laboratory; it was forged under the extreme pressure
+of managing thousands of kernel patches from developers across the globe. That is why
+Git is battle-hardened, lightning fast, and mathematically indestructible."
+— Sukanta Hui, Coder & AccoTax
+================================================================================

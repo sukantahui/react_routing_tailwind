@@ -702,7 +702,14 @@ Segment 11 – Master JavaScript Programming Exercises & CNAT Coding Lab (165+ P
 
 
 ================================================================================
-8. PRE-DELIVERY QUALITY AUDIT CHECKLIST
+8. VOCABULARY & COMPUTER DICTIONARY LOOKUP INTEGRATION
+================================================================================
+All JavaScript topics automatically inherit the global Vocabulary & Computer Dictionary engine:
+• Selection Auto-Lookup: Highlighting any term (e.g. "coercion", "idempotent", "lexical", "closure") displays a floating tooltip with instant definitions, audio pronunciation, and external links to Computer Dictionaries (Computer Hope, TechTerms, MDN, GeeksforGeeks, DevDocs) as well as English Dictionaries (Cambridge, Merriam-Webster, Oxford).
+• Optional In-Topic Component: Import `<WordDictionary initialWord="..." />` from `../../../../../common/WordDictionary` if a dedicated vocabulary helper card is needed.
+
+================================================================================
+9. PRE-DELIVERY QUALITY AUDIT CHECKLIST
 ================================================================================
 Before considering any generated topic complete, verify that:
 [ ] 1. Topic[N].jsx contains all 11 standard sections in exact sequence.

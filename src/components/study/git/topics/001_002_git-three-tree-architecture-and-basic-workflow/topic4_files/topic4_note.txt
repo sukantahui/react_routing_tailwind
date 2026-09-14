@@ -1,0 +1,45 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 4
+STAGING CHANGES: `git add <file>`, `git add .` VS `git add -A`
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. CONCEPT OVERVIEW
+-------------------------------------------------------------------------------
+The `git add` command is how changes in the Working Directory are promoted into
+the Staging Area (Index). It creates blob objects inside `.git/objects/` and
+updates `.git/index` to reference their 40-character SHA-1 hashes.
+
+2. COMMAND VARIATIONS MATRIX
+-------------------------------------------------------------------------------
+  Command           Scope                         Handles Deletions?  Notes
+  -----------------------------------------------------------------------------
+  `git add <file>`  Specific file only            Yes (if removed)   Targeted & safe
+  `git add <dir>/`  Specific directory subtree    Yes (inside dir)   Scoped batch
+  `git add .`       Current directory downwards   Yes (Git 2.0+)     Subtree-scoped
+  `git add -A`      Entire repository root        Yes (Everywhere)   Repo-wide sync
+  `git add -u`      Tracked files ONLY            Yes                Ignores new ??
+  `git add *`       Shell glob expansion          NO on dotfiles!    Avoid in scripts
+
+3. CRITICAL HISTORICAL NOTE (GIT 1.x vs GIT 2.0+)
+-------------------------------------------------------------------------------
+  - In Git 1.x, `git add .` did NOT stage file deletions, whereas `git add -A` did.
+  - In Git 2.0+, `git add .` DOES stage deletions, but ONLY for the current
+    working directory and its children.
+  - `git add -A` (or `git add --all`) stages new files, modifications, AND deletions
+    across the ENTIRE repository regardless of your current working directory.
+
+4. DANGER OF BLIND `git add .` OR `git add -A`
+-------------------------------------------------------------------------------
+  Running `git add .` without checking `git status` can accidentally stage:
+  - Secrets: `.env`, `credentials.json`, private keys.
+  - Build artifacts: `node_modules/`, `dist/`, `.next/`, `__pycache__/`.
+  - OS clutter: `.DS_Store`, `Thumbs.db`.
+  - Half-baked code across other modules you forgot you touched!
+
+5. BARRACKPORE CODER & ACCOTAX BEST PRACTICES
+-------------------------------------------------------------------------------
+  1. Stage with precision: Use `git add src/components/Invoice.jsx`.
+  2. Use `git add -u` when updating existing tracked files without staging new files.
+  3. Always combine with `.gitignore` to prevent accidental staging.
+===============================================================================

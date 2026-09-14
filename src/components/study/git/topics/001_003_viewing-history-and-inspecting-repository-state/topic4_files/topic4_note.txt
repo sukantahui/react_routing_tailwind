@@ -1,0 +1,58 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 4
+Filtering History by Commit Message: Searching with git log --grep
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+While '--author' searches author metadata, '--grep' searches the text inside
+the commit message (both the 50-character subject line and the extended body).
+
+When a bug report mentions an issue ticket number (e.g., 'JIRA-402', 'BUG-109')
+or a specific subsystem keyword ('auth', 'discount', 'gst', 'security'),
+'git log --grep' allows instant localization of all relevant commits.
+
+2. CORE COMMAND VARIATIONS & REGEX
+--------------------------------------------------------------------------------
+A. Basic Substring / Word Search:
+   - git log --grep="discount"
+   - git log --grep="fix(auth)"
+
+B. Case-Insensitive Matching:
+   - git log --grep="gst" -i
+   - git log --grep="tax" --regexp-ignore-case
+
+C. Extended Regular Expressions:
+   - git log -E --grep="fix\((auth|billing)\)"
+   - Matches commits affecting either 'auth' or 'billing' subsystems.
+
+D. Multiple Grep Patterns (OR vs AND logic):
+   - OR Logic (Default):
+     git log --grep="coupon" --grep="discount"
+     Matches any commit mentioning either "coupon" OR "discount".
+   - AND Logic (--all-match):
+     git log --all-match --grep="fix" --grep="security"
+     Matches ONLY commits that contain BOTH "fix" AND "security".
+
+E. Inverted Grep (--invert-grep):
+   - git log --invert-grep --grep="Merge"
+   - Excludes merge commits or unwanted noise from the log.
+
+3. COMBINING --grep WITH --author AND DATE FILTERS
+--------------------------------------------------------------------------------
+Example: Find all security-related commits written by Swadeep this month:
+   git log --author="Swadeep" --grep="security" -i --since="1 month ago" --oneline
+
+Note on --all-match with --author + --grep:
+When you combine '--author' and '--grep', by default Git matches commits matching
+the author AND the grep pattern. If you specify multiple '--grep' flags with
+'--all-match', it ensures ALL patterns are present in the commit.
+
+4. BEST PRACTICES & CONVENTIONAL COMMITS SYNERGY
+--------------------------------------------------------------------------------
+- If your team enforces Conventional Commits ('feat:', 'fix:', 'docs:', 'refactor:'),
+  searching is 10x more effective:
+  - Find all bug fixes: git log --grep="^fix:"
+  - Find breaking changes: git log --grep="BREAKING CHANGE"
+================================================================================

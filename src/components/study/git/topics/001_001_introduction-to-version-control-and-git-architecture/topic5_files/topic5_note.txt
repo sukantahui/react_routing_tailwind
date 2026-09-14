@@ -1,0 +1,55 @@
+================================================================================
+CODER & ACCOTAX COMPUTER EDUCATION CENTER
+GIT MASTERY TRACK · MODULE 001_001 · TOPIC 5
+TOPIC: Installing Git on Windows, macOS, and Linux (Package Managers & Shells)
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. CROSS-PLATFORM INSTALLATION GUIDE
+--------------------------------------------------------------------------------
+Git is a cross-platform command-line tool available on all major operating systems:
+
+A. WINDOWS (Git for Windows / Git Bash):
+   • Download official installer from: https://git-scm.com/download/win
+   • Using Windows Package Manager (winget):
+     $ winget install --id Git.Git -e --source winget
+   • Using Chocolatey:
+     $ choco install git.install -y
+   • Includes: Git Bash (MinGW64 POSIX terminal), Git GUI, and Windows Credential Manager.
+
+B. MACOS (Homebrew / Xcode CLI Tools):
+   • Apple Xcode Command Line Tools:
+     $ xcode-select --install
+   • Using Homebrew (recommended for newest Git):
+     $ brew install git
+
+C. LINUX (Debian/Ubuntu, Fedora/RHEL, Arch Linux):
+   • Debian / Ubuntu / Linux Mint / Pop!_OS:
+     $ sudo apt update && sudo apt install git -y
+   • Fedora / RHEL / CentOS Stream:
+     $ sudo dnf install git -y
+   • Arch Linux / Manjaro:
+     $ sudo pacman -S git
+
+================================================================================
+2. POST-INSTALLATION VERIFICATION
+================================================================================
+# Check installed Git version:
+$ git --version
+# Output: git version 2.45.x (or newer)
+
+# Check executable binary path:
+$ which git          # (Linux / macOS / Git Bash)
+$ where git          # (Windows Command Prompt / PowerShell)
+
+# Check Git help documentation:
+$ git help config
+$ git help --all
+
+================================================================================
+3. TEACHER'S GOLDEN RULE
+--------------------------------------------------------------------------------
+"For Windows users in Barrackpore and Kolkata, always use Git Bash as your primary
+terminal. It provides a clean POSIX Unix environment with bash, grep, ssh, and curl
+built-in!" — Sukanta Hui, Coder & AccoTax
+================================================================================

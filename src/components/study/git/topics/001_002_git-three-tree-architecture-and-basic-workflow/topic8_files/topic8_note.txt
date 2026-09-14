@@ -1,0 +1,54 @@
+===============================================================================
+GIT FOUNDATION SERIES: TOPIC 8
+CONVENTIONAL COMMITS SPECIFICATION (v1.0.0 STANDARD)
+EDUCATOR: SUKANTA HUI (Coder & AccoTax, Barrackpore)
+===============================================================================
+
+1. WHAT ARE CONVENTIONAL COMMITS?
+-------------------------------------------------------------------------------
+Conventional Commits is a lightweight specification on top of Git commit messages.
+It provides an easy set of rules for creating an explicit commit history, which
+enables automated semantic versioning (SemVer), automated CHANGELOG generation,
+and machine-readable commit graphs.
+
+2. SPECIFICATION SYNTAX
+-------------------------------------------------------------------------------
+  <type>[optional scope]: <description>
+
+  [optional body]
+
+  [optional footer(s)]
+
+3. STANDARD TYPE TAXONOMY MATRIX
+-------------------------------------------------------------------------------
+  Type      SemVer Impact    Meaning & Examples
+  -----------------------------------------------------------------------------
+  feat      MINOR (0.X.0)    Introduces a new feature to the codebase
+  fix       PATCH (0.0.X)    Patches a bug in your codebase
+  docs      NONE / PATCH     Documentation only changes (README, JSDoc)
+  style     NONE             Formatting, semi-colons, white-space (no logic change)
+  refactor  NONE             Refactoring production code without fixing bug/adding feat
+  perf      PATCH            Code change that improves execution performance
+  test      NONE             Adding missing tests or correcting existing tests
+  build     NONE / PATCH     Changes affecting build system or external dependencies
+  ci        NONE             Changes to CI configuration files and scripts (GitHub Actions)
+  chore     NONE             Routine maintenance, updating grunt/gulp/npm scripts
+  revert    Varies           Reverts a previous commit
+
+4. BREAKING CHANGES (MAJOR SEMVER 1.0.0)
+-------------------------------------------------------------------------------
+A breaking change requires a MAJOR version bump in SemVer.
+Two ways to denote in Conventional Commits:
+  1. Add `!` after type/scope: `feat(auth)!: replace sessions with JWT`
+  2. Add footer: `BREAKING CHANGE: The /login API now requires Bearer token.`
+
+5. BARRACKPORE CODER & ACCOTAX CLASSROOM EXAMPLE
+-------------------------------------------------------------------------------
+Sachin wrote: `feat(billing): add GST calculation engine`
+Susmita added: `fix(auth): prevent session timeout during invoice creation`
+Mahima added: `docs: update deployment guidelines for West Bengal tax portal`
+
+When merged, automated tools (Semantic Release / Standard Version) generate:
+  - Version bump to 1.1.0
+  - Formatted CHANGELOG.md categorized by Features and Bug Fixes automatically!
+===============================================================================

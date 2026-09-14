@@ -170,6 +170,11 @@ import Teacher from "../../../../../common/TeacherSukantaHui";
 />
 ```
 
+### E. Vocabulary & Computer Dictionary Lookup Integration (`<WordDictionary>`)
+All tutorial topics are powered by the built-in Vocabulary & Computer Dictionary system:
+- **Text Selection Auto-Lookup**: Students highlighting any technical or English term will receive an instant 1-click definition bubble and direct external links to **Computer Hope**, **TechTerms**, **MDN Web Docs**, **GeeksforGeeks**, **Cambridge Dictionary**, **Merriam-Webster**, and **Oxford Learner's Dictionaries**.
+- **Optional In-Topic Component**: Topic authors can embed `<WordDictionary initialWord="stochastic" />` from `../../../../../common/WordDictionary` for dedicated glossary cards.
+
 ---
 
 ## 6. Output & Quality Guarantee
@@ -177,3 +182,4 @@ import Teacher from "../../../../../common/TeacherSukantaHui";
 1. **Full File Generation**: Always output 100% complete, copy-paste-ready, un-truncated files.
 2. **Clean Code**: Well-commented, production-ready, highly accessible semantic HTML/JSX.
 3. **Strict Validation**: All imports must match repository relative pathing accurately.
+

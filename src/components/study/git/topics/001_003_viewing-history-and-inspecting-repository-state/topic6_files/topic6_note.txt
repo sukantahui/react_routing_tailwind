@@ -1,0 +1,64 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 6
+Viewing Detailed Changes: git log -p (Patch Diffs) & git log --stat (Statistics)
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+When investigating a code regression or doing a comprehensive audit, commit
+subject lines alone are often insufficient. Developers need to see the exact
+code modifications or a statistical summary of files changed.
+
+Git provides two fundamental inspection flags:
+1. 'git log --stat' : Displays high-level file modification metrics, listing
+   files touched, insertions (+), deletions (-), and total changed lines.
+2. 'git log -p' (or '-u', '--patch') : Renders full unified diff patches inline
+   underneath each commit record.
+
+2. COMMAND VARIATIONS & MEANINGS
+--------------------------------------------------------------------------------
+A. git log --stat
+   - Generates a concise summary below each commit:
+     src/tax/calc.js | 15 ++++++++++-----
+     README.md       |  2 +-
+     2 files changed, 11 insertions(+), 6 deletions(-)
+   - Great for quickly gauging the magnitude and surface area of each commit.
+
+B. git log --shortstat
+   - Outputs only the bottom summary line without listing individual file names:
+     2 files changed, 11 insertions(+), 6 deletions(-)
+
+C. git log --numstat
+   - Generates pure numeric tabular output (insertions, deletions, path):
+     10   5   src/tax/calc.js
+     1    1   README.md
+   - Ideal for script parsing and velocity analytics.
+
+D. git log -p (or --patch)
+   - Displays full standard unified diff (hunk headers '@@ -start,len +start,len @@',
+     deletions in '-', additions in '+').
+   - Can be combined with count limits and pathspecs:
+     git log -p -2 -- src/tax/calc.js
+
+E. git log --dstat / --compact-summary
+   - Shows compact additions/deletions and created/deleted file mode tags.
+
+3. UNIFIED DIFF FORMAT REFRESHER
+--------------------------------------------------------------------------------
+diff --git a/app.js b/app.js
+index 7b1e4a8..98ca7a4 100644
+--- a/app.js
++++ b/app.js
+@@ -10,4 +10,6 @@ function init() {
+-  const tax = 0.05;
++  const tax = 0.18;
++  console.log("GST Applied:", tax);
+ }
+
+4. BEST PRACTICES
+--------------------------------------------------------------------------------
+- Use '--stat' first to get the broad picture of affected files.
+- Use '-p' when you need to inspect exact line changes, variable renames, and logic flow.
+- Combine '-p' with '-w' (ignore whitespace changes) to reduce formatting noise.
+================================================================================

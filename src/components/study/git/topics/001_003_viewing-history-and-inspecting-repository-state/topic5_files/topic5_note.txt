@@ -1,0 +1,53 @@
+================================================================================
+GIT STUDY NOTES: MODULE 001_003 - TOPIC 5
+Path-Specific History: Tracking Commits Affecting Specific Files or Folders
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. OVERVIEW & MOTIVATION
+--------------------------------------------------------------------------------
+In large monolithic repositories and multi-package projects, 95% of commits in
+the repository history are irrelevant when you are working on a single component
+or debugging a specific file (e.g., 'src/tax/gst_calculator.js' or 'config/db.json').
+
+Git allows you to filter the commit history DAG strictly to commits that
+modified a specific file, subdirectory, or wildcard pattern using pathspecs:
+   git log -- <path>
+
+2. THE DOUBLE-DASH ('--') PATHSPEC SEPARATOR
+--------------------------------------------------------------------------------
+Why use '--'?
+The double-dash separates Git CLI command flags and revision references (branches,
+tags, commit SHAs) from filesystem path arguments.
+- Example ambiguity: If you have a branch named 'server.js' and a file named
+  'server.js':
+  - git log server.js  --> Git might interpret this as branch 'server.js'
+  - git log -- server.js --> Explicitly instructs Git: "Filter history of file server.js"
+
+3. ESSENTIAL PATH-SPECIFIC COMMAND PATTERNS
+--------------------------------------------------------------------------------
+A. Single File History:
+   - git log -- oneline -- src/tax/gst_calc.js
+
+B. Entire Directory / Subsystem History:
+   - git log -- oneline -- src/components/
+   - Shows all commits that touched ANY file inside the 'src/components/' tree.
+
+C. Multiple Specific Files:
+   - git log -- oneline -- package.json package-lock.json
+
+D. Wildcard Pattern Matching:
+   - git log -- "*.sql"
+   - Shows all commits that modified SQL database migration scripts anywhere in the repo.
+
+E. Path-Specific Diff & Inline Patches:
+   - git log -p -- src/tax/gst_calc.js
+   - Displays the historical evolution with inline diff patches for that exact file.
+
+4. RENAMES AND THE '--follow' PREVIEW
+--------------------------------------------------------------------------------
+- Standard 'git log -- <path>' stops when it hits the commit where the file was
+  created or renamed.
+- To follow history across file renames and moves, use:
+  git log --follow -- <path> (Covered in detail in Topic 12).
+================================================================================

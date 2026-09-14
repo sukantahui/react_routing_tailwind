@@ -249,3 +249,12 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   - All scripts, generators, and verification tools must use standard CommonJS (`require`) and ES2020 JavaScript compatible with Node.js v16.
 - **Verification Before Completion:**
   - Always verify that all JSX, Java, JS, and TXT files exist, import correctly, and build with zero syntax errors.
+
+---
+
+## 9. Vocabulary & Computer Dictionary Lookup Integration
+
+All topics automatically support the global Vocabulary & Computer Dictionary engine:
+- **Text Selection Auto-Lookup**: Highlighting any word or technical phrase (e.g. "polymorphism", "encapsulation", "instantiation", "immutable") triggers a floating tooltip with instant definitions, audio pronunciation, and external links to Computer Dictionaries (**Computer Hope**, **TechTerms**, **MDN**, **GeeksforGeeks**) alongside English Dictionaries (**Cambridge**, **Merriam-Webster**, **Oxford**).
+- **Optional In-Topic Component**: Import `<WordDictionary initialWord="..." />` from `../../../../../common/WordDictionary` for dedicated glossary cards.
+
