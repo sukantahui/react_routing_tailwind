@@ -1,14 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
 import CFileLoader from "../../../../../common/CFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import cCode from "./topic2_files/TextFileOperationsDemo.c?raw";
+import cCode1 from "./topic2_files/TextFileOperationsDemo.c?raw";
+import cCode2 from "./topic2_files/CharLineStreamsDemo.c?raw";
+import cCode3 from "./topic2_files/WordCountAnalyzerDemo.c?raw";
 import questions from "./topic2_files/topic2_questions";
 import noteText from "./topic2_files/topic2_note.txt?raw";
 
 export default function Topic2() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const examples = [
+    {
+      id: "ex1",
+      title: "1. Formatted I/O (fprintf / fscanf)",
+      file: cCode1,
+      filename: "TextFileOperationsDemo.c",
+      description:
+        "Generates structured tabular student grade reports using fprintf() and parses them back safely using formatted fscanf() token specifiers.",
+      lineByLine: [
+        {
+          line: 'fprintf(fp, "%d %s %.2f %c\\n", id, name, score, grade);',
+          explanation:
+            "Writes formatted values into the text file separated by spaces, rounding scores to 2 decimal places.",
+        },
+        {
+          line: 'while (fscanf(fp, "%d %49s %f %c", &id, name, &score, &grade) == 4)',
+          explanation:
+            "Golden pattern! Checks that fscanf successfully parsed exactly 4 items. The %49s prevents string buffer overflows.",
+        },
+        {
+          line: "total_score += score; count++;",
+          explanation:
+            "Accumulates numerical grades to calculate average student performance across the entire class.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - TEXT FILE I/O OPERATIONS LAB       
+========================================================
+
+--- 1. WRITING STRUCTURED DATA WITH fprintf() ---
+  Created 'student_grades.txt' and formatted 3 student records.
+
+--- 2. READING & PARSING STRUCTURED DATA WITH fscanf() ---
+  Parsed Student Records:
+    [ID: 101] Swadeep     | Score:  88.50 | Grade: A
+    [ID: 102] Tuhina      | Score:  94.00 | Grade: A
+    [ID: 103] Debangshu   | Score:  76.25 | Grade: B
+
+  Average Class Score: 86.25
+
+  Cleaned up 'student_grades.txt'.
+========================================================`,
+    },
+    {
+      id: "ex2",
+      title: "2. Char & Line Streams (fgetc / fgets)",
+      file: cCode2,
+      filename: "CharLineStreamsDemo.c",
+      description:
+        "Demonstrates single-character stream transformation using int-safe fgetc()/fputc() and bounded safe line reading using fgets().",
+      lineByLine: [
+        {
+          line: 'fputs("Hello Coder & AccoTax...\\n", fp_out);',
+          explanation:
+            "Writes a complete string line to the output stream without adding any extra characters.",
+        },
+        {
+          line: "int ch; while ((ch = fgetc(fp_in)) != EOF)",
+          explanation:
+            "Reads one character at a time. The variable 'ch' MUST be an int so it can store EOF (-1) without overflow.",
+        },
+        {
+          line: "fputc(toupper(ch), fp_out);",
+          explanation:
+            "Converts each character to uppercase in memory and writes it out to the destination file stream.",
+        },
+        {
+          line: "while (fgets(line_buffer, sizeof(line_buffer), fp_in) != NULL)",
+          explanation:
+            "Reads an entire line into memory. Guarantees buffer safety by limiting input to sizeof(line_buffer) bytes.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - CHARACTER & LINE STREAM I/O LAB    
+========================================================
+
+--- 1. CREATING SOURCE FILE USING fputs() ---
+  Wrote 3 lines to 'source_text.txt'.
+
+--- 2. CHARACTER-BY-CHARACTER COPY & UPPERCASE CONVERSION ---
+  Converted and copied 119 characters to 'uppercase_copy.txt'.
+
+--- 3. READING LINES SAFELY WITH fgets() ---
+  [Line 1] HELLO CODER & ACCOTAX STUDENTS!
+  [Line 2] LEARNING C PROGRAMMING IN BARRACKPORE.
+  [Line 3] MASTERING SYSTEMS PROGRAMMING AND STREAM I/O.
+
+  Cleaned up temporary demonstration files.
+========================================================`,
+    },
+    {
+      id: "ex3",
+      title: "3. CLI Text & Word Analyzer",
+      file: cCode3,
+      filename: "WordCountAnalyzerDemo.c",
+      description:
+        "A complete industrial CLI file analytics engine that inspects a text file stream to calculate total line counts, word counts, alphabets, and digits.",
+      lineByLine: [
+        {
+          line: "stats->characters++;",
+          explanation:
+            "Increments total character count for every byte read from the file stream.",
+        },
+        {
+          line: "if (ch == '\\n') stats->lines++;",
+          explanation:
+            "Detects newline characters to track the total number of lines in the document.",
+        },
+        {
+          line: "if (isspace(ch)) in_word = false; else if (!in_word) ...",
+          explanation:
+            "State machine tracking transitions from whitespace to letters to calculate total word count accurately.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - CLI TEXT FILE ANALYZER LAB         
+========================================================
+
+--- FILE ANALYSIS REPORT: 'sample_document.txt' ---
+  Total Lines       : 4
+  Total Words       : 31
+  Total Characters  : 265 bytes
+  Alphabet Letters  : 209
+  Numeric Digits    : 9
+--------------------------------------------------------
+  Cleaned up temporary document 'sample_document.txt'.
+========================================================`,
+    },
+  ];
+
   return (
     <div className="space-y-12 bg-slate-900 text-slate-200 p-4 md:p-8 rounded-2xl border border-slate-800">
       {/* 1. Header Section */}
@@ -29,7 +163,59 @@ export default function Topic2() {
         </p>
       </header>
 
-      {/* 2. Dedicated Topic Description Section (MANDATORY) */}
+      {/* 2. DEDICATED SIMPLE EXPLANATION SECTION */}
+      <section className="space-y-5 bg-gradient-to-br from-indigo-950/40 via-slate-800/40 to-slate-900 border border-indigo-500/30 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl p-2 bg-indigo-500/20 rounded-xl border border-indigo-500/30">💡</span>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold text-white">
+              In Very Simple Terms: The 3 Ways to Read &amp; Write Text
+            </h2>
+            <p className="text-indigo-300 text-xs md:text-sm font-medium">
+              Magnifying glass, Soup bowl, or Structured Form
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          {/* Card 1 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-sky-400 font-bold text-sm flex items-center gap-1.5">
+              <span>🔍</span> 1. Character by Character
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Functions: <code>fgetc()</code> &amp; <code>fputc()</code>. Like reading a book with a magnifying glass one alphabet at a time. Returns an <code>int</code> so it can signal <code>EOF (-1)</code> when the file ends.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-emerald-400 font-bold text-sm flex items-center gap-1.5">
+              <span>🥣</span> 2. Line by Line (Safe Bowl)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Functions: <code>fgets()</code> &amp; <code>fputs()</code>. Reads an entire sentence until <code>\n</code>. You specify your bowl size (e.g., 128 bytes), so it <strong>never overflows</strong> your memory!
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-purple-400 font-bold text-sm flex items-center gap-1.5">
+              <span>📋</span> 3. Formatted Tables
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Functions: <code>fprintf()</code> &amp; <code>fscanf()</code>. Like filling in or reading an official report card: ID numbers, names, and decimal averages separated by spaces or commas.
+            </p>
+          </div>
+        </div>
+
+        {/* Tip Box */}
+        <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 text-xs text-amber-200">
+          ⚠️ <strong>Why is `fgetc` return type `int` instead of `char`?</strong> Because <code>EOF</code> is defined as <code>-1</code>. An 8-bit unsigned char cannot distinguish between the byte <code>0xFF (255)</code> and the end-of-file sentinel <code>-1</code>!
+        </div>
+      </section>
+
+      {/* 3. Dedicated Topic Description Section */}
       <section className="space-y-4 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
         <h2 className="text-2xl font-bold text-sky-300 flex items-center gap-2">
           <span>📖</span> Topic Description: Text Stream Processing Mechanics
@@ -47,7 +233,7 @@ export default function Topic2() {
         </div>
       </section>
 
-      {/* 3. Semantic Visual Diagram Section */}
+      {/* 4. Semantic Visual Diagram Section */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-sky-300">
           ⚙️ Semantic Visual Diagram: Text Stream I/O Hierarchy
@@ -92,111 +278,144 @@ export default function Topic2() {
         </div>
       </section>
 
-      {/* 4. Deep Technical Breakdown Section */}
+      {/* 5. Deep Technical Breakdown Section */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-sky-300">
           🔍 Deep Technical Breakdown: fgets() vs gets() Safety
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-2">
-            <h3 className="font-bold text-rose-300 text-sm">Dangerous Legacy gets() (Removed in C11)</h3>
+            <h3 className="font-bold text-emerald-300 text-sm">Why fgets() is 100% Safe</h3>
             <p className="text-slate-300">
-              <code>gets()</code> had no maximum length parameter. Reading 100 characters into a 50-byte array corrupted adjacent stack memory, leading to major buffer overflow exploits.
+              <code>fgets(buffer, sizeof(buffer), fp)</code> takes the maximum destination buffer size as a strict argument. It will never write beyond <code>sizeof(buffer) - 1</code> bytes, automatically appending the null terminator (<code>\0</code>).
             </p>
           </div>
           <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-2">
-            <h3 className="font-bold text-emerald-300 text-sm">Secure Industrial Standard: fgets()</h3>
-            <pre className="bg-slate-950 p-2.5 rounded font-mono text-emerald-300">
-{`char buf[256];
-if (fgets(buf, sizeof(buf), fp) != NULL) {
-    buf[strcspn(buf, "\\r\\n")] = '\\0'; // Clean newline
-}`}</pre>
+            <h3 className="font-bold text-rose-300 text-sm">Why gets() is Banned in Modern C</h3>
+            <p className="text-slate-300">
+              The legacy function <code>gets()</code> had no length limit, allowing attackers to overwrite return addresses on the stack. It was completely removed from the ISO C11 standard.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* 5. Dedicated Example Section (MANDATORY) */}
-      <section className="space-y-5 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Example Section: Text Stream Operations Demonstration
-        </h2>
-        <p className="text-slate-300 text-sm leading-relaxed">
-          The program below (<code>TextFileOperationsDemo.c</code>) writes formatted records with <code>fprintf()</code>, reads line-by-line with <code>fgets()</code>, and parses structured fields with <code>fscanf()</code>.
-        </p>
-
-        <CFileLoader fileModule={cCode} title="TextFileOperationsDemo.c" editable={false} />
-
-        <div className="mt-4 rounded-xl border border-slate-700 bg-slate-950 p-4">
-          <div className="text-xs font-semibold text-sky-400 mb-2 flex items-center gap-2">
-            <span>🖥️</span> Expected Console Execution Output:
+      {/* 6. DEDICATED MULTI-EXAMPLE SECTION */}
+      <section className="space-y-6 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/80 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Example Section: Text Stream I/O Demonstrations
+            </h2>
+            <p className="text-slate-300 text-sm mt-1">
+              Explore 3 comprehensive C programs with step-by-step line explanations and terminal outputs.
+            </p>
           </div>
-          <pre className="text-slate-200 text-xs md:text-sm font-mono leading-relaxed whitespace-pre overflow-x-auto">
-{`========================================================
-   CODER & ACCOTAX - TEXT STREAM I/O OPERATIONS LAB     
-========================================================
 
---- 1. WRITING STRUCTURED TEXT (fprintf) ---
-  Formatted text successfully written to 'text_records.txt'.
+          {/* Example Selector Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {examples.map((ex, index) => (
+              <button
+                key={ex.id}
+                onClick={() => setActiveTab(index)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === index
+                    ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                {ex.title}
+              </button>
+            ))}
+          </div>
+        </div>
 
---- 2. SAFE LINE-BY-LINE READING (fgets) ---
-  [Line 1]: 101 Swadeep 94.50
-  [Line 2]: 102 Tuhina 98.00
-  [Line 3]: 103 Abhronila 96.50
-  [Line 4]: --- End of Student Marks ---
-  [Line 5]: #
+        {/* Selected Example Detail */}
+        <div className="space-y-5">
+          <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60 text-xs md:text-sm text-slate-300 flex items-start gap-2">
+            <span className="text-emerald-400 font-bold">📋 Overview:</span>
+            <span>{examples[activeTab].description}</span>
+          </div>
 
---- 3. PARSING STRUCTURED DATA (fscanf) ---
-  Parsed Record -> ID: 101 | Name: Swadeep    | Score: 94.50
-  Parsed Record -> ID: 102 | Name: Tuhina     | Score: 98.00
-  Parsed Record -> ID: 103 | Name: Abhronila  | Score: 96.50
+          <CFileLoader
+            fileModule={examples[activeTab].file}
+            title={examples[activeTab].filename}
+            editable={false}
+          />
 
-  Text file operations completed successfully.
-========================================================`}
-          </pre>
+          {/* Line-by-Line Plain-English Explanation Card */}
+          <div className="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 md:p-5 space-y-3 shadow-md">
+            <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span>🔍</span> Plain-English Line-by-Line Code Breakdown:
+            </div>
+            <div className="space-y-2">
+              {examples[activeTab].lineByLine.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col sm:flex-row sm:items-start gap-2 bg-slate-950/70 p-3 rounded-lg border border-slate-800/80"
+                >
+                  <code className="text-sky-300 font-mono text-[11px] sm:w-2/5 shrink-0 font-semibold bg-slate-900 px-2 py-1 rounded border border-slate-700/60">
+                    {item.line}
+                  </code>
+                  <span className="text-slate-300 text-xs leading-relaxed">
+                    {item.explanation}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-slate-700 bg-slate-950 p-4 shadow-inner">
+            <div className="text-xs font-semibold text-sky-400 mb-2 flex items-center gap-2">
+              <span>🖥️</span> Expected Console Execution Output:
+            </div>
+            <pre className="text-slate-200 text-xs md:text-sm font-mono leading-relaxed whitespace-pre overflow-x-auto">
+              {examples[activeTab].output}
+            </pre>
+          </div>
         </div>
       </section>
 
-      {/* 6. Common Pitfalls & Best Practices Section */}
+      {/* 7. Common Pitfalls & Best Practices Section */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-rose-400">
           ⚠️ Common Pitfalls &amp; Best Practices
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div className="bg-rose-950/20 border border-rose-900/30 p-4 rounded-xl space-y-1.5">
-            <h3 className="font-bold text-rose-300">Pitfall: fgetc() Returning to char</h3>
+            <h3 className="font-bold text-rose-300">Pitfall: Unbounded %s in fscanf</h3>
             <p className="text-slate-300">
-              Storing the return value of <code>fgetc()</code> in a <code>char</code> variable causes infinite loops or early truncation because <code>EOF (-1)</code> and character byte <code>0xFF (255)</code> cannot be differentiated. Always store in an <code>int</code>!
+              Never use <code>fscanf(fp, "%s", buf)</code> without a width limit. Always use <code>fscanf(fp, "%49s", buf)</code> to prevent buffer overflows.
             </p>
           </div>
           <div className="bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-xl space-y-1.5">
-            <h3 className="font-bold text-emerald-300">Best Practice: Validate fscanf Match Count</h3>
+            <h3 className="font-bold text-emerald-300">Best Practice: Stripping Trailing Newlines</h3>
             <p className="text-slate-300">
-              Always check <code>if (fscanf(fp, "%d %s", &amp;id, name) == 2)</code> to ensure both variables were populated before using them.
+              <code>fgets()</code> keeps the trailing <code>\n</code> in the buffer. Strip it using: <code>buf[strcspn(buf, "\n")] = '\0';</code>.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 7. Thinking & Hints Section ("Think About This...") */}
+      {/* 8. Thinking & Hints Section ("Think About This...") */}
       <section className="bg-slate-800/30 border border-slate-700/60 p-5 rounded-2xl space-y-2 text-xs md:text-sm">
         <h3 className="font-bold text-amber-300 flex items-center gap-1.5">
           <span>🤔</span> Think About This...
         </h3>
         <p className="text-slate-300 leading-relaxed">
-          Why does <code>fgetc()</code> advance the file position indicator automatically, and how can you peek at the next character without consuming it using <code>ungetc()</code>?
+          Why does text mode convert line endings between Windows (<code>\r\n</code>, CRLF) and Linux (<code>\n</code>, LF) automatically, and why does this subtle conversion corrupt binary files if opened without the <code>"b"</code> mode flag?
         </p>
       </section>
 
-      {/* 8. Comprehensive FAQ Section */}
+      {/* 9. Comprehensive FAQ Section */}
       <section>
-        <FAQTemplate title="Module 003_010 Topic 2 FAQs: Text File Operations" questions={questions} />
+        <FAQTemplate title="Module 003_010 Topic 2 FAQs: Text Stream I/O Operations" questions={questions} />
       </section>
 
-      {/* 9. Plain Text Printable Note Section */}
+      {/* 10. Plain Text Printable Note Section */}
       <section>
         <PlainTextPrint
           content={noteText}
-          title="Module 003_010 Topic 2 Note: Text File Operations"
+          title="Module 003_010 Topic 2 Note: Text Stream I/O Operations"
           stampEnabled={true}
           showDownload={true}
           downloadButtonText="Download Printable Note"
@@ -204,11 +423,11 @@ if (fgets(buf, sizeof(buf), fp) != NULL) {
         />
       </section>
 
-      {/* 10. Teacher's Note Section */}
+      {/* 11. Teacher's Note Section */}
       <section>
         <Teacher
           note={
-            "When parsing text files, prefer fgets() with sizeof(buf) over raw scanf(). It guarantees memory safety and lets you cleanly clean trailing newlines! Always store fgetc return values in an int! — Sukanta Hui"
+            "When parsing real-world text feeds or CSV files, read entire lines with fgets() first, and then parse each token with sscanf() or strtok(). This prevents half-read corrupted states if a single field is malformed! — Sukanta Hui"
           }
         />
       </section>

@@ -100,3 +100,5 @@ export const topic5Questions = [
     answer: "Calling fflush(fp) after critical writes forces libc to flush its user-space buffers to the OS kernel immediately, ensuring logs and database records are preserved on disk even if an unexpected abort occurs."
   }
 ];
+
+export default topic5Questions;

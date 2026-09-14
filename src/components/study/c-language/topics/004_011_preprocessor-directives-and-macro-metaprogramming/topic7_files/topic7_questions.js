@@ -2205,4 +2205,4 @@ const questions = [
 ];
 
 export default questions;
-export { questions };
+export { questions, questions as topic7Questions };

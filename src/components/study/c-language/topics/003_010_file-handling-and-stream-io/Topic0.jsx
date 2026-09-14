@@ -1,14 +1,166 @@
-import React from "react";
+import React, { useState } from "react";
 import CFileLoader from "../../../../../common/CFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import cCode from "./topic0_files/StreamBufferingDemo.c?raw";
+import cCode1 from "./topic0_files/StreamBufferingDemo.c?raw";
+import cCode2 from "./topic0_files/CustomBufferDemo.c?raw";
+import cCode3 from "./topic0_files/TerminalProgressDemo.c?raw";
 import questions from "./topic0_files/topic0_questions";
 import noteText from "./topic0_files/topic0_note.txt?raw";
 
 export default function Topic0() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const examples = [
+    {
+      id: "ex1",
+      title: "1. Standard Streams & fflush()",
+      file: cCode1,
+      filename: "StreamBufferingDemo.c",
+      description:
+        "Examines standard stream descriptors (stdin=0, stdout=1, stderr=2), demonstrates immediate unbuffered stderr output, and explains explicit flushing with fflush().",
+      lineByLine: [
+        {
+          line: "fileno(stdin), fileno(stdout), fileno(stderr)",
+          explanation:
+            "Queries the low-level OS file descriptor numbers: 0 for keyboard input, 1 for screen output, and 2 for error alerts.",
+        },
+        {
+          line: 'fprintf(stderr, "[stderr Immediate Notice]...")',
+          explanation:
+            "Writes directly to the standard error stream. Because stderr is unbuffered by default (_IONBF), text appears on screen immediately without waiting.",
+        },
+        {
+          line: 'printf(". "); fflush(stdout);',
+          explanation:
+            "Prints a dot without a newline (\\n). Normally this would stay trapped in the RAM buffer, but fflush(stdout) forces the OS to paint it to the terminal instantly!",
+        },
+        {
+          line: "setvbuf(stdout, custom_buffer, _IOFBF, 1024)",
+          explanation:
+            "Switches stdout from line-buffered to fully-buffered mode, using our custom 1024-byte RAM buffer before writing to the terminal.",
+        },
+        {
+          line: "setvbuf(stdout, NULL, _IOLBF, 0)",
+          explanation:
+            "Restores the default line-buffering mode for stdout before exiting so terminal behavior returns to normal.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - STANDARD STREAMS & BUFFERING LAB   
+========================================================
+
+--- 1. STANDARD STREAM IDENTIFIERS ---
+  Standard Input  (stdin)  : File Descriptor 0
+  Standard Output (stdout) : File Descriptor 1
+  Standard Error  (stderr) : File Descriptor 2 (Always Unbuffered)
+
+  [stderr Immediate Notice] This message bypasses stdout buffer.
+--- 2. STREAM FLUSHING WITH fflush() ---
+  Simulating task progress: . . .  [DONE]
+
+--- 3. CUSTOM BUFFERING CONFIGURATION WITH setvbuf() ---
+  stdout switched to Full Buffering (_IOFBF) with 1024-byte custom buffer.
+
+  Stream demonstration completed successfully.
+========================================================`,
+    },
+    {
+      id: "ex2",
+      title: "2. Custom Buffer Tuning (setvbuf)",
+      file: cCode2,
+      filename: "CustomBufferDemo.c",
+      description:
+        "Demonstrates allocating a dedicated 512-byte user buffer with setvbuf(), switching between Full Buffering (_IOFBF) and Unbuffered (_IONBF) modes, and flushing pending data.",
+      lineByLine: [
+        {
+          line: "char user_buffer[512];",
+          explanation:
+            "Allocates a 512-byte memory block in RAM that will temporarily hold file data before sending it to the physical storage disk.",
+        },
+        {
+          line: "setvbuf(fp, user_buffer, _IOFBF, sizeof(user_buffer))",
+          explanation:
+            "Tells the C runtime to use our 512-byte array as a Full Buffer (_IOFBF). Writes will only touch disk when all 512 bytes are full or when flushed.",
+        },
+        {
+          line: 'fprintf(fp, "[INFO] Server started...");',
+          explanation:
+            "Writes log strings into the RAM buffer. The physical hard drive is NOT touched yet, keeping CPU performance extremely high.",
+        },
+        {
+          line: "fflush(fp)",
+          explanation:
+            "Forces all pending log lines sitting inside user_buffer to be committed immediately to the physical disk.",
+        },
+        {
+          line: "setvbuf(fp, NULL, _IONBF, 0)",
+          explanation:
+            "Switches the stream to Unbuffered mode (_IONBF). Any subsequent fprintf calls write directly to disk with zero buffering lag.",
+        },
+      ],
+      output: `========================================================
+     CODER & ACCOTAX - CUSTOM BUFFER TUNING LAB         
+========================================================
+
+--- 1. ASSIGNING CUSTOM USER BUFFER (_IOFBF) ---
+  [SUCCESS] Attached custom 512-byte buffer to stream.
+  Wrote 3 log records (currently residing inside RAM buffer).
+  [fflush] Flushed RAM buffer contents directly to disk.
+
+--- 2. SWITCHING TO UNBUFFERED MODE (_IONBF) ---
+  [UNBUFFERED] Message written immediately to physical file without caching.
+
+--- 3. VERIFYING COMMITTED LOG FILE CONTENTS ---
+    > [INFO] Server started at Barrackpore Lab.
+    > [INFO] Student Swadeep connected.
+    > [INFO] Student Tuhina connected.
+    > [CRITICAL] Immediate emergency alert: Disk threshold reached!
+
+  Cleaned up temporary log file 'custom_buffer_test.log'.
+========================================================`,
+    },
+    {
+      id: "ex3",
+      title: "3. Real-Time CLI Progress (fflush)",
+      file: cCode3,
+      filename: "TerminalProgressDemo.c",
+      description:
+        "Illustrates why fflush(stdout) is essential when building real-time interactive CLI counters or progress bars that output without trailing newline (\\n) characters.",
+      lineByLine: [
+        {
+          line: 'printf("\\r  [Progress: %3d%%] ...", percentage)',
+          explanation:
+            "Prints the carriage return character (\\r) which moves the cursor back to column 0 of the same line, allowing in-place animated updates.",
+        },
+        {
+          line: "fflush(stdout)",
+          explanation:
+            "The magic call! Since there is no newline (\\n), stdout would normally freeze the output in RAM. fflush forces the updated progress bar to the monitor immediately.",
+        },
+        {
+          line: "SLEEP_MS(50)",
+          explanation:
+            "Pauses for 50 milliseconds so human eyes can watch the smooth progression from 0% to 100%.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - REAL-TIME TERMINAL FLUSH LAB       
+========================================================
+
+--- 1. SIMULATING INDUSTRIAL FILE BACKUP ---
+  Target: /data/students_barrackpore_backup.db
+  [Progress: 100%] [##########] (10/10 blocks)
+
+--- 2. STREAM FLUSHING CONCLUSION ---
+  [SUCCESS] Backup completed. All stream buffers safely written.
+  Tip: Always call fflush(stdout) when designing interactive CLI prompts!
+========================================================`,
+    },
+  ];
+
   return (
     <div className="space-y-12 bg-slate-900 text-slate-200 p-4 md:p-8 rounded-2xl border border-slate-800">
       {/* 1. Header Section */}
@@ -29,7 +181,63 @@ export default function Topic0() {
         </p>
       </header>
 
-      {/* 2. Dedicated Topic Description Section (MANDATORY) */}
+      {/* 2. DEDICATED SIMPLE EXPLANATION SECTION */}
+      <section className="space-y-5 bg-gradient-to-br from-indigo-950/40 via-slate-800/40 to-slate-900 border border-indigo-500/30 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl p-2 bg-indigo-500/20 rounded-xl border border-indigo-500/30">💡</span>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold text-white">
+              In Very Simple Terms: How Streams and Buffers Work
+            </h2>
+            <p className="text-indigo-300 text-xs md:text-sm font-medium">
+              The real-world analogy to understand C I/O in 2 minutes
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          {/* Analogy Card 1 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-amber-400 font-bold text-sm flex items-center gap-1.5">
+              <span>📬</span> The Postal Courier (Why Buffering?)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Writing to a physical hard drive is like sending a postal courier across town. If you called the courier for <em>every single letter</em> you typed, your system would crawl to a halt. Instead, C collects characters in a small memory box (a <strong>Buffer</strong>) and sends the entire box in one fast trip!
+            </p>
+          </div>
+
+          {/* Analogy Card 2 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-sky-400 font-bold text-sm flex items-center gap-1.5">
+              <span>🚪</span> The Three Standard Doors
+            </div>
+            <ul className="text-slate-300 text-xs space-y-1 leading-relaxed">
+              <li><strong className="text-sky-300">stdin:</strong> The front door where keystrokes arrive from the keyboard.</li>
+              <li><strong className="text-emerald-300">stdout:</strong> The normal display window that shows regular output.</li>
+              <li><strong className="text-rose-300">stderr:</strong> The emergency red alarm that bypasses all waiting queues immediately!</li>
+            </ul>
+          </div>
+
+          {/* Analogy Card 3 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-emerald-400 font-bold text-sm flex items-center gap-1.5">
+              <span>⚡</span> The Flushing Switch (fflush)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Normally, <code>stdout</code> waits for you to press Enter (<code>\n</code>) before it appears on screen. If you are printing a loading bar without <code>\n</code>, call <code>fflush(stdout)</code> to say: <em>"Don't wait! Push whatever is in the box to the screen right now!"</em>
+            </p>
+          </div>
+        </div>
+
+        {/* Quick Rule Card */}
+        <div className="bg-indigo-900/20 border border-indigo-500/20 rounded-xl p-3.5 text-xs text-indigo-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+          <span>
+            📌 <strong>Golden Rule:</strong> Error messages belong in <code>stderr</code> (instant &amp; crash-proof). Regular output belongs in <code>stdout</code>. Never call <code>fflush(stdin)</code> because standard C does not support flushing input!
+          </span>
+        </div>
+      </section>
+
+      {/* 3. Dedicated Topic Description Section */}
       <section className="space-y-4 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
         <h2 className="text-2xl font-bold text-sky-300 flex items-center gap-2">
           <span>📖</span> Topic Description: Stream Buffering &amp; Operating System Interfaces
@@ -47,7 +255,7 @@ export default function Topic0() {
         </div>
       </section>
 
-      {/* 3. Semantic Visual Diagram Section */}
+      {/* 4. Semantic Visual Diagram Section */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-sky-300">
           ⚙️ Semantic Visual Diagram: Stream Buffering Pipeline
@@ -110,7 +318,7 @@ export default function Topic0() {
         </div>
       </section>
 
-      {/* 4. Deep Technical Breakdown Section */}
+      {/* 5. Deep Technical Breakdown Section */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-sky-300">
           🔍 Deep Technical Breakdown: The Three Stream Modes
@@ -137,45 +345,85 @@ export default function Topic0() {
         </div>
       </section>
 
-      {/* 5. Dedicated Example Section (MANDATORY) */}
-      <section className="space-y-5 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
-        <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Example Section: Stream Buffering Demonstration
-        </h2>
-        <p className="text-slate-300 text-sm leading-relaxed">
-          The program below (<code>StreamBufferingDemo.c</code>) demonstrates file descriptors for standard streams, immediate unbuffered <code>stderr</code> output, explicit flushing with <code>fflush()</code>, and custom buffer configuration via <code>setvbuf()</code>.
-        </p>
-
-        <CFileLoader fileModule={cCode} title="StreamBufferingDemo.c" editable={false} />
-
-        <div className="mt-4 rounded-xl border border-slate-700 bg-slate-950 p-4">
-          <div className="text-xs font-semibold text-sky-400 mb-2 flex items-center gap-2">
-            <span>🖥️</span> Expected Console Execution Output:
+      {/* 6. DEDICATED MULTI-EXAMPLE SECTION */}
+      <section className="space-y-6 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/80 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Example Section: Stream Buffering Demonstrations
+            </h2>
+            <p className="text-slate-300 text-sm mt-1">
+              Explore 3 hands-on practical C programs with step-by-step line explanations and terminal output.
+            </p>
           </div>
-          <pre className="text-slate-200 text-xs md:text-sm font-mono leading-relaxed whitespace-pre overflow-x-auto">
-{`========================================================
-   CODER & ACCOTAX - STANDARD STREAMS & BUFFERING LAB   
-========================================================
 
---- 1. STANDARD STREAM IDENTIFIERS ---
-  Standard Input  (stdin)  : File Descriptor 0
-  Standard Output (stdout) : File Descriptor 1
-  Standard Error  (stderr) : File Descriptor 2 (Always Unbuffered)
+          {/* Example Selector Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {examples.map((ex, index) => (
+              <button
+                key={ex.id}
+                onClick={() => setActiveTab(index)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === index
+                    ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                {ex.title}
+              </button>
+            ))}
+          </div>
+        </div>
 
-  [stderr Immediate Notice] This message bypasses stdout buffer.
---- 2. STREAM FLUSHING WITH fflush() ---
-  Simulating task progress: . . .  [DONE]
+        {/* Selected Example Detail */}
+        <div className="space-y-5">
+          <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60 text-xs md:text-sm text-slate-300 flex items-start gap-2">
+            <span className="text-emerald-400 font-bold">📋 Overview:</span>
+            <span>{examples[activeTab].description}</span>
+          </div>
 
---- 3. CUSTOM BUFFERING CONFIGURATION WITH setvbuf() ---
-  stdout switched to Full Buffering (_IOFBF) with 1024-byte custom buffer.
+          {/* Code Viewer */}
+          <CFileLoader
+            fileModule={examples[activeTab].file}
+            title={examples[activeTab].filename}
+            editable={false}
+          />
 
-  Stream demonstration completed successfully.
-========================================================`}
-          </pre>
+          {/* Line-by-Line Plain-English Explanation Card */}
+          <div className="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 md:p-5 space-y-3 shadow-md">
+            <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span>🔍</span> Plain-English Line-by-Line Code Breakdown:
+            </div>
+            <div className="space-y-2">
+              {examples[activeTab].lineByLine.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col sm:flex-row sm:items-start gap-2 bg-slate-950/70 p-3 rounded-lg border border-slate-800/80"
+                >
+                  <code className="text-sky-300 font-mono text-[11px] sm:w-2/5 shrink-0 font-semibold bg-slate-900 px-2 py-1 rounded border border-slate-700/60">
+                    {item.line}
+                  </code>
+                  <span className="text-slate-300 text-xs leading-relaxed">
+                    {item.explanation}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Console Output */}
+          <div className="rounded-xl border border-slate-700 bg-slate-950 p-4 shadow-inner">
+            <div className="text-xs font-semibold text-sky-400 mb-2 flex items-center gap-2">
+              <span>🖥️</span> Expected Console Execution Output:
+            </div>
+            <pre className="text-slate-200 text-xs md:text-sm font-mono leading-relaxed whitespace-pre overflow-x-auto">
+              {examples[activeTab].output}
+            </pre>
+          </div>
         </div>
       </section>
 
-      {/* 6. Common Pitfalls & Best Practices Section */}
+      {/* 7. Common Pitfalls & Best Practices Section */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-rose-400">
           ⚠️ Common Pitfalls &amp; Best Practices
@@ -196,7 +444,7 @@ export default function Topic0() {
         </div>
       </section>
 
-      {/* 7. Thinking & Hints Section ("Think About This...") */}
+      {/* 8. Thinking & Hints Section ("Think About This...") */}
       <section className="bg-slate-800/30 border border-slate-700/60 p-5 rounded-2xl space-y-2 text-xs md:text-sm">
         <h3 className="font-bold text-amber-300 flex items-center gap-1.5">
           <span>🤔</span> Think About This...
@@ -206,12 +454,12 @@ export default function Topic0() {
         </p>
       </section>
 
-      {/* 8. Comprehensive FAQ Section */}
+      {/* 9. Comprehensive FAQ Section */}
       <section>
         <FAQTemplate title="Module 003_010 Topic 0 FAQs: Standard Streams & Buffering" questions={questions} />
       </section>
 
-      {/* 9. Plain Text Printable Note Section */}
+      {/* 10. Plain Text Printable Note Section */}
       <section>
         <PlainTextPrint
           content={noteText}
@@ -223,7 +471,7 @@ export default function Topic0() {
         />
       </section>
 
-      {/* 10. Teacher's Note Section */}
+      {/* 11. Teacher's Note Section */}
       <section>
         <Teacher
           note={

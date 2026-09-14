@@ -1,286 +1,436 @@
-import React from "react";
+import React, { useState } from "react";
 import CFileLoader from "../../../../../common/CFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import cCode from "./topic3_files/BinaryStructIODemo.c?raw";
-import { topic3Questions } from "./topic3_files/topic3_questions";
+import cCode1 from "./topic3_files/BinaryStructIODemo.c?raw";
+import cCode2 from "./topic3_files/RawByteArrayDemo.c?raw";
+import cCode3 from "./topic3_files/BinaryHeaderProtocolDemo.c?raw";
+import questions from "./topic3_files/topic3_questions";
 import noteText from "./topic3_files/topic3_note.txt?raw";
 
-const Topic3 = () => {
+export default function Topic3() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const examples = [
+    {
+      id: "ex1",
+      title: "1. Struct Serialization (fread/fwrite)",
+      file: cCode1,
+      filename: "BinaryStructIODemo.c",
+      description:
+        "Serializes arrays of complex student structures directly to disk in binary mode with fwrite() and restores them back into memory with fread().",
+      lineByLine: [
+        {
+          line: 'FILE *fp = fopen("students.bin", "wb");',
+          explanation:
+            "Opens the file in Binary Write mode ('wb'). This disables newline byte translations that would otherwise corrupt binary records.",
+        },
+        {
+          line: "fwrite(students, sizeof(Student), 3, fp);",
+          explanation:
+            "Writes all 3 student structs (144 bytes total) from RAM directly onto the disk in a single CPU instruction burst.",
+        },
+        {
+          line: "while (fread(&s, sizeof(Student), 1, fp) == 1)",
+          explanation:
+            "Golden binary reading loop! Reads exactly 1 struct (48 bytes) into variable 's'. Terminates cleanly the moment EOF is hit.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - BINARY STRUCT I/O & SERIALIZATION  
+========================================================
+
+--- 1. SERIALIZING STRUCTURE ARRAY TO DISK (fwrite) ---
+  Wrote 3 student records (144 bytes) to 'students.bin'.
+
+--- 2. DESERIALIZING STRUCTURE ARRAY FROM DISK (fread) ---
+  Successfully read 3 records from binary file:
+  [Record 1] Roll: 101 | Name: Swadeep Sharma     | Marks: 88.50 | Status: Active
+  [Record 2] Roll: 102 | Name: Tuhina Mukherjee   | Marks: 94.00 | Status: Active
+  [Record 3] Roll: 103 | Name: Debangshu Roy      | Marks: 76.25 | Status: Inactive
+
+  Cleaned up 'students.bin'.
+========================================================`,
+    },
+    {
+      id: "ex2",
+      title: "2. Raw Matrix Serialization",
+      file: cCode2,
+      filename: "RawByteArrayDemo.c",
+      description:
+        "Demonstrates raw binary array and 2D floating-point matrix persistence with zero string-conversion overhead, preserving 100% mathematical precision.",
+      lineByLine: [
+        {
+          line: "double source_matrix[3][3] = { ... };",
+          explanation:
+            "Declares a 3x3 matrix of double-precision floating numbers (72 raw bytes) in system memory.",
+        },
+        {
+          line: "fwrite(source_matrix, sizeof(double), 9, fp);",
+          explanation:
+            "Directly dumps all 9 doubles to disk. There is zero ASCII text formatting overhead, making it 10x to 100x faster than text I/O.",
+        },
+        {
+          line: "fread(dest_matrix, sizeof(double), 9, fp);",
+          explanation:
+            "Populates the uninitialized dest_matrix in RAM by pulling the raw bytes straight off storage.",
+        },
+      ],
+      output: `========================================================
+    CODER & ACCOTAX - RAW BINARY ARRAY SERIALIZATION    
+========================================================
+
+--- 1. WRITING RAW 3x3 DOUBLE MATRIX TO DISK ---
+  Successfully wrote 9 double elements (72 bytes) to 'matrix_data.bin'.
+
+--- 2. READING RAW BINARY MATRIX BACK INTO MEMORY ---
+  Successfully read 9 double elements.
+
+--- 3. RECONSTRUCTED MATRIX IN RAM ---
+    [   1.00   0.00   0.00 ]
+    [   0.00   1.00   0.00 ]
+    [   0.50   0.50   1.00 ]
+
+  Cleaned up binary matrix file 'matrix_data.bin'.
+========================================================`,
+    },
+    {
+      id: "ex3",
+      title: "3. Custom Binary File Header Protocol",
+      file: cCode3,
+      filename: "BinaryHeaderProtocolDemo.c",
+      description:
+        "Designs a custom binary container format with a 16-byte metadata header, magic number (0x434F4445 / 'CODE'), schema versioning, and payload chunks.",
+      lineByLine: [
+        {
+          line: "__attribute__((packed))",
+          explanation:
+            "Instructs the compiler to eliminate padding bytes between struct fields, ensuring binary file layout is consistent across 32-bit and 64-bit systems.",
+        },
+        {
+          line: "fwrite(&header, sizeof(FileHeader), 1, fp);",
+          explanation:
+            "Writes the 16-byte metadata preamble containing Magic ID ('CODE'), version number, and total record count.",
+        },
+        {
+          line: "if (read_hdr.magic != FILE_MAGIC) ...",
+          explanation:
+            "Validates that the file opened is genuine and not corrupted or belonging to another file format.",
+        },
+      ],
+      output: `========================================================
+  CODER & ACCOTAX - BINARY FILE PROTOCOL & HEADER LAB   
+========================================================
+
+--- 1. WRITING STRUCTURED BINARY PROTOCOL FILE ---
+  Wrote Header (16 bytes) + Payload (80 bytes) to 'students_v2.db'.
+
+--- 2. READING & VALIDATING BINARY HEADER ---
+  [HEADER OK] Magic: 0x434F4445 ("CODE") | Version: 2 | Records: 2
+
+--- 3. DECODED PAYLOAD RECORDS ---
+  [Record 1] ID: 101 | Name: Swadeep Sharma     | Marks: 91.5
+  [Record 2] ID: 102 | Name: Tuhina Mukherjee   | Marks: 96.0
+
+  Cleaned up custom protocol file 'students_v2.db'.
+========================================================`,
+    },
+  ];
+
   return (
-    <div className="space-y-10 text-slate-800 dark:text-slate-100 max-w-5xl mx-auto px-4 py-8">
+    <div className="space-y-12 bg-slate-900 text-slate-200 p-4 md:p-8 rounded-2xl border border-slate-800">
       {/* 1. Header Section */}
-      <section className="space-y-3 border-b border-slate-200 dark:border-slate-700 pb-6">
-        <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 tracking-wide uppercase">
-          <span>Module 003_010</span>
-          <span>•</span>
-          <span>Topic 3</span>
+      <header className="space-y-3 border-b border-slate-800 pb-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="bg-sky-500/10 text-sky-400 border border-sky-500/20 px-3 py-1 rounded-full text-xs font-semibold">
+            Module 003_010 · Topic 3
+          </span>
+          <span className="bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1 rounded-full text-xs font-semibold">
+            Binary Persistence
+          </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          Binary Stream I/O & Struct Serialization (<code className="text-emerald-600 dark:text-emerald-400">fwrite</code> &amp; <code className="text-emerald-600 dark:text-emerald-400">fread</code>)
+        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          Binary Stream I/O &amp; Structure Serialization (fread &amp; fwrite)
         </h1>
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-          Master direct byte-for-byte stream serialization. Discover how binary mode bypasses ASCII encoding overhead to store dense C structures directly on disk with unmatched performance.
+        <p className="text-slate-400 text-base max-w-4xl leading-relaxed">
+          Master high-performance binary persistence in C. Transfer exact RAM byte representations directly to and from secondary storage using <code>fread()</code> and <code>fwrite()</code> without string-parsing CPU overhead.
         </p>
+      </header>
+
+      {/* 2. DEDICATED SIMPLE EXPLANATION SECTION */}
+      <section className="space-y-5 bg-gradient-to-br from-purple-950/40 via-slate-800/40 to-slate-900 border border-purple-500/30 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl p-2 bg-purple-500/20 rounded-xl border border-purple-500/30">💡</span>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold text-white">
+              In Very Simple Terms: Text Mode vs Binary Mode
+            </h2>
+            <p className="text-purple-300 text-xs md:text-sm font-medium">
+              English translation vs Instant RAM photograph
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          {/* Card 1 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-amber-400 font-bold text-sm flex items-center gap-1.5">
+              <span>📝</span> Text Mode (Slow Translation)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              When saving the number <code>12345678</code> in text mode, C converts it into 8 individual character codes ('1','2','3'...). This takes CPU time and 8 whole bytes on disk!
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-purple-400 font-bold text-sm flex items-center gap-1.5">
+              <span>📸</span> Binary Mode (Instant Snapshot)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Binary mode takes a direct memory snapshot of your variable in RAM. The integer <code>12345678</code> is written as exactly 4 raw bytes. No formatting, no translation, <strong>10x faster</strong>!
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-emerald-400 font-bold text-sm flex items-center gap-1.5">
+              <span>💾</span> Photocopying a Struct (fwrite)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              <code>fwrite(&amp;student, sizeof(Student), 1, fp)</code> is like photocopying an entire student ID card into a drawer with one quick motion. <code>fread()</code> pulls the exact card back into RAM!
+            </p>
+          </div>
+        </div>
+
+        {/* Binary Signature Callout */}
+        <div className="bg-purple-900/20 border border-purple-500/20 rounded-xl p-3 text-xs text-purple-200">
+          🔑 <strong>The Binary Rule:</strong> Always add <code>"b"</code> to your fopen mode (e.g. <code>"rb"</code>, <code>"wb"</code>, <code>"ab+"</code>). Without "b", the operating system may alter byte values like <code>0x0A (\n)</code> into <code>0x0D 0x0A (\r\n)</code>, corrupting binary integers and pointers!
+        </div>
       </section>
 
-      {/* 2. Concept Overview / Narrative */}
-      <section className="bg-gradient-to-br from-slate-50 to-emerald-50 dark:from-slate-900/60 dark:to-emerald-950/20 p-6 sm:p-8 rounded-2xl border border-emerald-100 dark:border-emerald-900/40 shadow-sm space-y-4">
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <span>⚡ Classroom Story: The High-Speed Data Engine at Barrackpore</span>
+      {/* 3. Dedicated Topic Description Section */}
+      <section className="space-y-4 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+        <h2 className="text-2xl font-bold text-sky-300 flex items-center gap-2">
+          <span>📖</span> Topic Description: Direct RAM Serialization &amp; Memory Layout
         </h2>
-        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-          In our lab, <strong>Abhronila</strong> built a student portal writing records with <code>fprintf(fp, "%d %s %f %c\n", ...)</code>. When testing with 100,000 student transcripts, the process took several seconds and generated a bloated 4.8 MB text file full of formatted space padding.
-        </p>
-        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-          <strong>Sukanta Sir</strong> showed the class how <code>fwrite()</code> and <code>fread()</code> work: <em>&ldquo;Why convert an integer into ASCII characters, write them one by one, and then parse them back with sscanf? In binary mode, RAM bytes are mirrored directly into the OS page cache without a single cycle wasted on character translation.&rdquo;</em> Swadeep switched the database engine to <code>fwrite</code>, shrinking the file to 1.6 MB and completing the operation in 18 milliseconds.
-        </p>
+        <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
+          <p>
+            Unlike text I/O which parses ASCII strings, binary I/O bypasses character conversion entirely. <code>fwrite()</code> copies the raw bytes directly from a program's RAM buffer to disk, while <code>fread()</code> reconstructs structures in memory in $O(1)$ hardware transfer time.
+          </p>
+          <div className="bg-slate-900/60 p-4 rounded-xl border-l-4 border-purple-500 text-xs md:text-sm text-slate-300 space-y-2">
+            <p className="font-semibold text-purple-300">🏫 Classroom Story at Coder &amp; AccoTax (Barrackpore):</p>
+            <p>
+              When benchmarking database performance with 100,000 student records in Barrackpore, Swadeep's <code>fprintf/fscanf</code> program took 4.8 seconds to write and parse. Sukanta Hui transitioned the codebase to binary <code>fwrite/fread</code>, cutting the runtime down to <strong>0.04 seconds</strong>! Sukanta also showed Debangshu why <code>#pragma pack(1)</code> is vital when exchanging binary files between 32-bit and 64-bit systems.
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* 3. Semantic SVG Diagram */}
+      {/* 4. Semantic Visual Diagram Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Architectural Blueprint: Struct Serialization in RAM vs Disk
+        <h2 className="text-xl font-bold text-sky-300">
+          ⚙️ Semantic Visual Diagram: Binary Serialization Pipeline
         </h2>
-        <div className="w-full overflow-x-auto bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-inner">
-          <svg
-            viewBox="0 0 900 300"
-            className="w-full min-w-[700px] h-auto font-sans"
-            aria-label="Binary Struct Serialization Architecture"
-          >
-            <rect width="900" height="300" fill="none" />
+        <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto">
+          <svg viewBox="0 0 900 280" className="w-full min-w-[750px] font-sans">
+            <rect x="20" y="20" width="860" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="2" />
 
-            {/* RAM Box */}
-            <rect x="40" y="40" width="340" height="220" rx="12" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
-            <text x="60" y="70" fill="#38bdf8" fontSize="16" fontWeight="bold">RAM (Stack / Heap Memory)</text>
+            {/* RAM Struct */}
+            <g transform="translate(40, 50)">
+              <rect x="0" y="0" width="230" height="180" rx="10" fill="#1e1b4b" stroke="#6366f1" strokeWidth="1.5" />
+              <text x="20" y="30" fill="#a5b4fc" className="font-bold text-sm">RAM: struct Student</text>
+              <rect x="15" y="45" width="200" height="25" fill="#312e81" rx="4" />
+              <text x="25" y="62" fill="#e0e7ff" className="font-mono text-xs">int roll = 101 (4B)</text>
+              <rect x="15" y="75" width="200" height="25" fill="#312e81" rx="4" />
+              <text x="25" y="92" fill="#e0e7ff" className="font-mono text-xs">char name[32] (32B)</text>
+              <rect x="15" y="105" width="200" height="25" fill="#312e81" rx="4" />
+              <text x="25" y="122" fill="#e0e7ff" className="font-mono text-xs">float marks = 94.0 (4B)</text>
+              <text x="20" y="160" fill="#818cf8" className="text-xs">Total: 40 Bytes in RAM</text>
+            </g>
 
-            <rect x="60" y="90" width="300" height="35" rx="6" fill="#334155" stroke="#64748b" />
-            <text x="75" y="113" fill="#f8fafc" fontSize="13">int rollNumber (4 Bytes)</text>
+            {/* Middle Action */}
+            <g transform="translate(300, 100)">
+              <rect x="0" y="0" width="290" height="80" rx="8" fill="#3b0764" stroke="#d946ef" strokeWidth="1.5" />
+              <text x="15" y="30" fill="#f5d0fe" className="font-bold text-xs font-mono">fwrite(&amp;s, 40, 1, fp);</text>
+              <text x="15" y="55" fill="#e879f9" className="text-xs">Direct DMA byte stream copy (No text conversion)</text>
+            </g>
 
-            <rect x="60" y="130" width="300" height="35" rx="6" fill="#334155" stroke="#64748b" />
-            <text x="75" y="153" fill="#f8fafc" fontSize="13">char name[50] (50 Bytes)</text>
-
-            <rect x="60" y="170" width="300" height="35" rx="6" fill="#334155" stroke="#64748b" />
-            <text x="75" y="193" fill="#f8fafc" fontSize="13">float marks (4 Bytes) + padding</text>
-
-            <rect x="60" y="210" width="300" height="35" rx="6" fill="#0f766e" stroke="#14b8a6" />
-            <text x="75" y="233" fill="#ccfbf1" fontSize="13" fontWeight="bold">Student record: sizeof(Student) = 60B</text>
-
-            {/* Transfer Arrows */}
-            <path d="M 400 120 L 500 120" stroke="#10b981" strokeWidth="4" markerEnd="url(#arrow-green)" strokeDasharray="6,4" />
-            <text x="408" y="105" fill="#10b981" fontSize="12" fontWeight="bold">fwrite(&amp;rec, 60, 1, fp)</text>
-
-            <path d="M 500 180 L 400 180" stroke="#0ea5e9" strokeWidth="4" markerEnd="url(#arrow-blue)" strokeDasharray="6,4" />
-            <text x="410" y="202" fill="#0ea5e9" fontSize="12" fontWeight="bold">fread(&amp;rec, 60, 1, fp)</text>
-
-            {/* Disk File Box */}
-            <rect x="520" y="40" width="340" height="220" rx="12" fill="#1e293b" stroke="#10b981" strokeWidth="2" />
-            <text x="540" y="70" fill="#10b981" fontSize="16" fontWeight="bold">Binary File on Disk (students.dat)</text>
-
-            <rect x="540" y="90" width="300" height="40" rx="6" fill="#064e3b" stroke="#059669" />
-            <text x="555" y="115" fill="#a7f3d0" fontSize="13">Record #1: [0x65 0x00 ... raw bytes]</text>
-
-            <rect x="540" y="140" width="300" height="40" rx="6" fill="#064e3b" stroke="#059669" />
-            <text x="555" y="165" fill="#a7f3d0" fontSize="13">Record #2: [0x66 0x00 ... raw bytes]</text>
-
-            <rect x="540" y="190" width="300" height="40" rx="6" fill="#064e3b" stroke="#059669" />
-            <text x="555" y="215" fill="#a7f3d0" fontSize="13">Record #3: [0x67 0x00 ... raw bytes]</text>
-
-            {/* Marker definitions */}
-            <defs>
-              <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
-              </marker>
-              <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9" />
-              </marker>
-            </defs>
+            {/* Disk Binary File */}
+            <g transform="translate(620, 50)">
+              <rect x="0" y="0" width="240" height="180" rx="10" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
+              <text x="20" y="30" fill="#6ee7b7" className="font-bold text-sm">DISK: students.bin</text>
+              <rect x="15" y="45" width="210" height="110" fill="#065f46" rx="4" />
+              <text x="25" y="70" fill="#a7f3d0" className="font-mono text-xs">0x65 0x00 0x00 0x00 ...</text>
+              <text x="25" y="95" fill="#a7f3d0" className="font-mono text-xs">"Swadeep Sharma\0\0..."</text>
+              <text x="25" y="120" fill="#a7f3d0" className="font-mono text-xs">0x00 0x00 0xBC 0x42 ...</text>
+              <text x="20" y="170" fill="#34d399" className="text-xs">Raw bit-exact byte persistence</text>
+            </g>
           </svg>
         </div>
       </section>
 
-      {/* 4. Deep Technical Breakdown */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Deep Technical Breakdown: The Mechanics of Block I/O
+      {/* 5. Deep Technical Breakdown Section */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-bold text-sky-300">
+          🔍 Deep Technical Breakdown: Function Signatures &amp; Return Values
         </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-2">
+            <h3 className="font-bold text-purple-300 text-sm">fwrite() Signature</h3>
+            <code className="text-amber-300 font-mono block bg-slate-950 p-2 rounded">
+              size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);
+            </code>
+            <p className="text-slate-300">
+              Returns the number of <strong>full items</strong> successfully written (NOT total bytes). If return value &lt; count, a write error occurred.
+            </p>
+          </div>
+          <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-2">
+            <h3 className="font-bold text-purple-300 text-sm">fread() Signature</h3>
+            <code className="text-amber-300 font-mono block bg-slate-950 p-2 rounded">
+              size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
+            </code>
+            <p className="text-slate-300">
+              Returns the number of items successfully read into memory. When reaching end-of-file, it returns a value less than count.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-            <h3 className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
-              1. Function Prototypes &amp; Arguments
-            </h3>
-            <pre className="bg-slate-900 text-emerald-300 p-3 rounded-lg text-xs font-mono overflow-x-auto">
-{`size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);
-size_t fread(void *ptr, size_t size, size_t count, FILE *stream);`}
-            </pre>
-            <ul className="text-sm space-y-1.5 text-slate-600 dark:text-slate-300 list-disc list-inside">
-              <li><strong>ptr:</strong> Memory address of the source or destination buffer.</li>
-              <li><strong>size:</strong> Byte width of a single item (e.g. <code>sizeof(Student)</code>).</li>
-              <li><strong>count:</strong> Total number of items to transfer in this block.</li>
-              <li><strong>Return value:</strong> Count of complete elements successfully transferred.</li>
-            </ul>
+      {/* 6. DEDICATED MULTI-EXAMPLE SECTION */}
+      <section className="space-y-6 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/80 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Example Section: Binary Stream Demonstrations
+            </h2>
+            <p className="text-slate-300 text-sm mt-1">
+              Explore 3 hands-on C programs with step-by-step line explanations and terminal outputs.
+            </p>
           </div>
 
-          <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-            <h3 className="text-lg font-bold text-sky-600 dark:text-sky-400">
-              2. Struct Padding &amp; Byte Alignment
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              Compilers align struct members on 4-byte or 8-byte word boundaries for hardware efficiency. If a struct has a <code>char</code> followed by an <code>int</code>, 3 padding bytes are inserted.
-            </p>
-            <div className="p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-700/50 rounded-lg text-xs text-amber-800 dark:text-amber-200">
-              <strong>Crucial Rule:</strong> Always clear memory with <code>memset(&amp;record, 0, sizeof(record))</code> before populating fields to ensure uninitialized padding bytes do not leak confidential garbage into disk files.
+          {/* Example Selector Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {examples.map((ex, index) => (
+              <button
+                key={ex.id}
+                onClick={() => setActiveTab(index)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === index
+                    ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                {ex.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Selected Example Detail */}
+        <div className="space-y-5">
+          <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60 text-xs md:text-sm text-slate-300 flex items-start gap-2">
+            <span className="text-emerald-400 font-bold">📋 Overview:</span>
+            <span>{examples[activeTab].description}</span>
+          </div>
+
+          <CFileLoader
+            fileModule={examples[activeTab].file}
+            title={examples[activeTab].filename}
+            editable={false}
+          />
+
+          {/* Line-by-Line Plain-English Explanation Card */}
+          <div className="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 md:p-5 space-y-3 shadow-md">
+            <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span>🔍</span> Plain-English Line-by-Line Code Breakdown:
+            </div>
+            <div className="space-y-2">
+              {examples[activeTab].lineByLine.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col sm:flex-row sm:items-start gap-2 bg-slate-950/70 p-3 rounded-lg border border-slate-800/80"
+                >
+                  <code className="text-sky-300 font-mono text-[11px] sm:w-2/5 shrink-0 font-semibold bg-slate-900 px-2 py-1 rounded border border-slate-700/60">
+                    {item.line}
+                  </code>
+                  <span className="text-slate-300 text-xs leading-relaxed">
+                    {item.explanation}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
-        {/* Text vs Binary Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm border-collapse rounded-xl overflow-hidden shadow-sm">
-            <thead className="bg-slate-900 text-white">
-              <tr>
-                <th className="p-3">Attribute</th>
-                <th className="p-3">Text Stream I/O (fprintf / fscanf)</th>
-                <th className="p-3">Binary Stream I/O (fwrite / fread)</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              <tr>
-                <td className="p-3 font-semibold">Representation</td>
-                <td className="p-3">Human-readable ASCII/UTF-8 strings</td>
-                <td className="p-3">Raw machine byte mirror (RAM dump)</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold">Speed</td>
-                <td className="p-3">Slower (requires string formatting &amp; parsing)</td>
-                <td className="p-3">Near instantaneous (direct memory block copy)</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold">Storage Density</td>
-                <td className="p-3">Variable size, space-inefficient for numbers</td>
-                <td className="p-3">Exact fixed-width structures (compact)</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-semibold">Windows Line Endings</td>
-                <td className="p-3">Translates <code>\n</code> &harr; <code>\r\n</code></td>
-                <td className="p-3">Untranslated 1:1 exact byte stream</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* 5. Compilable Example Section */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Working Code: Struct Serialization &amp; Deserialization
-        </h2>
-        <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-          Observe how an array of C structs is written to <code>students.dat</code> in a single <code>fwrite()</code> call, and deserialized record-by-record using <code>fread()</code>.
-        </p>
-        <CFileLoader
-          fileName="BinaryStructIODemo.c"
-          code={cCode}
-          title="Binary Struct Serialization & Stream Verification"
-        />
-
-        {/* Expected Output Card */}
-        <div className="p-4 bg-slate-900 text-slate-100 rounded-xl font-mono text-xs sm:text-sm border border-slate-700 space-y-2">
-          <div className="text-slate-400 font-semibold border-b border-slate-700 pb-1">
-            Expected Console Output:
+          <div className="rounded-xl border border-slate-700 bg-slate-950 p-4 shadow-inner">
+            <div className="text-xs font-semibold text-sky-400 mb-2 flex items-center gap-2">
+              <span>🖥️</span> Expected Console Execution Output:
+            </div>
+            <pre className="text-slate-200 text-xs md:text-sm font-mono leading-relaxed whitespace-pre overflow-x-auto">
+              {examples[activeTab].output}
+            </pre>
           </div>
-          <pre className="text-emerald-400 overflow-x-auto whitespace-pre-wrap">
-{`=====================================================
-  C Binary File I/O: Struct Serialization (fwrite/fread)
-=====================================================
-
->>> Step 1: Writing 4 student records to binary file 'students.dat'...
-    fwrite successfully wrote 4 records (240 bytes total).
-
------------------------------------------------------
->>> Step 2: Reading individual records back using fread()...
-
-[1] Roll: 101  | Name: Swadeep Sharma    | Marks: 88.50 | Grade: A
-[2] Roll: 102  | Name: Tuhina Roy        | Marks: 94.00 | Grade: E
-[3] Roll: 103  | Name: Abhronila Das     | Marks: 91.25 | Grade: E
-[4] Roll: 104  | Name: Debangshu Pal     | Marks: 82.75 | Grade: B
-
------------------------------------------------------
->>> Step 3: Verifying file size on disk vs calculated size...
-    sizeof(Student struct) = 60 bytes
-    Expected file size     = 4 * 60 = 240 bytes
-    Actual file size       = 240 bytes
-
-=== Binary I/O Demonstration Completed Successfully ===`}
-          </pre>
         </div>
       </section>
 
-      {/* 6. Common Pitfalls & Best Practices */}
+      {/* 7. Common Pitfalls & Best Practices Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Common Pitfalls &amp; Professional Best Practices
+        <h2 className="text-xl font-bold text-rose-400">
+          ⚠️ Common Pitfalls &amp; Best Practices
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-5 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 rounded-xl space-y-2">
-            <h3 className="font-bold text-rose-700 dark:text-rose-400 flex items-center gap-2">
-              <span>⚠️ The Shallow Pointer Serialization Trap</span>
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-              Never write a struct containing <code>char *name;</code> or dynamic pointers with <code>fwrite</code>. You are only saving ephemeral 8-byte virtual RAM addresses. When reloaded in another session, those addresses are invalid and cause instant segmentation faults.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="bg-rose-950/20 border border-rose-900/30 p-4 rounded-xl space-y-1.5">
+            <h3 className="font-bold text-rose-300">Pitfall: Pointer Members in Serialized Structs</h3>
+            <p className="text-slate-300">
+              Never serialize structs containing pointer fields (e.g., <code>char *name;</code>). <code>fwrite</code> writes the 64-bit RAM memory address, which becomes an invalid dangling address when loaded in another run!
             </p>
           </div>
-
-          <div className="p-5 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-xl space-y-2">
-            <h3 className="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
-              <span>✅ Safe Field Definition &amp; Fixed-Width Types</span>
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-              Always use fixed-size character arrays (e.g. <code>char name[50];</code>) or standardized types like <code>int32_t</code> from <code>&lt;stdint.h&gt;</code>. For dynamic strings, write the length integer first, followed by string bytes.
+          <div className="bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-xl space-y-1.5">
+            <h3 className="font-bold text-emerald-300">Best Practice: Structure Packing Padding (#pragma pack)</h3>
+            <p className="text-slate-300">
+              Use <code>#pragma pack(push, 1)</code> or fixed-width integer types (<code>uint32_t</code>) to guarantee cross-compiler struct alignment compatibility across different CPU architectures.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 7. Think About This... */}
-      <section className="p-6 bg-slate-100 dark:bg-slate-800 rounded-2xl border border-slate-300 dark:border-slate-700 space-y-3">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <span>💡 Think About This: Cross-Platform Endianness</span>
+      {/* 8. Thinking & Hints Section ("Think About This...") */}
+      <section className="bg-slate-800/30 border border-slate-700/60 p-5 rounded-2xl space-y-2 text-xs md:text-sm">
+        <h3 className="font-bold text-amber-300 flex items-center gap-1.5">
+          <span>🤔</span> Think About This...
         </h3>
-        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-          If you write an <code>int x = 0x12345678</code> on an Intel x86-64 machine (Little Endian), the bytes on disk are ordered <code>78 56 34 12</code>. If this binary file is opened on a Big Endian server (such as an IBM mainframe or network router), it reads as <code>0x78563412</code>. How do production network formats like PNG and TCP/IP solve this? (<em>Answer: They enforce Network Byte Order / Big Endian using <code>htons()</code> and <code>htonl()</code>!</em>)
+        <p className="text-slate-300 leading-relaxed">
+          Why do high-throughput gaming engines and financial exchanges save game saves and order books in pure binary format rather than JSON or XML?
         </p>
       </section>
 
-      {/* 8. FAQ Section */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Frequently Asked Questions (25 In-Depth Answers)
-        </h2>
-        <FAQTemplate questions={topic3Questions} />
+      {/* 9. Comprehensive FAQ Section */}
+      <section>
+        <FAQTemplate title="Module 003_010 Topic 3 FAQs: Binary Stream I/O & Struct Serialization" questions={questions} />
       </section>
 
-      {/* 9. PlainTextPrint Notes */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Printable Quick-Reference Notes
-        </h2>
-        <PlainTextPrint note={noteText} fileName="Topic3_Binary_Struct_IO_Note.txt" />
+      {/* 10. Plain Text Printable Note Section */}
+      <section>
+        <PlainTextPrint
+          content={noteText}
+          title="Module 003_010 Topic 3 Note: Binary Stream I/O & Struct Serialization"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="module_003_010_topic3_note.txt"
+        />
       </section>
 
-      {/* 10. Teacher Persona Note */}
-      <Teacher
-        name="Sukanta Hui"
-        role="Senior C & Systems Architect"
-        experience="26+ Years Experience"
-        location="Barrackpore & Shyamnagar, WB"
-        quote="A C programmer sees files not as documents, but as linear sequences of raw memory bytes. Treat disk blocks with the same mathematical precision you treat pointers in RAM."
-      />
+      {/* 11. Teacher's Note Section */}
+      <section>
+        <Teacher
+          note={
+            "Binary I/O gives you bare-metal speed! Always verify that fread() and fwrite() return the exact number of elements you requested. If fread returns fewer elements, you either hit EOF or had a physical drive read error. — Sukanta Hui"
+          }
+        />
+      </section>
     </div>
   );
-};
-
-export default Topic3;
+}

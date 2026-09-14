@@ -100,3 +100,5 @@ export const topic6Questions = [
     answer: "By creating unit tests that simulate power interruption (e.g. calling abort() or exit() immediately after write operations) and verifying if compaction or recovery restores the database to a valid state."
   }
 ];
+
+export default topic6Questions;

@@ -100,3 +100,5 @@ export const topic4Questions = [
     answer: "'r+' opens an existing file without truncating it, allowing random reads and writes anywhere. 'w+' immediately truncates (wipes) the file to 0 bytes before opening, destroying existing content."
   }
 ];
+
+export default topic4Questions;

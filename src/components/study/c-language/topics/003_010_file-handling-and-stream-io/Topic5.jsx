@@ -1,296 +1,470 @@
-import React from "react";
+import React, { useState } from "react";
 import CFileLoader from "../../../../../common/CFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-import cCode from "./topic5_files/FileErrorHandlingDemo.c?raw";
-import { topic5Questions } from "./topic5_files/topic5_questions";
+import cCode1 from "./topic5_files/FileErrorHandlingDemo.c?raw";
+import cCode2 from "./topic5_files/SafeEofLoopDemo.c?raw";
+import cCode3 from "./topic5_files/TemporaryFileSandboxDemo.c?raw";
+import questions from "./topic5_files/topic5_questions";
 import noteText from "./topic5_files/topic5_note.txt?raw";
 
-const Topic5 = () => {
+export default function Topic5() {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const examples = [
+    {
+      id: "ex1",
+      title: "1. Error Diagnostics (perror & errno)",
+      file: cCode1,
+      filename: "FileErrorHandlingDemo.c",
+      description:
+        "Comprehensive diagnostic test suite for file streams: testing errno, printing human OS error descriptions with perror(), and recovering with clearerr().",
+      lineByLine: [
+        {
+          line: 'perror("Open missing file");',
+          explanation:
+            "Fetches the system error code from errno and prints a user-friendly error string to stderr.",
+        },
+        {
+          line: "strerror(errno)",
+          explanation:
+            "Returns a pointer to the textual description of the system error corresponding to integer errno.",
+        },
+        {
+          line: "if (ferror(read_only_fp))",
+          explanation:
+            "Inspects the internal stream flags to detect whether an illegal operation (like writing to a read-only file) failed.",
+        },
+        {
+          line: "clearerr(read_only_fp);",
+          explanation:
+            "Resets both error and EOF sticky flags back to 0 so the stream handle can be reused cleanly.",
+        },
+      ],
+      output: `========================================================
+   CODER & ACCOTAX - STREAM ERROR HANDLING & DIAGNOSTICS
+========================================================
+
+--- TEST 1: OPENING NON-EXISTENT FILE ---
+  [EXPECTED ERROR TRAPPED]
+  [perror output] Open missing file: No such file or directory
+  [strerror description] System error message: No such file or directory
+  errno code = 2
+
+--- TEST 2: WRITE ATTEMPT ON READ-ONLY STREAM ---
+  Created sample file 'readonly_sample.txt'.
+  Opened 'readonly_sample.txt' in Read-Only ("r") mode.
+  Attempting illegal write to read-only stream...
+  [ferror DETECTED] Write operation failed on stream!
+  [perror output] Illegal stream write: Bad file descriptor
+  Error flag reset with clearerr(). ferror status = 0
+
+--- TEST 3: PROPER EOF DETECTION VS ERROR ---
+  Reading stream: Line 1: Systems programming in Barrackpore.
+  Reading stream: Line 2: Diagnostic error handling lab.
+  [EOF CONFIRMED] Stream reached End-Of-File (feof = 1, ferror = 0).
+
+  Cleaned up temporary test files.
+========================================================`,
+    },
+    {
+      id: "ex2",
+      title: "2. The feof() One-Off Bug Trap",
+      file: cCode2,
+      filename: "SafeEofLoopDemo.c",
+      description:
+        "Side-by-side contrast of the notorious while(!feof) loop bug (which reads past EOF) vs the clean, industry-standard read-driven loop condition.",
+      lineByLine: [
+        {
+          line: "while (!feof(fp)) { ... }",
+          explanation:
+            "The classic bug! feof() only becomes true AFTER an attempted read fails, so the loop processes stale data on the final iteration.",
+        },
+        {
+          line: "while (fgets(buffer, sizeof(buffer), fp) != NULL)",
+          explanation:
+            "The safe pattern! The read attempt is tested BEFORE executing the loop body, guaranteeing zero duplicate reads.",
+        },
+        {
+          line: "if (feof(fp)) ... else if (ferror(fp)) ...",
+          explanation:
+            "Diagnostic check after loop termination to determine if the loop ended due to natural EOF or a disk hardware failure.",
+        },
+      ],
+      output: `========================================================
+     CODER & ACCOTAX - THE FEOF() ONE-OFF TRAP LAB      
+========================================================
+
+--- 1. THE BUGGY PATTERN (while (!feof(fp))) ---
+  [Loop 1] Read: Line 1: Swadeep
+  [Loop 2] Read: Line 2: Tuhina
+  [Loop 3] Read: Line 2: Tuhina
+  [NOTICE] Notice how the last line was printed TWICE or with stale data!
+
+--- 2. THE CORRECT INDUSTRIAL PATTERN (while (fgets(...) != NULL)) ---
+  [Loop 1] Read: Line 1: Swadeep
+  [Loop 2] Read: Line 2: Tuhina
+  [CONFIRMED] Loop terminated cleanly at true End-of-File (EOF).
+
+  Cleaned up temporary test file 'eof_trap_demo.txt'.
+========================================================`,
+    },
+    {
+      id: "ex3",
+      title: "3. Temporary File Sandboxing (tmpfile)",
+      file: cCode3,
+      filename: "TemporaryFileSandboxDemo.c",
+      description:
+        "Creates an anonymous self-deleting scratch buffer with tmpfile(), performs intermediate computations, and traps invalid read-only stream operations.",
+      lineByLine: [
+        {
+          line: "FILE *tmp_fp = tmpfile();",
+          explanation:
+            "Creates an anonymous temporary binary stream in 'wb+' mode that automatically disappears from disk when closed.",
+        },
+        {
+          line: "rewind(tmp_fp);",
+          explanation:
+            "Snaps the scratch file cursor back to the start so we can read and verify calculated values.",
+        },
+        {
+          line: "fclose(tmp_fp);",
+          explanation:
+            "Closes the stream and triggers the OS kernel to instantly purge the anonymous file from storage.",
+        },
+      ],
+      output: `========================================================
+  CODER & ACCOTAX - TMPFILE SANDBOX & DIAGNOSTICS LAB   
+========================================================
+
+--- 1. CREATING ANONYMOUS SECURE TEMPORARY STREAM ---
+  [SUCCESS] Anonymous temporary stream created in RAM/Disk sandbox.
+
+--- 2. READING SCRATCH DATA FROM TEMPORARY STREAM ---
+    > SCRATCH_INDEX_001: 100
+    > SCRATCH_INDEX_002: 200
+    > SCRATCH_INDEX_003: 300
+    > SCRATCH_INDEX_004: 400
+    > SCRATCH_INDEX_005: 500
+
+--- 3. TESTING ERROR DETECTION & clearerr() ---
+  [ferror DETECTED] Illegal write operation on read-only stream!
+  [perror Message]: Bad file descriptor
+  [clearerr] Error flag reset. ferror() status = 0
+
+  Temporary sandbox closed and automatically purged from disk.
+========================================================`,
+    },
+  ];
+
   return (
-    <div className="space-y-10 text-slate-800 dark:text-slate-100 max-w-5xl mx-auto px-4 py-8">
+    <div className="space-y-12 bg-slate-900 text-slate-200 p-4 md:p-8 rounded-2xl border border-slate-800">
       {/* 1. Header Section */}
-      <section className="space-y-3 border-b border-slate-200 dark:border-slate-700 pb-6">
-        <div className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 tracking-wide uppercase">
-          <span>Module 003_010</span>
-          <span>•</span>
-          <span>Topic 5</span>
+      <header className="space-y-3 border-b border-slate-800 pb-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="bg-sky-500/10 text-sky-400 border border-sky-500/20 px-3 py-1 rounded-full text-xs font-semibold">
+            Module 003_010 · Topic 5
+          </span>
+          <span className="bg-rose-500/10 text-rose-400 border border-rose-500/20 px-3 py-1 rounded-full text-xs font-semibold">
+            Diagnostics &amp; Reliability
+          </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          Stream Diagnostics &amp; Error Handling (<code className="text-emerald-600 dark:text-emerald-400">feof</code>, <code className="text-emerald-600 dark:text-emerald-400">ferror</code>, <code className="text-emerald-600 dark:text-emerald-400">clearerr</code>, <code className="text-emerald-600 dark:text-emerald-400">perror</code>)
+        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+          Stream Diagnostics &amp; Error Handling (feof, ferror &amp; perror)
         </h1>
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-          Demystify I/O stream failure modes. Understand why <code className="text-rose-500 font-mono">while(!feof(fp))</code> is a dangerous bug, and master system diagnostic tools like <code>ferror</code>, <code>clearerr</code>, <code>errno</code>, and <code>perror</code>.
+        <p className="text-slate-400 text-base max-w-4xl leading-relaxed">
+          Avoid the infamous <code>while(!feof)</code> one-off bug, diagnose I/O failures with <code>ferror()</code>, query system error messages with <code>perror()</code> and <code>strerror(errno)</code>, and reset stream flags with <code>clearerr()</code>.
         </p>
+      </header>
+
+      {/* 2. DEDICATED SIMPLE EXPLANATION SECTION */}
+      <section className="space-y-5 bg-gradient-to-br from-rose-950/40 via-slate-800/40 to-slate-900 border border-rose-500/30 rounded-2xl p-6 md:p-8 shadow-xl">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl p-2 bg-rose-500/20 rounded-xl border border-rose-500/30">💡</span>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold text-white">
+              In Very Simple Terms: Why while(!feof) is a Trap
+            </h2>
+            <p className="text-rose-300 text-xs md:text-sm font-medium">
+              The "Bumping into the Wall" analogy
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          {/* Card 1 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-rose-400 font-bold text-sm flex items-center gap-1.5">
+              <span>🧱</span> Bumping into the Wall
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              <code>feof()</code> does NOT predict the future! It only returns true <em>after</em> you try to read past the end of the file and fail. If you loop on <code>!feof(fp)</code>, your program will always process the last line <strong>twice</strong>!
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-emerald-400 font-bold text-sm flex items-center gap-1.5">
+              <span>🛡️</span> Test the Read Directly
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              Always put the read function in the loop condition: <code>while (fgets(...) != NULL)</code> or <code>while (fread(...) == 1)</code>. The moment nothing is read, the loop stops immediately!
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 space-y-2">
+            <div className="text-sky-400 font-bold text-sm flex items-center gap-1.5">
+              <span>🗣️</span> Human Error Messages (perror)
+            </div>
+            <p className="text-slate-300 text-xs leading-relaxed">
+              When an I/O function returns an error, the operating system sets a hidden number called <code>errno</code>. Calling <code>perror("My App")</code> prints the plain English reason (e.g., <em>"Permission denied"</em> or <em>"No space left on device"</em>).
+            </p>
+          </div>
+        </div>
+
+        {/* Diagnostic Checklist */}
+        <div className="bg-rose-900/20 border border-rose-500/20 rounded-xl p-3 text-xs text-rose-200">
+          🎯 <strong>Diagnostic Golden Rule:</strong> After a loop terminates, check:
+          <span className="font-mono text-emerald-300 ml-1">if (feof(fp))</span> → Normal end of file reached. |
+          <span className="font-mono text-rose-300 ml-1">else if (ferror(fp))</span> → Hardware/network stream fault occurred!
+        </div>
       </section>
 
-      {/* 2. Concept Overview / Narrative */}
-      <section className="bg-gradient-to-br from-slate-50 to-emerald-50 dark:from-slate-900/60 dark:to-emerald-950/20 p-6 sm:p-8 rounded-2xl border border-emerald-100 dark:border-emerald-900/40 shadow-sm space-y-4">
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <span>🐛 Classroom Story: The Ghost Duplicate Record Bug</span>
+      {/* 3. Dedicated Topic Description Section */}
+      <section className="space-y-4 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+        <h2 className="text-2xl font-bold text-sky-300 flex items-center gap-2">
+          <span>📖</span> Topic Description: Error Diagnostics &amp; Stream Flag Lifecycle
         </h2>
-        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-          During an accounting file parser sprint in Barrackpore, <strong>Debangshu</strong> noticed that his GST tax summary always printed the last invoice twice. He checked his file loop: <code>while (!feof(fp)) &#123; fscanf(fp, ...); processInvoice(); &#125;</code>.
-        </p>
-        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-          <strong>Sukanta Sir</strong> explained the hidden mechanism: <em>&ldquo;<code>feof()</code> does not predict whether there is data ahead. It is a rearview mirror that only lights up <strong>after</strong> an operation has already crashed into the EOF boundary. When <code>fscanf</code> fails on EOF, your loop still enters and processes the dirty buffer one extra time!&rdquo;</em> Debangshu converted his loop to check <code>fscanf</code> return values directly, eliminating the phantom record instantly.
-        </p>
+        <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
+          <p>
+            Operating systems can fail file operations for numerous reasons: disk space exhaustion, network drive disconnects, bad sectors, permission denials, or deleted file handles. Robust C applications maintain zero tolerance for unhandled I/O failures.
+          </p>
+          <div className="bg-slate-900/60 p-4 rounded-xl border-l-4 border-rose-500 text-xs md:text-sm text-slate-300 space-y-2">
+            <p className="font-semibold text-rose-300">🏫 Classroom Story at Coder &amp; AccoTax (Barrackpore):</p>
+            <p>
+              In our Barrackpore lab, Debangshu's file reader printed the last student record twice in the summary report. Swadeep suspected a compiler glitch. Sukanta Hui demonstrated how <code>while(!feof(fp))</code> executes the loop body before knowing the next read will fail. Sukanta showed them how rewriting the loop to <code>while(fread(&amp;rec, sizeof(rec), 1, fp) == 1)</code> completely eliminated the ghost record!
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* 3. Semantic SVG Diagram */}
+      {/* 4. Semantic Visual Diagram Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          State Machine Diagram: The Lifecycle of EOF &amp; Error Flags
+        <h2 className="text-xl font-bold text-sky-300">
+          ⚙️ Semantic Visual Diagram: Stream Error Diagnostic Flowchart
         </h2>
-        <div className="w-full overflow-x-auto bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-inner">
-          <svg
-            viewBox="0 0 900 280"
-            className="w-full min-w-[700px] h-auto font-sans"
-            aria-label="File Stream State Machine Diagram"
-          >
-            <rect width="900" height="280" fill="none" />
+        <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto">
+          <svg viewBox="0 0 900 280" className="w-full min-w-[750px] font-sans">
+            <rect x="20" y="20" width="860" height="240" rx="16" fill="#0f172a" stroke="#334155" strokeWidth="2" />
 
-            {/* State: Normal */}
-            <circle cx="150" cy="140" r="60" fill="#047857" stroke="#10b981" strokeWidth="3" />
-            <text x="150" y="135" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">READY / OK</text>
-            <text x="150" y="155" fill="#a7f3d0" fontSize="11" textAnchor="middle">feof=0, ferror=0</text>
+            {/* Read Step */}
+            <g transform="translate(40, 90)">
+              <rect x="0" y="0" width="200" height="70" rx="8" fill="#1e1b4b" stroke="#6366f1" strokeWidth="1.5" />
+              <text x="20" y="30" fill="#a5b4fc" className="font-bold text-xs">Execute Stream Read</text>
+              <text x="20" y="52" fill="#e0e7ff" className="font-mono text-xs">n = fread(..., fp);</text>
+            </g>
 
-            {/* Transition to EOF */}
-            <path d="M 210 120 Q 325 50 440 120" fill="none" stroke="#f59e0b" strokeWidth="2.5" markerEnd="url(#arrow-diag-amber)" />
-            <text x="325" y="70" fill="#f59e0b" fontSize="11" fontWeight="bold" textAnchor="middle">Read past EOF (fgetc == EOF)</text>
+            {/* Decision Arrow */}
+            <path d="M 240 125 L 300 125" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrow)" />
 
-            {/* State: EOF */}
-            <circle cx="500" cy="140" r="60" fill="#b45309" stroke="#f59e0b" strokeWidth="3" />
-            <text x="500" y="135" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">EOF STATE</text>
-            <text x="500" y="155" fill="#fde68a" fontSize="11" textAnchor="middle">feof() &gt; 0</text>
+            {/* Decision Diamond */}
+            <g transform="translate(300, 75)">
+              <polygon points="70,0 140,50 70,100 0,50" fill="#312e81" stroke="#818cf8" strokeWidth="1.5" />
+              <text x="70" y="55" textAnchor="middle" fill="#e0e7ff" className="font-bold text-xs">n &lt; count?</text>
+            </g>
 
-            {/* Transition to Error */}
-            <path d="M 180 190 Q 300 250 440 210" fill="none" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#arrow-diag-red)" />
-            <text x="310" y="255" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">Hardware / Disk / Permission I/O Error</text>
+            {/* Success Branch */}
+            <g transform="translate(480, 45)">
+              <rect x="0" y="0" width="180" height="50" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
+              <text x="20" y="22" fill="#6ee7b7" className="font-bold text-xs">NO: Successful Read</text>
+              <text x="20" y="40" fill="#ecfdf5" className="text-xs">Process Record Buffer</text>
+            </g>
 
-            {/* State: ERROR */}
-            <circle cx="500" cy="210" r="50" fill="#991b1b" stroke="#ef4444" strokeWidth="3" />
-            <text x="500" y="205" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">STREAM ERROR</text>
-            <text x="500" y="223" fill="#fecaca" fontSize="10" textAnchor="middle">ferror() &gt; 0</text>
+            {/* Error / EOF Branch */}
+            <g transform="translate(480, 135)">
+              <rect x="0" y="0" width="370" height="90" rx="8" fill="#450a0a" stroke="#ef4444" strokeWidth="1.5" />
+              <text x="20" y="25" fill="#fca5a5" className="font-bold text-xs">YES: Read Incomplete or Stopped</text>
+              
+              <rect x="15" y="35" width="160" height="40" fill="#7f1d1d" rx="4" />
+              <text x="25" y="52" fill="#fee2e2" className="font-mono text-xs">if (feof(fp))</text>
+              <text x="25" y="68" fill="#fca5a5" className="text-xs">True End of File</text>
 
-            {/* ClearErr Reset Transition */}
-            <path d="M 560 140 Q 750 40 750 140 Q 750 240 210 160" fill="none" stroke="#0ea5e9" strokeWidth="2.5" strokeDasharray="5,4" markerEnd="url(#arrow-diag-blue)" />
-            <text x="780" y="145" fill="#38bdf8" fontSize="12" fontWeight="bold" textAnchor="middle">clearerr(fp) / rewind(fp)</text>
-
-            {/* Markers */}
-            <defs>
-              <marker id="arrow-diag-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
-              </marker>
-              <marker id="arrow-diag-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
-              </marker>
-              <marker id="arrow-diag-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9" />
-              </marker>
-            </defs>
+              <rect x="190" y="35" width="165" height="40" fill="#7f1d1d" rx="4" />
+              <text x="200" y="52" fill="#fee2e2" className="font-mono text-xs">else if (ferror(fp))</text>
+              <text x="200" y="68" fill="#fca5a5" className="text-xs">Call perror("I/O Error")</text>
+            </g>
           </svg>
         </div>
       </section>
 
-      {/* 4. Deep Technical Breakdown */}
-      <section className="space-y-6">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Deep Technical Breakdown: The Diagnostic Toolkit
+      {/* 5. Deep Technical Breakdown Section */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-bold text-sky-300">
+          🔍 Deep Technical Breakdown: Diagnostic API Matrix
         </h2>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+          <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-sky-300 text-sm">feof(fp)</h3>
+            <p className="text-slate-300">
+              Returns non-zero if the end-of-file indicator has been tripped by an attempted read past EOF.
+            </p>
+          </div>
+          <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-rose-300 text-sm">ferror(fp)</h3>
+            <p className="text-slate-300">
+              Returns non-zero if a hardware, permission, or media error occurred on the stream.
+            </p>
+          </div>
+          <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-amber-300 text-sm">clearerr(fp)</h3>
+            <p className="text-slate-300">
+              Resets both the EOF and error indicators back to 0, allowing further read/write attempts.
+            </p>
+          </div>
+          <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700 space-y-1.5">
+            <h3 className="font-bold text-emerald-300 text-sm">perror(msg)</h3>
+            <p className="text-slate-300">
+              Prints your prefix string followed by the system error description matching current <code>errno</code>.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-            <h3 className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
-              1. feof() vs ferror() vs clearerr()
-            </h3>
-            <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-300">
-              <li>
-                <strong>feof(fp):</strong> Returns non-zero if an end-of-file condition was triggered.
-              </li>
-              <li>
-                <strong>ferror(fp):</strong> Returns non-zero if an internal stream read/write failure occurred.
-              </li>
-              <li>
-                <strong>clearerr(fp):</strong> Resets both EOF and error flags so the stream can attempt further operations.
-              </li>
-            </ul>
+      {/* 6. DEDICATED MULTI-EXAMPLE SECTION */}
+      <section className="space-y-6 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-700/80 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+              <span>💻</span> Example Section: Error Diagnostics &amp; Recovery
+            </h2>
+            <p className="text-slate-300 text-sm mt-1">
+              Explore 3 hands-on C programs with step-by-step line explanations and terminal outputs.
+            </p>
           </div>
 
-          <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
-            <h3 className="text-lg font-bold text-sky-600 dark:text-sky-400">
-              2. System Diagnostics: errno &amp; perror()
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              When standard library I/O functions fail, they assign an integer failure code to <code>errno</code> (defined in <code>&lt;errno.h&gt;</code>).
-            </p>
-            <pre className="bg-slate-900 text-sky-300 p-2.5 rounded-lg text-xs font-mono overflow-x-auto">
-{`FILE *fp = fopen("secret.dat", "r");
-if (fp == NULL) {
-    perror("Error opening secret.dat");
-    // Output: Error opening secret.dat: No such file or directory
-}`}
+          {/* Example Selector Tabs */}
+          <div className="flex flex-wrap gap-2">
+            {examples.map((ex, index) => (
+              <button
+                key={ex.id}
+                onClick={() => setActiveTab(index)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === index
+                    ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                {ex.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Selected Example Detail */}
+        <div className="space-y-5">
+          <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60 text-xs md:text-sm text-slate-300 flex items-start gap-2">
+            <span className="text-emerald-400 font-bold">📋 Overview:</span>
+            <span>{examples[activeTab].description}</span>
+          </div>
+
+          <CFileLoader
+            fileModule={examples[activeTab].file}
+            title={examples[activeTab].filename}
+            editable={false}
+          />
+
+          {/* Line-by-Line Plain-English Explanation Card */}
+          <div className="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 md:p-5 space-y-3 shadow-md">
+            <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span>🔍</span> Plain-English Line-by-Line Code Breakdown:
+            </div>
+            <div className="space-y-2">
+              {examples[activeTab].lineByLine.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col sm:flex-row sm:items-start gap-2 bg-slate-950/70 p-3 rounded-lg border border-slate-800/80"
+                >
+                  <code className="text-sky-300 font-mono text-[11px] sm:w-2/5 shrink-0 font-semibold bg-slate-900 px-2 py-1 rounded border border-slate-700/60">
+                    {item.line}
+                  </code>
+                  <span className="text-slate-300 text-xs leading-relaxed">
+                    {item.explanation}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-slate-700 bg-slate-950 p-4 shadow-inner">
+            <div className="text-xs font-semibold text-sky-400 mb-2 flex items-center gap-2">
+              <span>🖥️</span> Expected Console Execution Output:
+            </div>
+            <pre className="text-slate-200 text-xs md:text-sm font-mono leading-relaxed whitespace-pre overflow-x-auto">
+              {examples[activeTab].output}
             </pre>
           </div>
         </div>
-
-        {/* Antipattern vs Correct Patterns Comparison */}
-        <div className="bg-slate-900 text-slate-100 p-6 rounded-2xl border border-slate-700 space-y-4">
-          <h3 className="text-lg font-bold text-amber-400">The 3 Idiomatic Reading Patterns in Standard C</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
-            <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-              <div className="text-emerald-400 font-bold mb-1">// Text Lines</div>
-              <code>
-                while (fgets(buf, sizeof(buf), fp) != NULL) &#123;<br />
-                &nbsp;&nbsp;// process line<br />
-                &#125;
-              </code>
-            </div>
-            <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-              <div className="text-sky-400 font-bold mb-1">// Characters (int ch!)</div>
-              <code>
-                int ch;<br />
-                while ((ch = fgetc(fp)) != EOF) &#123;<br />
-                &nbsp;&nbsp;// process ch<br />
-                &#125;
-              </code>
-            </div>
-            <div className="bg-slate-800 p-3 rounded-lg border border-slate-700">
-              <div className="text-purple-400 font-bold mb-1">// Binary Structs</div>
-              <code>
-                Student s;<br />
-                while (fread(&amp;s, sizeof(s), 1, fp) == 1) &#123;<br />
-                &nbsp;&nbsp;// process struct<br />
-                &#125;
-              </code>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* 5. Compilable Example Section */}
+      {/* 7. Common Pitfalls & Best Practices Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Working Code: Stream Diagnostics in Action
+        <h2 className="text-xl font-bold text-rose-400">
+          ⚠️ Common Pitfalls &amp; Best Practices
         </h2>
-        <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-          This program contrasts the <code>while(!feof)</code> bug against proper return checking, and triggers intentional stream errors to demonstrate <code>ferror</code>, <code>clearerr</code>, and <code>perror</code>.
-        </p>
-        <CFileLoader
-          fileName="FileErrorHandlingDemo.c"
-          code={cCode}
-          title="Stream Error Trapping, feof Pitfall & perror Diagnostics"
-        />
-
-        {/* Expected Output Card */}
-        <div className="p-4 bg-slate-900 text-slate-100 rounded-xl font-mono text-xs sm:text-sm border border-slate-700 space-y-2">
-          <div className="text-slate-400 font-semibold border-b border-slate-700 pb-1">
-            Expected Console Output:
-          </div>
-          <pre className="text-emerald-400 overflow-x-auto whitespace-pre-wrap">
-{`=====================================================
-  C Stream Diagnostics: Error Handling, feof, & ferror
-=====================================================
-
------------------------------------------------------
-1. THE DANGEROUS 'while (!feof(fp))' TRAP
------------------------------------------------------
->>> Incorrect approach (while (!feof(fp))):
-    Read Line [1]: 'Alpha'
-    Read Line [2]: 'Beta'
-    Read Line [3]: 'Gamma'
-    [feof check failed to prevent loop body! fgets returned NULL at EOF]
-
->>> Correct idiomatic approach (while (fgets(...) != NULL)):
-    Read Line [1]: 'Alpha'
-    Read Line [2]: 'Beta'
-    Read Line [3]: 'Gamma'
-
------------------------------------------------------
-2. STREAM DIAGNOSTICS (ferror, clearerr, perror, strerror)
------------------------------------------------------
->>> Step A: Attempting to open non-existent file 'non_existent_system_file.xyz'...
-    fopen returned NULL.
-    errno code: 2
-    strerror() output: No such file or directory
-    perror() output:   fopen failed: No such file or directory
-
->>> Step B: Attempting illegal write on read-only stream 'diagnostics_sample.txt'...
-    fputs returned EOF! ferror(fp) is TRUE (non-zero).
-    perror: Stream Error Detected: Bad file descriptor
-    ferror(fpReadOnly) before clearerr: 1
-    clearerr(fpReadOnly) called.
-    ferror(fpReadOnly) after clearerr:  0 (Clean)
-
-=== Stream Diagnostics Demonstration Completed ===`}
-          </pre>
-        </div>
-      </section>
-
-      {/* 6. Common Pitfalls & Best Practices */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Common Pitfalls &amp; Professional Best Practices
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-5 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 rounded-xl space-y-2">
-            <h3 className="font-bold text-rose-700 dark:text-rose-400 flex items-center gap-2">
-              <span>⚠️ Storing fgetc() in a char variable</span>
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-              <code>char ch = fgetc(fp);</code> is a disastrous bug. In binary files or extended character sets, the byte <code>0xFF</code> (255) when cast to a signed 8-bit char equals <code>-1</code> (EOF), causing premature truncation. Always declare <code>int ch;</code>!
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="bg-rose-950/20 border border-rose-900/30 p-4 rounded-xl space-y-1.5">
+            <h3 className="font-bold text-rose-300">Pitfall: Testing feof() in While Loop Condition</h3>
+            <p className="text-slate-300">
+              Never write <code>while (!feof(fp))</code>. The EOF indicator is only set <em>after</em> an attempted read past the end has already failed.
             </p>
           </div>
-
-          <div className="p-5 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 rounded-xl space-y-2">
-            <h3 className="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
-              <span>✅ Always Check fclose() on Output Streams</span>
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-              When writing files, <code>fclose()</code> performs the final buffer flush to physical disk. If disk space runs out during the final flush, <code>fclose()</code> returns <code>EOF</code>. Always verify <code>if (fclose(fp) != 0) perror(&quot;Flush failed&quot;);</code>.
+          <div className="bg-emerald-950/20 border border-emerald-900/30 p-4 rounded-xl space-y-1.5">
+            <h3 className="font-bold text-emerald-300">Best Practice: Inspect errno Immediately</h3>
+            <p className="text-slate-300">
+              Check <code>errno</code> immediately after a failed call. Subsequent library calls (like <code>printf</code>) can overwrite <code>errno</code> with their own status codes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 7. Think About This... */}
-      <section className="p-6 bg-slate-100 dark:bg-slate-800 rounded-2xl border border-slate-300 dark:border-slate-700 space-y-3">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <span>💡 Think About This: Atomic File Replacement (Temp Swap)</span>
+      {/* 8. Thinking & Hints Section ("Think About This...") */}
+      <section className="bg-slate-800/30 border border-slate-700/60 p-5 rounded-2xl space-y-2 text-xs md:text-sm">
+        <h3 className="font-bold text-amber-300 flex items-center gap-1.5">
+          <span>🤔</span> Think About This...
         </h3>
-        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-          How do mission-critical databases (SQLite, PostgreSQL) ensure power failures don&apos;t corrupt their master files? They write updates to a temporary <code>.tmp</code> file, flush it with <code>fflush()</code>, close it, and then call POSIX <code>rename()</code>. The OS guarantees <code>rename()</code> is atomic—either the old file exists or the new file exists, never a broken half-written file!
+        <p className="text-slate-300 leading-relaxed">
+          Why does <code>tmpfile()</code> create anonymous unlinked files on POSIX systems, and why is this significantly more secure against race-condition symlink attacks than generating predictable temporary filenames with <code>tmpnam()</code>?
         </p>
       </section>
 
-      {/* 8. FAQ Section */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Frequently Asked Questions (25 In-Depth Answers)
-        </h2>
-        <FAQTemplate questions={topic5Questions} />
+      {/* 9. Comprehensive FAQ Section */}
+      <section>
+        <FAQTemplate title="Module 003_010 Topic 5 FAQs: Stream Diagnostics & Error Handling" questions={questions} />
       </section>
 
-      {/* 9. PlainTextPrint Notes */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          Printable Quick-Reference Notes
-        </h2>
-        <PlainTextPrint note={noteText} fileName="Topic5_Stream_Diagnostics_Error_Handling_Note.txt" />
+      {/* 10. Plain Text Printable Note Section */}
+      <section>
+        <PlainTextPrint
+          content={noteText}
+          title="Module 003_010 Topic 5 Note: Stream Diagnostics & Error Handling"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="module_003_010_topic5_note.txt"
+        />
       </section>
 
-      {/* 10. Teacher Persona Note */}
-      <Teacher
-        name="Sukanta Hui"
-        role="Senior C & Systems Architect"
-        experience="26+ Years Experience"
-        location="Barrackpore & Shyamnagar, WB"
-        quote="Never assume a file operation succeeded. The difference between a student script and mission-critical production software is that production software actively expects failures and handles them gracefully."
-      />
+      {/* 11. Teacher's Note Section */}
+      <section>
+        <Teacher
+          note={
+            "Industrial code is distinguished by its error handling. Always check every return code, inspect errno, and print human-readable explanations with perror(). Your future self debugging a production server at 3 AM will thank you! — Sukanta Hui"
+          }
+        />
+      </section>
     </div>
   );
-};
-
-export default Topic5;
+}

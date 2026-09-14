@@ -100,3 +100,5 @@ export const topic3Questions = [
     answer: "The recommended idiom is: while (fread(&record, sizeof(Record), 1, fp) == 1) { /* process record */ } This cleanly terminates when EOF is reached or a read error occurs."
   }
 ];
+
+export default topic3Questions;
