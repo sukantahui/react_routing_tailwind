@@ -1,346 +1,2119 @@
 {
-    "trackId": "git-basic-to-ultra-expert",
-    "trackTitle": "Git from Basic to Ultra Expert",
-    "description": "A complete Git version control learning path from absolute beginner to ultra expert, suitable for classroom and self-paced learning. Covers Git fundamentals, collaboration workflows, branching strategies, GitHub/GitLab usage, and real-world team practices.",
-    "institute": {
-        "name": "Coder & AccoTax",
-        "website": "https://www.codernaccotax.co.in",
-        "author": "Sukanta Hui",
-        "location": "Barrackpore, West Bengal, India",
-        "trackType": "Git Tutorial Roadmap",
-        "version": "1.0.0",
-        "lastUpdated": "2025-12-15"
-    },
-    "folder": "git",
-    "subject": "Git Version Control",
-    "subjectLogo": {
-        "name": "Git",
-        "icon": "git",
-        "type": "svg",
-        "path": "/assets/logos/git-logo.svg",
-        "alt": "Git Version Control Logo"
-    },
-    "segments": [
-        {
-            "segmentId": "basic",
-            "title": "Segment 1 – Git Foundations (Beginner)",
-            "level": "Beginner",
-            "summary": "Learn what Git is, why it is used, and how to track changes locally using core Git commands.",
-            "modules": [
-                {
-                    "moduleId": "git-intro",
-                    "slug": "getting-started-with-git",
-                    "title": "Introduction to Git & Version Control",
-                    "level": "Beginner",
-                    "estimatedHours": 3,
-                    "topics": [
-                        "What is version control and why it matters",
-                        "Centralized vs distributed version control",
-                        "What is Git and how it works internally (high-level)",
-                        "Installing Git and basic setup",
-                        "git --version, git config",
-                        "Understanding repositories"
-                    ],
-                    "learningOutcomes": [
-                        "Explain why version control is needed",
-                        "Install and configure Git",
-                        "Understand basic Git terminology"
-                    ],
-                    "nextModule": "git-basics"
-                },
-                {
-                    "moduleId": "git-basics",
-                    "slug": "git-basic-commands",
-                    "title": "Git Basics & Core Commands",
-                    "level": "Beginner",
-                    "estimatedHours": 5,
-                    "topics": [
-                        "git init and repository structure",
-                        "Working directory, staging area, repository",
-                        "git status and git log",
-                        "git add and git commit",
-                        "Writing meaningful commit messages",
-                        "git diff"
-                    ],
-                    "learningOutcomes": [
-                        "Create a local Git repository",
-                        "Track file changes using Git",
-                        "Create clean and meaningful commits"
-                    ],
-                    "nextModule": "git-history"
-                },
-                {
-                    "moduleId": "git-history",
-                    "slug": "undo-and-history",
-                    "title": "Undoing Changes & Viewing History",
-                    "level": "Beginner",
-                    "estimatedHours": 4,
-                    "topics": [
-                        "git log options",
-                        "git checkout -- <file>",
-                        "git restore and git reset (soft, mixed, hard – intro)",
-                        "git revert",
-                        "Common undo scenarios"
-                    ],
-                    "learningOutcomes": [
-                        "Safely undo changes",
-                        "Understand commit history",
-                        "Choose the correct undo strategy"
-                    ]
-                }
-            ]
-        },
-        {
-            "segmentId": "intermediate",
-            "title": "Segment 2 – Branching & Collaboration (Intermediate)",
-            "level": "Intermediate",
-            "summary": "Learn branching, merging, and working with remote repositories for team collaboration.",
-            "modules": [
-                {
-                    "moduleId": "git-branching",
-                    "slug": "git-branching",
-                    "title": "Branching & Merging",
-                    "level": "Intermediate",
-                    "estimatedHours": 5,
-                    "topics": [
-                        "What are branches and why they matter",
-                        "git branch and git checkout / switch",
-                        "git merge",
-                        "Fast-forward vs non-fast-forward merges",
-                        "Merge conflicts and resolution"
-                    ],
-                    "learningOutcomes": [
-                        "Work with multiple branches",
-                        "Merge branches safely",
-                        "Resolve merge conflicts"
-                    ],
-                    "nextModule": "git-remote"
-                },
-                {
-                    "moduleId": "git-remote",
-                    "slug": "working-with-remotes",
-                    "title": "Working with Remote Repositories",
-                    "level": "Intermediate",
-                    "estimatedHours": 5,
-                    "topics": [
-                        "What is origin",
-                        "git clone",
-                        "git remote add/remove",
-                        "git push and git pull",
-                        "git fetch vs git pull",
-                        "Authentication basics (HTTPS, SSH overview)"
-                    ],
-                    "learningOutcomes": [
-                        "Connect local repos to remotes",
-                        "Push and pull changes",
-                        "Understand remote tracking branches"
-                    ],
-                    "nextModule": "git-github"
-                },
-                {
-                    "moduleId": "git-github",
-                    "slug": "github-and-collaboration",
-                    "title": "GitHub / GitLab Collaboration",
-                    "level": "Intermediate",
-                    "estimatedHours": 6,
-                    "topics": [
-                        "Creating repositories on GitHub/GitLab",
-                        "Forking repositories",
-                        "Pull requests / merge requests",
-                        "Code reviews and discussions",
-                        "Issues and project boards",
-                        "Basic GitHub workflow"
-                    ],
-                    "learningOutcomes": [
-                        "Collaborate using GitHub",
-                        "Create and review pull requests",
-                        "Use issues for task tracking"
-                    ]
-                }
-            ]
-        },
-        {
-            "segmentId": "advanced",
-            "title": "Segment 3 – Advanced Git & Workflows",
-            "level": "Advanced",
-            "summary": "Master advanced Git commands, clean history techniques, and professional workflows.",
-            "modules": [
-                {
-                    "moduleId": "git-rewrite",
-                    "slug": "rewriting-history",
-                    "title": "Rewriting History & Advanced Undo",
-                    "level": "Advanced",
-                    "estimatedHours": 5,
-                    "topics": [
-                        "git reset vs git revert deep dive",
-                        "git commit --amend",
-                        "git rebase (interactive rebase)",
-                        "Squashing commits",
-                        "Rewriting history safely"
-                    ],
-                    "learningOutcomes": [
-                        "Clean up commit history",
-                        "Use rebase effectively",
-                        "Understand risks of history rewriting"
-                    ],
-                    "nextModule": "git-workflows"
-                },
-                {
-                    "moduleId": "git-workflows",
-                    "slug": "git-workflows",
-                    "title": "Git Workflows & Strategies",
-                    "level": "Advanced",
-                    "estimatedHours": 5,
-                    "topics": [
-                        "Centralized workflow",
-                        "Feature branch workflow",
-                        "Gitflow workflow",
-                        "Release and hotfix branches",
-                        "Choosing the right workflow"
-                    ],
-                    "learningOutcomes": [
-                        "Apply Git workflows in teams",
-                        "Manage releases using branches",
-                        "Follow industry-standard practices"
-                    ],
-                    "nextModule": "git-tools"
-                },
-                {
-                    "moduleId": "git-tools",
-                    "slug": "git-tools-and-helpers",
-                    "title": "Git Tools & Productivity",
-                    "level": "Advanced",
-                    "estimatedHours": 4,
-                    "topics": [
-                        "git stash",
-                        "git cherry-pick",
-                        "git tag (lightweight vs annotated)",
-                        "Aliases in Git",
-                        "Visual Git tools (GitHub Desktop, Sourcetree – overview)"
-                    ],
-                    "learningOutcomes": [
-                        "Use Git efficiently",
-                        "Apply advanced helper commands",
-                        "Improve daily developer productivity"
-                    ]
-                }
-            ]
-        },
-        {
-            "segmentId": "ultra-expert",
-            "title": "Segment 4 – Git Internals, CI/CD & Best Practices",
-            "level": "Ultra Expert",
-            "summary": "Understand Git internals, performance, automation, and real-world enterprise practices.",
-            "modules": [
-                {
-                    "moduleId": "git-internals",
-                    "slug": "git-internals",
-                    "title": "Git Internals & Architecture",
-                    "level": "Ultra Expert",
-                    "estimatedHours": 6,
-                    "topics": [
-                        "How Git stores data (objects, blobs, trees, commits)",
-                        "HEAD and refs",
-                        "Detached HEAD state",
-                        "Garbage collection and repacking",
-                        "How Git really tracks changes"
-                    ],
-                    "learningOutcomes": [
-                        "Explain how Git works internally",
-                        "Debug complex Git issues",
-                        "Gain confidence in advanced operations"
-                    ],
-                    "nextModule": "git-ci"
-                },
-                {
-                    "moduleId": "git-ci",
-                    "slug": "git-and-ci-cd",
-                    "title": "Git with CI/CD & Automation",
-                    "level": "Ultra Expert",
-                    "estimatedHours": 5,
-                    "topics": [
-                        "Introduction to CI/CD",
-                        "GitHub Actions / GitLab CI overview",
-                        "Triggers on push and pull requests",
-                        "Basic pipeline concepts",
-                        "Versioning and releases"
-                    ],
-                    "learningOutcomes": [
-                        "Integrate Git with CI/CD pipelines",
-                        "Understand automated testing and builds",
-                        "Use Git in production workflows"
-                    ],
-                    "nextModule": "git-best-practices"
-                },
-                {
-                    "moduleId": "git-best-practices",
-                    "slug": "git-best-practices",
-                    "title": "Best Practices, Security & Interviews",
-                    "level": "Ultra Expert",
-                    "estimatedHours": 6,
-                    "topics": [
-                        "Commit message conventions",
-                        "Branch naming strategies",
-                        "Handling secrets and security",
-                        "Common Git interview questions",
-                        "Real-world Git problem scenarios",
-                        "Capstone: Team-based Git project"
-                    ],
-                    "learningOutcomes": [
-                        "Apply Git professionally",
-                        "Prepare for interviews",
-                        "Work confidently in large teams"
-                    ]
-                }
-            ]
-        },
-        {
-            "segmentId": "tips-case-studies",
-            "title": "Segment 5 – Git Tips, Tricks & Real-World Case Studies",
-            "level": "All Levels",
-            "summary": "Practical Git shortcuts, lesser-known tricks, and real-world problem case studies faced by developers and teams.",
-            "modules": [
-                {
-                    "moduleId": "git-tips-tricks",
-                    "slug": "git-tips-and-tricks",
-                    "title": "Git Tips & Tricks for Daily Productivity",
-                    "level": "All Levels",
-                    "estimatedHours": 4,
-                    "topics": [
-                        "Powerful git aliases",
-                        "Undo mistakes without panic",
-                        "Cleaning working directory safely",
-                        "Using git stash effectively",
-                        "Recovering lost commits",
-                        "Improving Git speed and performance"
-                    ],
-                    "learningOutcomes": [
-                        "Work faster with Git",
-                        "Avoid common developer mistakes",
-                        "Recover safely from errors"
-                    ]
-                },
-                {
-                    "moduleId": "git-case-studies",
-                    "slug": "git-real-world-case-studies",
-                    "title": "Real-World Git Case Studies",
-                    "level": "All Levels",
-                    "estimatedHours": 6,
-                    "topics": [
-                        "Accidentally committed to main branch",
-                        "Merge conflict in production release",
-                        "Force push gone wrong",
-                        "Lost work after rebase",
-                        "Handling broken CI due to bad commit",
-                        "Team collaboration failure scenarios"
-                    ],
-                    "learningOutcomes": [
-                        "Analyze real Git problems",
-                        "Apply correct recovery strategies",
-                        "Build confidence in team environments"
-                    ]
-                }
-            ]
-        }
+  "trackId": "git-basic-to-ultra-expert",
+  "trackTitle": "Git & GitHub: From Absolute Beginner to Ultra Expert (Master Edition)",
+  "description": "A comprehensive, enterprise-grade Git and GitHub mastery roadmap from absolute beginner to ultra expert level, designed for classroom learners, engineering students, and professional software engineers. Covers version control foundations, three-tree architecture, atomic commits, branch lifecycles, fast-forward vs 3-way merges, interactive rebase, cherry-pick, stash & worktree, reflog disaster recovery, submodules & subtrees, Git internals (DAG, objects, blobs, trees, commit packfiles), GitHub Actions CI/CD automation pipelines, branch protection & security scanning, monorepos, and technical interview viva prep.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Git & GitHub Tutorial Roadmap",
+    "version": "2.0.0",
+    "lastUpdated": "2026-09-14"
+  },
+  "folder": "git",
+  "subject": "Git & GitHub Version Control",
+  "subjectLogo": {
+    "name": "Git",
+    "icon": "git",
+    "type": "svg",
+    "path": "/logos/git.svg",
+    "alt": "Git Version Control Logo"
+  },
+  "teacher": {
+    "name": "Sukanta Hui",
+    "designation": "Educator · Software Trainer · Version Control & DevOps Specialist",
+    "organization": "Founder, Coder & AccoTax",
+    "location": "Barrackpore, West Bengal",
+    "photo": "/teachers/sukantahui.jpg",
+    "bio": "Mastering Git is the single most empowering skill for modern software engineers. We focus on understanding the Git DAG, tree objects, SHA-1 hashes, branch pointers, and real-world team workflows so you never fear a merge conflict or detached HEAD again.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sukantahui/",
+      "twitter": "https://twitter.com/sukantahui",
+      "website": "https://www.codernaccotax.co.in",
+      "github": "https://github.com/sukantahui",
+      "email": "contact@codernaccotax.co.in",
+      "phone": "+917003756860",
+      "whatsapp": "+917003756860"
+    }
+  },
+  "course": {
+    "program": "Software Engineering & DevOps Professional Track",
+    "semester": "Professional Curriculum",
+    "academicYear": "2026",
+    "credits": "4 (Practical & Hands-on)",
+    "weeklyContactHours": "4P",
+    "totalAllottedHours": 65,
+    "prerequisites": [
+      "Basic computer literacy and terminal/command line navigation",
+      "Understanding of files, folders, and text editors (VS Code / Notepad)",
+      "Basic programming background in any language (JavaScript, Python, C, Java)",
+      "An enthusiasm for clean code, collaboration, and defensive software engineering"
     ]
+  },
+  "courseOutcomes": [
+    {
+      "code": "CO1",
+      "title": "Git Architecture & Local Repositories",
+      "description": "Understand distributed version control principles, three-tree architecture (Working Tree, Index, HEAD), execute atomic commits, manage status, and navigate history.",
+      "mappedModules": [
+        "001_001_introduction-to-version-control-and-git-architecture",
+        "001_002_git-three-tree-architecture-and-basic-workflow",
+        "001_003_viewing-history-and-inspecting-repository-state",
+        "001_004_safely-undoing-changes-and-basic-recovery"
+      ]
+    },
+    {
+      "code": "CO2",
+      "title": "Branching, Merging & History Linearization",
+      "description": "Master branch pointer mechanics, fast-forward vs 3-way recursive merges, conflict detection & resolution, interactive rebase, squashing, and parallel worktrees.",
+      "mappedModules": [
+        "002_001_branching-fundamentals-and-pointer-mechanics",
+        "002_002_merging-strategies-and-conflict-resolution",
+        "002_003_rebasing-vs-merging-and-interactive-rebase",
+        "002_004_git-stash-and-worktrees"
+      ]
+    },
+    {
+      "code": "CO3",
+      "title": "Remote Collaboration & Repository Governance",
+      "description": "Configure SSH/HTTPS authentication, manage remote tracking branches, execute Fork & Pull Request workflows, conduct code reviews, enforce branch protection, and manage secrets.",
+      "mappedModules": [
+        "003_001_working-with-remotes-and-network-protocols",
+        "003_002_github-collaborative-workflows-and-pull-requests",
+        "003_003_branching-models-and-release-strategies",
+        "003_004_repo-governance-branch-protection-and-security"
+      ]
+    },
+    {
+      "code": "CO4",
+      "title": "Advanced Git Productivity & Debugging",
+      "description": "Apply cherry-picking, patch generation/application, binary search regression debugging with git bisect, custom aliases, client/server hooks, submodules, and Git LFS.",
+      "mappedModules": [
+        "004_001_cherry-pick-and-patch-management",
+        "004_002_git-bisect-and-binary-search-debugging",
+        "004_003_git-aliases-hooks-and-developer-productivity",
+        "004_004_submodules-subtrees-and-monorepo-strategies"
+      ]
+    },
+    {
+      "code": "CO5",
+      "title": "Git Internals, DAG & Complete Disaster Recovery",
+      "description": "Inspect Git's content-addressable object store (blobs, trees, commits, tags), SHA hashing, packfiles, garbage collection, and recover from any accidental deletion using git reflog.",
+      "mappedModules": [
+        "005_001_content-addressable-storage-and-git-objects",
+        "005_002_refs-packfiles-garbage-collection-and-plumbing",
+        "005_003_reflog-disaster-recovery-and-history-reconstruction"
+      ]
+    },
+    {
+      "code": "CO6",
+      "title": "DevOps Automation, CI/CD & Technical Viva",
+      "description": "Design automated GitHub Actions CI/CD pipelines, establish enterprise Git standards, resolve corporate outage scenarios, and ace senior software engineering Git viva interviews.",
+      "mappedModules": [
+        "006_001_github-actions-and-ci-cd-pipelines",
+        "006_002_enterprise-git-team-workflows-and-case-studies",
+        "006_003_top-100-git-interview-questions-and-viva-mastery"
+      ]
+    }
+  ],
+  "textBooks": [
+    {
+      "title": "Pro Git (2nd Edition)",
+      "authors": "Scott Chacon & Ben Straub",
+      "publisher": "Apress / Open Access",
+      "year": "2024",
+      "isbn": "978-1484200773",
+      "link": "https://git-scm.com/book/en/v2"
+    },
+    {
+      "title": "Version Control with Git: Powerful tools and techniques for collaborative software development (3rd Edition)",
+      "authors": "Prem Kumar Ponuthorai & Jon Loeliger",
+      "publisher": "O'Reilly Media",
+      "year": "2023",
+      "isbn": "978-1492091196"
+    }
+  ],
+  "referenceBooks": [
+    {
+      "title": "Git Pocket Guide: A Working Introduction",
+      "authors": "Richard E. Silverman",
+      "publisher": "O'Reilly Media",
+      "year": "2023",
+      "isbn": "978-1449325862"
+    },
+    {
+      "title": "Learn Git in a Month of Lunches",
+      "authors": "Rick Umali",
+      "publisher": "Manning Publications",
+      "year": "2022",
+      "isbn": "978-1617292415"
+    },
+    {
+      "title": "Official Git Documentation & Reference Manual",
+      "authors": "Git Core Team (Linus Torvalds, Junio C Hamano et al.)",
+      "publisher": "Software Freedom Conservancy",
+      "year": "2026",
+      "link": "https://git-scm.com/doc"
+    }
+  ],
+  "practiceRepositories": [
+    {
+      "name": "Learn Git Branching Interactive Sandbox",
+      "description": "Visual, interactive step-by-step simulator for branching, merging, rebasing, and cherry-picking.",
+      "url": "https://learngitbranching.js.org/"
+    },
+    {
+      "name": "Oh Shit, Git!?! Disaster Recovery Handbook",
+      "description": "Practical developer emergency recipes for getting out of bad Git states safely without losing work.",
+      "url": "https://ohshitgit.com/"
+    },
+    {
+      "name": "GitHub Skills Interactive Labs",
+      "description": "Hands-on guided repository courses directly inside GitHub repositories.",
+      "url": "https://skills.github.com/"
+    }
+  ],
+  "assessment": {
+    "type": "Continuous Evaluation (Terminal Labs + Multi-Branch Merge Drills + GitHub Actions CI/CD + Master Certification)",
+    "passScore": 75,
+    "recommendedPractice": [
+      "Complete all 22 hands-on CLI terminal lab assignments in a dedicated sandbox directory",
+      "Perform simulated multi-developer merge conflict resolution and interactive rebase drills",
+      "Build a complete open-source Fork & PR workflow with automated GitHub Actions testing and status checks",
+      "Score at least 75% in the Module Mastery and Final Certification assessments"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "foundation",
+      "title": "Segment 1 – Git Foundations & Local Repository Architecture (Beginner)",
+      "level": "Beginner",
+      "summary": "Master what Git is, distributed version control concepts, local repository initialization, the three-tree architecture (Working Tree, Staging Index, HEAD), atomic commits, history inspection, and safe undo strategies.",
+      "allocatedHours": 12,
+      "modules": [
+        {
+          "moduleId": "git-intro-and-architecture",
+          "slug": "001_001_introduction-to-version-control-and-git-architecture",
+          "title": "Introduction to Version Control & Git Architecture",
+          "level": "Beginner",
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "estimatedHours": 3,
+          "summary": "Understand the history and motivation for version control, centralized (SVN/CVS) vs distributed (Git/Mercurial) architectures, Linus Torvalds' design principles, cross-platform installation, and configuring global/local developer environments.",
+          "tags": [
+            "git",
+            "vcs",
+            "dvcs",
+            "installation",
+            "git-config",
+            "terminal",
+            "environment-setup"
+          ],
+          "topics": [
+            "What is Version Control and why software projects fail without it",
+            "Evolution of VCS: Local VCS -> Centralized VCS (SVN, CVS, Perforce) -> Distributed VCS (Git, Mercurial)",
+            "Centralized vs Distributed VCS: Single point of failure, offline working capability, and branching performance",
+            "Origins of Git: How Linus Torvalds built Git in 2005 for the Linux kernel development",
+            "Core Design Principles of Git: Speed, simple design, non-linear development support, full distribution, and data integrity",
+            "Installing Git on Windows (Git for Windows / Git Bash), macOS (Homebrew / Xcode CLI), and Linux (apt / dnf / pacman)",
+            "Configuring Git Identity: git config --global user.name and git config --global user.email",
+            "Configuring Essential Preferences: core.editor, init.defaultBranch (main vs master), and color.ui",
+            "Handling Line Endings Across Operating Systems: core.autocrlf (true on Windows, input on macOS/Linux)",
+            "Configuration Scope Hierarchy: System (--system) vs Global (--global) vs Local (--local) vs Worktree (--worktree)",
+            "Inspecting Active Configuration: git config --list --show-origin",
+            "Anatomy of the .git Directory: Overview of HEAD, objects, refs, config, hooks, and index",
+            "Classroom Dialogue: Sukanta Sir and Barrackpore students on why Git is essential for every developer",
+            "Hands-on Terminal Lab: Complete environment setup, verification, and default editor configuration",
+            "Self-Assessment Quiz & Short Questions for Module 001_001"
+          ],
+          "learningOutcomes": [
+            "Explain the difference between centralized and distributed version control systems",
+            "Install and configure Git globally and locally on any operating system",
+            "Understand the configuration hierarchy and diagnose configuration conflicts",
+            "Recognize the internal structure and role of the .git directory"
+          ],
+          "prerequisites": [],
+          "miniProjects": [
+            "Personal Developer Git Environment Setup & Verification Script"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Terminal Configuration Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "Standardizing developer environments across engineering teams",
+            "Setting up clean development machines for modern software development"
+          ],
+          "careerSkills": [
+            "CLI proficiency",
+            "Developer tooling setup",
+            "Cross-platform environment configuration"
+          ],
+          "commonMistakes": [
+            "Using different emails across commits, causing unmatched GitHub contribution graphs",
+            "Mismatched core.autocrlf settings leading to phantom line-ending diffs across Windows and Linux teams",
+            "Editing the .git folder manually without understanding its internal invariants"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 1: Getting Started",
+            "Official Git Documentation: git-config(1)"
+          ],
+          "teachingTips": [
+            "Show students the hidden .git directory immediately after git init to demystify Git from day one.",
+            "Demonstrate how git config --list --show-origin pinpoints exactly which config file is overriding a setting."
+          ],
+          "preReading": [
+            "Basic understanding of terminal commands (cd, ls, pwd, mkdir)"
+          ],
+          "previousModule": null,
+          "nextModule": "001_002_git-three-tree-architecture-and-basic-workflow",
+          "badge": "Git Foundations Badge"
+        },
+        {
+          "moduleId": "git-three-trees-and-workflow",
+          "slug": "001_002_git-three-tree-architecture-and-basic-workflow",
+          "title": "The Three-Tree Architecture & Core Workflow",
+          "level": "Beginner",
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "estimatedHours": 3,
+          "summary": "Master Git's famous Three-Tree Architecture (Working Directory, Staging Index, Repository/HEAD), the lifecycle of tracked/untracked files, staging techniques, crafting atomic commits with Conventional Commits, and ignoring files via .gitignore.",
+          "tags": [
+            "git-init",
+            "git-add",
+            "git-commit",
+            "git-status",
+            "gitignore",
+            "staging-area",
+            "atomic-commits"
+          ],
+          "topics": [
+            "Git's Three-Tree Architecture: Working Directory -> Staging Area (Index) -> Repository (HEAD Commit)",
+            "The Lifecycle of File Status: Untracked, Unmodified, Modified, and Staged",
+            "Creating a Local Repository: git init vs Cloning an Existing Repository (git clone)",
+            "Inspecting Working Tree Status: git status and short status format (git status -s)",
+            "Staging Changes: git add <file>, git add . vs git add -A (understanding deletions vs new files)",
+            "Interactive Staging: Staging partial file chunks using git add -p (patch mode)",
+            "Creating Commits: git commit -m vs opening full editor for descriptive multi-line commit messages",
+            "The Philosophy of Atomic Commits: One logical change per commit for bisectability and clean code reviews",
+            "Conventional Commits Specification: feat, fix, docs, style, refactor, perf, test, chore, build, ci",
+            "Inspecting Unstaged vs Staged Changes: git diff (working tree vs index) and git diff --staged (index vs HEAD)",
+            "Ignoring Files with .gitignore: Syntax rules, wildcards (*, ?), directory indicators (/), negation (!), and comments",
+            "Common .gitignore Templates: Node.js (node_modules), Python (__pycache__, .venv), Java (.class), and IDE files (.vscode, .idea)",
+            "Repository-Specific Local Exclusions: The .git/info/exclude file and Global gitignore (~/.gitignore_global)",
+            "Classroom Walkthrough: Sachin, Mahima, and Susmita building an Invoice Management project with atomic commits",
+            "Hands-on Terminal Lab: Initializing a project, configuring .gitignore, staging chunks with patch mode, and writing conventional commits",
+            "Self-Assessment Quiz & Short Questions for Module 001_002"
+          ],
+          "learningOutcomes": [
+            "Differentiate clearly between the Working Tree, Staging Area (Index), and Repository HEAD",
+            "Stage exact changes using both full-file and interactive patch-level staging",
+            "Write clean, atomic commit messages following the industry Conventional Commits standard",
+            "Construct robust .gitignore rules to prevent accidental credential and build artifact leakage"
+          ],
+          "prerequisites": [
+            "001_001_introduction-to-version-control-and-git-architecture"
+          ],
+          "miniProjects": [
+            "Multi-File Staging & Atomic Commit Pipeline for an E-Commerce Cart Module"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Commit Crafting Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Structuring clean developer commits before submitting code reviews",
+            "Shielding repositories from build artifacts, secrets, and environment binaries"
+          ],
+          "careerSkills": [
+            "Atomic commit crafting",
+            "Diff inspection",
+            "Clean repository hygiene"
+          ],
+          "commonMistakes": [
+            "Committing node_modules or .env files due to missing or delayed .gitignore creation",
+            "Writing vague commit messages like 'fixed stuff', 'update', or 'wip' instead of Conventional Commits",
+            "Using git add . blindly without reviewing git status or git diff first"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 2: Git Basics - Recording Changes to the Repository",
+            "Conventional Commits 1.0.0 Specification (conventionalcommits.org)"
+          ],
+          "teachingTips": [
+            "Teach students git add -p early so they learn to separate unrelated bug fixes from feature code into separate commits.",
+            "Show the visual diagram of the Three Trees to make the role of the Index crystal clear."
+          ],
+          "preReading": [
+            "Module 001_001 Git setup"
+          ],
+          "previousModule": "001_001_introduction-to-version-control-and-git-architecture",
+          "nextModule": "001_003_viewing-history-and-inspecting-repository-state",
+          "badge": "Atomic Committer Badge"
+        },
+        {
+          "moduleId": "git-history-and-inspection",
+          "slug": "001_003_viewing-history-and-inspecting-repository-state",
+          "title": "Viewing Commit History & Inspecting Changes",
+          "level": "Beginner",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "estimatedHours": 3,
+          "summary": "Master repository history exploration using git log formatting, filtering by author/date/message, inspecting commit details with git show, comparing arbitrary revisions with git diff, tracking file evolution, line-by-line attribution with git blame, and string searching with the pickaxe operator.",
+          "tags": [
+            "git-log",
+            "git-show",
+            "git-diff",
+            "git-blame",
+            "pickaxe",
+            "history-inspection",
+            "code-forensics"
+          ],
+          "topics": [
+            "Deep Dive into git log: Default output, commit SHA-1 hashes, author vs committer metadata, and timestamps",
+            "Formatting Log Output: git log --oneline, --decorate, and graphical branching view with git log --graph --all",
+            "Custom Log Formatting with Pretty Print: git log --pretty=format:'%h %ad | %s%d [%an]' --date=short",
+            "Limiting and Filtering History: Limiting by count (-n), date ranges (--since, --until), and author (--author)",
+            "Filtering History by Commit Message: Searching messages with git log --grep",
+            "Path-Specific History: Tracking commits affecting specific files or folders (git log -- <path>)",
+            "Viewing Detailed Changes in Log: git log -p (inline diffs) and git log --stat (file modification statistics)",
+            "Inspecting Specific Commits with git show: Viewing commit metadata, parents, and patch diff for any commit hash",
+            "Comparing Revisions with git diff: Comparing Working Tree to HEAD, Index to HEAD, and arbitrary commits (git diff commitA commitB)",
+            "Line-by-Line Code Forensics with git blame: Identifying author, commit hash, and timestamp for every line in a file",
+            "Advanced git blame Filtering: Ignoring whitespace changes (-w) and restricting line ranges (-L start,end)",
+            "The Pickaxe Operator: Searching history for commits that added or removed specific code strings with git log -S 'search_string'",
+            "Tracking Renamed and Moved Files: git log --follow <file> across historical refactorings",
+            "Classroom Case Study: Debangshu and Swadeep diagnosing an unexpected production price discount calculation bug using git blame and git log -S",
+            "Hands-on Terminal Lab: Reconstructing a repository timeline, extracting author statistics, and finding deleted functions with pickaxe",
+            "Self-Assessment Quiz & Short Questions for Module 001_003"
+          ],
+          "learningOutcomes": [
+            "Customize and filter git log output to quickly locate relevant commits in large codebases",
+            "Inspect full commit details and file diff statistics using git show and git diff",
+            "Perform code forensics and author attribution using git blame with whitespace filtering",
+            "Track deleted, added, or renamed functions across the entire repository lifetime using pickaxe and --follow"
+          ],
+          "prerequisites": [
+            "001_002_git-three-tree-architecture-and-basic-workflow"
+          ],
+          "miniProjects": [
+            "Repository History Forensics & Audit Report for a Multi-Developer Project"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + History Forensics Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Auditing security vulnerabilities and identifying when a bug was introduced",
+            "Preparing release changelogs by filtering commits between milestone tags"
+          ],
+          "careerSkills": [
+            "Code auditing",
+            "Git forensics",
+            "Release note compilation"
+          ],
+          "commonMistakes": [
+            "Failing to use --follow when running git log on a file that was previously renamed or moved",
+            "Using git blame without -w and getting distracted by mass-formatting changes instead of actual logic changes",
+            "Scrolling endlessly through raw git log instead of using filtering flags like --grep or -S"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 2: Viewing the Commit History",
+            "Official Git Documentation: git-log(1), git-blame(1)"
+          ],
+          "teachingTips": [
+            "Teach students to create a git lg alias early on: git config --global alias.lg 'log --graph --oneline --decorate --all'.",
+            "Demonstrate the power of git log -S to find when a variable was deleted from anywhere in the codebase."
+          ],
+          "preReading": [
+            "Module 001_002 Commit workflow"
+          ],
+          "previousModule": "001_002_git-three-tree-architecture-and-basic-workflow",
+          "nextModule": "001_004_safely-undoing-changes-and-basic-recovery",
+          "badge": "History Explorer Badge"
+        },
+        {
+          "moduleId": "git-undo-and-reset",
+          "slug": "001_004_safely-undoing-changes-and-basic-recovery",
+          "title": "Undoing Changes, Reset, Restore & Clean",
+          "level": "Beginner",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 4,
+          "estimatedHours": 3,
+          "summary": "Master safe undo mechanisms in Git without panic: discarding working tree changes with git restore, unstaging indexed files, amending the latest commit with git commit --amend, understanding git reset modes (soft, mixed, hard), reverting shared history with git revert, and safely purging untracked files with git clean.",
+          "tags": [
+            "git-restore",
+            "git-reset",
+            "git-revert",
+            "git-clean",
+            "amend",
+            "disaster-prevention",
+            "undo-mechanics"
+          ],
+          "topics": [
+            "The Decision Matrix for Undoing Changes in Git: What stage are your changes in? (Working Tree, Staging, Local Commit, Pushed Commit)",
+            "Discarding Unstaged Changes: Modern git restore <file> vs legacy git checkout -- <file>",
+            "Unstaging Staged Changes: Modern git restore --staged <file> vs legacy git reset HEAD <file>",
+            "Amending the Most Recent Commit: git commit --amend for updating messages or adding forgotten staged files",
+            "Understanding Commit Rewriting Risks: Why amending pushed commits causes diverged remote history",
+            "Demystifying git reset: How reset moves the HEAD pointer and adjusts Index and Working Tree",
+            "The Three Modes of git reset: --soft (moves HEAD only), --mixed (moves HEAD and updates Index - default), and --hard (moves HEAD, updates Index, and overwrites Working Tree)",
+            "The Golden Safety Rule of git reset --hard: Understanding what is permanently unrecoverable vs what is in Git's object store",
+            "Safe Undo for Public/Shared Branches: git revert <commit> to create a new inverse snapshot without rewriting history",
+            "Reverting Reverts and Handling Merge Commit Reverts: Overview of git revert -m 1 <merge_commit>",
+            "Cleaning Untracked Files and Directories: git clean with dry-run (-n), force (-f), recursive directory (-d), and ignored file (-x) options",
+            "Interactive Cleaning: Running git clean -i for safe step-by-step interactive pruning",
+            "Classroom Troubleshooting: Sukanta Sir guiding Abhronila and Tuhina through restoring accidentally modified database migration scripts",
+            "Hands-on Terminal Lab: Practicing git restore, commit --amend, soft/mixed/hard resets, and safe git revert",
+            "Self-Assessment Quiz & Short Questions for Module 001_004"
+          ],
+          "learningOutcomes": [
+            "Choose the exact correct undo command based on the file state in the Three-Tree Architecture",
+            "Unstage files and discard working tree edits cleanly using modern git restore commands",
+            "Differentiate between git reset --soft, --mixed, and --hard with complete confidence",
+            "Safely undo commits on shared branches using non-destructive git revert"
+          ],
+          "prerequisites": [
+            "001_002_git-three-tree-architecture-and-basic-workflow",
+            "001_003_viewing-history-and-inspecting-repository-state"
+          ],
+          "miniProjects": [
+            "Accidental Deletion & Staged Error Recovery Drill Simulation"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Safe Undo Simulation Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Undoing mistaken commits locally before pushing to upstream production",
+            "Reverting flawed production releases cleanly without rewriting branch histories"
+          ],
+          "careerSkills": [
+            "Defensive version control",
+            "Safe error recovery",
+            "History hygiene"
+          ],
+          "commonMistakes": [
+            "Running git reset --hard when having uncommitted, unstaged work, resulting in unrecoverable local file loss",
+            "Using git reset on a public shared branch instead of git revert, breaking collaborator repositories",
+            "Running git clean -fd without checking git clean -nd dry-run first, deleting new un-staged source files"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 2: Undoing Things",
+            "Official Git Documentation: git-restore(1), git-reset(1), git-revert(1)"
+          ],
+          "teachingTips": [
+            "Always enforce the rule: 'Run git status before and after every reset or restore operation.'",
+            "Emphasize that git revert is safe for team branches, while git reset is meant for private local branches."
+          ],
+          "preReading": [
+            "Module 001_002 Staging Index and HEAD concept"
+          ],
+          "previousModule": "001_003_viewing-history-and-inspecting-repository-state",
+          "nextModule": "002_001_branching-fundamentals-and-pointer-mechanics",
+          "badge": "Safe Undo Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "branching-merging",
+      "title": "Segment 2 – Branching, Merging, Rebasing & Conflict Resolution (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Master Git's lightweight branch pointer mechanics, fast-forward vs 3-way recursive merges, merge base computation, conflict detection and manual/visual resolution, linear history crafting with interactive rebase, autosquash, git stash, and multi-folder parallel workflows with git worktree.",
+      "allocatedHours": 14,
+      "modules": [
+        {
+          "moduleId": "git-branching-and-pointers",
+          "slug": "002_001_branching-fundamentals-and-pointer-mechanics",
+          "title": "Branching Fundamentals & Pointer Mechanics",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 5,
+          "estimatedHours": 3,
+          "summary": "Understand what a Git branch really is (a lightweight 41-byte movable pointer to a commit object), the role of HEAD as a symbolic reference, creating and switching branches with git switch, diagnosing and fixing detached HEAD states, branch renaming/deletion, and comparing branches.",
+          "tags": [
+            "git-branch",
+            "git-switch",
+            "head-pointer",
+            "detached-head",
+            "branch-pointers",
+            "feature-branches"
+          ],
+          "topics": [
+            "What is a Branch in Git? Demystifying branches as lightweight 41-byte text pointers containing SHA-1 commit hashes",
+            "How Git Branching Differs from Other VCS: Instant zero-cost branching vs copying entire directories",
+            "The Role of HEAD: Understanding HEAD as a symbolic reference pointing to the current branch ref (.git/HEAD)",
+            "Creating Branches: git branch <branch-name> and inspecting branch pointers (.git/refs/heads/)",
+            "Switching Branches: Modern git switch <branch> vs legacy git checkout <branch>",
+            "Creating and Switching in One Step: git switch -c <branch> and git checkout -b <branch>",
+            "Listing and Inspecting Branches: git branch, git branch -v (with last commit), and git branch -vv (with upstream tracking)",
+            "Renaming Branches: git branch -m <old_name> <new_name> and renaming current branch with git branch -M <new_name>",
+            "Deleting Branches: Safe deletion with git branch -d (checks merge status) vs force deletion with git branch -D",
+            "The Detached HEAD State: What causes it (checking out a commit SHA, tag, or remote branch directly)",
+            "Navigating and Experimenting in Detached HEAD: Why commits made in detached HEAD are at risk of garbage collection",
+            "Recovering from Detached HEAD: Saving experimental commits by creating a new branch (git switch -c new_feature_branch)",
+            "Comparing Branches: git diff branchA..branchB (two-dot) vs git diff branchA...branchB (three-dot diff from merge base)",
+            "Classroom Experiment: Sachin and Mahima inspecting .git/refs/heads/ in the terminal to observe pointer movement after commits",
+            "Hands-on Terminal Lab: Creating feature branches, exploring detached HEAD, creating rescue branches, and branch cleanup",
+            "Self-Assessment Quiz & Short Questions for Module 002_001"
+          ],
+          "learningOutcomes": [
+            "Explain how Git branch pointers and the HEAD reference work at the filesystem level",
+            "Create, switch, rename, and delete branches using modern git switch and git branch commands",
+            "Diagnose, experiment safely within, and recover from a Detached HEAD state",
+            "Compare differences between two branches using double-dot and triple-dot diff notation"
+          ],
+          "prerequisites": [
+            "001_004_safely-undoing-changes-and-basic-recovery"
+          ],
+          "miniProjects": [
+            "Multi-Feature Branching & Pointer Lifecycle Simulation"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Branch Pointer Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Isolating experimental features safely without affecting stable main branch code",
+            "Managing hotfix and feature lifecycles in agile sprint development"
+          ],
+          "careerSkills": [
+            "Feature isolation",
+            "Pointer mechanics comprehension",
+            "Branch lifecycle management"
+          ],
+          "commonMistakes": [
+            "Making commits in a detached HEAD state and switching away without creating a branch, losing direct references",
+            "Attempting to delete the currently active branch with git branch -d instead of switching to another branch first",
+            "Assuming git branch copies files on disk rather than creating an instant pointer"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 3: Git Branching - Branches in a Nutshell",
+            "Official Git Documentation: git-branch(1), git-switch(1)"
+          ],
+          "teachingTips": [
+            "Show the contents of .git/HEAD and .git/refs/heads/main using cat or type in the terminal so students see that a branch is literally just a text file with a 40-character commit hash.",
+            "Draw the DAG on the whiteboard to visualize how HEAD moves forward with each commit."
+          ],
+          "preReading": [
+            "Module 001_002 Commits and DAG basics"
+          ],
+          "previousModule": "001_004_safely-undoing-changes-and-basic-recovery",
+          "nextModule": "002_002_merging-strategies-and-conflict-resolution",
+          "badge": "Branching Specialist Badge"
+        },
+        {
+          "moduleId": "git-merging-and-conflicts",
+          "slug": "002_002_merging-strategies-and-conflict-resolution",
+          "title": "Merging Strategies & Resolving Merge Conflicts",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "estimatedHours": 4,
+          "summary": "Master Git merge mechanics: Fast-Forward merges, 3-way recursive (ORT) merges, finding the common ancestor (merge base), disabling fast-forward with --no-ff, conflict anatomy and markers, manual and visual merge tools, aborting broken merges, and squash merging feature branches.",
+          "tags": [
+            "git-merge",
+            "merge-conflicts",
+            "fast-forward",
+            "three-way-merge",
+            "merge-base",
+            "conflict-resolution",
+            "squash-merge"
+          ],
+          "topics": [
+            "The Concept of Merging: Integrating divergent histories into a unified line of development",
+            "Fast-Forward (FF) Merges: When does Git fast-forward? (Moving the target pointer forward without creating a merge commit)",
+            "Three-Way (3-Way) Merges: Finding the Common Ancestor (Merge Base via git merge-base branchA branchB)",
+            "The Merge Commit: Understanding why a merge commit has two (or more) parent commits",
+            "Preserving Branch Topologies: Using git merge --no-ff to enforce explicit merge commits for feature tracking",
+            "What Causes Merge Conflicts? Concurrent modifications to the same lines in the same file across divergent branches",
+            "Anatomy of Conflict Markers: <<<<<<< HEAD (Current Change), ======= (Separator), and >>>>>>> feature (Incoming Change)",
+            "Step-by-Step Conflict Resolution Workflow: Identifying conflicting files via git status, reviewing diffs, editing markers, staging, and completing the merge",
+            "Using Graphical and Visual Merge Tools: Configuring git mergetool (VS Code 3-way merge editor, Meld, KDiff3)",
+            "Aborting a Merge Safely: Canceling an in-progress merge with git merge --abort to return to a clean working state",
+            "Squash Merging: Consolidating an entire feature branch's commits into a single commit using git merge --squash",
+            "Merge Strategies & Algorithms: Recursive strategy vs Modern ORT (Ostensibly Recursive's Twin) strategy in Git 2.33+",
+            "Classroom Drama: Sachin and Susmita editing the same AuthController.js file simultaneously, triggering and resolving complex merge conflicts",
+            "Hands-on Terminal Lab: Simulating divergent branches, triggering 3-way merge conflicts, visual resolution in VS Code, and verifying merge base commits",
+            "Self-Assessment Quiz & Short Questions for Module 002_002"
+          ],
+          "learningOutcomes": [
+            "Distinguish between Fast-Forward merges and Three-Way recursive/ORT merge commits",
+            "Calculate the merge base common ancestor commit between two branches",
+            "Read and resolve multi-file merge conflict markers accurately without losing critical code",
+            "Utilize git merge --abort and git merge --squash for advanced branch management"
+          ],
+          "prerequisites": [
+            "002_001_branching-fundamentals-and-pointer-mechanics"
+          ],
+          "miniProjects": [
+            "Multi-Developer Merge Conflict Simulation & Resolution Sandbox"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Conflict Resolution Practical Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Integrating feature branches into main release branches safely",
+            "Resolving conflicting team pull requests during sprint integrations"
+          ],
+          "careerSkills": [
+            "Merge conflict resolution",
+            "Three-way diff analysis",
+            "Team integration management"
+          ],
+          "commonMistakes": [
+            "Accidentally leaving conflict markers (<<<<<<<, =======, >>>>>>>) inside code files and committing them",
+            "Panicking during a merge conflict and manually deleting files instead of running git merge --abort",
+            "Assuming fast-forward merges always happen even when divergent commits exist on both branches"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 3: Basic Branching and Merging",
+            "Official Git Documentation: git-merge(1), git-mergetool(1)"
+          ],
+          "teachingTips": [
+            "Have students deliberately create a merge conflict on day 1 of branching so fear of merge conflicts is eliminated forever.",
+            "Demonstrate VS Code's 'Accept Current', 'Accept Incoming', and 'Accept Both' buttons side-by-side with raw CLI conflict markers."
+          ],
+          "preReading": [
+            "Module 002_001 Branching basics"
+          ],
+          "previousModule": "002_001_branching-fundamentals-and-pointer-mechanics",
+          "nextModule": "002_003_rebasing-vs-merging-and-interactive-rebase",
+          "badge": "Merge Master Badge"
+        },
+        {
+          "moduleId": "git-rebase-and-interactive",
+          "slug": "002_003_rebasing-vs-merging-and-interactive-rebase",
+          "title": "Git Rebase, History Linearization & Interactive Rebase",
+          "level": "Intermediate",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 7,
+          "estimatedHours": 4,
+          "summary": "Master Git Rebase mechanics: rewinding and replaying commits to maintain a clean linear history, Rebase vs Merge philosophical comparison, the Golden Rule of Rebasing, handling conflicts during rebase, interactive rebase (pick, reword, edit, squash, fixup, drop, exec), and automated fixup with autosquash.",
+          "tags": [
+            "git-rebase",
+            "interactive-rebase",
+            "squash",
+            "fixup",
+            "linear-history",
+            "history-rewriting",
+            "autosquash"
+          ],
+          "topics": [
+            "What is Git Rebase? Replaying a sequence of commits on top of a new base tip",
+            "Rebase vs Merge Philosophical Comparison: Historical Truth (Preserving merge knots) vs Clean Linear Storytelling",
+            "Step-by-Step Standard Rebase Workflow: git switch feature && git rebase main",
+            "How Rebase Works Under the Hood: Finding merge base, saving patch deltas to temporary files, fast-forwarding target branch, and reapplying commits one by one",
+            "THE GOLDEN RULE OF REBASING: Never rebase commits that have been pushed to a public/shared repository branch!",
+            "Handling Conflicts During Rebase: Resolving conflicts, staging resolved files, and continuing with git rebase --continue (No git commit!)",
+            "Rebase Control Commands: git rebase --skip (discarding redundant commit) and git rebase --abort (safe bailout)",
+            "Interactive Rebase Mastery: git rebase -i HEAD~N and git rebase -i <base_commit>",
+            "Interactive Rebase Command Directives: pick (use commit), reword (edit message), edit (pause to amend files), squash (meld into previous), fixup (meld and discard message), drop (delete commit), and exec (run shell command on each step)",
+            "Reordering Commits and Splitting a Large Commit into Atomic Commits during Interactive Rebase",
+            "Squashing Work-in-Progress (WIP) and Bugfix Commits before Submitting a Pull Request",
+            "Automating Fixups with Autosquash: git commit --fixup <commit_hash> and git rebase -i --autosquash main",
+            "Classroom Deep-Dive: Sukanta Sir demonstrating how to transform a messy 12-commit feature branch into 2 pristine, review-ready conventional commits",
+            "Hands-on Terminal Lab: Linearizing a divergent feature branch, performing interactive rebase, squashing WIP commits, and testing with exec",
+            "Self-Assessment Quiz & Short Questions for Module 002_003"
+          ],
+          "learningOutcomes": [
+            "Explain the technical difference between merging and rebasing on the Git commit DAG",
+            "Apply the Golden Rule of Rebasing to avoid breaking team member repositories",
+            "Perform advanced interactive rebasing (squash, fixup, reword, drop, split) with complete confidence",
+            "Utilize --fixup and --autosquash for rapid, automated commit consolidation in CI/CD workflows"
+          ],
+          "prerequisites": [
+            "002_002_merging-strategies-and-conflict-resolution"
+          ],
+          "miniProjects": [
+            "Messy Pull Request History Cleanup & Linearization Challenge"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Interactive Rebase Challenge",
+            "passScore": 75
+          },
+          "useCases": [
+            "Cleaning up private feature branches before code review submission",
+            "Keeping feature branches up-to-date with main without generating unsightly merge bubbles"
+          ],
+          "careerSkills": [
+            "History linearization",
+            "Interactive rebase manipulation",
+            "Clean PR authoring"
+          ],
+          "commonMistakes": [
+            "Rebasing a shared main branch that other engineers have already pulled, causing duplicate commit graphs",
+            "Running git commit during a rebase conflict instead of staging and running git rebase --continue",
+            "Accidentally deleting lines in the interactive rebase TODO file, which causes Git to drop those commits"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 3: Rebasing",
+            "Official Git Documentation: git-rebase(1)"
+          ],
+          "teachingTips": [
+            "Emphasize that during git rebase, HEAD is in a detached state for each replayed commit.",
+            "Teach students to create a backup branch (git branch backup-before-rebase) before doing their first interactive rebase."
+          ],
+          "preReading": [
+            "Module 002_002 Merge mechanics"
+          ],
+          "previousModule": "002_002_merging-strategies-and-conflict-resolution",
+          "nextModule": "002_004_git-stash-and-worktrees",
+          "badge": "Rebase Wizard Badge"
+        },
+        {
+          "moduleId": "git-stash-and-worktrees",
+          "slug": "002_004_git-stash-and-worktrees",
+          "title": "Git Stash & Multi-Tasking with Git Worktree",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 8,
+          "estimatedHours": 3,
+          "summary": "Master temporary context switching with git stash (saving, listing, inspecting, applying, popping, stashing untracked files, creating branches from stashes) and parallel multi-branch development in separate directories without switching branches using git worktree.",
+          "tags": [
+            "git-stash",
+            "git-worktree",
+            "context-switching",
+            "multitasking",
+            "stash-pop",
+            "parallel-development"
+          ],
+          "topics": [
+            "The Developer Context Switching Problem: Urgent production bug arrives while in the middle of uncommitted feature work",
+            "Temporarily Shelving Changes with git stash: Default behavior (stashes staged and unstaged tracked modifications)",
+            "Naming and Labeling Stashes: git stash push -m 'WIP: Refactoring Stripe Payment Gateway'",
+            "Stashing Untracked and Ignored Files: git stash -u (--include-untracked) and git stash -a (--all)",
+            "Inspecting the Stash Stack: git stash list and inspecting patch diffs with git stash show -p stash@{0}",
+            "Restoring Stashed Work: git stash apply (preserves stash in stack) vs git stash pop (restores and removes from stack)",
+            "Restoring Staged State: Using git stash apply --index to preserve both Index and Working Tree separation",
+            "Creating a Branch Directly from a Stash: git stash branch <new_branch_name> stash@{0}",
+            "Cleaning Up Stashes: Dropping specific stashes (git stash drop stash@{N}) and clearing the entire stack (git stash clear)",
+            "Introduction to Git Worktree: The modern solution to working on multiple branches simultaneously in separate folders",
+            "Why Worktrees Beat Stashing and Switching: No need to rebuild node_modules, recompile C binaries, or wait for IDE indexers",
+            "Creating New Worktrees: git worktree add ../hotfix-branch-dir hotfix/critical-auth-patch",
+            "Managing Active Worktrees: git worktree list, removing completed worktrees with git worktree remove, and running git worktree prune",
+            "Classroom Scenario: Swadeep and Tuhina handling an urgent client bug on production while running a long React build in their main worktree",
+            "Hands-on Terminal Lab: Managing a multi-level stash stack, rescuing stash conflicts, and setting up linked Git worktrees",
+            "Self-Assessment Quiz & Short Questions for Module 002_004"
+          ],
+          "learningOutcomes": [
+            "Shelve and restore uncommitted feature changes cleanly using git stash with descriptive messages",
+            "Manage the stash stack (list, inspect, apply, pop, drop, clear) without losing experimental work",
+            "Create new Git branches directly from stored stashes to resolve complex merge conflicts",
+            "Spin up, manage, and prune linked Git worktrees for parallel branch development without context switching overhead"
+          ],
+          "prerequisites": [
+            "002_001_branching-fundamentals-and-pointer-mechanics"
+          ],
+          "miniProjects": [
+            "Production Hotfix Interruption Simulation with Git Worktree & Stash"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Stash & Worktree Practical Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Switching branches quickly to review a colleague's PR without committing half-finished code",
+            "Running long automated tests or dev servers on one branch while developing on another via git worktree"
+          ],
+          "careerSkills": [
+            "High-velocity multitasking",
+            "Worktree orchestration",
+            "Context-switch agility"
+          ],
+          "commonMistakes": [
+            "Forgetting to stash untracked files with -u, causing newly created files to leak into the switched branch",
+            "Accumulating dozens of unnamed stashes over months and forgetting what changes they contain",
+            "Attempting to check out the same branch in two different worktrees simultaneously (blocked by Git for safety)"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 7: Git Tools - Stashing and Cleaning",
+            "Official Git Documentation: git-stash(1), git-worktree(1)"
+          ],
+          "teachingTips": [
+            "Show students git worktree as a modern alternative to stashing when dealing with heavy dependencies like node_modules.",
+            "Always teach students to provide descriptive stash messages with git stash push -m."
+          ],
+          "preReading": [
+            "Module 002_001 Branching and checkout"
+          ],
+          "previousModule": "002_003_rebasing-vs-merging-and-interactive-rebase",
+          "nextModule": "003_001_working-with-remotes-and-network-protocols",
+          "badge": "Multitasking Pro Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "remote-collaboration",
+      "title": "Segment 3 – Remote Collaboration, GitHub & Repository Governance (Intermediate to Advanced)",
+      "level": "Intermediate to Advanced",
+      "summary": "Master remote repository mechanics, network protocols (SSH vs HTTPS), remote tracking branches, upstream syncing, GitHub/GitLab collaborative workflows, Pull Requests, code reviews, branching models (Gitflow, Trunk-Based), semantic versioning, branch protection rulesets, and secret leakage prevention.",
+      "allocatedHours": 14,
+      "modules": [
+        {
+          "moduleId": "git-remotes-and-protocols",
+          "slug": "003_001_working-with-remotes-and-network-protocols",
+          "title": "Remote Repositories, Remotes & Network Protocols",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 9,
+          "estimatedHours": 3,
+          "summary": "Understand remote repositories, the origin convention, remote management commands, network protocols (HTTPS with Personal Access Tokens vs SSH key pairs with ssh-agent), remote tracking branches (origin/main), fetch vs pull vs pull --rebase, pushing with upstream tracking, and pruning deleted remote branches.",
+          "tags": [
+            "git-remote",
+            "git-fetch",
+            "git-pull",
+            "git-push",
+            "ssh-keys",
+            "https-pat",
+            "remote-tracking"
+          ],
+          "topics": [
+            "What is a Remote Repository? Understanding origin as a default remote alias pointing to a central server",
+            "Remote Management Commands: git remote add, git remote -v, git remote rename, and git remote remove",
+            "Inspecting Remote Details: git remote show origin (tracking branches, push/pull URLs, stale branches)",
+            "Network Protocols in Git: Local file://, SSH (git@github.com:...), HTTPS (https://github.com/...), and Git protocol (git://)",
+            "HTTPS Authentication in Modern Git: GitHub Personal Access Tokens (PAT), Git Credential Manager (GCM), and token scopes",
+            "SSH Authentication Deep-Dive: Generating SSH key pairs (ssh-keygen -t ed25519 -C 'email@domain.com'), starting ssh-agent, and adding keys",
+            "Adding Public Keys to GitHub / GitLab / Bitbucket and Verifying Connection (ssh -T git@github.com)",
+            "Remote Tracking Branches: Understanding origin/main as local read-only bookmarks of remote state (.git/refs/remotes/origin/)",
+            "The Critical Distinction: git fetch (downloads objects & updates remote refs) vs git pull (fetch + merge)",
+            "Pulling with Rebase: git pull --rebase to prevent useless local merge commits during team updates",
+            "Configuring Global Pull Rebase: git config --global pull.rebase true",
+            "Pushing Branches with Upstream Tracking: git push -u origin <branch_name> (--set-upstream)",
+            "Deleting Remote Branches: git push origin --delete <branch_name> vs deleting local branch",
+            "Pruning Stale Remote Tracking References: Cleaning up deleted remote branches locally with git fetch --prune and git remote prune origin",
+            "Hands-on Terminal Lab: Setting up Ed25519 SSH keys, configuring multiple remotes, upstream synchronization, and pruning stale tracking refs",
+            "Self-Assessment Quiz & Short Questions for Module 003_001"
+          ],
+          "learningOutcomes": [
+            "Configure secure passwordless SSH authentication (Ed25519) and HTTPS Personal Access Tokens for GitHub/GitLab",
+            "Manage remote references (add, rename, remove, inspect) and understand remote tracking branches",
+            "Differentiate between git fetch, git pull, and git pull --rebase with complete clarity",
+            "Push local branches with upstream tracking and prune deleted remote branches from local cache"
+          ],
+          "prerequisites": [
+            "002_001_branching-fundamentals-and-pointer-mechanics"
+          ],
+          "miniProjects": [
+            "Multi-Remote Synchronization & SSH Key Authentication Sandbox"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Remote Synchronization Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Connecting enterprise workstations securely to GitHub Enterprise or GitLab servers",
+            "Synchronizing distributed engineering teams without creating redundant merge bubbles"
+          ],
+          "careerSkills": [
+            "SSH key management",
+            "Remote repository synchronization",
+            "Network protocol security"
+          ],
+          "commonMistakes": [
+            "Attempting to use GitHub password authentication over HTTPS instead of a Personal Access Token or SSH key",
+            "Running git pull blindly and generating hundreds of unwanted 'Merge branch main of ...' commits in team history",
+            "Forgetting to run git fetch --prune, resulting in dozens of dead remote tracking branches cluttering local git branch -a"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 2: Working with Remotes",
+            "GitHub Docs: Connecting to GitHub with SSH"
+          ],
+          "teachingTips": [
+            "Have students configure pull.rebase true globally early in the course to ingrain clean history habits.",
+            "Show how origin/main is just a file in .git/refs/remotes/origin/main that updates only when git fetch or git pull runs."
+          ],
+          "preReading": [
+            "Module 002_001 Branching and HEAD"
+          ],
+          "previousModule": "002_004_git-stash-and-worktrees",
+          "nextModule": "003_002_github-collaborative-workflows-and-pull-requests",
+          "badge": "Remote Navigator Badge"
+        },
+        {
+          "moduleId": "github-pr-and-code-reviews",
+          "slug": "003_002_github-collaborative-workflows-and-pull-requests",
+          "title": "GitHub Collaboration, Forks, Pull Requests & Code Reviews",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 10,
+          "estimatedHours": 4,
+          "summary": "Master open source and team collaboration patterns on GitHub/GitLab: Centralized team repos vs Fork & Pull Request workflows, crafting professional PRs with templates, conducting constructive code reviews with Suggested Changes, issue linking automation, and evaluating PR merge strategies.",
+          "tags": [
+            "github",
+            "pull-request",
+            "code-review",
+            "fork-workflow",
+            "issue-tracking",
+            "suggested-changes",
+            "merge-strategies"
+          ],
+          "topics": [
+            "Collaboration Models: Shared Centralized Repository Model (Direct push with branch permissions) vs Fork & Pull Request Model (Open source standard)",
+            "The Forking Workflow: Forking upstream repos, cloning your fork, adding upstream remote (git remote add upstream <url>), and syncing with upstream (git fetch upstream && git merge upstream/main)",
+            "Anatomy of a Professional Pull Request (PR): Clear title, context description, screenshots/recordings, test plan, and related issue links",
+            "Standardizing PRs with Markdown Templates: Creating .github/PULL_REQUEST_TEMPLATE.md and Issue Templates (.github/ISSUE_TEMPLATE/)",
+            "Automated Issue Linking: Closing issues automatically when PRs merge using keywords (Fixes #12, Closes #45, Resolves #89)",
+            "Conducting High-Quality Code Reviews: Reviewing diffs, adding line-by-line comments, multiline comments, and review summaries",
+            "Using GitHub Suggested Changes: Inserting ```suggestion markdown blocks allowing PR authors to commit fixes with one click",
+            "Code Review States: Comment, Approve, and Request Changes (with clear actionable criteria)",
+            "Responding to Review Feedback: Adding new commits to the feature branch, updating PR description, and resolving conversation threads",
+            "GitHub PR Merge Strategies: 1) Create a Merge Commit (Preserves all commits and merge knot), 2) Squash and Merge (Combines into 1 commit), 3) Rebase and Merge (Replays commits linearly without merge commit)",
+            "Pros and Cons of Each Merge Strategy: When to enforce Squash vs Rebase vs Merge Commit in company policies",
+            "GitHub Discussions, Project Boards (Kanban), Milestones, and Label Management",
+            "Classroom Collaboration Simulation: Mahima and Sachin opening PRs on the Coder & AccoTax repository, conducting mutual code reviews, and applying suggested changes",
+            "Hands-on Terminal & Web Lab: Forking an upstream project, creating a feature branch, opening a PR, reviewing peer code with suggested changes, and merging",
+            "Self-Assessment Quiz & Short Questions for Module 003_002"
+          ],
+          "learningOutcomes": [
+            "Execute the complete Open Source Fork & Pull Request workflow and keep forks synchronized with upstream",
+            "Author professional, well-structured Pull Requests with test verification notes and issue linkage",
+            "Conduct thorough, empathetic, and actionable code reviews using GitHub Suggested Changes",
+            "Evaluate and select appropriate PR merge strategies (Merge Commit, Squash & Merge, Rebase & Merge) for different project architectures"
+          ],
+          "prerequisites": [
+            "003_001_working-with-remotes-and-network-protocols"
+          ],
+          "miniProjects": [
+            "End-to-End Open Source Contribution Simulation & Peer Code Review Workshop"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Live Pull Request & Code Review Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Contributing to major open-source projects on GitHub",
+            "Leading agile code review cycles in engineering sprint teams"
+          ],
+          "careerSkills": [
+            "Pull Request authoring",
+            "Peer code review",
+            "Open-source collaboration etiquette"
+          ],
+          "commonMistakes": [
+            "Opening Pull Requests directly from the fork's main branch instead of creating a dedicated feature branch",
+            "Submitting massive 2,000-line PRs spanning multiple unrelated features instead of small, reviewable PRs",
+            "Merging PRs with unresolved review conversations or failing CI status checks"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 6: GitHub - Contributing to a Project",
+            "GitHub Docs: About Pull Requests & Code Reviews"
+          ],
+          "teachingTips": [
+            "Pair students up in classroom labs and make them review each other's code using GitHub's 'Suggested Change' feature.",
+            "Demonstrate how Squash and Merge on GitHub keeps the main branch history clean even if the feature branch had 20 messy commits."
+          ],
+          "preReading": [
+            "Module 003_001 Remotes and upstream"
+          ],
+          "previousModule": "003_001_working-with-remotes-and-network-protocols",
+          "nextModule": "003_003_branching-models-and-release-strategies",
+          "badge": "Code Review Champion Badge"
+        },
+        {
+          "moduleId": "branching-models-and-releases",
+          "slug": "003_003_branching-models-and-release-strategies",
+          "title": "Branching Models: Gitflow, Trunk-Based, GitHub Flow & Releases",
+          "level": "Intermediate to Advanced",
+          "difficulty": "Medium",
+          "difficultyIndex": 11,
+          "estimatedHours": 4,
+          "summary": "Master industry-standard branching strategies: Gitflow (main, develop, feature, release, hotfix), GitHub Flow (continuous deployment), Trunk-Based Development (TBD with feature flags), Semantic Versioning (SemVer 2.0.0), annotated vs lightweight tags, and publishing automated GitHub Releases with changelogs.",
+          "tags": [
+            "gitflow",
+            "trunk-based-development",
+            "github-flow",
+            "semver",
+            "git-tag",
+            "github-releases",
+            "release-management"
+          ],
+          "topics": [
+            "Why Branching Strategies Matter: Avoiding merge hell, release delays, and uncoordinated deployments in large teams",
+            "Comparative Breakdown of Industry Branching Models: Gitflow vs GitHub Flow vs Trunk-Based Development vs GitLab Flow",
+            "The Gitflow Workflow: Main (production), Develop (integration), Feature branches (feature/*), Release branches (release/*), and Hotfix branches (hotfix/*)",
+            "Gitflow Step-by-Step Lifecycle: Creating a release candidate, freezing features, applying release bugfixes, merging back to both main and develop",
+            "When to Use Gitflow: Scheduled enterprise release cycles, mobile apps, and multi-version supported software",
+            "GitHub Flow: Lightweight continuous deployment workflow: 1) Branch from main, 2) Add commits, 3) Open PR, 4) Discuss & Review, 5) Deploy & Verify, 6) Merge to main",
+            "Trunk-Based Development (TBD): Short-lived branches (< 1 day), frequent small merges to trunk/main, paired with CI and Feature Flags (Feature Toggles)",
+            "GitLab Flow: Environment branches (production, staging, pre-prod) and Release branches for continuous enterprise delivery",
+            "Semantic Versioning (SemVer 2.0.0): MAJOR.MINOR.PATCH (Breaking changes, Backwards-compatible features, Bug fixes)",
+            "Git Tags Deep-Dive: Lightweight tags (simple bookmark pointers) vs Annotated tags (full Git objects with tagger, date, GPG signature, and message)",
+            "Creating and Managing Tags: git tag <tag_name>, git tag -a v1.0.0 -m 'Release 1.0.0', git tag -l, and inspecting with git show v1.0.0",
+            "Pushing and Deleting Tags: git push origin v1.0.0, pushing all tags with git push origin --tags, and deleting with git push origin --delete <tag_name>",
+            "Creating GitHub Releases: Linking releases to Git tags, generating automated release notes, attaching compiled binaries/assets",
+            "Hands-on Terminal Lab: Simulating a full Gitflow release cycle with a hotfix branch, tagging with annotated SemVer tags, and publishing a GitHub Release",
+            "Self-Assessment Quiz & Short Questions for Module 003_003"
+          ],
+          "learningOutcomes": [
+            "Analyze and select the ideal branching strategy (Gitflow, GitHub Flow, Trunk-Based) for any engineering team size and deployment cadence",
+            "Execute a complete Gitflow release and hotfix branching lifecycle without losing backported fixes",
+            "Apply Semantic Versioning (SemVer 2.0.0) conventions to tag repository milestones accurately",
+            "Create annotated Git tags and publish production-ready GitHub Releases with changelog notes"
+          ],
+          "prerequisites": [
+            "003_002_github-collaborative-workflows-and-pull-requests"
+          ],
+          "miniProjects": [
+            "Gitflow Release & Production Hotfix Simulation with Semantic Versioning"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Branching Model Practical Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Architecting release management workflows for mobile, desktop, and web development teams",
+            "Implementing Trunk-Based Development with feature toggles in modern SaaS organizations"
+          ],
+          "careerSkills": [
+            "Branching model architecture",
+            "Release management",
+            "Semantic versioning governance"
+          ],
+          "commonMistakes": [
+            "Using full Gitflow for simple web applications where continuous deployment (GitHub Flow) is far faster and less overhead",
+            "Forgetting to merge hotfix branches back into the develop branch in Gitflow, causing regression bugs in the next release",
+            "Creating lightweight tags instead of annotated tags (-a) for formal software releases"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 3: Git Branching - Branching Workflows",
+            "Semantic Versioning 2.0.0 Specification (semver.org)",
+            "A successful Git branching model by Vincent Driessen"
+          ],
+          "teachingTips": [
+            "Draw the Gitflow multi-branch timeline on the board showing develop and main in parallel.",
+            "Explain why modern high-velocity SaaS teams favor Trunk-Based Development over heavyweight Gitflow."
+          ],
+          "preReading": [
+            "Module 002_002 Merging strategies"
+          ],
+          "previousModule": "003_002_github-collaborative-workflows-and-pull-requests",
+          "nextModule": "003_004_repo-governance-branch-protection-and-security",
+          "badge": "Release Architect Badge"
+        },
+        {
+          "moduleId": "repo-governance-and-security",
+          "slug": "003_004_repo-governance-branch-protection-and-security",
+          "title": "Repository Governance, Branch Protection & Security",
+          "level": "Intermediate to Advanced",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 12,
+          "estimatedHours": 3,
+          "summary": "Master repository security and governance: GitHub Branch Protection Rules and modern Rulesets, requiring PR approvals and CODEOWNERS reviews, blocking direct pushes, secret leakage detection, emergency response for committed credentials, history scrubbing with git-filter-repo, Dependabot vulnerability alerts, and signing commits with GPG.",
+          "tags": [
+            "branch-protection",
+            "codeowners",
+            "secret-scanning",
+            "git-filter-repo",
+            "gpg-signing",
+            "dependabot",
+            "security"
+          ],
+          "topics": [
+            "Enterprise Repository Governance: Why open write access to main is an operational risk in production systems",
+            "GitHub Branch Protection Rules: Preventing direct pushes, enforcing pull requests before merging, and requiring linear history",
+            "Configuring Required Approvals and Dismissing Stale Approvals on New Pushes",
+            "Code Ownership with CODEOWNERS: Creating .github/CODEOWNERS to automatically assign specialized team reviews for security/database folders",
+            "Enforcing Required Status Checks: Blocking merges until automated CI tests and security linters pass successfully",
+            "Modern GitHub Rulesets: Layered, bypass-safe governance across branches and tags in enterprise organizations",
+            "Secret Management in Version Control: Why committing .env, AWS keys, database passwords, or private SSH keys is catastrophic",
+            "Automated Secret Leak Detection: GitHub Secret Scanning and Push Protection (blocking pushes containing recognized API tokens)",
+            "Emergency Incident Response: What to do if an API key is pushed to a public repository (1. Immediately revoke the key, 2. Clean the history)",
+            "Scrubbing Secrets from Git History: Why git rm or git commit --amend is NOT enough (historical blobs remain in Git)",
+            "History Rewriting with git-filter-repo (Modern standard replacing legacy git filter-branch and BFG Repo-Cleaner)",
+            "Automated Dependency Security with Dependabot: Vulnerability alerts, automated security PRs, and dependabot.yml configuration",
+            "Cryptographic Commit Verification with GPG: Generating GPG keys (gpg --gen-key), exporting public key to GitHub, configuring git config --global user.signingkey, and signing commits with git commit -S (Verified badge)",
+            "Hands-on Terminal Lab: Hardening a GitHub repository, configuring CODEOWNERS, simulating a secret leak, scrubbing history with git-filter-repo, and signing commits with GPG",
+            "Self-Assessment Quiz & Short Questions for Module 003_004"
+          ],
+          "learningOutcomes": [
+            "Configure enterprise-grade GitHub Branch Protection Rulesets and CODEOWNERS review assignments",
+            "Execute an immediate emergency credential remediation workflow when secrets are accidentally committed",
+            "Permanently purge sensitive files and passwords from all Git branches and commits using git-filter-repo",
+            "Configure GPG key pairs to cryptographically sign Git commits and achieve the Verified badge on GitHub"
+          ],
+          "prerequisites": [
+            "003_002_github-collaborative-workflows-and-pull-requests"
+          ],
+          "miniProjects": [
+            "Repository Hardening, Secret Remediation & GPG Verified Commit Setup"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Security Hardening Practical Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Hardening production repositories against unauthorized code pushes and rogue commits",
+            "Meeting SOC2 / ISO27001 compliance standards for software development and commit integrity"
+          ],
+          "careerSkills": [
+            "Repository governance",
+            "Secrets remediation",
+            "GPG cryptographic verification",
+            "Compliance enforcement"
+          ],
+          "commonMistakes": [
+            "Assuming that deleting a secret in a new commit removes it from the repository history",
+            "Failing to revoke compromised API keys immediately, assuming historical scrubbing protects against already scraped tokens",
+            "Using deprecated git filter-branch which is notoriously slow and prone to corrupting complex histories"
+          ],
+          "references": [
+            "GitHub Docs: About Protected Branches & Rulesets",
+            "git-filter-repo Documentation (github.com/newren/git-filter-repo)",
+            "GitHub Docs: Managing Commit Signature Verification"
+          ],
+          "teachingTips": [
+            "Demonstrate how GitHub scrapers detect exposed AWS keys within seconds of pushing to a public repository.",
+            "Show the green 'Verified' badge on GitHub to motivate students to set up GPG commit signing."
+          ],
+          "preReading": [
+            "Module 003_002 Pull request governance"
+          ],
+          "previousModule": "003_003_branching-models-and-release-strategies",
+          "nextModule": "004_001_cherry-pick-and-patch-management",
+          "badge": "Security & Governance Guardian Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced-tools",
+      "title": "Segment 4 – Advanced Git Tools, Productivity & Debugging (Advanced)",
+      "level": "Advanced",
+      "summary": "Master specialized developer commands and productivity accelerators: selective commit integration with git cherry-pick, email-friendly patch files with git format-patch / git am, regression hunting with git bisect binary search, custom Git aliases, client-side hooks with Husky and lint-staged, submodules, subtrees, and large file storage with Git LFS.",
+      "allocatedHours": 12,
+      "modules": [
+        {
+          "moduleId": "git-cherry-pick-and-patches",
+          "slug": "004_001_cherry-pick-and-patch-management",
+          "title": "Git Cherry-Pick, Patches & Selective Integration",
+          "level": "Advanced",
+          "difficulty": "Medium",
+          "difficultyIndex": 13,
+          "estimatedHours": 3,
+          "summary": "Master selective commit extraction with git cherry-pick: applying single commits, ranges of commits, cherry-picking without committing (--no-commit), resolving cherry-pick conflicts, generating email-ready patch files with git format-patch, applying patches with git apply and git am, and backporting critical bugfixes across release branches.",
+          "tags": [
+            "git-cherry-pick",
+            "git-format-patch",
+            "git-am",
+            "patch-management",
+            "backporting",
+            "selective-merging"
+          ],
+          "topics": [
+            "What is Git Cherry-Pick? Applying the changes introduced by one or more existing commits onto the current HEAD",
+            "Cherry-Picking a Single Commit: git cherry-pick <commit_hash> and inspecting the newly generated commit SHA",
+            "Cherry-Picking a Range of Commits: git cherry-pick commitA..commitB (exclusive A) vs commitA^..commitB (inclusive A)",
+            "Cherry-Picking Without Committing: git cherry-pick -n (--no-commit) to stage changes for inspection and modification",
+            "Handling Conflicts During Cherry-Pick: Resolving conflict markers, staging files, and running git cherry-pick --continue or --abort",
+            "Recording Original Commits: Using git cherry-pick -x to append '(cherry picked from commit ...)' to the commit message",
+            "Real-World Use Cases for Cherry-Pick: Backporting urgent bugfixes from main to older maintenance branches (e.g., v1.2-support)",
+            "Risks and Anti-Patterns of Overusing Cherry-Pick: Duplicate commits, divergent histories, and merge conflict complications later",
+            "Introduction to Git Patches: How Linux kernel development collaborates via email patches without direct Git remotes",
+            "Generating Patch Files: git format-patch -1 <commit_hash> and git format-patch main..feature (creates .patch files with mbox formatting)",
+            "Inspecting and Applying Patches: git apply --stat, git apply --check (dry run test), and git apply <patch_file>",
+            "Applying Patches with Full Commit Metadata: git am <patch_file> (recreates exact author, commit message, and timestamp)",
+            "Hands-on Terminal Lab: Backporting security patches to maintenance branches with cherry-pick -x and applying email patches via git am",
+            "Self-Assessment Quiz & Short Questions for Module 004_001"
+          ],
+          "learningOutcomes": [
+            "Selectively extract and transplant individual commits and commit ranges using git cherry-pick",
+            "Resolve conflicts that occur during cherry-picking and maintain original commit provenance with -x",
+            "Generate standard email-compatible patch files using git format-patch",
+            "Validate and apply patches while preserving author metadata using git apply and git am"
+          ],
+          "prerequisites": [
+            "002_002_merging-strategies-and-conflict-resolution"
+          ],
+          "miniProjects": [
+            "Multi-Version Bug Backporting & Email Patch Pipeline Simulation"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Cherry-Pick Backporting Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Backporting critical zero-day security fixes to older supported product versions",
+            "Contributing to patch-based open-source projects like the Linux Kernel, Git, or PostgreSQL"
+          ],
+          "careerSkills": [
+            "Selective commit integration",
+            "Maintenance release patching",
+            "Patch workflow mechanics"
+          ],
+          "commonMistakes": [
+            "Cherry-picking commits repeatedly between two active feature branches instead of performing a clean merge or rebase",
+            "Forgetting that cherry-pick creates a completely new commit with a new SHA-1 hash, not a link to the original commit",
+            "Applying patches with git apply instead of git am and wondering why commit author history was lost"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 5: Distributed Git - Maintaining a Project",
+            "Official Git Documentation: git-cherry-pick(1), git-format-patch(1), git-am(1)"
+          ],
+          "teachingTips": [
+            "Show the cherry-pick -x flag so students learn how open-source maintainers cross-reference backported commits.",
+            "Demonstrate how git format-patch creates human-readable text files containing diffs and author headers."
+          ],
+          "preReading": [
+            "Module 002_002 Merging and commit diffs"
+          ],
+          "previousModule": "003_004_repo-governance-branch-protection-and-security",
+          "nextModule": "004_002_git-bisect-and-binary-search-debugging",
+          "badge": "Patchmaster Badge"
+        },
+        {
+          "moduleId": "git-bisect-and-debugging",
+          "slug": "004_002_git-bisect-and-binary-search-debugging",
+          "title": "Debugging Regressions with Git Bisect & Binary Search",
+          "level": "Advanced",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 14,
+          "estimatedHours": 3,
+          "summary": "Master automated regression bug hunting with git bisect: binary search algorithm over commit histories in O(log N) steps, manual bisect workflow (start, good, bad, skip, reset), automated bisect testing with shell scripts (git bisect run), and combining bisect with git blame and pickaxe search.",
+          "tags": [
+            "git-bisect",
+            "binary-search",
+            "debugging",
+            "regression-testing",
+            "automated-testing",
+            "git-blame"
+          ],
+          "topics": [
+            "The Software Regression Nightmare: A feature that worked in v1.0.0 is broken in v2.0.0 across 800 historical commits",
+            "Why Linear Searching is Too Slow: O(N) manual checkout vs O(log2 N) Binary Search in Git",
+            "Mathematical Efficiency: Hunting through 1,024 commits takes only 10 test steps with git bisect!",
+            "Manual Git Bisect Workflow: 1) git bisect start, 2) git bisect bad (current broken commit), 3) git bisect good <known_working_commit>",
+            "Navigating Bisect Steps: Git automatically checks out the midpoint commit; testing and marking git bisect good or git bisect bad",
+            "Handling Untestable or Broken Commits: Skipping unbuildable commits using git bisect skip",
+            "Concluding the Bisect Session: Identifying the exact culprit commit (Author, Date, Commit Message, Diff) and resetting with git bisect reset",
+            "Automated Bisect with Test Scripts: Zero-manual-effort regression hunting using git bisect run <script.sh>",
+            "Writing Robust Bisect Test Scripts: Understanding exit codes (0 = Good, 1-127 = Bad, 125 = Skip / Cannot test)",
+            "Automating Node.js / Python / C Regression Tests with git bisect run npm test or pytest",
+            "Combining Bisect with Advanced Blame: Using git blame -C -C to track code copied from other files in the same commit",
+            "Classroom Case Study: Sukanta Sir guiding Swadeep and Debangshu through finding a hidden SQL injection vulnerability introduced 6 months ago in a 500-commit repository",
+            "Hands-on Terminal Lab: Writing an automated test script, executing git bisect run on a simulated repository, pinpointing the breaking commit, and crafting a fix",
+            "Self-Assessment Quiz & Short Questions for Module 004_002"
+          ],
+          "learningOutcomes": [
+            "Explain the binary search mathematical algorithm behind git bisect",
+            "Execute a manual git bisect workflow to locate the exact commit that introduced a bug",
+            "Write automated shell/test scripts and execute fully autonomous regression hunting with git bisect run",
+            "Interpret bisect results and synthesize root-cause analysis reports with git show and git blame"
+          ],
+          "prerequisites": [
+            "001_003_viewing-history-and-inspecting-repository-state",
+            "002_001_branching-fundamentals-and-pointer-mechanics"
+          ],
+          "miniProjects": [
+            "Autonomous Regression Hunting Suite with git bisect run & Automated Unit Tests"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Automated Bisect Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Pinpointing performance regressions or silent calculation errors across thousands of commits",
+            "Diagnosing flaky tests or broken build configurations introduced by third-party dependency updates"
+          ],
+          "careerSkills": [
+            "Binary search debugging",
+            "Autonomous test scripting",
+            "Root-cause regression analysis"
+          ],
+          "commonMistakes": [
+            "Forgetting to run git bisect reset after finding the culprit commit, leaving HEAD in a detached bisect state",
+            "Using a bisect test script that returns non-standard exit codes, confusing good vs bad determinations",
+            "Testing an uncommitted working tree during bisect instead of testing the checked-out commit"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 7: Git Tools - Debugging with Git",
+            "Official Git Documentation: git-bisect(1)"
+          ],
+          "teachingTips": [
+            "Run a live demo with a repository containing 100 dummy commits where commit #63 broke a math function, and let git bisect run find it in 7 seconds.",
+            "Emphasize the exit code 125 for commits that fail to build so bisect skips them gracefully."
+          ],
+          "preReading": [
+            "Module 001_003 History exploration and git blame"
+          ],
+          "previousModule": "004_001_cherry-pick-and-patch-management",
+          "nextModule": "004_003_git-aliases-hooks-and-developer-productivity",
+          "badge": "Bisect Detective Badge"
+        },
+        {
+          "moduleId": "git-aliases-and-hooks",
+          "slug": "004_003_git-aliases-hooks-and-developer-productivity",
+          "title": "Git Aliases, Custom Scripts & Client-Side Hooks",
+          "level": "Advanced",
+          "difficulty": "Medium",
+          "difficultyIndex": 15,
+          "estimatedHours": 3,
+          "summary": "Supercharge developer productivity with custom Git aliases, shell-command expansion, client-side and server-side Git hooks architecture, pre-commit code formatting/linting, commit-msg conventional commit enforcement, and managing team hooks with Husky and lint-staged.",
+          "tags": [
+            "git-aliases",
+            "git-hooks",
+            "husky",
+            "lint-staged",
+            "pre-commit",
+            "commit-msg",
+            "developer-productivity"
+          ],
+          "topics": [
+            "Maximizing CLI Velocity: Creating custom aliases in .gitconfig (git config --global alias.<name> '<command>')",
+            "Top 20 Industry-Standard Git Aliases: Shortcuts for log graphs (lg), status (st), checkout (co), unstage, discard, and branch cleanup",
+            "Advanced Shell Aliases: Using the exclamation mark syntax (!sh -c '...') to run complex multi-command bash/powershell scripts inside Git",
+            "Git Hooks Architecture: What are hooks? Executable scripts triggered at key lifecycle points in .git/hooks/",
+            "Client-Side Hooks vs Server-Side Hooks: Where they execute and what security limitations exist (client hooks are not cloned by default)",
+            "Client-Side Hook Lifecycle: 1) pre-commit (linting & formatting), 2) prepare-commit-msg (template insertion), 3) commit-msg (commit message validation), 4) post-commit (notifications), 5) pre-push (test execution)",
+            "Building a Custom pre-commit Hook: Running ESLint, Prettier, or Python Black before allowing commits to be created",
+            "Building a Custom commit-msg Hook: Enforcing Conventional Commits regex validation on every commit message",
+            "Bypassing Hooks in Emergencies: Understanding when and why git commit --no-verify (-n) is used",
+            "Managing Hooks in Team Repositories: The limitations of local .git/hooks/ and modern solutions",
+            "Husky & lint-staged in JavaScript/TypeScript Projects: Auto-installing hooks on npm install and running linters only on staged files",
+            "The pre-commit Framework in Multi-Language Projects: Configuring .pre-commit-config.yaml with out-of-the-box community plugins",
+            "Server-Side Hooks Overview: pre-receive, update, and post-receive hooks for automated deployments and branch governance",
+            "Hands-on Terminal Lab: Configuring productivity aliases, writing a custom commit-msg validator in Bash, and setting up Husky + lint-staged in a Node.js project",
+            "Self-Assessment Quiz & Short Questions for Module 004_003"
+          ],
+          "learningOutcomes": [
+            "Construct powerful Git aliases with shell expansion to streamline repetitive daily commands",
+            "Explain the Git hooks lifecycle and understand the difference between client-side and server-side hooks",
+            "Write custom pre-commit and commit-msg hook scripts to enforce code formatting and message standards",
+            "Implement enterprise hook management in team projects using Husky, lint-staged, or pre-commit framework"
+          ],
+          "prerequisites": [
+            "001_002_git-three-tree-architecture-and-basic-workflow"
+          ],
+          "miniProjects": [
+            "Automated Code Quality & Conventional Commit Validation Hook Suite with Husky"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Hooks Implementation Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Preventing malformatted code and failing tests from ever entering the Git commit history",
+            "Enforcing uniform team commit message conventions automatically across all developers"
+          ],
+          "careerSkills": [
+            "Workflow automation",
+            "Client-side hook engineering",
+            "Developer velocity optimization"
+          ],
+          "commonMistakes": [
+            "Attempting to commit .git/hooks/ directly into Git, not realizing Git explicitly ignores the .git folder",
+            "Running slow whole-repository linters inside pre-commit hooks instead of running on staged files with lint-staged",
+            "Over-relying on --no-verify to bypass linting errors instead of fixing the underlying code issues"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 8: Customizing Git - Git Hooks",
+            "Husky Documentation (typicode.github.io/husky)",
+            "Official Git Documentation: githooks(5)"
+          ],
+          "teachingTips": [
+            "Have students write a 5-line bash script inside .git/hooks/commit-msg that rejects any commit message shorter than 10 characters.",
+            "Demonstrate how lint-staged speeds up pre-commit formatting by only touching changed files."
+          ],
+          "preReading": [
+            "Module 001_002 Conventional commits"
+          ],
+          "previousModule": "004_002_git-bisect-and-binary-search-debugging",
+          "nextModule": "004_004_submodules-subtrees-and-monorepo-strategies",
+          "badge": "Productivity Engineer Badge"
+        },
+        {
+          "moduleId": "git-submodules-and-monorepos",
+          "slug": "004_004_submodules-subtrees-and-monorepo-strategies",
+          "title": "Git Submodules, Subtrees & Large Repository Management",
+          "level": "Advanced",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 16,
+          "estimatedHours": 3,
+          "summary": "Master multi-repository dependency management and large codebase scaling: Git Submodules (.gitmodules, adding, recursive cloning, updating pointers), Git Subtrees vs Submodules architectural comparison, Large File Storage (Git LFS) for binaries/models/media, and Monorepo scaling with sparse checkout and shallow clones.",
+          "tags": [
+            "submodules",
+            "subtrees",
+            "git-lfs",
+            "monorepos",
+            "sparse-checkout",
+            "shallow-clone",
+            "large-repositories"
+          ],
+          "topics": [
+            "Managing Multi-Repository Dependencies: When a project relies on another external repository (e.g., shared UI library, core engine)",
+            "Introduction to Git Submodules: Embedding one Git repository as a subdirectory of another while keeping commits separate",
+            "Adding a Submodule: git submodule add <url> <path> and the .gitmodules configuration file",
+            "Cloning Repositories with Submodules: git clone --recurse-submodules vs running git submodule init && git submodule update",
+            "Submodule Pointer Mechanics: Understanding that the parent repo tracks only a specific commit SHA of the submodule, not a branch",
+            "Updating Submodules: Fetching upstream updates with git submodule update --remote and committing the new pointer in the parent repo",
+            "The Gotchas and Traps of Submodules: Detached HEADs in submodules, dirty submodules, and forgotten pointer commits",
+            "Introduction to Git Subtrees: Inlining an external repository directly into parent commit trees (git subtree add, git subtree pull, git subtree push)",
+            "Submodules vs Subtrees Comprehensive Comparison: Complexity, learning curve, repository self-containment, and team ergonomics",
+            "Handling Large Binary Files with Git LFS (Large File Storage): Why committing 500MB videos or ML models destroys Git performance",
+            "Configuring Git LFS: git lfs install, tracking file patterns in .gitattributes (git lfs track '*.psd', '*.onnx', '*.mp4'), and pointer mechanics",
+            "Monorepos vs Polyrepos in Modern Engineering: Trade-offs in shared tooling, atomic refactorings, and build times",
+            "Scaling Giant Repositories: Shallow Clones (git clone --depth 1), Partial Clones (git clone --filter=blob:none), and Sparse Checkout (git sparse-checkout set <folder>)",
+            "Hands-on Terminal Lab: Adding a shared library via Submodules, updating remote pointers, configuring Git LFS for media files, and performing sparse checkouts",
+            "Self-Assessment Quiz & Short Questions for Module 004_004"
+          ],
+          "learningOutcomes": [
+            "Add, clone, update, and manage Git Submodules and maintain accurate commit pointer references",
+            "Compare the architectural trade-offs between Git Submodules and Git Subtrees for shared libraries",
+            "Configure Git LFS to track and offload large binary assets from standard Git packfiles",
+            "Apply sparse checkout, shallow clones, and partial clone filters to work efficiently in giant enterprise monorepos"
+          ],
+          "prerequisites": [
+            "003_001_working-with-remotes-and-network-protocols"
+          ],
+          "miniProjects": [
+            "Shared Component Submodule & Git LFS Asset Management Architecture"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Submodule & LFS Practical Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Managing shared design systems and microservice libraries across multiple company repositories",
+            "Storing game development 3D assets, audio files, and Machine Learning model weights with Git LFS"
+          ],
+          "careerSkills": [
+            "Multi-repository orchestration",
+            "Large file storage management",
+            "Monorepo optimization techniques"
+          ],
+          "commonMistakes": [
+            "Cloning a repository with submodules without --recurse-submodules, leaving submodule directories empty",
+            "Editing code inside a submodule, making a commit, and forgetting to push the submodule before pushing the parent repo",
+            "Committing 1GB binary files into standard Git without Git LFS, permanently bloating the .git directory forever"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 7: Git Tools - Submodules",
+            "Git Large File Storage (git-lfs.com)",
+            "Official Git Documentation: git-submodule(1), git-sparse-checkout(1)"
+          ],
+          "teachingTips": [
+            "Explain that a submodule in the parent repository is literally just a 160000 mode gitlink pointing to a commit SHA.",
+            "Demonstrate git clone --filter=blob:none to show how giant repositories can be cloned in 3 seconds."
+          ],
+          "preReading": [
+            "Module 003_001 Remotes and cloning"
+          ],
+          "previousModule": "004_003_git-aliases-hooks-and-developer-productivity",
+          "nextModule": "005_001_content-addressable-storage-and-git-objects",
+          "badge": "Monorepo Architect Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "internals-recovery",
+      "title": "Segment 5 – Git Internals, DAG Architecture & Disaster Recovery (Ultra Expert)",
+      "level": "Ultra Expert",
+      "summary": "Demystify Git under the hood: Git as a content-addressable key-value snapshot database, the four core object types (blobs, trees, commits, tags), SHA-1/SHA-256 calculation, low-level plumbing commands, refs and packed-refs, packfiles with delta compression, garbage collection, and 100% disaster recovery using git reflog.",
+      "allocatedHours": 14,
+      "modules": [
+        {
+          "moduleId": "git-internals-and-objects",
+          "slug": "005_001_content-addressable-storage-and-git-objects",
+          "title": "Git Internals: Content-Addressable Storage & Object Database",
+          "level": "Ultra Expert",
+          "difficulty": "Hard",
+          "difficultyIndex": 17,
+          "estimatedHours": 5,
+          "summary": "Master the inner architecture of Git: Git is not a delta-based VCS, but a content-addressable key-value snapshot store. Explore the four core object types (blob, tree, commit, annotated tag), SHA-1/SHA-256 hash hashing mechanics, low-level plumbing commands (hash-object, cat-file, mktree, commit-tree), zlib compression, and manually building a commit from scratch.",
+          "tags": [
+            "git-internals",
+            "plumbing-commands",
+            "blobs",
+            "trees",
+            "commit-objects",
+            "content-addressable",
+            "sha-1",
+            "dag"
+          ],
+          "topics": [
+            "The Fundamental Insight: Git is a Content-Addressable Key-Value Snapshot Store with a VCS user interface!",
+            "Why Git Stores Snapshots, Not File Diffs: How Git reconstructs entire project states in O(1) time without replaying historical deltas",
+            "The 4 Core Git Object Types: 1) blob (raw file content), 2) tree (directories and file permissions), 3) commit (snapshot pointers and metadata), 4) tag (annotated references)",
+            "How Git Computes Object SHA-1 Hashes: The exact formula: SHA-1('type size\\0content') and why identical file contents share the same blob SHA",
+            "Exploring .git/objects: The 2-character directory sharding structure and zlib compressed loose objects",
+            "Mastering Git Plumbing Commands: git hash-object -w (storing raw blobs), git cat-file -p (pretty printing objects), git cat-file -t (inspecting object types), and git cat-file -s (inspecting object sizes)",
+            "Deep Dive into Blob Objects: Storing pure content without file names, timestamps, or permissions",
+            "Deep Dive into Tree Objects: Mapping filenames, UNIX file modes (100644, 100755, 040000), and child blob/tree SHA hashes",
+            "Deep Dive into Commit Objects: Committer metadata, author metadata, timestamp, root tree SHA pointer, parent commit SHA pointer, and commit message",
+            "The Directed Acyclic Graph (DAG): Invariants, topological sorting, and mathematical properties of Git's history graph",
+            "Classroom Challenge: Sukanta Sir guiding students to manually construct a Git commit from scratch using only low-level plumbing commands (hash-object -> mktree -> commit-tree -> update-ref) without touching git add or git commit!",
+            "Hands-on Terminal Lab: Decompressing .git/objects with Python/zlib, calculating SHA-1 hashes manually, inspecting tree objects with cat-file, and building manual commit trees",
+            "Self-Assessment Quiz & Short Questions for Module 005_001"
+          ],
+          "learningOutcomes": [
+            "Explain how Git stores files, directories, and commits in its content-addressable object database",
+            "Calculate SHA-1/SHA-256 object hashes manually using Git's header and size encoding specification",
+            "Inspect, parse, and decompress raw Git objects using plumbing commands (hash-object, cat-file)",
+            "Construct a fully functional Git commit manually using low-level plumbing commands without high-level porcelain commands"
+          ],
+          "prerequisites": [
+            "001_002_git-three-tree-architecture-and-basic-workflow",
+            "002_001_branching-fundamentals-and-pointer-mechanics"
+          ],
+          "miniProjects": [
+            "Building a Minimal Git Clone in Python/Node.js (init, hash-object, cat-file, write-tree)"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Low-Level Plumbing Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Building custom developer tools, IDE extensions, and repository analytics engines",
+            "Debugging deeply corrupted repositories and understanding Git at the systems programming level"
+          ],
+          "careerSkills": [
+            "Systems-level Git architecture",
+            "Content-addressable storage design",
+            "DAG data structure manipulation"
+          ],
+          "commonMistakes": [
+            "Assuming Git stores diffs for each commit rather than complete root tree snapshot pointers",
+            "Thinking that file names are stored inside blob objects rather than inside tree objects",
+            "Believing two identical files in different folders create two separate blobs in .git/objects (Git de-duplicates identical files into one single blob)"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 10: Git Internals - Git Objects",
+            "Git from the Inside Out by Mary Rose Cook"
+          ],
+          "teachingTips": [
+            "Write a 10-line Python or Node.js script in class that decompresses a .git/objects/xx/xxxx file using zlib to show students that Git is completely open and transparent.",
+            "Demonstrate the hash-object calculation in bash using printf 'blob 14\\0Hello, World!\\n' | sha1sum."
+          ],
+          "preReading": [
+            "Module 001_002 Three Trees and Commit mechanics"
+          ],
+          "previousModule": "004_004_submodules-subtrees-and-monorepo-strategies",
+          "nextModule": "005_002_refs-packfiles-garbage-collection-and-plumbing",
+          "badge": "Internals Guru Badge"
+        },
+        {
+          "moduleId": "git-refs-packfiles-and-gc",
+          "slug": "005_002_refs-packfiles-garbage-collection-and-plumbing",
+          "title": "Refs, Symbolic Refs, Packfiles & Garbage Collection",
+          "level": "Ultra Expert",
+          "difficulty": "Hard",
+          "difficultyIndex": 18,
+          "estimatedHours": 4,
+          "summary": "Master reference management, storage optimization, and repository maintenance: References (.git/refs), symbolic references (HEAD), packed-refs optimization, packfile delta compression (.pack and .idx), Git Garbage Collection (git gc), commit graphs, repository integrity verification with git fsck, and smart transfer protocols.",
+          "tags": [
+            "git-refs",
+            "symbolic-ref",
+            "packfiles",
+            "git-gc",
+            "git-fsck",
+            "delta-compression",
+            "repository-optimization"
+          ],
+          "topics": [
+            "What are Git References (Refs)? Exploring .git/refs/heads/, .git/refs/remotes/, and .git/refs/tags/",
+            "Manipulating Refs Safely with Plumbing: git update-ref and git show-ref",
+            "Symbolic References Deep-Dive: Exploring .git/HEAD and reading/updating symbolic refs with git symbolic-ref HEAD",
+            "Packed References Optimization: Why thousands of loose ref files hurt filesystem performance and how .git/packed-refs consolidates them",
+            "The Problem with Loose Objects: Why thousands of individual zlib files waste disk blocks and filesystem inodes",
+            "Git Packfiles and Index Files (.pack and .idx inside .git/objects/pack/)",
+            "How Delta Compression Works in Packfiles: Finding similar blobs and storing directed sliding-window deltas for massive 90%+ space savings",
+            "Inspecting Packfiles: git verify-pack -v and unpacking with git unpack-objects",
+            "Git Garbage Collection with git gc: Repacking loose objects, pruning unreachable expired objects, and updating packed-refs",
+            "Fine-Tuning Garbage Collection: git gc --auto, git gc --prune=now, and configuring gc.pruneExpire and gc.reflogExpire",
+            "Commit Graph Acceleration: Accelerating git log and DAG traversals with .git/objects/info/commit-graph",
+            "Repository Integrity Verification with git fsck: Finding dangling blobs, dangling commits, and verifying SHA hash integrity across all objects",
+            "How Smart HTTP and SSH Network Protocols Negotiate and Stream Packfiles during push and fetch",
+            "Hands-on Terminal Lab: Inspecting packfiles with verify-pack, generating dangling objects, running git fsck, and executing deep repository optimization with git gc",
+            "Self-Assessment Quiz & Short Questions for Module 005_002"
+          ],
+          "learningOutcomes": [
+            "Manipulate local, remote, and symbolic references using git update-ref and git symbolic-ref",
+            "Explain the internal structure of Git packfiles (.pack/.idx) and sliding-window delta compression",
+            "Optimize repository storage footprint and commit graph traversal performance using git gc",
+            "Verify entire repository health, detect database corruption, and find dangling objects using git fsck"
+          ],
+          "prerequisites": [
+            "005_001_content-addressable-storage-and-git-objects"
+          ],
+          "miniProjects": [
+            "Repository Storage Optimization & Packfile Diagnostics Engine"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Packfile & GC Practical Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Managing large enterprise Git servers (GitLab / GitHub Enterprise) with automated GC policies",
+            "Shrinking bloated repository clone sizes and repairing corrupted Git database objects"
+          ],
+          "careerSkills": [
+            "Git server administration",
+            "Packfile delta optimization",
+            "Database integrity validation"
+          ],
+          "commonMistakes": [
+            "Running git gc --prune=now aggressively when colleagues are in the middle of pushing or before recovering lost commits from reflog",
+            "Assuming packfiles store whole snapshots instead of understanding that Git uses delta compression inside packfiles while keeping the high-level mental model of snapshots",
+            "Ignoring git fsck warnings about corrupt tree objects until repository operations begin to fail"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 10: Git Internals - Packfiles & Maintenance",
+            "Official Git Documentation: git-gc(1), git-fsck(1), git-verify-pack(1)"
+          ],
+          "teachingTips": [
+            "Show the size of .git/objects before and after running git gc --prune=now to give students visual proof of packfile compression.",
+            "Demonstrate git fsck finding 'dangling commit' objects and explain that dangling does NOT mean destroyed."
+          ],
+          "preReading": [
+            "Module 005_001 Git objects and hashing"
+          ],
+          "previousModule": "005_001_content-addressable-storage-and-git-objects",
+          "nextModule": "005_003_reflog-disaster-recovery-and-history-reconstruction",
+          "badge": "Storage & GC Specialist Badge"
+        },
+        {
+          "moduleId": "git-reflog-and-disaster-recovery",
+          "slug": "005_003_reflog-disaster-recovery-and-history-reconstruction",
+          "title": "Git Reflog, Dangling Commits & Complete Disaster Recovery",
+          "level": "Ultra Expert",
+          "difficulty": "Hard",
+          "difficultyIndex": 19,
+          "estimatedHours": 5,
+          "summary": "Master absolute disaster recovery in Git: The Reference Log (git reflog) safety net tracking every HEAD movement for 90 days, recovering from accidental git reset --hard, reviving deleted branches, restoring lost work after botched interactive rebases, undoing bad force pushes, and reviving orphaned commits with git fsck --lost-found.",
+          "tags": [
+            "git-reflog",
+            "disaster-recovery",
+            "hard-reset-recovery",
+            "deleted-branch-recovery",
+            "force-push-recovery",
+            "lost-found",
+            "emergency-rescue"
+          ],
+          "topics": [
+            "The Golden Maxim of Git: 'If you committed it at least once, it is almost impossible to lose in Git!'",
+            "What is the Reference Log (Reflog)? The local append-only flight recorder tracking every HEAD and branch pointer update",
+            "Where Reflogs Live: Inspecting .git/logs/HEAD and .git/logs/refs/heads/",
+            "Understanding Reflog Expiration Policies: Default 90 days for reachable refs, 30 days for unreachable refs (gc.reflogExpire)",
+            "Reflog Syntax and Navigation: HEAD@{0}, HEAD@{1}, branch@{yesterday}, HEAD@{2.hours.ago}, and git reflog show <branch>",
+            "Disaster Scenario 1: Accidental git reset --hard HEAD~5 -> Finding previous commit SHA in reflog and restoring with git reset --hard HEAD@{1}",
+            "Disaster Scenario 2: Accidental Branch Deletion (git branch -D feature) -> Finding the branch tip SHA in reflog and recreating with git switch -c feature HEAD@{N}",
+            "Disaster Scenario 3: Botched Interactive Rebase with Lost Commits -> Finding the pre-rebase commit SHA in reflog and resetting cleanly",
+            "Disaster Scenario 4: Undoing an Accidental Force Push (git push --force) -> Identifying pre-force-push commit on local or collaborator reflog and restoring with git push --force-with-lease",
+            "Disaster Scenario 5: Finding and Reviving Orphaned / Dangling Commits using git fsck --lost-found (reconstructing files from .git/lost-found/commit/)",
+            "Disaster Scenario 6: Corrupted .git Directory -> Rebuilding HEAD, index, and ref pointers manually from object database hashes",
+            "The Safe Alternative to Force Pushing: Always using git push --force-with-lease to prevent overwriting unseen remote commits",
+            "Classroom Emergency Drill: Sukanta Sir deliberately sabotaging students' repositories with hard resets, deleted branches, and rebase errors, challenging them to recover 100% of the code",
+            "Hands-on Terminal Lab: 8 simulated real-world disaster drills (hard reset, deleted branch, botched rebase, dropped stash, force push recovery) and restoring every single line of code",
+            "Self-Assessment Quiz & Short Questions for Module 005_003"
+          ],
+          "learningOutcomes": [
+            "Navigate and interpret git reflog entries across commits, resets, checkouts, and merges",
+            "Recover completely from accidental git reset --hard operations within seconds",
+            "Recreate deleted branches and recover lost stashes using reflog commit identifiers",
+            "Locate and reconstruct orphaned commits and blobs using git fsck --lost-found"
+          ],
+          "prerequisites": [
+            "005_001_content-addressable-storage-and-git-objects",
+            "005_002_refs-packfiles-garbage-collection-and-plumbing"
+          ],
+          "miniProjects": [
+            "Full-Spectrum Git Disaster Simulation & Automated Recovery Toolkit"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Live Disaster Recovery Exam (Zero-Data-Loss Requirement)",
+            "passScore": 85
+          },
+          "useCases": [
+            "Serving as the senior 'Git Emergency Doctor' on engineering teams during production crisis situations",
+            "Restoring accidentally deleted team branches and reversing catastrophic developer force-pushes"
+          ],
+          "careerSkills": [
+            "Disaster recovery engineering",
+            "Reflog forensics",
+            "Zero-data-loss incident response"
+          ],
+          "commonMistakes": [
+            "Panicking after git reset --hard and re-cloning the repository or making random edits, making reflog tracing more cluttered",
+            "Using git push --force instead of git push --force-with-lease on shared branches",
+            "Assuming that deleting a branch permanently deletes its commits immediately (commits remain safely in the object database for at least 30 days)"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Chapter 10: Git Internals - Maintenance and Data Recovery",
+            "Oh Shit, Git!?! (ohshitgit.com)",
+            "Official Git Documentation: git-reflog(1)"
+          ],
+          "teachingTips": [
+            "Have every student run git reset --hard HEAD~3 on purpose in class, and then guide them to type git reflog and git reset --hard HEAD@{1} to experience the thrilling magic of instant recovery.",
+            "Explain that reflog is strictly local to each developer machine and never gets pushed to GitHub."
+          ],
+          "preReading": [
+            "Module 005_001 Git objects and DAG"
+          ],
+          "previousModule": "005_002_refs-packfiles-garbage-collection-and-plumbing",
+          "nextModule": "006_001_github-actions-and-ci-cd-pipelines",
+          "badge": "Disaster Recovery Doctor Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "devops-cicd-interviews",
+      "title": "Segment 6 – DevOps CI/CD, Enterprise Governance & Interview Mastery (Ultra Expert)",
+      "level": "Ultra Expert",
+      "summary": "Master enterprise Git automation and career excellence: Continuous Integration & Deployment with GitHub Actions (.github/workflows/*.yml), matrix builds, secret management, enterprise team conventions, monorepo governance, five real-world corporate outage case studies, and mastering the top 100 Git interview questions & technical viva drills.",
+      "allocatedHours": 15,
+      "modules": [
+        {
+          "moduleId": "github-actions-and-cicd",
+          "slug": "006_001_github-actions-and-ci-cd-pipelines",
+          "title": "GitHub Actions, Automation & CI/CD Pipelines",
+          "level": "Ultra Expert",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 20,
+          "estimatedHours": 5,
+          "summary": "Master CI/CD automation directly from Git: GitHub Actions architecture (Workflows, Events, Jobs, Steps, Runners), YAML workflow syntax (.github/workflows/*.yml), event triggers (push, pull_request, workflow_dispatch), test matrix builds, caching dependencies, managing secrets/environments, and automated deployments.",
+          "tags": [
+            "github-actions",
+            "ci-cd",
+            "automation",
+            "yaml-workflows",
+            "matrix-builds",
+            "automated-deployment",
+            "devops"
+          ],
+          "topics": [
+            "Introduction to CI/CD in Modern Software Engineering: Continuous Integration, Continuous Delivery, and Continuous Deployment",
+            "GitHub Actions Core Architecture: Workflows (.github/workflows/*.yml), Events, Jobs, Steps, Actions, and Runners (GitHub-hosted vs Self-hosted)",
+            "Workflow Trigger Events: on: [push, pull_request], filtering by branches (branches: [main, develop]), paths (paths-ignore: ['**.md']), and scheduled crons (schedule: - cron: '0 0 * * *')",
+            "Manual Triggers with workflow_dispatch: Parameterized manual workflow runs from the GitHub UI",
+            "Essential Marketplace Actions: actions/checkout@v4 (cloning repo in runner), actions/setup-node@v4, actions/setup-python@v5, actions/cache@v4",
+            "Building an Automated Testing & Linting Pipeline: Running linters, unit tests, and build validation on every Pull Request",
+            "Matrix Builds: Running tests across multiple operating systems (ubuntu-latest, windows-latest, macos-latest) and language versions simultaneously",
+            "Managing Sensitive Secrets and Environment Variables: Repository Secrets, Environment Secrets, and referencing with ${{ secrets.API_KEY }}",
+            "Job Dependencies and Conditional Execution: jobs.<job_id>.needs and if: github.ref == 'refs/heads/main'",
+            "Automated Deployments: Deploying web applications automatically to Vercel, Netlify, AWS S3, or GitHub Pages on main merge",
+            "Automated Release Notes & Semantic Version Tagging via GitHub Actions",
+            "Classroom Project: Sachin, Mahima, and Susmita building an end-to-end full-stack automated CI/CD pipeline with test gates, PR blocking, and automated deployment",
+            "Hands-on Terminal & Web Lab: Writing a multi-job GitHub Actions workflow, configuring matrix tests, managing secrets, and verifying pull request test status gates",
+            "Self-Assessment Quiz & Short Questions for Module 006_001"
+          ],
+          "learningOutcomes": [
+            "Design and configure automated GitHub Actions CI/CD workflows using clean YAML specifications",
+            "Construct multi-job testing pipelines with matrix strategies and dependency caching",
+            "Securely inject repository and environment secrets into automated build and deployment runners",
+            "Integrate GitHub Actions status checks with branch protection rules to block failing code from merging"
+          ],
+          "prerequisites": [
+            "003_002_github-collaborative-workflows-and-pull-requests",
+            "003_004_repo-governance-branch-protection-and-security"
+          ],
+          "miniProjects": [
+            "Full-Stack Multi-Stage CI/CD Pipeline with Automated Test Gates & Deployment"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Complete CI/CD Pipeline Build Lab",
+            "passScore": 75
+          },
+          "useCases": [
+            "Automating test suites and static analysis on every developer pull request",
+            "Deploying production microservices automatically upon merging approved release pull requests"
+          ],
+          "careerSkills": [
+            "GitHub Actions engineering",
+            "CI/CD pipeline design",
+            "Automated release engineering"
+          ],
+          "commonMistakes": [
+            "Printing secrets or sensitive API tokens directly into GitHub Actions runner console logs",
+            "Forgetting to include actions/checkout in a workflow job, causing subsequent build steps to fail due to missing source files",
+            "Writing un-cached workflow steps that re-download 500MB of dependencies on every single commit, wasting build minutes"
+          ],
+          "references": [
+            "GitHub Docs: GitHub Actions Documentation & Workflow Syntax",
+            "Pro Git (2nd Edition) - Chapter 6: GitHub - Automation"
+          ],
+          "teachingTips": [
+            "Show how a red X on a Pull Request prevents merging when a test fails in GitHub Actions.",
+            "Demonstrate how actions/cache reduces workflow runtimes from 3 minutes to 20 seconds."
+          ],
+          "preReading": [
+            "Module 003_002 Pull Requests and status checks"
+          ],
+          "previousModule": "005_003_reflog-disaster-recovery-and-history-reconstruction",
+          "nextModule": "006_002_enterprise-git-team-workflows-and-case-studies",
+          "badge": "DevOps Automation Master Badge"
+        },
+        {
+          "moduleId": "enterprise-git-and-case-studies",
+          "slug": "006_002_enterprise-git-team-workflows-and-case-studies",
+          "title": "Enterprise Git: Team Conventions, Monorepos & Outage Case Studies",
+          "level": "Ultra Expert",
+          "difficulty": "Hard",
+          "difficultyIndex": 21,
+          "estimatedHours": 5,
+          "summary": "Master enterprise software organization standards: team conventions for 10 to 1,000+ developers, standardized branch naming and commit linting, code review turnaround SLAs, zero-downtime deployment branch mapping, monorepo governance with Turborepo/Nx, and deep-dive analysis of 5 real-world corporate outages caused by Git misconfigurations.",
+          "tags": [
+            "enterprise-git",
+            "team-conventions",
+            "case-studies",
+            "outage-postmortems",
+            "monorepos",
+            "governance",
+            "engineering-standards"
+          ],
+          "topics": [
+            "Structuring Git Governance for Scale: From 5-person startups to 1,000+ engineer enterprise organizations",
+            "Standardizing Branch Naming Taxonomies: feat/JIRA-123-user-auth, bug/JIRA-456-cart-calc, chore/deps-upgrade, hotfix/auth-leak",
+            "Enforcing Automated Commit Message Linting with Commitlint and Husky across all engineering teams",
+            "Standardizing Repository Documentation: README.md, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, and ARCHITECTURE.md",
+            "Engineering Code Review Culture: Review turnaround Service Level Agreements (SLAs), constructive critique guidelines, and paired PR reviews",
+            "Multi-Environment Deployment Branching Mapping: Development (dev branch) -> Staging (staging branch) -> Production (main tag) with Zero Downtime",
+            "Feature Flags & Trunk-Based Development at Scale: Decoupling code deployment from feature release using LaunchDarkly or Unleash",
+            "Enterprise Monorepo Tooling: Managing multi-package monorepos with Turborepo, Nx, Lerna, and Git sparse checkout",
+            "Real-World Case Study 1: The Force-Push Outage: How an accidental git push --force on a main branch wiped out 2 weeks of team work and the exact recovery steps",
+            "Real-World Case Study 2: The Rebase-Merge Loop Disaster: How duplicate cherry-picks and non-linear rebasing generated 500 conflicting merge loops",
+            "Real-World Case Study 3: The Hardcoded Secret Breach: How an AWS root credential leaked on a public GitHub repo resulted in $50,000 unauthorized cryptomining charges",
+            "Real-World Case Study 4: The Submodule Out of Sync Breakdown: How an unpushed submodule commit broke the production staging build across 50 microservices",
+            "Real-World Case Study 5: The Giant Binary Repository Slowdown: How 20GB of uncompressed test databases brought git clone times to 45 minutes and the Git LFS / filter-repo remediation",
+            "Hands-on Engineering Lab: Designing a complete enterprise Git governance blueprint, commitlint configuration, and incident post-mortem report",
+            "Self-Assessment Quiz & Short Questions for Module 006_002"
+          ],
+          "learningOutcomes": [
+            "Architect enterprise-grade Git standards, branch taxonomies, and commitlint governance for large engineering teams",
+            "Design multi-environment deployment pipelines decoupled from feature releases using feature flags",
+            "Analyze and resolve complex corporate repository outages and author blameless engineering post-mortems",
+            "Structure scalable multi-package monorepos with optimized Git caching and sparse checkout policies"
+          ],
+          "prerequisites": [
+            "003_004_repo-governance-branch-protection-and-security",
+            "006_001_github-actions-and-ci-cd-pipelines"
+          ],
+          "miniProjects": [
+            "Enterprise Git Governance Blueprint & Corporate Outage Incident Post-Mortem"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Enterprise Architecture Blueprint",
+            "passScore": 75
+          },
+          "useCases": [
+            "Leading engineering teams as a Tech Lead, Staff Engineer, or DevOps Architect",
+            "Establishing Git compliance and security standards for enterprise SOC2 and HIPAA audits"
+          ],
+          "careerSkills": [
+            "Engineering leadership",
+            "Enterprise Git governance",
+            "Post-mortem incident analysis"
+          ],
+          "commonMistakes": [
+            "Allowing developers to name branches arbitrarily without ticket IDs (e.g., 'test1', 'fix'), making project tracking impossible",
+            "Treating post-mortems as punitive blame sessions instead of learning opportunities to improve branch protection rules",
+            "Failing to enforce automated pre-commit linting, resulting in style wars during human code reviews"
+          ],
+          "references": [
+            "Google Engineering Practices Documentation: Code Review Guidelines",
+            "The DevOps Handbook by Gene Kim, Jez Humble, Patrick Debois & John Willis"
+          ],
+          "teachingTips": [
+            "Walk through the 5 corporate outage case studies in detail; real-world disaster stories are the most memorable lessons for students.",
+            "Show how commitlint rejects a bad commit message before it even reaches GitHub."
+          ],
+          "preReading": [
+            "Module 003_004 Repository governance"
+          ],
+          "previousModule": "006_001_github-actions-and-ci-cd-pipelines",
+          "nextModule": "006_003_top-100-git-interview-questions-and-viva-mastery",
+          "badge": "Enterprise Architect Badge"
+        },
+        {
+          "moduleId": "git-interview-and-cheat-sheet",
+          "slug": "006_003_top-100-git-interview-questions-and-viva-mastery",
+          "title": "Top 100 Git & GitHub Interview Questions, Viva & Cheat Sheet",
+          "level": "Ultra Expert",
+          "difficulty": "Hard",
+          "difficultyIndex": 22,
+          "estimatedHours": 5,
+          "summary": "Ace technical software engineering interviews and university/corporate viva exams: Top 100 categorized Git questions (Fundamentals, Branching & Merging, Internals & DAG, Remote Collaboration, CI/CD), live terminal troubleshooting drills, rapid-revision syntax cheat sheet, capstone team project, and master certification assessment.",
+          "tags": [
+            "interview-prep",
+            "viva-mastery",
+            "cheat-sheet",
+            "top-100-questions",
+            "terminal-drills",
+            "capstone-project",
+            "certification"
+          ],
+          "topics": [
+            "Top 25 Core Git Fundamentals & Architecture Interview Questions: What is the DAG? How does snapshot storage differ from delta storage? What is the Three-Tree Architecture? What is the Index?",
+            "Top 25 Branching, Merging & Rebasing Interview Challenges: Rebase vs Merge? Fast-forward vs 3-way merge? What is the Golden Rule of Rebasing? How does Git calculate merge bases? What happens in a detached HEAD?",
+            "Top 20 Git Internals & Plumbing Viva Questions: What are the 4 object types? How are SHA-1 hashes calculated? What is a packfile? How does git gc work? What is stored in .git/refs/heads/main?",
+            "Top 15 GitHub, Collaboration & CI/CD Questions: Fork vs Clone? Squash & Merge vs Rebase & Merge? How do branch protection rules work? What are GitHub Actions runners?",
+            "Top 15 Live Terminal Scenario Drills: Fix a detached HEAD, recover an accidentally deleted branch, undo a hard reset, backport a commit with cherry-pick, resolve a 3-way merge conflict",
+            "Common Technical Interview Traps, Edge Cases, and Misconceptions (e.g., 'Git stores file diffs', 'git pull always merges', 'git clean recovers files')",
+            "Rapid Revision Git & GitHub Command Cheat Sheet: Comprehensive printable command handbook for daily reference",
+            "Capstone Team Project: Building, governing, and deploying a multi-developer full-stack application repository with branch rules, GitHub Actions CI/CD, and SemVer releases",
+            "Final Module Mastery Assessment & Comprehensive Git Certification Examination (200 Comprehensive MCQs & Terminal Scenarios)"
+          ],
+          "learningOutcomes": [
+            "Confidently answer advanced theoretical, architectural, and practical Git interview questions in technical screening rounds",
+            "Solve live terminal scenario challenges (detached HEAD, lost commits, merge conflicts, interactive rebases) under interview conditions",
+            "Utilize the comprehensive Git cheat sheet for rapid daily recall and developer team onboarding",
+            "Demonstrate complete mastery of distributed version control, CI/CD automation, and repository governance"
+          ],
+          "prerequisites": [
+            "001_001_introduction-to-version-control-and-git-architecture",
+            "002_001_branching-fundamentals-and-pointer-mechanics",
+            "003_001_working-with-remotes-and-network-protocols",
+            "004_001_cherry-pick-and-patch-management",
+            "005_001_content-addressable-storage-and-git-objects",
+            "006_001_github-actions-and-ci-cd-pipelines"
+          ],
+          "miniProjects": [
+            "Capstone Team Git Repository Architecture with CI/CD, Branch Rulesets & Release Automation"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Comprehensive Master Certification Exam (200 MCQs + Live CLI Scenario)",
+            "passScore": 80
+          },
+          "useCases": [
+            "Cracking software engineering, DevOps, SRE, and full-stack developer technical interviews at FAANG / Tier-1 companies",
+            "Excelling in university laboratory viva voce examinations and corporate technical assessments"
+          ],
+          "careerSkills": [
+            "Technical interview mastery",
+            "Live CLI problem solving",
+            "Comprehensive version control fluency"
+          ],
+          "commonMistakes": [
+            "Stumbling on basic conceptual questions like explaining the difference between git fetch and git pull",
+            "Failing to explain how Git stores objects (blobs, trees, commits) during internals interview questions",
+            "Freezing during live terminal troubleshooting drills when faced with a detached HEAD or merge conflict"
+          ],
+          "references": [
+            "Pro Git (2nd Edition) - Complete Reference",
+            "Git Reference Manual (git-scm.com/docs)"
+          ],
+          "teachingTips": [
+            "Conduct mock 1-on-1 viva sessions in the classroom asking random questions from the Top 100 list.",
+            "Hand out the printable Git cheat sheet at the end of the course as a permanent reference guide."
+          ],
+          "preReading": [
+            "All previous segments (Segment 1 to Segment 6)"
+          ],
+          "previousModule": "006_002_enterprise-git-team-workflows-and-case-studies",
+          "nextModule": null,
+          "badge": "Git & GitHub Ultra Expert Grandmaster Badge"
+        }
+      ]
+    }
+  ]
 }
