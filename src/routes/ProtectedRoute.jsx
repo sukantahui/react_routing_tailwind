@@ -6,10 +6,34 @@ export default function ProtectedRoute({ children, allowedRoles }) {
   const rawUser = localStorage.getItem("user");
   const location = useLocation();
 
-  // 1. Check if user is logged in (token exists)
-  const isAuthenticated = !!token;
+  const isValidToken = (t) => {
+    if (!t) return false;
+    const s = String(t).trim();
+    return s !== "" && s !== "null" && s !== "undefined" && s !== "false";
+  };
+
+  const isValidUser = (u) => {
+    if (!u) return false;
+    try {
+      const parsed = typeof u === "string" ? JSON.parse(u) : u;
+      return !!parsed && typeof parsed === "object";
+    } catch {
+      return false;
+    }
+  };
+
+  // 1. Check if user is logged in (both valid token and user record exist)
+  const isAuthenticated = isValidToken(token) && isValidUser(rawUser);
 
   if (!isAuthenticated) {
+    // Clean up any stale or corrupted localStorage tokens
+    if (token && !isValidUser(rawUser)) {
+      try {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+      } catch {}
+    }
+
     return (
       <Navigate
         to="/login"

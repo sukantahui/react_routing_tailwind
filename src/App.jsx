@@ -1,9 +1,11 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
+import { useLocation } from "react-router-dom";
 // import AppRoutes from "./routes/AppRoutes";
 import AppRoutes from "./routes/AppRoutes-master-roadmap";
 import NavBar from "./routes/NavBar";
 import AuthNavBar from "./routes/AuthNavBar";
 import { BookA } from "lucide-react";
+import { isTutorialRoute } from "./common/SelectionWordLookup";
 
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
@@ -15,16 +17,30 @@ const WordDictionary = lazy(() => import("./common/WordDictionary"));
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [dictionaryModalWord, setDictionaryModalWord] = useState(null);
+  const location = useLocation();
+
+  const isTutorial = isTutorialRoute(location.pathname);
+  const isTopicRoute = location.pathname.includes("/topic/");
+
+  const checkIsLoggedIn = () => {
+    try {
+      const token = localStorage.getItem("token");
+      const user = localStorage.getItem("user");
+      const hasToken = !!token && token !== "null" && token !== "undefined" && token.trim() !== "" && token !== "false";
+      const hasUser = !!user && user !== "null" && user !== "undefined" && user.trim() !== "";
+      return Boolean(hasToken && hasUser);
+    } catch {
+      return false;
+    }
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    setIsLoggedIn(checkIsLoggedIn());
   }, []);
 
   useEffect(() => {
     const handleAuthChange = () => {
-      const token = localStorage.getItem("token");
-      setIsLoggedIn(!!token);
+      setIsLoggedIn(checkIsLoggedIn());
     };
     window.addEventListener("storage", handleAuthChange);
     window.addEventListener("authChanged", handleAuthChange);
@@ -60,12 +76,14 @@ export default function App() {
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </main>
 
-      {/* Global Floating Text Selection Word Lookup for entire application */}
-      <Suspense fallback={null}>
-        <SelectionWordLookup
-          onOpenDictionaryModal={(word) => setDictionaryModalWord(word)}
-        />
-      </Suspense>
+      {/* Floating Text Selection Word Lookup for tutorial section only (roadmaps, modules, study tracks) */}
+      {isTutorial && !isTopicRoute && (
+        <Suspense fallback={null}>
+          <SelectionWordLookup
+            onOpenDictionaryModal={(word) => setDictionaryModalWord(word)}
+          />
+        </Suspense>
+      )}
 
       {/* Global Word Dictionary & External Websites Modal */}
       {dictionaryModalWord && (

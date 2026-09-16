@@ -40,6 +40,30 @@ export default function CNATMamChatbot({
   const [speakingIndex, setSpeakingIndex] = useState(null);
   const [copiedIndex, setCopiedIndex] = useState(null);
 
+  const [isDismissed, setIsDismissed] = useState(() => {
+    try {
+      return localStorage.getItem("cnat_mam_assistant_closed") === "true";
+    } catch {
+      return false;
+    }
+  });
+
+  const handleCloseAssistant = (e) => {
+    e?.stopPropagation?.();
+    setIsDismissed(true);
+    try {
+      localStorage.setItem("cnat_mam_assistant_closed", "true");
+    } catch {}
+  };
+
+  const handleReopenAssistant = () => {
+    setIsDismissed(false);
+    setIsOpen(true);
+    try {
+      localStorage.removeItem("cnat_mam_assistant_closed");
+    } catch {}
+  };
+
   // Dynamic quick chips based on current subject track
   const quickChips = getQuickChipsForSubject(subjectKey);
 
@@ -172,34 +196,95 @@ I can guide you through **"${topicTitle}"**, explain formulas and code, provide 
       {/* =========================================================================
           FLOATING LAUNCHER BUTTON
       ========================================================================= */}
-      {!isOpen && (
+      {/* =========================================================================
+          FLOATING LAUNCHER BUTTON (COMPACT ON MOBILE & DISMISSIBLE)
+      ========================================================================= */}
+      {isDismissed && !isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-sky-600 to-teal-600 text-white font-bold text-sm shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-sky-400/30 shadow-sky-950/60 cursor-pointer"
+          type="button"
+          onClick={handleReopenAssistant}
+          className="group flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-sky-500/40 text-sky-400 shadow-xl backdrop-blur transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+          title="Open AI Assistant (Ask CNAT Mam)"
+          aria-label="Open AI Assistant"
         >
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-teal-300"></span>
-          </span>
+          <Sparkles size={16} className="text-teal-400 group-hover:rotate-12 transition-transform" />
+        </button>
+      )}
 
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full overflow-hidden border border-sky-300/40 p-0.5 shadow-sm bg-slate-900">
-              <img
-                src="/teachers/cnat_mam.jpg"
-                alt="CNAT Mam"
-                className="w-full h-full rounded-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                }}
-              />
-            </div>
-            <span>Ask CNAT Mam</span>
+      {!isDismissed && !isOpen && (
+        <>
+          {/* Mobile View: Compact Floating Button (Takes minimal space) */}
+          <div className="flex sm:hidden items-center gap-1.5 bg-gradient-to-r from-indigo-600 via-sky-600 to-teal-600 pl-2 pr-1.5 py-1.5 rounded-full shadow-2xl border border-sky-400/30">
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              className="flex items-center gap-1.5 text-white font-bold text-xs active:scale-95 transition-all cursor-pointer"
+            >
+              <div className="w-5 h-5 rounded-full overflow-hidden border border-white/40 p-0.5 bg-slate-900 flex-shrink-0">
+                <img
+                  src="/teachers/cnat_mam.jpg"
+                  alt="CNAT Mam"
+                  className="w-full h-full rounded-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                  }}
+                />
+              </div>
+              <span className="whitespace-nowrap">Ask AI</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleCloseAssistant}
+              className="w-5 h-5 rounded-full bg-black/30 hover:bg-black/60 text-white/80 hover:text-white flex items-center justify-center text-[10px] transition cursor-pointer"
+              title="Close AI Assistant"
+              aria-label="Close AI Assistant"
+            >
+              <X size={11} />
+            </button>
           </div>
 
-          <span className="px-2 py-0.5 rounded-md bg-white/20 text-[10px] uppercase font-extrabold tracking-wider text-teal-100">
-            AI Mentor
-          </span>
-        </button>
+          {/* Desktop View: Full Pill with Close Button */}
+          <div className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-indigo-600 via-sky-600 to-teal-600 pl-3.5 pr-2 py-2 rounded-2xl shadow-2xl border border-sky-400/30">
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              className="flex items-center gap-2.5 text-white font-bold text-sm hover:opacity-95 transition cursor-pointer"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-300"></span>
+              </span>
+
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full overflow-hidden border border-sky-300/40 p-0.5 shadow-sm bg-slate-900">
+                  <img
+                    src="/teachers/cnat_mam.jpg"
+                    alt="CNAT Mam"
+                    className="w-full h-full rounded-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                    }}
+                  />
+                </div>
+                <span>Ask CNAT Mam</span>
+              </div>
+
+              <span className="px-2 py-0.5 rounded-md bg-white/20 text-[10px] uppercase font-extrabold tracking-wider text-teal-100">
+                AI Mentor
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handleCloseAssistant}
+              className="w-6 h-6 rounded-full bg-black/20 hover:bg-black/40 text-white/70 hover:text-white flex items-center justify-center transition cursor-pointer"
+              title="Close AI Assistant"
+              aria-label="Close AI Assistant"
+            >
+              <X size={13} />
+            </button>
+          </div>
+        </>
       )}
 
       {/* =========================================================================

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCycleData } from './hooks/useCycleData';
 import Header from './components/Header';
 import DisclaimerBanner from './components/DisclaimerBanner';
@@ -9,9 +10,53 @@ import CycleInsights from './components/Insights/CycleInsights';
 import CycleSettingsModal from './components/Settings/CycleSettingsModal';
 import PrivacySection from './components/Privacy/PrivacySection';
 import CalculationTestSuite from './components/Testing/CalculationTestSuite';
-import { X, CheckCircle2, AlertTriangle, Info } from 'lucide-react';
+import { X, CheckCircle2, AlertTriangle, Info, Lock } from 'lucide-react';
 
 export default function MenstrualCalendarApp() {
+  const navigate = useNavigate();
+
+  // Explicit Authentication Check
+  const token = localStorage.getItem('token');
+  const rawUser = localStorage.getItem('user');
+  const isAuth = Boolean(
+    token &&
+    token !== 'null' &&
+    token !== 'undefined' &&
+    token.trim() !== '' &&
+    token !== 'false' &&
+    rawUser &&
+    rawUser !== 'null' &&
+    rawUser !== 'undefined'
+  );
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/login', {
+        replace: true,
+        state: { from: '/menstrual-calendar', error: 'Please log in to access the Menstrual Cycle Calendar.' },
+      });
+    }
+  }, [isAuth, navigate]);
+
+  if (!isAuth) {
+    return (
+      <div className="min-h-screen bg-[#030712] text-slate-100 flex items-center justify-center p-6">
+        <div className="text-center p-8 bg-slate-900 border border-slate-800 rounded-2xl max-w-md shadow-2xl">
+          <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400">
+            <Lock size={24} />
+          </div>
+          <h2 className="text-xl font-bold text-white mb-2">Authentication Required</h2>
+          <p className="text-sm text-slate-400 mb-6">You must be logged in to view the Menstrual Cycle Calendar.</p>
+          <button
+            onClick={() => navigate('/login', { replace: true })}
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-indigo-600 text-white font-medium text-sm shadow-lg shadow-rose-500/25 hover:scale-105 transition cursor-pointer"
+          >
+            Sign In to Continue
+          </button>
+        </div>
+      </div>
+    );
+  }
   const {
     isLoaded,
     isApiMode,

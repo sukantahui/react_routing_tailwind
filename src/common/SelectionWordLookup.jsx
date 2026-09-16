@@ -1,23 +1,81 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { BookA, ExternalLink, Volume2, Search, X, Cpu } from "lucide-react";
 
 /**
+ * Checks if the current pathname belongs to the tutorials or study section.
+ */
+export const isTutorialRoute = (pathname = "") => {
+  if (!pathname || typeof pathname !== "string") return false;
+  const p = pathname.toLowerCase();
+  return (
+    p.includes("/roadmap") ||
+    p.includes("/module/") ||
+    p.includes("/topic/") ||
+    p.startsWith("/study") ||
+    p.includes("/chapter")
+  );
+};
+
+/**
  * SelectionWordLookup Component
- * Automatically detects user text selection and provides a sleek floating bubble
+ * Automatically detects user text selection in tutorial sections and provides a sleek floating bubble
  * to define the word or check Computer Dictionaries (Computer Hope, TechTerms, MDN, GeeksforGeeks)
  * and English dictionaries (Cambridge, Merriam-Webster, Google Search).
  */
-export default function SelectionWordLookup({ onOpenDictionaryModal }) {
+export default function SelectionWordLookup({ onOpenDictionaryModal, scopeRef }) {
+  const location = useLocation();
+  const isTutorial = isTutorialRoute(location.pathname);
   const [selectionInfo, setSelectionInfo] = useState(null); // { word, x, y }
   const containerRef = useRef(null);
 
+  // Clear popup whenever path changes
   useEffect(() => {
-    const handleMouseUp = () => {
+    setSelectionInfo(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // Only activate in tutorial section
+    if (!isTutorial) {
+      setSelectionInfo(null);
+      return;
+    }
+
+    const handleMouseUp = (e) => {
+      // On mobile screens (< 768px), floating selection toolbar blocks buttons and cards
+      if (typeof window !== "undefined" && window.innerWidth < 768) {
+        return;
+      }
+
       // Small timeout to allow browser selection to finish settling
       setTimeout(() => {
+        // If click was inside our floating popup, don't dismiss immediately
+        if (
+          containerRef.current &&
+          (containerRef.current.contains(e?.target) || containerRef.current.contains(document.activeElement))
+        ) {
+          return;
+        }
+
         const selection = window.getSelection();
         if (!selection || selection.isCollapsed) {
-          // If click was inside our floating popup, don't dismiss immediately
+          return;
+        }
+
+        // Avoid triggering lookup inside form inputs, textareas, code editors, buttons, or navigation
+        const anchorNode = selection.anchorNode;
+        const parentElem = anchorNode?.nodeType === Node.ELEMENT_NODE ? anchorNode : anchorNode?.parentElement;
+        if (
+          parentElem &&
+          parentElem.closest(
+            "input, textarea, [contenteditable='true'], .monaco-editor, button, nav, [role='button']"
+          )
+        ) {
+          return;
+        }
+
+        // If a scopeRef is provided, restrict lookup to content inside it
+        if (scopeRef?.current && anchorNode && !scopeRef.current.contains(anchorNode)) {
           return;
         }
 
@@ -36,6 +94,9 @@ export default function SelectionWordLookup({ onOpenDictionaryModal }) {
         try {
           const range = selection.getRangeAt(0);
           const rect = range.getBoundingClientRect();
+
+          // Ensure selection has valid visible dimensions
+          if (rect.width === 0 && rect.height === 0) return;
 
           // Calculate position above or below selection
           const x = Math.max(10, Math.min(window.innerWidth - 380, rect.left + rect.width / 2 - 160));
@@ -75,9 +136,9 @@ export default function SelectionWordLookup({ onOpenDictionaryModal }) {
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [isTutorial, scopeRef]);
 
-  if (!selectionInfo) return null;
+  if (!isTutorial || !selectionInfo) return null;
 
   const currentWord = selectionInfo.word;
   const encoded = encodeURIComponent(currentWord);

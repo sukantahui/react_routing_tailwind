@@ -1222,7 +1222,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         </div>
 
         {/* Mobile Horizontal Quick Section Strip (Visible on mobile screens) */}
-        <div className="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-slate-950 border-t border-slate-800/80 overflow-x-auto text-[11px] font-medium text-slate-400">
+        <div className="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-slate-950 border-t border-slate-800/80 overflow-x-auto text-[11px] font-medium text-slate-400 no-scrollbar">
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
@@ -1233,24 +1233,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           >
             <i className="bi bi-speedometer2 text-sky-400"></i>
             <span>Dashboard</span>
-          </NavLink>
-
-          {/* Special Festive Bijoya Link on Mobile */}
-          <NavLink
-            to="/bijoya"
-            className={({ isActive }) =>
-              `flex items-center gap-1.5 px-2.5 py-1 rounded-lg whitespace-nowrap transition font-semibold text-[11px] ${
-                isActive
-                  ? "bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-200 border border-amber-400/50 shadow-sm"
-                  : "bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 text-amber-300 hover:text-white border border-amber-500/35"
-              }`
-            }
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400"></span>
-            </span>
-            <span>🌸 Bijoya Guests</span>
           </NavLink>
 
           <button
@@ -1286,13 +1268,32 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
             className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
           >
             <i className="bi bi-journal-bookmark-fill text-purple-400"></i>
-            <span>Roadmaps</span>
+            <span>Tutorials</span>
           </button>
+
+          {/* Special Festive Bijoya Link on Mobile */}
+          <NavLink
+            to="/bijoya"
+            className={({ isActive }) =>
+              `flex items-center gap-1.5 px-2.5 py-1 rounded-lg whitespace-nowrap transition font-semibold text-[11px] ${
+                isActive
+                  ? "bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-200 border border-amber-400/50 shadow-sm"
+                  : "bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 text-amber-300 hover:text-white border border-amber-500/35"
+              }`
+            }
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400"></span>
+            </span>
+            <span>🌸 Bijoya Guests</span>
+          </NavLink>
 
           <button
             type="button"
             onClick={() => setSearchModalOpen(true)}
             className="flex items-center gap-1 px-2 py-1 rounded-lg whitespace-nowrap text-slate-400 hover:text-white ml-auto"
+            title="Quick jump (Ctrl+K)"
           >
             <i className="bi bi-search text-xs"></i>
           </button>
@@ -1508,7 +1509,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
-                      Roadmaps
+                      Tutorials
                     </button>
                   </div>
                 </div>

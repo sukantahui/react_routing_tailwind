@@ -159,12 +159,16 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   // ----------------------------------------------------------------
   // 2. UI & PANEL STATE
   // ----------------------------------------------------------------
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== "undefined" ? window.innerWidth < 1024 : false));
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarSearch, setSidebarSearch] = useState("");
   const [showSidebar, setShowSidebar] = useState(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      return false; // mobile view: topics side nav should NOT show by default
+    }
     try {
       const stored = localStorage.getItem(`${subjectKey}-topic-sidebar-visible`);
-      return stored !== null ? JSON.parse(stored) : true;
+      return stored !== null ? JSON.parse(stored) : true; // PC mode: topics side nav is shown by default
     } catch (e) {
       void e;
       return true;
@@ -218,12 +222,26 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   }, []);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(`${subjectKey}-topic-sidebar-visible`, JSON.stringify(showSidebar));
-    } catch (e) {
-      void e;
+    const handleResize = () => {
+      const mobile = window.innerWidth < 1024;
+      setIsMobile(mobile);
+      if (mobile) {
+        setShowSidebar(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      try {
+        localStorage.setItem(`${subjectKey}-topic-sidebar-visible`, JSON.stringify(showSidebar));
+      } catch (e) {
+        void e;
+      }
     }
-  }, [showSidebar]);
+  }, [showSidebar, isMobile, subjectKey]);
 
   useEffect(() => {
     try {
@@ -360,7 +378,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   // ----------------------------------------------------------------
   // 4. RESIZABLE SPLIT PANEL
   // ----------------------------------------------------------------
-  const leftSidebarWidth = showSidebar && !focusMode ? 310 : 0;
+  const leftSidebarWidth = !isMobile && showSidebar && !focusMode ? 310 : 0;
   const getRightSidebarWidth = useCallback(() => {
     if (!containerWidth) return 600;
     const available = containerWidth - leftSidebarWidth - 4;
@@ -571,15 +589,23 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
               {/* Sidebar toggle buttons */}
               <button
-                onClick={() => setShowSidebar(!showSidebar)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition flex items-center gap-1 ${showSidebar
+                type="button"
+                onClick={() => {
+                  if (isMobile) {
+                    setSidebarOpen(prev => !prev);
+                  } else {
+                    setShowSidebar(prev => !prev);
+                  }
+                }}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition flex items-center gap-1 ${
+                  (isMobile ? sidebarOpen : showSidebar)
                     ? "bg-slate-800 border-slate-700 text-slate-100"
                     : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
-                  }`}
+                }`}
                 title="Toggle topics sidebar"
               >
                 <List size={13} />
-                <span className="hidden md:inline">{showSidebar ? "Hide Topics" : "Topics"}</span>
+                <span className="hidden md:inline">{(isMobile ? sidebarOpen : showSidebar) ? "Hide Topics" : "Topics"}</span>
               </button>
 
               <button
@@ -905,8 +931,8 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
             ref={mainContentRef}
             className="flex-1 px-3 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-16 min-w-0 transition-all duration-150 relative"
             style={{
-              marginLeft: showSidebar && !focusMode ? "16rem" : "0px",
-              marginRight: showRightSidebar && !focusMode ? `${rightSidebarWidth}px` : "0px",
+              marginLeft: !isMobile && showSidebar && !focusMode ? "16rem" : "0px",
+              marginRight: !isMobile && showRightSidebar && !focusMode ? `${rightSidebarWidth}px` : "0px",
             }}
           >
             <div className="w-full space-y-4">

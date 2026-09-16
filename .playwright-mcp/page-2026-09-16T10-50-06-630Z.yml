@@ -1,0 +1,54 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e5]:
+    - generic [ref=f1e7]:
+      - link "Coder & AccoTax Coder&AccoTax Portal Management & Learning Suite" [ref=f1e9] [cursor=pointer]:
+        - /url: /dashboard
+        - generic:
+          - img "Coder & AccoTax"
+        - generic [ref=f1e11]:
+          - generic [ref=f1e12]:
+            - generic [ref=f1e13]: Coder&AccoTax
+            - generic [ref=f1e14]: Portal
+          - generic [ref=f1e16]: Management & Learning Suite
+      - navigation [ref=f1e17]:
+        - link " Dashboard" [ref=f1e18] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=f1e19]: 
+          - generic [ref=f1e20]: Dashboard
+        - button " Master " [ref=f1e22] [cursor=pointer]:
+          - generic [ref=f1e23]: 
+          - generic [ref=f1e24]: Master
+          - generic [ref=f1e25]: 
+        - button " Tools " [ref=f1e27] [cursor=pointer]:
+          - generic [ref=f1e28]: 
+          - generic [ref=f1e29]: Tools
+          - generic [ref=f1e30]: 
+        - button " Tutorials " [ref=f1e32] [cursor=pointer]:
+          - generic [ref=f1e33]: 
+          - generic [ref=f1e34]: Tutorials
+          - generic [ref=f1e35]: 
+        - link "🌸 Bijoya 2026  Guests" [ref=f1e36] [cursor=pointer]:
+          - /url: /bijoya
+          - generic [ref=f1e40]: 🌸
+          - generic [ref=f1e41]: Bijoya 2026
+          - generic [ref=f1e42]:
+            - generic [ref=f1e43]: 
+            - text: Guests
+      - generic [ref=f1e44]:
+        - button " Quick Jump... ⌘K" [ref=f1e45] [cursor=pointer]:
+          - generic [ref=f1e46]: 
+          - generic [ref=f1e47]: Quick Jump...
+          - generic [ref=f1e48]: ⌘K
+        - button "User Account Menu" [ref=f1e50] [cursor=pointer]:
+          - generic [ref=f1e51]: FA
+          - generic [ref=f1e53]:
+            - generic [ref=f1e54]: Faculty Admin
+            - generic [ref=f1e55]: Administrator
+          - generic [ref=f1e56]: 
+        - button " Logout" [ref=f1e57] [cursor=pointer]:
+          - generic [ref=f1e58]: 
+          - generic [ref=f1e59]: Logout
+        - text:  
+    - text:     
+  - main [ref=f1e60]:
+    - generic [ref=f1e65]: Loading Menstrual Cycle Data...

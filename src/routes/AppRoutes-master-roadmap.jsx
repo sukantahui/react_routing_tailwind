@@ -596,7 +596,6 @@ export default function AppRoutes() {
         <Route path={ROUTES.SORTING_VISUALIZER} element={<SortingVisualizer />} />
         <Route path={ROUTES.BIG_O_CALCULATOR} element={<BigOCalculator />} />
         <Route path={ROUTES.JSON_FORMATTER} element={<JsonFormatter />} />
-        <Route path={ROUTES.MENSTRUAL_CALENDAR} element={<MenstrualCalendarApp />} />
 
         {/* ---------- Dedicated SEO Course Landing Pages ---------- */}
         <Route path={ROUTES.COURSE_GST} element={<GSTFilingPage />} />
@@ -612,6 +611,15 @@ export default function AppRoutes() {
         <Route path={ROUTES.AVL_TREE} element={<AvlTreeVisualizer />} />
 
         {/* ---------- Protected routes (admin / internal) ---------- */}
+        <Route
+          path={ROUTES.MENSTRUAL_CALENDAR}
+          element={
+            <ProtectedRouteWrapper>
+              <MenstrualCalendarApp />
+            </ProtectedRouteWrapper>
+          }
+        />
+
         <Route
           path={ROUTES.DASHBOARD}
           element={

@@ -12,6 +12,7 @@ import HomeSeo from "../../seo/HomeSeo";
 import Header from "./Header";
 import EventToday from "./EventToday";
 import Courses from "./Courses";
+import FeesPayment from "./FeesPayment";
 import WhyChooseUs from "./WhyChooseUs";
 import LocalSEO from "./LocalSEO";
 import About from "./About";
@@ -30,6 +31,7 @@ export default function Home() {
       <EventToday />
       <About />
       <Courses />
+      <FeesPayment />
       <WhyChooseUs />
       <LocalSEO />
       <Teachers />

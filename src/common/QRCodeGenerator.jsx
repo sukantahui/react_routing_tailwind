@@ -220,9 +220,9 @@ const QRCodeGenerator = () => {
 
       case 'upi': {
         const { pa, pn, am, tn } = upiData;
-        const cleanPa = (pa || '').trim();
+        const cleanPa = (pa || '').trim().replace(/\s+/g, '');
         const cleanPn = (pn || '').trim() || 'Merchant';
-        let str = `upi://pay?pa=${encodeURIComponent(cleanPa)}&pn=${encodeURIComponent(cleanPn)}&cu=INR`;
+        let str = `upi://pay?pa=${cleanPa}&pn=${encodeURIComponent(cleanPn)}&cu=INR`;
         if (am && !isNaN(Number(am)) && Number(am) > 0) {
           str += `&am=${encodeURIComponent(Number(am).toFixed(2))}`;
         }

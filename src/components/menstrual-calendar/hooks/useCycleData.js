@@ -107,14 +107,10 @@ export function useCycleData() {
 
     async function loadData() {
       const token = localStorage.getItem('token');
-      if (!token) {
-        // Unauthenticated guest mode
-        const cached = readLocalStorage();
-        if (cached) {
-          const starts = [...(cached.periodStarts || [])].sort(compareISODates);
-          setPeriodStarts(starts);
-          setSettings({ ...DEFAULT_SETTINGS, ...(cached.settings || {}) });
-        }
+      const rawUser = localStorage.getItem('user');
+      const isAuth = !!token && token !== 'null' && token !== 'undefined' && token.trim() !== '' && !!rawUser;
+
+      if (!isAuth) {
         setIsApiMode(false);
         setIsLoaded(true);
         return;

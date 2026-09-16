@@ -185,13 +185,6 @@ const NavBar = () => {
           icon: "bi-grid-1x2-fill",
           tag: "Assets",
         },
-        {
-          to: "/menstrual-calendar",
-          label: "Menstrual Cycle Calendar",
-          desc: "Track cycle dates, predictions & database sync",
-          icon: "bi-calendar-heart-fill",
-          tag: "Health",
-        },
       ],
     },
 
@@ -481,82 +474,89 @@ const NavBar = () => {
             <nav className="hidden lg:flex items-center gap-1 text-xs sm:text-sm font-medium">
               
               {/* HOME / SECTION LINKS */}
-              {!isHome && (
-                <NavLink
-                  to="/"
-                  onClick={closeAllDropdowns}
-                  className={({ isActive }) =>
-                    `inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                      isActive
-                        ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                    }`
-                  }
-                >
-                  <i className="bi bi-house-door text-sky-400 text-sm"></i>
-                  <span>Home</span>
-                </NavLink>
-              )}
+              <NavLink
+                to="/"
+                end
+                onClick={closeAllDropdowns}
+                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                  isHome && (!activeHash || activeHash === "#")
+                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                }`}
+              >
+                <i className="bi bi-house-door text-sky-400 text-xs xl:text-sm"></i>
+                <span>Home</span>
+              </NavLink>
 
-              {isHome && (
-                <>
-                  <HashLink
-                    smooth
-                    to="/#about"
-                    onClick={closeAllDropdowns}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                      activeHash === "#about"
-                        ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                    }`}
-                  >
-                    <i className="bi bi-info-circle text-sky-400 text-xs"></i>
-                    <span>About</span>
-                  </HashLink>
+              <HashLink
+                smooth
+                to="/#about"
+                onClick={closeAllDropdowns}
+                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                  isHome && activeHash === "#about"
+                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                }`}
+              >
+                <i className="bi bi-info-circle text-sky-400 text-xs"></i>
+                <span>About</span>
+              </HashLink>
 
-                  <HashLink
-                    smooth
-                    to="/#courses"
-                    onClick={closeAllDropdowns}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                      activeHash === "#courses"
-                        ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                    }`}
-                  >
-                    <i className="bi bi-book text-sky-400 text-xs"></i>
-                    <span>Courses</span>
-                  </HashLink>
+              <HashLink
+                smooth
+                to="/#courses"
+                onClick={closeAllDropdowns}
+                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                  isHome && activeHash === "#courses"
+                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                }`}
+              >
+                <i className="bi bi-book text-sky-400 text-xs"></i>
+                <span>Courses</span>
+              </HashLink>
 
-                  <HashLink
-                    smooth
-                    to="/#teachers"
-                    onClick={closeAllDropdowns}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                      activeHash === "#teachers"
-                        ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                    }`}
-                  >
-                    <i className="bi bi-people text-sky-400 text-xs"></i>
-                    <span>Teachers</span>
-                  </HashLink>
+              <HashLink
+                smooth
+                to="/#fees"
+                onClick={closeAllDropdowns}
+                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                  isHome && activeHash === "#fees"
+                    ? "text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 shadow-sm shadow-emerald-500/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                }`}
+              >
+                <i className="bi bi-credit-card text-emerald-400 text-xs"></i>
+                <span>Fees</span>
+              </HashLink>
 
-                  <HashLink
-                    smooth
-                    to="/#contact"
-                    onClick={closeAllDropdowns}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                      activeHash === "#contact"
-                        ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                    }`}
-                  >
-                    <i className="bi bi-envelope text-sky-400 text-xs"></i>
-                    <span>Contact</span>
-                  </HashLink>
-                </>
-              )}
+              <HashLink
+                smooth
+                to="/#teachers"
+                onClick={closeAllDropdowns}
+                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                  isHome && activeHash === "#teachers"
+                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                }`}
+              >
+                <i className="bi bi-people text-sky-400 text-xs"></i>
+                <span>Teachers</span>
+              </HashLink>
+
+              <HashLink
+                smooth
+                to="/#contact"
+                onClick={closeAllDropdowns}
+                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                  isHome && activeHash === "#contact"
+                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+                }`}
+              >
+                <i className="bi bi-envelope text-sky-400 text-xs"></i>
+                <span>Contact</span>
+              </HashLink>
 
               {/* TOOLS MEGA MENU */}
               <div className="relative">
@@ -893,30 +893,84 @@ const NavBar = () => {
         </div>
 
         {/* Mobile Horizontal Quick Section Strip (Visible on mobile screens) */}
-        <div className="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-slate-950 border-t border-slate-800/80 overflow-x-auto text-[11px] font-medium text-slate-400">
+        <div className="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-slate-950 border-t border-slate-800/80 overflow-x-auto text-[11px] font-medium text-slate-400 no-scrollbar">
           <NavLink
             to="/"
-            className={({ isActive }) =>
-              `flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
-                isActive && !location.hash ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30" : "hover:text-white hover:bg-slate-900"
-              }`
-            }
+            end
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+              isHome && (!activeHash || activeHash === "#")
+                ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
           >
             <i className="bi bi-house-door text-sky-400"></i>
             <span>Home</span>
           </NavLink>
 
-          <button
-            type="button"
-            onClick={() => {
-              setMobileTab("explore");
-              setMobileMenuOpen(true);
-            }}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+          <HashLink
+            smooth
+            to="/#about"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+              isHome && activeHash === "#about"
+                ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
           >
             <i className="bi bi-info-circle text-sky-400"></i>
             <span>About</span>
-          </button>
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#courses"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+              isHome && activeHash === "#courses"
+                ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
+          >
+            <i className="bi bi-book text-sky-400"></i>
+            <span>Courses</span>
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#fees"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+              isHome && activeHash === "#fees"
+                ? "bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
+          >
+            <i className="bi bi-credit-card text-emerald-400"></i>
+            <span>Fees</span>
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#teachers"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+              isHome && activeHash === "#teachers"
+                ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
+          >
+            <i className="bi bi-people text-sky-400"></i>
+            <span>Teachers</span>
+          </HashLink>
+
+          <HashLink
+            smooth
+            to="/#contact"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+              isHome && activeHash === "#contact"
+                ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
+          >
+            <i className="bi bi-envelope text-sky-400"></i>
+            <span>Contact</span>
+          </HashLink>
 
           <button
             type="button"
@@ -924,7 +978,11 @@ const NavBar = () => {
               setMobileTab("tools");
               setMobileMenuOpen(true);
             }}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition cursor-pointer ${
+              isToolsActive
+                ? "bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
           >
             <i className="bi bi-tools text-cyan-400"></i>
             <span>Tools</span>
@@ -936,10 +994,14 @@ const NavBar = () => {
               setMobileTab("tutorials");
               setMobileMenuOpen(true);
             }}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition cursor-pointer ${
+              isTutorialsActive
+                ? "bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30"
+                : "hover:text-white hover:bg-slate-900 border border-transparent"
+            }`}
           >
             <i className="bi bi-journal-bookmark-fill text-purple-400"></i>
-            <span>Roadmaps</span>
+            <span>Tutorials</span>
           </button>
 
           {/* Special Festive Bijoya Quick Link */}
@@ -958,7 +1020,7 @@ const NavBar = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400"></span>
               </span>
-              <span>🌸 Bijoya Pass</span>
+              <span>🌸 Bijoya 2026</span>
             </NavLink>
           )}
 
@@ -966,6 +1028,7 @@ const NavBar = () => {
             type="button"
             onClick={() => setSearchModalOpen(true)}
             className="flex items-center gap-1 px-2 py-1 rounded-lg whitespace-nowrap text-slate-400 hover:text-white ml-auto"
+            title="Quick search (Ctrl+K)"
           >
             <i className="bi bi-search text-xs"></i>
           </button>
@@ -1174,7 +1237,7 @@ const NavBar = () => {
                           : "text-slate-400 hover:text-white"
                       }`}
                     >
-                      Roadmaps
+                      Tutorials
                     </button>
                   </div>
                 </div>
@@ -1298,8 +1361,8 @@ const NavBar = () => {
                             <i className="bi bi-house-door"></i>
                           </div>
                           <div>
-                            <p className="text-xs font-bold text-white">Home Page</p>
-                            <p className="text-[10px] text-slate-400">Welcome to Coder & AccoTax</p>
+                            <p className="text-xs font-bold text-white">Home</p>
+                            <p className="text-[10px] text-slate-400">Coder &amp; AccoTax Overview</p>
                           </div>
                         </div>
                         <i className="bi bi-chevron-right text-slate-500 text-xs"></i>
@@ -1317,8 +1380,8 @@ const NavBar = () => {
                             <i className="bi bi-info-circle"></i>
                           </div>
                           <div>
-                            <p className="text-xs font-semibold text-white">About Us</p>
-                            <p className="text-[9px] text-slate-400">Our Story</p>
+                            <p className="text-xs font-semibold text-white">About</p>
+                            <p className="text-[9px] text-slate-400">Our Story &amp; Vision</p>
                           </div>
                         </HashLink>
 
@@ -1333,7 +1396,22 @@ const NavBar = () => {
                           </div>
                           <div>
                             <p className="text-xs font-semibold text-white">Courses</p>
-                            <p className="text-[9px] text-slate-400">Programs</p>
+                            <p className="text-[9px] text-slate-400">All Training Programs</p>
+                          </div>
+                        </HashLink>
+
+                        <HashLink
+                          smooth
+                          to="/#fees"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-2.5 p-2.5 rounded-xl border border-emerald-500/30 bg-emerald-950/20 hover:bg-emerald-900/30 text-emerald-300 hover:text-white transition"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                            <i className="bi bi-credit-card"></i>
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-white">Fees</p>
+                            <p className="text-[9px] text-emerald-400 font-medium">Online UPI Payment</p>
                           </div>
                         </HashLink>
 
@@ -1347,8 +1425,8 @@ const NavBar = () => {
                             <i className="bi bi-people"></i>
                           </div>
                           <div>
-                            <p className="text-xs font-semibold text-white">Faculty</p>
-                            <p className="text-[9px] text-slate-400">Instructors</p>
+                            <p className="text-xs font-semibold text-white">Teachers</p>
+                            <p className="text-[9px] text-slate-400">Faculty Mentors</p>
                           </div>
                         </HashLink>
 
@@ -1356,15 +1434,18 @@ const NavBar = () => {
                           smooth
                           to="/#contact"
                           onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-800/80 bg-slate-950/60 hover:bg-slate-800 text-slate-300 hover:text-white transition"
+                          className="col-span-2 flex items-center justify-between p-2.5 rounded-xl border border-slate-800/80 bg-slate-950/60 hover:bg-slate-800 text-slate-300 hover:text-white transition"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700/60 flex items-center justify-center text-sky-400">
-                            <i className="bi bi-envelope"></i>
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700/60 flex items-center justify-center text-sky-400">
+                              <i className="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                              <p className="text-xs font-semibold text-white">Contact</p>
+                              <p className="text-[9px] text-slate-400">Location, Address &amp; Inquiries</p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="text-xs font-semibold text-white">Contact</p>
-                            <p className="text-[9px] text-slate-400">Location</p>
-                          </div>
+                          <i className="bi bi-arrow-right text-slate-500 text-xs"></i>
                         </HashLink>
                       </div>
                     </div>

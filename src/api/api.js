@@ -45,10 +45,15 @@ api.interceptors.response.use(
   },
   (error) => {
     if (error.response && error.response.status === 401) {
-      console.warn("Unauthorized! Redirect to login.");
-      // Optional: redirect user or clear token
-      // localStorage.removeItem("token");
-      // window.location.href = "/login";
+      console.warn("Unauthorized! Clearing invalid token.");
+      try {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.dispatchEvent(new Event("storage"));
+        window.dispatchEvent(new Event("authChanged"));
+      } catch (e) {
+        console.warn("Storage cleanup notice:", e);
+      }
     }
     return Promise.reject(error);
   }
