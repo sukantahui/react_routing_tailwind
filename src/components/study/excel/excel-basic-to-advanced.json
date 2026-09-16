@@ -802,7 +802,8 @@
             "Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE",
             "Real-world case study: Parsing messy customer names, addresses, and timestamps",
             "Practice: Employee shift duration and overtime calculator",
-            "Assessment: Advanced Text and Date Functions Challenge"
+            "Assessment: Advanced Text and Date Functions Challenge",
+            "Module Project: 20 Real-World Capstone Projects in Text, Date and Time Functions"
           ],
           "learningOutcomes": [
             "Sanitize messy text data by stripping whitespace, unprintable characters, and standardizing casing",

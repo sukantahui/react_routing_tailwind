@@ -795,10 +795,13 @@ export default function FeePaymentsList() {
     text += `• *Total Cumulative Paid:* ₹${ledger.summary?.totalPaid?.toLocaleString("en-IN")}/-\n`;
     if (ledger.admission?.isMonthly) {
       if (ledger.summary?.clearedMonthsText) {
-        text += `• *Months Cleared:* ${ledger.summary.clearedMonthsText} (${ledger.summary.clearedMonthsCount} Months)\n`;
+        text += `• *Months Cleared:* ${ledger.summary.clearedMonthsText} (${ledger.summary.clearedMonthsCount} Mos)\n`;
       }
-      if (ledger.summary?.nextDueMonth) {
-        text += `• *⚠️ Next Due Month:* ${ledger.summary.nextDueMonth} (Due: ₹${ledger.summary.dueAmount?.toLocaleString("en-IN")}/-)\n`;
+      if ((ledger.summary?.unpaidMonthsCount || 0) > 0) {
+        text += `• *⚠️ Outstanding Due:* ₹${(ledger.summary?.balanceDue ?? ledger.summary?.dueAmount)?.toLocaleString("en-IN")}/- (${ledger.summary.unpaidMonthsCount} Mos Overdue: ${ledger.summary.pendingMonthsText || ledger.summary.nextDueMonth})\n`;
+        text += `• *Next Due Month:* ${ledger.summary.nextDueMonth}\n`;
+      } else if (ledger.summary?.nextDueMonth) {
+        text += `• *Next Due Month:* ${ledger.summary.nextDueMonth} (All current fees cleared)\n`;
       }
     } else {
       text += `• *Total Course Fee:* ₹${ledger.summary?.totalCourseFee?.toLocaleString("en-IN")}/-\n`;
@@ -1196,15 +1199,15 @@ export default function FeePaymentsList() {
         <div class="kpi-value">₹ ${Number(summary.totalPaid || 0).toLocaleString("en-IN")}</div>
       </div>
       <div class="kpi-box">
-        <div class="kpi-label">${isMonthly ? "Next Due Month" : "Balance Due"}</div>
-        <div class="kpi-value ${summary.balanceDue > 0 || isMonthly ? 'due' : ''}">
-          ${isMonthly ? (summary.nextDueMonth || "Up to Date") : ("₹ " + Number(summary.balanceDue || 0).toLocaleString("en-IN"))}
+        <div class="kpi-label">${isMonthly ? "Balance Due" : "Balance Due"}</div>
+        <div class="kpi-value ${(summary.balanceDue || summary.dueAmount || 0) > 0 ? 'due' : ''}">
+          ₹ ${Number(summary.balanceDue ?? summary.dueAmount ?? 0).toLocaleString("en-IN")}
         </div>
       </div>
       <div class="kpi-box">
-        <div class="kpi-label">${isMonthly ? "Installments Cleared" : "Payment Status"}</div>
-        <div class="kpi-value">
-          ${isMonthly ? (summary.clearedMonthsCount + " Months") : (summary.isPaidInFull ? "100% Cleared" : "Partial")}
+        <div class="kpi-label">${isMonthly ? "Account Status" : "Payment Status"}</div>
+        <div class="kpi-value ${summary.isPaidInFull || (isMonthly && (summary.unpaidMonthsCount || 0) <= 0) ? '' : 'due'}">
+          ${isMonthly ? ((summary.unpaidMonthsCount || 0) > 0 ? `${summary.unpaidMonthsCount} Mos Overdue` : `${summary.clearedMonthsCount || 0} Mos Cleared`) : (summary.isPaidInFull ? "100% Cleared" : "Partial")}
         </div>
       </div>
     </div>
@@ -1213,11 +1216,15 @@ export default function FeePaymentsList() {
     <div class="clearance-box">
       <div>
         <strong style="color: #0f766e;">✓ Months Cleared by Received Fees:</strong> 
-        <span>${summary.clearedMonthsText || "None recorded yet"} (${summary.clearedMonthsCount} Months)</span>
+        <span>${summary.clearedMonthsText || "None recorded yet"} (${summary.clearedMonthsCount || 0} Months)</span>
       </div>
-      ${summary.nextDueMonth ? `
+      ${(summary.unpaidMonthsCount || 0) > 0 ? `
       <div style="font-weight: 700; color: #b45309;">
-        ⚠️ Next Due: ${summary.nextDueMonth} (Due: ₹ ${Number(summary.dueAmount || 0).toLocaleString("en-IN")}/-)
+        ⚠️ Overdue: ${summary.pendingMonthsText || summary.nextDueMonth} (${summary.unpaidMonthsCount} Mos = ₹ ${Number(summary.balanceDue ?? summary.dueAmount ?? 0).toLocaleString("en-IN")}/-)
+      </div>
+      ` : summary.nextDueMonth ? `
+      <div style="font-weight: 700; color: #0f766e;">
+        ✓ Up to Date (Next Due: ${summary.nextDueMonth})
       </div>
       ` : ''}
     </div>
@@ -4643,22 +4650,37 @@ export default function FeePaymentsList() {
 
                   <div className="p-3 rounded-2xl bg-slate-950/80 border border-slate-800">
                     <div className="text-[10px] text-slate-400 uppercase font-bold">
-                      {selectedLedger.admission?.isMonthly ? "Next Due Month" : "Balance Due"}
+                      {selectedLedger.admission?.isMonthly ? "Total Balance Due" : "Balance Due"}
                     </div>
-                    <div className="text-lg font-black text-amber-400 mt-0.5">
-                      {selectedLedger.admission?.isMonthly
-                        ? (selectedLedger.summary?.nextDueMonth || "Up to Date")
-                        : `₹${Number(selectedLedger.summary?.balanceDue || 0).toLocaleString("en-IN")}`}
+                    <div className={`text-lg font-black mt-0.5 ${Number(selectedLedger.summary?.balanceDue ?? selectedLedger.summary?.dueAmount ?? 0) > 0 ? "text-amber-400" : "text-emerald-400"}`}>
+                      ₹{Number(selectedLedger.summary?.balanceDue ?? selectedLedger.summary?.dueAmount ?? 0).toLocaleString("en-IN")}
                     </div>
+                    {selectedLedger.admission?.isMonthly && (
+                      <div className="text-[10px] text-slate-400 mt-0.5 truncate">
+                        {(selectedLedger.summary?.unpaidMonthsCount || 0) > 0
+                          ? `${selectedLedger.summary.unpaidMonthsCount} mos due (${selectedLedger.summary?.nextDueMonth})`
+                          : (selectedLedger.summary?.nextDueMonth ? `Next: ${selectedLedger.summary.nextDueMonth}` : "Up to Date")}
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-3 rounded-2xl bg-slate-950/80 border border-slate-800">
                     <div className="text-[10px] text-slate-400 uppercase font-bold">Account Status</div>
-                    <div className="text-xs font-black text-emerald-400 mt-1.5 flex items-center justify-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>
+                    <div className={`text-xs font-black mt-1.5 flex items-center justify-center gap-1 ${
+                      selectedLedger.summary?.isPaidInFull || (selectedLedger.admission?.isMonthly && (selectedLedger.summary?.unpaidMonthsCount || 0) <= 0)
+                        ? "text-emerald-400"
+                        : "text-amber-400"
+                    }`}>
+                      {selectedLedger.summary?.isPaidInFull || (selectedLedger.admission?.isMonthly && (selectedLedger.summary?.unpaidMonthsCount || 0) <= 0) ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                      ) : (
+                        <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      )}
+                      <span className="truncate">
                         {selectedLedger.admission?.isMonthly
-                          ? `${selectedLedger.summary?.clearedMonthsCount} Mos Cleared`
+                          ? (selectedLedger.summary?.unpaidMonthsCount > 0
+                              ? `${selectedLedger.summary.unpaidMonthsCount} Mos Overdue`
+                              : `${selectedLedger.summary?.clearedMonthsCount || 0} Mos Cleared`)
                           : selectedLedger.summary?.isPaidInFull
                           ? (selectedLedger.summary?.statusBadge?.includes("Final Payment") ? "Final Payment Cleared" : "Paid in Full")
                           : "Part Payment"}
@@ -4667,17 +4689,34 @@ export default function FeePaymentsList() {
                   </div>
                 </div>
 
-                {/* Monthly Cleared Badges (if monthly) */}
+                {/* Monthly Cleared Badges & Overdue Alert */}
                 {selectedLedger.admission?.isMonthly && (
-                  <div className="p-3 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 text-xs flex items-center justify-between">
+                  <div className={`p-3 rounded-2xl border text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 ${
+                    (selectedLedger.summary?.unpaidMonthsCount || 0) > 0
+                      ? "bg-amber-950/20 border-amber-500/30"
+                      : "bg-emerald-950/20 border-emerald-500/30"
+                  }`}>
                     <div>
                       <strong className="text-emerald-300">✓ Cleared Months:</strong>{" "}
-                      <span className="text-slate-200">{selectedLedger.summary?.clearedMonthsText || "None recorded yet"}</span>
+                      <span className="text-slate-200">
+                        {selectedLedger.summary?.clearedMonthsText || "None recorded yet"} ({selectedLedger.summary?.clearedMonthsCount || 0} Mos)
+                      </span>
                     </div>
-                    {selectedLedger.summary?.nextDueMonth && (
-                      <div className="text-amber-400 font-bold">
-                        ⚠️ Due: {selectedLedger.summary?.nextDueMonth} (₹{Number(selectedLedger.summary?.dueAmount || 0).toLocaleString("en-IN")}/-)
+                    {(selectedLedger.summary?.unpaidMonthsCount || 0) > 0 ? (
+                      <div className="text-amber-400 font-bold flex items-center gap-1">
+                        <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                        <span>
+                          Overdue: {selectedLedger.summary?.pendingMonthsText || selectedLedger.summary?.nextDueMonth} (
+                          {selectedLedger.summary?.unpaidMonthsCount} Mos = ₹{Number(selectedLedger.summary?.balanceDue ?? selectedLedger.summary?.dueAmount ?? 0).toLocaleString("en-IN")}/-
+                          )
+                        </span>
                       </div>
+                    ) : (
+                      selectedLedger.summary?.nextDueMonth && (
+                        <div className="text-emerald-400 font-bold">
+                          ✓ All cleared up to date (Next Due: {selectedLedger.summary.nextDueMonth})
+                        </div>
+                      )
                     )}
                   </div>
                 )}

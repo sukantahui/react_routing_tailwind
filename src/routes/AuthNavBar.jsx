@@ -87,10 +87,10 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         },
         {
           to: "/admission",
-          label: "Student Admission",
-          desc: "New applicant registration form",
-          icon: "bi-person-plus-fill",
-          badge: "Active",
+          label: "Assign Course to Student",
+          desc: "Assign academic course & fees to student (Course Admission)",
+          icon: "bi-mortarboard-fill",
+          badge: "Admission",
         },
         ...(isManagerOrAdmin
           ? [

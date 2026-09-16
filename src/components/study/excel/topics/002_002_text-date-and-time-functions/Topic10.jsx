@@ -14,6 +14,7 @@ export default function Topic10() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [expandedIds, setExpandedIds] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [copiedId, setCopiedId] = useState(null);
+  const [revealedSolutions, setRevealedSolutions] = useState([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,12 +56,26 @@ export default function Topic10() {
     );
   };
 
+  const toggleRevealSolution = (id) => {
+    setRevealedSolutions((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
   const expandAll = () => {
     setExpandedIds(practicalQuestions.map((q) => q.id));
   };
 
   const collapseAll = () => {
     setExpandedIds([]);
+  };
+
+  const revealAllSolutions = () => {
+    setRevealedSolutions(practicalQuestions.map((q) => q.id));
+  };
+
+  const hideAllSolutions = () => {
+    setRevealedSolutions([]);
   };
 
   const categories = [

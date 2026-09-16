@@ -63,6 +63,43 @@ function getLazyTopicComponent(importFn) {
   return topicComponentCache.get(importFn);
 }
 
+// Error boundary to gracefully catch errors in individual topic files
+class TopicErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.error("Error loading topic:", error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="rounded-2xl border border-rose-800/60 bg-rose-950/30 p-6 sm:p-8 text-slate-200 text-center space-y-4 my-4">
+          <HelpCircle size={40} className="text-rose-400 mx-auto" />
+          <h3 className="text-lg font-bold text-rose-300">Topic Content Render Error</h3>
+          <p className="text-sm text-slate-400 max-w-md mx-auto">
+            An error occurred while loading this topic's interactive elements.
+          </p>
+          <p className="text-xs font-mono text-rose-300/80 bg-rose-950/60 p-3 rounded-lg max-w-xl mx-auto overflow-x-auto text-left border border-rose-900/60">
+            {this.state.error?.message || "Unknown error"}
+          </p>
+          <button
+            onClick={() => this.setState({ hasError: false, error: null })}
+            className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition cursor-pointer"
+          >
+            Retry Rendering
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // ------------------------------------------------------------------------
 // DYNAMIC IMPORT FOR TOPIC FILES
 // ------------------------------------------------------------------------
@@ -946,7 +983,9 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                   </div>
                 }>
                   {TopicPage ? (
-                    <TopicPage key={topicKey} />
+                    <TopicErrorBoundary key={topicKey}>
+                      <TopicPage key={topicKey} />
+                    </TopicErrorBoundary>
                   ) : (
                     <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 text-slate-300 text-base py-10 text-center space-y-4">
                       <FileText size={42} className="text-slate-600 mx-auto" />

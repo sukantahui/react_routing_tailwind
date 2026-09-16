@@ -2,11 +2,11 @@
 // StudentWithAdmission.jsx - Rapid Minimal Student Enrollment & Fee Portal
 // ============================================================================
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Search, ChevronDown, CheckCircle2, XCircle, Sparkles, Calendar, IndianRupee } from "lucide-react";
+import { BookOpen, Search, ChevronDown, CheckCircle2, XCircle, Sparkles, Calendar, IndianRupee, Check, X, RefreshCw } from "lucide-react";
 import api from "../../api/api";
 import { courseService } from "../../services/courseService";
 
@@ -757,78 +757,15 @@ export default function StudentWithAdmission() {
                     </span>
                   </div>
 
-                  {/* GROUPED CLEAN ACADEMIC COURSE DROPDOWN */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-                        <BookOpen className="w-4 h-4 text-emerald-400" />
-                        <span>Select Academic Course</span>
-                        <span className="text-rose-400">*</span>
-                      </label>
-                      <span className="text-[11px] text-slate-400">
-                        {courses.length} courses across 4 categories
-                      </span>
-                    </div>
-
-                    <select
-                      name="courseId"
-                      value={admissionForm.courseId}
-                      onChange={handleAdmissionChange}
-                      required
-                      disabled={!isAuthorized}
-                      className="w-full bg-slate-950 border border-slate-700/90 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 cursor-pointer shadow-inner"
-                    >
-                      <option value="" className="text-slate-500 bg-slate-900">
-                        -- Select Academic Course Program --
-                      </option>
-                      {Object.entries(groupedCourses).map(([groupTitle, courseList]) =>
-                        courseList.length > 0 ? (
-                          <optgroup
-                            key={groupTitle}
-                            label={groupTitle}
-                            className="bg-slate-900 font-bold text-emerald-400 text-xs py-1"
-                          >
-                            {courseList.map((c) => {
-                              const fee = Number(c.courseFees || c.course_fees || 0);
-                              const code = c.course_code || c.courseCode;
-                              const name = c.course_name || c.courseName;
-                              return (
-                                <option
-                                  key={c.id || c.courseId}
-                                  value={c.id || c.courseId}
-                                  className="bg-slate-950 text-slate-100 font-normal py-1.5 pl-2 text-xs"
-                                >
-                                  {name} ({code}) — ₹{fee.toLocaleString()}
-                                </option>
-                              );
-                            })}
-                          </optgroup>
-                        ) : null
-                      )}
-                    </select>
-
-                    {/* Selected Course Quick Summary Banner */}
-                    {selectedCourseObj && (
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-indigo-950/30 border border-emerald-500/30 flex items-center justify-between gap-3 text-xs animate-fadeIn">
-                        <div className="flex items-center gap-2.5">
-                          <span className="px-2 py-0.5 rounded-md font-mono font-bold text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            {selectedCourseObj.course_code || selectedCourseObj.courseCode}
-                          </span>
-                          <span className="font-bold text-white">
-                            {selectedCourseObj.course_name || selectedCourseObj.courseName}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                            {Number(selectedCourseObj.feeModesId || selectedCourseObj.fee_modes_id) === 2 ? "Course Fees" : "Monthly Plan"}
-                          </span>
-                          <span className="font-extrabold text-emerald-400">
-                            ₹{Number(selectedCourseObj.courseFees || selectedCourseObj.course_fees || 0).toLocaleString()}
-                          </span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  {/* SEARCHABLE & CATEGORIZED ACADEMIC COURSE SELECTOR */}
+                  <SearchableCourseSelect
+                    courses={courses}
+                    value={admissionForm.courseId}
+                    onChange={handleAdmissionChange}
+                    disabled={!isAuthorized}
+                    required
+                    accentColor="emerald"
+                  />
                   {/* Agreed Course Fee & Payment Mode */}
                   <div className="p-4 rounded-xl bg-slate-950/80 border border-emerald-500/30 space-y-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1396,6 +1333,428 @@ export default function StudentWithAdmission() {
     </div>
   );
 }
+// ============================================================================
+// Searchable & Categorized Academic Course Selector Component
+// ============================================================================
+function SearchableCourseSelect({
+  courses = [],
+  value,
+  onChange,
+  disabled = false,
+  required = false,
+  accentColor = "emerald",
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+  const containerRef = useRef(null);
+  const searchInputRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleKeyDown);
+      setTimeout(() => searchInputRef.current?.focus(), 60);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  const selectedCourse = useMemo(() => {
+    if (!value) return null;
+    return courses.find((c) => String(c.id || c.courseId) === String(value));
+  }, [courses, value]);
+
+  const getCourseCategory = (c) => {
+    const code = (c.course_code || c.courseCode || "").toUpperCase();
+    const name = (c.course_name || c.courseName || "").toLowerCase();
+
+    if (
+      code.includes("ICSE") ||
+      code.includes("ISC") ||
+      code.includes("CBSE") ||
+      code.includes("WBCHSE") ||
+      code.includes("SCHOOL")
+    ) {
+      return { id: "school", label: "School & Boards", icon: "🎓" };
+    } else if (
+      code.includes("TALLY") ||
+      code.includes("EXCEL") ||
+      code.includes("GST") ||
+      code.includes("DFA") ||
+      code.includes("DCA") ||
+      code.includes("OP") ||
+      name.includes("office") ||
+      name.includes("accounting")
+    ) {
+      return { id: "accounting", label: "Accounts & Office", icon: "📊" };
+    } else if (
+      code.includes("AI") ||
+      code.includes("ROBOT") ||
+      name.includes("ai") ||
+      name.includes("robotics")
+    ) {
+      return { id: "tech", label: "Advanced Tech", icon: "🤖" };
+    } else {
+      return { id: "software", label: "Software & Web", icon: "💻" };
+    }
+  };
+
+  const categories = useMemo(() => [
+    { id: "all", label: "All Courses", count: courses.length, icon: "📚" },
+    { id: "software", label: "Software & Web", count: courses.filter((c) => getCourseCategory(c).id === "software").length, icon: "💻" },
+    { id: "accounting", label: "Accounts & Office", count: courses.filter((c) => getCourseCategory(c).id === "accounting").length, icon: "📊" },
+    { id: "school", label: "School & Boards", count: courses.filter((c) => getCourseCategory(c).id === "school").length, icon: "🎓" },
+    { id: "tech", label: "Advanced Tech", count: courses.filter((c) => getCourseCategory(c).id === "tech").length, icon: "🤖" },
+  ], [courses]);
+
+  const filteredCourses = useMemo(() => {
+    return courses.filter((c) => {
+      const cat = getCourseCategory(c);
+      if (activeCategory !== "all" && cat.id !== activeCategory) {
+        return false;
+      }
+      if (!search.trim()) return true;
+
+      const q = search.toLowerCase().trim();
+      const name = (c.course_name || c.courseName || "").toLowerCase();
+      const code = (c.course_code || c.courseCode || "").toLowerCase();
+      const fee = String(c.courseFees || c.course_fees || "");
+      const catLabel = cat.label.toLowerCase();
+
+      return name.includes(q) || code.includes(q) || fee.includes(q) || catLabel.includes(q);
+    });
+  }, [courses, search, activeCategory]);
+
+  const groupedFiltered = useMemo(() => {
+    const groups = {};
+    filteredCourses.forEach((c) => {
+      const cat = getCourseCategory(c);
+      const key = `${cat.icon} ${cat.label}`;
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(c);
+    });
+    return groups;
+  }, [filteredCourses]);
+
+  const handleSelect = (c) => {
+    onChange({ target: { name: "courseId", value: String(c.id || c.courseId) } });
+    setIsOpen(false);
+    setSearch("");
+  };
+
+  const handleClear = (e) => {
+    e.stopPropagation();
+    onChange({ target: { name: "courseId", value: "" } });
+    setSearch("");
+  };
+
+  const isEmerald = accentColor === "emerald";
+  const ringAccent = isEmerald ? "border-emerald-500 ring-2 ring-emerald-500/20" : "border-sky-500 ring-2 ring-sky-500/20";
+  const glowGradient = isEmerald
+    ? "from-slate-900 via-slate-900/95 to-emerald-950/30 border-emerald-500/40 hover:border-emerald-500/70"
+    : "from-slate-900 via-slate-900/95 to-sky-950/30 border-sky-500/40 hover:border-sky-500/70";
+  const badgeClass = isEmerald
+    ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-300"
+    : "bg-sky-500/15 border-sky-500/30 text-sky-300";
+  const iconColor = isEmerald ? "text-emerald-400" : "text-sky-400";
+  const activeTabClass = isEmerald
+    ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-200"
+    : "bg-sky-500/20 border-sky-500/50 text-sky-200";
+
+  return (
+    <div className="space-y-1.5" ref={containerRef}>
+      {/* Hidden input for HTML5 form validation */}
+      <input
+        type="text"
+        name="courseId"
+        value={value || ""}
+        required={required}
+        onChange={() => {}}
+        className="sr-only"
+        tabIndex={-1}
+      />
+
+      <div className="flex items-center justify-between">
+        <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+          <BookOpen className={`w-4 h-4 ${iconColor}`} />
+          <span>Select Academic Course Program</span>
+          {required && <span className="text-rose-400">*</span>}
+        </label>
+        <span className="text-[11px] font-mono text-slate-400">
+          {courses.length} Courses across 4 Categories
+        </span>
+      </div>
+
+      {/* Main Trigger Box */}
+      <div className="relative">
+        <div
+          onClick={() => !disabled && setIsOpen((prev) => !prev)}
+          className={`w-full rounded-2xl border transition duration-200 cursor-pointer text-left select-none ${
+            isOpen
+              ? `${ringAccent} bg-slate-900 shadow-xl`
+              : selectedCourse
+              ? `bg-gradient-to-r ${glowGradient} shadow-lg`
+              : "bg-slate-950 border-slate-700/80 hover:border-slate-600 hover:bg-slate-900/50 shadow-inner"
+          } p-3 sm:p-3.5 ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+        >
+          {selectedCourse ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-xl shrink-0 shadow-md">
+                  {getCourseCategory(selectedCourse).icon}
+                </div>
+
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-extrabold text-white text-sm sm:text-base truncate">
+                      {selectedCourse.course_name || selectedCourse.courseName}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                      <Check className="w-3 h-3" /> Selected
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2 mt-1 flex-wrap text-xs">
+                    <span className={`px-2 py-0.5 rounded-md font-mono font-bold text-[11px] border ${badgeClass}`}>
+                      {selectedCourse.course_code || selectedCourse.courseCode}
+                    </span>
+                    <span className="text-slate-400 text-[11px]">
+                      {getCourseCategory(selectedCourse).label}
+                    </span>
+                    <span className="px-2 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-bold text-[11px]">
+                      {Number(selectedCourse.feeModesId || selectedCourse.fee_modes_id) === 2 ? "Full Course Fee" : "Monthly Plan"}
+                    </span>
+                    <span className="font-extrabold text-emerald-400 font-mono text-xs">
+                      ₹{Number(selectedCourse.courseFees || selectedCourse.course_fees || 0).toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  title="Clear Selection"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <div className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition cursor-pointer ${badgeClass}`}>
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Change</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between gap-3 py-1">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl ${isEmerald ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" : "bg-sky-500/10 border-sky-500/20 text-sky-400"} border flex items-center justify-center shrink-0`}>
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-200 block">
+                    Click to Search &amp; Select Academic Course Program
+                  </span>
+                  <span className="text-[11px] text-slate-400 block">
+                    Choose from {courses.length} courses across Software, Accounts, School Boards &amp; Tech
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 text-[11px] font-mono">
+                  {courses.length} available
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400">
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180 " + iconColor : ""}`} />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Dropdown Popover */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-slate-900/98 backdrop-blur-2xl border border-slate-700/90 shadow-2xl shadow-black/95 overflow-hidden ring-1 ring-white/10"
+            >
+              {/* Search Bar Header */}
+              <div className="p-3 bg-slate-950/95 border-b border-slate-800 flex items-center gap-2.5">
+                <Search className={`w-4 h-4 ${iconColor} shrink-0`} />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search course by name, code (e.g. JS01, RDBMS, TALLY), or category..."
+                  className="w-full bg-transparent text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none font-medium"
+                />
+                {search && (
+                  <button
+                    type="button"
+                    onClick={() => setSearch("")}
+                    className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+                <span className="text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/50 shrink-0">
+                  {filteredCourses.length} {filteredCourses.length === 1 ? "course" : "courses"}
+                </span>
+              </div>
+
+              {/* Category Filter Tabs */}
+              <div className="p-2 bg-slate-950/60 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1.5 border ${
+                      activeCategory === cat.id
+                        ? activeTabClass
+                        : "bg-slate-900/70 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                    }`}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{cat.label}</span>
+                    <span className="text-[10px] opacity-70">({cat.count})</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Scrollable Course Items List */}
+              <div className="max-h-80 overflow-y-auto p-2 space-y-3 custom-scrollbar">
+                {filteredCourses.length === 0 ? (
+                  <div className="py-8 px-4 text-center">
+                    <BookOpen className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+                    <p className="text-sm font-semibold text-slate-300">No courses match your search</p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      No course found for "{search}". Try searching with a different term.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => { setSearch(""); setActiveCategory("all"); }}
+                      className="mt-3 px-3 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition cursor-pointer"
+                    >
+                      Reset Filters
+                    </button>
+                  </div>
+                ) : (
+                  Object.entries(groupedFiltered).map(([groupTitle, courseList]) => (
+                    <div key={groupTitle} className="space-y-1">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1 flex items-center justify-between border-b border-slate-800/60">
+                        <span>{groupTitle}</span>
+                        <span className="text-[10px] text-slate-500 font-mono font-normal">
+                          {courseList.length} {courseList.length === 1 ? "course" : "courses"}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1">
+                        {courseList.map((c) => {
+                          const courseIdStr = String(c.id || c.courseId);
+                          const isCurrent = String(value) === courseIdStr;
+                          const name = c.course_name || c.courseName;
+                          const code = c.course_code || c.courseCode;
+                          const fee = Number(c.courseFees || c.course_fees || 0);
+                          const isLump = Number(c.feeModesId || c.fee_modes_id) === 2;
+
+                          return (
+                            <div
+                              key={courseIdStr}
+                              onClick={() => handleSelect(c)}
+                              className={`p-2.5 rounded-xl flex items-center justify-between gap-3 transition cursor-pointer ${
+                                isCurrent
+                                  ? `${badgeClass} bg-opacity-20 border`
+                                  : "hover:bg-slate-800/80 border border-transparent text-slate-200"
+                              }`}
+                            >
+                              <div className="flex items-center gap-3 min-w-0">
+                                <div className={`w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-mono font-bold text-xs ${iconColor} shrink-0`}>
+                                  {code ? code.substring(0, 3) : "CRS"}
+                                </div>
+
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-bold text-xs sm:text-sm text-white truncate">
+                                      {name}
+                                    </span>
+                                    {isCurrent && (
+                                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/20 px-1.5 py-0.2 rounded border border-emerald-500/30">
+                                        Selected
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                                    <span className="text-[11px] font-mono text-slate-400 font-semibold">
+                                      [{code}]
+                                    </span>
+                                    <span className="text-[10px] text-purple-300 bg-purple-500/10 px-1.5 py-0.2 rounded border border-purple-500/20 font-medium">
+                                      {isLump ? "Course Fee" : "Monthly Plan"}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-3 shrink-0">
+                                <div className="text-right">
+                                  <span className="font-mono font-extrabold text-xs sm:text-sm text-emerald-400 block">
+                                    ₹{fee.toLocaleString()}
+                                  </span>
+                                  <span className="text-[10px] text-slate-500 block">
+                                    {isLump ? "Total Fee" : "Est. Rate"}
+                                  </span>
+                                </div>
+
+                                {isCurrent ? (
+                                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                                ) : (
+                                  <span className="text-xs text-slate-500 group-hover:text-slate-300">
+                                    Select →
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Dropdown Footer */}
+              <div className="p-2.5 bg-slate-950/90 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+                <span>Showing {filteredCourses.length} of {courses.length} courses</span>
+                <span className="text-slate-500 font-mono">ESC to dismiss</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 // Interactive DatePicker Helper Component with Selection Button & Shortcuts
 function DatePicker({ label, name, value, onChange, required = false }) {
   const inputRef = React.useRef(null);

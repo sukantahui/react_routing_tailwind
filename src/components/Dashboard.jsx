@@ -281,12 +281,22 @@ export default function Dashboard() {
         {/* Students Section */}
         <div className="flex items-center justify-between mb-2 mt-12">
           <h2 className="text-2xl font-semibold text-amber-400">Registered Students</h2>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => navigate("/admission")}
+              className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white px-4 py-2 rounded-xl shadow-lg shadow-sky-600/25 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer ring-1 ring-white/10"
+              title="Assign academic course to an existing student (Official Admission)"
+            >
+              <i className="bi bi-mortarboard-fill text-sky-200"></i>
+              <span>Assign Course (Admit)</span>
+            </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => navigate("/students/student-admission")}
-              className="bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-400 hover:to-sky-500 text-white px-4 py-2 rounded-xl shadow-md text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white px-4 py-2 rounded-xl shadow-md text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <span>⚡ Fast Enroll Student</span>
             </motion.button>
@@ -330,17 +340,17 @@ export default function Dashboard() {
               <td className="p-3 text-gray-400">
                 {s.created_at ? new Date(s.created_at).toLocaleDateString() : "—"}
               </td>
-              <td className="p-3 text-right">
+              <td className="p-3 text-right whitespace-nowrap">
                 <button
                   onClick={() => navigate(`/admission?studentId=${s.id || s.studentId}`)}
-                  className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 transition cursor-pointer mr-2"
-                  title="Assign course to this student"
+                  className="px-3 py-1.5 text-xs font-bold rounded-xl bg-sky-500 hover:bg-sky-400 text-white shadow-md shadow-sky-500/25 transition-all duration-150 cursor-pointer mr-2 inline-flex items-center gap-1"
+                  title="Assign academic course to this student (Official Admission)"
                 >
-                  🎓 Admit to Course
+                  <span>🎓 Assign Course</span>
                 </button>
                 <button
                   onClick={() => openEditModal(s)}
-                  className="px-3 py-1 text-xs font-semibold rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 transition cursor-pointer"
+                  className="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer"
                 >
                   ✏️ Edit Profile
                 </button>

@@ -71,4 +71,14 @@ export const studentService = {
       throw error;
     }
   },
+
+  getPreviousAdmissions: async (studentId) => {
+    try {
+      const response = await api.get(`/students/${studentId}/previous-admissions`);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching student previous admissions and ledger:", error);
+      throw error;
+    }
+  },
 };

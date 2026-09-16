@@ -3,7 +3,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   User,
   BookOpen,
@@ -19,6 +19,19 @@ import {
   Download,
   Printer,
   CheckCircle2,
+  Phone,
+  Check,
+  X,
+  GraduationCap,
+  Sparkles,
+  Users,
+  CreditCard,
+  AlertCircle,
+  ExternalLink,
+  Receipt,
+  MapPin,
+  Mail,
+  Layers,
 } from "lucide-react";
 import { admissionService } from "../services/admissionService";
 import { studentService } from "../services/studentService";
@@ -69,6 +82,42 @@ const StudentAdmission = () => {
   });
 
   const [showFormJson, setShowFormJson] = useState(false);
+
+  // Previous course admissions and payment ledger history for selected student
+  const [studentHistory, setStudentHistory] = useState(null);
+  const [loadingHistory, setLoadingHistory] = useState(false);
+  const [expandedReceipts, setExpandedReceipts] = useState({});
+
+
+
+  // Fetch previous admissions & course payment history whenever selected student changes
+  useEffect(() => {
+    if (!formData.studentId) {
+      setStudentHistory(null);
+      return;
+    }
+
+    let isMounted = true;
+    const fetchStudentHistory = async () => {
+      setLoadingHistory(true);
+      try {
+        const res = await studentService.getPreviousAdmissions(formData.studentId);
+        if (isMounted && res?.status && res?.data) {
+          setStudentHistory(res.data);
+        }
+      } catch (err) {
+        console.error("Error loading previous admissions history:", err);
+        if (isMounted) setStudentHistory(null);
+      } finally {
+        if (isMounted) setLoadingHistory(false);
+      }
+    };
+
+    fetchStudentHistory();
+    return () => {
+      isMounted = false;
+    };
+  }, [formData.studentId]);
 
   // Real-time Due Calculation for both Monthly and Lump-sum fee modes
   const dueCalculation = useMemo(() => {
@@ -339,11 +388,12 @@ const StudentAdmission = () => {
     const swalTheme = getSwalTheme();
 
     const result = await Swal.fire({
-      title: "Save Admission?",
-      text: "Do you want to confirm this student admission?",
+      title: "Assign Course & Confirm Admission?",
+      text: "Do you want to assign this course to the student and create their official admission record?",
       icon: "question",
       showCancelButton: true,
-      confirmButtonText: "Yes, Confirm Admission",
+      confirmButtonText: "Yes, Assign Course & Admit",
+      cancelButtonText: "Review Details",
       ...swalTheme,
     });
 
@@ -356,8 +406,8 @@ const StudentAdmission = () => {
 
       await Swal.fire({
         icon: "success",
-        title: "Admission Confirmed!",
-        text: "Student has been successfully enrolled into the course.",
+        title: "Course Assigned & Student Admitted! 🎓",
+        text: "Student has been successfully assigned to the course and officially enrolled into the academy.",
         timer: 2500,
         showConfirmButton: false,
         ...swalTheme,
@@ -638,140 +688,77 @@ const StudentAdmission = () => {
           <div className="flex items-center gap-2 text-xs text-slate-400">
             <Link to="/dashboard" className="hover:text-white transition">Dashboard</Link>
             <span>/</span>
-            <span className="text-sky-400 font-semibold">Admit Student to Course</span>
+            <span className="text-sky-400 font-semibold">Assign Course to Student (Admission)</span>
           </div>
         </div>
 
         {/* Admission Form Card */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-sky-400 mb-2 text-center flex items-center justify-center gap-2">
-            <User className="w-6 h-6" />
-            Admit Student to Course
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 text-center flex items-center justify-center gap-2.5">
+            <GraduationCap className="w-7 h-7 text-sky-400" />
+            <span>Assign Course to Student <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">(Admission)</span></span>
           </h2>
-          <p className="text-center text-xs text-slate-400 mb-6">
-            Assign an academic course and tuition fee to an existing registered student.
+          <p className="text-center text-xs sm:text-sm text-slate-400 mb-5 max-w-2xl mx-auto">
+            Assign an academic course program and fee structure to an existing student. This assigns the course and officially enrolls the student into the academy.
           </p>
 
-          {/* Prefilled Student Banner */}
-          {selectedStudentObj && (
-            <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-sky-500/15 via-indigo-500/15 to-purple-500/15 border border-sky-500/30 flex items-center justify-between gap-4 shadow-lg">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-400 font-bold text-lg flex items-center justify-center">
-                  🎓
-                </div>
-                <div>
-                  <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold bg-sky-500/20 text-sky-300 mb-1">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                    PREFILLED STUDENT FROM DASHBOARD
-                  </div>
-                  <h3 className="text-base font-extrabold text-white">
-                    {selectedStudentObj.student_name || selectedStudentObj.studentName}
-                    <span className="font-mono text-xs text-slate-400 font-normal ml-2">
-                      ({selectedStudentObj.registration_number || selectedStudentObj.registrationNumber})
-                    </span>
-                  </h3>
-                </div>
+          {/* Prominent Workflow Callout Banner */}
+          <div className="mb-6 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-sky-500/15 via-indigo-500/10 to-sky-500/15 border border-sky-500/30 flex items-center justify-between gap-4 shadow-lg shadow-sky-950/20">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-500/40 text-sky-400 flex items-center justify-center shrink-0">
+                <BookOpen className="w-5 h-5" />
               </div>
-
-              {selectedStudentObj.whatsapp && (
-                <div className="text-right">
-                  <span className="text-[10px] text-slate-400 uppercase font-bold block">WhatsApp Contact</span>
-                  <span className="text-xs font-mono font-bold text-emerald-400">
-                    {selectedStudentObj.whatsapp}
-                  </span>
-                </div>
-              )}
+              <div>
+                <span className="font-bold text-xs text-sky-300 uppercase tracking-wider block">
+                  Course Assignment = Official Student Admission
+                </span>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  Select a student from the directory below, choose their desired course, set the tuition fee mode, and save to confirm their enrollment.
+                </p>
+              </div>
             </div>
-          )}
+            <Link
+              to="/students/add"
+              className="px-3.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold whitespace-nowrap transition hidden md:inline-flex items-center gap-1.5 shrink-0"
+            >
+              <span>+ Register New Student</span>
+            </Link>
+          </div>
+
+
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Student Select */}
-            <Select
-              label="Student"
-              name="studentId"
-              value={String(formData.studentId || "")}
+            {/* Interactive Searchable Student Directory Selector */}
+            <SearchableStudentSelect
+              students={students}
+              value={formData.studentId}
               onChange={handleChange}
-              required
-              disabled={loading.students}
-              options={students.map((s) => ({
-                value: String(s.id || s.studentId),
-                label: `${s.student_name || s.studentName || "Student"} [${s.registration_number || s.registrationNumber || s.whatsapp || ""}]`,
-              }))}
               loading={loading.students}
+              required
             />
 
-            {/* GROUPED CLEAN ACADEMIC COURSE DROPDOWN */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-gray-200 flex items-center gap-1.5">
-                  <BookOpen className="w-4 h-4 text-sky-400" />
-                  <span>Select Academic Course</span>
-                  <span className="text-rose-400">*</span>
-                </label>
-                <span className="text-[11px] text-slate-400">
-                  {courses.length} courses across 4 categories
-                </span>
-              </div>
+            {/* STUDENT ACADEMIC PROFILE & PREVIOUS COURSE ADMISSIONS / PAYMENT HISTORY */}
+            {formData.studentId && (
+              <StudentAcademicHistoryCard
+                history={studentHistory}
+                loading={loadingHistory}
+                expandedReceipts={expandedReceipts}
+                onToggleReceipts={(admId) =>
+                  setExpandedReceipts((prev) => ({ ...prev, [admId]: !prev[admId] }))
+                }
+                selectedStudentObj={selectedStudentObj}
+              />
+            )}
 
-              <select
-                name="courseId"
-                value={formData.courseId || ""}
-                onChange={handleChange}
-                required
-                disabled={loading.courses}
-                className="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 cursor-pointer shadow-inner"
-              >
-                <option value="" className="text-slate-500 bg-gray-900">
-                  -- Select Academic Course Program --
-                </option>
-                {Object.entries(groupedCourses).map(([groupTitle, courseList]) =>
-                  courseList.length > 0 ? (
-                    <optgroup
-                      key={groupTitle}
-                      label={groupTitle}
-                      className="bg-gray-900 font-bold text-sky-400 text-xs py-1"
-                    >
-                      {courseList.map((c) => {
-                        const fee = Number(c.courseFees || c.course_fees || 0);
-                        const code = c.course_code || c.courseCode;
-                        const name = c.course_name || c.courseName;
-                        return (
-                          <option
-                            key={c.id || c.courseId}
-                            value={c.id || c.courseId}
-                            className="bg-gray-950 text-slate-100 font-normal py-1.5 pl-2 text-xs"
-                          >
-                            {name} ({code}) — ₹{fee.toLocaleString()}
-                          </option>
-                        );
-                      })}
-                    </optgroup>
-                  ) : null
-                )}
-              </select>
-
-              {/* Selected Course Quick Summary Banner */}
-              {selectedCourseObj && (
-                <div className="p-3 rounded-xl bg-gradient-to-r from-sky-950/40 via-gray-900 to-indigo-950/30 border border-sky-500/30 flex items-center justify-between gap-3 text-xs animate-fadeIn">
-                  <div className="flex items-center gap-2.5">
-                    <span className="px-2 py-0.5 rounded-md font-mono font-bold text-xs bg-sky-500/20 text-sky-300 border border-sky-500/30">
-                      {selectedCourseObj.course_code || selectedCourseObj.courseCode}
-                    </span>
-                    <span className="font-bold text-white">
-                      {selectedCourseObj.course_name || selectedCourseObj.courseName}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                      {Number(selectedCourseObj.feeModesId || selectedCourseObj.fee_modes_id) === 2 ? "Course Fees" : "Monthly Plan"}
-                    </span>
-                    <span className="font-extrabold text-emerald-400">
-                      ₹{Number(selectedCourseObj.courseFees || selectedCourseObj.course_fees || 0).toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* SEARCHABLE & CATEGORIZED ACADEMIC COURSE SELECTOR */}
+            <SearchableCourseSelect
+              courses={courses}
+              value={formData.courseId}
+              onChange={handleChange}
+              disabled={loading.courses}
+              required
+              accentColor="sky"
+            />
             {/* Payment Schedule / Fee Mode & Course Fees */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Select
@@ -1063,12 +1050,12 @@ const StudentAdmission = () => {
                 {loading.submit ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
-                    <span>Confirming Admission...</span>
+                    <span>Assigning Course &amp; Enrolling...</span>
                   </>
                 ) : (
                   <>
                     <Save className="w-4 h-4" />
-                    <span>Confirm &amp; Save Admission</span>
+                    <span>🎓 Assign Course &amp; Confirm Admission</span>
                   </>
                 )}
               </button>
@@ -1200,6 +1187,783 @@ const StudentAdmission = () => {
 };
 
 // Form Helper Components
+function SearchableStudentSelect({
+  students = [],
+  value,
+  onChange,
+  loading = false,
+  required = false,
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const containerRef = useRef(null);
+  const searchInputRef = useRef(null);
+
+  // Close dropdown on outside click or ESC key
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleKeyDown);
+      setTimeout(() => searchInputRef.current?.focus(), 60);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  // Selected student object
+  const selectedStudent = useMemo(() => {
+    if (!value) return null;
+    return students.find((s) => String(s.id || s.studentId) === String(value));
+  }, [students, value]);
+
+  // Filtered students based on search query
+  const filteredStudents = useMemo(() => {
+    if (!search.trim()) return students;
+    const q = search.toLowerCase().trim();
+    return students.filter((s) => {
+      const name = (s.student_name || s.studentName || "").toLowerCase();
+      const reg = (s.registration_number || s.registrationNumber || "").toLowerCase();
+      const phone = (s.whatsapp || s.mobile || s.phone1 || s.phone2 || "").toLowerCase();
+      const email = (s.email || "").toLowerCase();
+      return name.includes(q) || reg.includes(q) || phone.includes(q) || email.includes(q);
+    });
+  }, [students, search]);
+
+  const handleSelect = (s) => {
+    onChange({ target: { name: "studentId", value: String(s.id || s.studentId) } });
+    setIsOpen(false);
+    setSearch("");
+  };
+
+  const handleClear = (e) => {
+    e.stopPropagation();
+    onChange({ target: { name: "studentId", value: "" } });
+    setSearch("");
+  };
+
+  const getAvatarGradient = (name = "") => {
+    const gradients = [
+      "from-sky-500 to-indigo-600",
+      "from-purple-500 to-pink-600",
+      "from-emerald-500 to-teal-600",
+      "from-amber-500 to-rose-600",
+      "from-blue-600 to-cyan-500",
+      "from-violet-600 to-fuchsia-600",
+      "from-teal-500 to-sky-600",
+    ];
+    let sum = 0;
+    for (let i = 0; i < name.length; i++) sum += name.charCodeAt(i);
+    return gradients[sum % gradients.length];
+  };
+
+  const getInitials = (name = "") => {
+    const parts = name.trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return "ST";
+    if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  };
+
+  return (
+    <div className="space-y-1.5" ref={containerRef}>
+      {/* Hidden input for HTML form validation */}
+      <input
+        type="text"
+        name="studentId"
+        value={value || ""}
+        required={required}
+        onChange={() => {}}
+        className="sr-only"
+        tabIndex={-1}
+      />
+
+      <div className="flex items-center justify-between">
+        <label className="text-xs font-bold text-gray-200 flex items-center gap-1.5">
+          <GraduationCap className="w-4 h-4 text-sky-400" />
+          <span>Student Directory</span>
+          {required && <span className="text-rose-400">*</span>}
+        </label>
+        <span className="text-[11px] font-mono text-slate-400">
+          {loading ? "Loading directory..." : `${students.length} Registered Students`}
+        </span>
+      </div>
+
+      {/* Main Trigger Card */}
+      <div className="relative">
+        <div
+          onClick={() => !loading && setIsOpen((prev) => !prev)}
+          className={`w-full rounded-2xl border transition duration-200 cursor-pointer text-left select-none ${
+            isOpen
+              ? "border-sky-500 ring-2 ring-sky-500/20 bg-slate-900 shadow-xl"
+              : selectedStudent
+              ? "bg-gradient-to-r from-slate-900 via-slate-900/95 to-sky-950/30 border-sky-500/40 hover:border-sky-500/70 shadow-lg"
+              : "bg-gray-950 border-gray-700 hover:border-gray-600 hover:bg-slate-900/50 shadow-inner"
+          } p-3 sm:p-3.5`}
+        >
+          {loading ? (
+            <div className="flex items-center gap-3 py-1">
+              <div className="w-5 h-5 border-2 border-sky-400 border-t-transparent rounded-full animate-spin shrink-0" />
+              <span className="text-xs text-slate-400 font-medium">Loading student directory...</span>
+            </div>
+          ) : selectedStudent ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <div
+                  className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${getAvatarGradient(
+                    selectedStudent.student_name || selectedStudent.studentName || ""
+                  )} text-white font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-md ring-1 ring-white/20`}
+                >
+                  {getInitials(selectedStudent.student_name || selectedStudent.studentName || "")}
+                </div>
+
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-extrabold text-white text-sm sm:text-base truncate">
+                      {selectedStudent.student_name || selectedStudent.studentName || "Student"}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                      <Check className="w-3 h-3" /> Selected
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2 mt-1 flex-wrap">
+                    <span className="px-2 py-0.5 rounded-md bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono text-[11px] font-semibold">
+                      {selectedStudent.registration_number || selectedStudent.registrationNumber || "No Reg No"}
+                    </span>
+
+                    {(selectedStudent.whatsapp || selectedStudent.mobile) && (
+                      <span className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                        <Phone className="w-3 h-3" />
+                        {selectedStudent.whatsapp || selectedStudent.mobile}
+                      </span>
+                    )}
+
+                    {selectedStudent.email && (
+                      <span className="text-[11px] text-slate-400 truncate hidden md:inline">
+                        {selectedStudent.email}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  title="Clear Selection"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <div className="px-2.5 py-1.5 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 text-xs font-semibold flex items-center gap-1.5 border border-sky-500/30 transition cursor-pointer">
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Change</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between gap-3 py-1">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 shrink-0">
+                  <Search className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-200 block">
+                    Click to Search & Select Student
+                  </span>
+                  <span className="text-[11px] text-slate-400 block">
+                    Search by student name, CNAT reg number, or WhatsApp
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 text-[11px] font-mono">
+                  {students.length} available
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400">
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180 text-sky-400" : ""}`} />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Floating Animated Dropdown Popover */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-slate-900/98 backdrop-blur-2xl border border-slate-700/90 shadow-2xl shadow-black/95 overflow-hidden ring-1 ring-white/10"
+            >
+              {/* Dropdown Header with Search Box */}
+              <div className="p-3 bg-slate-950/95 border-b border-slate-800 flex items-center gap-2.5">
+                <Search className="w-4 h-4 text-sky-400 shrink-0" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search by name (e.g. Mehuly, Puja), CNAT reg no, or mobile..."
+                  className="w-full bg-transparent text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none font-medium"
+                />
+                {search && (
+                  <button
+                    type="button"
+                    onClick={() => setSearch("")}
+                    className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+                <span className="text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/50 shrink-0">
+                  {filteredStudents.length} {filteredStudents.length === 1 ? "match" : "matches"}
+                </span>
+              </div>
+
+              {/* Scrollable Student Items List */}
+              <div className="max-h-72 overflow-y-auto divide-y divide-slate-800/50 p-1.5 custom-scrollbar">
+                {filteredStudents.length === 0 ? (
+                  <div className="py-8 px-4 text-center">
+                    <Users className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+                    <p className="text-sm font-semibold text-slate-300">No students found</p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      No registered student matches "{search}".
+                    </p>
+                    <div className="mt-3">
+                      <Link
+                        to="/students/student-admission"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-xs font-semibold transition"
+                      >
+                        <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                        Register New Student
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  filteredStudents.map((s) => {
+                    const studentIdStr = String(s.id || s.studentId);
+                    const isCurrent = String(value) === studentIdStr;
+                    const name = s.student_name || s.studentName || "Student";
+                    const reg = s.registration_number || s.registrationNumber;
+                    const phone = s.whatsapp || s.mobile || s.phone1;
+
+                    return (
+                      <div
+                        key={studentIdStr}
+                        onClick={() => handleSelect(s)}
+                        className={`p-2.5 rounded-xl flex items-center justify-between gap-3 transition cursor-pointer ${
+                          isCurrent
+                            ? "bg-sky-500/20 border border-sky-500/40 text-white"
+                            : "hover:bg-slate-800/80 border border-transparent text-slate-200"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div
+                            className={`w-9 h-9 rounded-xl bg-gradient-to-br ${getAvatarGradient(
+                              name
+                            )} text-white font-bold text-xs flex items-center justify-center shrink-0 shadow ring-1 ring-white/10`}
+                          >
+                            {getInitials(name)}
+                          </div>
+
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-xs sm:text-sm text-white truncate">
+                                {name}
+                              </span>
+                              {isCurrent && (
+                                <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/20 px-1.5 py-0.2 rounded border border-emerald-500/30">
+                                  Current
+                                </span>
+                              )}
+                            </div>
+
+                            <div className="flex items-center gap-2 mt-0.5">
+                              {reg && (
+                                <span className="text-[11px] font-mono text-sky-300 font-semibold bg-sky-500/10 px-1.5 py-0.5 rounded border border-sky-500/20">
+                                  {reg}
+                                </span>
+                              )}
+                              {phone && (
+                                <span className="text-[11px] font-mono text-slate-400 flex items-center gap-0.5">
+                                  <Phone className="w-2.5 h-2.5 text-slate-500" />
+                                  {phone}
+                                </span>
+                              )}
+                              {s.email && (
+                                <span className="text-[11px] text-slate-500 truncate hidden lg:inline">
+                                  • {s.email}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="shrink-0">
+                          {isCurrent ? (
+                            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                          ) : (
+                            <span className="text-xs text-sky-400/70 hover:text-sky-300 font-semibold flex items-center gap-1">
+                              Select <span className="text-sm">→</span>
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+
+              {/* Dropdown Footer */}
+              <div className="p-2.5 bg-slate-950/90 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+                <span>Showing {filteredStudents.length} of {students.length} students</span>
+                <span className="text-slate-500 font-mono">ESC to dismiss</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// Searchable & Categorized Academic Course Selector Component
+// ============================================================================
+function SearchableCourseSelect({
+  courses = [],
+  value,
+  onChange,
+  disabled = false,
+  required = false,
+  accentColor = "sky",
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+  const containerRef = useRef(null);
+  const searchInputRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleKeyDown);
+      setTimeout(() => searchInputRef.current?.focus(), 60);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  const selectedCourse = useMemo(() => {
+    if (!value) return null;
+    return courses.find((c) => String(c.id || c.courseId) === String(value));
+  }, [courses, value]);
+
+  const getCourseCategory = (c) => {
+    const code = (c.course_code || c.courseCode || "").toUpperCase();
+    const name = (c.course_name || c.courseName || "").toLowerCase();
+
+    if (
+      code.includes("ICSE") ||
+      code.includes("ISC") ||
+      code.includes("CBSE") ||
+      code.includes("WBCHSE") ||
+      code.includes("SCHOOL")
+    ) {
+      return { id: "school", label: "School & Boards", icon: "🎓" };
+    } else if (
+      code.includes("TALLY") ||
+      code.includes("EXCEL") ||
+      code.includes("GST") ||
+      code.includes("DFA") ||
+      code.includes("DCA") ||
+      code.includes("OP") ||
+      name.includes("office") ||
+      name.includes("accounting")
+    ) {
+      return { id: "accounting", label: "Accounts & Office", icon: "📊" };
+    } else if (
+      code.includes("AI") ||
+      code.includes("ROBOT") ||
+      name.includes("ai") ||
+      name.includes("robotics")
+    ) {
+      return { id: "tech", label: "Advanced Tech", icon: "🤖" };
+    } else {
+      return { id: "software", label: "Software & Web", icon: "💻" };
+    }
+  };
+
+  const categories = useMemo(() => [
+    { id: "all", label: "All Courses", count: courses.length, icon: "📚" },
+    { id: "software", label: "Software & Web", count: courses.filter((c) => getCourseCategory(c).id === "software").length, icon: "💻" },
+    { id: "accounting", label: "Accounts & Office", count: courses.filter((c) => getCourseCategory(c).id === "accounting").length, icon: "📊" },
+    { id: "school", label: "School & Boards", count: courses.filter((c) => getCourseCategory(c).id === "school").length, icon: "🎓" },
+    { id: "tech", label: "Advanced Tech", count: courses.filter((c) => getCourseCategory(c).id === "tech").length, icon: "🤖" },
+  ], [courses]);
+
+  const filteredCourses = useMemo(() => {
+    return courses.filter((c) => {
+      const cat = getCourseCategory(c);
+      if (activeCategory !== "all" && cat.id !== activeCategory) {
+        return false;
+      }
+      if (!search.trim()) return true;
+
+      const q = search.toLowerCase().trim();
+      const name = (c.course_name || c.courseName || "").toLowerCase();
+      const code = (c.course_code || c.courseCode || "").toLowerCase();
+      const fee = String(c.courseFees || c.course_fees || "");
+      const catLabel = cat.label.toLowerCase();
+
+      return name.includes(q) || code.includes(q) || fee.includes(q) || catLabel.includes(q);
+    });
+  }, [courses, search, activeCategory]);
+
+  const groupedFiltered = useMemo(() => {
+    const groups = {};
+    filteredCourses.forEach((c) => {
+      const cat = getCourseCategory(c);
+      const key = `${cat.icon} ${cat.label}`;
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(c);
+    });
+    return groups;
+  }, [filteredCourses]);
+
+  const handleSelect = (c) => {
+    onChange({ target: { name: "courseId", value: String(c.id || c.courseId) } });
+    setIsOpen(false);
+    setSearch("");
+  };
+
+  const handleClear = (e) => {
+    e.stopPropagation();
+    onChange({ target: { name: "courseId", value: "" } });
+    setSearch("");
+  };
+
+  const isEmerald = accentColor === "emerald";
+  const ringAccent = isEmerald ? "border-emerald-500 ring-2 ring-emerald-500/20" : "border-sky-500 ring-2 ring-sky-500/20";
+  const glowGradient = isEmerald
+    ? "from-slate-900 via-slate-900/95 to-emerald-950/30 border-emerald-500/40 hover:border-emerald-500/70"
+    : "from-slate-900 via-slate-900/95 to-sky-950/30 border-sky-500/40 hover:border-sky-500/70";
+  const badgeClass = isEmerald
+    ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-300"
+    : "bg-sky-500/15 border-sky-500/30 text-sky-300";
+  const iconColor = isEmerald ? "text-emerald-400" : "text-sky-400";
+  const activeTabClass = isEmerald
+    ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-200"
+    : "bg-sky-500/20 border-sky-500/50 text-sky-200";
+
+  return (
+    <div className="space-y-1.5" ref={containerRef}>
+      {/* Hidden input for HTML5 form validation */}
+      <input
+        type="text"
+        name="courseId"
+        value={value || ""}
+        required={required}
+        onChange={() => {}}
+        className="sr-only"
+        tabIndex={-1}
+      />
+
+      <div className="flex items-center justify-between">
+        <label className="text-xs font-bold text-gray-200 flex items-center gap-1.5">
+          <BookOpen className={`w-4 h-4 ${iconColor}`} />
+          <span>Select Academic Course Program</span>
+          {required && <span className="text-rose-400">*</span>}
+        </label>
+        <span className="text-[11px] font-mono text-slate-400">
+          {courses.length} Courses across 4 Categories
+        </span>
+      </div>
+
+      {/* Main Trigger Box */}
+      <div className="relative">
+        <div
+          onClick={() => !disabled && setIsOpen((prev) => !prev)}
+          className={`w-full rounded-2xl border transition duration-200 cursor-pointer text-left select-none ${
+            isOpen
+              ? `${ringAccent} bg-slate-900 shadow-xl`
+              : selectedCourse
+              ? `bg-gradient-to-r ${glowGradient} shadow-lg`
+              : "bg-gray-950 border-gray-700 hover:border-gray-600 hover:bg-slate-900/50 shadow-inner"
+          } p-3 sm:p-3.5 ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+        >
+          {selectedCourse ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-xl shrink-0 shadow-md">
+                  {getCourseCategory(selectedCourse).icon}
+                </div>
+
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-extrabold text-white text-sm sm:text-base truncate">
+                      {selectedCourse.course_name || selectedCourse.courseName}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                      <Check className="w-3 h-3" /> Selected
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2 mt-1 flex-wrap text-xs">
+                    <span className={`px-2 py-0.5 rounded-md font-mono font-bold text-[11px] border ${badgeClass}`}>
+                      {selectedCourse.course_code || selectedCourse.courseCode}
+                    </span>
+                    <span className="text-slate-400 text-[11px]">
+                      {getCourseCategory(selectedCourse).label}
+                    </span>
+                    <span className="px-2 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-bold text-[11px]">
+                      {Number(selectedCourse.feeModesId || selectedCourse.fee_modes_id) === 2 ? "Full Course Fee" : "Monthly Plan"}
+                    </span>
+                    <span className="font-extrabold text-emerald-400 font-mono text-xs">
+                      ₹{Number(selectedCourse.courseFees || selectedCourse.course_fees || 0).toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={handleClear}
+                  title="Clear Selection"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <div className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition cursor-pointer ${badgeClass}`}>
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Change</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between gap-3 py-1">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl ${isEmerald ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" : "bg-sky-500/10 border-sky-500/20 text-sky-400"} border flex items-center justify-center shrink-0`}>
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-200 block">
+                    Click to Search &amp; Select Academic Course Program
+                  </span>
+                  <span className="text-[11px] text-slate-400 block">
+                    Choose from {courses.length} courses across Software, Accounts, School Boards &amp; Tech
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md bg-slate-800 text-slate-400 text-[11px] font-mono">
+                  {courses.length} available
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400">
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180 " + iconColor : ""}`} />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Dropdown Popover */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="absolute left-0 right-0 top-full mt-2 z-50 rounded-2xl bg-slate-900/98 backdrop-blur-2xl border border-slate-700/90 shadow-2xl shadow-black/95 overflow-hidden ring-1 ring-white/10"
+            >
+              {/* Search Bar Header */}
+              <div className="p-3 bg-slate-950/95 border-b border-slate-800 flex items-center gap-2.5">
+                <Search className={`w-4 h-4 ${iconColor} shrink-0`} />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search course by name, code (e.g. JS01, RDBMS, TALLY), or category..."
+                  className="w-full bg-transparent text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none font-medium"
+                />
+                {search && (
+                  <button
+                    type="button"
+                    onClick={() => setSearch("")}
+                    className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+                <span className="text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/50 shrink-0">
+                  {filteredCourses.length} {filteredCourses.length === 1 ? "course" : "courses"}
+                </span>
+              </div>
+
+              {/* Category Filter Tabs */}
+              <div className="p-2 bg-slate-950/60 border-b border-slate-800/80 flex items-center gap-1.5 overflow-x-auto">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1.5 border ${
+                      activeCategory === cat.id
+                        ? activeTabClass
+                        : "bg-slate-900/70 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+                    }`}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{cat.label}</span>
+                    <span className="text-[10px] opacity-70">({cat.count})</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Scrollable Course Items List */}
+              <div className="max-h-80 overflow-y-auto p-2 space-y-3 custom-scrollbar">
+                {filteredCourses.length === 0 ? (
+                  <div className="py-8 px-4 text-center">
+                    <BookOpen className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+                    <p className="text-sm font-semibold text-slate-300">No courses match your search</p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      No course found for "{search}". Try searching with a different term.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => { setSearch(""); setActiveCategory("all"); }}
+                      className="mt-3 px-3 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition cursor-pointer"
+                    >
+                      Reset Filters
+                    </button>
+                  </div>
+                ) : (
+                  Object.entries(groupedFiltered).map(([groupTitle, courseList]) => (
+                    <div key={groupTitle} className="space-y-1">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 py-1 flex items-center justify-between border-b border-slate-800/60">
+                        <span>{groupTitle}</span>
+                        <span className="text-[10px] text-slate-500 font-mono font-normal">
+                          {courseList.length} {courseList.length === 1 ? "course" : "courses"}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1">
+                        {courseList.map((c) => {
+                          const courseIdStr = String(c.id || c.courseId);
+                          const isCurrent = String(value) === courseIdStr;
+                          const name = c.course_name || c.courseName;
+                          const code = c.course_code || c.courseCode;
+                          const fee = Number(c.courseFees || c.course_fees || 0);
+                          const isLump = Number(c.feeModesId || c.fee_modes_id) === 2;
+
+                          return (
+                            <div
+                              key={courseIdStr}
+                              onClick={() => handleSelect(c)}
+                              className={`p-2.5 rounded-xl flex items-center justify-between gap-3 transition cursor-pointer ${
+                                isCurrent
+                                  ? `${badgeClass} bg-opacity-20 border`
+                                  : "hover:bg-slate-800/80 border border-transparent text-slate-200"
+                              }`}
+                            >
+                              <div className="flex items-center gap-3 min-w-0">
+                                <div className={`w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-mono font-bold text-xs ${iconColor} shrink-0`}>
+                                  {code ? code.substring(0, 3) : "CRS"}
+                                </div>
+
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-bold text-xs sm:text-sm text-white truncate">
+                                      {name}
+                                    </span>
+                                    {isCurrent && (
+                                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/20 px-1.5 py-0.2 rounded border border-emerald-500/30">
+                                        Selected
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                                    <span className="text-[11px] font-mono text-slate-400 font-semibold">
+                                      [{code}]
+                                    </span>
+                                    <span className="text-[10px] text-purple-300 bg-purple-500/10 px-1.5 py-0.2 rounded border border-purple-500/20 font-medium">
+                                      {isLump ? "Course Fee" : "Monthly Plan"}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-3 shrink-0">
+                                <div className="text-right">
+                                  <span className="font-mono font-extrabold text-xs sm:text-sm text-emerald-400 block">
+                                    ₹{fee.toLocaleString()}
+                                  </span>
+                                  <span className="text-[10px] text-slate-500 block">
+                                    {isLump ? "Total Fee" : "Est. Rate"}
+                                  </span>
+                                </div>
+
+                                {isCurrent ? (
+                                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                                ) : (
+                                  <span className="text-xs text-slate-500 group-hover:text-slate-300">
+                                    Select →
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Dropdown Footer */}
+              <div className="p-2.5 bg-slate-950/90 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+                <span>Showing {filteredCourses.length} of {courses.length} courses</span>
+                <span className="text-slate-500 font-mono">ESC to dismiss</span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 function Select({ label, name, value, onChange, options = [], required = false, disabled = false, loading = false }) {
   return (
     <div className="flex flex-col">
@@ -1335,6 +2099,380 @@ function Input({ label, name, value, onChange, type = "text", required = false, 
         className="bg-gray-950 text-gray-100 border border-gray-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
       />
     </div>
+  );
+}
+
+// ============================================================================
+// Student Academic Profile & Previous Course Admissions History Card
+// ============================================================================
+function StudentAcademicHistoryCard({
+  history,
+  loading,
+  expandedReceipts = {},
+  onToggleReceipts,
+  selectedStudentObj,
+}) {
+  const student = history?.student || (selectedStudentObj ? {
+    studentName: selectedStudentObj.student_name || selectedStudentObj.studentName,
+    registrationNumber: selectedStudentObj.registration_number || selectedStudentObj.registrationNumber,
+    whatsapp: selectedStudentObj.whatsapp,
+    phone1: selectedStudentObj.phone1 || selectedStudentObj.phone,
+    email: selectedStudentObj.email,
+    district: selectedStudentObj.district?.district_name || selectedStudentObj.district,
+    state: selectedStudentObj.state?.state_name || selectedStudentObj.state,
+  } : null);
+
+  if (!student) return null;
+
+  const initials = (student.studentName || "ST")
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .substring(0, 2)
+    .toUpperCase();
+
+  const hasAdmissions = history?.hasPreviousAdmissions && Array.isArray(history?.admissions) && history.admissions.length > 0;
+  const admissions = hasAdmissions ? history.admissions : [];
+  const stats = history?.overallStats || { totalAgreedFees: 0, totalPaidAmount: 0, totalBalanceDue: 0 };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25 }}
+      className="rounded-2xl border border-sky-500/40 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-sky-950/25 p-4 sm:p-5 shadow-2xl backdrop-blur-xl space-y-4"
+    >
+      {/* Top Student Profile Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3.5">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-sky-600 via-indigo-600 to-purple-600 text-white font-extrabold text-base flex items-center justify-center shadow-lg shadow-sky-900/30 shrink-0 ring-2 ring-white/10">
+            {initials}
+          </div>
+
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="text-base sm:text-lg font-black text-white truncate">
+                {student.studentName}
+              </h3>
+              <span className="font-mono text-xs px-2 py-0.5 rounded-md bg-slate-800 text-sky-300 border border-sky-500/30 font-bold tracking-wider">
+                {student.registrationNumber || "ID-" + (student.id || "")}
+              </span>
+            </div>
+
+            {/* Sub-pills: WhatsApp, Phone, Location */}
+            <div className="flex items-center gap-2 mt-1.5 flex-wrap text-xs">
+              {student.whatsapp && (
+                <a
+                  href={`https://wa.me/91${String(student.whatsapp).replace(/\D/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 px-2 py-0.5 rounded-md border border-emerald-500/30 transition cursor-pointer"
+                  title="Open in WhatsApp"
+                >
+                  <Phone className="w-3 h-3 text-emerald-400" />
+                  <span>{student.whatsapp}</span>
+                  <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                </a>
+              )}
+
+              {student.phone1 && student.phone1 !== student.whatsapp && (
+                <span className="inline-flex items-center gap-1 text-[11px] font-mono text-slate-300 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700/60">
+                  <span>📞 {student.phone1}</span>
+                </span>
+              )}
+
+              {student.email && (
+                <span className="inline-flex items-center gap-1 text-[11px] text-slate-300 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700/60">
+                  <Mail className="w-3 h-3 text-sky-400" />
+                  <span className="truncate max-w-[150px]">{student.email}</span>
+                </span>
+              )}
+
+              {(student.city || student.district) && (
+                <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-700/40">
+                  <MapPin className="w-3 h-3 text-rose-400" />
+                  <span>{[student.city, student.district].filter(Boolean).join(", ")}</span>
+                </span>
+              )}
+
+              {student.guardianName && (
+                <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-700/40">
+                  <span>Guardian: {student.guardianName} ({student.guardianRelation || "Parent"})</span>
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Status Badge */}
+        <div className="shrink-0 self-start sm:self-center">
+          {loading ? (
+            <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-800 text-sky-300 border border-slate-700 text-xs font-semibold">
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-sky-400" />
+              <span>Fetching Records...</span>
+            </div>
+          ) : hasAdmissions ? (
+            <span className="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center gap-1.5 shadow-sm">
+              <GraduationCap className="w-4 h-4 text-emerald-400" />
+              <span>{admissions.length} Enrolled Course{admissions.length > 1 ? "s" : ""}</span>
+            </span>
+          ) : (
+            <span className="px-3 py-1.5 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold text-xs flex items-center gap-1.5 shadow-sm">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>First-Time Admission Candidate</span>
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Loading state skeleton */}
+      {loading && !history && (
+        <div className="py-4 text-center space-y-2">
+          <RefreshCw className="w-6 h-6 animate-spin text-sky-400 mx-auto" />
+          <p className="text-xs text-slate-300 font-semibold">Loading student's previous courses and payment ledger...</p>
+        </div>
+      )}
+
+      {/* Case 1: Student has previous course admissions */}
+      {!loading && hasAdmissions && (
+        <div className="space-y-4">
+          {/* Overall Financial Stats */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 shadow-inner">
+              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Total Courses</span>
+              <span className="text-base sm:text-lg font-black text-white">{admissions.length}</span>
+            </div>
+
+            <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 shadow-inner">
+              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Fees Chargeable to Date</span>
+              <span className="text-base sm:text-lg font-mono font-bold text-slate-200">₹{Number(stats.totalAgreedFees || 0).toLocaleString()}</span>
+            </div>
+
+            <div className="p-3 rounded-xl bg-emerald-950/25 border border-emerald-500/30 shadow-inner">
+              <span className="text-[10px] uppercase font-bold text-emerald-400 block tracking-wider">Total Paid to Date</span>
+              <span className="text-base sm:text-lg font-mono font-black text-emerald-400">₹{Number(stats.totalPaidAmount || 0).toLocaleString()}</span>
+            </div>
+
+            <div className={`p-3 rounded-xl ${Number(stats.totalBalanceDue) > 0 ? "bg-rose-950/25 border border-rose-500/30" : "bg-emerald-950/15 border border-emerald-500/20"} shadow-inner`}>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Outstanding Balance</span>
+              <span className={`text-base sm:text-lg font-mono font-black ${Number(stats.totalBalanceDue) > 0 ? "text-rose-400" : "text-emerald-400"}`}>
+                ₹{Number(stats.totalBalanceDue || 0).toLocaleString()}
+              </span>
+            </div>
+          </div>
+
+          {/* Previous Course Cards List */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between text-xs text-slate-300 font-bold px-0.5">
+              <span className="flex items-center gap-1.5 uppercase tracking-wider text-[11px] text-sky-400">
+                <Layers className="w-3.5 h-3.5" />
+                Previous Enrolled Courses &amp; Payment Ledger
+              </span>
+              <span className="text-[11px] text-slate-400 font-normal">
+                {admissions.length} course record{admissions.length > 1 ? "s" : ""} found
+              </span>
+            </div>
+
+            {admissions.map((adm, index) => {
+              const course = adm.course || {};
+              const fin = adm.financials || {};
+              const feeMode = adm.feeMode || {};
+              const receipts = adm.receipts || [];
+              const isExpanded = !!expandedReceipts[adm.admissionId || index];
+
+              return (
+                <div
+                  key={adm.admissionId || index}
+                  className="rounded-xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition p-3.5 space-y-3 shadow-md"
+                >
+                  {/* Course Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center font-mono font-bold text-xs shrink-0">
+                        {course.courseCode ? course.courseCode.substring(0, 3) : "CRS"}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-extrabold text-sm text-white truncate">
+                            {course.courseName}
+                          </span>
+                          <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                            [{course.courseCode}]
+                          </span>
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                            {adm.courseStatus?.statusName || "Ongoing"}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-0.5 flex-wrap">
+                          <span className="font-mono font-semibold text-amber-300">
+                            Adm No: {adm.admissionNumber || "—"}
+                          </span>
+                          <span>•</span>
+                          <span>
+                            Admitted: {adm.admissionDate ? new Date(adm.admissionDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) : "—"}
+                          </span>
+                          {adm.completionDate && (
+                            <>
+                              <span>•</span>
+                              <span>Target Completion: {new Date(adm.completionDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Fee Mode & Agreed Fee Badge */}
+                    <div className="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                      <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/15 border border-purple-500/30 text-purple-300">
+                        {feeMode.modeName || (feeMode.isMonthly ? "Monthly" : "Course Fee")}
+                      </span>
+                      <span className="font-mono font-extrabold text-xs sm:text-sm text-emerald-400 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-700">
+                        ₹{Number(adm.agreedFee || 0).toLocaleString()}
+                        {feeMode.isMonthly ? "/mo" : " total"}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Payment Progress & Monthly/Lump details */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 text-xs">
+                    {/* Progress Bar & Amount Paid */}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="text-slate-400">
+                          {feeMode.isMonthly ? `Fees Paid (${fin.elapsedMonths || 1} mos chargeable):` : "Fees Paid Progress:"}
+                        </span>
+                        <span className="font-mono font-bold text-white">
+                          <strong className="text-emerald-400">₹{Number(fin.totalPaid || 0).toLocaleString()}</strong>
+                          {" / "}
+                          <span className="text-slate-300">₹{Number(fin.chargeableFee || fin.totalCourseFee || adm.agreedFee || 0).toLocaleString()}</span>
+                          {` (${fin.paymentPercentage || 0}%)`}
+                        </span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden border border-slate-700/50">
+                        <div
+                          className="h-full bg-gradient-to-r from-emerald-500 to-sky-400 transition-all duration-500 rounded-full"
+                          style={{ width: `${Math.min(100, fin.paymentPercentage || 0)}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Due / Monthly schedule indicator */}
+                    <div className="space-y-1">
+                      {feeMode.isMonthly ? (
+                        <div className="flex items-center justify-between gap-2 flex-wrap text-[11px]">
+                          <div>
+                            <span className="text-slate-400">Cleared Months: </span>
+                            <span className="font-semibold text-emerald-400">
+                              {fin.clearedMonthsCount > 0 ? `${fin.clearedMonthsCount} mo (${fin.clearedMonthsText})` : "None yet"}
+                            </span>
+                          </div>
+                          {Number(fin.balanceDue) > 0 ? (
+                            <div className="px-2 py-0.5 rounded bg-rose-500/15 border border-rose-500/30 text-rose-300 font-bold text-[10px] flex items-center gap-1">
+                              <span>⚠️ Balance Due: ₹{Number(fin.balanceDue).toLocaleString()}</span>
+                              {fin.nextDueMonth && <span>(from {fin.nextDueMonth})</span>}
+                            </div>
+                          ) : (
+                            <div className="px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold text-[10px]">
+                              ✓ All Months Cleared to Date
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-between text-[11px]">
+                          <span className="text-slate-400">Remaining Balance Due:</span>
+                          <span className={`font-mono font-bold ${Number(fin.balanceDue) > 0 ? "text-rose-400" : "text-emerald-400"}`}>
+                            {Number(fin.balanceDue) > 0 ? `₹${Number(fin.balanceDue).toLocaleString()}` : "Fully Cleared ✓"}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Payment Receipts Dropdown Toggle */}
+                  <div className="pt-2 border-t border-slate-800/80">
+                    <button
+                      type="button"
+                      onClick={() => onToggleReceipts(adm.admissionId || index)}
+                      className="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-semibold transition cursor-pointer"
+                    >
+                      <Receipt className="w-3.5 h-3.5" />
+                      <span>
+                        Payment Receipts History ({receipts.length} record{receipts.length !== 1 ? "s" : ""})
+                      </span>
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`} />
+                    </button>
+
+                    {isExpanded && (
+                      <div className="mt-2.5 space-y-2 animate-fadeIn">
+                        {receipts.length === 0 ? (
+                          <div className="p-3 rounded-lg bg-slate-900 text-slate-400 text-xs italic border border-slate-800">
+                            No payment receipts generated for this admission record yet.
+                          </div>
+                        ) : (
+                          <div className="overflow-x-auto rounded-xl border border-slate-800">
+                            <table className="w-full text-left text-xs text-slate-300">
+                              <thead className="bg-slate-900 text-slate-400 uppercase text-[10px] font-bold tracking-wider">
+                                <tr>
+                                  <th className="p-2.5">Receipt #</th>
+                                  <th className="p-2.5">Date</th>
+                                  <th className="p-2.5">Mode</th>
+                                  <th className="p-2.5 text-right">Amount (₹)</th>
+                                  <th className="p-2.5">Coverage Period</th>
+                                  <th className="p-2.5">Collected By</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-slate-800/80 bg-slate-950/60">
+                                {receipts.map((rcpt) => (
+                                  <tr key={rcpt.receiptId || rcpt.receiptNo} className="hover:bg-slate-800/40">
+                                    <td className="p-2.5 font-mono text-sky-400 font-bold">{rcpt.receiptNo}</td>
+                                    <td className="p-2.5 text-slate-300">{rcpt.paymentDate || "—"}</td>
+                                    <td className="p-2.5">
+                                      <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">
+                                        {rcpt.paymentMode}
+                                      </span>
+                                    </td>
+                                    <td className="p-2.5 text-right font-mono font-black text-emerald-400">
+                                      ₹{Number(rcpt.amountPaid || 0).toLocaleString()}
+                                    </td>
+                                    <td className="p-2.5 text-slate-300">{rcpt.coveragePeriod || "—"}</td>
+                                    <td className="p-2.5 text-slate-400">{rcpt.collectedBy || "Staff"}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Case 2: First-time student with 0 previous course admissions */}
+      {!loading && !hasAdmissions && (
+        <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start gap-3.5 shadow-inner">
+          <div className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
+            <Sparkles className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+              <span>First-Time Academic Enrollment</span>
+              <span className="px-2 py-0.2 rounded-full text-[10px] font-semibold bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                New Candidate
+              </span>
+            </h4>
+            <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+              <strong>{student.studentName}</strong> is registered in the directory but has not yet been assigned to any course program. Selecting an academic course below and confirming will create their official initial admission record.
+            </p>
+          </div>
+        </div>
+      )}
+    </motion.div>
   );
 }
 

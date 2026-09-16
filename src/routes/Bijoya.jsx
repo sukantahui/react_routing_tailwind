@@ -3368,15 +3368,18 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
 
               <form onSubmit={handleAdminLogin} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-300">Admin Email</label>
+                  <label className="text-xs font-semibold text-slate-300">Username or Email</label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
-                      type="email"
+                      type="text"
                       required
+                      autoComplete="username"
+                      autoCapitalize="none"
+                      spellCheck="false"
                       value={adminLoginForm.email}
                       onChange={(e) => setAdminLoginForm((prev) => ({ ...prev, email: e.target.value, error: "" }))}
-                      placeholder="admin@example.com"
+                      placeholder="Username or email (e.g. sukantahui)"
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
                     />
                   </div>

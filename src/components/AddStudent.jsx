@@ -130,14 +130,31 @@ export default function AddStudent() {
     try {
       const res = await studentService.create(cleanPayload);
       if (res.status) {
+        const studentId = res.data?.id || res.data?.studentId || res.data?.student?.id;
         Swal.fire({
           icon: "success",
           title: "Student Registered Successfully!",
-          text: `${form.student_name} has been added to the system.`,
-          confirmButtonColor: "#2563eb",
+          html: `
+            <p class="text-sm text-slate-200 mb-3 font-medium"><b>${form.student_name}</b> has been registered in the student database.</p>
+            <div class="p-3.5 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-300 text-xs text-left">
+              <span class="font-bold block mb-1">🎓 Next Step: Assign Course</span>
+              Assign an academic course to this student now to complete their official course admission and configure tuition fees.
+            </div>
+          `,
+          showCancelButton: true,
+          confirmButtonText: "🎓 Assign Course (Admit Now)",
+          cancelButtonText: "Go to Dashboard",
+          confirmButtonColor: "#0284c7",
+          cancelButtonColor: "#475569",
           background: "#0f172a",
           color: "#f9fafb",
-        }).then(() => navigate("/dashboard"));
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate(studentId ? `/admission?studentId=${studentId}` : "/admission");
+          } else {
+            navigate("/dashboard");
+          }
+        });
       } else {
         throw new Error(res.message || "Something went wrong");
       }

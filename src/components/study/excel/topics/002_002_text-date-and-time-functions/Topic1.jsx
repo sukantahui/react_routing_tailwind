@@ -14,6 +14,7 @@ export default function Topic1() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [expandedIds, setExpandedIds] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [copiedId, setCopiedId] = useState(null);
+  const [revealedSolutions, setRevealedSolutions] = useState([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
