@@ -344,10 +344,77 @@ export default function Topic1() {
         </section>
 
         {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
+            SECTION 5: INTERACTIVE SEMANTIC SVG DIAGRAM
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[4] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
+              Visual Dataflow: Positional Slicing &amp; Delimiter Location Pipeline
+            </h2>
+            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
+              SVG Architecture
+            </span>
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
+            <svg viewBox="0 0 840 230" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
+              <defs>
+                <linearGradient id="gradFlowSubstrings" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
+                </linearGradient>
+                <marker id="arrowSubstrings" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+                </marker>
+              </defs>
+
+              {/* Node 1: Raw Structured String */}
+              <g transform="translate(25, 45)">
+                <rect width="220" height="140" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
+                <rect x="12" y="12" width="196" height="26" rx="6" fill="#1e293b" />
+                <text x="110" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Delimited String</text>
+                <text x="110" y="75" textAnchor="middle" fill="#38bdf8" fontSize="13" fontFamily="monospace" fontWeight="bold">"MKT-23-8491"</text>
+                <text x="110" y="98" textAnchor="middle" fill="#64748b" fontSize="10">user@codernaccotax.co.in</text>
+                <text x="110" y="118" textAnchor="middle" fill="#64748b" fontSize="10">REF#98421:Approved</text>
+              </g>
+
+              <path d="M 250 115 L 310 115" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowSubstrings)" fill="none" />
+
+              {/* Node 2: Substring Parsing Engine */}
+              <g transform="translate(315, 30)">
+                <rect width="270" height="170" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
+                <rect x="14" y="14" width="242" height="28" rx="6" fill="#0369a1" />
+                <text x="135" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Substring Extraction Engine</text>
+                <text x="135" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">LEFT · RIGHT · MID · LEN</text>
+                <text x="135" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Delimiter Locators: FIND &amp; SEARCH</text>
+                <text x="135" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Index Calculation: FIND("@", text) - 1</text>
+                <text x="135" y="145" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native Microsoft Excel C++ Engine</text>
+              </g>
+
+              <path d="M 590 115 L 645 115" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowSubstrings)" fill="none" />
+
+              {/* Node 3: Isolated Structured Tokens */}
+              <g transform="translate(650, 45)">
+                <rect width="165" height="140" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
+                <rect x="10" y="12" width="145" height="26" rx="6" fill="#047857" />
+                <text x="82" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Isolated Tokens</text>
+                <text x="82" y="72" textAnchor="middle" fill="#6ee7b7" fontSize="13" fontFamily="monospace" fontWeight="bold">Prefix: "MKT"</text>
+                <text x="82" y="95" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Serial: 8491</text>
+                <text x="82" y="118" textAnchor="middle" fill="#a7f3d0" fontSize="10">Database Ready</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 6: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -372,6 +439,27 @@ export default function Topic1() {
             </button>
           </div>
 
+          {/* Practical Practice Guide Banner */}
+          <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2.5">
+            <div className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2">
+              <span>💡</span> Excel Workbook Practice Guide for Sheet "T01 - Substrings &amp; Search"
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+              <div className="p-2.5 rounded-lg bg-slate-900/90 border border-slate-800/80">
+                <strong className="text-sky-300 block mb-1">1. Row 1 Header &amp; Live Inputs:</strong>
+                Row 1 contains column headers. Rows 2–11 contain authentic raw strings in <code className="text-amber-300">A2</code> (<span className="text-slate-400">"MKT-23-8491"</span>), <code className="text-amber-300">A3</code> (<span className="text-slate-400">"WB-HYD-50284"</span>), <code className="text-amber-300">A4</code>, etc.
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-900/90 border border-slate-800/80">
+                <strong className="text-amber-300 block mb-1">2. Your Practice Cell (Col E):</strong>
+                Test your own formulas in Column E (highlighted in soft yellow). Write <code className="text-cyan-300">=LEFT(A2, 3)</code> or <code className="text-cyan-300">=--RIGHT(A3, 5)</code>.
+              </div>
+              <div className="p-2.5 rounded-lg bg-slate-900/90 border border-slate-800/80">
+                <strong className="text-emerald-300 block mb-1">3. Live Model Solution (Col F):</strong>
+                Column F contains the verified live formula executed directly by Excel to validate your extracted output.
+              </div>
+            </div>
+          </div>
+
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
             sheetName="T01 - Substrings & Search"
@@ -382,10 +470,57 @@ export default function Topic1() {
         </section>
 
         {/* =========================================================================
-            SECTION 6: 10 DEDICATED PRACTICAL QUESTIONS (STRICTLY PRACTICAL LAB)
+            SECTION 7: REAL-WORLD BUSINESS SCENARIOS
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[5] = el)}
+          ref={(el) => (sectionsRef.current[6] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">💼</span>
+              Industrial Case Studies &amp; Production Workflows
+            </h2>
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
+              Enterprise Deployment
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
+              <div className="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>🏢</span> Case 1: Automated Email &amp; User Routing
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                HR and IT security systems parse staff usernames and enterprise domain hostnames from messy single-sign-on (SSO) email records using <code className="text-cyan-300">=LEFT(A2, FIND("@", A2)-1)</code> and <code className="text-cyan-300">=MID(A2, FIND("@", A2)+1, LEN(A2))</code>.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>📦</span> Case 2: Supply Chain Barcode Decomposition
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Warehouse inventory scanners output compound lot codes like <code className="text-amber-300">WB-HYD-50284</code>. Operations teams isolate manufacturing plant tokens and coerce trailing numeric serials using <code className="text-cyan-300">=--RIGHT(A2, 5)</code> for inventory reconciliation.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2.5">
+              <div className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span>⚖️</span> Case 3: Tax Compliance &amp; Audit Trail
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Financial audit teams validate Indian GSTIN length (15 characters) with <code className="text-cyan-300">=LEN(A2)=15</code> and perform case-insensitive keyword searches on invoice transaction logs using <code className="text-cyan-300">=ISNUMBER(SEARCH("confidential", A2))</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 8: 10 DEDICATED PRACTICAL QUESTIONS (STRICTLY PRACTICAL LAB)
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[7] = el)}
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-slate-900/90 via-slate-900/60 to-slate-950 border border-slate-800 shadow-2xl space-y-8"
         >
           {/* Header & Badges */}
@@ -702,9 +837,9 @@ export default function Topic1() {
         </section>
 
         {/* =========================================================================
-            SECTION 7: FREQUENTLY ASKED QUESTIONS
+            SECTION 9: FREQUENTLY ASKED QUESTIONS
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[6] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[8] = el)} className="reveal-section">
           <FAQTemplate
             title="Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Frequently Asked Questions"
             questions={questions}
@@ -712,9 +847,9 @@ export default function Topic1() {
         </div>
 
         {/* =========================================================================
-            SECTION 8: TEACHER'S NOTE & WISDOM
+            SECTION 10: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[7] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[9] = el)} className="reveal-section">
           <Teacher
             note="Dynamic string slicing with LEFT + FIND or MID + SEARCH is the foundational pillar of data cleaning. Master delimiter offsets to extract structured tokens effortlessly!"
           />
