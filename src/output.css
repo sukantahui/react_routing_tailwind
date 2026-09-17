@@ -1691,6 +1691,9 @@
   .min-h-\[40px\] {
     min-height: 40px;
   }
+  .min-h-\[42px\] {
+    min-height: 42px;
+  }
   .min-h-\[60px\] {
     min-height: 60px;
   }
@@ -15240,6 +15243,9 @@
   .stroke-\[2\] {
     stroke-width: 2;
   }
+  .stroke-\[3\] {
+    stroke-width: 3;
+  }
   .object-contain {
     object-fit: contain;
   }
@@ -18085,12 +18091,6 @@
     --tw-shadow-color: color-mix(in srgb, oklch(29.3% 0.066 243.157) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-sky-950) 50%, transparent) var(--tw-shadow-alpha), transparent);
-    }
-  }
-  .shadow-sky-950\/60 {
-    --tw-shadow-color: color-mix(in srgb, oklch(29.3% 0.066 243.157) 60%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-sky-950) 60%, transparent) var(--tw-shadow-alpha), transparent);
     }
   }
   .shadow-slate-950\/40 {
@@ -31305,6 +31305,11 @@
   .lg\:w-3\/4 {
     @media (width >= 64rem) {
       width: calc(3 / 4 * 100%);
+    }
+  }
+  .lg\:w-52 {
+    @media (width >= 64rem) {
+      width: calc(var(--spacing) * 52);
     }
   }
   .lg\:max-w-7xl {
