@@ -592,6 +592,9 @@
   .top-1 {
     top: var(--spacing);
   }
+  .top-1\.5 {
+    top: calc(var(--spacing) * 1.5);
+  }
   .top-1\/2 {
     top: calc(1 / 2 * 100%);
   }
@@ -30502,6 +30505,11 @@
   .sm\:pt-12 {
     @media (width >= 40rem) {
       padding-top: calc(var(--spacing) * 12);
+    }
+  }
+  .sm\:pb-0 {
+    @media (width >= 40rem) {
+      padding-bottom: 0;
     }
   }
   .sm\:pb-6 {

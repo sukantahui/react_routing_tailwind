@@ -1640,7 +1640,10 @@
             "sequence",
             "randarray",
             "rand",
-            "randbetween"
+            "randbetween",
+            "LET()",
+            "=LET()",
+            "LET"
           ],
           "topics": [
             "Understanding Excel's Modern Calculation Engine & Dynamic Array Spill (#SPILL!) Behavior",
@@ -1658,7 +1661,7 @@
             "Real-World Project: Building an Automated Live Search and Filter Table Without VBA",
             "Practice Lab: Multi-Criteria Customer Segmentation Engine with Dynamic Array Spilling",
             "{\"Modern Dynamic Array Aggregations: Building formula-based Pivot Tables with GROUPBY, PIVOTBY, and PERCENTOF\"}",
-            "{\"Advanced #Spill Matrix Transformations: Combining LET, UNIQUE, FILTER, and Dynamic Range Reshaping\"}",
+            "Advanced #Spill Matrix Transformations: Combining LET(), UNIQUE(), FILTER(), and Dynamic Range Reshaping",
             "Modern Formula-Driven Pivot Reports with GROUPBY & PIVOTBY"
           ],
           "learningOutcomes": [
@@ -1814,7 +1817,10 @@
             "reduce-function",
             "byrow",
             "bycol",
-            "makearray"
+            "makearray",
+            "LET()",
+            "=LET()",
+            "LET"
           ],
           "topics": [
             "Introduction to LAMBDA: Native Custom Functions Without VBA",
@@ -1822,7 +1828,7 @@
             "Registering & Naming LAMBDA Functions in Excel Name Manager",
             "Documenting LAMBDA Parameters & Syntax Hints for End-Users",
             "Handling Optional Parameters with ISOMITTED & Default Fallbacks",
-            "Creating Local Scoped Variables with LET to Maximize Performance",
+            "Creating Local Scoped Variables with the LET() Function to Maximize Performance (=LET)",
             "Iterating Across Arrays Element-by-Element with the MAP Function",
             "Practical Laboratory Exercises: Custom Functions with LAMBDA & Helper Engines Master Class",
             "Column-by-Column Matrix Processing & Metric Synthesis with BYCOL",

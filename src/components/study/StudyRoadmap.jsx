@@ -535,7 +535,17 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
       module.commonMistakes
     ].map(extractText).join(" ").toLowerCase();
 
-    return searchTerms.every(term => searchableBlob.includes(term));
+    // Check each term with flexible function syntax normalization (e.g. "let(" matches "let", "=xlookup" matches "xlookup")
+    return searchTerms.every(term => {
+      if (searchableBlob.includes(term)) return true;
+      const cleanTerm = term.replace(/^[=\s]+/, "").replace(/[\(\),;:]+$/, "");
+      if (!cleanTerm || cleanTerm.length < 2) return false;
+      if (cleanTerm.length <= 3) {
+        const regex = new RegExp(`(^|[^a-z0-9])${cleanTerm}([^a-z0-9]|$)`, "i");
+        return regex.test(searchableBlob);
+      }
+      return searchableBlob.includes(cleanTerm);
+    });
   }, [search]);
 
   const matchesFilters = useCallback((module) => {
@@ -606,7 +616,16 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     return allFlattenedTopics.filter(item => {
       const topicAliases = `topic ${item.topicIndex} topic${item.topicIndex} #${item.topicIndex} t${item.topicIndex}`;
       const searchBlob = `${item.topicTitle} ${item.moduleTitle} ${item.segmentTitle} ${item.moduleId} ${topicAliases}`.toLowerCase();
-      return searchTerms.every(term => searchBlob.includes(term));
+      return searchTerms.every(term => {
+        if (searchBlob.includes(term)) return true;
+        const cleanTerm = term.replace(/^[=\s]+/, "").replace(/[\(\),;:]+$/, "");
+        if (!cleanTerm || cleanTerm.length < 2) return false;
+        if (cleanTerm.length <= 3) {
+          const regex = new RegExp(`(^|[^a-z0-9])${cleanTerm}([^a-z0-9]|$)`, "i");
+          return regex.test(searchBlob);
+        }
+        return searchBlob.includes(cleanTerm);
+      });
     });
   }, [allFlattenedTopics, search]);
 
