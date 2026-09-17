@@ -162,9 +162,94 @@ export default function ExcelFileLoader({
       const sheetKey = sheetNames[currentSheetIdx];
       const worksheet = workbook.Sheets[sheetKey];
       const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: "" });
-      if (jsonData.length > 0) {
-        setRawHeaders(jsonData[0]);
-        setRawRows(jsonData.slice(1));
+      
+      if (jsonData && jsonData.length > 0) {
+        // Smart Table Header Detection:
+        // Excel practice workbooks often have banner/title rows in rows 1, 2, 3 (e.g. "Jump to Overview", "Topic 0: Title", etc.).
+        // We find the true table header row by identifying the row with the most distinct text columns in the first 12 rows.
+        let bestHeaderIdx = 0;
+        let bestScore = -1;
+
+        for (let r = 0; r < Math.min(jsonData.length, 12); r++) {
+          const row = jsonData[r] || [];
+          const nonEmpties = row.filter((c) => c !== null && c !== undefined && String(c).trim() !== "");
+
+          // Skip rows that are empty or have only 1 merged cell (banners/titles)
+          if (nonEmpties.length <= 1) continue;
+
+          let textCount = 0;
+          let numberCount = 0;
+          let isBanner = false;
+
+          nonEmpties.forEach((c) => {
+            const s = String(c).trim();
+            if (
+              s.startsWith("🏠") ||
+              s.startsWith("⚡") ||
+              s.toLowerCase().includes("jump to") ||
+              s.toLowerCase().includes("target master") ||
+              s.toLowerCase().includes("interactive practice grid")
+            ) {
+              isBanner = true;
+            }
+            if (typeof c === "number" || (!isNaN(Number(s)) && s !== "")) {
+              numberCount++;
+            } else {
+              textCount++;
+            }
+          });
+
+          if (isBanner) continue;
+
+          // Header rows consist predominantly of descriptive text column names
+          const score = textCount * 3 - numberCount * 5;
+          if (score > bestScore && textCount >= 2) {
+            bestScore = score;
+            bestHeaderIdx = r;
+          }
+        }
+
+        // Determine column bounds from header row and subsequent data rows
+        const rawHeaderRow = jsonData[bestHeaderIdx] || [];
+        let lastColIdx = rawHeaderRow.length - 1;
+        while (lastColIdx >= 0 && (rawHeaderRow[lastColIdx] === "" || rawHeaderRow[lastColIdx] == null)) {
+          lastColIdx--;
+        }
+
+        for (let r = bestHeaderIdx + 1; r < Math.min(jsonData.length, bestHeaderIdx + 25); r++) {
+          const row = jsonData[r] || [];
+          for (let c = row.length - 1; c > lastColIdx; c--) {
+            if (row[c] !== "" && row[c] != null) {
+              lastColIdx = c;
+              break;
+            }
+          }
+        }
+
+        const numCols = Math.max(lastColIdx + 1, 1);
+        const parsedHeaders = [];
+        for (let c = 0; c < numCols; c++) {
+          const hVal = rawHeaderRow[c];
+          parsedHeaders.push(
+            hVal && String(hVal).trim() !== "" ? String(hVal).trim() : `Column ${c + 1}`
+          );
+        }
+
+        const parsedRows = [];
+        for (let r = bestHeaderIdx + 1; r < jsonData.length; r++) {
+          const row = jsonData[r] || [];
+          const isAllEmpty = row.every((c) => c === "" || c == null);
+          if (!isAllEmpty) {
+            const formattedRow = [];
+            for (let c = 0; c < numCols; c++) {
+              formattedRow.push(row[c] !== undefined ? row[c] : "");
+            }
+            parsedRows.push(formattedRow);
+          }
+        }
+
+        setRawHeaders(parsedHeaders);
+        setRawRows(parsedRows);
       } else {
         setRawHeaders([]);
         setRawRows([]);
