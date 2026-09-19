@@ -19,11 +19,16 @@ export const certificateService = {
 
   getAll: async () => {
     try {
-      const response = await api.get("/certificates");
+      const response = await api.get("/dev/certificates");
       return response.data;
     } catch (error) {
-      console.error("Error fetching all certificates:", error);
-      throw error;
+      try {
+        const fallback = await api.get("/certificates");
+        return fallback.data;
+      } catch (err2) {
+        console.error("Error fetching all certificates:", error);
+        throw error;
+      }
     }
   },
 

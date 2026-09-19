@@ -63,8 +63,8 @@ const DatabaseBackup = () => {
           html: `
             <div class="text-left text-xs bg-slate-900 p-3 rounded-lg border border-slate-800 space-y-1 font-mono">
               <p><span class="text-slate-400">File:</span> <span class="text-sky-400 font-bold">${response.data?.filename}</span></p>
-              <p><span class="text-slate-400">Size:</span> <span class="text-emerald-400 font-semibold">${response.data?.size_human}</span></p>
-              <p><span class="text-slate-400">Time:</span> <span class="text-slate-300">${new Date(response.data?.created_at).toLocaleString()}</span></p>
+              <p><span class="text-slate-400">Size:</span> <span class="text-emerald-400 font-semibold">${response.data?.sizeHuman || response.data?.size_human}</span></p>
+              <p><span class="text-slate-400">Time:</span> <span class="text-slate-300">${new Date(response.data?.createdAt || response.data?.created_at).toLocaleString()}</span></p>
             </div>
           `,
           background: "#0f172a",
@@ -212,7 +212,7 @@ const DatabaseBackup = () => {
 
   // Metrics computation
   const totalSizeBytes = useMemo(() => {
-    return backups.reduce((acc, b) => acc + (b.size_bytes || 0), 0);
+    return backups.reduce((acc, b) => acc + (b.sizeBytes || b.size_bytes || 0), 0);
   }, [backups]);
 
   const totalSizeHuman = useMemo(() => {
@@ -224,7 +224,9 @@ const DatabaseBackup = () => {
 
   const latestBackupDate = useMemo(() => {
     if (!backups.length) return "None";
-    const date = new Date(backups[0].created_at);
+    const rawDate = backups[0].createdAt || backups[0].created_at;
+    if (!rawDate) return "None";
+    const date = new Date(rawDate);
     return date.toLocaleDateString(undefined, {
       month: "short",
       day: "numeric",
@@ -239,8 +241,8 @@ const DatabaseBackup = () => {
     const q = searchTerm.toLowerCase();
     return backups.filter(
       (b) =>
-        b.filename.toLowerCase().includes(q) ||
-        (b.created_at && b.created_at.toLowerCase().includes(q))
+        b.filename?.toLowerCase().includes(q) ||
+        String(b.createdAt || b.created_at || "").toLowerCase().includes(q)
     );
   }, [backups, searchTerm]);
 
@@ -475,14 +477,17 @@ const DatabaseBackup = () => {
             <div className="divide-y divide-slate-800/60">
               {filteredBackups.map((backup, idx) => {
                 const isDownloading = downloadingFile === backup.filename;
-                const formattedDate = new Date(backup.created_at).toLocaleString(undefined, {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                });
+                const rawCreated = backup.createdAt || backup.created_at;
+                const formattedDate = rawCreated
+                  ? new Date(rawCreated).toLocaleString(undefined, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      second: "2-digit",
+                    })
+                  : "—";
 
                 return (
                   <motion.div

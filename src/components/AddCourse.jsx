@@ -489,7 +489,7 @@ export default function AddCourse() {
                               <span className="text-slate-500 italic">Not set</span>
                             )}
                             <span className="inline-block mt-0.5 text-[10px] text-purple-300 font-semibold">
-                              {c.feeMode || (Number(c.fee_modes_id) === 2 ? "Course Fees" : "Monthly")}
+                              {c.feeMode || (Number(c.feeModesId || c.fee_modes_id) === 2 ? "Course Fees" : "Monthly")}
                             </span>
                           </div>
                         </td>

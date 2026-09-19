@@ -165,10 +165,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           badge: "New",
         },
         {
-          to: "/certificates",
-          label: "Certificates Record",
-          desc: "Verify issued certificate records",
+          to: "/admin/certificates",
+          label: "Certificates Master Register",
+          desc: "Audit, search, export & print issued certificates",
           icon: "bi-patch-check-fill",
+          badge: "Audit",
+        },
+        {
+          to: "/certificates",
+          label: "Public Verification Portal",
+          desc: "Authenticate certificate & student results",
+          icon: "bi-shield-check",
         },
         {
           to: "/certificate",

@@ -247,18 +247,18 @@ const StudentFeeReceiptPart4 = () => {
       const response = await studentService.createBasic(payload);
 
       if (response && response.status === true) {
-        const createdStudent = response.data;
+        const studentIdVal = createdStudent?.id || createdStudent?.studentId;
+        const studentNameVal = createdStudent?.studentName || createdStudent?.student_name || '';
+        const regNoVal = createdStudent?.registrationNumber || createdStudent?.regNo || createdStudent?.reg_no || '';
 
-        await fetchStudents();
-
-        if (createdStudent && createdStudent.id) {
-          setSelectedStudentId(createdStudent.id.toString());
-          setSelectedStudentRegNo(createdStudent.registrationNumber || '');
+        if (createdStudent && studentIdVal) {
+          setSelectedStudentId(studentIdVal.toString());
+          setSelectedStudentRegNo(regNoVal);
           setFormData(prev => ({
             ...prev,
-            studentName: createdStudent.student_name || '',
-            phone: createdStudent.whatsapp || '',
-            registrationNumber: createdStudent.registrationNumber || '',
+            studentName: studentNameVal,
+            phone: createdStudent.whatsapp || createdStudent.phone1 || '',
+            registrationNumber: regNoVal,
           }));
         }
 
@@ -269,7 +269,7 @@ const StudentFeeReceiptPart4 = () => {
         });
         setShowNewStudentForm(false);
 
-        alert(`Student "${createdStudent.student_name}" created successfully!\nRegistration Number: ${createdStudent.registrationNumber}`);
+        alert(`Student "${studentNameVal}" created successfully!\nRegistration Number: ${regNoVal}`);
       } else {
         setCreateStudentError(response?.message || 'Failed to create student');
       }

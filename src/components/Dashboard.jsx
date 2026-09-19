@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { visitorService } from "../services/visitorService";
 import { studentService } from "../services/studentService";
+import { admissionService } from "../services/admissionService";
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [visitors, setVisitors] = useState([]);
   const [students, setStudents] = useState([]);
+  const [admissions, setAdmissions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // State for updating student profile later
@@ -139,6 +141,16 @@ export default function Dashboard() {
         } catch (err) {
           console.error("Students could not be loaded:", err);
         }
+
+        try {
+          const admRes = await admissionService.getAll();
+          const admList = admRes?.data || (Array.isArray(admRes) ? admRes : []);
+          if (Array.isArray(admList)) {
+            setAdmissions(admList);
+          }
+        } catch (err) {
+          console.warn("Admissions could not be loaded:", err);
+        }
       } catch {
         Swal.fire({
           title: "Error",
@@ -155,13 +167,48 @@ export default function Dashboard() {
     fetchData();
   }, [navigate]);
 
+  // Helper to extract enrolled course names for a student
+  const getStudentCourses = (student) => {
+    // 1. Check direct attached courses array
+    if (Array.isArray(student.courses) && student.courses.length > 0) {
+      return student.courses
+        .map((c) => c.courseName || c.course_name || c.name || "Course")
+        .filter(Boolean);
+    }
+    // 2. Check direct attached admissions array
+    if (Array.isArray(student.admissions) && student.admissions.length > 0) {
+      return student.admissions
+        .map((adm) => adm.courseName || adm.course_name || adm.course?.courseName || adm.course?.course_name || "Course")
+        .filter(Boolean);
+    }
+    // 3. Fallback: match from admissions state by studentId
+    const stuId = String(student.id || student.studentId || student.student_id || "");
+    if (stuId && admissions.length > 0) {
+      const matched = admissions.filter((adm) => {
+        const admStuId = String(
+          adm.student_id || adm.studentId || adm.student?.id || adm.student?.student_id || adm.student?.studentId || ""
+        );
+        return admStuId === stuId;
+      });
+      if (matched.length > 0) {
+        return matched
+          .map((adm) => adm.courseName || adm.course_name || adm.course?.courseName || adm.course?.course_name || adm.courseTitle || "Course")
+          .filter(Boolean);
+      }
+    }
+    return [];
+  };
+
   // ✅ Derived visitor stats
   const stats = useMemo(() => {
     const total = visitors.length;
     const today = visitors.filter((v) => {
-      const date = new Date(v.created_at);
+      const rawDate = v.createdAt || v.created_at;
+      const date = rawDate ? new Date(rawDate) : null;
       const now = new Date();
       return (
+        date &&
+        !isNaN(date) &&
         date.getDate() === now.getDate() &&
         date.getMonth() === now.getMonth() &&
         date.getFullYear() === now.getFullYear()
@@ -169,15 +216,18 @@ export default function Dashboard() {
     }).length;
 
     const month = visitors.filter((v) => {
-      const date = new Date(v.created_at);
+      const rawDate = v.createdAt || v.created_at;
+      const date = rawDate ? new Date(rawDate) : null;
       const now = new Date();
       return (
+        date &&
+        !isNaN(date) &&
         date.getMonth() === now.getMonth() &&
         date.getFullYear() === now.getFullYear()
       );
     }).length;
 
-    const uniquePages = new Set(visitors.map((v) => v.page_url)).size;
+    const uniquePages = new Set(visitors.map((v) => v.pageUrl || v.page_url).filter(Boolean)).size;
 
     return { total, today, month, uniquePages };
   }, [visitors]);
@@ -271,9 +321,11 @@ export default function Dashboard() {
               <td className="p-3 font-medium text-sky-300">{v.name}</td>
               <td className="p-3">{v.email}</td>
               <td className="p-3">{v.interest}</td>
-              <td className="p-3 hidden md:table-cell">{v.device_type}</td>
-              <td className="p-3 hidden lg:table-cell truncate max-w-[220px]">{v.page_url}</td>
-              <td className="p-3 text-gray-400">{new Date(v.created_at).toLocaleString()}</td>
+              <td className="p-3 hidden md:table-cell">{v.deviceType || v.device_type || "—"}</td>
+              <td className="p-3 hidden lg:table-cell truncate max-w-[220px]">{v.pageUrl || v.page_url || "—"}</td>
+              <td className="p-3 text-gray-400">
+                {v.createdAt || v.created_at ? new Date(v.createdAt || v.created_at).toLocaleString() : "—"}
+              </td>
             </>
           )}
         />
@@ -324,39 +376,61 @@ export default function Dashboard() {
           title="Registered Students"
           color="text-amber-400"
           data={students}
-          headers={["#", "Reg No", "Name", "WhatsApp", "Phone", "City", "Joined", "Actions"]}
-          renderRow={(s, i) => (
-            <>
-              <td className="p-3">{i + 1}</td>
-              <td className="p-3 font-medium text-amber-300">
-                {s.registration_number || s.registrationNumber || "—"}
-              </td>
-              <td className="p-3 font-semibold text-white">
-                {s.student_name || s.studentName || "—"}
-              </td>
-              <td className="p-3 font-mono text-emerald-400">{s.whatsapp || "—"}</td>
-              <td className="p-3 font-mono">{s.phone1 || "—"}</td>
-              <td className="p-3">{s.city || "—"}</td>
-              <td className="p-3 text-gray-400">
-                {s.created_at ? new Date(s.created_at).toLocaleDateString() : "—"}
-              </td>
-              <td className="p-3 text-right whitespace-nowrap">
-                <button
-                  onClick={() => navigate(`/admission?studentId=${s.id || s.studentId}`)}
-                  className="px-3 py-1.5 text-xs font-bold rounded-xl bg-sky-500 hover:bg-sky-400 text-white shadow-md shadow-sky-500/25 transition-all duration-150 cursor-pointer mr-2 inline-flex items-center gap-1"
-                  title="Assign academic course to this student (Official Admission)"
-                >
-                  <span>🎓 Assign Course</span>
-                </button>
-                <button
-                  onClick={() => openEditModal(s)}
-                  className="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer"
-                >
-                  ✏️ Edit Profile
-                </button>
-              </td>
-            </>
-          )}
+          headers={["#", "Reg No", "Name", "Enrolled Courses", "WhatsApp", "Phone", "City", "Joined", "Actions"]}
+          renderRow={(s, i) => {
+            const enrolledCourses = getStudentCourses(s);
+            return (
+              <>
+                <td className="p-3">{i + 1}</td>
+                <td className="p-3 font-medium text-amber-300">
+                  {s.registration_number || s.registrationNumber || "—"}
+                </td>
+                <td className="p-3 font-semibold text-white">
+                  {s.student_name || s.studentName || "—"}
+                </td>
+                <td className="p-3">
+                  {enrolledCourses.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5 max-w-xs">
+                      {enrolledCourses.map((cName, cIdx) => (
+                        <span
+                          key={cIdx}
+                          className="px-2 py-0.5 rounded-lg text-[11px] font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/30 shadow-sm inline-flex items-center gap-1"
+                        >
+                          <i className="bi bi-mortarboard text-[10px] text-sky-400"></i>
+                          <span>{cName}</span>
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <span className="text-[11px] text-slate-500 italic flex items-center gap-1">
+                      <span>Not Enrolled</span>
+                    </span>
+                  )}
+                </td>
+                <td className="p-3 font-mono text-emerald-400">{s.whatsapp || "—"}</td>
+                <td className="p-3 font-mono">{s.phone1 || "—"}</td>
+                <td className="p-3">{s.city || "—"}</td>
+                <td className="p-3 text-gray-400">
+                  {s.created_at ? new Date(s.created_at).toLocaleDateString() : "—"}
+                </td>
+                <td className="p-3 text-right whitespace-nowrap">
+                  <button
+                    onClick={() => navigate(`/admission?studentId=${s.id || s.studentId}`)}
+                    className="px-3 py-1.5 text-xs font-bold rounded-xl bg-sky-500 hover:bg-sky-400 text-white shadow-md shadow-sky-500/25 transition-all duration-150 cursor-pointer mr-2 inline-flex items-center gap-1"
+                    title="Assign academic course to this student (Official Admission)"
+                  >
+                    <span>🎓 Assign Course</span>
+                  </button>
+                  <button
+                    onClick={() => openEditModal(s)}
+                    className="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer"
+                  >
+                    ✏️ Edit Profile
+                  </button>
+                </td>
+              </>
+            );
+          }}
         />
 
         {/* ========================================================================= */}

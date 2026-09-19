@@ -1,0 +1,916 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-09-19",
+  "__export_source": "cnat_api.routes.api",
+  "resources": [
+    {
+      "_id": "wrk_cnat",
+      "_type": "workspace",
+      "name": "CNAT API",
+      "description": "Comprehensive CNAT API collection. Set your environment variable 'token' after running the Login request.",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_cnat_local",
+      "_type": "environment",
+      "parentId": "wrk_cnat",
+      "name": "CNAT Local (WAMP)",
+      "data": {
+        "base_url": "http://127.0.0.1/cnat_api/public/api",
+        "token": "PASTE_YOUR_SANCTUM_TOKEN_HERE"
+      }
+    },
+    {
+      "_id": "jar_cnat",
+      "_type": "cookie_jar",
+      "parentId": "wrk_cnat",
+      "name": "Default Jar",
+      "cookies": []
+    },
+
+    {
+      "_id": "fld_auth",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "🔑 Authentication & Users",
+      "description": "User login, profile, and account management"
+    },
+    {
+      "_id": "req_auth_login",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "POST /login — Authenticate & Get Token",
+      "method": "POST",
+      "url": "{{ base_url }}/login",
+      "headers": [
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"admin@coderaccotax.in\",\n  \"password\": \"password\"\n}"
+      }
+    },
+    {
+      "_id": "req_auth_me",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "GET /me — Current User Profile",
+      "method": "GET",
+      "url": "{{ base_url }}/me",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_auth_me2",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "GET /me2 — Extended Current User Details",
+      "method": "GET",
+      "url": "{{ base_url }}/me2",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_auth_logout",
+      "_type": "request",
+      "parentId": "fld_auth",
+      "name": "POST /logout — Revoke Bearer Token",
+      "method": "POST",
+      "url": "{{ base_url }}/logout",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_students",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "🎓 Students Management",
+      "description": "Student records, profiles, and historical admissions"
+    },
+    {
+      "_id": "req_stu_all",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "GET /students — All Enrolled Students",
+      "method": "GET",
+      "url": "{{ base_url }}/students",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_stu_single",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "GET /students/:id — Single Student by ID",
+      "method": "GET",
+      "url": "{{ base_url }}/students/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_stu_without_admission",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "GET /students/without-admission — Unassigned Students",
+      "method": "GET",
+      "url": "{{ base_url }}/students/without-admission",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_stu_create_basic",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "POST /students/basic — Quick Create Student",
+      "method": "POST",
+      "url": "{{ base_url }}/students/basic",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"studentName\": \"Siddhartha Mukherjee\",\n  \"nickname\": \"Sid\",\n  \"whatsapp\": \"9830123456\"\n}"
+      }
+    },
+    {
+      "_id": "req_stu_create_full",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "POST /students — Full Student Registration",
+      "method": "POST",
+      "url": "{{ base_url }}/students",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"studentName\": \"Ananya Sen\",\n  \"nickname\": \"Ananya\",\n  \"email\": \"ananya.sen@example.com\",\n  \"dob\": \"2004-05-14\",\n  \"bloodGroup\": \"O+\",\n  \"fatherName\": \"Subir Sen\",\n  \"motherName\": \"Maitreyi Sen\",\n  \"guardianName\": \"Subir Sen\",\n  \"guardianRelation\": \"Father\",\n  \"guardianPhone\": \"9831112233\",\n  \"phone1\": \"9831112233\",\n  \"whatsapp\": \"9831112233\",\n  \"address\": \"12 Park Street, Flat 4B\",\n  \"districtId\": 1,\n  \"city\": \"Kolkata\",\n  \"pin\": \"700016\",\n  \"genderId\": 2\n}"
+      }
+    },
+    {
+      "_id": "req_stu_update",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "PUT /students/:id — Update Student Profile",
+      "method": "PUT",
+      "url": "{{ base_url }}/students/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"studentName\": \"Ananya Sen Updated\",\n  \"whatsapp\": \"9831112233\",\n  \"phone1\": \"9831112233\",\n  \"email\": \"ananya.updated@example.com\",\n  \"city\": \"Kolkata\",\n  \"pin\": \"700016\"\n}"
+      }
+    },
+    {
+      "_id": "req_stu_previous_admissions",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "GET /students/:id/previous-admissions — Student Ledger & History",
+      "method": "GET",
+      "url": "{{ base_url }}/students/1/previous-admissions",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_stu_delete",
+      "_type": "request",
+      "parentId": "fld_students",
+      "name": "DELETE /students/:id — Delete Student",
+      "method": "DELETE",
+      "url": "{{ base_url }}/students/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_courses",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "📚 Courses & Curriculums",
+      "description": "Courses catalog, syllabuses, pricing, and topics"
+    },
+    {
+      "_id": "req_course_all",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "GET /courses — List All Courses",
+      "method": "GET",
+      "url": "{{ base_url }}/courses",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_course_details",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "GET /courses/details — Courses with Syllabus Topics",
+      "method": "GET",
+      "url": "{{ base_url }}/courses/details",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_course_single",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "GET /courses/:id — Single Course by ID",
+      "method": "GET",
+      "url": "{{ base_url }}/courses/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_course_create_basic",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "POST /courses/basic — Quick Create Course",
+      "method": "POST",
+      "url": "{{ base_url }}/courses/basic",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"courseCode\": \"FSWD-2026\",\n  \"courseName\": \"Full Stack Web Development (React + Laravel)\"\n}"
+      }
+    },
+    {
+      "_id": "req_course_create_full",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "POST /courses — Create Course with Curriculum",
+      "method": "POST",
+      "url": "{{ base_url }}/courses",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"courseCode\": \"PY-AI-2026\",\n  \"courseName\": \"Python for Artificial Intelligence & ML\",\n  \"feeModesId\": 1,\n  \"courseFees\": 15000,\n  \"feesValidUpTo\": \"2026-12-31\",\n  \"upcomingFees\": 18000,\n  \"topics\": [\n    {\n      \"topicTitle\": \"Python Core Fundamentals & OOP\",\n      \"topicDescription\": \"Data structures, generators, classes, decorators\",\n      \"theoryDuration\": 20.0,\n      \"practicalDuration\": 15.0,\n      \"sequence\": 1\n    },\n    {\n      \"topicTitle\": \"NumPy, Pandas & SciPy Mastery\",\n      \"topicDescription\": \"Vectorized data processing and statistical analysis\",\n      \"theoryDuration\": 15.0,\n      \"practicalDuration\": 25.0,\n      \"sequence\": 2\n    }\n  ]\n}"
+      }
+    },
+    {
+      "_id": "req_course_update",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "PUT /courses/:id — Update Course & Topics",
+      "method": "PUT",
+      "url": "{{ base_url }}/courses/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"courseCode\": \"PY-AI-2026\",\n  \"courseName\": \"Python for AI & ML (Advanced)\",\n  \"courseFees\": 16000\n}"
+      }
+    },
+    {
+      "_id": "req_course_delete",
+      "_type": "request",
+      "parentId": "fld_courses",
+      "name": "DELETE /courses/:id — Delete Course",
+      "method": "DELETE",
+      "url": "{{ base_url }}/courses/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_admissions",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "📝 Admissions & Enrollment",
+      "description": "Student course enrollment and joint registration"
+    },
+    {
+      "_id": "req_adm_all",
+      "_type": "request",
+      "parentId": "fld_admissions",
+      "name": "GET /admissions — All Course Admissions",
+      "method": "GET",
+      "url": "{{ base_url }}/admissions",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_adm_create",
+      "_type": "request",
+      "parentId": "fld_admissions",
+      "name": "POST /admissions — Assign Course to Existing Student",
+      "method": "POST",
+      "url": "{{ base_url }}/admissions",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"studentId\": 1,\n  \"courseId\": 1,\n  \"feeModesId\": 1,\n  \"courseFees\": 12000,\n  \"courseStatusId\": 1,\n  \"admissionDate\": \"2026-09-01\"\n}"
+      }
+    },
+    {
+      "_id": "req_adm_with_student",
+      "_type": "request",
+      "parentId": "fld_admissions",
+      "name": "POST /admissions/admissionWithStudent — Joint Student + Admission + Fee",
+      "method": "POST",
+      "url": "{{ base_url }}/admissions/admissionWithStudent",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"student\": {\n    \"studentName\": \"Sourav Ganguly\",\n    \"nickname\": \"Dada\",\n    \"whatsapp\": \"9830099887\",\n    \"phone1\": \"9830099887\",\n    \"city\": \"Kolkata\",\n    \"genderId\": 1\n  },\n  \"admission\": {\n    \"courseId\": 1,\n    \"feeModesId\": 1,\n    \"courseFees\": 12000,\n    \"courseStatusId\": 1,\n    \"admissionDate\": \"2026-09-01\"\n  },\n  \"initialFee\": {\n    \"amountPaid\": 2000,\n    \"paymentMode\": \"UPI\",\n    \"paymentDate\": \"2026-09-01\",\n    \"remarks\": \"Admission installment\"\n  }\n}"
+      }
+    },
+    {
+      "_id": "req_adm_update",
+      "_type": "request",
+      "parentId": "fld_admissions",
+      "name": "PUT /admissions/:id — Update Admission Record",
+      "method": "PUT",
+      "url": "{{ base_url }}/admissions/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"courseFees\": 12000,\n  \"courseStatusId\": 2,\n  \"completionDate\": \"2027-08-31\"\n}"
+      }
+    },
+    {
+      "_id": "req_adm_delete",
+      "_type": "request",
+      "parentId": "fld_admissions",
+      "name": "DELETE /admissions/:id — Delete Admission",
+      "method": "DELETE",
+      "url": "{{ base_url }}/admissions/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_fees",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "💰 Fee Receipts & Payments",
+      "description": "Fee collections, receipts, and payment transactions"
+    },
+    {
+      "_id": "req_fees_all",
+      "_type": "request",
+      "parentId": "fld_fees",
+      "name": "GET /fees-receipts — All Payment Receipts",
+      "method": "GET",
+      "url": "{{ base_url }}/fees-receipts",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_fees_create",
+      "_type": "request",
+      "parentId": "fld_fees",
+      "name": "POST /fees-receipts — Record Fee Payment",
+      "method": "POST",
+      "url": "{{ base_url }}/fees-receipts",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"admissionId\": 1,\n  \"amountPaid\": 1500,\n  \"paymentMode\": \"UPI\",\n  \"paymentDate\": \"2026-09-19\",\n  \"periodFrom\": \"2026-09-01\",\n  \"periodTo\": \"2026-09-30\",\n  \"remarks\": \"September 2026 monthly fee\"\n}"
+      }
+    },
+    {
+      "_id": "req_fees_modes",
+      "_type": "request",
+      "parentId": "fld_fees",
+      "name": "GET /fee-modes — Payment Schedule Master",
+      "method": "GET",
+      "url": "{{ base_url }}/fee-modes",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_results",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "🏆 Examination & Results",
+      "description": "Student marks, practical evaluation, and grades"
+    },
+    {
+      "_id": "req_res_all",
+      "_type": "request",
+      "parentId": "fld_results",
+      "name": "GET /results — All Exam Results",
+      "method": "GET",
+      "url": "{{ base_url }}/results",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_res_single",
+      "_type": "request",
+      "parentId": "fld_results",
+      "name": "GET /results/:id — Result by ID",
+      "method": "GET",
+      "url": "{{ base_url }}/results/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_res_create",
+      "_type": "request",
+      "parentId": "fld_results",
+      "name": "POST /results — Record Exam Evaluation",
+      "method": "POST",
+      "url": "{{ base_url }}/results",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"admissionId\": 1,\n  \"theoryMarks\": 42,\n  \"practicalMarks\": 46,\n  \"totalTheoryMarks\": 50,\n  \"totalPracticalMarks\": 50,\n  \"grade\": \"A+\",\n  \"isPassed\": true,\n  \"resultDate\": \"2026-09-19\"\n}"
+      }
+    },
+    {
+      "_id": "req_res_update",
+      "_type": "request",
+      "parentId": "fld_results",
+      "name": "PUT /results/:id — Update Result Marks",
+      "method": "PUT",
+      "url": "{{ base_url }}/results/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"theoryMarks\": 45,\n  \"practicalMarks\": 48,\n  \"grade\": \"O\"\n}"
+      }
+    },
+    {
+      "_id": "req_res_delete",
+      "_type": "request",
+      "parentId": "fld_results",
+      "name": "DELETE /results/:id — Delete Result",
+      "method": "DELETE",
+      "url": "{{ base_url }}/results/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_certificates",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "📜 Student Certificates",
+      "description": "Certificate issuance and public validation"
+    },
+    {
+      "_id": "req_cert_all",
+      "_type": "request",
+      "parentId": "fld_certificates",
+      "name": "GET /certificates — All Issued Certificates",
+      "method": "GET",
+      "url": "{{ base_url }}/certificates",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_cert_create",
+      "_type": "request",
+      "parentId": "fld_certificates",
+      "name": "POST /certificates — Issue New Certificate",
+      "method": "POST",
+      "url": "{{ base_url }}/certificates",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"admissionId\": 1,\n  \"certificateCode\": \"CNAT-20260919-001\",\n  \"issueDate\": \"2026-09-19\",\n  \"grade\": \"A+\",\n  \"remarks\": \"Completed with distinction\"\n}"
+      }
+    },
+    {
+      "_id": "req_cert_lookup_code",
+      "_type": "request",
+      "parentId": "fld_certificates",
+      "name": "GET /dev/certificates/:code — Public Verification Lookup",
+      "method": "GET",
+      "url": "{{ base_url }}/dev/certificates/CNAT-20250715125440",
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_questions",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "❓ Question Bank & MCQs",
+      "description": "Subjects, chapters, topics, question types, levels, and MCQs"
+    },
+    {
+      "_id": "req_qb_subjects",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "GET /subjects — List Curriculum Subjects",
+      "method": "GET",
+      "url": "{{ base_url }}/subjects",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_qb_chapters",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "GET /chapters — List Subject Chapters",
+      "method": "GET",
+      "url": "{{ base_url }}/chapters",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_qb_topics",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "GET /topics — List Chapter Topics",
+      "method": "GET",
+      "url": "{{ base_url }}/topics",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_qb_types",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "GET /question-types — Question Formats",
+      "method": "GET",
+      "url": "{{ base_url }}/question-types",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_qb_levels",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "GET /question-levels — Difficulty Levels",
+      "method": "GET",
+      "url": "{{ base_url }}/question-levels",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_qb_questions_list",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "GET /questions — Filterable Questions Repository",
+      "method": "GET",
+      "url": "{{ base_url }}/questions",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_qb_question_create",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "POST /questions — Create Question & Options",
+      "method": "POST",
+      "url": "{{ base_url }}/questions",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"topicId\": 1,\n  \"questionTypeId\": 1,\n  \"questionLevelId\": 1,\n  \"questionText\": \"What is the time complexity of binary search on a sorted array?\",\n  \"questionCode\": \"\",\n  \"questionTags\": [\"dsa\", \"binary-search\", \"complexity\"],\n  \"inforce\": true,\n  \"options\": [\n    { \"optionText\": \"O(log n)\", \"isCorrect\": true },\n    { \"optionText\": \"O(n)\", \"isCorrect\": false },\n    { \"optionText\": \"O(n log n)\", \"isCorrect\": false },\n    { \"optionText\": \"O(1)\", \"isCorrect\": false }\n  ]\n}"
+      }
+    },
+    {
+      "_id": "req_qb_question_update",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "PUT /questions/:id — Update Question & Answers",
+      "method": "PUT",
+      "url": "{{ base_url }}/questions/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"questionText\": \"What is the average time complexity of binary search on a sorted array?\",\n  \"questionLevelId\": 2\n}"
+      }
+    },
+    {
+      "_id": "req_qb_question_delete",
+      "_type": "request",
+      "parentId": "fld_questions",
+      "name": "DELETE /questions/:id — Delete Question",
+      "method": "DELETE",
+      "url": "{{ base_url }}/questions/1",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_visitors",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "👥 Visitors & Web Inquiries",
+      "description": "Public website contact inquiries & analytics"
+    },
+    {
+      "_id": "req_vis_all",
+      "_type": "request",
+      "parentId": "fld_visitors",
+      "name": "GET /visitors — List All Inquiries",
+      "method": "GET",
+      "url": "{{ base_url }}/visitors",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_vis_create",
+      "_type": "request",
+      "parentId": "fld_visitors",
+      "name": "POST /dev/visitors — Submit Public Inquiry",
+      "method": "POST",
+      "url": "{{ base_url }}/dev/visitors",
+      "headers": [
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Priya Sharma\",\n  \"email\": \"priya.sharma@example.com\",\n  \"interest\": \"Full Stack Web Development\",\n  \"deviceType\": \"desktop\",\n  \"pageUrl\": \"/courses/full-stack\"\n}"
+      }
+    },
+
+    {
+      "_id": "fld_backups",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "💾 Database Backup & Dumps",
+      "description": "MySQL database backup dumps, download & restore"
+    },
+    {
+      "_id": "req_bak_list",
+      "_type": "request",
+      "parentId": "fld_backups",
+      "name": "GET /backups — List All Backups",
+      "method": "GET",
+      "url": "{{ base_url }}/backups",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_bak_create",
+      "_type": "request",
+      "parentId": "fld_backups",
+      "name": "POST /backups — Trigger Instant Database Dump",
+      "method": "POST",
+      "url": "{{ base_url }}/backups",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_bak_download",
+      "_type": "request",
+      "parentId": "fld_backups",
+      "name": "GET /backups/:filename — Stream & Download SQL Dump",
+      "method": "GET",
+      "url": "{{ base_url }}/backups/cnat_db_backup.sql",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/octet-stream" }
+      ]
+    },
+    {
+      "_id": "req_bak_delete",
+      "_type": "request",
+      "parentId": "fld_backups",
+      "name": "DELETE /backups/:filename — Delete Specific Backup File",
+      "method": "DELETE",
+      "url": "{{ base_url }}/backups/cnat_db_backup.sql",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+
+    {
+      "_id": "fld_guests",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "🎟️ Bijoya Event & Guests",
+      "description": "Maitri Mahotsav attendee passes and registrations"
+    },
+    {
+      "_id": "req_gst_all",
+      "_type": "request",
+      "parentId": "fld_guests",
+      "name": "GET /dev/guests — All Registered Attendees",
+      "method": "GET",
+      "url": "{{ base_url }}/dev/guests",
+      "headers": [
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_gst_create",
+      "_type": "request",
+      "parentId": "fld_guests",
+      "name": "POST /dev/guests — Register Event Guest",
+      "method": "POST",
+      "url": "{{ base_url }}/dev/guests",
+      "headers": [
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"guestName\": \"Debashis Roy\",\n  \"mobile\": \"9830554433\",\n  \"wpNumber\": \"9830554433\",\n  \"genderId\": 1,\n  \"foodPreferenceId\": 2,\n  \"isAttending\": true\n}"
+      }
+    },
+    {
+      "_id": "req_gst_update",
+      "_type": "request",
+      "parentId": "fld_guests",
+      "name": "PUT /dev/guests/:id — Update Guest Pass Details",
+      "method": "PUT",
+      "url": "{{ base_url }}/dev/guests/1",
+      "headers": [
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"isAttending\": true,\n  \"foodPreferenceId\": 2\n}"
+      }
+    },
+
+    {
+      "_id": "fld_cycle",
+      "_type": "request_group",
+      "parentId": "wrk_cnat",
+      "name": "🌸 Menstrual Cycle & Health",
+      "description": "Cycle tracking, historical dates, and settings"
+    },
+    {
+      "_id": "req_cyc_me",
+      "_type": "request",
+      "parentId": "fld_cycle",
+      "name": "GET /cycle/me — Load Profile & Period Dates",
+      "method": "GET",
+      "url": "{{ base_url }}/cycle/me",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_cyc_update_profile",
+      "_type": "request",
+      "parentId": "fld_cycle",
+      "name": "PUT /cycle/me — Update Health & Cycle Settings",
+      "method": "PUT",
+      "url": "{{ base_url }}/cycle/me",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"periodDuration\": 5,\n  \"averageCycleLength\": 28,\n  \"lutealPhaseLength\": 14,\n  \"goal\": \"track_cycle\"\n}"
+      }
+    },
+    {
+      "_id": "req_cyc_add_period",
+      "_type": "request",
+      "parentId": "fld_cycle",
+      "name": "POST /cycle/period — Add Period Start Date",
+      "method": "POST",
+      "url": "{{ base_url }}/cycle/period",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"periodStartDate\": \"2026-09-15\",\n  \"notes\": \"Regular flow, light cramps\"\n}"
+      }
+    },
+    {
+      "_id": "req_cyc_sync_periods",
+      "_type": "request",
+      "parentId": "fld_cycle",
+      "name": "POST /cycle/periods/sync — Bulk Sync Period Dates",
+      "method": "POST",
+      "url": "{{ base_url }}/cycle/periods/sync",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ token }}" },
+        { "name": "Accept", "value": "application/json" },
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"periodStarts\": [\n    \"2026-07-20\",\n    \"2026-08-17\",\n    \"2026-09-15\"\n  ]\n}"
+      }
+    }
+  ]
+}

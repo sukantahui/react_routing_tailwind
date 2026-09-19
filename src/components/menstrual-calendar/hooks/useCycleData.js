@@ -87,11 +87,20 @@ export function useCycleData() {
   // ── Apply API response to state ──────────────────────────────────────────
 
   const applyApiData = useCallback((data) => {
-    const starts   = (data.period_starts || []).sort(compareISODates);
-    const entries  = (data.period_entries || []).sort((a, b) =>
-      compareISODates(a.period_start_date, b.period_start_date)
+    if (!data) return;
+    const rawStarts = data.periodStarts || data.period_starts || [];
+    const starts = rawStarts.sort(compareISODates);
+
+    const rawEntries = data.periodEntries || data.period_entries || [];
+    const entries = rawEntries.map((e) => ({
+      id: e.id ?? null,
+      period_start_date: e.periodStartDate || e.period_start_date,
+      periodStartDate: e.periodStartDate || e.period_start_date,
+      notes: e.notes || null,
+    })).sort((a, b) =>
+      compareISODates(a.periodStartDate || a.period_start_date, b.periodStartDate || b.period_start_date)
     );
-    const merged   = { ...DEFAULT_SETTINGS, ...apiSettingsToReact(data.settings) };
+    const merged = { ...DEFAULT_SETTINGS, ...apiSettingsToReact(data.settings) };
 
     setPeriodStarts(starts);
     setPeriodEntries(entries);

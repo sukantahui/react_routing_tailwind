@@ -769,7 +769,7 @@ const StudentAdmission = () => {
                 required
                 options={feeModes.map((fm) => ({
                   value: String(fm.id),
-                  label: fm.fee_modes_name || (fm.id === 1 ? "Monthly" : "Course Fees (Full / Lump sum)"),
+                  label: fm.feeModesName || fm.feeModeName || fm.fee_modes_name || fm.name || (fm.id === 1 ? "Monthly" : "Course Fees (Full / Lump sum)"),
                 }))}
               />
 

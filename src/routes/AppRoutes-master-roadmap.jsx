@@ -65,6 +65,7 @@ const Dashboard = lazy(() => import('../components/Dashboard'));
 const AddStudent = lazy(() => import('../components/AddStudent'));
 const CertificateGenerator = lazy(() => import('../common/CertificateGenerator'));
 const StudentCertificateStudio = lazy(() => import('../components/certificates/StudentCertificateStudio'));
+const AdminCertificatesList = lazy(() => import('../components/certificates/AdminCertificatesList'));
 const StudentAdmission = lazy(() => import('../components/StudentAdmission'));
 const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
@@ -90,6 +91,7 @@ const ROUTES = {
   LOGIN: '/login',
   DASHBOARD: '/dashboard',
   MENSTRUAL_CALENDAR: '/menstrual-calendar',
+  CERTIFICATES_PORTAL: '/certificates',
   CERTIFICATE_VIEW: '/certificates/:certificateId',
   ADMIN: '/admin',
   USER_MANAGEMENT: '/admin/users',
@@ -104,6 +106,8 @@ const ROUTES = {
   AVL_TREE: '/AvlTreeVisualizer',
   CERTIFICATE_GENERATOR: '/certificate',
   STUDENT_CERTIFICATE_STUDIO: '/certificates/issue',
+  ADMIN_CERTIFICATES_LIST: '/admin/certificates',
+  CERTIFICATES_REGISTER: '/certificates/list',
   STUDENT_ADMISSION: '/admission',
   ADD_COURSE: '/courses',
   ADD_RESULT: '/results',
@@ -588,6 +592,7 @@ export default function AppRoutes() {
         {/* ---------- Public & Tool routes ---------- */}
         <Route path={ROUTES.HOME} element={<Home />} />
         <Route path={ROUTES.LOGIN} element={<Login />} />
+        <Route path={ROUTES.CERTIFICATES_PORTAL} element={<Certificate />} />
         <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} />
         <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
@@ -724,6 +729,24 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper>
               <StudentCertificateStudio />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.ADMIN_CERTIFICATES_LIST}
+          element={
+            <ProtectedRouteWrapper>
+              <AdminCertificatesList />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.CERTIFICATES_REGISTER}
+          element={
+            <ProtectedRouteWrapper>
+              <AdminCertificatesList />
             </ProtectedRouteWrapper>
           }
         />
