@@ -3,17 +3,13 @@
  * Module: 001_008_foundations-practice-assessment-lab (Topic 5)
  * Description: Implements comprehensive Array Element Frequency Counting Algorithms in Java:
  *              1. Direct Address Frequency Array: O(N) Time, O(K) Space for bounded ranges
- *              2. HashMap / LinkedHashMap Frequency Table: O(N) Time for unbounded/negative ranges
+ *              2. Visited-Array Frequency Table: O(N^2) Time, O(N) Space for unbounded/negative ranges
  *              3. In-Place Modulo Offset Frequency Counting: O(N) Time, O(1) Auxiliary Space
  *              for student score distribution and attendance audit at Coder & AccoTax Barrackpore.
  * Educator: Sukanta Hui | Coder & AccoTax, Barrackpore
  */
 
 package com.coderaccotax.javatutorial.foundations;
-
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class ArrayElementFrequencyCounterDemo {
 
@@ -31,15 +27,27 @@ public class ArrayElementFrequencyCounterDemo {
     }
 
     // =========================================================================
-    // 2. LINKED HASH MAP FREQUENCY TABLE (Unbounded, negative, or sparse ranges)
+    // 2. VISITED-ARRAY FREQUENCY TABLE (Arbitrary, negative, or sparse ranges)
     // =========================================================================
-    public static Map<Integer, Integer> countFrequencyHashMap(int[] nums) {
-        // LinkedHashMap preserves order of first appearance
-        Map<Integer, Integer> freqMap = new LinkedHashMap<>();
-        for (int val : nums) {
-            freqMap.put(val, freqMap.getOrDefault(val, 0) + 1);
+    public static void countFrequencyVisited(int[] nums) {
+        int n = nums.length;
+        boolean[] visited = new boolean[n];
+
+        for (int i = 0; i < n; i++) {
+            // Skip this element if already counted:
+            if (visited[i]) {
+                continue;
+            }
+
+            int count = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] == nums[j]) {
+                    visited[j] = true;
+                    count++;
+                }
+            }
+            System.out.printf("     ID %4d : %d enrollments%n", nums[i], count);
         }
-        return freqMap;
     }
 
     // =========================================================================
@@ -73,6 +81,16 @@ public class ArrayElementFrequencyCounterDemo {
         }
     }
 
+    // Helper: Pretty-print a 1D primitive array using basic loops
+    public static void printArray(String label, int[] arr) {
+        System.out.print("   " + label + " : [");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+
     public static void main(String[] args) {
         System.out.println("================================================================================");
         System.out.println("CODER & ACCOTAX - JAVA CORE: TOPIC 5 ARRAY ELEMENT FREQUENCY COUNTERS");
@@ -85,7 +103,7 @@ public class ArrayElementFrequencyCounterDemo {
         int[] freqArr = countFrequencyDirectAddress(studentMarks, maxMark);
 
         System.out.println("1. DIRECT ADDRESS FREQUENCY ARRAY (Student Marks Scale 0..10):");
-        System.out.printf("   Input Array : %s%n", Arrays.toString(studentMarks));
+        printArray("Input Array", studentMarks);
         System.out.println("   Frequency Distribution:");
         for (int score = 0; score <= maxMark; score++) {
             if (freqArr[score] > 0) {
@@ -93,28 +111,27 @@ public class ArrayElementFrequencyCounterDemo {
             }
         }
 
-        // --- 2. LINKED HASH MAP FREQUENCY TEST (Sparse / Arbitrary IDs) ---
+        // --- 2. VISITED-ARRAY FREQUENCY TEST (Arbitrary / Negative IDs) ---
         int[] courseEnrollmentIds = {101, 204, 101, 305, 204, 101, 408, -50, 305, 101};
-        Map<Integer, Integer> mapResults = countFrequencyHashMap(courseEnrollmentIds);
 
-        System.out.println("\n2. LINKED HASH MAP FREQUENCY TABLE (Arbitrary / Negative IDs):");
-        System.out.printf("   Input Array : %s%n", Arrays.toString(courseEnrollmentIds));
-        System.out.println("   Frequency Counts (Insertion Order Preserved):");
-        mapResults.forEach((id, count) ->
-                System.out.printf("     ID %4d : %d enrollments%n", id, count));
+        System.out.println("\n2. VISITED-ARRAY FREQUENCY TABLE (Arbitrary / Negative IDs):");
+        printArray("Input Array", courseEnrollmentIds);
+        System.out.println("   Frequency Counts (First Occurrence Order Preserved):");
+        countFrequencyVisited(courseEnrollmentIds);
 
         // --- 3. IN-PLACE MODULO FREQUENCY TEST (Range: 1..N) ---
         int[] batchAttendance = {2, 3, 3, 2, 5}; // N = 5, elements in range [1..5]
         System.out.println("\n3. IN-PLACE MODULO FREQUENCY COUNTING (Range 1..N):");
-        System.out.printf("   Input Array : %s (Size N = %d)%n", Arrays.toString(batchAttendance), batchAttendance.length);
+        printArray("Input Array", batchAttendance);
+        System.out.printf("   Size N = %d%n", batchAttendance.length);
         countFrequencyInPlace(batchAttendance);
 
         System.out.println("\n================================================================================");
         System.out.println("KEY TAKEAWAYS FOR STUDENTS (Swadeep, Tuhina, Abhronila, Debangshu):");
-        System.out.println("1. Direct Address Frequency Array is the fastest possible approach for bounded ranges.");
-        System.out.println("2. Use LinkedHashMap when elements are sparse, negative, or unbounded.");
-        System.out.println("3. Modulo N arithmetic allows counting frequencies in-place in O(1) space.");
-        System.out.println("4. Map.getOrDefault(key, 0) + 1 is the canonical idiomatic Java map counter pattern.");
+        System.out.println("1. Direct Address Frequency Array is O(N) fastest for bounded positive ranges [0..K].");
+        System.out.println("2. Visited boolean array tracks frequencies of arbitrary/negative elements in O(N^2) time without Maps.");
+        System.out.println("3. Modulo N arithmetic allows counting frequencies in-place in O(1) auxiliary space.");
+        System.out.println("4. Implemented purely with primitive arrays (int[], boolean[]) and loops - zero Collections needed!");
         System.out.println("================================================================================");
     }
 }

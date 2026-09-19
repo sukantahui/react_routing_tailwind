@@ -11,43 +11,43 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class MatrixSpiralAndRotationAlgorithmsDemo {
 
     // =========================================================================
     // 1. SPIRAL MATRIX TRAVERSAL: O(R * C) Time, O(1) Auxiliary Space
     // =========================================================================
-    public static List<Integer> spiralOrderTraversal(int[][] matrix) {
-        List<Integer> result = new ArrayList<>();
+    public static int[] spiralOrderTraversal(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return result;
+            return new int[0];
         }
 
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[] result = new int[rows * cols];
+        int index = 0;
+
         int top = 0;
-        int bottom = matrix.length - 1;
+        int bottom = rows - 1;
         int left = 0;
-        int right = matrix[0].length - 1;
+        int right = cols - 1;
 
         while (top <= bottom && left <= right) {
             // Traverse from Left to Right along top boundary
             for (int col = left; col <= right; col++) {
-                result.add(matrix[top][col]);
+                result[index++] = matrix[top][col];
             }
             top++; // Shrink top boundary
 
             // Traverse from Top to Bottom along right boundary
             for (int row = top; row <= bottom; row++) {
-                result.add(matrix[row][right]);
+                result[index++] = matrix[row][right];
             }
             right--; // Shrink right boundary
 
             // Traverse from Right to Left along bottom boundary (if rows remain)
             if (top <= bottom) {
                 for (int col = right; col >= left; col--) {
-                    result.add(matrix[bottom][col]);
+                    result[index++] = matrix[bottom][col];
                 }
                 bottom--; // Shrink bottom boundary
             }
@@ -55,7 +55,7 @@ public class MatrixSpiralAndRotationAlgorithmsDemo {
             // Traverse from Bottom to Top along left boundary (if columns remain)
             if (left <= right) {
                 for (int row = bottom; row >= top; row--) {
-                    result.add(matrix[row][left]);
+                    result[index++] = matrix[row][left];
                 }
                 left++; // Shrink left boundary
             }
@@ -93,6 +93,19 @@ public class MatrixSpiralAndRotationAlgorithmsDemo {
         }
     }
 
+    // Helper: Pretty-print a 1D primitive array using basic loops
+    public static void print1DArray(String title, int[] arr) {
+        System.out.println("  " + title + ":");
+        System.out.print("  [");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]\n");
+    }
+
     // Helper: Pretty-print a 2D matrix
     public static void printMatrixGrid(String title, int[][] matrix) {
         System.out.println("  " + title + ":");
@@ -120,9 +133,8 @@ public class MatrixSpiralAndRotationAlgorithmsDemo {
         };
 
         printMatrixGrid("Original 3x4 Seating Grid", campusSeating);
-        List<Integer> spiralResult = spiralOrderTraversal(campusSeating);
-        System.out.println("  Spiral Clockwise Traversal Order:");
-        System.out.println("  " + spiralResult + "\n");
+        int[] spiralResult = spiralOrderTraversal(campusSeating);
+        print1DArray("Spiral Clockwise Traversal Order", spiralResult);
 
         // --- 2. IN-PLACE 90-DEGREE ROTATION (4 x 4 Square Matrix) ---
         int[][] squareScores = {
@@ -142,6 +154,7 @@ public class MatrixSpiralAndRotationAlgorithmsDemo {
         System.out.println("2. Always guard bottom and left traversals with 'if (top <= bottom)' & 'if (left <= right)'.");
         System.out.println("3. 90° Clockwise Rotation = Transpose across diagonal + Reverse each row horizontally.");
         System.out.println("4. In-place rotation uses O(1) auxiliary memory without allocating a second matrix.");
+        System.out.println("5. Implemented purely with primitive arrays (int[] and int[][]) and loops - no Collections needed!");
         System.out.println("================================================================================");
     }
 }

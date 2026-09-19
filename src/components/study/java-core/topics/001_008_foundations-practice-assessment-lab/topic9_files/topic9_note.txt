@@ -5,11 +5,21 @@ TOPIC 9: Debugging Challenge: 10 Common Compilation & Logical Bugs
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. THE 10 CLASSIC JAVA BUGS & FIXES
+1. FORMAL PROBLEM DEFINITION & DIAGNOSTIC SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 9: Diagnostic Debugging Challenge (10 Common Java Bugs)
+- Objective: Diagnose root cause and apply canonical defensive fixes for 10
+  classic Java Foundations anti-patterns across memory, control, and arrays.
+- Bug Categories:
+  * Category A (References & Types): String ==, NPE, Array Bounds, Overflow, Float.
+  * Category B (Syntax & Mutation) : Semicolon, Switch, Truncation, String, For-Each.
+- Output: Defensively guarded, clean-compiling, bug-free implementations.
+
+2. THE 10 CLASSIC JAVA BUGS & FIXES
 --------------------------------------------------------------------------------
 1. String Equality (== vs .equals())
    * Bug: a == b compares memory addresses!
-   * Fix: a.equals(b) or Objects.equals(a, b).
+   * Fix: a.equals(b) or (a != null && a.equals(b)).
 
 2. NullPointerException (NPE)
    * Bug: text.length() when text is null.
@@ -43,11 +53,11 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
    * Bug: missing base case crashes with StackOverflowError.
    * Fix: enforce base case (if (n <= 0) return 0;).
 
-10. ConcurrentModificationException
-   * Bug: list.remove(x) during enhanced for-each iteration.
-   * Fix: list.removeIf(predicate) or Iterator.remove().
+10. Enhanced For-Each Array Mutation Trap
+   * Bug: for (int x : arr) x = 0 modifies only the local loop copy variable.
+   * Fix: use index-based loop for (int i = 0; i < arr.length; i++) arr[i] = 0.
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Never use '==' for Object/String content comparisons.
 [✓] Cast operands to (double)/(long) BEFORE arithmetic operations.

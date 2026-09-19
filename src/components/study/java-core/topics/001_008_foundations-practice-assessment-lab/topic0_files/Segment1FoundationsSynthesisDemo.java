@@ -16,8 +16,6 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.Arrays;
-
 public class Segment1FoundationsSynthesisDemo {
 
     // Global constants

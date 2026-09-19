@@ -5,7 +5,21 @@ TOPIC 1: Prime Generation via Sieve of Eratosthenes
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. CORE ALGORITHM MECHANICS
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 1A: Classical Sieve of Eratosthenes
+- Objective: Find and mark all prime numbers in the range [2..limit].
+- Input: int limit (N >= 2).
+- Output: boolean[] isPrime (size N + 1, where isPrime[i] is true iff i is prime).
+- Constraints: O(N log(log N)) time, O(N) auxiliary space.
+- Invariants: Outer loop stops at p * p <= N; inner loop begins at p * p.
+
+PROBLEM 1B: Bit-Packed Primitive Sieve
+- Objective: Pack 32 primality flags per 32-bit int using bitwise shifts.
+- Formula: compositeBits[p >> 5] |= (1 << (p & 31)) to mark composite.
+- Memory: 32x reduction compared to boolean arrays (~12.5 MB for 100M limit).
+
+2. CORE ALGORITHM MECHANICS
 --------------------------------------------------------------------------------
 - What is Sieve of Eratosthenes?
   * An optimal algorithm to find all primes up to limit N in O(N log(log N)) time.
@@ -18,9 +32,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Memory Efficiency:
   * Standard boolean[] uses 1 byte (8 bits) per entry (~100 MB for 100M numbers).
-  * java.util.BitSet uses exactly 1 bit per entry (~12.5 MB for 100M numbers, 8x less!).
+  * Primitive int[] bit array uses exactly 1 bit per entry via bitwise operators (~12.5 MB for 100M numbers, 8x less!).
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Time Complexity: O(N log(log N)) | Space Complexity: O(N).
 [✓] Watch out for 32-bit integer overflow in 'p * p' when p > 46,340.

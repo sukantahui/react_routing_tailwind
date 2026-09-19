@@ -54,12 +54,12 @@ const questions = [
     codeExample: "Score 8 appeared 4 times"
   },
   {
-    question: "When should you choose a `HashMap` or `LinkedHashMap` over a Direct Address Frequency Array?",
-    shortAnswer: "When array elements contain negative numbers, large sparse values (e.g. `101, 1000000000`), or non-integer objects (Strings, custom records).",
-    explanation: "Map vs Frequency array trade-offs.",
-    hint: "Use Map for negative numbers, sparse values, or strings.",
+    question: "How do you count frequencies of negative or arbitrary sparse values in foundational Java?",
+    shortAnswer: "Using a visited boolean array `boolean[] visited = new boolean[n]`. For each unvisited element at index `i`, an inner loop counts identical elements at `j > i` and marks `visited[j] = true`.",
+    explanation: "Visited boolean array frequency algorithm.",
+    hint: "Use boolean[] visited array to skip already counted duplicates.",
     level: "basic",
-    codeExample: "Map<Integer, Integer> map = new LinkedHashMap<>();"
+    codeExample: "boolean[] visited = new boolean[n]; if (visited[i]) continue;"
   },
   {
     question: "How does the In-Place Modulo $N$ frequency counting algorithm work for elements in range $[1..N]$?",
@@ -78,12 +78,12 @@ const questions = [
     codeExample: "countFrequencyInPlace(new int[]{2, 3, 3, 2, 5})"
   },
   {
-    question: "What is the difference between `HashMap`, `LinkedHashMap`, and `TreeMap` for frequency tables?",
-    shortAnswer: "`HashMap` offers $O(1)$ average time with unordered keys; `LinkedHashMap` maintains insertion order; `TreeMap` maintains keys sorted in natural ascending order with $O(\\log K)$ time.",
-    explanation: "Map implementation trade-offs.",
-    hint: "HashMap = unordered O(1); LinkedHashMap = insertion order; TreeMap = sorted keys O(log K).",
+    question: "What are the trade-offs between Direct Address, Visited Array, and In-Place Modulo Counting?",
+    shortAnswer: "Direct Address Array: $O(N)$ time, $O(K)$ space (bounded positive range). Visited Array: $O(N^2)$ time, $O(N)$ space (arbitrary/negative values). In-Place Modulo: $O(N)$ time, $O(1)$ space (values in $[1..N]$).",
+    explanation: "Three foundational frequency counting paradigms.",
+    hint: "Direct Address: O(N) time O(K) space; Visited: O(N^2) time O(N) space; In-Place: O(N) time O(1) space.",
     level: "intermediate",
-    codeExample: "Map<Integer, Integer> sorted = new TreeMap<>(freqMap);"
+    codeExample: "// Direct Address: O(N) | Visited Array: O(N^2) | In-Place: O(1) Space"
   },
   {
     question: "How can character frequencies in a String (lowercase English) be counted using a small frequency array?",
@@ -102,12 +102,11 @@ const questions = [
     codeExample: "for (char c : s.toCharArray()) freq[c - 'a']++; for (char c : t.toCharArray()) freq[c - 'a']--;"
   },
   {
-    question: "In the Coder & AccoTax Barrackpore lab, what was the frequency of enrollment ID `-50` in the Map test?",
-    shortAnswer: "Appeared 1 time (handled seamlessly by `LinkedHashMap` without negative indexing crashes).",
-    explanation: "Negative key handling in HashMap.",
+    question: "In the Coder & AccoTax Barrackpore lab, what was the frequency of enrollment ID `-50`?",
+    shortAnswer: "Appeared 1 time (handled safely by the visited boolean array method without negative indexing crashes).",
+    explanation: "Negative key handling with visited array.",
     hint: "1 time.",
-    level: "basic",
-    codeExample: "mapResults.get(-50) → 1"
+    codeExample: "countFrequencyVisited(courseEnrollmentIds) → -50 appeared 1 time"
   },
   {
     question: "What happens if a negative number is passed to `countFrequencyDirectAddress(nums, 10)` without guards?",
@@ -126,20 +125,20 @@ const questions = [
     codeExample: "if (count == 0) candidate = num; count += (num == candidate) ? 1 : -1;"
   },
   {
-    question: "What is 'Top K Frequent Elements' (LeetCode 347)?",
-    shortAnswer: "Finding the $K$ most frequent elements in an array using either a Min-Heap of size $K$ ($O(N \\log K)$ time) or Bucket Sort on frequencies ($O(N)$ time).",
-    explanation: "Top K Frequent Elements algorithmic patterns.",
-    hint: "Solved in O(N log K) with Min-Heap or O(N) with Bucket Sort on frequency counts.",
-    level: "advanced",
-    codeExample: "List<Integer>[] bucket = new List[nums.length + 1];"
+    question: "How does a Direct Addressing Array count frequencies of non-negative integers bounded by max value K?",
+    shortAnswer: "Allocate an `int[] freq = new int[maxVal + 1];` where index `i` stores the count of value `i`. Increment `freq[x]++` in a single pass of $O(N)$ time.",
+    explanation: "Direct index address frequency array.",
+    hint: "Uses the element values directly as indices into a count array.",
+    level: "intermediate",
+    codeExample: "int[] freq = new int[maxVal + 1];\nfor (int x : nums) {\n    freq[x]++;\n}"
   },
   {
-    question: "How does Java 8 Stream API count frequencies in a single line?",
-    shortAnswer: "`Arrays.stream(nums).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));`.",
-    explanation: "Stream API groupingBy frequency collector.",
-    hint: "Collectors.groupingBy(Function.identity(), Collectors.counting()).",
-    level: "intermediate",
-    codeExample: "Map<Integer, Long> f = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(e → e, Collectors.counting()));"
+    question: "How do nested loops with a boolean visited array avoid double-counting duplicate numbers?",
+    shortAnswer: "Before tallying element `arr[i]`, check `if (visited[i]) continue;`. During the inner loop tallying matches, mark each matched index `visited[j] = true`.",
+    explanation: "Visited boolean array duplicate prevention pattern.",
+    hint: "Mark subsequent matching indices as visited so outer loop skips them.",
+    level: "basic",
+    codeExample: "if (visited[i]) continue;\nfor (int j = i + 1; j < n; j++) {\n    if (arr[i] == arr[j]) visited[j] = true;\n}"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the most frequent course enrollment ID?",
@@ -206,28 +205,28 @@ const questions = [
     codeExample: "for (int i = 0; i < s.length(); i++) if (freq[s.charAt(i) - 'a'] == 1) return i;"
   },
   {
-    question: "What is the Time Complexity of iterating over all entries in a `LinkedHashMap` of size $U$?",
-    shortAnswer: "$O(U)$ linear time in terms of distinct unique elements, preserving original insertion order.",
-    explanation: "LinkedHashMap entry iteration complexity.",
-    hint: "O(U) time where U is number of unique keys.",
+    question: "What is the Space Complexity of the Visited Boolean Array frequency counting algorithm?",
+    shortAnswer: "$O(N)$ auxiliary space, allocating a single `boolean[nums.length]` to track processed indices.",
+    explanation: "Visited boolean array space complexity.",
+    hint: "O(N) auxiliary space for boolean[] visited.",
     level: "basic",
-    codeExample: "mapResults.forEach((k, v) → ...);"
+    codeExample: "boolean[] visited = new boolean[nums.length]; // O(N) space"
   },
   {
     question: "What happens if max element $K$ in Direct Address array is $10^9$?",
-    shortAnswer: "Attempting `new int[1_000_000_001]` requires $\\approx 4$ GB of contiguous RAM, throwing `OutOfMemoryError: Java heap space`. Always use `HashMap` for large sparse values.",
+    shortAnswer: "Attempting `new int[1_000_000_001]` requires $\\approx 4$ GB of contiguous RAM, throwing `OutOfMemoryError: Java heap space`. Use the visited array or in-place approach for sparse values.",
     explanation: "Sparse array heap limit failure.",
-    hint: "Throws OutOfMemoryError due to 4GB RAM requirement; use HashMap instead.",
+    hint: "Throws OutOfMemoryError due to 4GB RAM requirement; use visited array instead.",
     level: "basic",
     codeExample: "// Direct address table fails for sparse values > 10^7"
   },
   {
     question: "What is the ultimate takeaway of Module 001_008 Topic 5 for Java developers?",
-    shortAnswer: "Frequency counting relies on two fundamental patterns: Direct Address Frequency Arrays for fast bounded positive ranges ($O(N)$ time, $O(K)$ space), and `LinkedHashMap` with `getOrDefault()` for unbounded, sparse, or negative datasets.",
+    shortAnswer: "Direct Address Frequency Arrays provide $O(N)$ speed for bounded positive ranges ($0..K$). Visited Boolean Arrays handle arbitrary and negative values in $O(N^2)$ time without external collections, and In-Place Modulo counts in $O(1)$ space.",
     explanation: "Mastery of array frequency counters.",
-    hint: "Direct Address array for small bounded ranges; LinkedHashMap for sparse/negative keys.",
+    hint: "Direct Address for bounded positive ranges; Visited Array for arbitrary/negative; Modulo for in-place.",
     level: "basic",
-    codeExample: "// Summary: Direct Address int[K+1] vs LinkedHashMap.getOrDefault()"
+    codeExample: "// Summary: Direct Address int[K+1] | Visited boolean[] | In-Place nums[nums[i]%n] += n"
   },
   {
     question: "What is the next topic (Topic 6) in Module 001_008?",

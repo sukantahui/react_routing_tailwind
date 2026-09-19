@@ -50,7 +50,137 @@ export default function Topic7() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 7
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to implement <strong>divide-and-conquer Recursive Binary Search</strong> on sorted arrays. You must write exact recursion base cases, protect against 32-bit midpoint integer overflow, and implement duplicate boundary searches using Java Foundations constructs.
+        </p>
+
+        {/* Two Columns / Cards for Problem 7A and Problem 7B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Classic Recursive Binary Search */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 7A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(log N) Time · Recursion Call Stack
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Classic Recursive Binary Search
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given a sorted integer array <code className="text-sky-300 font-mono">arr</code> in ascending order and a target value <code className="text-sky-300 font-mono">target</code>, locate the index of target by recursively halving the search interval <code className="text-emerald-400 font-mono">[low, high]</code>.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int[] arr (sorted), int target, int low, int high</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int index (0-based, or -1 if not found)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Mid Formula:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-sky-300">low + (high - low) / 2</code> (prevents overflow)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Base Case:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-sky-300">if (low &gt; high) return -1;</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Recursion Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">arr = [10, 20, 30, 40, 50, 60, 70], target = 50</div>
+                  <div className="text-sky-300 text-[11px]">Frame 1: low=0, high=6 → mid=3 (arr[3]=40 &lt; 50) → search [4, 6]</div>
+                  <div className="text-sky-300 text-[11px]">Frame 2: low=4, high=6 → mid=5 (arr[5]=60 &gt; 50) → search [4, 4]</div>
+                  <div className="text-sky-300 text-[11px]">Frame 3: low=4, high=4 → mid=4 (arr[4]=50 == 50) → MATCH!</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Return Index: 4 (Found in 3 recursive steps!)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Duplicate Boundary Search */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Problem 7B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(log N) Time · Boundary Isolation
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                First &amp; Last Occurrence in Duplicates
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                When a sorted array contains duplicate occurrences of <code className="text-purple-300 font-mono">target</code>, standard binary search may land on any copy. Modify the search logic to isolate the <strong>exact first or last occurrence</strong> in O(log N) time.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">int[] arr (with duplicates), int target</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int firstIdx, int lastIdx</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">First Occur:</span>
+                  <span className="col-span-2 text-slate-300">On match, record <code className="text-purple-300">ans = mid</code>; continue left <code className="text-purple-300">high = mid - 1</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Last Occur:</span>
+                  <span className="col-span-2 text-slate-300">On match, record <code className="text-purple-300">ans = mid</code>; continue right <code className="text-purple-300">low = mid + 1</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Boundary Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">arr = [10, 20, 20, 20, 20, 30, 40], target = 20</div>
+                  <div className="text-purple-300 text-[11px]">First Occurrence search: finds 20 at mid=3, continues left → Index 1</div>
+                  <div className="text-purple-300 text-[11px]">Last Occurrence search: finds 20 at mid=3, continues right → Index 4</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Frequency Count: (4 - 1 + 1) = 4 occurrences in O(log N) time!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> How Recursive Binary Search Halves Search Space
@@ -80,7 +210,7 @@ export default function Topic7() {
               <h3 className="text-purple-400 font-bold text-sm mb-2">3. Recursive Sub-Problem</h3>
               <p className="text-purple-300 mb-1">mid - 1 OR mid + 1</p>
               <p className="text-slate-300 font-sans leading-relaxed text-xs">
-                Discards the irrelevant half, reducing problem size from $N \to N/2$ in <code className="text-purple-300 font-mono">O(log N)</code> time.
+                Discards the irrelevant half, reducing problem size from N → N/2 in <code className="text-purple-300 font-mono">O(log N)</code> time.
               </p>
             </div>
           </div>
@@ -177,27 +307,27 @@ export default function Topic7() {
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Recursive Binary Search</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(\log N)$</td>
-                <td className="p-3 text-slate-300 font-sans">$O(\log N)$ stack</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(log N)</td>
+                <td className="p-3 text-slate-300 font-sans">O(log N) stack</td>
                 <td className="p-3 text-slate-300 font-sans">Clean divide-and-conquer structure</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Iterative Binary Search</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(\log N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ constant</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(log N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant</td>
                 <td className="p-3 text-slate-300 font-sans">Zero stack frame overhead (Production optimal)</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">First Occurrence Search</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(\log N)$</td>
-                <td className="p-3 text-slate-300 font-sans">$O(\log N)$ stack</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(log N)</td>
+                <td className="p-3 text-slate-300 font-sans">O(log N) stack</td>
                 <td className="p-3 text-slate-300 font-sans">Locates leftmost match in duplicated arrays</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Linear Search (Unsorted)</td>
-                <td className="p-3 text-rose-400 font-sans">$O(N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ constant</td>
-                <td className="p-3 text-slate-300 font-sans">Works on unsorted arrays (much slower for large $N$)</td>
+                <td className="p-3 text-rose-400 font-sans">O(N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant</td>
+                <td className="p-3 text-slate-300 font-sans">Works on unsorted arrays (much slower for large N)</td>
               </tr>
             </tbody>
           </table>
@@ -222,7 +352,7 @@ export default function Topic7() {
         <JavaFileLoader
           fileModule={binDemoCode}
           title="RecursiveBinarySearchAlgorithmsDemo.java"
-          highlightLines={[19, 21, 26, 29, 34, 43, 48, 59, 64, 78, 89]}
+          highlightLines={[19, 23, 28, 42, 47, 62, 68, 80, 97, 107]}
         />
       </section>
 
@@ -263,7 +393,7 @@ export default function Topic7() {
             🤔 <em>&ldquo;How many comparisons are needed to search through 1 billion sorted student IDs?&rdquo;</em>
           </p>
           <p>
-            👉 <strong>Hint:</strong> The Power of Logarithmic Scaling! Because $\log_2(1,000,000,000) \approx 30$, binary search finds any element in 1 billion records in at most <strong>30 comparisons</strong>!
+            👉 <strong>Hint:</strong> The Power of Logarithmic Scaling! Because log₂(1,000,000,000) ≈ 30, binary search finds any element in 1 billion records in at most <strong>30 comparisons</strong>!
           </p>
         </div>
       </section>

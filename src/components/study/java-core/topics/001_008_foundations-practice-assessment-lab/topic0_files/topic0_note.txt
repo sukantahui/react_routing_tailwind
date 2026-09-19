@@ -5,7 +5,20 @@ TOPIC 0: Review of Segment 1 Core Concepts
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. SEGMENT 1 FOUNDATIONS SUMMARY
+1. FORMAL PROBLEM DEFINITION & ARCHITECTURAL SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 0: Integrated Academic Ledger & Student Grading Synthesis Engine
+- Objective: Engineer a robust, modular terminal billing and grading engine
+  unifying all 7 Segment 1 foundational pillars without using collections.
+- Input: StudentRecord[] (name, campus, int[] testScores, baseTuition, waiverPct).
+- Output: Terminal ledger display with average scores, switch-evaluated letter
+  grades, net tuition fees in Indian Rupees (₹), and 18% GST computations.
+- Constraints:
+  * Zero Collections (ArrayList, List, Map forbidden).
+  * Pure primitive arrays, static methods, loops, switch expressions, records.
+  * Fail-safe handling for null or empty test score arrays.
+
+2. SEGMENT 1 FOUNDATIONS SUMMARY
 --------------------------------------------------------------------------------
 - Module 001_001 : JVM Architecture, Bytecode, ClassLoaders, JIT Compiler & Memory (Stack vs Heap).
 - Module 001_002 : Syntax, Primitive Types (8 types), Literals, Variables & Constants.
@@ -15,7 +28,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 - Module 001_006 : 1D & 2D Arrays, Ragged Matrices, In-Memory Algorithms & Iteration.
 - Module 001_007 : Modular Methods, Pass-by-Value, Overloading, Varargs & Call Stack Recursion.
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Java is strictly Pass-by-Value for primitives and object reference addresses.
 [✓] Stack memory is LIFO, thread-private, and freed instantly in O(1) time without GC.

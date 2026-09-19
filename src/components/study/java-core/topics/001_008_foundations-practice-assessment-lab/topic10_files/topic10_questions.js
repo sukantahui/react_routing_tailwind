@@ -46,12 +46,12 @@ const questions = [
     codeExample: "public static final double GST_TAX_RATE = 0.18;"
   },
   {
-    question: "Why are Wildcard Imports (`import java.util.*;`) strictly forbidden in Google Java Style?",
+    question: "Why are Wildcard Imports (`import pkg.*;`) strictly forbidden in Google Java Style?",
     shortAnswer: "Wildcard imports pollute the namespace, obscure dependencies, and cause compilation errors when new classes with matching names are added to imported packages.",
     explanation: "Prohibition of wildcard imports.",
     hint: "Pollutes namespace and causes name collisions; always import specific classes.",
     level: "basic",
-    codeExample: "import java.util.List; import java.util.Objects; // Specific imports"
+    codeExample: "// Explicit specific class imports without wildcard (*)"
   },
   {
     question: "What are 'Egyptian Braces' (K&R style) in Google Java Style?",
@@ -86,12 +86,12 @@ const questions = [
     codeExample: "public static final double GST_TAX_RATE = 0.18;"
   },
   {
-    question: "How does `Objects.requireNonNull()` enforce defensive programming?",
-    shortAnswer: "It validates parameters immediately at method entry, throwing a descriptive `NullPointerException` if the argument is `null` before executing logic.",
-    explanation: "Objects.requireNonNull fail-fast validation.",
-    hint: "Fails fast with descriptive message if parameter is null.",
+    question: "How do explicit null checks enforce defensive programming in clean Java code?",
+    shortAnswer: "They validate method parameters at the very beginning of the method, throwing a fast `IllegalArgumentException` if any required reference is `null`.",
+    explanation: "Explicit fail-fast parameter validation.",
+    hint: "Checks references at entry and throws an exception immediately if null.",
     level: "basic",
-    codeExample: "Objects.requireNonNull(entry, \"entry cannot be null\");"
+    codeExample: "if (entry == null) {\n    throw new IllegalArgumentException(\"entry cannot be null\");\n}"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was Swadeep's discounted net fee after 15% merit waiver and 18% GST on ₹20,000 base fee?",
@@ -131,7 +131,7 @@ const questions = [
     explanation: "Import ordering rules.",
     hint: "Alphabetical imports in single block; static imports grouped at top.",
     level: "intermediate",
-    codeExample: "import java.util.List;\nimport java.util.Objects;"
+    codeExample: "// Specific alphabetical single-class imports without wildcards"
   },
   {
     question: "How should acronyms be formatted in camelCase identifiers (e.g. HTTP, XML, GST)?",

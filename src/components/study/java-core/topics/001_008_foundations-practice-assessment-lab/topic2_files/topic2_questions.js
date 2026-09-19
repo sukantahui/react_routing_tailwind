@@ -179,7 +179,7 @@ const questions = [
     explanation: "Arbitrary base palindrome verification.",
     hint: "Extract base B digits using % B and / B, then compare pointers.",
     level: "intermediate",
-    codeExample: "List<Integer> digits = new ArrayList<>(); while (n > 0) { digits.add(n % B); n /= B; }"
+    codeExample: "int[] digits = new int[32]; int len = 0; while (n > 0) { digits[len++] = n % B; n /= B; }"
   },
   {
     question: "What is 'Valid Palindrome II' (allowing deletion of at most ONE character)?",

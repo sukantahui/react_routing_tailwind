@@ -5,7 +5,25 @@ TOPIC 10: Writing Clean, Readable Code Conforming to Google Java Style Guide
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. GOOGLE JAVA STYLE ESSENTIALS
+1. FORMAL PROBLEM DEFINITION & CLEAN CODE SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 10: Google Java Style & Clean Code Refactoring
+- Objective: Refactor an unstructured legacy campus ledger application into a
+  production-grade codebase conforming strictly to the Google Java Style Guide.
+- Specification 10A (Naming & Formatting):
+  * Classes / Records : UpperCamelCase (e.g., StudentLedgerEntry).
+  * Methods / Vars    : lowerCamelCase (e.g., calculateNetPayableFee).
+  * Constants         : UPPER_SNAKE_CASE (e.g., GST_TAX_RATE = 0.18).
+  * Indentation       : Strictly 2 spaces (NO tabs).
+  * Column Width      : 100-character line wrap limit.
+  * Wildcard Imports  : Zero wildcard imports allowed (explicit imports only).
+- Specification 10B (Defensive Contracts & Immutability):
+  * Null Safety       : Defensive null guards (Objects.requireNonNull or explicit if-check).
+  * Data Modeling     : Immutable records with compact validation constructors.
+  * Magic Literals    : Extract all numerical and string literals to static final constants.
+  * Bracing           : Egyptian braces ('{' on same line) required on all control structures.
+
+2. GOOGLE JAVA STYLE ESSENTIALS
 --------------------------------------------------------------------------------
 - Indentation & Formatting:
   * Exactly 2 spaces per indentation level (NO tab characters).
@@ -21,11 +39,11 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Package Names             : all lowercase (com.coderaccotax.javatutorial)
 
 - Hygiene Rules:
-  * NO wildcard imports (import java.util.*; is strictly forbidden).
+  * NO wildcard imports (wildcard imports with * are strictly forbidden).
   * Eliminate Magic Numbers: Extract static final named constants.
-  * Defensive Programming: Objects.requireNonNull() on all public parameters.
+  * Defensive Programming: Enforce explicit null checks on all public parameters.
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] 2-space indentation | 100-character line width.
 [✓] Javadoc (@param, @return, @throws) on all non-private APIs.

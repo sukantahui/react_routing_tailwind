@@ -12,8 +12,6 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.Arrays;
-
 public class RecursiveBinarySearchAlgorithmsDemo {
 
     // =========================================================================
@@ -50,6 +48,7 @@ public class RecursiveBinarySearchAlgorithmsDemo {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
+
             if (arr[mid] == target) {
                 return mid;
             } else if (arr[mid] > target) {
@@ -58,29 +57,39 @@ public class RecursiveBinarySearchAlgorithmsDemo {
                 low = mid + 1;
             }
         }
-        return -1;
+        return -1; // Not found
     }
 
     // =========================================================================
-    // 3. FIRST OCCURRENCE IN SORTED ARRAY WITH DUPLICATES
+    // 3. FIRST OCCURRENCE IN DUPLICATED SORTED ARRAY
     // =========================================================================
     public static int findFirstOccurrence(int[] arr, int low, int high, int target) {
         if (low > high) return -1;
+
         int mid = low + (high - low) / 2;
 
         if (arr[mid] == target) {
-            // Check if this is the first occurrence or recurse further left
-            if (mid == 0 || arr[mid - 1] != target) {
+            // Check if this is the first occurrence (at index 0 or previous element is smaller)
+            if (mid == 0 || arr[mid - 1] < target) {
                 return mid;
             }
+            // Otherwise, continue searching left half for earlier occurrence:
             return findFirstOccurrence(arr, low, mid - 1, target);
-        }
-
-        if (arr[mid] > target) {
+        } else if (arr[mid] > target) {
             return findFirstOccurrence(arr, low, mid - 1, target);
         } else {
             return findFirstOccurrence(arr, mid + 1, high, target);
         }
+    }
+
+    // Helper: Pretty-print a 1D primitive array using basic loops
+    public static void printArray(String label, int[] arr) {
+        System.out.print("   " + label + " : [");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
     }
 
     public static void main(String[] args) {
@@ -92,7 +101,8 @@ public class RecursiveBinarySearchAlgorithmsDemo {
         // --- 1. RECURSIVE BINARY SEARCH ON SORTED BARRACKPORE STUDENT ROLLS ---
         int[] sortedRolls = {101, 105, 112, 118, 125, 130, 142, 150, 165, 180};
         System.out.println("1. SORTED STUDENT ROLL LEDGER:");
-        System.out.println("   " + Arrays.toString(sortedRolls) + "\n");
+        printArray("Rolls", sortedRolls);
+        System.out.println();
 
         int[] searchTargets = {130, 101, 180, 199};
         for (int target : searchTargets) {
@@ -108,7 +118,7 @@ public class RecursiveBinarySearchAlgorithmsDemo {
         int firstIdx = findFirstOccurrence(scoresWithDuplicates, 0, scoresWithDuplicates.length - 1, targetScore);
 
         System.out.println("\n2. FIRST OCCURRENCE SEARCH IN DUPLICATED SCORES:");
-        System.out.println("   Array: " + Arrays.toString(scoresWithDuplicates));
+        printArray("Scores", scoresWithDuplicates);
         System.out.printf("   First Occurrence of Score %d is at Index: %d%n%n", targetScore, firstIdx);
 
         System.out.println("================================================================================");

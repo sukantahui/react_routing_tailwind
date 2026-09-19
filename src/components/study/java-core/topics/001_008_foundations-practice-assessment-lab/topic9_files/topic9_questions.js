@@ -7,7 +7,7 @@
 const questions = [
   {
     question: "Why does `a == b` fail when comparing two `String` objects with identical content?",
-    shortAnswer: "Because `==` compares heap memory reference addresses, not the underlying character sequence; use `a.equals(b)` or `Objects.equals(a, b)` for content equality.",
+    shortAnswer: "Because `==` compares heap memory reference addresses, not the underlying character sequence; use `a.equals(b)` for content equality.",
     explanation: "String reference vs content equality (Bug 1).",
     hint: "== compares memory addresses; .equals() compares character content.",
     level: "basic",
@@ -78,12 +78,12 @@ const questions = [
     codeExample: "if (n <= 0) return 0; // Mandatory Base Case"
   },
   {
-    question: "What causes `ConcurrentModificationException` when modifying a List in an enhanced for-each loop?",
-    shortAnswer: "Calling `list.remove()` or `list.add()` directly while iterating modifies `modCount` without updating the Iterator's `expectedModCount`.",
-    explanation: "ConcurrentModificationException in collections (Bug 10).",
-    hint: "Directly modifying a list during for-each iteration breaks internal iterator state.",
-    level: "intermediate",
-    codeExample: "list.removeIf(s → s.equals(target)); // Safe removal"
+    question: "Why does writing `for (int val : arr) { val = val * 2; }` fail to update array elements?",
+    shortAnswer: "Because `val` is a local copy of each array element. Mutating `val` modifies only the loop variable, leaving the underlying array completely unchanged.",
+    explanation: "For-each array element copy mutation trap (Bug 10).",
+    hint: "Enhanced for-each loop variable is a local value copy; use index-based loop instead.",
+    level: "basic",
+    codeExample: "for (int i = 0; i < arr.length; i++) arr[i] *= 2; // Mutates array"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the safe result of `fixBug2_NullSafety(null)`?",
@@ -110,12 +110,12 @@ const questions = [
     codeExample: "fixBug5_IntegerOverflow(1_000_000, 3000) → 3,000,000,000L"
   },
   {
-    question: "Why is `list.removeIf(predicate)` preferred over `Iterator.remove()` in modern Java?",
-    shortAnswer: "`removeIf()` is concise, declarative, thread-safe for concurrent collections, and optimized internally by `ArrayList` to perform a single batch shift of elements.",
-    explanation: "removeIf modern collection API advantage.",
-    hint: "removeIf() performs batch element shifting in O(N) time with clean syntax.",
-    level: "intermediate",
-    codeExample: "students.removeIf(s → s.equals(\"Tuhina\"));"
+    question: "How do you correctly modify array elements while iterating in Java foundations?",
+    shortAnswer: "Use a standard index-based loop (`for (int i = 0; i < arr.length; i++) { arr[i] = ...; }`), which directly accesses and mutates the array slots in memory.",
+    explanation: "Index-based loop array mutation.",
+    hint: "Use an index-based for loop with arr[i] to mutate array slots.",
+    level: "basic",
+    codeExample: "for (int i = 0; i < scores.length; i++) scores[i] = scores[i] * 2;"
   },
   {
     question: "What compiler error occurs if a non-void method is missing a `return` statement in one execution path?",
@@ -126,12 +126,12 @@ const questions = [
     codeExample: "// Compiler ensures every logical path returns a value"
   },
   {
-    question: "Why should `Objects.equals(a, b)` be used for null-safe object equality?",
-    shortAnswer: "`Objects.equals(a, b)` safely handles cases where either `a` or `b` (or both) are `null` without throwing `NullPointerException`.",
-    explanation: "Objects.equals null safety utility.",
-    hint: "Safely handles null values on either side of the comparison.",
+    question: "How can you perform a null-safe String equality check using Java Foundations conditionals?",
+    shortAnswer: "Check if references are identical first or ensure the first operand is non-null: `(a == b) || (a != null && a.equals(b))`.",
+    explanation: "Foundations null-safe reference equality check.",
+    hint: "Use short-circuit logical AND (&&) after checking that the reference is not null.",
     level: "basic",
-    codeExample: "Objects.equals(str1, str2);"
+    codeExample: "boolean isEqual = (a == b) || (a != null && a.equals(b));"
   },
   {
     question: "What is a 'Phantom Semicolon' after an `if` condition: `if (x > 10); doSomething();`?",
@@ -142,12 +142,12 @@ const questions = [
     codeExample: "if (x > 10) doSomething(); // Removed semicolon"
   },
   {
-    question: "In the Coder & AccoTax Barrackpore lab, who was remaining in the student list after removing `\"Tuhina\"`?",
-    shortAnswer: "`[\"Swadeep\", \"Abhronila\", \"Debangshu\"]`.",
-    explanation: "removeIf list modification verification.",
-    hint: "[Swadeep, Abhronila, Debangshu].",
+    question: "In the Coder & AccoTax Barrackpore lab, what was the output of `fixBug10_ForEachArrayMutation` on `{10, 20, 30}`?",
+    shortAnswer: "`[20, 40, 60]` (properly doubled via index-based loop).",
+    explanation: "Array mutation fix verification.",
+    hint: "[20, 40, 60].",
     level: "basic",
-    codeExample: "Remaining = [Swadeep, Abhronila, Debangshu]"
+    codeExample: "Doubled Scores = [20, 40, 60]"
   },
   {
     question: "Why does `char c = 'A'; int val = c;` compile without cast, but `int val = 65; char c = val;` fails?",
@@ -225,9 +225,9 @@ const questions = [
     question: "What is the ultimate takeaway of Module 001_008 Topic 9 for Java developers?",
     shortAnswer: "Mastering debugging requires defensive coding: always compare strings with `.equals()`, guard against `null`, protect arithmetic with `(double)`/`(long)` casts, use modern switch expressions, enforce recursive base cases, and avoid mutating collections during for-each iteration.",
     explanation: "Mastery of Java core debugging practices.",
-    hint: "Defensive coding: .equals(), null guards, type casting, modern switch, removeIf.",
+    hint: "Defensive coding: .equals(), null guards, type casting, modern switch, index-based loops.",
     level: "basic",
-    codeExample: "// Summary: .equals() | null guards | (long) casts | switch expressions | removeIf"
+    codeExample: "// Summary: .equals() | null guards | (long) casts | switch expressions | index-based loops"
   },
   {
     question: "What is the next topic (Topic 10) in Module 001_008?",

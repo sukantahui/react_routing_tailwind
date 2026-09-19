@@ -6,15 +6,12 @@
  *              2. Inner loop optimization: Starting composite marking at p * p
  *              3. Outer loop limit: p * p <= N (sqrt(N) bound)
  *              4. Comparison with Naive Trial Division O(N * sqrt(N))
- *              5. BitSet memory optimization (1 bit per entry vs boolean array)
+ *              5. Primitive Bit-Array memory optimization (1 bit per entry via bitwise shift & mask)
  *              for student cryptographic token generation at Coder & AccoTax Barrackpore.
  * Educator: Sukanta Hui | Coder & AccoTax, Barrackpore
  */
 
 package com.coderaccotax.javatutorial.foundations;
-
-import java.util.Arrays;
-import java.util.BitSet;
 
 public class SieveOfEratosthenesPrimeDemo {
 
@@ -25,9 +22,9 @@ public class SieveOfEratosthenesPrimeDemo {
         if (limit < 2) return new boolean[0];
 
         boolean[] isPrime = new boolean[limit + 1];
-        Arrays.fill(isPrime, true);
-        isPrime[0] = false;
-        isPrime[1] = false;
+        for (int i = 2; i <= limit; i++) {
+            isPrime[i] = true;
+        }
 
         // Outer loop runs up to sqrt(limit)
         for (int p = 2; p * p <= limit; p++) {
@@ -42,19 +39,30 @@ public class SieveOfEratosthenesPrimeDemo {
     }
 
     // =========================================================================
-    // 2. MEMORY OPTIMIZED SIEVE USING BITSET (1 bit per number)
+    // 2. MEMORY-OPTIMIZED BIT-ARRAY SIEVE (1 bit per number via Bitwise Operators)
     // =========================================================================
-    public static BitSet generatePrimesBitSet(int limit) {
-        BitSet bitSet = new BitSet(limit + 1);
-        bitSet.set(2, limit + 1); // Set bits 2 to limit to true
+    public static int countPrimesBitArray(int limit) {
+        if (limit < 2) return 0;
+        // Each 32-bit int stores primality for 32 numbers (bit 0 = prime, bit 1 = composite)
+        int[] compositeBits = new int[(limit >> 5) + 1];
 
-        for (int p = 2; p * p <= limit; p = bitSet.nextSetBit(p + 1)) {
-            if (p == -1) break;
-            for (int multiple = p * p; multiple <= limit; multiple += p) {
-                bitSet.clear(multiple);
+        for (int p = 2; p * p <= limit; p++) {
+            // Check if bit p is 0 (prime):
+            if ((compositeBits[p >> 5] & (1 << (p & 31))) == 0) {
+                for (int multiple = p * p; multiple <= limit; multiple += p) {
+                    // Set bit multiple to 1 (composite):
+                    compositeBits[multiple >> 5] |= (1 << (multiple & 31));
+                }
             }
         }
-        return bitSet;
+
+        int count = 0;
+        for (int p = 2; p <= limit; p++) {
+            if ((compositeBits[p >> 5] & (1 << (p & 31))) == 0) {
+                count++;
+            }
+        }
+        return count;
     }
 
     // =========================================================================
@@ -115,21 +123,21 @@ public class SieveOfEratosthenesPrimeDemo {
         }
         long endTrial = System.nanoTime();
 
-        // C. BitSet Sieve
-        long startBitSet = System.nanoTime();
-        BitSet bitSetPrimes = generatePrimesBitSet(benchmarkLimit);
-        long endBitSet = System.nanoTime();
+        // C. Bit-Level Memory-Optimized Sieve (Primitive int[] Bit Array)
+        long startBitArray = System.nanoTime();
+        int bitArrayCount = countPrimesBitArray(benchmarkLimit);
+        long endBitArray = System.nanoTime();
 
-        System.out.printf("   • Sieve of Eratosthenes : %,d primes | Time: %,10d ns%n", sieveCount, (endSieve - startSieve));
-        System.out.printf("   • BitSet Optimized Sieve: %,d primes | Time: %,10d ns%n", bitSetPrimes.cardinality(), (endBitSet - startBitSet));
-        System.out.printf("   • Naive Trial Division  : %,d primes | Time: %,10d ns%n%n", trialCount, (endTrial - startTrial));
+        System.out.printf("   • Sieve of Eratosthenes    : %,d primes | Time: %,10d ns%n", sieveCount, (endSieve - startSieve));
+        System.out.printf("   • Primitive Bit-Array Sieve: %,d primes | Time: %,10d ns%n", bitArrayCount, (endBitArray - startBitArray));
+        System.out.printf("   • Naive Trial Division     : %,d primes | Time: %,10d ns%n%n", trialCount, (endTrial - startTrial));
 
         System.out.println("================================================================================");
         System.out.println("KEY TAKEAWAYS FOR STUDENTS (Swadeep, Tuhina, Abhronila, Debangshu):");
         System.out.println("1. Sieve of Eratosthenes runs in O(N log(log N)), vastly beating trial division.");
         System.out.println("2. Always start the inner composite marking loop at p * p (not 2 * p).");
         System.out.println("3. The outer loop only needs to iterate up to sqrt(N) (p * p <= N).");
-        System.out.println("4. BitSet reduces memory from 1 byte/boolean to 1 bit/boolean for massive ranges.");
+        System.out.println("4. Bitwise primitive array (int[]) reduces memory from 1 byte/boolean to 1 bit/number (8x less memory).");
         System.out.println("================================================================================");
     }
 }

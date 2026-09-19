@@ -5,7 +5,26 @@ TOPIC 3: Matrix Spiral Traversal & 90-Degree Clockwise Rotation
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. SPIRAL MATRIX TRAVERSAL (O(R * C) Time, O(1) Space)
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 3A: Spiral Matrix Traversal
+- Objective: Given an R x C 2D integer matrix, traverse and return all elements
+  in clockwise spiral order (top row -> right col -> bottom row -> left col)
+  spiraling layer-by-layer toward the center.
+- Input: int[][] matrix of dimensions R x C (R >= 1, C >= 1).
+- Output: int[] 1D array of length R * C containing elements in traversal sequence.
+- Constraints: O(R * C) time, O(1) auxiliary memory, zero dynamic collections.
+- Edge Cases: Single row (1 x C) and single column (R x 1) matrices.
+
+PROBLEM 3B: In-Place 90-Degree Clockwise Matrix Rotation
+- Objective: Given an N x N square matrix, rotate the elements 90 degrees
+  clockwise directly in-place without allocating an extra 2D buffer.
+- Input: int[][] matrix of dimensions N x N (strictly square).
+- Output: void (mutates the input matrix in-place).
+- Constraints: O(N^2) time, strictly O(1) auxiliary memory.
+- Algorithm: Step 1 (Transpose across diagonal) + Step 2 (Reverse each row).
+
+2. SPIRAL MATRIX TRAVERSAL ALGORITHM (O(R * C) Time, O(1) Space)
 --------------------------------------------------------------------------------
 - 4 Boundary Pointers: top = 0, bottom = rows - 1, left = 0, right = cols - 1
 - Traversal Steps:
@@ -15,7 +34,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   4. Left Col    : bottom → top up 'left' column (GUARD: if (left <= right)), then left++
 - Loop condition: while (top <= bottom && left <= right)
 
-2. IN-PLACE 90-DEGREE CLOCKWISE ROTATION (O(N^2) Time, O(1) Space)
+3. IN-PLACE 90-DEGREE CLOCKWISE ROTATION (O(N^2) Time, O(1) Space)
 --------------------------------------------------------------------------------
 - Step 1: Transpose Matrix across main diagonal
   * Swap matrix[i][j] with matrix[j][i] for j > i.
@@ -23,7 +42,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Two-pointer swap between left and right for each row.
 - Non-square rectangular matrices require allocating a new C x R matrix.
 
-3. ESSENTIAL CHECKLIST
+4. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Always include the 'if (top <= bottom)' and 'if (left <= right)' boundary guards.
 [✓] Transposition loop must start inner loop at 'j = i + 1' to avoid double-swapping!

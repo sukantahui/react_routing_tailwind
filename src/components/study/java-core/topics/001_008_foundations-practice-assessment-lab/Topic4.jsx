@@ -50,7 +50,137 @@ export default function Topic4() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 4
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to solve <strong>two interview-favorite array anomaly problems</strong>: finding a duplicate and missing number pair in an altered permutation, and locating a duplicate in a read-only array with strictly O(1) space using Java Foundations constructs.
+        </p>
+
+        {/* Two Columns / Cards for Problem 4A and Problem 4B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Set Mismatch */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 4A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(N) Time · O(1) Space
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Set Mismatch (Duplicate &amp; Missing Pair)
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given an array <code className="text-sky-300 font-mono">nums</code> of size <code className="text-sky-300 font-mono">N</code> containing numbers originally from <code className="text-sky-300 font-mono">1</code> to <code className="text-sky-300 font-mono">N</code>, one number was duplicated (<code className="text-amber-300 font-mono">D</code>) causing another to be missing (<code className="text-rose-300 font-mono">M</code>). Identify both <code className="text-sky-300 font-mono">[D, M]</code>.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int[] nums (size N, values in [1..N])</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int[] [duplicate, missing] (size 2)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Methodology:</span>
+                  <span className="col-span-2 text-slate-300">Negative index sign marking: <code className="text-sky-300">nums[val - 1] *= -1</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Space Limit:</span>
+                  <span className="col-span-2 text-slate-300">Strictly O(1) auxiliary heap space</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Input: nums = [1, 2, 2, 4] (N = 4)</div>
+                  <div className="text-sky-300 text-[11px]">Pass 1 (Sign marking): index 1 visited twice → Duplicate D = 2</div>
+                  <div className="text-sky-300 text-[11px]">Pass 2 (Check signs): nums[2] is positive → Missing M = 3</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Output: [2, 3] (Solved in 2 linear passes with O(1) memory!)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Floyd's Cycle Detection */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Problem 4B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(N) Time · O(1) Space · Read-Only
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Floyd&apos;s Cycle Detection (Read-Only Array)
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given an array of <code className="text-purple-300 font-mono">N + 1</code> integers where each integer is between <code className="text-purple-300 font-mono">1</code> and <code className="text-purple-300 font-mono">N</code>, find the duplicate number <strong>without mutating the array</strong> and using only O(1) extra space.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">int[] nums (size N + 1, read-only)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int (the duplicate integer)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Constraint:</span>
+                  <span className="col-span-2 text-slate-300">Zero modification of input array elements</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Mechanism:</span>
+                  <span className="col-span-2 text-slate-300">Tortoise and Hare pointer cycle meeting point</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Input: [1, 3, 4, 2, 2]</div>
+                  <div className="text-purple-300 text-[11px]">Phase 1: slow moves 1 step (nums[slow]), fast moves 2 steps</div>
+                  <div className="text-purple-300 text-[11px]">Meeting node in cycle = 4</div>
+                  <div className="text-purple-300 text-[11px]">Phase 2: finder from start meets slow at duplicate = 2</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Result: Duplicate = 2 (No array writes, zero extra space!)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> The Three Core Algorithmic Techniques
@@ -180,26 +310,26 @@ export default function Topic4() {
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Single Missing Number</td>
                 <td className="p-3 text-emerald-400 font-sans font-bold">Bitwise XOR Sum</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$ Time / $O(1)$ Space</td>
+                <td className="p-3 text-slate-300 font-sans">O(N) Time / O(1) Space</td>
                 <td className="p-3 text-emerald-300 font-sans">Immune to integer overflow</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">Single Duplicate ($N+1$)</td>
+                <td className="p-3 text-sky-300 font-bold">Single Duplicate (N + 1)</td>
                 <td className="p-3 text-emerald-400 font-sans font-bold">Floyd&apos;s Cycle Detection</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$ Time / $O(1)$ Space</td>
+                <td className="p-3 text-slate-300 font-sans">O(N) Time / O(1) Space</td>
                 <td className="p-3 text-purple-300 font-sans">Zero array mutation (read-only)</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Set Mismatch (Pair)</td>
                 <td className="p-3 text-emerald-400 font-sans font-bold">Negative Index Marking</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$ Time / $O(1)$ Space</td>
+                <td className="p-3 text-slate-300 font-sans">O(N) Time / O(1) Space</td>
                 <td className="p-3 text-amber-300 font-sans">Locates both duplicate &amp; missing in 2 passes</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Multiple Missing Values</td>
-                <td className="p-3 text-emerald-400 font-sans font-bold">`java.util.BitSet`</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$ Time / $O(N/8)$ Space</td>
-                <td className="p-3 text-slate-300 font-sans">8x less memory than boolean array</td>
+                <td className="p-3 text-emerald-400 font-sans font-bold">Bit Array / Boolean Flags</td>
+                <td className="p-3 text-slate-300 font-sans">O(N) Time / O(N) Space</td>
+                <td className="p-3 text-slate-300 font-sans">Bitwise packing reduces memory by up to 32x</td>
               </tr>
             </tbody>
           </table>
@@ -224,7 +354,7 @@ export default function Topic4() {
         <JavaFileLoader
           fileModule={dupDemoCode}
           title="DuplicateAndMissingNumbersDemo.java"
-          highlightLines={[21, 25, 30, 36, 47, 53, 58, 64, 76, 84, 91]}
+          highlightLines={[19, 23, 28, 34, 45, 51, 56, 74, 82, 89, 101]}
         />
       </section>
 
@@ -246,10 +376,10 @@ export default function Topic4() {
 
           <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-900/50 space-y-2">
             <p className="text-emerald-300 font-semibold flex items-center gap-2 text-sm md:text-base">
-              <span>🛡️</span> Best Practice: Prefer Bitwise XOR Over Sum Formulas for Large $N$
+              <span>🛡️</span> Best Practice: Prefer Bitwise XOR Over Sum Formulas for Large N
             </p>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
-              When finding missing numbers in large datasets ($N &gt; 100,000$), Bitwise XOR is inherently safe from 32-bit integer overflow and avoids the need to allocate 64-bit <code className="text-emerald-400 font-mono">long</code> variables.
+              When finding missing numbers in large datasets (N &gt; 100,000), Bitwise XOR is inherently safe from 32-bit integer overflow and avoids the need to allocate 64-bit <code className="text-emerald-400 font-mono">long</code> variables.
             </p>
           </div>
         </div>
@@ -262,10 +392,10 @@ export default function Topic4() {
         </h2>
         <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            🤔 <em>&ldquo;Why is Floyd&apos;s Cycle Detection guaranteed to find a duplicate in an array of size $N+1$ with values $1..N$?&rdquo;</em>
+            🤔 <em>&ldquo;Why is Floyd&apos;s Cycle Detection guaranteed to find a duplicate in an array of size N + 1 with values 1..N?&rdquo;</em>
           </p>
           <p>
-            👉 <strong>Hint:</strong> The Pigeonhole Principle! Putting $N+1$ items into $N$ boxes means at least one box contains two items. In array indexing, this means two different indices point to the same next node, creating an inescapable cycle!
+            👉 <strong>Hint:</strong> The Pigeonhole Principle! Putting N + 1 items into N boxes means at least one box contains two items. In array indexing, this means two different indices point to the same next node, creating an inescapable cycle!
           </p>
         </div>
       </section>

@@ -50,7 +50,137 @@ export default function Topic2() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 2
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to solve <strong>two distinct palindrome verification problems</strong> (numerical and textual) using exclusively Java Foundations techniques, ensuring zero 32-bit integer overflow and optimal O(1) auxiliary memory.
+        </p>
+
+        {/* Two Columns / Cards for Problem 2A and Problem 2B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Integer Half-Reversal */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 2A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(log₁₀ N) Time · O(1) Space
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Integer Palindrome (Half-Reversal)
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given a 32-bit signed integer <code className="text-sky-300 font-mono">x</code>, determine whether <code className="text-sky-300 font-mono">x</code> is a palindrome <strong>without converting it to a String</strong>. Prevent 32-bit arithmetic overflow by stopping at the exact midpoint.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int x (-2³¹ &le; x &le; 2³¹ - 1)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">boolean (true if palindrome)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Key Guard:</span>
+                  <span className="col-span-2 text-slate-300">Negative numbers &amp; trailing zeros (x % 10 == 0 &amp;&amp; x != 0) are false</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Stop Condition:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-sky-300">while (x &gt; reversedHalf)</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Number Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Example 1: x = 1221 (even length)</div>
+                  <div className="text-sky-300 text-[11px]">Iter 1: x = 122, rev = 1 | Iter 2: x = 12, rev = 12 → x == rev (true)</div>
+                  <div className="text-slate-400 pt-1 border-t border-slate-800">Example 2: x = 12321 (odd length)</div>
+                  <div className="text-sky-300 text-[11px]">Iter 3: x = 12, rev = 123 → x == rev / 10 (12 == 12, true)</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Result: Zero String allocations, zero 32-bit overflow!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Two-Pointer String Palindrome */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-emerald-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-emerald-950 text-emerald-400 border border-emerald-800">
+                  Problem 2B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(N) Time · O(1) Space
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Two-Pointer Alphanumeric Phrase Check
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given a raw string <code className="text-emerald-300 font-mono">s</code>, verify whether its alphanumeric characters form a palindrome, ignoring non-alphanumeric symbols and case differences, in a single pass.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">String s (contains symbols, punctuation)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">boolean (true if phrase is palindrome)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Pointers:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-emerald-300">left = 0</code>, <code className="text-emerald-300">right = s.length() - 1</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Filtering:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-emerald-300">Character.isLetterOrDigit()</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Phrase Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Phrase: "A man, a plan, a canal: Panama"</div>
+                  <div className="text-emerald-300 text-[11px]">Normalized comparison: 'a' vs 'a', 'm' vs 'm', 'a' vs 'a'...</div>
+                  <div className="text-slate-300 text-[11px]">Skips: spaces, commas (,), colons (:) on the fly</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Evaluation: true (All corresponding characters match!)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> The Two Core Verification Paradigms
@@ -171,26 +301,26 @@ export default function Topic2() {
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Integer Half-Reversal</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(\log_{10} N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ constant memory</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(log₁₀ N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant memory</td>
                 <td className="p-3 text-slate-300 font-sans">Zero overflow risk; half the loop iterations</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Two-Pointer In-Place Scan</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ constant memory</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant memory</td>
                 <td className="p-3 text-slate-300 font-sans">No extra heap object allocation; fast</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Recursive Substring Match</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$</td>
-                <td className="p-3 text-rose-400 font-sans">$O(N)$ stack frames</td>
+                <td className="p-3 text-slate-300 font-sans">O(N)</td>
+                <td className="p-3 text-rose-400 font-sans">O(N) stack frames</td>
                 <td className="p-3 text-slate-300 font-sans">Clean inductive educational demonstration</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">`StringBuilder.reverse()`</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$</td>
-                <td className="p-3 text-rose-400 font-sans">$O(N)$ heap allocation</td>
+                <td className="p-3 text-slate-300 font-sans">O(N)</td>
+                <td className="p-3 text-rose-400 font-sans">O(N) heap allocation</td>
                 <td className="p-3 text-slate-300 font-sans">Quick prototyping (inefficient for large text)</td>
               </tr>
             </tbody>

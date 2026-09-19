@@ -50,7 +50,136 @@ export default function Topic0() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Architectural Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Capstone Lab · Synthesis Engine
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this capstone synthesis lab, you are required to engineer an <strong>Integrated Academic Ledger &amp; Student Grading Engine</strong> for the Coder &amp; AccoTax Barrackpore campus. The system must unify all 7 Segment 1 foundational pillars (JVM memory layout, primitive arithmetic, decision ladders, loops, 1D/2D arrays, modular methods, and recursion) into a production-grade terminal workflow without any external collection frameworks.
+        </p>
+
+        {/* Two Columns / Cards for Problem 0A and Problem 0B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Academic Grading & Assessment Engine */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Specification 0A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  Grading &amp; 2D Performance Matrix
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Multi-Student Assessment &amp; Switch Grading
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Process test score arrays across multiple student records and 2D batch assessment grids. Compute arithmetic means, evaluate letter grades using modern switch expressions, and identify batch top performers.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">StudentRecord[] with int[] testScores</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">double averageScore, String grade</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Key Rules:</span>
+                  <span className="col-span-2 text-slate-300">Band = (int)(avg / 10); switch expression yielding A+, A, B, C</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Edge Cases:</span>
+                  <span className="col-span-2 text-slate-300">Null or empty score arrays return 0.0</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Evaluation Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Student: Swadeep (Barrackpore Campus)</div>
+                  <div className="text-sky-300 text-[11px]">Scores: [92, 88, 95, 90] → Sum = 365</div>
+                  <div className="text-slate-300 text-[11px]">Average = 365 / 4 = 91.25%</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Grade: "A+ (Outstanding)" (Band 9)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Financial Ledger & Tuition Calculation */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-emerald-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-emerald-950 text-emerald-400 border border-emerald-800">
+                  Specification 0B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  18% GST · Rupee Currency Formatting
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Tuition Billing &amp; Merit Waiver Ledger
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Compute net student fees in Indian Rupees (₹) by applying merit scholarship percentage discounts to base tuition, then levying the statutory 18% GST rate, ensuring accurate floating-point rounding.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">double baseTuition, double waiverPct</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">double netPayableFee (with 18% GST)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Formula:</span>
+                  <span className="col-span-2 text-slate-300">discounted = base * (1 - waiver); net = discounted * 1.18</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Constraints:</span>
+                  <span className="col-span-2 text-slate-300">Strictly primitive arrays and methods; zero Collections</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Financial Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Student: Tuhina (Base Fee: ₹25,000.00)</div>
+                  <div className="text-emerald-300 text-[11px]">Merit Scholarship: 20% → Discounted: ₹20,000.00</div>
+                  <div className="text-slate-300 text-[11px]">Statutory 18% GST: ₹20,000 × 0.18 = ₹3,600.00</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Net Payable: ₹23,600.00
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> The 7 Pillars of Java Core Foundations (Segment 1)
@@ -265,7 +394,7 @@ export default function Topic0() {
         <JavaFileLoader
           fileModule={synthDemoCode}
           title="Segment1FoundationsSynthesisDemo.java"
-          highlightLines={[23, 39, 48, 51, 60, 68, 77, 85, 96, 107]}
+          highlightLines={[21, 37, 46, 49, 58, 66, 75, 83, 94, 105]}
         />
       </section>
 

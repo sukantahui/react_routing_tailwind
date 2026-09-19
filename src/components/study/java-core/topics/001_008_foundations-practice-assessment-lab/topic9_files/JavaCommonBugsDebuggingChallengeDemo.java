@@ -11,15 +11,11 @@
  *              7. Variable Shadowing without 'this' keyword
  *              8. Switch Fall-Through due to missing break statements
  *              9. Missing Base Case in Recursion (StackOverflowError)
- *              10. Collection Mutation during enhanced for-each loop (ConcurrentModificationException)
+ *              10. Enhanced For-Each Array Element Mutation Trap
  * Educator: Sukanta Hui | Coder & AccoTax, Barrackpore
  */
 
 package com.coderaccotax.javatutorial.foundations;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class JavaCommonBugsDebuggingChallengeDemo {
 
@@ -125,12 +121,15 @@ public class JavaCommonBugsDebuggingChallengeDemo {
     }
 
     // =========================================================================
-    // BUG 10: Modifying List During Iteration (ConcurrentModificationException)
+    // BUG 10: The Enhanced For-Each Array Element Mutation Trap
     // =========================================================================
-    public static void fixBug10_ConcurrentModification(List<String> list, String target) {
-        // BUG: for (String s : list) { if (s.equals(target)) list.remove(s); }
-        // FIX (Iterator.remove() or list.removeIf()):
-        list.removeIf(s -> s.equals(target));
+    public static void fixBug10_ForEachArrayMutation(int[] arr) {
+        // BUG: for (int val : arr) { val = val * 2; }
+        // (Modifies only the local loop copy variable; original array remains unchanged!)
+        // FIX: Use index-based for loop to mutate underlying array elements:
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = arr[i] * 2;
+        }
     }
 
     public static void main(String[] args) {
@@ -172,17 +171,18 @@ public class JavaCommonBugsDebuggingChallengeDemo {
         // 9. Recursion Base Case
         System.out.printf("Bug 9 Fix (Base Case Sum)     : Sum(5) = %d%n", fixBug9_RecursionBaseCase(5));
 
-        // 10. Concurrent Modification
-        List<String> students = new ArrayList<>(List.of("Swadeep", "Tuhina", "Abhronila", "Debangshu"));
-        fixBug10_ConcurrentModification(students, "Tuhina");
-        System.out.printf("Bug 10 Fix (removeIf Safe)    : Remaining = %s%n%n", students);
+        // 10. For-Each Array Mutation Trap
+        int[] scores = {10, 20, 30};
+        fixBug10_ForEachArrayMutation(scores);
+        System.out.printf("Bug 10 Fix (Index-Based Loop) : Doubled Scores = [%d, %d, %d]%n%n",
+                scores[0], scores[1], scores[2]);
 
         System.out.println("================================================================================");
         System.out.println("KEY TAKEAWAYS FOR STUDENTS (Swadeep, Tuhina, Abhronila, Debangshu):");
         System.out.println("1. Always use .equals() for String content comparison, never ==.");
         System.out.println("2. Cast to (double) or (long) before arithmetic operations to prevent truncation/overflow.");
         System.out.println("3. Beware of accidental semicolons after for/while/if headers.");
-        System.out.println("4. Use Collection.removeIf() or Iterator.remove() to avoid ConcurrentModificationException.");
+        System.out.println("4. Never use enhanced for-each to modify array elements; use index-based loops instead.");
         System.out.println("================================================================================");
     }
 }

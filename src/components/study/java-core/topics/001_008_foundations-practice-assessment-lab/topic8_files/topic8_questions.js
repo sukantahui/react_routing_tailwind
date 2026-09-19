@@ -150,12 +150,12 @@ const questions = [
     codeExample: "isArmstrong(500) → false"
   },
   {
-    question: "Can Parallel Streams in Java accelerate finding Armstrong numbers in large ranges?",
-    shortAnswer: "YES! `IntStream.rangeClosed(start, end).parallel().filter(ArmstrongNumbersRangeAlgorithmDemo::isArmstrong).boxed().toList();` distributes range checks across all CPU cores.",
-    explanation: "Parallel stream acceleration for range filters.",
-    hint: "IntStream.rangeClosed(start, end).parallel().filter(...) uses multi-core CPUs.",
+    question: "How can you collect Armstrong numbers into a fixed-size primitive array without using dynamic collections?",
+    shortAnswer: "Use a two-pass algorithm: the first loop counts how many Armstrong numbers exist in $[start, end]$; then allocate `int[] result = new int[count];` and run a second loop to fill it.",
+    explanation: "Two-pass exact array allocation pattern.",
+    hint: "First pass counts matches to size array; second pass fills matches.",
     level: "intermediate",
-    codeExample: "IntStream.rangeClosed(1, 100000).parallel().filter(x → isArmstrong(x)).boxed().toList();"
+    codeExample: "int count = countArmstrong(start, end);\nint[] result = new int[count];"
   },
   {
     question: "What is a 'Perfect Number' and how does it differ from an Armstrong Number?",

@@ -12,9 +12,6 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ArmstrongNumbersRangeAlgorithmDemo {
 
     // =========================================================================
@@ -74,14 +71,32 @@ public class ArmstrongNumbersRangeAlgorithmDemo {
     // =========================================================================
     // 4. FIND ALL ARMSTRONG NUMBERS IN A GIVEN RANGE [start..end]
     // =========================================================================
-    public static List<Integer> findArmstrongInRange(int start, int end) {
-        List<Integer> armstrongList = new ArrayList<>();
+    public static int[] findArmstrongInRange(int start, int end) {
+        int count = 0;
         for (int i = start; i <= end; i++) {
             if (isArmstrong(i)) {
-                armstrongList.add(i);
+                count++;
             }
         }
-        return armstrongList;
+
+        int[] result = new int[count];
+        int index = 0;
+        for (int i = start; i <= end; i++) {
+            if (isArmstrong(i)) {
+                result[index++] = i;
+            }
+        }
+        return result;
+    }
+
+    // Helper: Pretty-print a 1D primitive array using basic loops
+    public static void printArray(String label, int[] arr) {
+        System.out.print("   " + label + ": [");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
     }
 
     public static void main(String[] args) {
@@ -102,13 +117,14 @@ public class ArmstrongNumbersRangeAlgorithmDemo {
 
         // --- 2. FIND ALL 3-DIGIT ARMSTRONG NUMBERS [100..999] ---
         System.out.println("\n2. ALL 3-DIGIT ARMSTRONG NUMBERS IN RANGE [100..999]:");
-        List<Integer> threeDigitArmstrongs = findArmstrongInRange(100, 999);
-        System.out.println("   Found: " + threeDigitArmstrongs);
+        int[] threeDigitArmstrongs = findArmstrongInRange(100, 999);
+        printArray("Found", threeDigitArmstrongs);
 
         // --- 3. FIND ALL 4-DIGIT ARMSTRONG NUMBERS [1000..9999] ---
         System.out.println("\n3. ALL 4-DIGIT ARMSTRONG NUMBERS IN RANGE [1000..9999]:");
-        List<Integer> fourDigitArmstrongs = findArmstrongInRange(1000, 9999);
-        System.out.println("   Found: " + fourDigitArmstrongs + "\n");
+        int[] fourDigitArmstrongs = findArmstrongInRange(1000, 9999);
+        printArray("Found", fourDigitArmstrongs);
+        System.out.println();
 
         System.out.println("================================================================================");
         System.out.println("KEY TAKEAWAYS FOR STUDENTS (Swadeep, Tuhina, Abhronila, Debangshu):");
@@ -116,6 +132,7 @@ public class ArmstrongNumbersRangeAlgorithmDemo {
         System.out.println("2. Precomputing powers for digits 0..9 eliminates repeated power computations.");
         System.out.println("3. Early pruning (sum > n) halts verification as soon as partial sum exceeds n.");
         System.out.println("4. Fast integer multiplication avoids floating-point precision issues with Math.pow().");
+        System.out.println("5. Implemented with primitive int[] arrays and basic loops - zero Collections needed!");
         System.out.println("================================================================================");
     }
 }

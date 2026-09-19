@@ -5,7 +5,21 @@ TOPIC 6: Base Conversions (Decimal to Binary & Hexadecimal from Scratch)
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. CORE BASE CONVERSION ALGORITHMS
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 6A: Decimal to Binary & Octal Conversion
+- Objective: Convert non-negative decimal integer n to binary and octal strings.
+- Input: int n (decimal value >= 0).
+- Output: String (binary or octal digit string without built-in library calls).
+- Constraints: Modulo division (n % B, n / B) or logical bitwise shifts.
+
+PROBLEM 6B: Decimal to Hexadecimal (4-Bit Nibble Masking)
+- Objective: Convert 32-bit signed integer n to its hexadecimal representation.
+- Input: int n (positive or negative 32-bit signed integer).
+- Output: String (hexadecimal string with '0'-'9' and 'A'-'F').
+- Constraints: Unsigned shifts (>>> 4) and nibble mask (& 0xF). Zero built-ins.
+
+2. CORE BASE CONVERSION ALGORITHMS
 --------------------------------------------------------------------------------
 - Decimal to Base B (Successive Modulo Division):
   * While (n > 0):
@@ -23,7 +37,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Formula: result = (result * base) + digitValue
   * Evaluates polynomial in O(N) time with ZERO Math.pow() overhead!
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Time Complexity: O(log_B N) steps.
 [✓] Use unsigned right shift '>>>' for negative numbers (never signed '>>').

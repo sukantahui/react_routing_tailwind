@@ -5,24 +5,38 @@ TOPIC 5: Array Element Frequency Counter & Direct Address Tables
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. CORE FREQUENCY COUNTING APPROACHES
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 5A: Direct Address Frequency Table (Bounded [0..K])
+- Objective: Tally frequencies of bounded non-negative integers.
+- Input: int[] arr with values in [0..K].
+- Output: int[] freq of size K + 1 where freq[x] is the count of x.
+- Constraints: O(N) time, O(K) space, zero object allocations.
+
+PROBLEM 5B: Visited Boolean Array Counter (Unbounded / Arbitrary Values)
+- Objective: Tally frequencies of arbitrary integers without HashMaps.
+- Input: int[] arr of arbitrary integer values.
+- Output: Printed frequency table without duplicate element rows.
+- Constraints: O(N^2) time, O(N) auxiliary space, pure primitive arrays.
+
+2. CORE FREQUENCY COUNTING APPROACHES
 --------------------------------------------------------------------------------
 - Direct Address Frequency Array (Bounded Positive Range [0..K]):
   * Initialize int[] freq = new int[maxVal + 1].
   * Iterate array and increment directly: freq[num]++.
   * Optimal for small ranges (K <= 10^6): O(N) Time, O(K) Space (L1 CPU cache fit!).
 
-- LinkedHashMap / HashMap (Sparse, Negative, or Unbounded Range):
-  * Map<Integer, Integer> map = new LinkedHashMap<>();
-  * Canonical Java Idiom: map.put(val, map.getOrDefault(val, 0) + 1);
-  * Handles negative numbers and sparse keys safely: O(N) Time, O(U) Space.
+- Visited Boolean Array Table (Sparse, Negative, or Unbounded Range):
+  * boolean[] visited = new boolean[n];
+  * Outer loop selects unvisited element; inner loop counts matching elements and marks visited[j] = true.
+  * Handles negative numbers and arbitrary keys purely with primitive arrays: O(N^2) Time, O(N) Space.
 
 - In-Place Modulo N Technique (Range [1..N] in-place in O(1) Auxiliary Space):
   * Step 1: nums[i] = nums[i] - 1 (maps to 0..N-1).
   * Step 2: nums[nums[i] % n] += n (encodes count in quotient, value in remainder).
   * Step 3: Freq of (i + 1) = nums[i] / n.
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Direct address arrays avoid object boxing and hash calculation overhead.
 [✓] Character frequency array: int[26] mapped via 'c - 'a''.

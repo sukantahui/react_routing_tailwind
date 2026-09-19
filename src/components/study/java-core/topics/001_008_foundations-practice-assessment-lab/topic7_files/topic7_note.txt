@@ -5,7 +5,21 @@ TOPIC 7: Implementing Recursive Binary Search
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. CORE BINARY SEARCH ALGORITHM
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 7A: Classic Recursive Binary Search
+- Objective: Locate target value in a sorted array by recursive halving.
+- Input: int[] arr (ascending order), int target, int low, int high.
+- Output: int index (0-based index if target exists, -1 otherwise).
+- Midpoint: low + (high - low) / 2 to guard against 32-bit integer overflow.
+- Recurrence: T(N) = T(N/2) + O(1) -> O(log N) Time, O(log N) Call Stack.
+
+PROBLEM 7B: Duplicate Boundary Search (First & Last Occurrence)
+- Objective: Locate exact first or last occurrence of target in sorted array.
+- Input: int[] arr (with duplicates), int target.
+- Output: int firstIndex, int lastIndex in O(log N) time.
+
+2. CORE BINARY SEARCH ALGORITHM
 --------------------------------------------------------------------------------
 - Prerequisite: Array MUST be sorted in ascending order.
 - Time Complexity: O(log N) | Space: O(log N) Stack Frames (Recursive) or O(1) (Iterative).
@@ -21,10 +35,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * When arr[mid] == target, check 'if (mid == 0 || arr[mid - 1] != target)' → return mid;
     otherwise continue searching left half!
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Master Theorem: T(N) = T(N/2) + O(1) → O(log N).
 [✓] Avoid '(low + high) / 2' which overflows when sum exceeds 2,147,483,647.
-[✓] Arrays.binarySearch() returns '-(insertion_point + 1)' when target is not found.
+[✓] Recursive binary search uses O(log N) stack frames; iterative uses O(1) space.
 [✓] In Topic 8, we master Armstrong Numbers in a Given Range!
 ================================================================================

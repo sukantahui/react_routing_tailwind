@@ -62,12 +62,12 @@ const questions = [
     codeExample: "generatePrimesSieve(100_000) → 9,592 primes"
   },
   {
-    question: "How does `java.util.BitSet` optimize the memory footprint of the Sieve?",
-    shortAnswer: "In standard Java, `boolean[]` allocates 1 byte (8 bits) per boolean element; `BitSet` allocates exactly **1 bit per entry**, reducing memory consumption by **87.5% (8x reduction)**.",
-    explanation: "BitSet 8x memory reduction.",
-    hint: "BitSet uses 1 bit per number compared to 1 byte per boolean in arrays.",
+    question: "How does a primitive bit array (`int[]`) optimize the memory footprint of the Sieve?",
+    shortAnswer: "In standard Java, `boolean[]` allocates 1 byte (8 bits) per boolean element; an `int[]` bit array allocates exactly **1 bit per entry** (32 numbers per integer) via bitwise operators, reducing memory consumption by **87.5% (8x reduction)**.",
+    explanation: "Primitive bit array 8x memory reduction.",
+    hint: "Bit array uses 1 bit per number compared to 1 byte per boolean in arrays.",
     level: "intermediate",
-    codeExample: "BitSet bitSet = new BitSet(limit + 1); bitSet.clear(multiple);"
+    codeExample: "compositeBits[multiple >> 5] |= (1 << (multiple & 31));"
   },
   {
     question: "What is the Time Complexity of Naive Trial Division for finding all primes up to $N$?",
@@ -182,20 +182,20 @@ const questions = [
     codeExample: "for (int i = 5; i * i <= n; i += 6) if (n % i == 0 || n % (i + 2) == 0) return false;"
   },
   {
-    question: "In the Coder & AccoTax Barrackpore lab, what was `bitSet.nextSetBit(p + 1)` used for?",
-    shortAnswer: "To efficiently jump directly to the next prime number without iterating through non-prime composite bits in Indian Rupees (₹).",
-    explanation: "BitSet nextSetBit method usage.",
-    hint: "Jumps directly to the next set bit (prime) in O(1) hardware bitwise instructions.",
+    question: "How does the primitive bit array test if number `p` is prime?",
+    shortAnswer: "By testing if bit `(p & 31)` in word `compositeBits[p >> 5]` is zero: `(compositeBits[p >> 5] & (1 << (p & 31))) == 0`.",
+    explanation: "Bitwise test for primality in primitive bit array.",
+    hint: "Uses bitwise shift >> 5 and bitwise AND mask with (1 << (p & 31)).",
     level: "advanced",
-    codeExample: "p = bitSet.nextSetBit(p + 1);"
+    codeExample: "if ((compositeBits[p >> 5] & (1 << (p & 31))) == 0) { /* p is prime */ }"
   },
   {
-    question: "Can the Sieve of Eratosthenes be parallelized across multiple CPU cores in Java?",
-    shortAnswer: "YES! By generating base primes up to $\\sqrt{N}$ on one thread, and then processing independent segments in parallel using `ForkJoinPool` or `IntStream.range().parallel()`.",
-    explanation: "Parallel segmented sieve in modern Java.",
-    hint: "Yes, segments can be processed in parallel across multiple CPU cores.",
+    question: "Why does a Segmented Sieve improve performance on modern CPU architectures?",
+    shortAnswer: "It divides the range into smaller blocks of size $\\sqrt{N}$ or L1 cache size so the boolean array fits entirely in fast CPU L1/L2 cache, drastically reducing memory bus latency.",
+    explanation: "Segmented sieve CPU cache locality.",
+    hint: "Keeps small array chunks within fast CPU cache memory.",
     level: "advanced",
-    codeExample: "IntStream.range(0, numSegments).parallel().forEach(seg → sieveSegment(seg));"
+    codeExample: "int chunkSize = (int) Math.sqrt(limit);\nboolean[] segment = new boolean[chunkSize];"
   },
   {
     question: "What is an 'Emirp' prime?",
@@ -206,24 +206,24 @@ const questions = [
     codeExample: "int rev = reverse(p); if (rev != p && isPrime[rev]) { /* Emirp */ }"
   },
   {
-    question: "What is the memory consumption of `boolean[100_000_000]` vs `BitSet(100_000_000)`?",
-    shortAnswer: "`boolean[]` consumes $\\approx 100$ MB of Heap memory; `BitSet` consumes only $\\approx 12.5$ MB of Heap memory (8x less).",
+    question: "What is the memory consumption of `boolean[100_000_000]` vs `int[100_000_000 / 32]` bit array?",
+    shortAnswer: "`boolean[]` consumes $\\approx 100$ MB of Heap memory; a 32-bit `int[]` bit array consumes only $\\approx 12.5$ MB of Heap memory (8x less).",
     explanation: "Concrete memory calculation comparison.",
-    hint: "100 MB for boolean array vs 12.5 MB for BitSet.",
+    hint: "100 MB for boolean array vs 12.5 MB for bit array.",
     level: "intermediate",
     codeExample: "100,000,000 bits / 8 / 1024 / 1024 = 11.92 MB"
   },
   {
-    question: "Why should `Arrays.fill(isPrime, true)` be used instead of manual for-loops?",
-    shortAnswer: "`Arrays.fill()` is recognized as a JVM intrinsic and compiled into highly optimized vectorized native CPU memory fill instructions (`memset`).",
-    explanation: "JVM intrinsic optimization for Arrays.fill.",
-    hint: "JIT intrinsic compiled into optimized native vectorized memset instructions.",
+    question: "How should `isPrime` be initialized in foundational Java without utility libraries?",
+    shortAnswer: "A standard foundational for-loop `for (int i = 2; i <= limit; i++) isPrime[i] = true;` directly initializes all entries from index 2 to limit as prime candidates.",
+    explanation: "Standard foundational loop initialization.",
+    hint: "Use a simple for-loop starting at index 2 to mark candidates as true.",
     level: "basic",
-    codeExample: "Arrays.fill(isPrime, true);"
+    codeExample: "for (int i = 2; i <= limit; i++) isPrime[i] = true;"
   },
   {
     question: "What is the ultimate takeaway of Module 001_008 Topic 1 for Java developers?",
-    shortAnswer: "The Sieve of Eratosthenes is the gold standard for generating primes up to $N$ in $O(N \\log (\\log N))$ time. Always start inner marking at $p \\times p$, bound the outer loop at $\\sqrt{N}$, and use `BitSet` for memory efficiency.",
+    shortAnswer: "The Sieve of Eratosthenes is the gold standard for generating primes up to $N$ in $O(N \\log (\\log N))$ time. Always start inner marking at $p \\times p$, bound the outer loop at $\\sqrt{N}$, and use bitwise primitive arrays for memory efficiency.",
     explanation: "Mastery of Sieve of Eratosthenes.",
     hint: "O(N log(log N)) gold standard; start at p * p, stop outer loop at sqrt(N).",
     level: "basic",

@@ -126,12 +126,12 @@ const questions = [
     codeExample: "boolean[] isPrime = new boolean[maxRoll + 1];"
   },
   {
-    question: "How does `Objects.requireNonNull()` safeguard candidate evaluations?",
-    shortAnswer: "It immediately throws a descriptive `NullPointerException` if any required reference (like `studentName`) is `null`, preventing silent corrupted state downstream.",
-    explanation: "Defensive validation with Objects.requireNonNull.",
+    question: "How does defensive null checking safeguard candidate evaluations in Foundations Java?",
+    shortAnswer: "It immediately throws an `IllegalArgumentException` with a clear message if any required reference (like `studentName`) is `null`, preventing silent corrupted state downstream.",
+    explanation: "Defensive parameter validation with explicit if-checks.",
     hint: "Fails fast if mandatory references are null.",
     level: "basic",
-    codeExample: "Objects.requireNonNull(name, \"name must not be null\");"
+    codeExample: "if (studentName == null) {\n    throw new IllegalArgumentException(\"Candidate name cannot be null\");\n}"
   },
   {
     question: "What is the GST rate applied to tuition fees in India in our capstone demo?",

@@ -50,7 +50,130 @@ export default function Topic11() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Assessment Engine Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 11
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this capstone evaluation lab, you are required to construct an automated <strong>Multiple Choice Question (MCQ) Assessment Engine</strong> that administers an exam bank covering all 7 foundational pillars in Java Core (Modules 001_001 through 001_007), evaluates student submissions using pure primitive arrays without external collections, and calculates percentage scores, letter grades, and merit scholarship awards in Indian Rupees (₹).
+        </p>
+
+        {/* Two Columns / Cards for Spec 11A and Spec 11B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Exam Bank & Evaluator */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Spec 11A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  Primitive Bank &amp; Submission Engine
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Exam Question Bank &amp; Array Evaluator
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Build an immutable question repository using record models and a pure primitive array evaluation pipeline matching student answer indices against correct answer keys.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">ExamQuestion[] bank, int[] answers</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">StudentExamResult (Record)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Key Rules:</span>
+                  <span className="col-span-2 text-slate-300">Strictly 0-based indexed arrays; zero java.util collections; bounds checking</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Edge Cases:</span>
+                  <span className="col-span-2 text-slate-300">Partial answers submitted; blank submissions; array index out of bounds protection</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Evaluation Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-1">
+                  <div className="text-sky-300">Bank Keys: [1, 1, 1, 1, 2, 1, 1] (Total: 7)</div>
+                  <div className="text-emerald-300">Swadeep:   [1, 1, 1, 1, 2, 1, 1] → 7/7 (100.0%)</div>
+                  <div className="text-purple-300">Debangshu: [1, 1, 1, 1, 2, 1, 0] → 6/7 (85.7%)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Automated Grading & Billing */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Spec 11B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  Grading Tiers &amp; Scholarship
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Automated Letter Grades &amp; Scholarship Awards
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Compute percentage score with double precision, assign letter grade (&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;F&apos;), and dispatch merit scholarship awards in Indian Rupees (₹).
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Formula:</span>
+                  <span className="col-span-2 font-mono text-sky-300">((double) correct / total) * 100.0</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Grade &apos;A&apos;:</span>
+                  <span className="col-span-2 text-emerald-300 font-semibold">score &ge; 90.0% → ₹5,000 Award</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Grade &apos;B&apos;:</span>
+                  <span className="col-span-2 text-sky-300 font-semibold">score &ge; 80.0% &amp; &lt; 90.0% → ₹2,500 Award</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Grade &apos;C&apos; / &apos;F&apos;:</span>
+                  <span className="col-span-2 text-amber-300">score &ge; 70% (&apos;C&apos;) / &lt; 70% (&apos;F&apos;) → ₹0</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Award Calculation Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-1">
+                  <div className="text-emerald-300">Swadeep:   100.0% → Grade &apos;A&apos; | Award: ₹5,000.00</div>
+                  <div className="text-emerald-300">Tuhina:    100.0% → Grade &apos;A&apos; | Award: ₹5,000.00</div>
+                  <div className="text-sky-300">Debangshu:  85.7% → Grade &apos;B&apos; | Award: ₹2,500.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> Segment 1 Comprehensive Knowledge Domain Map
@@ -98,7 +221,7 @@ export default function Topic11() {
         </div>
       </section>
 
-      {/* Section 2: Semantic Visual Diagram */}
+      {/* Section 3: Semantic Visual Diagram */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
           <span>⚙️</span> Segment 1 Mastery Synthesis &amp; Automated Exam Engine
@@ -165,7 +288,7 @@ export default function Topic11() {
         </div>
       </section>
 
-      {/* Section 3: Deep Technical Breakdown */}
+      {/* Section 4: Deep Technical Breakdown */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
           <span>📊</span> Segment 1 Modules Evaluated &amp; Core Invariants
@@ -229,7 +352,7 @@ export default function Topic11() {
         </div>
       </section>
 
-      {/* Section 4: Hands-on Code Example */}
+      {/* Section 5: Hands-on Code Example */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
@@ -247,11 +370,11 @@ export default function Topic11() {
         <JavaFileLoader
           fileModule={mcqDemoCode}
           title="Segment1ComprehensiveMCQExamDemo.java"
-          highlightLines={[16, 25, 36, 41, 46, 51, 56, 61, 71, 80, 95]}
+          highlightLines={[17, 26, 36, 75, 97, 103, 112]}
         />
       </section>
 
-      {/* Section 5: Common Pitfalls & Best Practices */}
+      {/* Section 6: Common Pitfalls & Best Practices */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-rose-400 flex items-center gap-2">
           <span>⚠️</span> Common Pitfalls &amp; Industry Best Practices
@@ -278,7 +401,7 @@ export default function Topic11() {
         </div>
       </section>
 
-      {/* Section 6: Thinking & Hints Section */}
+      {/* Section 7: Thinking & Hints Section */}
       <section className="space-y-4 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-xl font-bold text-amber-400 flex items-center gap-2">
           <span>💡</span> Think About This...
@@ -293,7 +416,7 @@ export default function Topic11() {
         </div>
       </section>
 
-      {/* Section 7: FAQs */}
+      {/* Section 8: FAQs */}
       <section className="space-y-4">
         <FAQTemplate
           title="Segment 1 Comprehensive Exam FAQs"
@@ -301,7 +424,7 @@ export default function Topic11() {
         />
       </section>
 
-      {/* Section 8: Plain Text Printable Note */}
+      {/* Section 9: Plain Text Printable Note */}
       <section className="space-y-4">
         <PlainTextPrint
           content={noteText}
@@ -313,7 +436,7 @@ export default function Topic11() {
         />
       </section>
 
-      {/* Section 9: Teacher's Note */}
+      {/* Section 10: Teacher's Note */}
       <section className="space-y-4">
         <Teacher
           note="To Swadeep, Tuhina, Abhronila, and Debangshu: Congratulations on mastering the 7 foundational pillars of Java Core! In Topic 12, we conclude Segment 1 with our final challenge: The Segment 1 Timed Coding Assessment! — Sukanta Hui"

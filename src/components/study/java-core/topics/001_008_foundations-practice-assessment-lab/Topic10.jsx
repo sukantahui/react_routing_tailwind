@@ -50,7 +50,140 @@ export default function Topic10() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clean Code Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 10
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this clean code lab, you are required to refactor an unstructured campus ledger application into a production-grade codebase adhering strictly to the <strong>Google Java Style Guide</strong>: eliminating magic literals, applying standard casing, enforcing defensive contract validation, and using immutable records without external dependencies.
+        </p>
+
+        {/* Two Columns / Cards for Spec 10A and Spec 10B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Naming & Layout */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Spec 10A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  Naming &amp; Layout Standards
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Google Java Style Naming &amp; Formatting
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Refactor identifier casing, indentation, and imports according to industry standards: 2-space indentation (no raw tabs), 100-character line wrap limits, and elimination of wildcard imports.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Classes / Records:</span>
+                  <span className="col-span-2 font-mono text-sky-300">UpperCamelCase (e.g. StudentLedgerEntry)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Methods / Vars:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">lowerCamelCase (e.g. calculateNetFee)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Constants:</span>
+                  <span className="col-span-2 font-mono text-amber-300">UPPER_SNAKE_CASE (GST_TAX_RATE = 0.18)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Indentation:</span>
+                  <span className="col-span-2 text-slate-300">Strictly 2 spaces per indentation level</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Style Comparison:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-rose-400 text-[11px]">Bad: double gst = 0.18; class student_ledger &#123; void DO_CALC() &#125;</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Good: public static final double GST_TAX_RATE = 0.18;
+                    <br />class StudentLedger &#123; void calculateFee() &#125;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Defensive & Immutable Design */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Spec 10B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  Defensive Contracts &amp; Immutability
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Defensive Null Checks &amp; Java Records
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Replace mutable data structures with immutable Java Records. Validate parameters defensively at method boundaries, throwing explicit exceptions before internal processing.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Data Modeling:</span>
+                  <span className="col-span-2 font-mono text-purple-300">record StudentLedgerEntry(...)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Null Guard:</span>
+                  <span className="col-span-2 text-slate-300">if (entry == null) throw new IllegalArgumentException(...)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Documentation:</span>
+                  <span className="col-span-2 text-slate-300">Standard Javadoc with @param, @return, @throws</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Collections:</span>
+                  <span className="col-span-2 text-slate-300">Zero collections; pure typed arrays <code className="text-purple-300">Entry[]</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Record Definition:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <pre className="text-purple-300 text-[11px] leading-tight">
+{`public record StudentLedgerEntry(
+    int studentId,
+    String studentName,
+    double baseTuition,
+    double meritDiscountPercent
+) {}`}
+                  </pre>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Provides constructor, getters, equals, hashCode, and toString automatically!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> The Core Pillars of Google Java Style
@@ -88,7 +221,7 @@ export default function Topic10() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Production Ledger):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong>, <strong>Tuhina</strong>, <strong>Abhronila</strong>, and <strong>Debangshu</strong> structured a production student ledger in Indian Rupees (<code className="text-emerald-400 font-semibold">₹79,591.00 Net Revenue</code>), leveraging immutable Java Records, Javadoc comments, and defensive <code className="text-sky-300 font-mono">Objects.requireNonNull()</code> checks.
+              In our Barrackpore laboratory, <strong>Swadeep</strong>, <strong>Tuhina</strong>, <strong>Abhronila</strong>, and <strong>Debangshu</strong> structured a production student ledger in Indian Rupees (<code className="text-emerald-400 font-semibold">₹79,591.00 Net Revenue</code>), leveraging immutable Java Records, Javadoc comments, and defensive <code className="text-sky-300 font-mono">explicit null validation</code> checks.
             </p>
           </div>
         </div>
@@ -144,10 +277,10 @@ export default function Topic10() {
             <text x="475" y="92" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Indentation : 2 Spaces (No tabs, 100-char col width)</text>
 
             <rect x="465" y="110" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="132" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Imports     : No Wildcards (import java.util.List;)</text>
+            <text x="475" y="132" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Imports     : No Wildcards (Explicit imports only)</text>
 
             <rect x="465" y="150" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="172" fill="#fef08a" fontSize="10" fontFamily="monospace" fontWeight="bold">Validation  : Objects.requireNonNull(param, &quot;msg&quot;)</text>
+            <text x="475" y="172" fill="#fef08a" fontSize="10" fontFamily="monospace" fontWeight="bold">Validation  : Explicit null checks &amp; defensive guards</text>
 
             <text x="650" y="215" fill="#a7f3d0" fontSize="9" textAnchor="middle">Egyptian Braces | Mandatory Braces on All Conditionals</text>
 
@@ -184,8 +317,8 @@ export default function Topic10() {
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Imports</td>
-                <td className="p-3 text-rose-300">`import java.util.*;`</td>
-                <td className="p-3 text-emerald-300 font-bold">`import java.util.List;`</td>
+                <td className="p-3 text-rose-300">`import some.pkg.*;` (Wildcards)</td>
+                <td className="p-3 text-emerald-300 font-bold">Explicit Class Imports (No `*`)</td>
                 <td className="p-3 text-slate-300 font-sans">Prevents namespace pollution and name collisions</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
@@ -229,7 +362,7 @@ export default function Topic10() {
         <JavaFileLoader
           fileModule={styleDemoCode}
           title="GoogleJavaStyleCleanCodeDemo.java"
-          highlightLines={[18, 23, 27, 34, 40, 56, 60, 72, 85, 96]}
+          highlightLines={[23, 28, 40, 48, 70, 92, 126, 135]}
         />
       </section>
 

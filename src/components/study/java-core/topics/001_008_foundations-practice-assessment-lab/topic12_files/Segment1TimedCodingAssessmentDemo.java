@@ -13,11 +13,6 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
 public final class Segment1TimedCodingAssessmentDemo {
 
     private Segment1TimedCodingAssessmentDemo() {}
@@ -84,9 +79,9 @@ public final class Segment1TimedCodingAssessmentDemo {
     public static boolean[] generateSievePrimeTable(int maxRoll) {
         if (maxRoll < 2) return new boolean[0];
         boolean[] isPrime = new boolean[maxRoll + 1];
-        Arrays.fill(isPrime, true);
-        isPrime[0] = false;
-        isPrime[1] = false;
+        for (int i = 2; i <= maxRoll; i++) {
+            isPrime[i] = true;
+        }
 
         for (int p = 2; p * p <= maxRoll; p++) {
             if (isPrime[p]) {
@@ -113,7 +108,9 @@ public final class Segment1TimedCodingAssessmentDemo {
 
     public static CapstoneCandidateResult evaluateCandidate(
             int roll, String name, double score, double baseFee, boolean[] sieveTable) {
-        Objects.requireNonNull(name, "name must not be null");
+        if (name == null) {
+            throw new NullPointerException("name must not be null");
+        }
 
         AcademicTier tier = (score >= 90) ? AcademicTier.DISTINCTION :
                             (score >= 75) ? AcademicTier.FIRST_CLASS :
@@ -146,13 +143,13 @@ public final class Segment1TimedCodingAssessmentDemo {
         // 2. Sieve Precomputation Table (Rolls up to 200)
         boolean[] sieve = generateSievePrimeTable(200);
 
-        // 3. Capstone Evaluations
-        List<CapstoneCandidateResult> candidates = List.of(
+        // 3. Capstone Evaluations using primitive array
+        CapstoneCandidateResult[] candidates = {
             evaluateCandidate(101, "Swadeep", 94.5, 20000.0, sieve),
             evaluateCandidate(103, "Tuhina", 96.0, 25000.0, sieve),
             evaluateCandidate(107, "Abhronila", 82.0, 18000.0, sieve),
             evaluateCandidate(110, "Debangshu", 72.0, 22000.0, sieve)
-        );
+        };
 
         System.out.println("2. FINAL CAPSTONE CANDIDATE CERTIFICATION LEDGER:\n");
         double totalRevenue = 0.0;

@@ -5,7 +5,23 @@ TOPIC 2: Palindromic Number & String Verification
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. CORE ALGORITHM MECHANICS
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 2A: Integer Palindrome via Half-Reversal
+- Objective: Determine if 32-bit signed integer x is a palindrome without
+  converting it to String and without risking 32-bit integer overflow.
+- Input: int x (-2^31 <= x <= 2^31 - 1).
+- Output: boolean (true if x is a palindrome, false otherwise).
+- Invariant: Loop while (x > reversedHalf); stop at midpoint.
+
+PROBLEM 2B: Two-Pointer Alphanumeric Phrase Palindrome
+- Objective: Determine if string s is a palindrome considering only alphanumeric
+  characters and ignoring case differences.
+- Input: String s (raw text with punctuation and whitespace).
+- Output: boolean (true if alphanumeric subsequence is a palindrome).
+- Constraints: O(N) time, O(1) auxiliary space using inward pointers.
+
+2. CORE ALGORITHM MECHANICS
 --------------------------------------------------------------------------------
 - Integer Palindrome (Half-Reversal Optimization):
   * Negative numbers are NEVER palindromes (if (x < 0) return false;).
@@ -19,7 +35,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Compare case-insensitively with Character.toLowerCase().
   * Increment left, decrement right until pointers meet.
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Integer half-reversal: O(log10 N) Time | O(1) Space | Zero Overflow Risk.
 [✓] Two-pointer string scan: O(N) Time | O(1) Space | In-Place Memory.

@@ -50,7 +50,130 @@ export default function Topic12() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Capstone Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 12 (Capstone)
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this culminating capstone assessment, you are required to integrate algorithmic techniques across all Segment 1 modules into a high-performance evaluation engine: calculating matrix diagonal sums with center-overlap elimination in O(N), executing recursive binary search pipelines in O(log N), precomputing Sieve primality filters, and generating immutable academic billing records with statutory 18% GST in Indian Rupees (₹).
+        </p>
+
+        {/* Two Columns / Cards for Spec 12A and Spec 12B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Matrix Diagonals & Binary Search */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-emerald-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-emerald-950 text-emerald-400 border border-emerald-800">
+                  Spec 12A
+                </span>
+                <span className="text-xs font-semibold text-sky-400 bg-sky-950/60 border border-sky-800/50 px-2 py-0.5 rounded">
+                  Matrix Diagonals &amp; Search Pipeline
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Matrix Diagonal Sum &amp; Recursive Binary Search
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Compute primary and secondary matrix diagonals in a single loop pass O(N) with odd-dimension center deduplication, alongside logarithmic divide-and-conquer search with overflow-safe midpointing.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Diagonal Input:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int[][] matrix (N x N)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Search Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int[] arr, int low, int high, int target</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Key Rules:</span>
+                  <span className="col-span-2 text-slate-300">Primary matrix[i][i] + Secondary matrix[i][n-1-i]; subtract center if n is odd</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Edge Cases:</span>
+                  <span className="col-span-2 text-slate-300">Null or 0x0 matrix (return 0); 1x1 matrix; target absent in binary search (-1)</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Diagonal Trace (3x3 Matrix):</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-1">
+                  <div className="text-slate-400">[[10, 20, 30], [40, 50, 60], [70, 80, 90]]</div>
+                  <div className="text-emerald-300">Primary: 10 + 50 + 90 = 150 | Sec: 30 + 50 + 70 = 150</div>
+                  <div className="text-amber-300 font-semibold">Center Deduplication: 150 + 150 - 50 = 250</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Sieve Validation & Multi-Criteria Billing */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Spec 12B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  Sieve &amp; GST Billing Ledger
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Sieve Roll Validation &amp; 18% GST Ledger
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Generate precomputed Sieve prime table for O(1) roll qualification, evaluate academic tier via switch expression, and compute net fee with 18% statutory GST.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">roll, name, score, baseFee, sieveTable</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">CapstoneCandidateResult (Record)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Tiers:</span>
+                  <span className="col-span-2 text-slate-300">Distinction (25%), First (15%), Second (5%), Pass/Fail (0%)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">GST Formula:</span>
+                  <span className="col-span-2 font-mono text-amber-300">payable = (baseFee - scholarship) * 1.18</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Candidate Certification Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-1">
+                  <div className="text-emerald-300">Swadeep (Roll 101 · Prime): Base ₹20,000 - 25% → ₹17,700 net</div>
+                  <div className="text-emerald-300">Tuhina  (Roll 103 · Prime): Base ₹25,000 - 25% → ₹22,125 net</div>
+                  <div className="text-sky-300 font-semibold border-t border-slate-800 pt-1">Total Certified Revenue: ₹82,541.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
           <span>🏆</span> The 5 Capstone Timed Challenges
@@ -63,7 +186,7 @@ export default function Topic12() {
             <div className="p-4 bg-slate-950 rounded-xl border border-emerald-500/30">
               <h3 className="text-emerald-400 font-bold text-sm mb-1">1. Matrix Diagonals</h3>
               <p className="text-slate-300 font-sans leading-relaxed text-xs">
-                Computes primary and secondary diagonals in $O(N)$ time with center-overlap elimination.
+                Computes primary and secondary diagonals in O(N) time with center-overlap elimination.
               </p>
             </div>
 
@@ -91,7 +214,7 @@ export default function Topic12() {
         </div>
       </section>
 
-      {/* Section 2: Semantic Visual Diagram */}
+      {/* Section 3: Semantic Visual Diagram */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
           <span>⚙️</span> Segment 1 Capstone Synthesis &amp; Milestone Badge
@@ -158,7 +281,7 @@ export default function Topic12() {
         </div>
       </section>
 
-      {/* Section 3: Deep Technical Breakdown */}
+      {/* Section 4: Deep Technical Breakdown */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-amber-400 flex items-center gap-2">
           <span>📊</span> Capstone Candidate Results &amp; Fee Breakdown
@@ -214,7 +337,7 @@ export default function Topic12() {
         </div>
       </section>
 
-      {/* Section 4: Hands-on Code Example */}
+      {/* Section 5: Hands-on Code Example */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
@@ -232,11 +355,11 @@ export default function Topic12() {
         <JavaFileLoader
           fileModule={timedDemoCode}
           title="Segment1TimedCodingAssessmentDemo.java"
-          highlightLines={[22, 28, 38, 42, 57, 65, 75, 85, 96, 110]}
+          highlightLines={[21, 42, 57, 65, 77, 97, 107, 124, 144, 165]}
         />
       </section>
 
-      {/* Section 5: Common Pitfalls & Best Practices */}
+      {/* Section 6: Common Pitfalls & Best Practices */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-rose-400 flex items-center gap-2">
           <span>⚠️</span> Common Pitfalls &amp; Industry Best Practices
@@ -248,7 +371,7 @@ export default function Topic12() {
               <span>❌</span> Pitfall 1: Double-Counting the Center in Matrix Diagonals
             </p>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
-              When $N$ is odd (e.g. 3x3), the center element <code className="text-rose-300 font-mono">matrix[1][1]</code> is on both diagonals; failing to subtract it once will overstate the total sum.
+              When N is odd (e.g. 3x3), the center element <code className="text-rose-300 font-mono">matrix[1][1]</code> is on both diagonals; failing to subtract it once will overstate the total sum.
             </p>
           </div>
 
@@ -263,7 +386,7 @@ export default function Topic12() {
         </div>
       </section>
 
-      {/* Section 6: Thinking & Hints Section */}
+      {/* Section 7: Thinking & Hints Section */}
       <section className="space-y-4 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-xl font-bold text-amber-400 flex items-center gap-2">
           <span>💡</span> Think About This...
@@ -278,7 +401,7 @@ export default function Topic12() {
         </div>
       </section>
 
-      {/* Section 7: FAQs */}
+      {/* Section 8: FAQs */}
       <section className="space-y-4">
         <FAQTemplate
           title="Segment 1 Capstone Assessment FAQs"
@@ -286,7 +409,7 @@ export default function Topic12() {
         />
       </section>
 
-      {/* Section 8: Plain Text Printable Note */}
+      {/* Section 9: Plain Text Printable Note */}
       <section className="space-y-4">
         <PlainTextPrint
           content={noteText}
@@ -298,7 +421,7 @@ export default function Topic12() {
         />
       </section>
 
-      {/* Section 9: Teacher's Note */}
+      {/* Section 10: Teacher's Note */}
       <section className="space-y-4">
         <Teacher
           note="Heartiest congratulations to Swadeep, Tuhina, Abhronila, and Debangshu! You have successfully conquered all 8 modules of Segment 1: Java Core Foundations! We now advance to Segment 2: Object-Oriented Programming (OOP) Core Mechanics, starting with Module 002_001: Classes, Objects, and Constructors Deep Dive! — Sukanta Hui"

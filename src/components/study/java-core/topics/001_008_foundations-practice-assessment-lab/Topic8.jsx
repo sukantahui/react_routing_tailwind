@@ -50,21 +50,151 @@ export default function Topic8() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 8
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to implement <strong>Armstrong (Narcissistic) number algorithms</strong> in Java Foundations: verifying individual numbers of arbitrary digit length using integer-only arithmetic, and scanning an inclusive range <code className="text-sky-300 font-mono">[start, end]</code> to return a precisely sized primitive array without dynamic collections.
+        </p>
+
+        {/* Two Columns / Cards for Problem 8A and Problem 8B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Single Number Verification */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 8A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(D) Time · Integer Arithmetic
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Armstrong Number Verification
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given a non-negative integer <code className="text-sky-300 font-mono">n</code> with <code className="text-sky-300 font-mono">D</code> digits, determine if the sum of each digit raised to the power of <code className="text-sky-300 font-mono">D</code> equals <code className="text-sky-300 font-mono">n</code>. Avoid floating-point precision loss.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int n (n &ge; 0)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">boolean (true if Armstrong)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Power Rule:</span>
+                  <span className="col-span-2 text-slate-300">Fast integer loop power (avoid <code className="text-rose-400">Math.pow</code>)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Optimization:</span>
+                  <span className="col-span-2 text-slate-300">Early exit if running sum exceeds <code className="text-sky-300">n</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Math Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">n = 153 (D = 3 digits)</div>
+                  <div className="text-sky-300 text-[11px]">1³ + 5³ + 3³ = 1 + 125 + 27 = 153 == 153 → true</div>
+                  <div className="text-slate-400 pt-1 border-t border-slate-800">n = 1634 (D = 4 digits)</div>
+                  <div className="text-sky-300 text-[11px]">1⁴ + 6⁴ + 3⁴ + 4⁴ = 1 + 1296 + 81 + 256 = 1634 → true</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Single-digit numbers (1-9) are all Armstrong by definition!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Two-Pass Range Scanner */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Problem 8B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(R × D) Time · Zero Collections
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Two-Pass Range Search [start, end]
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Scan all integers in <code className="text-purple-300 font-mono">[start, end]</code> and return an exact primitive <code className="text-emerald-400 font-mono">int[]</code> array. Count matches in pass 1 to size the array, then populate in pass 2 without using dynamic lists.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">int start, int end (start &le; end)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int[] (exact size = count of matches)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Pass 1:</span>
+                  <span className="col-span-2 text-slate-300">Count Armstrong numbers to allocate array</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Pass 2:</span>
+                  <span className="col-span-2 text-slate-300">Fill array indices: <code className="text-purple-300">result[idx++] = i</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Range Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Range: [1, 500]</div>
+                  <div className="text-purple-300 text-[11px]">Pass 1 Count: 13 numbers found (1-9, 153, 370, 371, 407)</div>
+                  <div className="text-purple-300 text-[11px]">Allocation: int[] result = new int[13]</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407]
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> Mathematical Definition &amp; Optimizations
         </h2>
         <div className="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
           <p>
-            An <strong>Armstrong (Narcissistic) number</strong> of $D$ digits satisfies the formula $N = \sum (d_i)^D$:
+            An <strong>Armstrong (Narcissistic) number</strong> of D digits satisfies the formula N = ∑ (dᵢ)ᴰ:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
             <div className="p-4 bg-slate-950 rounded-xl border border-sky-500/30">
               <h3 className="text-sky-400 font-bold text-sm mb-2">1. Digit Count Calculation</h3>
               <p className="text-sky-300 mb-1">D = countDigits(n)</p>
               <p className="text-slate-300 font-sans leading-relaxed text-xs">
-                Determines the exponent $D$ via iterative division (<code className="text-sky-300 font-mono">temp /= 10</code>) or logarithm.
+                Determines the exponent D via iterative division (<code className="text-sky-300 font-mono">temp /= 10</code>) or logarithm.
               </p>
             </div>
 
@@ -72,7 +202,7 @@ export default function Topic8() {
               <h3 className="text-emerald-400 font-bold text-sm mb-2">2. Precomputed Powers Table</h3>
               <p className="text-emerald-300 mb-1">digitPowers[d] = intPower(d, D)</p>
               <p className="text-slate-300 font-sans leading-relaxed text-xs">
-                Precomputes powers for digits 0..9 in a 10-element array, replacing slow <code className="text-emerald-400 font-mono">Math.pow()</code> with $O(1)$ lookups.
+                Precomputes powers for digits 0..9 in a 10-element array, replacing slow <code className="text-emerald-400 font-mono">Math.pow()</code> with O(1) lookups.
               </p>
             </div>
 
@@ -167,7 +297,7 @@ export default function Topic8() {
           <table className="w-full text-left text-sm border-collapse">
             <thead>
               <tr className="border-b border-slate-700 text-slate-300 bg-slate-900/50">
-                <th className="p-3 font-semibold text-sky-400">Digit Length ($D$)</th>
+                <th className="p-3 font-semibold text-sky-400">Digit Length (D)</th>
                 <th className="p-3 font-semibold text-emerald-400">Range</th>
                 <th className="p-3 font-semibold text-purple-400">Armstrong Numbers Found</th>
                 <th className="p-3 font-semibold text-amber-400">Total Count</th>
@@ -175,26 +305,26 @@ export default function Topic8() {
             </thead>
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">1-Digit ($D = 1$)</td>
-                <td className="p-3 text-slate-300 font-sans">$1 \dots 9$</td>
+                <td className="p-3 text-sky-300 font-bold">1-Digit (D = 1)</td>
+                <td className="p-3 text-slate-300 font-sans">1 to 9</td>
                 <td className="p-3 text-emerald-400 font-bold">`1, 2, 3, 4, 5, 6, 7, 8, 9`</td>
                 <td className="p-3 text-slate-300 font-sans">9 numbers</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">2-Digit ($D = 2$)</td>
-                <td className="p-3 text-slate-300 font-sans">$10 \dots 99$</td>
+                <td className="p-3 text-sky-300 font-bold">2-Digit (D = 2)</td>
+                <td className="p-3 text-slate-300 font-sans">10 to 99</td>
                 <td className="p-3 text-rose-400 font-sans italic">None (Empty set)</td>
                 <td className="p-3 text-slate-300 font-sans">0 numbers</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">3-Digit ($D = 3$)</td>
-                <td className="p-3 text-slate-300 font-sans">$100 \dots 999$</td>
+                <td className="p-3 text-sky-300 font-bold">3-Digit (D = 3)</td>
+                <td className="p-3 text-slate-300 font-sans">100 to 999</td>
                 <td className="p-3 text-emerald-400 font-bold">`153, 370, 371, 407`</td>
                 <td className="p-3 text-slate-300 font-sans">4 numbers</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">4-Digit ($D = 4$)</td>
-                <td className="p-3 text-slate-300 font-sans">$1000 \dots 9999$</td>
+                <td className="p-3 text-sky-300 font-bold">4-Digit (D = 4)</td>
+                <td className="p-3 text-slate-300 font-sans">1000 to 9999</td>
                 <td className="p-3 text-emerald-400 font-bold">`1634, 8208, 9474`</td>
                 <td className="p-3 text-slate-300 font-sans">3 numbers</td>
               </tr>
@@ -221,7 +351,7 @@ export default function Topic8() {
         <JavaFileLoader
           fileModule={armDemoCode}
           title="ArmstrongNumbersRangeAlgorithmDemo.java"
-          highlightLines={[19, 23, 32, 40, 44, 48, 55, 60, 68, 77, 88]}
+          highlightLines={[19, 23, 35, 46, 53, 66, 75, 83, 95, 115]}
         />
       </section>
 
@@ -262,7 +392,7 @@ export default function Topic8() {
             🤔 <em>&ldquo;Why are there NO 2-digit Armstrong numbers in base 10?&rdquo;</em>
           </p>
           <p>
-            👉 <strong>Hint:</strong> Mathematical Bound! For 2-digit numbers ($10 \dots 99$), the maximum possible sum of squares is $9^2 + 9^2 = 81 + 81 = 162$, but no combination of $10a + b = a^2 + b^2$ has integer solutions in the range $[10..99]$!
+            👉 <strong>Hint:</strong> Mathematical Bound! For 2-digit numbers (10 to 99), the maximum possible sum of squares is 9² + 9² = 81 + 81 = 162, but no combination of 10a + b = a² + b² has integer solutions in the range [10..99]!
           </p>
         </div>
       </section>

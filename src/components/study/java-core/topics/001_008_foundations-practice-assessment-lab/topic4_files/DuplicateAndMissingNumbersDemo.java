@@ -11,8 +11,6 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.Arrays;
-
 public class DuplicateAndMissingNumbersDemo {
 
     // =========================================================================
@@ -107,6 +105,16 @@ public class DuplicateAndMissingNumbersDemo {
         return new int[]{duplicate, missing};
     }
 
+    // Helper: Pretty-print a 1D primitive array using basic loops
+    public static void printArray(String label, int[] arr) {
+        System.out.print("   " + label + " : [");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]);
+            if (i < arr.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+
     public static void main(String[] args) {
         System.out.println("================================================================================");
         System.out.println("CODER & ACCOTAX - JAVA CORE: TOPIC 4 DUPLICATE & MISSING NUMBERS");
@@ -119,7 +127,7 @@ public class DuplicateAndMissingNumbersDemo {
         int missingSum = findMissingNumberSum(studentRollsMissing, 10);
 
         System.out.println("1. SINGLE MISSING NUMBER AUDIT [Range: 1..10]:");
-        System.out.printf("   Array        : %s%n", Arrays.toString(studentRollsMissing));
+        printArray("Array", studentRollsMissing);
         System.out.printf("   Missing (XOR): Roll ID %d%n", missingXor);
         System.out.printf("   Missing (Sum): Roll ID %d%n%n", missingSum);
 
@@ -128,7 +136,7 @@ public class DuplicateAndMissingNumbersDemo {
         int duplicateId = findDuplicateFloyd(studentRollsDuplicate);
 
         System.out.println("2. DUPLICATE NUMBER AUDIT (Floyd's Tortoise & Hare):");
-        System.out.printf("   Array        : %s%n", Arrays.toString(studentRollsDuplicate));
+        printArray("Array", studentRollsDuplicate);
         System.out.printf("   Duplicate ID : %d (Found without mutating array in O(1) space)%n%n", duplicateId);
 
         // --- 3. SET MISMATCH: FIND BOTH DUPLICATE & MISSING ---
@@ -136,7 +144,7 @@ public class DuplicateAndMissingNumbersDemo {
         int[] mismatch = findSetMismatch(transactionIds);
 
         System.out.println("3. SET MISMATCH (Duplicate & Missing Pair):");
-        System.out.printf("   Array        : %s%n", Arrays.toString(transactionIds));
+        printArray("Array", transactionIds);
         System.out.printf("   Result Pair  : Duplicate = %d, Missing = %d%n%n", mismatch[0], mismatch[1]);
 
         System.out.println("================================================================================");

@@ -13,10 +13,6 @@
 
 package com.coderaccotax.javatutorial.foundations;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-
 /**
  * Manages student academic records and tuition fee computations conforming to Google Java Style.
  */
@@ -45,8 +41,12 @@ public final class GoogleJavaStyleCleanCodeDemo {
       double academicScore) {
 
     public StudentLedgerEntry {
-      Objects.requireNonNull(studentName, "studentName must not be null");
-      Objects.requireNonNull(courseName, "courseName must not be null");
+      if (studentName == null) {
+        throw new NullPointerException("studentName must not be null");
+      }
+      if (courseName == null) {
+        throw new NullPointerException("courseName must not be null");
+      }
       if (rollNumber <= 0) {
         throw new IllegalArgumentException("rollNumber must be positive: " + rollNumber);
       }
@@ -68,7 +68,9 @@ public final class GoogleJavaStyleCleanCodeDemo {
    * @throws NullPointerException if entry is null
    */
   public static double computeFinalPayableFee(StudentLedgerEntry entry) {
-    Objects.requireNonNull(entry, "StudentLedgerEntry must not be null");
+    if (entry == null) {
+      throw new NullPointerException("StudentLedgerEntry must not be null");
+    }
 
     double baseFee = entry.baseFeeInr();
     double discountAmount = 0.0;
@@ -90,7 +92,9 @@ public final class GoogleJavaStyleCleanCodeDemo {
    * @return formatted multi-line invoice string
    */
   public static String generateInvoiceReport(StudentLedgerEntry entry) {
-    Objects.requireNonNull(entry, "entry cannot be null");
+    if (entry == null) {
+      throw new NullPointerException("entry cannot be null");
+    }
     double finalPayable = computeFinalPayableFee(entry);
     boolean hasMerit = entry.academicScore() >= MERIT_DISCOUNT_THRESHOLD;
 
@@ -120,12 +124,12 @@ public final class GoogleJavaStyleCleanCodeDemo {
     System.out.println("Educator: Sukanta Hui | Location: Barrackpore, West Bengal");
     System.out.println("================================================================================\n");
 
-    List<StudentLedgerEntry> studentList = List.of(
+    StudentLedgerEntry[] studentList = {
         new StudentLedgerEntry(101, "Swadeep", "Full Stack Java", 20000.0, 92.5),
         new StudentLedgerEntry(102, "Tuhina", "Data Structures & Java", 25000.0, 96.0),
         new StudentLedgerEntry(103, "Abhronila", "Java Core Foundations", 18000.0, 84.0),
         new StudentLedgerEntry(104, "Debangshu", "Java Microservices", 22000.0, 78.5)
-    );
+    };
 
     double totalRevenue = 0.0;
     for (StudentLedgerEntry student : studentList) {
@@ -139,9 +143,9 @@ public final class GoogleJavaStyleCleanCodeDemo {
 
     System.out.println("KEY TAKEAWAYS FOR STUDENTS (Swadeep, Tuhina, Abhronila, Debangshu):");
     System.out.println("1. Use 2-space indentation, Egyptian braces, and 100-character line limits.");
-    System.out.println("2. Never use wildcard imports (import java.util.*;) - specify exact classes.");
+    System.out.println("2. Never use wildcard imports (import java.util.*;) - keep code clean and self-contained.");
     System.out.println("3. Eliminate magic numbers by defining static final UPPER_SNAKE_CASE constants.");
-    System.out.println("4. Guard every public method defensively using Objects.requireNonNull().");
+    System.out.println("4. Guard every public method defensively using explicit null checks.");
     System.out.println("================================================================================");
   }
 }

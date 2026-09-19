@@ -50,7 +50,137 @@ export default function Topic5() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 5
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to count the occurrence frequency of elements in an array using <strong>pure Java Foundations constructs</strong>: implementing both a high-speed Direct Address Frequency Array for bounded values and a Visited Boolean Array for sparse values without relying on HashMaps.
+        </p>
+
+        {/* Two Columns / Cards for Problem 5A and Problem 5B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Direct Address Frequency Array */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 5A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(N) Time · O(K) Space
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Direct Address Frequency Table (Bounded [0..K])
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given an array of integers whose values are bounded within <code className="text-sky-300 font-mono">[0..K]</code>, tally occurrences by using the element values directly as array indices in a pre-allocated primitive array <code className="text-emerald-400 font-mono">int[] freq = new int[K + 1]</code>.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int[] arr (size N, values in [0..K])</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int[] freq (size K + 1)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Increment:</span>
+                  <span className="col-span-2 text-slate-300">Single pass: <code className="text-sky-300">freq[arr[i]]++</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Complexity:</span>
+                  <span className="col-span-2 text-slate-300">O(N) Time · O(K) Auxiliary Memory</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Input: arr = [1, 3, 1, 2, 3, 1], K = 3</div>
+                  <div className="text-sky-300 text-[11px]">freq = new int[4] initialized to [0, 0, 0, 0]</div>
+                  <div className="text-sky-300 text-[11px]">Iterating: freq[1]++ (x3), freq[2]++ (x1), freq[3]++ (x2)</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Output: freq = [0, 3, 1, 2] (Value 1: 3x, Value 2: 1x, Value 3: 2x)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Visited Boolean Array */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Problem 5B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(N²) Time · O(N) Space · Zero Maps
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Visited Boolean Array (Arbitrary / Sparse Values)
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given an array with arbitrary or large numbers (e.g. course IDs 101, 102), count frequencies without HashMap. Use a boolean <code className="text-purple-300 font-mono">visited[]</code> array to skip already processed elements.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">int[] arr (size N, arbitrary values)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">Printed frequency table without duplicates</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Skip Rule:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-purple-300">if (visited[i]) continue;</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Mark Rule:</span>
+                  <span className="col-span-2 text-slate-300">Inner loop marks matches: <code className="text-purple-300">visited[j] = true</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Walkthrough:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Input: [101, 102, 101, 103, 101, 102]</div>
+                  <div className="text-purple-300 text-[11px]">i = 0 (101): count = 3, marks indices 2 &amp; 4 visited</div>
+                  <div className="text-purple-300 text-[11px]">i = 1 (102): count = 2, marks index 5 visited</div>
+                  <div className="text-purple-300 text-[11px]">i = 2 (101): visited is true → skips immediately</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Result: 101: 3x | 102: 2x | 103: 1x (Zero collections used!)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> Two Paradigms: Direct Address Array vs. Hash Table
@@ -69,10 +199,10 @@ export default function Topic5() {
             </div>
 
             <div className="p-4 bg-slate-950 rounded-xl border border-sky-500/30">
-              <h3 className="text-sky-400 font-bold text-sm mb-2">2. LinkedHashMap Table (Unbounded/Negative)</h3>
-              <p className="text-sky-300 mb-1">map.put(val, map.getOrDefault(val, 0) + 1)</p>
+              <h3 className="text-sky-400 font-bold text-sm mb-2">2. Visited Boolean Array (Unbounded/Negative)</h3>
+              <p className="text-sky-300 mb-1">boolean[] visited = new boolean[n];</p>
               <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                Handles negative integers, sparse keys (e.g. <code className="text-slate-300 font-mono">101, 1000000000</code>), and strings safely in <code className="text-sky-300 font-mono">O(N)</code> time, preserving insertion order.
+                Handles negative integers and arbitrary sparse values safely in foundational Java without external Map libraries, tracking counted elements via a visited boolean array.
               </p>
             </div>
           </div>
@@ -80,7 +210,7 @@ export default function Topic5() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Grade Distribution Audit):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> and <strong>Tuhina</strong> counted student scores on a 0..10 scale using a direct address array (<code className="text-emerald-400 font-mono">score 8 appeared 4 times</code>), while <strong>Abhronila</strong> counted sparse course enrollment IDs (including negative refund tokens) using <code className="text-sky-300 font-mono">LinkedHashMap</code> flawlessly.
+              In our Barrackpore laboratory, <strong>Swadeep</strong> and <strong>Tuhina</strong> counted student scores on a 0..10 scale using a direct address array (<code className="text-emerald-400 font-mono">score 8 appeared 4 times</code>), while <strong>Abhronila</strong> counted sparse course enrollment IDs (including negative refund tokens) using a <code className="text-sky-300 font-mono">visited boolean array</code> tracking mechanism.
             </p>
           </div>
         </div>
@@ -170,26 +300,26 @@ export default function Topic5() {
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Direct Address Array</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(K)$ bounded</td>
-                <td className="p-3 text-slate-300 font-sans">Scores, student grades, ASCII chars ($K \le 10^6$)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(K) bounded</td>
+                <td className="p-3 text-slate-300 font-sans">Scores, student grades, ASCII chars (K ≤ 10⁶)</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">LinkedHashMap Table</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$</td>
-                <td className="p-3 text-purple-300 font-sans">$O(U)$ unique keys</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N)</td>
+                <td className="p-3 text-purple-300 font-sans">O(U) unique keys</td>
                 <td className="p-3 text-slate-300 font-sans">Negative numbers, sparse IDs, Strings</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">In-Place Modulo $N$ Count</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ strictly in-place</td>
-                <td className="p-3 text-slate-300 font-sans">Array size $N$ with elements in $[1..N]$ without extra RAM</td>
+                <td className="p-3 text-sky-300 font-bold">In-Place Modulo N Count</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) strictly in-place</td>
+                <td className="p-3 text-slate-300 font-sans">Array size N with elements in [1..N] without extra RAM</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Character Array `int[26]`</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N)$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ (26 slots)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) (26 slots)</td>
                 <td className="p-3 text-slate-300 font-sans">Anagram verification &amp; letter counting</td>
               </tr>
             </tbody>
@@ -209,13 +339,13 @@ export default function Topic5() {
         </div>
         
         <p className="text-sm text-slate-300 leading-relaxed">
-          The following program implements direct address arrays, LinkedHashMap tables, and in-place modulo frequency counting.
+          The following program implements direct address arrays, visited boolean array tables, and in-place modulo frequency counting.
         </p>
 
         <JavaFileLoader
           fileModule={freqDemoCode}
           title="ArrayElementFrequencyCounterDemo.java"
-          highlightLines={[20, 24, 34, 37, 49, 55, 60, 71, 83, 94]}
+          highlightLines={[18, 22, 33, 38, 55, 60, 66, 73, 83, 97, 115]}
         />
       </section>
 
@@ -256,7 +386,7 @@ export default function Topic5() {
             🤔 <em>&ldquo;How does an in-place modulo frequency counter store both the original number and its frequency count in the same integer slot?&rdquo;</em>
           </p>
           <p>
-            👉 <strong>Hint:</strong> Division &amp; Modulo Packing! In <code className="text-emerald-400 font-mono">val % N</code>, the remainder gives the original element, while in <code className="text-emerald-400 font-mono">val / N</code>, the quotient gives how many times $N$ was added (the frequency)!
+            👉 <strong>Hint:</strong> Division &amp; Modulo Packing! In <code className="text-emerald-400 font-mono">val % N</code>, the remainder gives the original element, while in <code className="text-emerald-400 font-mono">val / N</code>, the quotient gives how many times N was added (the frequency)!
           </p>
         </div>
       </section>

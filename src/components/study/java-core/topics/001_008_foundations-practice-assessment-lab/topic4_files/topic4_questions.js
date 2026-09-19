@@ -102,12 +102,12 @@ const questions = [
     codeExample: "// Arrays.sort() is O(N log N)"
   },
   {
-    question: "How does a Hash Set find duplicates, and why is it not ideal for memory-constrained systems?",
-    shortAnswer: "A `HashSet` adds elements and returns false if already present ($O(N)$ time); however, it consumes $O(N)$ Heap memory and incurs object wrapper overhead.",
-    explanation: "HashSet memory overhead.",
-    hint: "Takes O(N) time but uses O(N) heap memory.",
+    question: "How does a boolean visited flag array find duplicates, and how does in-place negative marking improve upon it?",
+    shortAnswer: "A boolean array (`boolean[] seen = new boolean[n + 1]`) marks seen numbers in $O(N)$ time and $O(N)$ extra memory; in-place negative marking achieves $O(N)$ time with $O(1)$ auxiliary space by flipping sign bits.",
+    explanation: "Boolean array vs in-place sign marking space trade-off.",
+    hint: "Boolean array uses O(N) heap space; sign marking achieves O(1) auxiliary space.",
     level: "basic",
-    codeExample: "Set<Integer> set = new HashSet<>(); if (!set.add(x)) return x;"
+    codeExample: "if (seen[x]) return x; else seen[x] = true;"
   },
   {
     question: "What is the mathematical equation system to solve Set Mismatch ($[1..N]$)?",
@@ -182,12 +182,12 @@ const questions = [
     codeExample: "long sum = (long) n * (n + 1) / 2; // Safe"
   },
   {
-    question: "How does `BitSet` find multiple missing numbers in range $[1..N]$?",
-    shortAnswer: "Initialize `BitSet bs = new BitSet(N + 1)`; for each value set `bs.set(val)`; all unset bits `bs.nextClearBit(1)` up to $N$ are missing numbers.",
-    explanation: "BitSet missing numbers identification.",
-    hint: "Mark present numbers in BitSet; clear bits identify missing numbers.",
+    question: "How does a boolean presence array find multiple missing numbers in range $[1..N]$?",
+    shortAnswer: "Initialize `boolean[] present = new boolean[N + 1]`; for each value in `nums` set `present[val] = true`; then scan indices $1$ to $N$ and collect all indices where `present[i] == false`.",
+    explanation: "Boolean presence array for finding multiple missing numbers.",
+    hint: "Mark present numbers in boolean array; false indices identify missing numbers.",
     level: "intermediate",
-    codeExample: "BitSet bs = new BitSet(n + 1); for (int v : nums) bs.set(v);"
+    codeExample: "boolean[] present = new boolean[n + 1];\nfor (int v : nums) present[v] = true;"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, how did Phase 2 of Floyd's algorithm locate the duplicate entry?",
@@ -238,12 +238,12 @@ const questions = [
     codeExample: "// Topic 5: Array Element Frequency Counter"
   },
   {
-    question: "How does Java 21 `java.util.Collections` and Stream API calculate frequencies?",
-    shortAnswer: "Using `Collectors.groupingBy(Function.identity(), Collectors.counting())` to produce a frequency map in a single declarative stream pipeline.",
-    explanation: "Stream API frequency collection.",
-    hint: "Collectors.groupingBy() with Collectors.counting().",
+    question: "How can you find the single non-repeating number in an array where every other element appears twice without extra memory?",
+    shortAnswer: "By computing the cumulative XOR (`^`) of all elements across the array in a single loop ($O(N)$ time, $O(1)$ space), because $x \\oplus x = 0$ and $x \\oplus 0 = x$.",
+    explanation: "Bitwise XOR cancellation for single non-repeating number.",
+    hint: "Use XOR accumulator: duplicates cancel each other out to zero.",
     level: "intermediate",
-    codeExample: "Map<Integer, Long> freq = list.stream().collect(Collectors.groupingBy(e → e, Collectors.counting()));"
+    codeExample: "int unique = 0;\nfor (int x : nums) {\n    unique ^= x;\n}"
   }
 ];
 

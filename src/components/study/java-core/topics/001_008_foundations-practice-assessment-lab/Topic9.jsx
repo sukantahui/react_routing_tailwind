@@ -46,11 +46,138 @@ export default function Topic9() {
           Debugging Challenge: Identifying &amp; Resolving 10 Common Java Bugs
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master professional Java diagnostic skills: systematically identifying and resolving the 10 most common compilation, runtime, and logical bugs including String <code className="text-rose-400 font-mono">==</code> vs <code className="text-emerald-400 font-mono">.equals()</code>, NullPointerExceptions, off-by-one errors, integer division truncations, arithmetic overflows, and <code className="text-purple-300 font-mono">ConcurrentModificationException</code>.
+          Master professional Java diagnostic skills: systematically identifying and resolving the 10 most common compilation, runtime, and logical bugs including String <code className="text-rose-400 font-mono">==</code> vs <code className="text-emerald-400 font-mono">.equals()</code>, NullPointerExceptions, off-by-one errors, integer division truncations, arithmetic overflows, and <code className="text-purple-300 font-mono">for-each element mutation traps</code>.
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Diagnostic Challenge Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 9
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this debugging challenge lab, you are presented with <strong>10 classic anti-patterns, logical traps, and runtime bugs</strong> prevalent in Java Foundations. Your objective is to diagnose the underlying JVM mechanics causing each failure and apply clean, idiomatic defensive programming fixes.
+        </p>
+
+        {/* Two Columns / Cards for Challenge 9A and Challenge 9B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Reference & Memory Bugs */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-rose-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-rose-950 text-rose-400 border border-rose-800">
+                  Challenge 9A
+                </span>
+                <span className="text-xs font-semibold text-rose-400 bg-rose-950/60 border border-rose-800/50 px-2 py-0.5 rounded">
+                  Bugs 1 - 5 · Runtime &amp; References
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Reference, Bounds &amp; Numeric Precision Bugs
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Diagnose memory address comparisons, unhandled null references, array boundary excursions, 32-bit integer arithmetic overflow, and IEEE 754 floating-point inaccuracies.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 1 (==):</span>
+                  <span className="col-span-2 text-slate-300">Heap address vs content equality (<code className="text-rose-400">==</code> vs <code className="text-emerald-400">.equals()</code>)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 2 (NPE):</span>
+                  <span className="col-span-2 text-slate-300">Method invocation on null references; defensive null guards</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 3 (AIOOBE):</span>
+                  <span className="col-span-2 text-slate-300">Off-by-one: <code className="text-rose-400">i &lt;= length</code> vs <code className="text-emerald-400">i &lt; length</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 4 &amp; 5:</span>
+                  <span className="col-span-2 text-slate-300">Overflow into negatives; binary floating-point roundoff</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Diagnostic Walkthrough (Bug 1):</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-rose-400 text-[11px]">Bug: String a = new String("Java"); String b = new String("Java"); a == b; // false!</div>
+                  <div className="text-slate-300 text-[11px]">Root Cause: Compares memory addresses 0x10A != 0x20B</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Defensive Fix: a.equals(b) or (a != null &amp;&amp; a.equals(b))
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Control Flow & Array Mutation */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-amber-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-amber-950 text-amber-400 border border-amber-800">
+                  Challenge 9B
+                </span>
+                <span className="text-xs font-semibold text-amber-400 bg-amber-950/60 border border-amber-800/50 px-2 py-0.5 rounded">
+                  Bugs 6 - 10 · Control &amp; Iteration
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Syntax, Flow &amp; Array Element Mutation Traps
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Diagnose phantom semicolons on if-conditions, fall-through in switch blocks, integer division truncating decimals, string immutability return drops, and array mutation via enhanced for-each loops.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 6 (Phantom ;):</span>
+                  <span className="col-span-2 text-slate-300">Premature statement termination: <code className="text-rose-400">if (cond); &#123;&#125;</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 7 (Switch):</span>
+                  <span className="col-span-2 text-slate-300">Missing break causing unintended fall-through cascades</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 8 &amp; 9:</span>
+                  <span className="col-span-2 text-slate-300">5/2 = 2 (lost 0.5); discarded string return value</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bug 10 (Mutation):</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-rose-400">for (int x : arr) x = 0;</code> modifies local copy, not array</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Diagnostic Walkthrough (Bug 10):</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-rose-400 text-[11px]">Bug: for (int x : arr) x = 0; // arr remains untouched!</div>
+                  <div className="text-slate-300 text-[11px]">Root Cause: Variable 'x' is a local stack copy of the array element</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Defensive Fix: for (int i = 0; i &lt; arr.length; i++) arr[i] = 0;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> The 10 Landmark Bug Categories in Java
@@ -246,9 +373,9 @@ export default function Topic9() {
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">10</td>
-                <td className="p-3 text-rose-300">`list.remove()` in for-each</td>
-                <td className="p-3 text-emerald-300">`list.removeIf(predicate)`</td>
-                <td className="p-3 text-slate-300 font-sans">ModCount violation during iteration</td>
+                <td className="p-3 text-rose-300">`for (int x : arr) x = 0;`</td>
+                <td className="p-3 text-emerald-300">`for (int i = 0; ...) arr[i] = 0;`</td>
+                <td className="p-3 text-slate-300 font-sans">Enhanced for-each loop copy variable mutation trap</td>
               </tr>
             </tbody>
           </table>
@@ -273,7 +400,7 @@ export default function Topic9() {
         <JavaFileLoader
           fileModule={bugDemoCode}
           title="JavaCommonBugsDebuggingChallengeDemo.java"
-          highlightLines={[22, 30, 39, 49, 58, 67, 80, 90, 100, 108]}
+          highlightLines={[23, 32, 41, 54, 63, 72, 83, 97, 110, 120]}
         />
       </section>
 
@@ -286,10 +413,10 @@ export default function Topic9() {
         <div className="space-y-4">
           <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-900/50 space-y-2">
             <p className="text-rose-300 font-semibold flex items-center gap-2 text-sm md:text-base">
-              <span>❌</span> Pitfall 1: Modifying Collections During Enhanced For-Each
+              <span>❌</span> Pitfall 1: Attempting to Mutate Array Elements with Enhanced For-Each
             </p>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
-              Never call <code className="text-rose-300 font-mono">list.remove()</code> or <code className="text-rose-300 font-mono">list.add()</code> inside an enhanced for-each loop; it immediately throws <code className="text-rose-400 font-mono">ConcurrentModificationException</code>. Use <code className="text-emerald-400 font-mono">list.removeIf()</code>!
+              Writing <code className="text-rose-300 font-mono">for (int x : arr) &#123; x = 0; &#125;</code> only modifies the local loop copy variable, leaving the original array elements unchanged! Always use an index-based loop (<code className="text-emerald-400 font-mono">for (int i = 0; i &lt; arr.length; i++) arr[i] = 0;</code>).
             </p>
           </div>
 

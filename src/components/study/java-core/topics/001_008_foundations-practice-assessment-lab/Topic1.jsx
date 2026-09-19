@@ -46,11 +46,141 @@ export default function Topic1() {
           Prime Number Generation using Sieve of Eratosthenes
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master the optimal prime generation algorithm in Java: mathematical principles of prime sieving, achieving <code className="text-emerald-400 font-mono">O(N log(log N))</code> near-linear time, the critical <code className="text-sky-300 font-mono">p * p</code> inner-loop start optimization, <code className="text-purple-300 font-mono">BitSet</code> 8x memory reduction, and student cryptographic token generation in Barrackpore.
+          Master the optimal prime generation algorithm in Java: mathematical principles of prime sieving, achieving <code className="text-emerald-400 font-mono">O(N log(log N))</code> near-linear time, the critical <code className="text-sky-300 font-mono">p * p</code> inner-loop start optimization, <code className="text-purple-300 font-mono">int[]</code> bit array 32x memory reduction, and student cryptographic token generation in Barrackpore.
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 1
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to generate prime numbers up to a specified upper bound <code className="text-sky-300 font-mono">N</code> using the ancient mathematical algorithm of the <strong>Sieve of Eratosthenes</strong>. You must implement both a canonical boolean table and a memory-efficient bit-packed array using Java Foundations constructs.
+        </p>
+
+        {/* Two Columns / Cards for Problem 1A and Problem 1B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Classical Boolean Sieve */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 1A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(N log(log N)) Time · O(N) Space
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Classical Boolean Sieve of Eratosthenes
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given an integer limit <code className="text-sky-300 font-mono">N &ge; 2</code>, construct a boolean array of size <code className="text-sky-300 font-mono">N + 1</code> where index <code className="text-sky-300 font-mono">i</code> represents whether <code className="text-sky-300 font-mono">i</code> is prime. Eliminate multiples iteratively starting at <code className="text-emerald-400 font-mono">p &times; p</code>.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int limit (e.g. N = 100,000)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">boolean[] isPrime (size N + 1)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Key Rule:</span>
+                  <span className="col-span-2 text-slate-300">Outer loop up to <code className="text-sky-300">p * p &lt;= N</code>; inner step <code className="text-sky-300">i += p</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Constraints:</span>
+                  <span className="col-span-2 text-slate-300">No collections; basic loop initialization</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Example Walkthrough (N = 30):</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">1. Initialize boolean array [0..30] with true, indices 0 &amp; 1 = false.</div>
+                  <div className="text-sky-300 text-[11px]">p = 2: Mark 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 false</div>
+                  <div className="text-sky-300 text-[11px]">p = 3: Start at 3*3=9; Mark 9, 12, 15, 18, 21, 24, 27, 30 false</div>
+                  <div className="text-sky-300 text-[11px]">p = 5: Start at 5*5=25; Mark 25 false (stop, since 7*7 &gt; 30)</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Primes Found (10): 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Bit-Packed Primitive Sieve */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Problem 1B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(N log(log N)) Time · O(N/32) Space
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Bit-Packed Primitive Array Sieve
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Pack 32 boolean flags into each 32-bit primitive <code className="text-purple-300 font-mono">int</code> using bitwise shifts (<code className="text-purple-300 font-mono">p &gt;&gt; 5</code> and <code className="text-purple-300 font-mono">1 &lt;&lt; (p &amp; 31)</code>) to achieve a 32x memory reduction for massive ranges.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">int limit (large N up to 10⁸)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">int[] compositeBits (size (N &gt;&gt; 5) + 1)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Bit Formula:</span>
+                  <span className="col-span-2 text-slate-300">Set: <code className="text-purple-300">arr[p&gt;&gt;5] |= (1&lt;&lt;(p&amp;31))</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Query:</span>
+                  <span className="col-span-2 text-slate-300">Prime if <code className="text-purple-300">(arr[p&gt;&gt;5] &amp; (1&lt;&lt;(p&amp;31))) == 0</code></span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Bit Masking Trace:</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Word Index: p &gt;&gt; 5 (p / 32) | Bit Index: p &amp; 31 (p % 32)</div>
+                  <div className="text-purple-300 text-[11px]">Number 4: word 4&gt;&gt;5 = 0, bit 4&amp;31 = 4 → word[0] |= (1 &lt;&lt; 4)</div>
+                  <div className="text-purple-300 text-[11px]">Number 35: word 35&gt;&gt;5 = 1, bit 35&amp;31 = 3 → word[1] |= (1 &lt;&lt; 3)</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    RAM Efficiency: 100M numbers fit in ~12.5 MB instead of 100 MB!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> How the Sieve of Eratosthenes Works
@@ -88,7 +218,7 @@ export default function Topic1() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Token Generation Benchmark):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> and <strong>Tuhina</strong> generated all primes up to 100,000. The Sieve generated <code className="text-emerald-400 font-semibold">9,592 primes</code> in just a few milliseconds, outperforming trial division by over 10x, while our <code className="text-purple-300 font-mono">BitSet</code> implementation reduced memory by 87.5%!
+              In our Barrackpore laboratory, <strong>Swadeep</strong> and <strong>Tuhina</strong> generated all primes up to 100,000. The Sieve generated <code className="text-emerald-400 font-semibold">9,592 primes</code> in just a few milliseconds, outperforming trial division by over 10x, while our primitive <code className="text-purple-300 font-mono">int[]</code> bit-array implementation reduced memory by 87.5%!
             </p>
           </div>
         </div>
@@ -279,26 +409,26 @@ export default function Topic1() {
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Standard Sieve of Eratosthenes</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N \log(\log N))$</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$ boolean array</td>
-                <td className="p-3 text-slate-300 font-sans">Generating all primes up to $N \le 10^7$</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N log(log N))</td>
+                <td className="p-3 text-slate-300 font-sans">O(N) boolean array</td>
+                <td className="p-3 text-slate-300 font-sans">Generating all primes up to N ≤ 10⁷</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">BitSet Optimized Sieve</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N \log(\log N))$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N/8)$ 8x less RAM</td>
-                <td className="p-3 text-slate-300 font-sans">Memory-constrained systems up to $10^8$</td>
+                <td className="p-3 text-sky-300 font-bold">Bit-Packed Primitive Sieve</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N log(log N))</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N/32) 32× less RAM</td>
+                <td className="p-3 text-slate-300 font-sans">Memory-constrained systems using bitwise ops</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Segmented Sieve</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N \log(\log N))$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(\sqrt{N})$ L1 cache fit</td>
-                <td className="p-3 text-slate-300 font-sans">Massive ranges up to $N \le 10^{12}$</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N log(log N))</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(√N) L1 cache fit</td>
+                <td className="p-3 text-slate-300 font-sans">Massive ranges up to N ≤ 10¹²</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">Naive Trial Division ($6k \pm 1$)</td>
-                <td className="p-3 text-rose-400 font-sans">$O(N \sqrt{N})$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ constant memory</td>
+                <td className="p-3 text-sky-300 font-bold">Naive Trial Division (6k ± 1)</td>
+                <td className="p-3 text-rose-400 font-sans">O(N√N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant memory</td>
                 <td className="p-3 text-slate-300 font-sans">Testing single random individual numbers</td>
               </tr>
             </tbody>
@@ -318,13 +448,13 @@ export default function Topic1() {
         </div>
         
         <p className="text-sm text-slate-300 leading-relaxed">
-          The following program implements the Sieve of Eratosthenes, BitSet memory optimization, and benchmarks performance against trial division.
+          The following program implements the Sieve of Eratosthenes, primitive bit-array memory optimization, and benchmarks performance against trial division.
         </p>
 
         <JavaFileLoader
           fileModule={sieveDemoCode}
           title="SieveOfEratosthenesPrimeDemo.java"
-          highlightLines={[21, 23, 27, 30, 40, 44, 54, 60, 71, 85, 96]}
+          highlightLines={[18, 22, 27, 30, 42, 45, 50, 66, 83, 102, 119]}
         />
       </section>
 
@@ -346,10 +476,10 @@ export default function Topic1() {
 
           <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-900/50 space-y-2">
             <p className="text-emerald-300 font-semibold flex items-center gap-2 text-sm md:text-base">
-              <span>🛡️</span> Best Practice: Use `BitSet` for Large Limits
+              <span>🛡️</span> Best Practice: Use Bit Manipulation for Massive Ranges
             </p>
             <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
-              When sieving up to <code className="text-slate-300 font-mono">N = 100,000,000</code>, using <code className="text-emerald-400 font-mono">java.util.BitSet</code> drops memory from 100 MB down to only 12.5 MB, preventing JVM heap out-of-memory errors.
+              When sieving large ranges, packing 32 flags per <code className="text-emerald-400 font-mono">int</code> using bitwise shifts (<code className="text-slate-300 font-mono">p &gt;&gt; 5</code> and <code className="text-slate-300 font-mono">1 &lt;&lt; (p &amp; 31)</code>) reduces memory footprint by up to 32x compared to standard arrays.
             </p>
           </div>
         </div>
@@ -365,7 +495,7 @@ export default function Topic1() {
             🤔 <em>&ldquo;Can <code className="text-emerald-400 font-mono">p * p</code> overflow 32-bit signed integers in Java?&rdquo;</em>
           </p>
           <p>
-            👉 <strong>Hint:</strong> Integer Overflow Hazard! If $p &gt; 46,340$, $p \times p$ exceeds <code className="text-slate-300 font-mono">Integer.MAX_VALUE</code> ($2.14 \times 10^9$), overflowing into negative numbers and crashing with <code className="text-rose-400 font-mono">ArrayIndexOutOfBoundsException</code>! Always guard loop condition with <code className="text-emerald-400 font-mono">p * p &lt;= limit</code> or cast to <code className="text-emerald-400 font-mono">(long) p * p</code>!
+            👉 <strong>Hint:</strong> Integer Overflow Hazard! If p &gt; 46,340, p × p exceeds <code className="text-slate-300 font-mono">Integer.MAX_VALUE</code> (2.14 × 10⁹), overflowing into negative numbers and crashing with <code className="text-rose-400 font-mono">ArrayIndexOutOfBoundsException</code>! Always guard loop condition with <code className="text-emerald-400 font-mono">p * p &lt;= limit</code> or cast to <code className="text-emerald-400 font-mono">(long) p * p</code>!
           </p>
         </div>
       </section>

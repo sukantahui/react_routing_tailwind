@@ -11,7 +11,7 @@ const questions = [
     explanation: "Core definition of spiral matrix traversal.",
     hint: "Clockwise traversal: Top → Right → Bottom → Left boundaries.",
     level: "basic",
-    codeExample: "List<Integer> result = spiralOrderTraversal(matrix);"
+    codeExample: "int[] result = spiralOrderTraversal(matrix);"
   },
   {
     question: "What are the 4 boundary pointers maintained during Spiral Matrix Traversal?",
@@ -135,11 +135,11 @@ const questions = [
   },
   {
     question: "How do you handle an empty matrix `matrix = new int[0][0]` in spiral traversal?",
-    shortAnswer: "Defensive guard `if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return result;` returns an empty list safely without crashing.",
+    shortAnswer: "Defensive guard `if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return new int[0];` returns an empty array safely without crashing.",
     explanation: "Empty matrix defensive edge case.",
     hint: "Check matrix == null || matrix.length == 0 || matrix[0].length == 0.",
     level: "basic",
-    codeExample: "if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return result;"
+    codeExample: "if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return new int[0];"
   },
   {
     question: "What is the Diagonal Traversal of a 2D matrix (Zig-Zag Matrix)?",

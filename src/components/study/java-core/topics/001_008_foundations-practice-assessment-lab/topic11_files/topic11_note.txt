@@ -5,7 +5,29 @@ TOPIC 11: Segment 1 Comprehensive Multiple Choice Question (MCQ) Exam
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. SEGMENT 1 EXAM SYNTHESIS (MODULES 001_001 TO 001_007)
+1. FORMAL PROBLEM DEFINITION & ASSESSMENT ENGINE SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 11: Automated MCQ Exam & Scholarship Engine
+- Objective: Implement an automated Multiple Choice Question (MCQ) assessment
+  engine evaluating student submissions across the 7 core Java Foundations
+  modules (001_001..007) using pure primitive arrays, without Java Collections.
+- Specification 11A (Exam Bank & Submission Evaluator):
+  * Input: `ExamQuestion[] questions`, `int[] studentAnswers`.
+    `ExamQuestion` record: (questionId, moduleTopic, questionText, options[], correctIndex, explanation).
+  * Output: `StudentExamResult` record:
+    (studentName, totalQuestions, correctAnswers, scorePercentage, letterGrade, scholarshipAwardInr).
+  * Algorithm: Iterate through `questions`; match `studentAnswers[i] == questions[i].correctOptionIndex()`.
+  * Guard: Bounds check `i < studentAnswers.length` against partial submissions.
+- Specification 11B (Automated Grading & Scholarship Dispatch):
+  * Percentage Formula: `((double) correctAnswers / totalQuestions) * 100.0`.
+  * Tier Breakdown:
+    - Grade 'A' (>= 90.0%): Merit Award ₹5,000.00
+    - Grade 'B' (>= 80.0% & < 90.0%): Merit Award ₹2,500.00
+    - Grade 'C' (>= 70.0% & < 80.0%): Merit Award ₹0.00
+    - Grade 'F' (< 70.0%): Fail / ₹0.00
+- Constraints: Pure primitive arrays (`ExamQuestion[]`, `int[]`). Zero collections.
+
+2. SEGMENT 1 EXAM SYNTHESIS (MODULES 001_001 TO 001_007)
 --------------------------------------------------------------------------------
 - JVM & Memory (001_001)   : Stack (LIFO frames) vs Heap (Objects & GC).
 - Datatypes (001_002)      : 8 primitives; Definite Assignment for locals.
@@ -15,7 +37,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 - Arrays (001_006)         : 1D & 2D ragged matrices; bounds checking [0..len-1].
 - Methods & Recursion (001_007): Java is strictly Pass-by-Value; Base Case + Inductive Step.
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Mastered all 7 Foundations Pillars before advancing to Segment 2.
 [✓] Java is strictly Pass-by-Value for primitives and object addresses.

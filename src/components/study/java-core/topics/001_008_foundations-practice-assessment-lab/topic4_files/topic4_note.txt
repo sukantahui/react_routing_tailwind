@@ -5,7 +5,21 @@ TOPIC 4: Finding Duplicate & Missing Numbers in Arrays
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
-1. CORE ALGORITHMIC APPROACHES
+1. FORMAL PROBLEM DEFINITION & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PROBLEM 4A: Set Mismatch in Permutation [1..N]
+- Objective: Locate both the duplicate number D and the missing number M.
+- Input: int[] nums of length N with values in [1..N].
+- Output: int[] {duplicate, missing}.
+- Constraints: O(N) time, O(1) auxiliary space (negative sign marking).
+
+PROBLEM 4B: Single Duplicate via Floyd's Cycle Detection
+- Objective: Locate the duplicate number in an array of size N + 1.
+- Input: int[] nums (values in [1..N], read-only).
+- Output: int duplicate value.
+- Constraints: O(N) time, strictly O(1) space, zero array mutation.
+
+2. CORE ALGORITHMIC APPROACHES
 --------------------------------------------------------------------------------
 - Finding Single Missing Number (1..N in array of size N - 1):
   * Bitwise XOR Method : (1 ^ 2 ^ ... ^ N) ^ (arr[0] ^ arr[1] ^ ...)
@@ -25,7 +39,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
     - Index with positive number identifies missing value.
     - Restore array signs: nums[i] = Math.abs(nums[i]).
 
-2. ESSENTIAL CHECKLIST
+3. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] XOR self-inverse property: X ^ X = 0 and X ^ 0 = X.
 [✓] Floyd's algorithm requires 1-based indexing in range [1..N].

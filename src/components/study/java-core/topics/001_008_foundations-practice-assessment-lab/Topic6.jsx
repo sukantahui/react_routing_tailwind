@@ -50,7 +50,136 @@ export default function Topic6() {
         </p>
       </header>
 
-      {/* Section 1: Conceptual Foundation */}
+      {/* Section 1: Problem Definition & Specifications */}
+      <section className="space-y-6 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700/60 pb-4">
+          <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
+            <span>🎯</span> Problem Definition &amp; Clear Algorithmic Specifications
+          </h2>
+          <span className="text-xs font-semibold px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/30 rounded-full w-fit">
+            Foundations Assessment Lab · Problem 6
+          </span>
+        </div>
+
+        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          In this algorithmic lab, you are required to perform <strong>number base conversions (radix 2, 8, and 16) from scratch</strong> without relying on Java&apos;s standard helper methods (<code className="text-rose-400 font-mono">Integer.toBinaryString()</code> or <code className="text-rose-400 font-mono">Integer.toHexString()</code>). You must implement both repeated division and low-level bitwise masking.
+        </p>
+
+        {/* Two Columns / Cards for Problem 6A and Problem 6B */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card A: Decimal to Binary/Octal */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-sky-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-sky-950 text-sky-400 border border-sky-800">
+                  Problem 6A
+                </span>
+                <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                  O(log₂ N) Time · Modulo &amp; Shifts
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Decimal to Binary &amp; Octal Conversion
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Given a non-negative decimal integer <code className="text-sky-300 font-mono">n</code>, extract base-2 binary bits or base-8 octal digits using successive division (<code className="text-sky-300 font-mono">n % base</code>, <code className="text-sky-300 font-mono">n / base</code>) or logical bit shifts.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-sky-300">int n (decimal integer &ge; 0)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">String (binary "11111110", octal "376")</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Algorithm:</span>
+                  <span className="col-span-2 text-slate-300">Repeated mod-division with reverse builder</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Edge Cases:</span>
+                  <span className="col-span-2 text-slate-300">n = 0 must explicitly return "0"</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Walkthrough (n = 13):</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">13 / 2 = 6, rem = 1 | 6 / 2 = 3, rem = 0</div>
+                  <div className="text-sky-300 text-[11px]">3 / 2 = 1, rem = 1 | 1 / 2 = 0, rem = 1</div>
+                  <div className="text-slate-300 text-[11px]">Reversing remainders: 1, 1, 0, 1</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Binary Result: "1101"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card B: Hexadecimal Conversion */}
+          <div className="flex flex-col justify-between rounded-xl bg-slate-950/70 border border-purple-500/30 p-5 space-y-4">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs font-bold font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-purple-950 text-purple-400 border border-purple-800">
+                  Problem 6B
+                </span>
+                <span className="text-xs font-semibold text-purple-400 bg-purple-950/60 border border-purple-800/50 px-2 py-0.5 rounded">
+                  O(1) / O(log₁₆ N) · Bitwise Nibbles
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                Decimal to Hexadecimal (4-Bit Nibbles)
+              </h3>
+
+              <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Extract 4-bit nibbles using bitwise logical shift right (<code className="text-purple-300 font-mono">&gt;&gt;&gt; 4</code>) and bitwise mask (<code className="text-purple-300 font-mono">&amp; 0xF</code>) to map digits into hexadecimal characters <code className="text-emerald-400 font-mono">0-9, A-F</code>.
+              </p>
+
+              {/* Specs Table */}
+              <div className="rounded-lg bg-slate-900/90 border border-slate-800 p-3 space-y-2 text-xs">
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Input:</span>
+                  <span className="col-span-2 font-mono text-purple-300">int n (any 32-bit integer, positive or negative)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Output:</span>
+                  <span className="col-span-2 font-mono text-emerald-300">String (hexadecimal representation)</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Nibble Op:</span>
+                  <span className="col-span-2 text-slate-300"><code className="text-purple-300">HEX_DIGITS[n &amp; 0xF]</code>, then <code className="text-purple-300">n &gt;&gt;&gt;= 4</code></span>
+                </div>
+                <div className="grid grid-cols-3 gap-1">
+                  <span className="text-slate-400 font-semibold">Negatives:</span>
+                  <span className="col-span-2 text-slate-300">Two&apos;s complement handles negative numbers naturally</span>
+                </div>
+              </div>
+
+              {/* Concrete Example */}
+              <div className="space-y-2 pt-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Concrete Walkthrough (n = 254):</p>
+                <div className="p-3 bg-slate-900/95 rounded-lg border border-slate-800 font-mono text-xs space-y-2">
+                  <div className="text-slate-400">Nibble 1: 254 &amp; 0xF = 14 → 'E' | n &gt;&gt;&gt; 4 = 15</div>
+                  <div className="text-purple-300 text-[11px]">Nibble 2: 15 &amp; 0xF = 15 → 'F' | n &gt;&gt;&gt; 4 = 0</div>
+                  <div className="text-slate-300 text-[11px]">Reversing nibbles: "FE"</div>
+                  <div className="text-emerald-400 font-semibold pt-1 border-t border-slate-800 text-[11px]">
+                    Hex Result: "0xFE" (Zero Java library methods!)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Conceptual Foundation */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-sky-400 flex items-center gap-2">
           <span>📖</span> The Two Core Radix Algorithms
@@ -64,7 +193,7 @@ export default function Topic6() {
               <h3 className="text-sky-400 font-bold text-sm mb-2">1. Decimal → Base B (Division &amp; Modulo)</h3>
               <p className="text-sky-300 mb-1">rem = n % B; n /= B;</p>
               <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                Repeatedly extracts the remainder modulo $B$, shrinks the number, and reverses the accumulated string. Bitwise masks (<code className="text-sky-300 font-mono">&gt;&gt;&gt;</code>) extract bits directly.
+                Repeatedly extracts the remainder modulo B, shrinks the number, and reverses the accumulated string. Bitwise masks (<code className="text-sky-300 font-mono">&gt;&gt;&gt;</code>) extract bits directly.
               </p>
             </div>
 
@@ -168,7 +297,7 @@ export default function Topic6() {
             <thead>
               <tr className="border-b border-slate-700 text-slate-300 bg-slate-900/50">
                 <th className="p-3 font-semibold text-sky-400">Base System</th>
-                <th className="p-3 font-semibold text-emerald-400">Radix ($B$)</th>
+                <th className="p-3 font-semibold text-emerald-400">Radix (B)</th>
                 <th className="p-3 font-semibold text-purple-400">Valid Digits</th>
                 <th className="p-3 font-semibold text-amber-400">Bit Grouping Size</th>
               </tr>
@@ -184,7 +313,7 @@ export default function Topic6() {
                 <td className="p-3 text-sky-300 font-bold">Octal</td>
                 <td className="p-3 text-emerald-300">Base 8</td>
                 <td className="p-3 text-slate-300">`0..7`</td>
-                <td className="p-3 text-slate-300 font-sans">3 bits per digit ($2^3 = 8$)</td>
+                <td className="p-3 text-slate-300 font-sans">3 bits per digit (2³ = 8)</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Decimal</td>
