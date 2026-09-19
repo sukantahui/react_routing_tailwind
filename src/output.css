@@ -1405,6 +1405,9 @@
   .aspect-\[24\/34\] {
     aspect-ratio: 24/34;
   }
+  .aspect-\[24\/36\] {
+    aspect-ratio: 24/36;
+  }
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -25869,6 +25872,14 @@
       }
     }
   }
+  .hover\:to-yellow-300 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-gradient-to: var(--color-yellow-300);
+        --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+      }
+    }
+  }
   .hover\:fill-amber-100 {
     &:hover {
       @media (hover: hover) {
@@ -30263,6 +30274,11 @@
   .sm\:max-w-\[280px\] {
     @media (width >= 40rem) {
       max-width: 280px;
+    }
+  }
+  .sm\:max-w-md {
+    @media (width >= 40rem) {
+      max-width: var(--container-md);
     }
   }
   .sm\:max-w-sm {

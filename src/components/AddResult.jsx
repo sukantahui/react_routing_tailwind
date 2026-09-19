@@ -39,6 +39,33 @@ import { resultService } from "../services/resultService";
 import { admissionService } from "../services/admissionService";
 import { courseService } from "../services/courseService";
 
+const getAdmissionCourseName = (adm, coursesList = []) => {
+  if (!adm) return "Certificate Course";
+
+  // 1. Check nested course object
+  const cObj = adm.course;
+  if (cObj) {
+    if (typeof cObj === "string" && cObj.trim() !== "") return cObj;
+    const directName = cObj.course_name || cObj.courseName || cObj.name || cObj.title;
+    if (directName) return directName;
+  }
+
+  // 2. Check direct property on admission
+  const directAdmName = adm.course_name || adm.courseName || adm.courseTitle || adm.course_title;
+  if (directAdmName) return directAdmName;
+
+  // 3. Fallback lookup in courses catalog via course_id / courseId
+  const cId = adm.course_id || adm.courseId || adm.courses_id || adm.course?.id;
+  if (cId && Array.isArray(coursesList) && coursesList.length > 0) {
+    const matched = coursesList.find((c) => String(c.id || c.course_id || c.courseId) === String(cId));
+    if (matched) {
+      return matched.course_name || matched.courseName || matched.name || matched.title || "";
+    }
+  }
+
+  return "Certificate Course";
+};
+
 const defaultForm = {
   admissionId: "",
   theoryMarks: "",
@@ -156,7 +183,7 @@ export default function AddResult() {
     return admissions
       .filter((adm) => {
         const studentName = (adm.student_name || adm.student?.student_name || adm.studentName || "").toLowerCase();
-        const courseName = (adm.course_name || adm.course?.course_name || adm.courseName || "").toLowerCase();
+        const courseName = getAdmissionCourseName(adm, courses).toLowerCase();
         const phone = (adm.phone1 || adm.student?.phone1 || adm.whatsapp || adm.student?.whatsapp || "").toLowerCase();
         const id = String(adm.admission_id || adm.admissionId || adm.id || "");
         return (
@@ -167,7 +194,7 @@ export default function AddResult() {
         );
       })
       .slice(0, 50);
-  }, [admissions, admissionSearch]);
+  }, [admissions, admissionSearch, courses]);
 
   // Handle standard input change
   const handleChange = (e) => {
@@ -178,18 +205,18 @@ export default function AddResult() {
     }));
   };
 
-  // Select admission from dropdown
+  // Select admission from quick-picker
   const handleSelectAdmission = (adm) => {
     const id = adm.admission_id || adm.admissionId || adm.id;
     setFormData((prev) => ({
       ...prev,
-      admissionId: String(id),
+      admissionId: id,
     }));
     setIsSelectorOpen(false);
     setAdmissionSearch("");
   };
 
-  // Grade & Performance Calculation Engine
+  // Real-time calculation for live score card
   const calculation = useMemo(() => {
     const th = parseFloat(formData.theoryMarks);
     const pr = parseFloat(formData.practicalMarks);
@@ -324,11 +351,17 @@ export default function AddResult() {
     try {
       const payload = {
         admissionId: Number(formData.admissionId),
+        admission_id: Number(formData.admissionId),
         theoryMarks: formData.theoryMarks !== "" ? Number(formData.theoryMarks) : 0,
+        theory_marks: formData.theoryMarks !== "" ? Number(formData.theoryMarks) : 0,
         practicalMarks: formData.practicalMarks !== "" ? Number(formData.practicalMarks) : 0,
+        practical_marks: formData.practicalMarks !== "" ? Number(formData.practicalMarks) : 0,
         totalTheoryMarks: Number(formData.totalTheoryMarks || 50),
+        total_theory_marks: Number(formData.totalTheoryMarks || 50),
         totalPracticalMarks: Number(formData.totalPracticalMarks || 50),
+        total_practical_marks: Number(formData.totalPracticalMarks || 50),
         resultDate: formData.resultDate || new Date().toISOString().split("T")[0],
+        result_date: formData.resultDate || new Date().toISOString().split("T")[0],
       };
 
       if (editingId) {
@@ -481,10 +514,7 @@ export default function AddResult() {
       const courseName =
         item.course_name ||
         item.courseName ||
-        adm.course_name ||
-        adm.course?.course_name ||
-        adm.courseName ||
-        "General Course";
+        getAdmissionCourseName(adm, courses);
 
       const th = Number(item.theory_marks ?? item.theoryMarks ?? 0);
       const pr = Number(item.practical_marks ?? item.practicalMarks ?? 0);
@@ -623,11 +653,11 @@ export default function AddResult() {
             {/* Quick Action Navigation */}
             <div className="flex flex-wrap items-center gap-3">
               <Link
-                to="/certificate"
+                to="/certificates/issue"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 text-sm font-medium transition-all shadow hover:shadow-sky-500/10 hover:border-slate-600"
               >
                 <FileCheck size={16} className="text-amber-400" />
-                Certificate Studio
+                Issue Certificate
               </Link>
               <button
                 onClick={fetchData}

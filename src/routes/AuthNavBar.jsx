@@ -158,6 +158,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-bar-chart-steps",
         },
         {
+          to: "/certificates/issue",
+          label: "Issue Student Certificate",
+          desc: "Verify course & exam results to issue certificate",
+          icon: "bi-award-fill",
+          badge: "New",
+        },
+        {
           to: "/certificates",
           label: "Certificates Record",
           desc: "Verify issued certificate records",
@@ -165,10 +172,9 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         },
         {
           to: "/certificate",
-          label: "Generate Certificate",
-          desc: "Create & print verified certificates",
+          label: "Certificate Studio",
+          desc: "Manual certificate generator & editor",
           icon: "bi-file-earmark-medical-fill",
-          badge: "Gen",
         },
         {
           to: "/admin",

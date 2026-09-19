@@ -12,10 +12,38 @@ export const certificateService = {
       const response = await api.get(`/dev/certificates/${code}`);
       return response.data;
     } catch (error) {
-      console.error("Error fetching certificate:", error);
+      console.error("Error fetching certificate by code:", error);
       throw error;
     }
   },
 
-  // Optionally add other methods (e.g., getAll, create, update, delete) as needed.
+  getAll: async () => {
+    try {
+      const response = await api.get("/certificates");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all certificates:", error);
+      throw error;
+    }
+  },
+
+  create: async (data) => {
+    try {
+      const response = await api.post("/certificates", data);
+      return response.data;
+    } catch (error) {
+      console.error("Error recording certificate:", error);
+      throw error;
+    }
+  },
+
+  getById: async (id) => {
+    try {
+      const response = await api.get(`/certificates/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching certificate #${id}:`, error);
+      throw error;
+    }
+  },
 };

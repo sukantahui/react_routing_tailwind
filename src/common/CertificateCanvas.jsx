@@ -1,7 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, forwardRef, useImperativeHandle } from "react";
 import QRCode from "qrcode";
+import { jsPDF } from "jspdf";
 
-const CertificateCanvas = ({
+const CertificateCanvas = forwardRef(({
   name,
   course,
   date,
@@ -13,7 +14,7 @@ const CertificateCanvas = ({
   logoImage,
   instructorSignImage,
   directorSignImage,
-}) => {
+}, ref) => {
   const canvasRef = useRef(null);
   const [qrImage, setQrImage] = useState(null);
 
@@ -58,6 +59,7 @@ const CertificateCanvas = ({
 
     // Use requestAnimationFrame to ensure smooth rendering
     requestAnimationFrame(draw);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     name,
     course,
@@ -73,7 +75,7 @@ const CertificateCanvas = ({
     qrImage,
   ]);
 
-  //for badge
+  // for badge
   const drawGoldSeal = (ctx, x, y, radius) => {
     const gradient = ctx.createRadialGradient(x, y, radius * 0.2, x, y, radius);
 
@@ -108,15 +110,16 @@ const CertificateCanvas = ({
     ctx.fillText("9001", x, y + radius * 0.35);
   };
 
-  // Helper functions (unchanged from original)
+  // Helper functions
   const wrapText = (ctx, text, maxWidth) => {
+    if (!text) return [];
     const words = text.split(" ");
-    let lines = [];
-    let line = words[0];
+    const lines = [];
+    let line = words[0] || "";
 
     for (let i = 1; i < words.length; i++) {
-      let test = line + " " + words[i];
-      let width = ctx.measureText(test).width;
+      const test = line + " " + words[i];
+      const width = ctx.measureText(test).width;
 
       if (width < maxWidth) {
         line = test;
@@ -133,7 +136,7 @@ const CertificateCanvas = ({
   const autoFontSize = (ctx, text, maxWidth, startSize) => {
     let size = startSize;
     ctx.font = `bold ${size}px Times New Roman`;
-    while (ctx.measureText(text).width > maxWidth && size > 20) {
+    while (ctx.measureText(text || "").width > maxWidth && size > 20) {
       size--;
       ctx.font = `bold ${size}px Times New Roman`;
     }
@@ -144,7 +147,9 @@ const CertificateCanvas = ({
     ctx.clearRect(0, 0, width, height);
 
     // Background
-    ctx.drawImage(bgImage, 0, 0, width, height);
+    if (bgImage) {
+      ctx.drawImage(bgImage, 0, 0, width, height);
+    }
 
     // Borders
     ctx.strokeStyle = "#c9a959";
@@ -203,10 +208,10 @@ const CertificateCanvas = ({
 
     // Name
     const maxWidth = width * 0.65;
-    const nameSize = autoFontSize(ctx, name, maxWidth, height * 0.055);
+    const nameSize = autoFontSize(ctx, name || "Student Name", maxWidth, height * 0.055);
     ctx.font = `bold ${nameSize}px Times New Roman`;
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(name, width / 2, height * 0.46);
+    ctx.fillText(name || "Student Name", width / 2, height * 0.46);
 
     // Completing text
     ctx.fillStyle = "#ddd";
@@ -216,7 +221,7 @@ const CertificateCanvas = ({
     // Course (multi-line)
     ctx.fillStyle = "#f0e6d2";
     ctx.font = `bold ${height * 0.038}px Georgia`;
-    const courseLines = wrapText(ctx, course, width * 0.8);
+    const courseLines = wrapText(ctx, course || "Course Name", width * 0.8);
     courseLines.forEach((line, i) => {
       ctx.fillText(line, width / 2, height * 0.6 + i * height * 0.05);
     });
@@ -224,7 +229,7 @@ const CertificateCanvas = ({
     // Date and duration
     ctx.fillStyle = "#c9a959";
     ctx.font = `${height * 0.02}px Arial`;
-    ctx.fillText(`${date} | ${duration}`, width / 2, height * 0.7);
+    ctx.fillText(`${date || ""} | ${duration || ""}`, width / 2, height * 0.7);
 
     // Signature lines
     const sigY = height * 0.78;
@@ -275,8 +280,8 @@ const CertificateCanvas = ({
 
     ctx.fillStyle = "#aaa";
     ctx.font = `${height * 0.018}px Arial`;
-    ctx.fillText(instructor, width * 0.3, sigY - 40);
-    ctx.fillText(director, width * 0.7, sigY - 40);
+    ctx.fillText(instructor || "Instructor", width * 0.3, sigY - 40);
+    ctx.fillText(director || "Director", width * 0.7, sigY - 40);
 
     // Certificate number
     if (certNumber) {
@@ -304,47 +309,78 @@ const CertificateCanvas = ({
     }
   };
 
-  // Function to download the canvas as PNG (exposed via ref if needed)
-  const download = () => {
-  const canvas = canvasRef.current;
-  if (!canvas) return;
+  // Exposed helper methods for parent
+  useImperativeHandle(ref, () => ({
+    downloadJpg: () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const link = document.createElement("a");
+      const safeName = (name || "certificate").replace(/\s/g, "_");
+      link.download = `${safeName}_certificate.jpg`;
+      link.href = canvas.toDataURL("image/jpeg", 1.0);
+      link.click();
+    },
 
-  const link = document.createElement("a");
-  link.download = `${name.replace(/\s/g, "_")}_certificate.jpg`;
+    downloadPng: () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const link = document.createElement("a");
+      const safeName = (name || "certificate").replace(/\s/g, "_");
+      link.download = `${safeName}_certificate.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    },
 
-  // JPG with maximum quality
-  link.href = canvas.toDataURL("image/jpeg", 1.0);
+    downloadPdf: () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const imgData = canvas.toDataURL("image/jpeg", 1.0);
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+      // 210 x 297 mm
+      pdf.addImage(imgData, "JPEG", 0, 0, 210, 297);
+      const safeName = (name || "certificate").replace(/\s/g, "_");
+      pdf.save(`${safeName}_certificate.pdf`);
+    },
 
-  link.click();
-};
-
-  // We'll attach the download function to the window or parent via ref, but for simplicity,
-  // we can move the download button inside this component. However, the parent already has a button.
-  // Let's expose download via a ref so parent can call it.
-
-  // UseImperativeHandle would be ideal, but to keep it simple we'll just render the button here
-  // and remove it from parent. Alternatively, we can keep both but that's redundant.
-
-  // For now, we'll keep download inside this component and remove from parent.
-  // But the parent's button is already there. To avoid confusion, we'll move the button here
-  // and remove from parent. Let's adjust parent to not have download button.
+    print: () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const dataUrl = canvas.toDataURL("image/jpeg", 1.0);
+      const printWin = window.open("", "_blank");
+      if (!printWin) return;
+      printWin.document.write(`
+        <html>
+          <head>
+            <title>Print Certificate - ${name}</title>
+            <style>
+              @page { size: portrait; margin: 0; }
+              body { margin: 0; display: flex; justify-content: center; align-items: center; background: #000; height: 100vh; }
+              img { max-width: 100%; max-height: 100%; object-fit: contain; }
+            </style>
+          </head>
+          <body>
+            <img src="${dataUrl}" onload="window.print(); window.close();" />
+          </body>
+        </html>
+      `);
+      printWin.document.close();
+    },
+  }));
 
   return (
-    <div>
+    <div className="w-full flex justify-center">
       <canvas
         ref={canvasRef}
         width={CANVAS_WIDTH}
         height={CANVAS_HEIGHT}
-        className="w-full max-w-sm border shadow-lg"
+        className="w-full max-w-sm sm:max-w-md aspect-[24/36] border border-slate-700 shadow-2xl rounded-lg bg-black"
       />
-      <button
-        onClick={download}
-        className="bg-green-600 text-white w-full py-2 rounded-lg mt-4"
-      >
-        Download Certificate
-      </button>
     </div>
   );
-};
+});
 
 export default CertificateCanvas;

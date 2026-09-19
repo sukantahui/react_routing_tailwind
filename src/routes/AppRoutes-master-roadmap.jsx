@@ -64,6 +64,7 @@ const Bijoya = lazy(() => import('./Bijoya'));
 const Dashboard = lazy(() => import('../components/Dashboard'));
 const AddStudent = lazy(() => import('../components/AddStudent'));
 const CertificateGenerator = lazy(() => import('../common/CertificateGenerator'));
+const StudentCertificateStudio = lazy(() => import('../components/certificates/StudentCertificateStudio'));
 const StudentAdmission = lazy(() => import('../components/StudentAdmission'));
 const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
@@ -102,6 +103,7 @@ const ROUTES = {
   BINARY_TREE: '/BinaryTreeVisualizer',
   AVL_TREE: '/AvlTreeVisualizer',
   CERTIFICATE_GENERATOR: '/certificate',
+  STUDENT_CERTIFICATE_STUDIO: '/certificates/issue',
   STUDENT_ADMISSION: '/admission',
   ADD_COURSE: '/courses',
   ADD_RESULT: '/results',
@@ -713,6 +715,15 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper>
               <CertificateGenerator />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.STUDENT_CERTIFICATE_STUDIO}
+          element={
+            <ProtectedRouteWrapper>
+              <StudentCertificateStudio />
             </ProtectedRouteWrapper>
           }
         />
