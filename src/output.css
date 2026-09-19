@@ -1183,6 +1183,9 @@
   .-mb-8 {
     margin-bottom: calc(var(--spacing) * -8);
   }
+  .-mb-16 {
+    margin-bottom: calc(var(--spacing) * -16);
+  }
   .-mb-20 {
     margin-bottom: calc(var(--spacing) * -20);
   }
@@ -1398,6 +1401,9 @@
   }
   .aspect-\[3\/2\] {
     aspect-ratio: 3/2;
+  }
+  .aspect-\[24\/34\] {
+    aspect-ratio: 24/34;
   }
   .aspect-square {
     aspect-ratio: 1 / 1;
@@ -1700,6 +1706,9 @@
   .min-h-\[42px\] {
     min-height: 42px;
   }
+  .min-h-\[46px\] {
+    min-height: 46px;
+  }
   .min-h-\[60px\] {
     min-height: 60px;
   }
@@ -1756,6 +1765,9 @@
   }
   .min-h-\[430px\] {
     min-height: 430px;
+  }
+  .min-h-\[460px\] {
+    min-height: 460px;
   }
   .min-h-\[calc\(100vh-48px\)\] {
     min-height: calc(100vh - 48px);
@@ -3616,6 +3628,9 @@
       --tw-space-y-reverse: 1;
     }
   }
+  .gap-x-4 {
+    column-gap: calc(var(--spacing) * 4);
+  }
   .gap-x-6 {
     column-gap: calc(var(--spacing) * 6);
   }
@@ -3666,6 +3681,9 @@
   }
   .gap-y-0\.5 {
     row-gap: calc(var(--spacing) * 0.5);
+  }
+  .gap-y-1 {
+    row-gap: var(--spacing);
   }
   .gap-y-2 {
     row-gap: calc(var(--spacing) * 2);
@@ -4714,6 +4732,12 @@
       border-color: color-mix(in oklab, var(--color-emerald-400) 40%, transparent);
     }
   }
+  .border-emerald-400\/50 {
+    border-color: color-mix(in srgb, oklch(76.5% 0.177 163.223) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-emerald-400) 50%, transparent);
+    }
+  }
   .border-emerald-400\/80 {
     border-color: color-mix(in srgb, oklch(76.5% 0.177 163.223) 80%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -5207,6 +5231,12 @@
     border-color: color-mix(in srgb, oklch(67.3% 0.182 276.935) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-indigo-400) 40%, transparent);
+    }
+  }
+  .border-indigo-400\/50 {
+    border-color: color-mix(in srgb, oklch(67.3% 0.182 276.935) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-400) 50%, transparent);
     }
   }
   .border-indigo-500 {
@@ -6800,6 +6830,12 @@
     border-color: color-mix(in srgb, oklch(85.2% 0.199 91.936) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-yellow-400) 40%, transparent);
+    }
+  }
+  .border-yellow-400\/50 {
+    border-color: color-mix(in srgb, oklch(85.2% 0.199 91.936) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-yellow-400) 50%, transparent);
     }
   }
   .border-yellow-500 {
@@ -13243,6 +13279,13 @@
   }
   .to-amber-950 {
     --tw-gradient-to: var(--color-amber-950);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-amber-950\/30 {
+    --tw-gradient-to: color-mix(in srgb, oklch(27.9% 0.077 45.635) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-to: color-mix(in oklab, var(--color-amber-950) 30%, transparent);
+    }
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
   .to-amber-950\/40 {
@@ -28702,6 +28745,14 @@
       --tw-ring-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 30%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         --tw-ring-color: color-mix(in oklab, var(--color-sky-500) 30%, transparent);
+      }
+    }
+  }
+  .focus\:ring-sky-500\/40 {
+    &:focus {
+      --tw-ring-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 40%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-ring-color: color-mix(in oklab, var(--color-sky-500) 40%, transparent);
       }
     }
   }
