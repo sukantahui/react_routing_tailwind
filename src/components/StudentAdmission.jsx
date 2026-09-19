@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo, useRef } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
@@ -39,6 +39,7 @@ import { courseService } from "../services/courseService";
 import api from "../api/api";
 
 const StudentAdmission = () => {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const urlStudentId = searchParams.get("studentId");
 
@@ -402,16 +403,8 @@ const StudentAdmission = () => {
     setLoading((prev) => ({ ...prev, submit: true }));
 
     try {
-      await admissionService.create(payload);
-
-      await Swal.fire({
-        icon: "success",
-        title: "Course Assigned & Student Admitted! 🎓",
-        text: "Student has been successfully assigned to the course and officially enrolled into the academy.",
-        timer: 2500,
-        showConfirmButton: false,
-        ...swalTheme,
-      });
+      const createdAdmissionRes = await admissionService.create(payload);
+      const studentIdSaved = formData.studentId;
 
       setFormData({
         studentId: "",
@@ -431,6 +424,28 @@ const StudentAdmission = () => {
         remarks: "",
       });
       await loadAdmissions();
+
+      // Offer immediate actionable next-steps for the admin
+      const postAction = await Swal.fire({
+        icon: "success",
+        title: "Course Assigned & Student Admitted! 🎓",
+        text: "Student has been successfully enrolled into the course. What would you like to do next?",
+        showCancelButton: true,
+        showDenyButton: true,
+        confirmButtonText: "💰 Collect Additional Fees",
+        denyButtonText: "📊 Record Exam Result",
+        cancelButtonText: "Stay on Admissions",
+        confirmButtonColor: "#10b981",
+        denyButtonColor: "#6366f1",
+        cancelButtonColor: "#475569",
+        ...swalTheme,
+      });
+
+      if (postAction.isConfirmed) {
+        navigate(`/payments?studentId=${studentIdSaved}`);
+      } else if (postAction.isDenied) {
+        navigate(`/results?studentId=${studentIdSaved}`);
+      }
     } catch (error) {
       let message = "Something went wrong";
 

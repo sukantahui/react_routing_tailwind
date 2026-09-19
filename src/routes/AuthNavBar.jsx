@@ -70,7 +70,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     return user.name.substring(0, 2).toUpperCase();
   }, [user]);
 
-  // Master Items Grouped
+  // Master Items Grouped into 4 Clean Operational Categories
   const masterGroups = useMemo(() => [
     {
       id: "students",
@@ -81,32 +81,32 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         {
           to: "/students/add",
           label: "Students Directory",
-          desc: "Manage enrolled student database",
+          desc: "Manage enrolled student database (Step 1)",
           icon: "bi-people-fill",
-          badge: "Core",
+          badge: "Step 1",
         },
         {
           to: "/admission",
-          label: "Assign Course to Student",
-          desc: "Assign academic course & fees to student (Course Admission)",
+          label: "Course Admission",
+          desc: "Assign course & fee structure to student (Step 2)",
           icon: "bi-mortarboard-fill",
-          badge: "Admission",
+          badge: "Step 2",
         },
         ...(isManagerOrAdmin
           ? [
               {
                 to: "/students/student-admission",
-                label: "Student Admission & Fees",
-                desc: "Enroll student, assign course & set fees",
+                label: "Fast Admission & Fees",
+                desc: "Quick register student, course & initial payment",
                 icon: "bi-person-badge-fill",
-                badge: "Admin",
+                badge: "Fast-Track",
               },
               {
                 to: "/payments",
                 label: "Fee Payments & Receipts",
-                desc: "View all payment entries, receipts & collections",
+                desc: "Collect fee vouchers, ledger & dues summary (Step 3)",
                 icon: "bi-receipt-cutoff",
-                badge: "Finance",
+                badge: "Step 3",
               },
             ]
           : []),
@@ -114,7 +114,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     },
     {
       id: "academics",
-      title: "Academics & Faculty",
+      title: "Academics & Examination",
       icon: "bi-book-half",
       color: "from-indigo-500/20 to-purple-500/10 text-indigo-400 border-indigo-500/30",
       items: [
@@ -123,6 +123,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           label: "Courses Master",
           desc: "Curriculums, duration & pricing",
           icon: "bi-collection-fill",
+        },
+        {
+          to: "/results",
+          label: "Examination Results",
+          desc: "Record theory/practical marks & publish grades (Step 4)",
+          icon: "bi-bar-chart-steps",
+          badge: "Step 4",
         },
         {
           to: "/questions",
@@ -146,23 +153,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       ],
     },
     {
-      id: "exams",
-      title: "Examinations & Certs",
+      id: "certificates",
+      title: "Certificates & Verification",
       icon: "bi-award-fill",
       color: "from-amber-500/20 to-orange-500/10 text-amber-400 border-amber-500/30",
       items: [
         {
-          to: "/results",
-          label: "Examination Results",
-          desc: "Publish grades & student reports",
-          icon: "bi-bar-chart-steps",
-        },
-        {
           to: "/certificates/issue",
           label: "Issue Student Certificate",
-          desc: "Verify course & exam results to issue certificate",
+          desc: "Step-by-step certificate issuance studio (Step 5)",
           icon: "bi-award-fill",
-          badge: "New",
+          badge: "Step 5",
         },
         {
           to: "/admin/certificates",
@@ -179,37 +180,45 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         },
         {
           to: "/certificate",
-          label: "Certificate Studio",
-          desc: "Manual certificate generator & editor",
+          label: "Certificate Studio (Custom)",
+          desc: "Manual certificate generator & template designer",
           icon: "bi-file-earmark-medical-fill",
         },
+      ],
+    },
+    {
+      id: "administration",
+      title: "Administration & System",
+      icon: "bi-shield-lock-fill",
+      color: "from-rose-500/20 to-pink-500/10 text-rose-400 border-rose-500/30",
+      items: [
         {
           to: "/admin",
           label: "Admin Portal",
-          desc: "System configuration & logs",
+          desc: "System configuration & quick actions",
           icon: "bi-shield-lock-fill",
         },
         {
           to: "/bijoya",
           label: "Manage Guests (Bijoya 2026)",
-          desc: "Maitri Mahotsav guests, digital passes, edit, delete & WhatsApp",
+          desc: "Maitri Mahotsav guests, digital passes, edit & WhatsApp",
           icon: "bi-person-lines-fill",
           badge: "Event",
         },
         ...(isAdmin
           ? [
               {
+                to: "/admin/users",
+                label: "User & Role Directory",
+                desc: "View and manage registered accounts",
+                icon: "bi-people-fill",
+              },
+              {
                 to: "/users/add",
                 label: "Register New User",
                 desc: "Set login credentials, password & role",
                 icon: "bi-person-plus-fill",
                 badge: "Admin",
-              },
-              {
-                to: "/admin/users",
-                label: "User & Role Directory",
-                desc: "View and manage registered accounts",
-                icon: "bi-people-fill",
               },
               {
                 to: "/admin/backups",

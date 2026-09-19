@@ -309,6 +309,156 @@ export default function Dashboard() {
           <StatCard title="Total Students" value={students.length} icon="🎓" color="text-amber-400" />
         </motion.div>
 
+        {/* 5-Pillar Academic Operations Pipeline Hub */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-950 border border-slate-800 p-5 shadow-2xl space-y-4"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-1">
+                <i className="bi bi-diagram-3-fill"></i>
+                ACADEMIC OPERATIONS PIPELINE
+              </div>
+              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                <span>Unified 5-Step Academic Workflow</span>
+              </h2>
+            </div>
+            <p className="text-xs text-slate-400 max-w-xl">
+              Seamlessly execute student lifecycle from onboarding to official diploma certification & verification.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {/* Step 1: Register */}
+            <div
+              onClick={() => navigate("/students/add")}
+              className="p-3.5 rounded-xl bg-slate-800/40 hover:bg-slate-800 border border-slate-700/60 hover:border-sky-500/50 transition cursor-pointer group flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-sky-500/20 text-sky-400 font-bold text-xs flex items-center justify-center border border-sky-500/30">
+                  1
+                </span>
+                <i className="bi bi-people text-sky-400 text-lg group-hover:scale-110 transition-transform"></i>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white group-hover:text-sky-300 transition">
+                  1. Student Registration
+                </h4>
+                <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                  Add student personal & contact records to directory.
+                </p>
+              </div>
+              <div className="text-[10px] font-semibold text-sky-400 flex items-center gap-1">
+                <span>Open Directory</span>
+                <i className="bi bi-arrow-right"></i>
+              </div>
+            </div>
+
+            {/* Step 2: Course Admission */}
+            <div
+              onClick={() => navigate("/admission")}
+              className="p-3.5 rounded-xl bg-slate-800/40 hover:bg-slate-800 border border-slate-700/60 hover:border-blue-500/50 transition cursor-pointer group flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 font-bold text-xs flex items-center justify-center border border-blue-500/30">
+                  2
+                </span>
+                <i className="bi bi-mortarboard text-blue-400 text-lg group-hover:scale-110 transition-transform"></i>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white group-hover:text-blue-300 transition">
+                  2. Course Admission
+                </h4>
+                <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                  Assign curriculum, fee structure & official enrollment.
+                </p>
+              </div>
+              <div className="text-[10px] font-semibold text-blue-400 flex items-center gap-1">
+                <span>Assign Course</span>
+                <i className="bi bi-arrow-right"></i>
+              </div>
+            </div>
+
+            {/* Step 3: Fee Payments */}
+            <div
+              onClick={() => navigate("/payments")}
+              className="p-3.5 rounded-xl bg-slate-800/40 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 transition cursor-pointer group flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-xs flex items-center justify-center border border-emerald-500/30">
+                  3
+                </span>
+                <i className="bi bi-receipt-cutoff text-emerald-400 text-lg group-hover:scale-110 transition-transform"></i>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white group-hover:text-emerald-300 transition">
+                  3. Fees & Receipts
+                </h4>
+                <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                  Record payments, print vouchers, dues & ledger.
+                </p>
+              </div>
+              <div className="text-[10px] font-semibold text-emerald-400 flex items-center gap-1">
+                <span>Fee Counter</span>
+                <i className="bi bi-arrow-right"></i>
+              </div>
+            </div>
+
+            {/* Step 4: Results */}
+            <div
+              onClick={() => navigate("/results")}
+              className="p-3.5 rounded-xl bg-slate-800/40 hover:bg-slate-800 border border-slate-700/60 hover:border-indigo-500/50 transition cursor-pointer group flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-400 font-bold text-xs flex items-center justify-center border border-indigo-500/30">
+                  4
+                </span>
+                <i className="bi bi-bar-chart-steps text-indigo-400 text-lg group-hover:scale-110 transition-transform"></i>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white group-hover:text-indigo-300 transition">
+                  4. Exam Results
+                </h4>
+                <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                  Enter theory & practical scores, grade & evaluation.
+                </p>
+              </div>
+              <div className="text-[10px] font-semibold text-indigo-400 flex items-center gap-1">
+                <span>Record Marks</span>
+                <i className="bi bi-arrow-right"></i>
+              </div>
+            </div>
+
+            {/* Step 5: Certificates */}
+            <div
+              onClick={() => navigate("/admin/certificates")}
+              className="p-3.5 rounded-xl bg-slate-800/40 hover:bg-slate-800 border border-slate-700/60 hover:border-amber-500/50 transition cursor-pointer group flex flex-col justify-between space-y-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 font-bold text-xs flex items-center justify-center border border-amber-500/30">
+                  5
+                </span>
+                <i className="bi bi-award text-amber-400 text-lg group-hover:scale-110 transition-transform"></i>
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-white group-hover:text-amber-300 transition">
+                  5. Certificate Master
+                </h4>
+                <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                  Issue, audit, export & print original diplomas.
+                </p>
+              </div>
+              <div className="text-[10px] font-semibold text-amber-400 flex items-center gap-1">
+                <span>Certificates Register</span>
+                <i className="bi bi-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Visitors Section */}
         <DataTable
           title="Recent Visitors"
@@ -376,9 +526,10 @@ export default function Dashboard() {
           title="Registered Students"
           color="text-amber-400"
           data={students}
-          headers={["#", "Reg No", "Name", "Enrolled Courses", "WhatsApp", "Phone", "City", "Joined", "Actions"]}
+          headers={["#", "Reg No", "Name", "Enrolled Courses", "WhatsApp", "Phone", "City", "Joined", "Academic Actions"]}
           renderRow={(s, i) => {
             const enrolledCourses = getStudentCourses(s);
+            const stuId = s.id || s.studentId || s.student_id;
             return (
               <>
                 <td className="p-3">{i + 1}</td>
@@ -414,19 +565,56 @@ export default function Dashboard() {
                   {s.created_at ? new Date(s.created_at).toLocaleDateString() : "—"}
                 </td>
                 <td className="p-3 text-right whitespace-nowrap">
-                  <button
-                    onClick={() => navigate(`/admission?studentId=${s.id || s.studentId}`)}
-                    className="px-3 py-1.5 text-xs font-bold rounded-xl bg-sky-500 hover:bg-sky-400 text-white shadow-md shadow-sky-500/25 transition-all duration-150 cursor-pointer mr-2 inline-flex items-center gap-1"
-                    title="Assign academic course to this student (Official Admission)"
-                  >
-                    <span>🎓 Assign Course</span>
-                  </button>
-                  <button
-                    onClick={() => openEditModal(s)}
-                    className="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer"
-                  >
-                    ✏️ Edit Profile
-                  </button>
+                  <div className="inline-flex items-center gap-1.5 flex-wrap justify-end">
+                    {/* Step 2: Course Admission */}
+                    <button
+                      onClick={() => navigate(`/admission?studentId=${stuId}`)}
+                      className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-sky-500/15 hover:bg-sky-500 text-sky-300 hover:text-white border border-sky-500/30 transition-all duration-150 cursor-pointer inline-flex items-center gap-1"
+                      title="Assign / Admit to Course (Step 2)"
+                    >
+                      <i className="bi bi-mortarboard-fill"></i>
+                      <span>Admit</span>
+                    </button>
+
+                    {/* Step 3: Collect Fees / Ledger */}
+                    <button
+                      onClick={() => navigate(`/payments?studentId=${stuId}`)}
+                      className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-emerald-500/15 hover:bg-emerald-500 text-emerald-300 hover:text-white border border-emerald-500/30 transition-all duration-150 cursor-pointer inline-flex items-center gap-1"
+                      title="Fee Ledger & Payments (Step 3)"
+                    >
+                      <i className="bi bi-receipt"></i>
+                      <span>Fees</span>
+                    </button>
+
+                    {/* Step 4: Record Results */}
+                    <button
+                      onClick={() => navigate(`/results?studentId=${stuId}`)}
+                      className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-indigo-500/15 hover:bg-indigo-500 text-indigo-300 hover:text-white border border-indigo-500/30 transition-all duration-150 cursor-pointer inline-flex items-center gap-1"
+                      title="Record Exam Results (Step 4)"
+                    >
+                      <i className="bi bi-bar-chart-steps"></i>
+                      <span>Result</span>
+                    </button>
+
+                    {/* Step 5: Issue Certificate */}
+                    <button
+                      onClick={() => navigate(`/certificates/issue?studentId=${stuId}`)}
+                      className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-white border border-amber-500/30 transition-all duration-150 cursor-pointer inline-flex items-center gap-1"
+                      title="Issue Certificate (Step 5)"
+                    >
+                      <i className="bi bi-award-fill"></i>
+                      <span>Cert</span>
+                    </button>
+
+                    {/* Edit Profile Modal */}
+                    <button
+                      onClick={() => openEditModal(s)}
+                      className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer"
+                      title="Edit Student Profile"
+                    >
+                      <i className="bi bi-pencil"></i>
+                    </button>
+                  </div>
                 </td>
               </>
             );

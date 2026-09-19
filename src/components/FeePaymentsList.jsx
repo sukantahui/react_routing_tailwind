@@ -1,6 +1,6 @@
 // src/components/FeePaymentsList.jsx
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
@@ -43,9 +43,14 @@ import CNATQR from "../assets/images/CNAT_QR.jpeg";
 import QRCode from "qrcode";
 
 export default function FeePaymentsList() {
+  const [searchParams] = useSearchParams();
+  const urlStudentId = searchParams.get("studentId");
+  const urlAdmissionId = searchParams.get("admissionId");
+  const urlSearch = searchParams.get("search");
+
   const [receipts, setReceipts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(urlSearch || "");
   const [modeFilter, setModeFilter] = useState("ALL");
   const [typeFilter, setTypeFilter] = useState("ALL");
   const [sortField, setSortField] = useState("date"); // 'date' | 'amount'
@@ -197,6 +202,34 @@ export default function FeePaymentsList() {
   useEffect(() => {
     fetchReceipts();
   }, []);
+
+  // Auto-filter if urlStudentId or urlAdmissionId is provided
+  useEffect(() => {
+    if (!receipts.length) return;
+    if (urlStudentId) {
+      const match = receipts.find(
+        (r) =>
+          String(r.studentId || r.student_id || r.student?.id) === String(urlStudentId)
+      );
+      if (match) {
+        const sName = match.studentName || match.student_name || match.student?.student_name;
+        if (sName && !searchTerm) {
+          setSearchTerm(sName);
+        }
+      }
+    } else if (urlAdmissionId) {
+      const match = receipts.find(
+        (r) =>
+          String(r.admissionId || r.admission_id || r.admission?.id) === String(urlAdmissionId)
+      );
+      if (match) {
+        const sName = match.studentName || match.student_name || match.student?.student_name;
+        if (sName && !searchTerm) {
+          setSearchTerm(sName);
+        }
+      }
+    }
+  }, [receipts, urlStudentId, urlAdmissionId]);
 
   // Filter and Sort Receipts
   const filteredReceipts = useMemo(() => {

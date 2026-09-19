@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
 import * as XLSX from "xlsx";
@@ -76,8 +76,16 @@ const defaultForm = {
 };
 
 export default function AddResult() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const urlAdmissionId = searchParams.get("admissionId");
+  const urlStudentId = searchParams.get("studentId");
+
   const [activeTab, setActiveTab] = useState("form"); // 'form' | 'directory'
-  const [formData, setFormData] = useState(defaultForm);
+  const [formData, setFormData] = useState({
+    ...defaultForm,
+    admissionId: urlAdmissionId ? String(urlAdmissionId) : "",
+  });
   const [editingId, setEditingId] = useState(null);
 
   // Data states
@@ -159,6 +167,29 @@ export default function AddResult() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  // Auto-select admission if urlStudentId or urlAdmissionId is provided
+  useEffect(() => {
+    if (!admissions.length) return;
+
+    if (urlAdmissionId) {
+      const match = admissions.find((a) => String(a.id || a.admission_id || a.admissionId) === String(urlAdmissionId));
+      if (match) {
+        setFormData((prev) => ({ ...prev, admissionId: String(urlAdmissionId) }));
+        setActiveTab("form");
+      }
+    } else if (urlStudentId) {
+      const match = admissions.find((a) => {
+        const sId = a.student_id || a.studentId || a.student?.id;
+        return String(sId) === String(urlStudentId);
+      });
+      if (match) {
+        const matchedAdmId = match.id || match.admission_id || match.admissionId;
+        setFormData((prev) => ({ ...prev, admissionId: String(matchedAdmId) }));
+        setActiveTab("form");
+      }
+    }
+  }, [admissions, urlAdmissionId, urlStudentId]);
 
   // Helper map for quick admission details lookup
   const admissionMap = useMemo(() => {
@@ -364,31 +395,51 @@ export default function AddResult() {
         result_date: formData.resultDate || new Date().toISOString().split("T")[0],
       };
 
+      const targetAdmId = formData.admissionId;
+      const isPass = calculation.passed;
+      const finalGrade = calculation.grade;
+
       if (editingId) {
         await resultService.update(editingId, payload);
-        Swal.fire({
-          icon: "success",
-          title: "Result Updated",
-          text: "Student evaluation has been successfully updated.",
-          timer: 2000,
-          showConfirmButton: false,
-          ...getSwalTheme(),
-        });
       } else {
         await resultService.create(payload);
-        Swal.fire({
-          icon: "success",
-          title: "Result Recorded",
-          text: "Student result has been successfully saved.",
-          timer: 2000,
-          showConfirmButton: false,
-          ...getSwalTheme(),
-        });
       }
 
       handleResetForm();
       fetchData();
       setActiveTab("directory");
+
+      if (isPass) {
+        const nextAction = await Swal.fire({
+          icon: "success",
+          title: "Result Recorded & Published! 🎓",
+          text: `Student passed with Grade: ${finalGrade}. Would you like to issue their official certificate now?`,
+          showCancelButton: true,
+          showDenyButton: true,
+          confirmButtonText: "🎓 Issue Certificate Studio",
+          denyButtonText: "📄 View Public Verification",
+          cancelButtonText: "Stay in Results",
+          confirmButtonColor: "#f59e0b",
+          denyButtonColor: "#0284c7",
+          cancelButtonColor: "#475569",
+          ...getSwalTheme(),
+        });
+
+        if (nextAction.isConfirmed) {
+          navigate(`/certificates/issue?admissionId=${targetAdmId}`);
+        } else if (nextAction.isDenied) {
+          navigate(`/certificates/${targetAdmId}`);
+        }
+      } else {
+        Swal.fire({
+          icon: "success",
+          title: editingId ? "Result Updated" : "Result Recorded",
+          text: "Student evaluation has been successfully saved.",
+          timer: 2000,
+          showConfirmButton: false,
+          ...getSwalTheme(),
+        });
+      }
     } catch (error) {
       console.error("Save error:", error);
       Swal.fire({
@@ -1353,11 +1404,19 @@ export default function AddResult() {
                           </td>
                           <td className="py-3.5 px-4 text-right">
                             <div className="inline-flex items-center gap-1.5">
-                              {/* Direct Certificate Generator / View Link */}
+                              {/* Direct Issue Certificate Studio Link */}
+                              <Link
+                                to={`/certificates/issue?admissionId=${item.admId}`}
+                                className="p-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 hover:text-amber-300 transition"
+                                title="Issue / Print Original Certificate Studio (Step 5)"
+                              >
+                                <Award size={15} />
+                              </Link>
+                              {/* Direct Public Verification & Result Link */}
                               <Link
                                 to={`/certificates/${item.admId}`}
                                 className="p-1.5 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 hover:text-sky-300 transition"
-                                title="View Certificate"
+                                title="View Public Verification & Result Statement"
                               >
                                 <FileText size={15} />
                               </Link>

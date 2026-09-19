@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import {
@@ -149,6 +149,10 @@ const formatHumanDate = (dateStr) => {
 };
 
 export default function StudentCertificateStudio() {
+  const [searchParams] = useSearchParams();
+  const urlAdmissionId = searchParams.get("admissionId");
+  const urlStudentId = searchParams.get("studentId");
+
   const canvasRef = useRef(null);
 
   // Stepper State (1: Student, 2: Course Admission, 3: Result & Formalities, 4: Issue & Preview)
@@ -305,6 +309,69 @@ export default function StudentCertificateStudio() {
   useEffect(() => {
     fetchAllData();
   }, []);
+
+  // Auto-select from URL search parameters (?admissionId=... or ?studentId=...)
+  useEffect(() => {
+    if (!students.length || !admissions.length) return;
+
+    if (urlAdmissionId) {
+      const matchedAdm = admissions.find(
+        (a) => String(a.id || a.admission_id || a.admissionId) === String(urlAdmissionId)
+      );
+      if (matchedAdm) {
+        const stuId = getAdmissionStudentId(matchedAdm);
+        const matchedStu = students.find(
+          (s) => String(getStudentId(s)) === String(stuId)
+        );
+        if (matchedStu) setSelectedStudent(matchedStu);
+        setSelectedAdmission(matchedAdm);
+
+        const admId = getAdmissionId(matchedAdm);
+        const courseName = getAdmissionCourseName(matchedAdm, courses);
+        const admDate = matchedAdm.admission_date || matchedAdm.admissionDate || "";
+
+        const matchedRes = results.find((r) => {
+          const rAdmId = getResultAdmissionId(r);
+          return String(rAdmId) === String(admId);
+        });
+
+        const completionDate =
+          matchedRes?.result_date ||
+          matchedRes?.resultDate ||
+          admDate ||
+          new Date().toISOString().split("T")[0];
+
+        const sName = matchedStu
+          ? matchedStu.student_name || matchedStu.studentName || matchedStu.name || "Student"
+          : "Student";
+
+        setCertForm((prev) => ({
+          ...prev,
+          name: sName,
+          course: courseName || "Certificate Course",
+          rawDate: completionDate,
+          date: formatHumanDate(completionDate),
+          certNumber: generateCertificateNo(admId),
+        }));
+
+        setCurrentStep(3);
+      }
+    } else if (urlStudentId) {
+      const matchedStu = students.find(
+        (s) => String(getStudentId(s)) === String(urlStudentId)
+      );
+      if (matchedStu) {
+        setSelectedStudent(matchedStu);
+        const sName =
+          matchedStu.student_name || matchedStu.studentName || matchedStu.name || "Student";
+        setCertForm((prev) => ({
+          ...prev,
+          name: sName,
+        }));
+        setCurrentStep(2);
+      }
+    }
+  }, [admissions, students, courses, results, urlAdmissionId, urlStudentId]);
 
   // Filtered students for search dropdown
   const filteredStudents = useMemo(() => {
