@@ -427,7 +427,7 @@ export default function Topic1() {
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Naive Trial Division (6k ± 1)</td>
-                <td className="p-3 text-rose-400 font-sans">O(N√N)</td>
+                <td className="p-3 text-rose-400 font-sans">O(N √N)</td>
                 <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant memory</td>
                 <td className="p-3 text-slate-300 font-sans">Testing single random individual numbers</td>
               </tr>

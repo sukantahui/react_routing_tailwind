@@ -1697,6 +1697,9 @@
   .min-h-\[40px\] {
     min-height: 40px;
   }
+  .min-h-\[42px\] {
+    min-height: 42px;
+  }
   .min-h-\[60px\] {
     min-height: 60px;
   }
@@ -15245,6 +15248,9 @@
   }
   .stroke-\[2\] {
     stroke-width: 2;
+  }
+  .stroke-\[3\] {
+    stroke-width: 3;
   }
   .object-contain {
     object-fit: contain;
@@ -31353,6 +31359,11 @@
   .lg\:w-3\/4 {
     @media (width >= 64rem) {
       width: calc(3 / 4 * 100%);
+    }
+  }
+  .lg\:w-52 {
+    @media (width >= 64rem) {
+      width: calc(var(--spacing) * 52);
     }
   }
   .lg\:max-w-7xl {

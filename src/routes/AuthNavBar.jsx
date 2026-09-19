@@ -125,9 +125,16 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-collection-fill",
         },
         {
+          to: "/questions",
+          label: "Question Bank & MCQs",
+          desc: "Add & manage questions, options & answers",
+          icon: "bi-question-diamond-fill",
+          badge: "New",
+        },
+        {
           to: "/subjects",
-          label: "Subjects & Modules",
-          desc: "Subject syllabus and topics",
+          label: "Curriculum & Subjects",
+          desc: "Subject syllabus, chapters and topics",
           icon: "bi-journals",
         },
         {

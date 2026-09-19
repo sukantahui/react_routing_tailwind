@@ -1,0 +1,914 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e5]:
+    - generic [ref=f1e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=f1e9] [cursor=pointer]:
+        - /url: /
+        - generic:
+          - img "Coder & AccoTax"
+        - generic [ref=f1e11]:
+          - generic [ref=f1e12]:
+            - generic [ref=f1e13]: Coder&AccoTax
+            - generic [ref=f1e14]: ISO 9001:2015
+          - generic [ref=f1e16]: Premier Coding & IT Training Institute
+      - navigation [ref=f1e17]:
+        - link " Home" [ref=f1e18] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f1e19]: 
+          - generic [ref=f1e20]: Home
+        - link " About" [ref=f1e21] [cursor=pointer]:
+          - /url: /#about
+          - generic [ref=f1e22]: 
+          - generic [ref=f1e23]: About
+        - link " Courses" [ref=f1e24] [cursor=pointer]:
+          - /url: /#courses
+          - generic [ref=f1e25]: 
+          - generic [ref=f1e26]: Courses
+        - link " Fees" [ref=f1e27] [cursor=pointer]:
+          - /url: /#fees
+          - generic [ref=f1e28]: 
+          - generic [ref=f1e29]: Fees
+        - link " Teachers" [ref=f1e30] [cursor=pointer]:
+          - /url: /#teachers
+          - generic [ref=f1e31]: 
+          - generic [ref=f1e32]: Teachers
+        - link " Contact" [ref=f1e33] [cursor=pointer]:
+          - /url: /#contact
+          - generic [ref=f1e34]: 
+          - generic [ref=f1e35]: Contact
+        - button " Tools " [ref=f1e37] [cursor=pointer]:
+          - generic [ref=f1e38]: 
+          - generic [ref=f1e39]: Tools
+          - generic [ref=f1e40]: 
+        - button " Tutorials " [ref=f1e42] [cursor=pointer]:
+          - generic [ref=f1e43]: 
+          - generic [ref=f1e44]: Tutorials
+          - generic [ref=f1e45]: 
+        - link "🌸 Bijoya 2026  Guest Pass" [ref=f1e64] [cursor=pointer]:
+          - /url: /bijoya
+          - generic [ref=f1e50]: 🌸
+          - generic [ref=f1e51]: Bijoya 2026
+          - generic [ref=f1e65]:
+            - generic [ref=f1e66]: 
+            - text: Guest Pass
+      - generic [ref=f1e52]:
+        - button " Quick Jump... ⌘K" [ref=f1e53] [cursor=pointer]:
+          - generic [ref=f1e54]: 
+          - generic [ref=f1e55]: Quick Jump...
+          - generic [ref=f1e56]: ⌘K
+        - link "Portal Login" [ref=f1e57] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=f1e58]: 
+        - text:   
+    - text:         
+  - main [ref=f1e59]:
+    - generic [ref=f1e67]:
+      - generic [ref=f1e69]:
+        - generic [ref=f1e70]:
+          - link "Overview" [ref=f1e71] [cursor=pointer]:
+            - /url: /java-core/module/001_008_foundations-practice-assessment-lab
+          - generic [ref=f1e76]: Java Core Foundations Practice, Mini-Projects & Assessment
+        - generic [ref=f1e82]:
+          - generic [ref=f1e83]:
+            - generic [ref=f1e86]: 2/13
+            - generic [ref=f1e89]: 8%
+          - button "Hide Topics" [ref=f1e90]
+          - button "Workspace" [ref=f1e93]
+          - button "Annotate" [ref=f1e97]
+          - button "Dictionary" [ref=f1e104]
+          - button "Math" [ref=f1e109]
+          - button "Focus Mode (Hide sidebars & clutter)" [ref=f1e113]
+          - button "A+" [ref=f1e119]
+          - button "Bookmark topic" [ref=f1e120]
+          - button "Copy topic link" [ref=f1e123]
+          - button "Done" [ref=f1e127]
+          - generic [ref=f1e132]:
+            - link "Prev" [ref=f1e133] [cursor=pointer]:
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/0
+            - link "Next" [ref=f1e137] [cursor=pointer]:
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/2
+      - generic [ref=f1e142]:
+        - complementary [ref=f1e143]:
+          - generic [ref=f1e144]:
+            - generic [ref=f1e145]:
+              - generic [ref=f1e146]: Module Progress
+              - generic [ref=f1e147]: 1/13 (8%)
+            - generic [ref=f1e150]:
+              - generic [ref=f1e151]: 4 hrs
+              - generic [ref=f1e152]: Medium
+          - textbox "Filter topics..." [ref=f1e157]
+          - generic [ref=f1e158]:
+            - 'link "01.Review of Segment 1 core concepts: JVM, Datatypes, Operators, Control Flow, Loops, Arrays, Methods" [ref=f1e159] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/0
+              - generic [ref=f1e161]:
+                - generic [ref=f1e162]: "01."
+                - text: "Review of Segment 1 core concepts: JVM, Datatypes, Operators, Control Flow, Loops, Arrays, Methods"
+            - 'link "02.Algorithmic Problem 1: Prime number generation using Sieve of Eratosthenes" [ref=f1e163] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/1
+              - generic [ref=f1e167]:
+                - generic [ref=f1e168]: "02."
+                - text: "Algorithmic Problem 1: Prime number generation using Sieve of Eratosthenes"
+            - 'link "03.Algorithmic Problem 2: Palindromic number and String verification" [ref=f1e169] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/2
+              - generic [ref=f1e171]:
+                - generic [ref=f1e172]: "03."
+                - text: "Algorithmic Problem 2: Palindromic number and String verification"
+            - 'link "04.Algorithmic Problem 3: Matrix spiral traversal and 90-degree clockwise rotation" [ref=f1e173] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/3
+              - generic [ref=f1e175]:
+                - generic [ref=f1e176]: "04."
+                - text: "Algorithmic Problem 3: Matrix spiral traversal and 90-degree clockwise rotation"
+            - 'link "05.Algorithmic Problem 4: Finding duplicate and missing numbers in an array" [ref=f1e177] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/4
+              - generic [ref=f1e179]:
+                - generic [ref=f1e180]: "05."
+                - text: "Algorithmic Problem 4: Finding duplicate and missing numbers in an array"
+            - 'link "06.Algorithmic Problem 5: Array element frequency counter using frequency arrays" [ref=f1e181] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/5
+              - generic [ref=f1e183]:
+                - generic [ref=f1e184]: "06."
+                - text: "Algorithmic Problem 5: Array element frequency counter using frequency arrays"
+            - 'link "07.Algorithmic Problem 6: Decimal to Binary/Hexadecimal conversion without built-in methods" [ref=f1e185] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/6
+              - generic [ref=f1e187]:
+                - generic [ref=f1e188]: "07."
+                - text: "Algorithmic Problem 6: Decimal to Binary/Hexadecimal conversion without built-in methods"
+            - 'link "08.Algorithmic Problem 7: Implementing Recursive Binary Search" [ref=f1e189] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/7
+              - generic [ref=f1e191]:
+                - generic [ref=f1e192]: "08."
+                - text: "Algorithmic Problem 7: Implementing Recursive Binary Search"
+            - 'link "09.Algorithmic Problem 8: Armstrong numbers in a given range" [ref=f1e193] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/8
+              - generic [ref=f1e195]:
+                - generic [ref=f1e196]: "09."
+                - text: "Algorithmic Problem 8: Armstrong numbers in a given range"
+            - 'link "10.Debugging challenge: Identifying and resolving 10 common compilation & logical bugs" [ref=f1e197] [cursor=pointer]':
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/9
+              - generic [ref=f1e199]:
+                - generic [ref=f1e200]: "10."
+                - text: "Debugging challenge: Identifying and resolving 10 common compilation & logical bugs"
+            - link "11.Writing clean, readable code conforming to Google Java Style Guide" [ref=f1e201] [cursor=pointer]:
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/10
+              - generic [ref=f1e203]:
+                - generic [ref=f1e204]: "11."
+                - text: Writing clean, readable code conforming to Google Java Style Guide
+            - link "12.Segment 1 Comprehensive Multiple Choice Question Exam" [ref=f1e205] [cursor=pointer]:
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/11
+              - generic [ref=f1e207]:
+                - generic [ref=f1e208]: "12."
+                - text: Segment 1 Comprehensive Multiple Choice Question Exam
+            - link "13.Segment 1 Timed Coding Assessment" [ref=f1e209] [cursor=pointer]:
+              - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/12
+              - generic [ref=f1e211]:
+                - generic [ref=f1e212]: "13."
+                - text: Segment 1 Timed Coding Assessment
+          - generic [ref=f1e213]:
+            - link "← Module Overview" [ref=f1e214] [cursor=pointer]:
+              - /url: /java-core/module/001_008_foundations-practice-assessment-lab
+            - link "📍 Course Roadmap" [ref=f1e215] [cursor=pointer]:
+              - /url: /java-core/roadmap
+        - main [ref=f1e216]:
+          - generic [ref=f1e217]:
+            - generic [ref=f1e219]:
+              - generic [ref=f1e220]:
+                - generic [ref=f1e221]:
+                  - generic [ref=f1e222]: Module 001_008 · Topic 1
+                  - generic [ref=f1e223]: Algorithmic Lab 1 · Prime Generator
+                - heading "Prime Number Generation using Sieve of Eratosthenes" [level=1] [ref=f1e224]
+                - paragraph [ref=f1e225]:
+                  - text: "Master the optimal prime generation algorithm in Java: mathematical principles of prime sieving, achieving"
+                  - code [ref=f1e226]: O(N log(log N))
+                  - text: near-linear time, the critical
+                  - code [ref=f1e227]: p * p
+                  - text: inner-loop start optimization,
+                  - code [ref=f1e228]: BitSet
+                  - text: 8x memory reduction, and student cryptographic token generation in Barrackpore.
+              - generic [ref=f1e229]:
+                - heading "📖 How the Sieve of Eratosthenes Works" [level=2] [ref=f1e230]:
+                  - generic [ref=f1e231]: 📖
+                  - text: How the Sieve of Eratosthenes Works
+                - generic [ref=f1e232]:
+                  - paragraph [ref=f1e233]:
+                    - text: Instead of testing every number individually for divisibility (
+                    - code [ref=f1e234]: O(N √N)
+                    - text: ), the
+                    - strong [ref=f1e235]: Sieve of Eratosthenes
+                    - text: "eliminates composite numbers in multiples:"
+                  - generic [ref=f1e236]:
+                    - generic [ref=f1e237]:
+                      - heading "1. Array Initialization" [level=3] [ref=f1e238]
+                      - paragraph [ref=f1e239]: boolean[] isPrime = new boolean[N + 1];
+                      - paragraph [ref=f1e240]:
+                        - text: Fill with
+                        - code [ref=f1e241]: "true"
+                        - text: ; set indices 0 and 1 to
+                        - code [ref=f1e242]: "false"
+                        - text: .
+                    - generic [ref=f1e243]:
+                      - 'heading "2. Outer Loop Limit: √N" [level=3] [ref=f1e244]'
+                      - paragraph [ref=f1e245]: for (int p = 2; p * p <= N; p++)
+                      - paragraph [ref=f1e246]:
+                        - text: If
+                        - code [ref=f1e247]: isPrime[p]
+                        - text: is true, it is prime. Only need to check up to
+                        - code [ref=f1e248]: √N
+                        - text: .
+                    - generic [ref=f1e249]:
+                      - 'heading "3. Inner Loop: Start at p * p" [level=3] [ref=f1e250]'
+                      - paragraph [ref=f1e251]: for (int m = p * p; m <= N; m += p)
+                      - paragraph [ref=f1e252]:
+                        - text: Mark composites starting at
+                        - code [ref=f1e253]: p * p
+                        - text: because smaller multiples were already marked by earlier primes.
+                  - generic [ref=f1e254]:
+                    - paragraph [ref=f1e255]: "Classroom Case Study (Barrackpore Token Generation Benchmark):"
+                    - paragraph [ref=f1e256]:
+                      - text: In our Barrackpore laboratory,
+                      - strong [ref=f1e257]: Swadeep
+                      - text: and
+                      - strong [ref=f1e258]: Tuhina
+                      - text: generated all primes up to 100,000. The Sieve generated
+                      - code [ref=f1e259]: 9,592 primes
+                      - text: in just a few milliseconds, outperforming trial division by over 10x, while our
+                      - code [ref=f1e260]: BitSet
+                      - text: implementation reduced memory by 87.5%!
+              - generic [ref=f1e261]:
+                - 'heading "⚙️ Sieve Elimination Grid: Marking Multiples [1..30]" [level=2] [ref=f1e262]':
+                  - generic [ref=f1e263]: ⚙️
+                  - text: "Sieve Elimination Grid: Marking Multiples [1..30]"
+                - paragraph [ref=f1e264]: "Visualizing the systematic elimination of composites by prime multiples:"
+                - img "Sieve of Eratosthenes Grid Elimination Diagram" [ref=f1e266]:
+                  - generic [ref=f1e268]: "LEGEND:"
+                  - generic [ref=f1e270]: Prime Numbers
+                  - generic [ref=f1e272]: Multiples of 2 (p=2)
+                  - generic [ref=f1e274]: Multiples of 3 (p=3)
+                  - generic [ref=f1e276]: Multiples of 5 (p=5)
+                  - generic [ref=f1e278]: 1 ❌
+                  - generic [ref=f1e280]: 2 ✓
+                  - generic [ref=f1e282]: 3 ✓
+                  - generic [ref=f1e284]: 4 ✕₂
+                  - generic [ref=f1e286]: 5 ✓
+                  - generic [ref=f1e288]: 6 ✕₂
+                  - generic [ref=f1e290]: 7 ✓
+                  - generic [ref=f1e292]: 8 ✕₂
+                  - generic [ref=f1e294]: 9 ✕₃
+                  - generic [ref=f1e296]: 10 ✕₂
+                  - generic [ref=f1e298]: 11 ✓
+                  - generic [ref=f1e300]: 12 ✕₂
+                  - generic [ref=f1e302]: 13 ✓
+                  - generic [ref=f1e304]: 14 ✕₂
+                  - generic [ref=f1e306]: 15 ✕₃
+                  - generic [ref=f1e308]: 16 ✕₂
+                  - generic [ref=f1e310]: 17 ✓
+                  - generic [ref=f1e312]: 18 ✕₂
+                  - generic [ref=f1e314]: 19 ✓
+                  - generic [ref=f1e316]: 20 ✕₂
+                  - generic [ref=f1e318]: 21 ✕₃
+                  - generic [ref=f1e320]: 22 ✕₂
+                  - generic [ref=f1e322]: 23 ✓
+                  - generic [ref=f1e324]: 24 ✕₂
+                  - generic [ref=f1e326]: 25 ✕₅
+                  - generic [ref=f1e328]: 26 ✕₂
+                  - generic [ref=f1e330]: 27 ✕₃
+                  - generic [ref=f1e332]: 28 ✕₂
+                  - generic [ref=f1e334]: 29 ✓
+                  - generic [ref=f1e336]: 30 ✕₂
+                  - generic [ref=f1e337]: Green tiles represent surviving primes up to 30. Composite marking starts at p*p (e.g. 4 for 2, 9 for 3, 25 for 5).
+              - generic [ref=f1e338]:
+                - heading "📊 Primality Algorithms Comparison Matrix" [level=2] [ref=f1e339]:
+                  - generic [ref=f1e340]: 📊
+                  - text: Primality Algorithms Comparison Matrix
+                - table [ref=f1e342]:
+                  - rowgroup [ref=f1e343]:
+                    - row [ref=f1e344]:
+                      - columnheader "Algorithm" [ref=f1e345]
+                      - columnheader "Time Complexity" [ref=f1e346]
+                      - columnheader "Space Complexity" [ref=f1e347]
+                      - columnheader "Best Use Case" [ref=f1e348]
+                  - rowgroup [ref=f1e349]:
+                    - row [ref=f1e350]:
+                      - cell "Standard Sieve of Eratosthenes" [ref=f1e351]
+                      - cell "O(N log(log N))" [ref=f1e352]
+                      - cell "O(N) boolean array" [ref=f1e353]
+                      - cell "Generating all primes up to N ≤ 10⁷" [ref=f1e354]
+                    - row [ref=f1e355]:
+                      - cell "BitSet Optimized Sieve" [ref=f1e356]
+                      - cell "O(N log(log N))" [ref=f1e357]
+                      - cell "O(N/8) 8x less RAM" [ref=f1e358]
+                      - cell "Memory-constrained systems up to 10⁸" [ref=f1e359]
+                    - row [ref=f1e360]:
+                      - cell "Segmented Sieve" [ref=f1e361]
+                      - cell "O(N log(log N))" [ref=f1e362]
+                      - cell "O(√N) L1 cache fit" [ref=f1e363]
+                      - cell "Massive ranges up to N ≤ 10¹²" [ref=f1e364]
+                    - row [ref=f1e365]:
+                      - cell "Naive Trial Division (6k ± 1)" [ref=f1e366]
+                      - cell "O(N √N)" [ref=f1e367]
+                      - cell "O(1) constant memory" [ref=f1e368]
+                      - cell "Testing single random individual numbers" [ref=f1e369]
+              - generic [ref=f1e370]:
+                - generic [ref=f1e371]:
+                  - heading "💻 Compilable Java Source Code" [level=2] [ref=f1e372]:
+                    - generic [ref=f1e373]: 💻
+                    - text: Compilable Java Source Code
+                  - generic [ref=f1e374]: SieveOfEratosthenesPrimeDemo.java
+                - paragraph [ref=f1e375]: The following program implements the Sieve of Eratosthenes, BitSet memory optimization, and benchmarks performance against trial division.
+                - generic [ref=f1e376]:
+                  - generic [ref=f1e377]:
+                    - generic [ref=f1e378]: ☕ SieveOfEratosthenesPrimeDemo.java
+                    - generic [ref=f1e383]:
+                      - button "Copy" [ref=f1e384]
+                      - button "Save JPG" [ref=f1e385]
+                  - generic [ref=f1e386]:
+                    - generic [ref=f1e387]:
+                      - generic [ref=f1e388]: "1"
+                      - generic [ref=f1e389]: "2"
+                      - generic [ref=f1e390]: "3"
+                      - generic [ref=f1e391]: "4"
+                      - generic [ref=f1e392]: "5"
+                      - generic [ref=f1e393]: "6"
+                      - generic [ref=f1e394]: "7"
+                      - generic [ref=f1e395]: "8"
+                      - generic [ref=f1e396]: "9"
+                      - generic [ref=f1e397]: "10"
+                      - generic [ref=f1e398]: "11"
+                      - generic [ref=f1e399]: "12"
+                      - generic [ref=f1e400]: "13"
+                      - generic [ref=f1e401]: "14"
+                      - generic [ref=f1e402]: "15"
+                      - generic [ref=f1e403]: "16"
+                      - generic [ref=f1e404]: "17"
+                      - generic [ref=f1e405]: "18"
+                      - generic [ref=f1e406]: "19"
+                      - generic [ref=f1e407]: "20"
+                      - generic [ref=f1e408]: "21"
+                      - generic [ref=f1e409]: "22"
+                      - generic [ref=f1e410]: "23"
+                      - generic [ref=f1e411]: "24"
+                      - generic [ref=f1e412]: "25"
+                      - generic [ref=f1e413]: "26"
+                      - generic [ref=f1e414]: "27"
+                      - generic [ref=f1e415]: "28"
+                      - generic [ref=f1e416]: "29"
+                      - generic [ref=f1e417]: "30"
+                      - generic [ref=f1e418]: "31"
+                      - generic [ref=f1e419]: "32"
+                      - generic [ref=f1e420]: "33"
+                      - generic [ref=f1e421]: "34"
+                      - generic [ref=f1e422]: "35"
+                      - generic [ref=f1e423]: "36"
+                      - generic [ref=f1e424]: "37"
+                      - generic [ref=f1e425]: "38"
+                      - generic [ref=f1e426]: "39"
+                      - generic [ref=f1e427]: "40"
+                      - generic [ref=f1e428]: "41"
+                      - generic [ref=f1e429]: "42"
+                      - generic [ref=f1e430]: "43"
+                      - generic [ref=f1e431]: "44"
+                      - generic [ref=f1e432]: "45"
+                      - generic [ref=f1e433]: "46"
+                      - generic [ref=f1e434]: "47"
+                      - generic [ref=f1e435]: "48"
+                      - generic [ref=f1e436]: "49"
+                      - generic [ref=f1e437]: "50"
+                      - generic [ref=f1e438]: "51"
+                      - generic [ref=f1e439]: "52"
+                      - generic [ref=f1e440]: "53"
+                      - generic [ref=f1e441]: "54"
+                      - generic [ref=f1e442]: "55"
+                      - generic [ref=f1e443]: "56"
+                      - generic [ref=f1e444]: "57"
+                      - generic [ref=f1e445]: "58"
+                      - generic [ref=f1e446]: "59"
+                      - generic [ref=f1e447]: "60"
+                      - generic [ref=f1e448]: "61"
+                      - generic [ref=f1e449]: "62"
+                      - generic [ref=f1e450]: "63"
+                      - generic [ref=f1e451]: "64"
+                      - generic [ref=f1e452]: "65"
+                      - generic [ref=f1e453]: "66"
+                      - generic [ref=f1e454]: "67"
+                      - generic [ref=f1e455]: "68"
+                      - generic [ref=f1e456]: "69"
+                      - generic [ref=f1e457]: "70"
+                      - generic [ref=f1e458]: "71"
+                      - generic [ref=f1e459]: "72"
+                      - generic [ref=f1e460]: "73"
+                      - generic [ref=f1e461]: "74"
+                      - generic [ref=f1e462]: "75"
+                      - generic [ref=f1e463]: "76"
+                      - generic [ref=f1e464]: "77"
+                      - generic [ref=f1e465]: "78"
+                      - generic [ref=f1e466]: "79"
+                      - generic [ref=f1e467]: "80"
+                      - generic [ref=f1e468]: "81"
+                      - generic [ref=f1e469]: "82"
+                      - generic [ref=f1e470]: "83"
+                      - generic [ref=f1e471]: "84"
+                      - generic [ref=f1e472]: "85"
+                      - generic [ref=f1e473]: "86"
+                      - generic [ref=f1e474]: "87"
+                      - generic [ref=f1e475]: "88"
+                      - generic [ref=f1e476]: "89"
+                      - generic [ref=f1e477]: "90"
+                      - generic [ref=f1e478]: "91"
+                      - generic [ref=f1e479]: "92"
+                      - generic [ref=f1e480]: "93"
+                      - generic [ref=f1e481]: "94"
+                      - generic [ref=f1e482]: "95"
+                      - generic [ref=f1e483]: "96"
+                      - generic [ref=f1e484]: "97"
+                      - generic [ref=f1e485]: "98"
+                      - generic [ref=f1e486]: "99"
+                      - generic [ref=f1e487]: "100"
+                      - generic [ref=f1e488]: "101"
+                      - generic [ref=f1e489]: "102"
+                      - generic [ref=f1e490]: "103"
+                      - generic [ref=f1e491]: "104"
+                      - generic [ref=f1e492]: "105"
+                      - generic [ref=f1e493]: "106"
+                      - generic [ref=f1e494]: "107"
+                      - generic [ref=f1e495]: "108"
+                      - generic [ref=f1e496]: "109"
+                      - generic [ref=f1e497]: "110"
+                      - generic [ref=f1e498]: "111"
+                      - generic [ref=f1e499]: "112"
+                      - generic [ref=f1e500]: "113"
+                      - generic [ref=f1e501]: "114"
+                      - generic [ref=f1e502]: "115"
+                      - generic [ref=f1e503]: "116"
+                      - generic [ref=f1e504]: "117"
+                      - generic [ref=f1e505]: "118"
+                      - generic [ref=f1e506]: "119"
+                      - generic [ref=f1e507]: "120"
+                      - generic [ref=f1e508]: "121"
+                      - generic [ref=f1e509]: "122"
+                      - generic [ref=f1e510]: "123"
+                      - generic [ref=f1e511]: "124"
+                      - generic [ref=f1e512]: "125"
+                      - generic [ref=f1e513]: "126"
+                      - generic [ref=f1e514]: "127"
+                      - generic [ref=f1e515]: "128"
+                      - generic [ref=f1e516]: "129"
+                      - generic [ref=f1e517]: "130"
+                      - generic [ref=f1e518]: "131"
+                      - generic [ref=f1e519]: "132"
+                      - generic [ref=f1e520]: "133"
+                      - generic [ref=f1e521]: "134"
+                      - generic [ref=f1e522]: "135"
+                      - generic [ref=f1e523]: "136"
+                    - code [ref=f1e525]:
+                      - generic [ref=f1e526]: /**
+                      - generic [ref=f1e527]: "* File: SieveOfEratosthenesPrimeDemo.java"
+                      - generic [ref=f1e528]: "* Module: 001_008_foundations-practice-assessment-lab (Topic 1)"
+                      - generic [ref=f1e529]: "* Description: Implements and benchmarks the Sieve of Eratosthenes Prime Number Generation Algorithm in Java:"
+                      - generic [ref=f1e530]: "* 1. Sieve Algorithm: O(N log(log N)) time complexity"
+                      - generic [ref=f1e531]: "* 2. Inner loop optimization: Starting composite marking at p * p"
+                      - generic [ref=f1e532]: "* 3. Outer loop limit: p * p <= N (sqrt(N) bound)"
+                      - generic [ref=f1e533]: "* 4. Comparison with Naive Trial Division O(N * sqrt(N))"
+                      - generic [ref=f1e534]: "* 5. BitSet memory optimization (1 bit per entry vs boolean array)"
+                      - generic [ref=f1e535]: "* for student cryptographic token generation at Coder & AccoTax Barrackpore."
+                      - generic [ref=f1e536]: "* Educator: Sukanta Hui | Coder & AccoTax, Barrackpore"
+                      - generic [ref=f1e537]: "*/"
+                      - generic [ref=f1e539]:
+                        - text: package
+                        - generic [ref=f1e540]: com.coderaccotax.javatutorial.foundations
+                        - text: ;
+                      - generic [ref=f1e542]:
+                        - text: import
+                        - generic [ref=f1e543]:
+                          - generic [ref=f1e544]: java.util.
+                          - text: Arrays
+                        - text: ;
+                      - generic [ref=f1e545]:
+                        - text: import
+                        - generic [ref=f1e546]:
+                          - generic [ref=f1e547]: java.util.
+                          - text: BitSet
+                        - text: ;
+                      - generic [ref=f1e549]: "public class SieveOfEratosthenesPrimeDemo {"
+                      - generic [ref=f1e551]: // =========================================================================
+                      - generic [ref=f1e552]: "// 1. STANDARD SIEVE OF ERATOSTHENES: O(N log(log N))"
+                      - generic [ref=f1e553]: // =========================================================================
+                      - generic [ref=f1e554]: "public static boolean[] generatePrimesSieve(int limit) {"
+                      - generic [ref=f1e555]: if (limit < 2) return new boolean[0];
+                      - generic [ref=f1e557]: boolean[] isPrime = new boolean[limit + 1];
+                      - generic [ref=f1e558]: Arrays.fill(isPrime, true);
+                      - generic [ref=f1e559]: isPrime[0] = false;
+                      - generic [ref=f1e560]: isPrime[1] = false;
+                      - generic [ref=f1e562]: // Outer loop runs up to sqrt(limit)
+                      - generic [ref=f1e563]: "for (int p = 2; p * p <= limit; p++) {"
+                      - generic [ref=f1e564]: "if (isPrime[p]) {"
+                      - generic [ref=f1e565]: "// Inner loop marks multiples starting from p * p:"
+                      - generic [ref=f1e566]: "for (int multiple = p * p; multiple <= limit; multiple += p) {"
+                      - generic [ref=f1e567]: isPrime[multiple] = false;
+                      - generic [ref=f1e568]: "}"
+                      - generic [ref=f1e569]: "}"
+                      - generic [ref=f1e570]: "}"
+                      - generic [ref=f1e571]: return isPrime;
+                      - generic [ref=f1e572]: "}"
+                      - generic [ref=f1e574]: // =========================================================================
+                      - generic [ref=f1e575]: // 2. MEMORY OPTIMIZED SIEVE USING BITSET (1 bit per number)
+                      - generic [ref=f1e576]: // =========================================================================
+                      - generic [ref=f1e577]: "public static BitSet generatePrimesBitSet(int limit) {"
+                      - generic [ref=f1e578]: BitSet bitSet = new BitSet(limit + 1);
+                      - generic [ref=f1e579]: bitSet.set(2, limit + 1); // Set bits 2 to limit to true
+                      - generic [ref=f1e581]: "for (int p = 2; p * p <= limit; p = bitSet.nextSetBit(p + 1)) {"
+                      - generic [ref=f1e582]: if (p == -1) break;
+                      - generic [ref=f1e583]: "for (int multiple = p * p; multiple <= limit; multiple += p) {"
+                      - generic [ref=f1e584]: bitSet.clear(multiple);
+                      - generic [ref=f1e585]: "}"
+                      - generic [ref=f1e586]: "}"
+                      - generic [ref=f1e587]: return bitSet;
+                      - generic [ref=f1e588]: "}"
+                      - generic [ref=f1e590]: // =========================================================================
+                      - generic [ref=f1e591]: // 3. NAIVE TRIAL DIVISION (For Performance Benchmark Comparison)
+                      - generic [ref=f1e592]: // =========================================================================
+                      - generic [ref=f1e593]: "public static boolean isPrimeTrialDivision(int n) {"
+                      - generic [ref=f1e594]: if (n <= 1) return false;
+                      - generic [ref=f1e595]: if (n <= 3) return true;
+                      - generic [ref=f1e596]: if (n % 2 == 0 || n % 3 == 0) return false;
+                      - generic [ref=f1e598]: "for (int i = 5; i * i <= n; i += 6) {"
+                      - generic [ref=f1e599]: if (n % i == 0 || n % (i + 2) == 0) return false;
+                      - generic [ref=f1e600]: "}"
+                      - generic [ref=f1e601]: return true;
+                      - generic [ref=f1e602]: "}"
+                      - generic [ref=f1e604]: "public static void main(String[] args) {"
+                      - generic [ref=f1e605]: System.out.println("================================================================================");
+                      - generic [ref=f1e606]: "System.out.println(\"CODER & ACCOTAX - JAVA CORE: TOPIC 1 SIEVE OF ERATOSTHENES\");"
+                      - generic [ref=f1e607]: "System.out.println(\"Educator: Sukanta Hui | Location: Barrackpore, West Bengal\");"
+                      - generic [ref=f1e608]: System.out.println("================================================================================\n");
+                      - generic [ref=f1e610]: int sampleLimit = 50;
+                      - generic [ref=f1e611]: System.out.printf("1. GENERATING ALL PRIME NUMBERS UP TO %d USING SIEVE:%n", sampleLimit);
+                      - generic [ref=f1e612]: boolean[] primes = generatePrimesSieve(sampleLimit);
+                      - generic [ref=f1e614]: int primeCount = 0;
+                      - generic [ref=f1e615]: "System.out.print(\" Primes: \");"
+                      - generic [ref=f1e616]: "for (int i = 2; i <= sampleLimit; i++) {"
+                      - generic [ref=f1e617]: "if (primes[i]) {"
+                      - generic [ref=f1e618]: System.out.print(i + " ");
+                      - generic [ref=f1e619]: primeCount++;
+                      - generic [ref=f1e620]: "}"
+                      - generic [ref=f1e621]: "}"
+                      - generic [ref=f1e622]: "System.out.printf(\"%n Total primes found in range [2..%d]: %d primes%n%n\", sampleLimit, primeCount);"
+                      - generic [ref=f1e624]: // =====================================================================
+                      - generic [ref=f1e625]: "// BENCHMARK: SIEVE VS NAIVE TRIAL DIVISION (N = 100,000)"
+                      - generic [ref=f1e626]: // =====================================================================
+                      - generic [ref=f1e627]: int benchmarkLimit = 100_000;
+                      - generic [ref=f1e628]: System.out.printf("2. PERFORMANCE BENCHMARK (Finding Primes up to %,d):%n", benchmarkLimit);
+                      - generic [ref=f1e630]: // A. Sieve of Eratosthenes
+                      - generic [ref=f1e631]: long startSieve = System.nanoTime();
+                      - generic [ref=f1e632]: boolean[] sievePrimes = generatePrimesSieve(benchmarkLimit);
+                      - generic [ref=f1e633]: long endSieve = System.nanoTime();
+                      - generic [ref=f1e635]: int sieveCount = 0;
+                      - generic [ref=f1e636]: "for (int i = 2; i <= benchmarkLimit; i++) {"
+                      - generic [ref=f1e637]: if (sievePrimes[i]) sieveCount++;
+                      - generic [ref=f1e638]: "}"
+                      - generic [ref=f1e640]: // B. Naive Trial Division
+                      - generic [ref=f1e641]: long startTrial = System.nanoTime();
+                      - generic [ref=f1e642]: int trialCount = 0;
+                      - generic [ref=f1e643]: "for (int i = 2; i <= benchmarkLimit; i++) {"
+                      - generic [ref=f1e644]: if (isPrimeTrialDivision(i)) trialCount++;
+                      - generic [ref=f1e645]: "}"
+                      - generic [ref=f1e646]: long endTrial = System.nanoTime();
+                      - generic [ref=f1e648]: // C. BitSet Sieve
+                      - generic [ref=f1e649]: long startBitSet = System.nanoTime();
+                      - generic [ref=f1e650]: BitSet bitSetPrimes = generatePrimesBitSet(benchmarkLimit);
+                      - generic [ref=f1e651]: long endBitSet = System.nanoTime();
+                      - generic [ref=f1e653]: "System.out.printf(\" • Sieve of Eratosthenes : %,d primes | Time: %,10d ns%n\", sieveCount, (endSieve - startSieve));"
+                      - generic [ref=f1e654]: "System.out.printf(\" • BitSet Optimized Sieve: %,d primes | Time: %,10d ns%n\", bitSetPrimes.cardinality(), (endBitSet - startBitSet));"
+                      - generic [ref=f1e655]: "System.out.printf(\" • Naive Trial Division : %,d primes | Time: %,10d ns%n%n\", trialCount, (endTrial - startTrial));"
+                      - generic [ref=f1e657]: System.out.println("================================================================================");
+                      - generic [ref=f1e658]: System.out.println("KEY TAKEAWAYS FOR STUDENTS (Swadeep, Tuhina, Abhronila, Debangshu):");
+                      - generic [ref=f1e659]: System.out.println("1. Sieve of Eratosthenes runs in O(N log(log N)), vastly beating trial division.");
+                      - generic [ref=f1e660]: System.out.println("2. Always start the inner composite marking loop at p * p (not 2 * p).");
+                      - generic [ref=f1e661]: System.out.println("3. The outer loop only needs to iterate up to sqrt(N) (p * p <= N).");
+                      - generic [ref=f1e662]: System.out.println("4. BitSet reduces memory from 1 byte/boolean to 1 bit/boolean for massive ranges.");
+                      - generic [ref=f1e663]: System.out.println("================================================================================");
+                      - generic [ref=f1e664]: "}"
+                      - generic [ref=f1e665]: "}"
+              - generic [ref=f1e667]:
+                - heading "⚠️ Common Pitfalls & Industry Best Practices" [level=2] [ref=f1e668]:
+                  - generic [ref=f1e669]: ⚠️
+                  - text: Common Pitfalls & Industry Best Practices
+                - generic [ref=f1e670]:
+                  - generic [ref=f1e671]:
+                    - paragraph [ref=f1e672]:
+                      - generic [ref=f1e673]: ❌
+                      - text: "Pitfall 1: Starting the Inner Loop at `2 * p` Instead of `p * p`"
+                    - paragraph [ref=f1e674]:
+                      - text: Starting at
+                      - code [ref=f1e675]: 2 * p
+                      - text: performs redundant writes because all multiples below
+                      - code [ref=f1e676]: p * p
+                      - text: were already marked by earlier primes. Always start at
+                      - code [ref=f1e677]: int multiple = p * p
+                      - text: "!"
+                  - generic [ref=f1e678]:
+                    - paragraph [ref=f1e679]:
+                      - generic [ref=f1e680]: 🛡️
+                      - text: "Best Practice: Use `BitSet` for Large Limits"
+                    - paragraph [ref=f1e681]:
+                      - text: When sieving up to
+                      - code [ref=f1e682]: N = 100,000,000
+                      - text: ", using"
+                      - code [ref=f1e683]: java.util.BitSet
+                      - text: drops memory from 100 MB down to only 12.5 MB, preventing JVM heap out-of-memory errors.
+              - generic [ref=f1e684]:
+                - heading "💡 Think About This..." [level=2] [ref=f1e685]:
+                  - generic [ref=f1e686]: 💡
+                  - text: Think About This...
+                - generic [ref=f1e687]:
+                  - paragraph [ref=f1e688]:
+                    - text: 🤔
+                    - emphasis [ref=f1e689]:
+                      - text: “Can
+                      - code [ref=f1e690]: p * p
+                      - text: overflow 32-bit signed integers in Java?”
+                  - paragraph [ref=f1e691]:
+                    - text: 👉
+                    - strong [ref=f1e692]: "Hint:"
+                    - text: Integer Overflow Hazard! If $p > 46,340$, $p \times p$ exceeds
+                    - code [ref=f1e693]: Integer.MAX_VALUE
+                    - text: ($2.14 \times 10^9$), overflowing into negative numbers and crashing with
+                    - code [ref=f1e694]: ArrayIndexOutOfBoundsException
+                    - text: "! Always guard loop condition with"
+                    - code [ref=f1e695]: p * p <= limit
+                    - text: or cast to
+                    - code [ref=f1e696]: (long) p * p
+                    - text: "!"
+              - generic [ref=f1e698]:
+                - generic [ref=f1e699]:
+                  - generic [ref=f1e700]:
+                    - generic [ref=f1e701]:
+                      - heading "❓ Sieve of Eratosthenes FAQs" [level=2] [ref=f1e702]:
+                        - generic [ref=f1e703]: ❓
+                        - text: Sieve of Eratosthenes FAQs
+                      - paragraph [ref=f1e704]: Test your understanding with these domain mastery questions
+                      - generic [ref=f1e705]:
+                        - generic [ref=f1e706]: 📝 30 Questions
+                        - generic [ref=f1e707]: ✅ 0 Answered
+                    - generic [ref=f1e708]:
+                      - button "🖨️ Print" [ref=f1e709]
+                      - button "📖 Expand All" [ref=f1e710]
+                      - button "📝 Collapse All" [ref=f1e711]
+                  - generic [ref=f1e713]:
+                    - generic [ref=f1e714]: Mastery Progress
+                    - generic [ref=f1e715]: 0% (0/30)
+                - generic [ref=f1e717]:
+                  - generic [ref=f1e718]:
+                    - generic: 🔍
+                    - textbox "Filter questions by keyword or formula..." [ref=f1e719]
+                  - generic [ref=f1e720]:
+                    - generic [ref=f1e721]: "Shortcuts:"
+                    - generic [ref=f1e722]: Ctrl+E
+                    - generic [ref=f1e723]: Ctrl+C
+                    - generic [ref=f1e724]: Ctrl+P
+                - generic [ref=f1e726]:
+                  - button "Q01. What is the Sieve of Eratosthenes? basic ▼" [ref=f1e728]:
+                    - generic [ref=f1e729]:
+                      - generic [ref=f1e730]: Q01.
+                      - generic [ref=f1e731]: What is the Sieve of Eratosthenes?
+                    - generic [ref=f1e732]:
+                      - generic [ref=f1e733]: basic
+                      - generic [ref=f1e734]: ▼
+                  - button "Q02. What is the Time Complexity of the Sieve of Eratosthenes? basic ▼" [ref=f1e736]:
+                    - generic [ref=f1e737]:
+                      - generic [ref=f1e738]: Q02.
+                      - generic [ref=f1e739]: What is the Time Complexity of the Sieve of Eratosthenes?
+                    - generic [ref=f1e740]:
+                      - generic [ref=f1e741]: basic
+                      - generic [ref=f1e742]: ▼
+                  - button "Q03. What is the Space Complexity of the standard Sieve of Eratosthenes? basic ▼" [ref=f1e744]:
+                    - generic [ref=f1e745]:
+                      - generic [ref=f1e746]: Q03.
+                      - generic [ref=f1e747]: What is the Space Complexity of the standard Sieve of Eratosthenes?
+                    - generic [ref=f1e748]:
+                      - generic [ref=f1e749]: basic
+                      - generic [ref=f1e750]: ▼
+                  - 'button "Q04. Why does the outer loop of the Sieve only need to run up to $\\sqrt{N}$ ($p \\times p \\le N$)? basic ▼" [ref=f1e752]':
+                    - generic [ref=f1e753]:
+                      - generic [ref=f1e754]: Q04.
+                      - generic [ref=f1e755]: "Why does the outer loop of the Sieve only need to run up to $\\sqrt{N}$ ($p \\times p \\le N$)?"
+                    - generic [ref=f1e756]:
+                      - generic [ref=f1e757]: basic
+                      - generic [ref=f1e758]: ▼
+                  - button "Q05. Why should the inner composite-marking loop start at $p \\times p$ rather than $2 \\times p$? intermediate ▼" [ref=f1e760]:
+                    - generic [ref=f1e761]:
+                      - generic [ref=f1e762]: Q05.
+                      - generic [ref=f1e763]: Why should the inner composite-marking loop start at $p \times p$ rather than $2 \times p$?
+                    - generic [ref=f1e764]:
+                      - generic [ref=f1e765]: intermediate
+                      - generic [ref=f1e766]: ▼
+                  - button "Q06. In the Coder & AccoTax Barrackpore lab, how many prime numbers were found up to 50? basic ▼" [ref=f1e768]:
+                    - generic [ref=f1e769]:
+                      - generic [ref=f1e770]: Q06.
+                      - generic [ref=f1e771]: In the Coder & AccoTax Barrackpore lab, how many prime numbers were found up to 50?
+                    - generic [ref=f1e772]:
+                      - generic [ref=f1e773]: basic
+                      - generic [ref=f1e774]: ▼
+                  - button "Q07. In the Coder & AccoTax Barrackpore benchmark, how many primes were found up to 100,000? basic ▼" [ref=f1e776]:
+                    - generic [ref=f1e777]:
+                      - generic [ref=f1e778]: Q07.
+                      - generic [ref=f1e779]: In the Coder & AccoTax Barrackpore benchmark, how many primes were found up to 100,000?
+                    - generic [ref=f1e780]:
+                      - generic [ref=f1e781]: basic
+                      - generic [ref=f1e782]: ▼
+                  - 'button "Q08. How does `java.util.BitSet` optimize the memory footprint of the Sieve? intermediate ▼" [ref=f1e784]':
+                    - generic [ref=f1e785]:
+                      - generic [ref=f1e786]: Q08.
+                      - generic [ref=f1e787]: "How does `java.util.BitSet` optimize the memory footprint of the Sieve?"
+                    - generic [ref=f1e788]:
+                      - generic [ref=f1e789]: intermediate
+                      - generic [ref=f1e790]: ▼
+                  - button "Q09. What is the Time Complexity of Naive Trial Division for finding all primes up to $N$? basic ▼" [ref=f1e792]:
+                    - generic [ref=f1e793]:
+                      - generic [ref=f1e794]: Q09.
+                      - generic [ref=f1e795]: What is the Time Complexity of Naive Trial Division for finding all primes up to $N$?
+                    - generic [ref=f1e796]:
+                      - generic [ref=f1e797]: basic
+                      - generic [ref=f1e798]: ▼
+                  - button "Q10. What is a 'Segmented Sieve' and when is it necessary? advanced ▼" [ref=f1e800]:
+                    - generic [ref=f1e801]:
+                      - generic [ref=f1e802]: Q10.
+                      - generic [ref=f1e803]: What is a 'Segmented Sieve' and when is it necessary?
+                    - generic [ref=f1e804]:
+                      - generic [ref=f1e805]: advanced
+                      - generic [ref=f1e806]: ▼
+                  - 'button "Q11. Why are indices 0 and 1 explicitly set to `false` in the Sieve array? basic ▼" [ref=f1e808]':
+                    - generic [ref=f1e809]:
+                      - generic [ref=f1e810]: Q11.
+                      - generic [ref=f1e811]: "Why are indices 0 and 1 explicitly set to `false` in the Sieve array?"
+                    - generic [ref=f1e812]:
+                      - generic [ref=f1e813]: basic
+                      - generic [ref=f1e814]: ▼
+                  - 'button "Q12. How can potential 32-bit integer overflow occur in `p * p` during the Sieve? advanced ▼" [ref=f1e816]':
+                    - generic [ref=f1e817]:
+                      - generic [ref=f1e818]: Q12.
+                      - generic [ref=f1e819]: "How can potential 32-bit integer overflow occur in `p * p` during the Sieve?"
+                    - generic [ref=f1e820]:
+                      - generic [ref=f1e821]: advanced
+                      - generic [ref=f1e822]: ▼
+                  - button "Q13. What is the 'Linear Sieve' (Sieve of Euler)? advanced ▼" [ref=f1e824]:
+                    - generic [ref=f1e825]:
+                      - generic [ref=f1e826]: Q13.
+                      - generic [ref=f1e827]: What is the 'Linear Sieve' (Sieve of Euler)?
+                    - generic [ref=f1e828]:
+                      - generic [ref=f1e829]: advanced
+                      - generic [ref=f1e830]: ▼
+                  - button "Q14. In the Coder & AccoTax Barrackpore lab, what was the first prime number processed by the outer loop? basic ▼" [ref=f1e832]:
+                    - generic [ref=f1e833]:
+                      - generic [ref=f1e834]: Q14.
+                      - generic [ref=f1e835]: In the Coder & AccoTax Barrackpore lab, what was the first prime number processed by the outer loop?
+                    - generic [ref=f1e836]:
+                      - generic [ref=f1e837]: basic
+                      - generic [ref=f1e838]: ▼
+                  - button "Q15. How can you query if an integer $K$ is prime in $O(1)$ time after running the Sieve? basic ▼" [ref=f1e840]:
+                    - generic [ref=f1e841]:
+                      - generic [ref=f1e842]: Q15.
+                      - generic [ref=f1e843]: How can you query if an integer $K$ is prime in $O(1)$ time after running the Sieve?
+                    - generic [ref=f1e844]:
+                      - generic [ref=f1e845]: basic
+                      - generic [ref=f1e846]: ▼
+                  - button "Q16. Can Sieve of Eratosthenes be used to find the Smallest Prime Factor (SPF) for all numbers up to $N$? intermediate ▼" [ref=f1e848]:
+                    - generic [ref=f1e849]:
+                      - generic [ref=f1e850]: Q16.
+                      - generic [ref=f1e851]: Can Sieve of Eratosthenes be used to find the Smallest Prime Factor (SPF) for all numbers up to $N$?
+                    - generic [ref=f1e852]:
+                      - generic [ref=f1e853]: intermediate
+                      - generic [ref=f1e854]: ▼
+                  - button "Q17. What is the Prime Number Theorem (PNT) regarding the density of primes up to $N$? intermediate ▼" [ref=f1e856]:
+                    - generic [ref=f1e857]:
+                      - generic [ref=f1e858]: Q17.
+                      - generic [ref=f1e859]: What is the Prime Number Theorem (PNT) regarding the density of primes up to $N$?
+                    - generic [ref=f1e860]:
+                      - generic [ref=f1e861]: intermediate
+                      - generic [ref=f1e862]: ▼
+                  - button "Q18. In the Coder & AccoTax Barrackpore benchmark, why was Sieve faster than Trial Division? basic ▼" [ref=f1e864]:
+                    - generic [ref=f1e865]:
+                      - generic [ref=f1e866]: Q18.
+                      - generic [ref=f1e867]: In the Coder & AccoTax Barrackpore benchmark, why was Sieve faster than Trial Division?
+                    - generic [ref=f1e868]:
+                      - generic [ref=f1e869]: basic
+                      - generic [ref=f1e870]: ▼
+                  - button "Q19. What is a 'Twin Prime' and how can the Sieve find all twin primes up to $N$? basic ▼" [ref=f1e872]:
+                    - generic [ref=f1e873]:
+                      - generic [ref=f1e874]: Q19.
+                      - generic [ref=f1e875]: What is a 'Twin Prime' and how can the Sieve find all twin primes up to $N$?
+                    - generic [ref=f1e876]:
+                      - generic [ref=f1e877]: basic
+                      - generic [ref=f1e878]: ▼
+                  - button "Q20. How does Goldbach's Conjecture relate to precomputed Sieve primes? intermediate ▼" [ref=f1e880]:
+                    - generic [ref=f1e881]:
+                      - generic [ref=f1e882]: Q20.
+                      - generic [ref=f1e883]: How does Goldbach's Conjecture relate to precomputed Sieve primes?
+                    - generic [ref=f1e884]:
+                      - generic [ref=f1e885]: intermediate
+                      - generic [ref=f1e886]: ▼
+                  - 'button "Q21. What is the maximum limit $N$ for a standard `boolean[]` array in 64-bit Java JVM? advanced ▼" [ref=f1e888]':
+                    - generic [ref=f1e889]:
+                      - generic [ref=f1e890]: Q21.
+                      - generic [ref=f1e891]: "What is the maximum limit $N$ for a standard `boolean[]` array in 64-bit Java JVM?"
+                    - generic [ref=f1e892]:
+                      - generic [ref=f1e893]: advanced
+                      - generic [ref=f1e894]: ▼
+                  - 'button "Q22. How does the `6k ± 1` optimization optimize the Naive Trial Division algorithm? intermediate ▼" [ref=f1e896]':
+                    - generic [ref=f1e897]:
+                      - generic [ref=f1e898]: Q22.
+                      - generic [ref=f1e899]: "How does the `6k ± 1` optimization optimize the Naive Trial Division algorithm?"
+                    - generic [ref=f1e900]:
+                      - generic [ref=f1e901]: intermediate
+                      - generic [ref=f1e902]: ▼
+                  - 'button "Q23. In the Coder & AccoTax Barrackpore lab, what was `bitSet.nextSetBit(p + 1)` used for? advanced ▼" [ref=f1e904]':
+                    - generic [ref=f1e905]:
+                      - generic [ref=f1e906]: Q23.
+                      - generic [ref=f1e907]: "In the Coder & AccoTax Barrackpore lab, what was `bitSet.nextSetBit(p + 1)` used for?"
+                    - generic [ref=f1e908]:
+                      - generic [ref=f1e909]: advanced
+                      - generic [ref=f1e910]: ▼
+                  - button "Q24. Can the Sieve of Eratosthenes be parallelized across multiple CPU cores in Java? advanced ▼" [ref=f1e912]:
+                    - generic [ref=f1e913]:
+                      - generic [ref=f1e914]: Q24.
+                      - generic [ref=f1e915]: Can the Sieve of Eratosthenes be parallelized across multiple CPU cores in Java?
+                    - generic [ref=f1e916]:
+                      - generic [ref=f1e917]: advanced
+                      - generic [ref=f1e918]: ▼
+                  - button "Q25. What is an 'Emirp' prime? intermediate ▼" [ref=f1e920]:
+                    - generic [ref=f1e921]:
+                      - generic [ref=f1e922]: Q25.
+                      - generic [ref=f1e923]: What is an 'Emirp' prime?
+                    - generic [ref=f1e924]:
+                      - generic [ref=f1e925]: intermediate
+                      - generic [ref=f1e926]: ▼
+                  - 'button "Q26. What is the memory consumption of `boolean[100_000_000]` vs `BitSet(100_000_000)`? intermediate ▼" [ref=f1e928]':
+                    - generic [ref=f1e929]:
+                      - generic [ref=f1e930]: Q26.
+                      - generic [ref=f1e931]: "What is the memory consumption of `boolean[100_000_000]` vs `BitSet(100_000_000)`?"
+                    - generic [ref=f1e932]:
+                      - generic [ref=f1e933]: intermediate
+                      - generic [ref=f1e934]: ▼
+                  - 'button "Q27. Why should `Arrays.fill(isPrime, true)` be used instead of manual for-loops? basic ▼" [ref=f1e936]':
+                    - generic [ref=f1e937]:
+                      - generic [ref=f1e938]: Q27.
+                      - generic [ref=f1e939]: "Why should `Arrays.fill(isPrime, true)` be used instead of manual for-loops?"
+                    - generic [ref=f1e940]:
+                      - generic [ref=f1e941]: basic
+                      - generic [ref=f1e942]: ▼
+                  - button "Q28. What is the ultimate takeaway of Module 001_008 Topic 1 for Java developers? basic ▼" [ref=f1e944]:
+                    - generic [ref=f1e945]:
+                      - generic [ref=f1e946]: Q28.
+                      - generic [ref=f1e947]: What is the ultimate takeaway of Module 001_008 Topic 1 for Java developers?
+                    - generic [ref=f1e948]:
+                      - generic [ref=f1e949]: basic
+                      - generic [ref=f1e950]: ▼
+                  - button "Q29. What is the next topic (Topic 2) in Module 001_008? basic ▼" [ref=f1e952]:
+                    - generic [ref=f1e953]:
+                      - generic [ref=f1e954]: Q29.
+                      - generic [ref=f1e955]: What is the next topic (Topic 2) in Module 001_008?
+                    - generic [ref=f1e956]:
+                      - generic [ref=f1e957]: basic
+                      - generic [ref=f1e958]: ▼
+                  - button "Q30. How is Sieve of Eratosthenes used in Cryptography (RSA Key Generation)? advanced ▼" [ref=f1e960]:
+                    - generic [ref=f1e961]:
+                      - generic [ref=f1e962]: Q30.
+                      - generic [ref=f1e963]: How is Sieve of Eratosthenes used in Cryptography (RSA Key Generation)?
+                    - generic [ref=f1e964]:
+                      - generic [ref=f1e965]: advanced
+                      - generic [ref=f1e966]: ▼
+              - generic [ref=f1e968]:
+                - button "Print Note" [ref=f1e969]
+                - button "Download Printable Note" [ref=f1e972]
+              - generic [ref=f1e976]:
+                - generic [ref=f1e977]:
+                  - generic [ref=f1e978]:
+                    - generic [ref=f1e979]: 👨‍🏫
+                    - generic [ref=f1e980]: "Instructor Note:"
+                  - generic [ref=f1e981]: "To Swadeep, Tuhina, Abhronila, and Debangshu: Sieve of Eratosthenes is a classic interview favorite. Remember to start your inner loop at p * p! In Topic 2, we tackle Algorithmic Problem 2: Palindromic Number & String Verification! — Sukanta Hui"
+                - img "Sukanta Hui" [ref=f1e983]
+                - heading "Sukanta Hui" [level=2] [ref=f1e984]
+                - link "github.com/sukantahui" [ref=f1e989] [cursor=pointer]:
+                  - /url: https://github.com/sukantahui
+                - generic [ref=f1e990]: "Corporate & Academic Experience: 28+ Years"
+                - paragraph [ref=f1e991]: Senior Lead Software Architect & Corporate Instructor with 28+ years of industry experience across enterprise architecture, advanced analytics, financial modeling, and engineering systems.
+            - generic [ref=f1e992]:
+              - heading "Have a Question About This Topic?" [level=3] [ref=f1e996]
+              - paragraph [ref=f1e997]: Ask your calculation, formulation, or theorem doubt directly to instructor Sukanta Hui.
+              - textbox "Type your question or problem statement here..." [ref=f1e998]
+              - button "Send Query via WhatsApp" [ref=f1e999]
+            - navigation [ref=f1e1003]:
+              - 'link "Previous Topic Review of Segment 1 core concepts: JVM, Datatypes, Operators, Control Flow, Loops, Arrays, Methods" [ref=f1e1004] [cursor=pointer]':
+                - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/0
+                - generic [ref=f1e1007]:
+                  - generic [ref=f1e1008]: Previous Topic
+                  - generic [ref=f1e1009]: "Review of Segment 1 core concepts: JVM, Datatypes, Operators, Control Flow, Loops, Arrays, Methods"
+              - 'link "Next Topic Algorithmic Problem 2: Palindromic number and String verification" [ref=f1e1010] [cursor=pointer]':
+                - /url: /java-core/topic/001_008_foundations-practice-assessment-lab/2
+                - generic [ref=f1e1011]:
+                  - generic [ref=f1e1012]: Next Topic
+                  - generic [ref=f1e1013]: "Algorithmic Problem 2: Palindromic number and String verification"
+      - generic [ref=f1e1017]:
+        - button "CNAT Mam Ask CNAT Mam AI Mentor" [ref=f1e1018] [cursor=pointer]:
+          - generic [ref=f1e1022]:
+            - img "CNAT Mam" [ref=f1e1024]
+            - generic [ref=f1e1025]: Ask CNAT Mam
+          - generic [ref=f1e1026]: AI Mentor
+        - button "Close AI Assistant" [ref=f1e1027] [cursor=pointer]

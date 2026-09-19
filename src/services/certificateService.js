@@ -9,7 +9,7 @@ export const certificateService = {
    */
   getByCode: async (code) => {
     try {
-      const response = await api.get(`dev/certificates/${code}`);
+      const response = await api.get(`/dev/certificates/${code}`);
       return response.data;
     } catch (error) {
       console.error("Error fetching certificate:", error);

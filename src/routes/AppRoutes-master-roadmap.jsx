@@ -74,6 +74,7 @@ const StudentFeeReceiptPart3 = lazy(() => import('../components/StudentFeeReceip
 const StudentFeeReceiptPart4 = lazy(() => import('../components/StudentFeeReceiptPart4'));
 const StudentWithAdmission = lazy(() => import('../components/students/StudentWithAdmission'));
 const FeePaymentsList = lazy(() => import('../components/FeePaymentsList'));
+const QuestionBankManager = lazy(() => import('../components/questions/QuestionBankManager'));
 
 // Master Study View Engines
 const StudyRoadmap = lazy(() => import('../components/study/StudyRoadmap'));
@@ -110,6 +111,8 @@ const ROUTES = {
   FEE_RECEIPT_PART4: '/studentFeesReceiptPart4',
   ADD_STUDENT: '/students/add',
   SUBJECTS: '/subjects',
+  QUESTION_BANK: '/questions',
+  ADMIN_QUESTION_BANK: '/admin/question-bank',
   STUDY: '/study',
   CLASS_11: '/study/class11',
   CLASS_11_WBB: '/study/class11/wbb',
@@ -779,7 +782,30 @@ export default function AppRoutes() {
 
 
         <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} />
-        <Route path={ROUTES.SUBJECTS} element={<Subject />} />
+        <Route
+          path={ROUTES.SUBJECTS}
+          element={
+            <ProtectedRouteWrapper>
+              <QuestionBankManager />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path={ROUTES.QUESTION_BANK}
+          element={
+            <ProtectedRouteWrapper>
+              <QuestionBankManager />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path={ROUTES.ADMIN_QUESTION_BANK}
+          element={
+            <ProtectedRouteWrapper>
+              <QuestionBankManager />
+            </ProtectedRouteWrapper>
+          }
+        />
 
         {/* ---------- Academic Study Routes ---------- */}
         <Route path={ROUTES.STUDY} element={<Study />} />
