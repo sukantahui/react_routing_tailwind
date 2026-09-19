@@ -279,26 +279,26 @@ export default function Topic1() {
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Standard Sieve of Eratosthenes</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N \log(\log N))$</td>
-                <td className="p-3 text-slate-300 font-sans">$O(N)$ boolean array</td>
-                <td className="p-3 text-slate-300 font-sans">Generating all primes up to $N \le 10^7$</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N log(log N))</td>
+                <td className="p-3 text-slate-300 font-sans">O(N) boolean array</td>
+                <td className="p-3 text-slate-300 font-sans">Generating all primes up to N ≤ 10⁷</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">BitSet Optimized Sieve</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N \log(\log N))$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N/8)$ 8x less RAM</td>
-                <td className="p-3 text-slate-300 font-sans">Memory-constrained systems up to $10^8$</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N log(log N))</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N/8) 8x less RAM</td>
+                <td className="p-3 text-slate-300 font-sans">Memory-constrained systems up to 10⁸</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Segmented Sieve</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(N \log(\log N))$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(\sqrt{N})$ L1 cache fit</td>
-                <td className="p-3 text-slate-300 font-sans">Massive ranges up to $N \le 10^{12}$</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(N log(log N))</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(√N) L1 cache fit</td>
+                <td className="p-3 text-slate-300 font-sans">Massive ranges up to N ≤ 10¹²</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
-                <td className="p-3 text-sky-300 font-bold">Naive Trial Division ($6k \pm 1$)</td>
-                <td className="p-3 text-rose-400 font-sans">$O(N \sqrt{N})$</td>
-                <td className="p-3 text-emerald-400 font-bold font-sans">$O(1)$ constant memory</td>
+                <td className="p-3 text-sky-300 font-bold">Naive Trial Division (6k ± 1)</td>
+                <td className="p-3 text-rose-400 font-sans">O(N √N)</td>
+                <td className="p-3 text-emerald-400 font-bold font-sans">O(1) constant memory</td>
                 <td className="p-3 text-slate-300 font-sans">Testing single random individual numbers</td>
               </tr>
             </tbody>

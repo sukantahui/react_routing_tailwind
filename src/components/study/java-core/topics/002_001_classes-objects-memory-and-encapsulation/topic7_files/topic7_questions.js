@@ -22,7 +22,7 @@ const topic7_questions = [
   },
   {
     question: "What are the default initialization values for all 8 primitive types and reference types in Java?",
-    shortAnswer: "byte/short/int/long = 0, float/double = 0.0, boolean = false, char = '\\u0000', Reference types = null.",
+    shortAnswer: "byte/short/int/long = 0, float=0.0f, double=0.0, boolean = false, char = '\\u0000', Reference types = null.",
     explanation: "During Phase 3 of object allocation, the JVM zero-initializes the allocated Heap memory block before running explicit field initializers or constructor logic, guaranteeing type safety.",
     hint: "Numeric to 0, boolean to false, char to NUL, references to null.",
     level: "Beginner",
