@@ -12,7 +12,7 @@
 // - 3-Step Payment Guide & Direct WhatsApp Confirmation
 // ===============================================
 
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo } from "react";
 import QRCode from "react-qr-code";
 import QRCodeLib from "qrcode";
 import {
@@ -30,8 +30,11 @@ import {
   Smartphone,
   Building2,
   FileCheck2,
+  BookOpen,
 } from "lucide-react";
 import cnatLogo from "../../assets/cnat.png";
+import coursesData from "../../data/courses.json";
+import StudentCourseQRModal from "../../components/StudentCourseQRModal";
 
 const UPI_ID = "9432456083@upi";
 const MERCHANT_NAME = "Coder & AccoTax";
@@ -62,6 +65,22 @@ export default function FeesPayment() {
   const [courseName, setCourseName] = useState("");
   const [copied, setCopied] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [showStudentQRModal, setShowStudentQRModal] = useState(false);
+
+  // Flatten course options
+  const flatCourses = useMemo(() => {
+    const list = [];
+    if (Array.isArray(coursesData)) {
+      coursesData.forEach((g) => {
+        if (Array.isArray(g.courses)) {
+          g.courses.forEach((c) => {
+            list.push({ ...c, category: g.category });
+          });
+        }
+      });
+    }
+    return list;
+  }, []);
 
   // Compute clean UPI Payment Payload
   const upiPayload = useMemo(() => {
@@ -265,14 +284,69 @@ export default function FeesPayment() {
                 </div>
               </div>
 
-              <div className="mt-2.5">
-                <input
-                  type="text"
-                  placeholder="Course / Batch / Remarks (e.g. Python Batch 3, ICSE Java, Tally GST)"
-                  value={courseName}
-                  onChange={(e) => setCourseName(e.target.value)}
-                  className="w-full px-3 py-2 bg-slate-950/80 border border-slate-700/80 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-2.5">
+                <div>
+                  <select
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (!val) return;
+                      const found = flatCourses.find((c) => c.courseID === val);
+                      if (found) {
+                        setCourseName(found.title);
+                        const numFee = found.fee
+                          ? parseFloat(String(found.fee).replace(/[^0-9.]/g, "")) || 0
+                          : 0;
+                        if (numFee > 0 && !selectedAmount) {
+                          setSelectedAmount(String(Math.min(numFee, 1500)));
+                        }
+                      }
+                    }}
+                    className="w-full px-3 py-2 bg-slate-950/80 border border-slate-700/80 rounded-xl text-xs text-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
+                  >
+                    <option value="">-- Choose Course from Catalog --</option>
+                    {flatCourses.map((c) => (
+                      <option key={c.courseID} value={c.courseID}>
+                        [{c.category}] {c.title} ({c.fee || "Fee"})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Course / Batch / Remarks (Custom)"
+                    value={courseName}
+                    onChange={(e) => setCourseName(e.target.value)}
+                    className="w-full px-3 py-2 bg-slate-950/80 border border-slate-700/80 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
+                  />
+                </div>
+              </div>
+
+              {/* Student Course QR Studio Trigger Banner */}
+              <div className="mt-3 p-3 rounded-xl bg-gradient-to-r from-purple-950/40 via-sky-950/30 to-slate-950 border border-purple-500/30 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0">
+                    <BookOpen size={14} />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-xs font-bold text-white block truncate">
+                      Student Course QR Studio
+                    </span>
+                    <span className="text-[10px] text-slate-400 block truncate">
+                      Generate personalized course advice &amp; WhatsApp message
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowStudentQRModal(true)}
+                  className="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-purple-600/30 transition flex-shrink-0 cursor-pointer"
+                >
+                  <QrCode size={13} />
+                  <span>Open Studio</span>
+                </button>
               </div>
             </div>
 
@@ -514,6 +588,16 @@ export default function FeesPayment() {
           </div>
         </div>
       </div>
+
+      {/* 🎓 Student Course QR Modal */}
+      {showStudentQRModal && (
+        <StudentCourseQRModal
+          isOpen={showStudentQRModal}
+          initialCourse={courseName}
+          initialStudentName={studentName}
+          onClose={() => setShowStudentQRModal(false)}
+        />
+      )}
     </section>
   );
 }

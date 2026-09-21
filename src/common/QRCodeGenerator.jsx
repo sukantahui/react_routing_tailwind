@@ -28,8 +28,10 @@ import {
   RefreshCw,
   Info,
   Sliders,
-  Layers
+  Layers,
+  BookOpen,
 } from 'lucide-react';
+import coursesData from '../data/courses.json';
 
 const DEFAULT_LOGO = '/assets/cnat.png';
 const MAITRI_LOGO = '/assets/maitri-mahotsav-27.png';
@@ -46,6 +48,7 @@ const COLOR_PRESETS = [
 ];
 
 const CONTENT_TYPES = [
+  { id: 'course', label: 'Student Course QR', icon: BookOpen, desc: 'Course fee, student advice & WhatsApp' },
   { id: 'url', label: 'Website URL', icon: Globe, desc: 'Web addresses, articles, links' },
   { id: 'text', label: 'Plain Text', icon: FileText, desc: 'Notes, serials, raw information' },
   { id: 'wifi', label: 'Wi-Fi Network', icon: Wifi, desc: '1-tap instant network connect' },
@@ -74,6 +77,35 @@ const QRCodeGenerator = () => {
   const [title, setTitle] = useState('');
 
   // Form states per type
+  // Flatten courses from coursesData
+  const allCoursesList = useMemo(() => {
+    const list = [];
+    if (Array.isArray(coursesData)) {
+      coursesData.forEach((group) => {
+        if (Array.isArray(group.courses)) {
+          group.courses.forEach((c) => {
+            list.push({
+              ...c,
+              category: group.category,
+            });
+          });
+        }
+      });
+    }
+    return list;
+  }, []);
+
+  const [courseData, setCourseData] = useState({
+    courseId: 'course001',
+    studentName: '',
+    studentPhone: '',
+    amount: '1500',
+    batch: 'Evening (05:00 PM - 07:00 PM)',
+    mode: 'Online / Offline',
+    discount: 10,
+    remarks: '',
+  });
+
   const [urlData, setUrlData] = useState({
     url: 'https://coderandaccotax.com',
   });
@@ -199,6 +231,25 @@ const QRCodeGenerator = () => {
   // Compute standard payload string based on active content type
   const computedPayload = useMemo(() => {
     switch (contentType) {
+      case 'course': {
+        const found = allCoursesList.find((c) => c.courseID === courseData.courseId) || allCoursesList[0];
+        const cleanPa = '9432456083@upi';
+        const cleanPn = 'Coder & AccoTax';
+        let str = `upi://pay?pa=${cleanPa}&pn=${encodeURIComponent(cleanPn)}&cu=INR`;
+        const amt = parseFloat(courseData.amount);
+        if (!isNaN(amt) && amt > 0) {
+          str += `&am=${amt.toFixed(2)}`;
+        }
+        const note = `${courseData.studentName || 'Student'} ${found?.title || 'Course'} Fee`
+          .replace(/[^a-zA-Z0-9 ]/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+        if (note) {
+          str += `&tn=${encodeURIComponent(note.slice(0, 50))}`;
+        }
+        return str;
+      }
+
       case 'url': {
         const trimmed = (urlData.url || '').trim();
         if (!trimmed) return 'https://example.com';
@@ -281,7 +332,19 @@ const QRCodeGenerator = () => {
       default:
         return 'https://example.com';
     }
-  }, [contentType, urlData, textData, wifiData, upiData, whatsappData, emailData, vcardData, smsData]);
+  }, [
+    contentType,
+    courseData,
+    allCoursesList,
+    urlData,
+    textData,
+    wifiData,
+    upiData,
+    whatsappData,
+    emailData,
+    vcardData,
+    smsData,
+  ]);
 
   // Active logo image object for drawing
   const currentLogoImage = useMemo(() => {
@@ -889,6 +952,200 @@ const QRCodeGenerator = () => {
 
                 {/* DYNAMIC FORM PER TYPE */}
                 <div className="p-5 rounded-2xl bg-slate-900/70 border border-slate-800/80 backdrop-blur-sm space-y-4">
+                  {/* --- 0. STUDENT COURSE QR --- */}
+                  {contentType === 'course' && (
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                        <span className="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                          <BookOpen className="w-4 h-4" />
+                          <span>Student Course Enrollment &amp; Fee Advice</span>
+                        </span>
+                        <span className="text-[11px] text-emerald-400 font-mono font-semibold">
+                          Official UPI: 9432456083@upi
+                        </span>
+                      </div>
+
+                      {/* Course Select */}
+                      <div>
+                        <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                          Select Course
+                        </label>
+                        <select
+                          value={courseData.courseId}
+                          onChange={(e) => {
+                            const selectedId = e.target.value;
+                            const found = allCoursesList.find((c) => c.courseID === selectedId);
+                            const numFee = found?.fee
+                              ? parseFloat(String(found.fee).replace(/[^0-9.]/g, '')) || 1500
+                              : 1500;
+                            setCourseData({
+                              ...courseData,
+                              courseId: selectedId,
+                              amount: String(Math.min(numFee, 1500)),
+                            });
+                          }}
+                          className="w-full px-3.5 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                        >
+                          {allCoursesList.map((c) => (
+                            <option key={c.courseID} value={c.courseID}>
+                              [{c.category}] {c.title} — {c.fee || 'Fee'} ({c.duration || 'Course'})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      {/* Student Name & Phone */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                            Student Full Name
+                          </label>
+                          <input
+                            type="text"
+                            value={courseData.studentName}
+                            onChange={(e) => setCourseData({ ...courseData, studentName: e.target.value })}
+                            placeholder="e.g. Rahul Sen"
+                            className="w-full px-3.5 py-2 bg-slate-950/80 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                            Student Phone / WhatsApp
+                          </label>
+                          <input
+                            type="tel"
+                            value={courseData.studentPhone}
+                            onChange={(e) => setCourseData({ ...courseData, studentPhone: e.target.value })}
+                            placeholder="e.g. 9830012345"
+                            className="w-full px-3.5 py-2 bg-slate-950/80 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Amount Chips & Input */}
+                      <div>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <label className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                            Paying Amount (₹)
+                          </label>
+                          <span className="text-[11px] text-slate-500">Preset Installment / Token</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5 mb-2">
+                          {[500, 1000, 1500, 2000, 2500, 3000, 5000].map((amt) => (
+                            <button
+                              key={amt}
+                              type="button"
+                              onClick={() => setCourseData({ ...courseData, amount: String(amt) })}
+                              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
+                                courseData.amount === String(amt)
+                                  ? 'bg-emerald-500 text-white'
+                                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                              }`}
+                            >
+                              ₹{amt.toLocaleString('en-IN')}
+                            </button>
+                          ))}
+                        </div>
+                        <div className="relative">
+                          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-400">
+                            ₹
+                          </span>
+                          <input
+                            type="number"
+                            value={courseData.amount}
+                            onChange={(e) => setCourseData({ ...courseData, amount: e.target.value })}
+                            placeholder="1500"
+                            className="w-full pl-8 pr-3 py-2 bg-slate-950/80 border border-slate-800 rounded-xl text-xs sm:text-sm text-white font-mono font-bold focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                            min="1"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Batch & Mode */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                            Batch Timing
+                          </label>
+                          <select
+                            value={courseData.batch}
+                            onChange={(e) => setCourseData({ ...courseData, batch: e.target.value })}
+                            className="w-full px-3 py-2 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                          >
+                            <option value="Morning (08:00 AM - 10:00 AM)">Morning (08:00 AM - 10:00 AM)</option>
+                            <option value="Morning (10:00 AM - 12:00 PM)">Morning (10:00 AM - 12:00 PM)</option>
+                            <option value="Evening (05:00 PM - 07:00 PM)">Evening (05:00 PM - 07:00 PM)</option>
+                            <option value="Evening (07:00 PM - 09:00 PM)">Evening (07:00 PM - 09:00 PM)</option>
+                            <option value="Weekend Saturday & Sunday">Weekend Saturday &amp; Sunday</option>
+                            <option value="Online Flexible Pace">Online Flexible Pace</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+                            Class Mode
+                          </label>
+                          <select
+                            value={courseData.mode}
+                            onChange={(e) => setCourseData({ ...courseData, mode: e.target.value })}
+                            className="w-full px-3 py-2 bg-slate-950/80 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                          >
+                            <option value="Online / Offline (Hybrid)">Online / Offline (Hybrid)</option>
+                            <option value="Offline Classroom Lab">Offline Classroom Lab</option>
+                            <option value="100% Live Online">100% Live Online</option>
+                            <option value="1-on-1 Mentorship">1-on-1 Mentorship</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* WhatsApp Share Box */}
+                      <div className="pt-3 border-t border-slate-800">
+                        {(() => {
+                          const currentCourse =
+                            allCoursesList.find((c) => c.courseID === courseData.courseId) ||
+                            allCoursesList[0];
+                          const waText = [
+                            `🎓 *STUDENT COURSE ENROLLMENT / FEE ADVICE*`,
+                            `━━━━━━━━━━━━━━━━━━━━━━━`,
+                            `👤 *Student Name:* ${courseData.studentName.trim() || 'Prospective Student'}`,
+                            courseData.studentPhone.trim()
+                              ? `📞 *Contact Phone:* ${courseData.studentPhone.trim()}`
+                              : null,
+                            `📚 *Course:* ${currentCourse?.title || 'Selected Course'}`,
+                            `📂 *Category:* ${currentCourse?.category || 'Technical Course'}`,
+                            `⏱️ *Duration:* ${currentCourse?.duration || 'Standard'} | *Mode:* ${courseData.mode}`,
+                            `🕒 *Preferred Batch:* ${courseData.batch}`,
+                            `💰 *Course Fee:* ${currentCourse?.fee || 'Standard'}`,
+                            `💵 *Amount Paying / Advice:* ₹${parseFloat(courseData.amount || 0).toLocaleString('en-IN')}`,
+                            `💳 *UPI Payee:* Coder & AccoTax (9432456083@upi)`,
+                            `🗓️ *Date:* ${new Date().toLocaleDateString('en-IN')}`,
+                            `━━━━━━━━━━━━━━━━━━━━━━━`,
+                            `_Please confirm admission & issue receipt upon payment._`,
+                          ]
+                            .filter(Boolean)
+                            .join('\n');
+
+                          const waUrl = `https://wa.me/919432456083?text=${encodeURIComponent(waText)}`;
+
+                          return (
+                            <div className="space-y-2">
+                              <a
+                                href={waUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition"
+                              >
+                                <i className="bi bi-whatsapp text-base"></i>
+                                <span>Share Detail Text to Official WhatsApp (+91 94324 56083)</span>
+                              </a>
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  )}
+
                   {/* --- 1. URL --- */}
                   {contentType === 'url' && (
                     <div className="space-y-4">

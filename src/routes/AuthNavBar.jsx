@@ -92,6 +92,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-mortarboard-fill",
           badge: "Step 2",
         },
+        {
+          to: "/student-course-qr",
+          label: "Student Course QR",
+          desc: "Generate course payment QR & WhatsApp advice",
+          icon: "bi-qr-code",
+          badge: "WhatsApp",
+        },
         ...(isManagerOrAdmin
           ? [
               {

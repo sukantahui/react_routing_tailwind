@@ -172,6 +172,13 @@ const NavBar = () => {
           tag: "Utility",
         },
         {
+          to: "/student-course-qr",
+          label: "Student Course QR",
+          desc: "Generate student fee QR & WhatsApp advice",
+          icon: "bi-qr-code",
+          tag: "Admission",
+        },
+        {
           to: "/qrcode",
           label: "QR Code Generator",
           desc: "Instant dynamic QR generator & scanner",

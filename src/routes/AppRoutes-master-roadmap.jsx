@@ -10,6 +10,7 @@ const Login = lazy(() => import('../components/Login'));
 const NotFound = lazy(() => import('./NotFound'));
 const Certificate = lazy(() => import('./certificates/Certificate'));
 const QRCodeGenerator = lazy(() => import('../common/QRCodeGenerator'));
+const StudentCourseQRPage = lazy(() => import('../components/StudentCourseQRPage'));
 const Playground = lazy(() => import('../common/Playground'));
 const PythonPlayground = lazy(() => import('../common/PythonPlayground'));
 const PlayWhiteBoard = lazy(() => import('../components/PlayWhiteBoard'));
@@ -100,6 +101,7 @@ const ROUTES = {
   DATABASE_BACKUP: '/admin/backups',
   BIJOYA: '/bijoya',
   QRCODE: '/qrcode',
+  STUDENT_COURSE_QR: '/student-course-qr',
   LINKED_LIST: '/LinkedListVisualizer',
   DOUBLY_LINKED_LIST: '/DoublyLinkedListVisualizer',
   BINARY_TREE: '/BinaryTreeVisualizer',
@@ -595,6 +597,8 @@ export default function AppRoutes() {
         <Route path={ROUTES.CERTIFICATES_PORTAL} element={<Certificate />} />
         <Route path={ROUTES.CERTIFICATE_VIEW} element={<Certificate />} />
         <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} />
+        <Route path={ROUTES.STUDENT_COURSE_QR} element={<StudentCourseQRPage />} />
+        <Route path="/tools/student-course-qr" element={<StudentCourseQRPage />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
         <Route path={ROUTES.PYTHON_PLAY} element={<PythonPlayground />} />
         <Route path={ROUTES.WHITEBOARD} element={<PlayWhiteBoard />} />

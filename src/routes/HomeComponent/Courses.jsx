@@ -11,6 +11,7 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import coursesData from "../../data/courses.json";
+import StudentCourseQRModal from "../../components/StudentCourseQRModal";
 
 // Course & Group Images
 import javaImg from "../../assets/course-images/java-logo.svg";
@@ -101,7 +102,7 @@ const getBadgeClass = (badge = "") => {
 };
 
 // Course Details Modal Component
-const CourseDetailsModal = ({ course, category, onClose }) => {
+const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
   const [activeTab, setActiveTab] = useState("syllabus");
   const [copied, setCopied] = useState(false);
 
@@ -533,6 +534,18 @@ const CourseDetailsModal = ({ course, category, onClose }) => {
         <div className="p-5 sm:p-6 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
+              onClick={() => {
+                onClose();
+                onOpenQR?.(course);
+              }}
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl bg-purple-600/25 hover:bg-purple-600 text-purple-300 hover:text-white border border-purple-500/40 transition cursor-pointer"
+              title="Generate Student Course QR & WhatsApp Message"
+            >
+              <i className="bi bi-qr-code-scan"></i>
+              <span>Student QR &amp; WhatsApp</span>
+            </button>
+
+            <button
               onClick={handleCopyLink}
               className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition"
               title="Copy course details summary"
@@ -567,6 +580,7 @@ const CourseDetailsModal = ({ course, category, onClose }) => {
 const Courses = () => {
   const [expandedGroups, setExpandedGroups] = useState({});
   const [selectedCourseModal, setSelectedCourseModal] = useState(null);
+  const [qrModalCourse, setQrModalCourse] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("All");
   const courseRefs = useRef({});
@@ -883,7 +897,16 @@ const Courses = () => {
                                     className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs font-semibold py-2 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white shadow-md shadow-sky-600/20 transition"
                                   >
                                     <i className="bi bi-eye"></i>
-                                    <span>View Details & Syllabus</span>
+                                    <span>Details</span>
+                                  </button>
+
+                                  <button
+                                    onClick={() => setQrModalCourse(course)}
+                                    className="inline-flex items-center justify-center gap-1 text-xs font-semibold py-2 px-2.5 rounded-xl bg-purple-600/25 hover:bg-purple-600 text-purple-300 hover:text-white border border-purple-500/40 transition cursor-pointer"
+                                    title="Generate Student Course QR & WhatsApp Message"
+                                  >
+                                    <i className="bi bi-qr-code-scan"></i>
+                                    <span className="hidden sm:inline">Student QR</span>
                                   </button>
 
                                   <a
@@ -892,7 +915,7 @@ const Courses = () => {
                                     )}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center gap-1 text-xs font-semibold py-2 px-3 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 transition"
+                                    className="inline-flex items-center justify-center gap-1 text-xs font-semibold py-2 px-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 transition"
                                     title="Quick WhatsApp Inquiry"
                                   >
                                     <i className="bi bi-whatsapp"></i>
@@ -931,9 +954,19 @@ const Courses = () => {
             course={selectedCourseModal.course}
             category={selectedCourseModal.category}
             onClose={() => setSelectedCourseModal(null)}
+            onOpenQR={(c) => setQrModalCourse(c)}
           />
         )}
       </AnimatePresence>
+
+      {/* 🎓 Student Course QR & WhatsApp Modal */}
+      {qrModalCourse && (
+        <StudentCourseQRModal
+          isOpen={Boolean(qrModalCourse)}
+          initialCourse={qrModalCourse}
+          onClose={() => setQrModalCourse(null)}
+        />
+      )}
     </section>
   );
 };

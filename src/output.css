@@ -9208,6 +9208,12 @@
       background-color: color-mix(in oklab, var(--color-purple-600) 20%, transparent);
     }
   }
+  .bg-purple-600\/25 {
+    background-color: color-mix(in srgb, oklch(55.8% 0.288 302.321) 25%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-purple-600) 25%, transparent);
+    }
+  }
   .bg-purple-600\/30 {
     background-color: color-mix(in srgb, oklch(55.8% 0.288 302.321) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -13139,6 +13145,14 @@
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
+  .via-sky-950\/30 {
+    --tw-gradient-via: color-mix(in srgb, oklch(29.3% 0.066 243.157) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-via: color-mix(in oklab, var(--color-sky-950) 30%, transparent);
+    }
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
   .via-sky-950\/40 {
     --tw-gradient-via: color-mix(in srgb, oklch(29.3% 0.066 243.157) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -16194,12 +16208,6 @@
       color: color-mix(in oklab, var(--color-emerald-500) 80%, transparent);
     }
   }
-  .text-emerald-500\/90 {
-    color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 90%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-emerald-500) 90%, transparent);
-    }
-  }
   .text-emerald-600 {
     color: var(--color-emerald-600);
   }
@@ -16235,12 +16243,6 @@
   }
   .text-fuchsia-400 {
     color: var(--color-fuchsia-400);
-  }
-  .text-fuchsia-400\/90 {
-    color: color-mix(in srgb, oklch(74% 0.238 322.16) 90%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-fuchsia-400) 90%, transparent);
-    }
   }
   .text-fuchsia-500 {
     color: var(--color-fuchsia-500);
