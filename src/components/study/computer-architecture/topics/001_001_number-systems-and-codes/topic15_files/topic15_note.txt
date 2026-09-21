@@ -1,72 +1,139 @@
 ================================================================================
 COMPUTER ARCHITECTURE & DIGITAL SYSTEMS MASTERCLASS
 MODULE: 001_001_NUMBER-SYSTEMS-AND-CODES
-TOPIC 15: PRACTICE YOUR SKILL HERE
+TOPIC 15: CAPSTONE PRACTICE LAB & SKILL ASSESSMENT MANUAL
 INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
 ================================================================================
 
-1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+1. EXECUTIVE OVERVIEW & MODULE 001 CAPSTONE OBJECTIVES
 --------------------------------------------------------------------------------
-This topic provides an exhaustive theoretical and practical deep-dive into:
-"Practice your Skill here".
-Understanding hardware number systems, binary codes, and register representations
-is foundational to computer organization, arithmetic logic unit (ALU) design,
-and low-level firmware engineering.
+Welcome to the Capstone Practice and Assessment Lab for Module 001: Number Systems
+and Binary Codes. This document contains curated problem sets, comprehensive step-by-step
+worked solutions, and diagnostic scoring rubrics to solidify your mastery of:
+  1. Multi-radix positional base conversions (Binary, Octal, Decimal, Hexadecimal, Fixed-Point).
+  2. Signed integer representations (Sign-Magnitude, 1's Complement, 2's Complement, Excess-K).
+  3. ALU arithmetic datapath execution, Carry propagation, and Overflow detection (V = Cn ^ Cn-1).
+  4. Character encoding standards (ASCII 7-bit, Unicode UTF-8 variable length).
+  5. Industrial encodings (Packed BCD 8421 + DAA, Reflected Gray Code unit-distance encoders).
 
-2. FORMAL THEORETICAL FOUNDATIONS & MATHEMATICAL FORMULAS
 --------------------------------------------------------------------------------
-In digital hardware architectures:
-- Representation of signed numbers: Sign-Magnitude, 1's Complement, and 2's Complement.
-- Range of n-bit signed integers in 2's Complement: [-2^(n-1) to +2^(n-1) - 1].
-- Overflow Condition: Occurs when adding two numbers of the same sign produces a result
-  with the opposite sign, or when Carry-In (C_in) to MSB != Carry-Out (C_out) from MSB (V = C_n XOR C_(n-1)).
-- Binary Coded Decimal (BCD): 8421 weighted binary representation where each decimal
-  digit is encoded in 4 bits; valid range 0000 to 1001 (0 to 9); values 1010 to 1111 are illegal.
-- Gray Code (Reflected Binary): Unit-distance code where adjacent numbers differ by
-  only 1 bit, eliminating multi-bit switching glitches in optical shaft encoders.
-
-3. CONCRETE STEP-BY-STEP WORKED EXAMPLES
+2. COMPREHENSIVE WORKED CAPSTONE PROBLEMS
 --------------------------------------------------------------------------------
-Example: 8-Bit Arithmetic & 2's Complement Representation
-Decimal Value: -25
-1. Positive binary (25): (00011001)_2
-2. 1's Complement (invert bits): 11100110
-3. 2's Complement (add 1): 11100111 = (-25)_10
 
-Arithmetic Check (45 - 25 = 20):
-  +45: 00101101
-  -25: 11100111
-  Sum: 1 00010100 (End carry discarded) → Result: 00010100 = (20)_10. Verified!
+PROBLEM 1: Multi-Base Conversion Pipeline
+Convert Decimal 379.375 into:
+  (a) Binary Fixed-Point
+  (b) Hexadecimal
+  (c) Octal
 
-4. REAL-WORLD WEST BENGAL ENGINEERING APPLICATIONS
+Solution Step-by-Step:
+1. Integer Part (379):
+   - 379 / 2 = 189 rem 1 (LSB)
+   - 189 / 2 = 94  rem 1
+   - 94  / 2 = 47  rem 0
+   - 47  / 2 = 23  rem 1
+   - 23  / 2 = 11  rem 1
+   - 11  / 2 = 5   rem 1
+   - 5   / 2 = 2   rem 1
+   - 2   / 2 = 1   rem 0
+   - 1   / 2 = 0   rem 1 (MSB)
+   Integer Binary = 101111011_2 (379_10)
+
+2. Fractional Part (0.375):
+   - 0.375 * 2 = 0.750 -> Integer 0
+   - 0.750 * 2 = 1.500 -> Integer 1
+   - 0.500 * 2 = 1.000 -> Integer 1 (Terminates)
+   Fractional Binary = .011_2
+
+(a) Binary Result: 101111011.011_2
+(b) Hexadecimal: Pad into 4-bit nibbles:
+    0001 0111 1011 . 0110_2 = 1 7 B . 6_16 -> 0x17B.6
+(c) Octal: Pad into 3-bit groups:
+    101 111 011 . 011_2 = 5 7 3 . 3_8 -> (573.3)_8
+
 --------------------------------------------------------------------------------
-1. Barrackpore Telecom Signal Processing:
-   Mamata configures high-speed DSP buffers using 2's complement audio samples
-   preventing phase distortion during DAC reconstruction.
-2. Jadavpur Embedded Systems Lab:
-   Debangshu writes hardware drivers using Gray code rotary encoders to detect
-   motor shaft positions with zero mechanical contact bounce error.
-3. Ichapur Industrial Automation:
-   Susmita programs Siemens PLC systems interfacing with 7-segment BCD displays
-   with automatic +6 decimal correction on addition overflow.
-4. Kolkata High-Frequency Trading:
-   Mahima profiles latency-critical integer calculations avoiding CPU overflow traps.
+PROBLEM 2: Signed Arithmetic & Overflow Analysis
+Given an 8-bit 2's complement ALU, evaluate the following operations:
+  (A) (+95) + (+45)
+  (B) (-70) + (-65)
+  (C) (+80) - (-55)
 
-5. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
---------------------------------------------------------------------------------
-- PITFALL: Confusing 1's complement with 2's complement; 1's complement possesses
-  two representations of zero (+0 and -0), complicating ALU zero-detector logic.
-- PITFALL: Ignoring bit-width expansion during signed addition (e.g. sign-extending 8-bit to 16-bit).
-- BEST PRACTICE: Always use 2's complement for integer representation in CPU architectures.
-- BEST PRACTICE: Use hardware XOR gate between C_in and C_out of MSB to generate the ALU Overflow (V) flag.
+Evaluation:
+(A) (+95) + (+45):
+    +95:  0 1 0 1 1 1 1 1
+  + +45:  0 0 1 0 1 1 0 1
+  ------------------------
+    Sum:  1 0 0 0 1 1 0 0  (0x8C = -116 in signed 2's comp)
+    Flags: Z=0, N=1, C=0, V=1.
+    Diagnosis: Signed Overflow occurred! True mathematical sum is +140, which
+    exceeds INT8_MAX (+127). The sign bit incorrectly flipped to 1 (negative).
 
-6. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
+(B) (-70) + (-65):
+    -70 (256 - 70 = 186): 1 0 1 1 1 0 1 0
+  + -65 (256 - 65 = 191): 1 0 1 1 1 1 1 1
+  ----------------------------------------
+    Sum:               (1) 0 1 1 1 1 0 0 1  (0x79 = +121)
+    Flags: Z=0, N=0, C=1, V=1.
+    Diagnosis: Signed Underflow occurred! True sum is -135, which falls below
+    INT8_MIN (-128). Adding two negative numbers produced a positive sign bit.
+
+(C) (+80) - (-55):
+    Computed as (+80) + (+55).
+    +80:  0 1 0 1 0 0 0 0
+  + +55:  0 0 1 1 0 1 1 1
+  ------------------------
+    Sum:  1 0 0 0 0 1 1 1  (0x87 = -121)
+    Flags: Z=0, N=1, C=0, V=1 (Overflow! +135 > +127).
+
 --------------------------------------------------------------------------------
-"In digital system architecture, numbers are not abstract mathematical symbols;
-they represent voltage levels and register flip-flops. Always remember why 2's complement
-won the hardware revolution: subtraction is implemented using the exact same adder circuitry
-without needing a dedicated subtractor! Master these bit-level foundations from first principles."
+PROBLEM 3: UTF-8 Variable-Length Byte Assembly
+Encode the Unicode character for the Bengali letter 'ম' (Code Point U+09AE).
+
+Solution:
+1. Code point U+09AE falls into the 3-byte range (U+0800 to U+FFFF).
+2. 3-byte UTF-8 template: 1110xxxx 10xxxxxx 10xxxxxx
+3. 0x09AE in 16-bit binary: 0000 1001 1010 1110
+4. Distribute payload bits:
+   - Upper 4 bits (0000) -> 1110 0000 (0xE0)
+   - Middle 6 bits (100110) -> 10 100110 (0xA6)
+   - Lower 6 bits (101110) -> 10 101110 (0xAE)
+Final UTF-8 Encoded Sequence: 0xE0 0xA6 0xAE (3 Bytes). Verified!
+
+--------------------------------------------------------------------------------
+3. CAPSTONE SELF-ASSESSMENT RUBRIC & DIAGNOSTIC GUIDE
+--------------------------------------------------------------------------------
+Score (out of 30) | Proficiency Level     | Actionable Feedback
+------------------+-----------------------+-------------------------------------
+27 - 30           | Silicon Architect     | Exceptional mastery of hardware bit
+                  | (Senior Master)       | mechanics, overflow logic & encoding!
+22 - 26           | Systems Engineer      | Strong foundations; review fractional
+                  | (Advanced)            | radix points and DAA BCD rules.
+16 - 21           | Junior Developer      | Re-visit Topics 7, 9, and 10 (2's
+                  | (Intermediate)        | complement arithmetic & overflow flags).
+Below 16          | Apprentice            | Review Module 001 starting from Topic 0.
+
+--------------------------------------------------------------------------------
+4. REAL-WORLD CASE STUDIES (WEST BENGAL ENGINEERING CONTEXT)
+--------------------------------------------------------------------------------
+Case Study 1: Barrackpore Inter-College Coding Hackathon
+At a high-stakes algorithmic programming contest in Barrackpore, Mamata and
+Mahima scored top honors by implementing custom bit-manipulation routines and
+SIMD-accelerated 2's complement filtering that ran 8x faster than generic libraries.
+
+Case Study 2: Jadavpur University Microelectronics Olympiad
+Debangshu and Susmita built a live hardware testbench demonstrating Gray-code
+sensor decoding and full adder carry lookahead synthesis, winning the Best Hardware
+Design award across all participating engineering institutes in West Bengal.
+
+--------------------------------------------------------------------------------
+5. TEACHER'S CAPSTONE SUMMARY - SIR SUKANTA HUI
+--------------------------------------------------------------------------------
+"Congratulations on completing Module 001! You have traversed the complete journey
+from humble positional base systems to production 2's complement ALUs and global UTF-8
+encodings. The foundational principles you mastered here form the bedrock for all
+digital logic gates, sequential circuits, CPU pipelines, and operating systems.
+Carry this bit-level precision forward into Module 002!"
 
 ================================================================================
-END OF STUDY NOTE - TOPIC 15
+END OF CAPSTONE PRACTICE STUDY NOTE - TOPIC 15
 ================================================================================

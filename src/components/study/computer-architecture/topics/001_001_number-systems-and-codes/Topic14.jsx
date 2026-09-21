@@ -1,485 +1,426 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import questions from "./topic14_files/topic14_questions";
 import noteText from "./topic14_files/topic14_note.txt?raw";
+import questions from "./topic14_files/topic14_questions";
 
-/**
- * Topic14 – Downloadable Documents
- * Module: 001_001_number-systems-and-codes (Number Systems & Binary Codes)
- * Track: Computer Architecture – From Core Systems to Performance Engineering
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with multi-tabbed vector schematic suite,
- *                        live simulation workbench, real-world case studies, best practices, FAQs, and printable notes.
- */
-const Topic14 = () => {
-  const [activeDiagramTab, setActiveDiagramTab] = useState("tab1");
-  const [simStep, setSimStep] = useState(1);
-  const sectionRefs = useRef([]);
+export default function Topic14() {
+  const [activeTab, setActiveTab] = useState("radix");
+  const [searchFilter, setSearchFilter] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+  const referenceCards = [
+    {
+      id: "radix",
+      category: "radix",
+      title: "Radix Conversion Formula Matrix",
+      tag: "Base Math",
+      color: "teal",
+      summary: "Decimal to Base-R successive division/multiplication & direct binary-hex-octal grouping.",
+      formula: "Integer: Remainder stack (Bottom-Up); Fraction: Integer overflow queue (Top-Down); Direct: 4-bit nibble = 1 Hex digit.",
+      code: "// 4-bit Hex Translation\n0b1101_1010 == 0xDA == (332)_8"
+    },
+    {
+      id: "twoscomp",
+      category: "signed",
+      title: "2's Complement Weight & Range Card",
+      tag: "Arithmetic",
+      color: "emerald",
+      summary: "Signed n-bit integer range [-2^(n-1) to +2^(n-1)-1] with unique zero 0x00.",
+      formula: "Value = -2^(n-1)·b_(n-1) + Σ (2^i · b_i) from i=0 to n-2; Negation: -X = ~X + 1",
+      code: "// 8-bit limits\nINT8_MIN = -128 (0x80), INT8_MAX = 127 (0x7F)"
+    },
+    {
+      id: "overflow",
+      category: "flags",
+      title: "ALU Condition Codes & Overflow (V) Flag",
+      tag: "Microarchitecture",
+      color: "rose",
+      summary: "Direct single-gate flag extraction from parallel binary adder datapath.",
+      formula: "V = C_n ⊕ C_(n-1); Z = ~(|Sum); N = Sum[MSB]; C = Carry_Out",
+      code: "assign overflow_flag = carry[7] ^ carry[6];\nassign zero_flag = ~(|sum);"
+    },
+    {
+      id: "utf8",
+      category: "codes",
+      title: "Unicode UTF-8 Byte Layout Reference",
+      tag: "Encoding",
+      color: "indigo",
+      summary: "Variable-length 1 to 4-byte standard with 100% backward ASCII compatibility.",
+      formula: "1B: 0xxxxxxx; 2B: 110xxxxx 10xxxxxx; 3B: 1110xxxx 10xxxxxx 10xxxxxx; 4B: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx",
+      code: "// Bengali 'ক' (U+0995) -> 0xE0 0xA6 0x95 (3 Bytes)"
+    },
+    {
+      id: "gray",
+      category: "codes",
+      title: "Gray Code (Reflected Binary) Reference",
+      tag: "Encoders",
+      color: "amber",
+      summary: "Unit-distance code eliminating multi-bit switching hazards in shaft encoders.",
+      formula: "Binary to Gray: Gray = B ⊕ (B >> 1); Gray to Binary: B[i] = B[i+1] ⊕ G[i]",
+      code: "uint32_t bin2gray(uint32_t b) { return b ^ (b >> 1); }"
+    },
+    {
+      id: "bcd",
+      category: "codes",
+      title: "Packed BCD 8421 & DAA Adjustment",
+      tag: "Financial",
+      color: "cyan",
+      summary: "Exact 4-bit decimal storage (0000..1001) avoiding floating-point rounding drift.",
+      formula: "If (Nibble > 9 || Aux_Carry == 1) Nibble += 6 (0110) to skip invalid states 10..15.",
+      code: "if (nibble > 9 || aux_carry) nibble += 6; // DAA decimal adjust"
     }
-  };
+  ];
+
+  const filteredCards = referenceCards.filter((card) => {
+    const matchesCat = selectedCategory === "all" || card.category === selectedCategory;
+    const matchesSearch =
+      card.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      card.summary.toLowerCase().includes(searchFilter.toLowerCase()) ||
+      card.formula.toLowerCase().includes(searchFilter.toLowerCase());
+    return matchesCat && matchesSearch;
+  });
 
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
-
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+    <div className="dark min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>⚡</span>
-            <span>Computer Architecture Masterclass · Module 001 · Topic 14</span>
+        {/* Header */}
+        <header className="space-y-4 border-b border-slate-800 pb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-3 py-1 bg-teal-500/10 text-teal-400 border border-teal-500/20 text-xs font-semibold uppercase tracking-wider rounded-full">
+              Computer Architecture • Module 001.001 • Topic 14
+            </span>
+            <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold uppercase tracking-wider rounded-full">
+              Reference Manual & Documents
+            </span>
           </div>
-          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
-            Downloadable Documents
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Architectural Reference Compendium & Downloadable Cheat-Sheets
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Understand how computers represent numbers and characters at the hardware level.
+          <p className="text-slate-400 text-lg leading-relaxed max-w-4xl">
+            A comprehensive, verified reference atlas consolidating all Module 001 number systems, radix conversion rules, 2's complement equations, ALU flag truth tables, and character encoding standards for hardware engineers and computer science scholars.
           </p>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              🔒 Hardware Circuit Schematic
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⏱️ Timing &amp; Invariants
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 State Transitions &amp; Buses
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Silicon Synthesis
-            </span>
-          </div>
         </header>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* 3-Tab Architecture Schematics Suite */}
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Downloadable Documents
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">⚡</span> Master Architectural Decision Trees & Reference Schematics
               </h2>
-              <p className="text-xs text-slate-400">
-                Understanding computer architecture fundamentals and silicon-level mechanics from first principles
+              <p className="text-sm text-slate-400">
+                Visualizing master conversion pipelines, flag condition logic, and code structures.
               </p>
             </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Hardware Implementation Reality
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">Downloadable Documents</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Zero Glitch Architecture · Deterministic State Transitions
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to strict setup/hold times and bus arbitration protocols, hardware guarantees exact execution semantics across millions of concurrent cycles.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Hardware performance is the product of clean datapath layout, minimal critical path delay, and cache locality!"</em>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated railway freight terminal in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Synchronized Routing:</strong> Trains are switched between parallel tracks strictly according to master clock signals.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Interlock Protection:</strong> Hardware lockouts prevent concurrent write conflicts and hazardous race conditions.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Silicon Advantage:</strong> High instruction throughput with 100% data integrity!
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 3. Multi-Tabbed Schematic & Architectural Suite ── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Timing Diagrams
-            </h2>
-            {/* Tab Selector */}
-            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+            <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setActiveDiagramTab("tab1")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab1"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
+                onClick={() => setActiveTab("radix")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "radix"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
               >
-                1. Radix Conversion Engine
+                1. Radix Conversion Decision Tree
               </button>
               <button
-                onClick={() => setActiveDiagramTab("tab2")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab2"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
+                onClick={() => setActiveTab("flags")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "flags"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
               >
-                2. 2's Complement Sign Unit
+                2. ALU Flag & Branching Matrix
               </button>
               <button
-                onClick={() => setActiveDiagramTab("tab3")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab3"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
+                onClick={() => setActiveTab("codes")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "codes"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
               >
-                3. Positional Bit Weights
+                3. Character & Sensor Encoding Atlas
               </button>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            {activeDiagramTab === "tab1" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
-                  1. Radix Conversion Engine
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 300" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="30" y="30" width="220" height="240" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="140" y="65" fill="#5eead4" textAnchor="middle" fontWeight="bold" fontSize="14">Input Integer / Fraction</text>
-          <text x="140" y="100" fill="#ffffff" textAnchor="middle" fontSize="18" fontWeight="bold">Value N (Base-10)</text>
-          <rect x="50" y="120" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="145" fill="#cbd5e1" textAnchor="middle">Integer Part: Div by Base r</text>
-          <rect x="50" y="175" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="200" fill="#cbd5e1" textAnchor="middle">Fraction: Mul by Base r</text>
-          <text x="140" y="245" fill="#94a3b8" textAnchor="middle" fontSize="10">Positional: Σ (dᵢ · rⁱ)</text>
+          <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-6 flex flex-col items-center justify-center">
+            {activeTab === "radix" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="28" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Master Radix Conversion Highway & Direct Binary Grouping
+                </text>
 
-          <line x1="250" y1="150" x2="350" y2="150" stroke="#38bdf8" strokeWidth="3" strokeDasharray="5 3" />
-          <polygon points="350,145 365,150 350,155" fill="#38bdf8" />
-          <text x="300" y="140" fill="#38bdf8" textAnchor="middle" fontSize="11">Iterative Modulo</text>
+                {/* Central Binary Hub */}
+                <g transform="translate(325, 120)">
+                  <rect width="200" height="100" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
+                  <text x="100" y="40" textAnchor="middle" fill="#5eead4" fontSize="16" fontWeight="bold">BINARY (Base-2)</text>
+                  <text x="100" y="65" textAnchor="middle" fill="#94a3b8" fontSize="11">0s and 1s (Silicon Core)</text>
+                  <text x="100" y="85" textAnchor="middle" fill="#cbd5e1" fontSize="10">Positional: Σ (bᵢ · 2ⁱ)</text>
+                </g>
 
-          <rect x="365" y="30" width="280" height="240" rx="12" fill="#0f172a" stroke="#38bdf8" strokeWidth="2.5" />
-          <text x="505" y="65" fill="#7dd3fc" textAnchor="middle" fontWeight="bold" fontSize="14">Successive Radix Hardware</text>
-          <rect x="385" y="85" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="110" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Integer Stack: Read Bottom-Up</text>
-          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) → MSB (Last Rem)</text>
-          <rect x="385" y="170" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="195" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Fraction Queue: Read Top-Down</text>
-          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) → LSB (Last Int)</text>
+                {/* Octal Box */}
+                <g transform="translate(50, 40)">
+                  <rect width="180" height="80" rx="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+                  <text x="90" y="32" textAnchor="middle" fill="#7dd3fc" fontSize="14" fontWeight="bold">OCTAL (Base-8)</text>
+                  <text x="90" y="55" textAnchor="middle" fill="#94a3b8" fontSize="11">Digits 0 - 7</text>
+                  <text x="90" y="70" textAnchor="middle" fill="#38bdf8" fontSize="10" fontWeight="bold">3-Bit Direct Grouping</text>
+                </g>
+                <path d="M 230 80 Q 280 100 325 140" fill="none" stroke="#38bdf8" strokeWidth="2" strokeDasharray="4 2" />
 
-          <line x1="645" y1="150" x2="745" y2="150" stroke="#22c55e" strokeWidth="3" />
-          <polygon points="745,145 760,150 745,155" fill="#22c55e" />
-          <text x="695" y="140" fill="#22c55e" textAnchor="middle" fontSize="11">Target Output</text>
+                {/* Hex Box */}
+                <g transform="translate(620, 40)">
+                  <rect width="180" height="80" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="90" y="32" textAnchor="middle" fill="#fbbf24" fontSize="14" fontWeight="bold">HEX (Base-16)</text>
+                  <text x="90" y="55" textAnchor="middle" fill="#94a3b8" fontSize="11">Digits 0-9, A-F</text>
+                  <text x="90" y="70" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="bold">4-Bit Direct Grouping (Nibble)</text>
+                </g>
+                <path d="M 620 80 Q 570 100 525 140" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 2" />
 
-          <rect x="760" y="30" width="150" height="240" rx="12" fill="#052e16" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="835" y="70" fill="#86efac" textAnchor="middle" fontWeight="bold" fontSize="14">Output Base-R</text>
-          <text x="835" y="110" fill="#ffffff" textAnchor="middle" fontSize="20" fontWeight="bold">Binary / Hex</text>
-          <text x="835" y="150" fill="#86efac" textAnchor="middle" fontSize="11">Radix Point (.)</text>
-          <text x="835" y="190" fill="#bbf7d0" textAnchor="middle" fontSize="10">Zero Truncation</text>
-          <text x="835" y="235" fill="#4ade80" textAnchor="middle" fontSize="11" fontWeight="bold">Exact Precision</text>
-        </svg>
-                </div>
-              </div>
+                {/* Decimal Box */}
+                <g transform="translate(325, 270)">
+                  <rect width="200" height="70" rx="10" fill="#0f172a" stroke="#a855f7" strokeWidth="1.5" />
+                  <text x="100" y="30" textAnchor="middle" fill="#c084fc" fontSize="14" fontWeight="bold">DECIMAL (Base-10)</text>
+                  <text x="100" y="52" textAnchor="middle" fill="#94a3b8" fontSize="11">Div/Mul by Base-R</text>
+                </g>
+                <line x1="425" y1="220" x2="425" y2="270" stroke="#a855f7" strokeWidth="2" />
+
+                <text x="425" y="355" textAnchor="middle" fill="#64748b" fontSize="11">
+                  Rule of Thumb: Never convert Octal to Hex via Decimal; always route through Binary as the fast intermediate bridge!
+                </text>
+              </svg>
             )}
 
-            {activeDiagramTab === "tab2" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
-                  2. 2's Complement Sign Unit
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="40" y="40" width="160" height="150" rx="10" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="120" y="70" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="13">Raw Magnitude (A)</text>
-          <text x="120" y="115" fill="#ffffff" textAnchor="middle" fontSize="16" fontWeight="bold">[ 0 1 0 1 1 0 0 1 ]</text>
-          <text x="120" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Unsigned / Positive</text>
+            {activeTab === "flags" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="28" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  ALU Condition Flags Generation & Hardware Branching Logic
+                </text>
 
-          <line x1="200" y1="115" x2="300" y2="115" stroke="#f59e0b" strokeWidth="3" />
-          <polygon points="300,110 315,115 300,120" fill="#f59e0b" />
-          <text x="250" y="105" fill="#f59e0b" textAnchor="middle" fontSize="11">Bitwise NOT</text>
+                {/* 4 Flag Boxes */}
+                <g transform="translate(40, 60)">
+                  <rect width="170" height="150" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#34d399" fontSize="14" fontWeight="bold">Zero Flag (Z)</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="11">Equation: ~(|Sum)</text>
+                  <text x="85" y="80" textAnchor="middle" fill="#cbd5e1" fontSize="11">1 when result is 00..00</text>
+                  <text x="85" y="115" textAnchor="middle" fill="#34d399" fontSize="11" fontWeight="bold">Used in: BEQ, BNE, JZ</text>
+                </g>
 
-          <rect x="315" y="40" width="180" height="150" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="2.5" />
-          <text x="405" y="70" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="13">1's Complement (Ā)</text>
-          <text x="405" y="115" fill="#fde68a" textAnchor="middle" fontSize="16" fontWeight="bold">[ 1 0 1 0 0 1 1 0 ]</text>
-          <text x="405" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Inverted Bits</text>
+                <g transform="translate(240, 60)">
+                  <rect width="170" height="150" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#7dd3fc" fontSize="14" fontWeight="bold">Sign Flag (N / S)</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="11">Equation: Sum[MSB]</text>
+                  <text x="85" y="80" textAnchor="middle" fill="#cbd5e1" fontSize="11">1 when result is negative</text>
+                  <text x="85" y="115" textAnchor="middle" fill="#38bdf8" fontSize="11" fontWeight="bold">Used in: JS, JNS, BLT</text>
+                </g>
 
-          <line x1="495" y1="115" x2="595" y2="115" stroke="#38bdf8" strokeWidth="3" />
-          <polygon points="595,110 610,115 595,120" fill="#38bdf8" />
-          <text x="545" y="105" fill="#38bdf8" textAnchor="middle" fontSize="11">+ 1 LSB Adder</text>
+                <g transform="translate(440, 60)">
+                  <rect width="170" height="150" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#fbbf24" fontSize="14" fontWeight="bold">Carry Flag (C)</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="11">Equation: Carry_Out (C₈)</text>
+                  <text x="85" y="80" textAnchor="middle" fill="#cbd5e1" fontSize="11">Unsigned 8-bit overflow</text>
+                  <text x="85" y="115" textAnchor="middle" fill="#fbbf24" fontSize="11" fontWeight="bold">Used in: JC, JNC, BLTU</text>
+                </g>
 
-          <rect x="610" y="40" width="280" height="150" rx="10" fill="#0f172a" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="750" y="70" fill="#22c55e" textAnchor="middle" fontWeight="bold" fontSize="13">2's Complement Negation (-A)</text>
-          <text x="750" y="115" fill="#86efac" textAnchor="middle" fontSize="18" fontWeight="bold">[ 1 0 1 0 0 1 1 1 ]</text>
-          <text x="750" y="155" fill="#cbd5e1" textAnchor="middle" fontSize="11">MSB = 1 (Negative Sign Bit) | Value = -A</text>
-        </svg>
-                </div>
-              </div>
+                <g transform="translate(640, 60)">
+                  <rect width="170" height="150" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="2" />
+                  <text x="85" y="30" textAnchor="middle" fill="#fb7185" fontSize="14" fontWeight="bold">Overflow Flag (V)</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="11">Equation: C_in(MSB) ⊕ C_out</text>
+                  <text x="85" y="80" textAnchor="middle" fill="#cbd5e1" fontSize="11">Signed range overflow</text>
+                  <text x="85" y="115" textAnchor="middle" fill="#fb7185" fontSize="11" fontWeight="bold">Used in: JO, JNO, BLT</text>
+                </g>
+
+                {/* Branch Equation Banner */}
+                <g transform="translate(40, 230)">
+                  <rect width="770" height="95" rx="8" fill="#1e293b" stroke="#64748b" />
+                  <text x="385" y="30" textAnchor="middle" fill="#f8fafc" fontSize="13" fontWeight="bold">
+                    Signed vs Unsigned Branching Decision Rule:
+                  </text>
+                  <text x="385" y="55" textAnchor="middle" fill="#38bdf8" fontSize="12" fontFamily="monospace">
+                    Signed Comparison (A &lt; B): Evaluated by (N ⊕ V) == 1
+                  </text>
+                  <text x="385" y="78" textAnchor="middle" fill="#34d399" fontSize="12" fontFamily="monospace">
+                    Unsigned Comparison (A &lt; B): Evaluated by C == 0 (Borrow generation)
+                  </text>
+                </g>
+              </svg>
             )}
 
-            {activeDiagramTab === "tab3" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  3. Positional Bit Weights
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <text x="470" y="35" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">8-Bit Signed Binary Positional Weight Matrix</text>
-          {[-128, 64, 32, 16, 8, 4, 2, 1].map((wt, i) => (
-            <g key={i} transform={`translate(${60 + i * 105}, 60)`}>
-              <rect width="90" height="120" rx="8" fill="#1e293b" stroke={i === 0 ? "#f43f5e" : "#38bdf8"} strokeWidth="2" />
-              <text x="45" y="30" fill={i === 0 ? "#f43f5e" : "#38bdf8"} textAnchor="middle" fontWeight="bold" fontSize="12">Bit {7 - i}</text>
-              <text x="45" y="60" fill="#ffffff" textAnchor="middle" fontWeight="bold" fontSize="14">{i === 0 ? "Sign" : "Mag"}</text>
-              <text x="45" y="95" fill={i === 0 ? "#fca5a5" : "#7dd3fc"} textAnchor="middle" fontWeight="bold" fontSize="13">{wt}</text>
-            </g>
-          ))}
-          <text x="470" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">Total Value = -128·b₇ + 64·b₆ + 32·b₅ + 16·b₄ + 8·b₃ + 4·b₂ + 2·b₁ + 1·b₀</text>
-        </svg>
-                </div>
-              </div>
+            {activeTab === "codes" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="28" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Binary Codes & Standard Data Formats Quick Atlas
+                </text>
+
+                {/* 4 Code Pillars */}
+                <g transform="translate(40, 60)">
+                  <rect width="170" height="250" rx="8" fill="#0f172a" stroke="#0ea5e9" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#38bdf8" fontSize="13" fontWeight="bold">Standard ASCII</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="10">7-Bit (128 Characters)</text>
+                  <text x="85" y="85" textAnchor="middle" fill="#cbd5e1" fontSize="11">'0'..'9': 0x30..0x39</text>
+                  <text x="85" y="110" textAnchor="middle" fill="#cbd5e1" fontSize="11">'A'..'Z': 0x41..0x5A</text>
+                  <text x="85" y="135" textAnchor="middle" fill="#cbd5e1" fontSize="11">'a'..'z': 0x61..0x7A</text>
+                  <text x="85" y="170" textAnchor="middle" fill="#38bdf8" fontSize="10">Toggle Case: OR 0x20</text>
+                  <text x="85" y="195" textAnchor="middle" fill="#38bdf8" fontSize="10">To Digit: AND 0x0F</text>
+                </g>
+
+                <g transform="translate(240, 60)">
+                  <rect width="170" height="250" rx="8" fill="#0f172a" stroke="#8b5cf6" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#a78bfa" fontSize="13" fontWeight="bold">Unicode UTF-8</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="10">1 to 4 Bytes</text>
+                  <text x="85" y="85" textAnchor="middle" fill="#cbd5e1" fontSize="11">Self-Synchronizing</text>
+                  <text x="85" y="110" textAnchor="middle" fill="#cbd5e1" fontSize="11">100% ASCII Compatible</text>
+                  <text x="85" y="135" textAnchor="middle" fill="#cbd5e1" fontSize="11">Prefix defines length</text>
+                  <text x="85" y="170" textAnchor="middle" fill="#a78bfa" fontSize="10">Bengali 'ক' = 3 Bytes</text>
+                  <text x="85" y="195" textAnchor="middle" fill="#a78bfa" fontSize="10">Global Internet Std</text>
+                </g>
+
+                <g transform="translate(440, 60)">
+                  <rect width="170" height="250" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#34d399" fontSize="13" fontWeight="bold">Packed BCD</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="10">4 Bits per Decimal</text>
+                  <text x="85" y="85" textAnchor="middle" fill="#cbd5e1" fontSize="11">Valid: 0000..1001</text>
+                  <text x="85" y="110" textAnchor="middle" fill="#cbd5e1" fontSize="11">Invalid: 1010..1111</text>
+                  <text x="85" y="135" textAnchor="middle" fill="#cbd5e1" fontSize="11">DAA: Add +6 on carry</text>
+                  <text x="85" y="170" textAnchor="middle" fill="#34d399" fontSize="10">Exact Paisa Banking</text>
+                  <text x="85" y="195" textAnchor="middle" fill="#34d399" fontSize="10">No float roundoff</text>
+                </g>
+
+                <g transform="translate(640, 60)">
+                  <rect width="170" height="250" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="85" y="30" textAnchor="middle" fill="#fbbf24" fontSize="13" fontWeight="bold">Gray Code</text>
+                  <text x="85" y="55" textAnchor="middle" fill="#94a3b8" fontSize="10">Unit-Distance Code</text>
+                  <text x="85" y="85" textAnchor="middle" fill="#cbd5e1" fontSize="11">1 Bit Flip per step</text>
+                  <text x="85" y="110" textAnchor="middle" fill="#cbd5e1" fontSize="11">G = B ⊕ (B &gt;&gt; 1)</text>
+                  <text x="85" y="135" textAnchor="middle" fill="#cbd5e1" fontSize="11">No false spikes</text>
+                  <text x="85" y="170" textAnchor="middle" fill="#fbbf24" fontSize="10">Optical Shaft Discs</text>
+                  <text x="85" y="195" textAnchor="middle" fill="#fbbf24" fontSize="10">Async FIFO Pointers</text>
+                </g>
+              </svg>
             )}
           </div>
         </section>
 
-        {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Downloadable Documents
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Select Execution Phase / Clock Cycle:
-              </span>
-              <div className="flex gap-2">
-                {[1, 2, 3, 4].map((step) => (
-                  <button
-                    key={step}
-                    onClick={() => setSimStep(step)}
-                    className={clsx(
-                      "px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold border transition",
-                      simStep === step
-                        ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
-                    )}
-                  >
-                    Phase {step}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950 border border-teal-500/30 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-teal-950 text-teal-300 font-mono text-xs font-bold border border-teal-800">
-                  EXECUTION PHASE {simStep} OF 4
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Hardware State T+{simStep}</span>
-              </div>
-              <h3 className="text-base font-bold text-white">
-                {simStep === 1 && "Phase 1: Signal Conditioning & Input Ingestion"}
-                {simStep === 2 && "Phase 2: Datapath Decoding & Logic Evaluation"}
-                {simStep === 3 && "Phase 3: State Storage & Memory Interface Strobe"}
-                {simStep === 4 && "Phase 4: Output Stabilization & Verification"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {simStep === 1 && "Signals are ingested from input pins and stabilized against ground bounce and setup timing constraints."}
-                {simStep === 2 && "Combinational logic gates and internal buses evaluate control lines to compute intermediate signals."}
-                {simStep === 3 && "Bistable registers latch stable binary states on the active clock edge."}
-                {simStep === 4 && "Outputs drive downstream data buses and status flags are committed cleanly."}
+        {/* Interactive Filterable Reference Matrix */}
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="text-indigo-400">📖</span> Searchable Architectural Formula & Reference Cards
+              </h2>
+              <p className="text-sm text-slate-400">
+                Filter and inspect formulas, hardware implementations, and code snippets across Module 001.
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* ─── 5. Real-World Engineering Scenarios ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE AUTOMATION
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-2">
+              {[
+                { id: "all", label: "All Cards" },
+                { id: "radix", label: "Radix Math" },
+                { id: "signed", label: "Signed Numbers" },
+                { id: "flags", label: "ALU Flags" },
+                { id: "codes", label: "Encodings" }
+              ].map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
+                    selectedCategory === cat.id
+                      ? "bg-teal-500 text-slate-950 font-bold"
+                      : "bg-slate-800 text-slate-400 hover:text-white"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Search Box */}
+          <div>
+            <input
+              type="text"
+              placeholder="Search reference formulas, flags, UTF-8, BCD, 2's complement..."
+              value={searchFilter}
+              onChange={(e) => setSearchFilter(e.target.value)}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-teal-500 font-sans"
+            />
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredCards.map((card) => (
+              <div
+                key={card.id}
+                className="bg-slate-950/80 border border-slate-800 rounded-xl p-5 space-y-3 flex flex-col justify-between hover:border-slate-700 transition"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-teal-400">
+                      {card.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-white">{card.title}</h3>
+                  <p className="text-xs text-slate-400">{card.summary}</p>
                 </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Real-Time Process Automation</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata deployed high-reliability industrial controllers in Barrackpore. Implementing hardware synchronization eliminated race conditions across ₹45 Lakh automated assembly lines.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Deterministic SIL-4 Reliability
-              </div>
-            </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR EMBEDDED LAB
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
+                <div className="space-y-2 pt-2 border-t border-slate-800/80">
+                  <div className="text-[11px] font-mono text-teal-300 bg-slate-900 p-2 rounded border border-slate-800/60 break-words">
+                    {card.formula}
+                  </div>
+                  <pre className="text-[11px] font-mono text-slate-300 bg-slate-900/60 p-2 rounded border border-slate-800/40 overflow-x-auto">
+                    {card.code}
+                  </pre>
                 </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">High-Speed Microprocessor Signal Routing</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu analyzed clock skew across 32-bit register buses on custom FPGA prototypes, ensuring setup and hold times were met at 200 MHz clock frequencies.
-                </p>
               </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Nanosecond Clock Skew Precision
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* ─── 6. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Violating Setup and Hold Time Windows:</strong>
-                Changing data inputs too close to the active clock edge traps the storage element in metastability, resulting in unpredictable output oscillations.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Uncontrolled Bus Contention:</strong>
-                Enabling multiple tri-state drivers simultaneously causes high short-circuit currents and severe thermal stress on silicon chips.
-              </div>
-            </div>
+        {/* Real-World Case Studies */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="p-1.5 bg-teal-500/10 text-teal-400 rounded-md">🚆</span>
+              Case Study: Barrackpore Rail Telemetry Interface
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              During the high-voltage substation upgrade in <strong>Barrackpore</strong>, engineers <strong>Mamata</strong> and <strong>Mahima</strong> used verified 2's complement reference cards and parity timing formulas.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Standardizing sensor telemetry word alignments across the ₹32 Crore substation network eliminated false fault trips caused by mixed-endian microcontroller protocols.
+            </p>
+          </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Synchronous Reset Architectures:</strong>
-                Always prefer synchronous reset lines over asynchronous resets to prevent spurious resets triggered by EMI noise spikes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Decoupling Capacitors &amp; Power Planes:</strong>
-                Place 0.1 µF bypass capacitors adjacent to every IC power pin to suppress switching transients during high-frequency clock edges.
-              </div>
-            </div>
+          <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="p-1.5 bg-indigo-500/10 text-indigo-400 rounded-md">🛰️</span>
+              Case Study: Jadavpur University Satellite Telemetry Payload
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              At <strong>Jadavpur University</strong>, researchers <strong>Debangshu</strong> and <strong>Susmita</strong> designed radiation-tolerant telemetry FPGA modules for a micro-satellite launch.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              By adhering strictly to IEEE-754 single-precision float specifications and Gray-coded rotary solar panel positioners, they ensured zero data corruption during high orbital vibration.
+            </p>
           </div>
         </section>
 
-        {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Downloadable Documents FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
+        {/* 30 Curated FAQs */}
+        <FAQTemplate questions={questions} />
 
-        {/* ─── 8. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <PlainTextPrint
-            content={noteText}
-            title="Downloadable Documents"
-            stampEnabled={true}
-            showDownload={true}
-            downloadButtonText="Download Note"
-            downloadFileName="topic14_note.txt"
-          />
-        </section>
+        {/* Printable Text Notes Component */}
+        <PlainTextPrint rawNotes={noteText} />
 
-        {/* ─── 9. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <Teacher
-            note={
-              "In computer architecture and digital systems engineering, hardware diagrams are the blueprints of truth. " +
-              "Always trace signal paths from input pins through combinational logic and registers to output buses. When you can visualize the timing diagram in your mind, digital architecture becomes second nature!"
-            }
-          />
-        </section>
-
-        {/* ─── 10. Footer ─────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 14 · Downloadable Documents · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
+        {/* Teacher Sukanta Hui Footer / Bio */}
+        <Teacher />
       </div>
-    </>
+    </div>
   );
-};
-
-export default Topic14;
+}

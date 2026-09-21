@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import clsx from "clsx";
 
 // ─── Common Framework Imports ──────────────────────────────────────────
@@ -12,14 +12,12 @@ import noteText from "./topic11_files/topic11_note.txt?raw";
  * Topic11 – Binary arithmetic: addition, subtraction
  * Module: 001_001_number-systems-and-codes (Number Systems & Binary Codes)
  * Track: Computer Architecture – From Core Systems to Performance Engineering
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with multi-tabbed vector schematic suite,
- *                        live simulation workbench, real-world case studies, best practices, FAQs, and printable notes.
  */
 const Topic11 = () => {
-  const [activeDiagramTab, setActiveDiagramTab] = useState("tab1");
-  const [simStep, setSimStep] = useState(1);
+  const [activeTab, setActiveTab] = useState("tab1");
+  const [binInputA, setBinInputA] = useState("11011"); // 27
+  const [binInputB, setBinInputB] = useState("01110"); // 14
+  const [opMode, setOpMode] = useState("add"); // "add" or "sub"
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -31,7 +29,7 @@ const Topic11 = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
 
     sectionRefs.current.forEach((el) => {
@@ -46,6 +44,116 @@ const Topic11 = () => {
       sectionRefs.current.push(el);
     }
   };
+
+  // Binary Arithmetic Calculator
+  const calcResult = useMemo(() => {
+    const cleanA = binInputA.replace(/[^01]/g, "");
+    const cleanB = binInputB.replace(/[^01]/g, "");
+
+    if (!cleanA || !cleanB) {
+      return { error: "Please enter valid binary strings containing only 0 and 1", isError: true };
+    }
+
+    const decA = parseInt(cleanA, 2);
+    const decB = parseInt(cleanB, 2);
+    const maxLen = Math.max(cleanA.length, cleanB.length);
+    const padA = cleanA.padStart(maxLen, "0");
+    const padB = cleanB.padStart(maxLen, "0");
+
+    if (opMode === "add") {
+      // Step-by-step addition with carry array
+      let carry = 0;
+      let sumBits = [];
+      let carries = [0];
+
+      for (let i = maxLen - 1; i >= 0; i--) {
+        const bitA = parseInt(padA[i], 10);
+        const bitB = parseInt(padB[i], 10);
+        const sum = bitA + bitB + carry;
+        sumBits.unshift(sum % 2);
+        carry = Math.floor(sum / 2);
+        carries.unshift(carry);
+      }
+
+      if (carry > 0) {
+        sumBits.unshift(carry);
+      }
+
+      const finalBin = sumBits.join("");
+      const finalDec = decA + decB;
+
+      return {
+        padA,
+        padB,
+        decA,
+        decB,
+        carries: carries.join(""),
+        finalBin,
+        finalDec,
+        isError: false,
+        op: "Addition (+)"
+      };
+    } else {
+      // Subtraction (Unsigned with borrow or negative check)
+      if (decA < decB) {
+        // Compute negative difference
+        const diff = decA - decB;
+        const absDiff = Math.abs(diff);
+        const diffBin = absDiff.toString(2).padStart(maxLen, "0");
+        return {
+          padA,
+          padB,
+          decA,
+          decB,
+          finalBin: `-${diffBin}`,
+          finalDec: diff,
+          isError: false,
+          op: "Subtraction (-)",
+          isNegativeResult: true
+        };
+      }
+
+      // Step-by-step subtraction with borrow tracking
+      let borrows = [0];
+      let diffBits = [];
+      let aArray = padA.split("").map((c) => parseInt(c, 10));
+
+      for (let i = maxLen - 1; i >= 0; i--) {
+        let bitA = aArray[i];
+        const bitB = parseInt(padB[i], 10);
+        if (bitA < bitB) {
+          // Borrow from higher bit
+          let j = i - 1;
+          while (j >= 0 && aArray[j] === 0) {
+            aArray[j] = 1;
+            j--;
+          }
+          if (j >= 0) aArray[j] = 0;
+          bitA += 2;
+          borrows.unshift(1);
+        } else {
+          borrows.unshift(0);
+        }
+        diffBits.unshift(bitA - bitB);
+      }
+
+      const finalBin = diffBits.join("");
+      const finalDec = decA - decB;
+
+      return {
+        padA,
+        padB,
+        decA,
+        decB,
+        borrows: borrows.join(""),
+        finalBin,
+        finalDec,
+        isError: false,
+        op: "Subtraction (-)",
+        isNegativeResult: false
+      };
+    }
+  }, [binInputA, binInputB, opMode]);
 
   return (
     <>
@@ -67,25 +175,25 @@ const Topic11 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001 · Topic 11</span>
           </div>
-          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
-            Binary arithmetic: addition, subtraction
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
+            Binary Arithmetic: Addition &amp; Subtraction
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Understand how computers represent numbers and characters at the hardware level.
+            Master the elemental combinational logic of digital processors: Half Adders, Full Adders, Half Subtractors, Full Subtractors, carry ripple propagation, and hardware circuit synthesis.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              🔒 Hardware Circuit Schematic
+              ➕ Half Adder (XOR/AND) &amp; Full Adder
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⏱️ Timing &amp; Invariants
+              ➖ Half Subtractor &amp; Full Subtractor
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 State Transitions &amp; Buses
+              ⚡ Carry-Lookahead (CLA) Optimization
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Silicon Synthesis
+              🔌 IC 74LS283 4-Bit Binary Adder
             </span>
           </div>
         </header>
@@ -100,364 +208,551 @@ const Topic11 = () => {
               👨‍🏫
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Binary arithmetic: addition, subtraction
+              <h2 className="text-lg md:text-xl font-bold text-teal-300">
+                Classroom Lecture: The Fundamental Silicon Building Blocks
               </h2>
               <p className="text-xs text-slate-400">
-                Understanding computer architecture fundamentals and silicon-level mechanics from first principles
+                Sukanta Hui · Coder &amp; AccoTax · Shibtala Road, Barrackpore
               </p>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Hardware Implementation Reality
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">Binary arithmetic: addition, subtraction</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Zero Glitch Architecture · Deterministic State Transitions
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to strict setup/hold times and bus arbitration protocols, hardware guarantees exact execution semantics across millions of concurrent cycles.
-                </p>
+          <div className="mt-6 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p>
+              At the absolute lowest layer of digital hardware, every single instruction in software—from 3D rendering to machine learning tensor products—is compiled down into simple 1-bit binary logic gates:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono my-3">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <span className="text-teal-400 font-bold uppercase">1. Half Adder Equations</span>
+                <div className="mt-2 text-white">Sum = A ⊕ B (XOR Gate)</div>
+                <div className="text-amber-300">Carry = A · B (AND Gate)</div>
+                <p className="text-slate-400 font-sans text-[11px] mt-2">Adds two 1-bit inputs without a carry-in.</p>
               </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Hardware performance is the product of clean datapath layout, minimal critical path delay, and cache locality!"</em>
-              </div>
-            </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated railway freight terminal in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Synchronized Routing:</strong> Trains are switched between parallel tracks strictly according to master clock signals.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Interlock Protection:</strong> Hardware lockouts prevent concurrent write conflicts and hazardous race conditions.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Silicon Advantage:</strong> High instruction throughput with 100% data integrity!
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                <span className="text-cyan-400 font-bold uppercase">2. Full Adder Equations</span>
+                <div className="mt-2 text-white">Sum = A ⊕ B ⊕ C_in</div>
+                <div className="text-amber-300">C_out = (A · B) + (C_in · (A ⊕ B))</div>
+                <p className="text-slate-400 font-sans text-[11px] mt-2">Cascades carry bits across multiple columns.</p>
               </div>
             </div>
+            <p>
+              By cascading <code className="text-teal-300 font-mono">n</code> Full Adders together, an ALU forms an <code className="text-cyan-300 font-mono">n-bit Parallel Adder</code> capable of adding numbers of any size.
+            </p>
           </div>
         </section>
 
-        {/* ─── 3. Multi-Tabbed Schematic & Architectural Suite ── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Timing Diagrams
-            </h2>
-            {/* Tab Selector */}
-            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+        {/* ─── 3. Multi-Tabbed Custom SVG Instructional Suite ─── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-800 bg-slate-900/90 p-6 md:p-8 shadow-2xl"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
+            <div>
+              <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                <span>📐</span> Architectural Visualizer &amp; Schematics
+              </h2>
+              <p className="text-xs text-slate-400">
+                Interactive vector schematics detailing gate-level adders, multi-bit column carries, and borrow subtractors.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setActiveDiagramTab("tab1")}
+                onClick={() => setActiveTab("tab1")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab1"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                  activeTab === "tab1"
+                    ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/30"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
               >
-                1. Radix Conversion Engine
+                1. Half Adder &amp; Full Adder Gates
               </button>
               <button
-                onClick={() => setActiveDiagramTab("tab2")}
+                onClick={() => setActiveTab("tab2")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab2"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                  activeTab === "tab2"
+                    ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/30"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
               >
-                2. 2's Complement Sign Unit
+                2. Column Addition Carry Ripple
               </button>
               <button
-                onClick={() => setActiveDiagramTab("tab3")}
+                onClick={() => setActiveTab("tab3")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab3"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                  activeTab === "tab3"
+                    ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/30"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
               >
-                3. Positional Bit Weights
+                3. Borrow vs 2's Complement
               </button>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            {activeDiagramTab === "tab1" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
-                  1. Radix Conversion Engine
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 300" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="30" y="30" width="220" height="240" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="140" y="65" fill="#5eead4" textAnchor="middle" fontWeight="bold" fontSize="14">Input Integer / Fraction</text>
-          <text x="140" y="100" fill="#ffffff" textAnchor="middle" fontSize="18" fontWeight="bold">Value N (Base-10)</text>
-          <rect x="50" y="120" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="145" fill="#cbd5e1" textAnchor="middle">Integer Part: Div by Base r</text>
-          <rect x="50" y="175" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="200" fill="#cbd5e1" textAnchor="middle">Fraction: Mul by Base r</text>
-          <text x="140" y="245" fill="#94a3b8" textAnchor="middle" fontSize="10">Positional: Σ (dᵢ · rⁱ)</text>
+          {/* Tab 1: Half Adder & Full Adder */}
+          {activeTab === "tab1" && (
+            <div className="space-y-4">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <svg
+                  viewBox="0 0 800 360"
+                  className="w-full h-auto font-sans"
+                  style={{ maxHeight: "400px" }}
+                >
+                  {/* Title */}
+                  <rect x="20" y="15" width="760" height="40" rx="8" fill="#1e293b" />
+                  <text x="400" y="40" fill="#2dd4bf" fontSize="14" fontWeight="bold" textAnchor="middle">
+                    Logic Gate Schematics: Half Adder vs Full Adder Architecture
+                  </text>
 
-          <line x1="250" y1="150" x2="350" y2="150" stroke="#38bdf8" strokeWidth="3" strokeDasharray="5 3" />
-          <polygon points="350,145 365,150 350,155" fill="#38bdf8" />
-          <text x="300" y="140" fill="#38bdf8" textAnchor="middle" fontSize="11">Iterative Modulo</text>
+                  {/* Half Adder Schematic Box */}
+                  <rect x="40" y="75" width="340" height="250" rx="8" fill="#0f172a" stroke="#334155" />
+                  <text x="210" y="105" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">
+                    1. HALF ADDER (2 Inputs: A, B)
+                  </text>
 
-          <rect x="365" y="30" width="280" height="240" rx="12" fill="#0f172a" stroke="#38bdf8" strokeWidth="2.5" />
-          <text x="505" y="65" fill="#7dd3fc" textAnchor="middle" fontWeight="bold" fontSize="14">Successive Radix Hardware</text>
-          <rect x="385" y="85" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="110" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Integer Stack: Read Bottom-Up</text>
-          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) → MSB (Last Rem)</text>
-          <rect x="385" y="170" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="195" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Fraction Queue: Read Top-Down</text>
-          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) → LSB (Last Int)</text>
+                  <g transform="translate(70, 120)">
+                    {/* XOR Gate */}
+                    <rect x="50" y="10" width="90" height="45" rx="6" fill="#1e1b4b" stroke="#818cf8" />
+                    <text x="95" y="38" fill="#c7d2fe" fontSize="13" fontWeight="bold" textAnchor="middle">XOR ⊕</text>
+                    <text x="210" y="38" fill="#5eead4" fontSize="12" fontWeight="bold" fontFamily="monospace">Sum = A ⊕ B</text>
 
-          <line x1="645" y1="150" x2="745" y2="150" stroke="#22c55e" strokeWidth="3" />
-          <polygon points="745,145 760,150 745,155" fill="#22c55e" />
-          <text x="695" y="140" fill="#22c55e" textAnchor="middle" fontSize="11">Target Output</text>
+                    {/* AND Gate */}
+                    <rect x="50" y="80" width="90" height="45" rx="6" fill="#042f2e" stroke="#0d9488" />
+                    <text x="95" y="108" fill="#99f6e4" fontSize="13" fontWeight="bold" textAnchor="middle">AND ·</text>
+                    <text x="210" y="108" fill="#f59e0b" fontSize="12" fontWeight="bold" fontFamily="monospace">Carry = A · B</text>
+                  </g>
 
-          <rect x="760" y="30" width="150" height="240" rx="12" fill="#052e16" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="835" y="70" fill="#86efac" textAnchor="middle" fontWeight="bold" fontSize="14">Output Base-R</text>
-          <text x="835" y="110" fill="#ffffff" textAnchor="middle" fontSize="20" fontWeight="bold">Binary / Hex</text>
-          <text x="835" y="150" fill="#86efac" textAnchor="middle" fontSize="11">Radix Point (.)</text>
-          <text x="835" y="190" fill="#bbf7d0" textAnchor="middle" fontSize="10">Zero Truncation</text>
-          <text x="835" y="235" fill="#4ade80" textAnchor="middle" fontSize="11" fontWeight="bold">Exact Precision</text>
-        </svg>
-                </div>
+                  {/* Full Adder Schematic Box */}
+                  <rect x="420" y="75" width="340" height="250" rx="8" fill="#042f2e" stroke="#0d9488" strokeWidth="2" />
+                  <text x="590" y="105" fill="#5eead4" fontSize="13" fontWeight="bold" textAnchor="middle">
+                    2. FULL ADDER (3 Inputs: A, B, C_in)
+                  </text>
+
+                  <g transform="translate(450, 120)">
+                    <rect x="30" y="10" width="220" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+                    <text x="140" y="42" fill="#5eead4" fontSize="12" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                      Sum = A ⊕ B ⊕ C_in
+                    </text>
+
+                    <rect x="30" y="80" width="220" height="75" rx="6" fill="#0f172a" stroke="#334155" />
+                    <text x="140" y="110" fill="#f59e0b" fontSize="11" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                      C_out = (A·B) + C_in·(A⊕B)
+                    </text>
+                    <text x="140" y="135" fill="#94a3b8" fontSize="10" textAnchor="middle">
+                      Constructed from 2 Half Adders + 1 OR
+                    </text>
+                  </g>
+                </svg>
               </div>
-            )}
+              <p className="text-xs text-slate-400">
+                💡 <strong>Circuit Composition:</strong> A Full Adder is constructed by connecting two Half Adders in series and ORing their partial carries together.
+              </p>
+            </div>
+          )}
 
-            {activeDiagramTab === "tab2" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
-                  2. 2's Complement Sign Unit
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="40" y="40" width="160" height="150" rx="10" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="120" y="70" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="13">Raw Magnitude (A)</text>
-          <text x="120" y="115" fill="#ffffff" textAnchor="middle" fontSize="16" fontWeight="bold">[ 0 1 0 1 1 0 0 1 ]</text>
-          <text x="120" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Unsigned / Positive</text>
+          {/* Tab 2: Column Addition */}
+          {activeTab === "tab2" && (
+            <div className="space-y-4">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <svg
+                  viewBox="0 0 800 360"
+                  className="w-full h-auto font-sans"
+                  style={{ maxHeight: "400px" }}
+                >
+                  {/* Title */}
+                  <rect x="20" y="15" width="760" height="40" rx="8" fill="#1e293b" />
+                  <text x="400" y="40" fill="#2dd4bf" fontSize="14" fontWeight="bold" textAnchor="middle">
+                    Multi-Bit Column Binary Addition with Carry Ripple Trace: (27 + 14 = 41)
+                  </text>
 
-          <line x1="200" y1="115" x2="300" y2="115" stroke="#f59e0b" strokeWidth="3" />
-          <polygon points="300,110 315,115 300,120" fill="#f59e0b" />
-          <text x="250" y="105" fill="#f59e0b" textAnchor="middle" fontSize="11">Bitwise NOT</text>
+                  {/* Calculation Card */}
+                  <rect x="80" y="75" width="640" height="230" rx="8" fill="#0f172a" stroke="#334155" />
 
-          <rect x="315" y="40" width="180" height="150" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="2.5" />
-          <text x="405" y="70" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="13">1's Complement (Ā)</text>
-          <text x="405" y="115" fill="#fde68a" textAnchor="middle" fontSize="16" fontWeight="bold">[ 1 0 1 0 0 1 1 0 ]</text>
-          <text x="405" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Inverted Bits</text>
+                  {/* Carries */}
+                  <text x="120" y="115" fill="#f59e0b" fontSize="14" fontWeight="bold" fontFamily="monospace">
+                    Carries:    <tspan fill="#ef4444">1</tspan>  1  1  1  0  (Ripples right to left)
+                  </text>
 
-          <line x1="495" y1="115" x2="595" y2="115" stroke="#38bdf8" strokeWidth="3" />
-          <polygon points="595,110 610,115 595,120" fill="#38bdf8" />
-          <text x="545" y="105" fill="#38bdf8" textAnchor="middle" fontSize="11">+ 1 LSB Adder</text>
+                  {/* Operands */}
+                  <text x="120" y="150" fill="#e2e8f0" fontSize="16" fontFamily="monospace">
+                    Operand A:      1  1  0  1  1  (27₁₀)
+                  </text>
+                  <text x="120" y="185" fill="#e2e8f0" fontSize="16" fontFamily="monospace">
+                  + Operand B:      0  1  1  1  0  (14₁₀)
+                  </text>
+                  <line x1="120" y1="198" x2="550" y2="198" stroke="#64748b" strokeWidth="2" />
 
-          <rect x="610" y="40" width="280" height="150" rx="10" fill="#0f172a" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="750" y="70" fill="#22c55e" textAnchor="middle" fontWeight="bold" fontSize="13">2's Complement Negation (-A)</text>
-          <text x="750" y="115" fill="#86efac" textAnchor="middle" fontSize="18" fontWeight="bold">[ 1 0 1 0 0 1 1 1 ]</text>
-          <text x="750" y="155" fill="#cbd5e1" textAnchor="middle" fontSize="11">MSB = 1 (Negative Sign Bit) | Value = -A</text>
-        </svg>
-                </div>
+                  {/* Result */}
+                  <text x="120" y="235" fill="#2dd4bf" fontSize="20" fontWeight="bold" fontFamily="monospace">
+                  = Final Sum:   1  0  1  0  0  1  (41₁₀ verified!)
+                  </text>
+
+                  <text x="120" y="275" fill="#94a3b8" fontSize="12">
+                    Positional Value Check: 32 + 8 + 1 = 41. 6-bit expanded word accommodates the final carry.
+                  </text>
+                </svg>
               </div>
-            )}
+              <p className="text-xs text-slate-400">
+                ⚡ <strong>Carry Ripple:</strong> Notice how each column generates a carry that feeds into the column immediately to its left, exactly like decimal grade-school arithmetic!
+              </p>
+            </div>
+          )}
 
-            {activeDiagramTab === "tab3" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  3. Positional Bit Weights
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <text x="470" y="35" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">8-Bit Signed Binary Positional Weight Matrix</text>
-          {[-128, 64, 32, 16, 8, 4, 2, 1].map((wt, i) => (
-            <g key={i} transform={`translate(${60 + i * 105}, 60)`}>
-              <rect width="90" height="120" rx="8" fill="#1e293b" stroke={i === 0 ? "#f43f5e" : "#38bdf8"} strokeWidth="2" />
-              <text x="45" y="30" fill={i === 0 ? "#f43f5e" : "#38bdf8"} textAnchor="middle" fontWeight="bold" fontSize="12">Bit {7 - i}</text>
-              <text x="45" y="60" fill="#ffffff" textAnchor="middle" fontWeight="bold" fontSize="14">{i === 0 ? "Sign" : "Mag"}</text>
-              <text x="45" y="95" fill={i === 0 ? "#fca5a5" : "#7dd3fc"} textAnchor="middle" fontWeight="bold" fontSize="13">{wt}</text>
-            </g>
-          ))}
-          <text x="470" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">Total Value = -128·b₇ + 64·b₆ + 32·b₅ + 16·b₄ + 8·b₃ + 4·b₂ + 2·b₁ + 1·b₀</text>
-        </svg>
-                </div>
+          {/* Tab 3: Borrow Subtraction */}
+          {activeTab === "tab3" && (
+            <div className="space-y-4">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <svg
+                  viewBox="0 0 800 340"
+                  className="w-full h-auto font-sans"
+                  style={{ maxHeight: "380px" }}
+                >
+                  {/* Title */}
+                  <rect x="20" y="15" width="760" height="40" rx="8" fill="#1e293b" />
+                  <text x="400" y="40" fill="#2dd4bf" fontSize="14" fontWeight="bold" textAnchor="middle">
+                    Direct Borrow Subtraction vs Unified 2's Complement Execution
+                  </text>
+
+                  {/* Direct Borrow Method */}
+                  <rect x="40" y="75" width="340" height="230" rx="8" fill="#0f172a" stroke="#334155" />
+                  <text x="60" y="105" fill="#f59e0b" fontSize="12" fontWeight="bold">METHOD 1: Manual Borrow Subtraction</text>
+                  <text x="60" y="135" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                      1 1 0 0 0  (24₁₀)
+                  </text>
+                  <text x="60" y="160" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                    - 0 1 0 1 1  (11₁₀)
+                  </text>
+                  <line x1="60" y1="170" x2="280" y2="170" stroke="#64748b" />
+                  <text x="60" y="195" fill="#2dd4bf" fontSize="14" fontWeight="bold" fontFamily="monospace">
+                    = 0 1 1 0 1  (13₁₀)
+                  </text>
+                  <text x="60" y="235" fill="#94a3b8" fontSize="11">
+                    Requires borrowing 2s from leftward 1s. Expensive in hardware logic.
+                  </text>
+
+                  {/* 2's Complement Hardware Method */}
+                  <rect x="420" y="75" width="340" height="230" rx="8" fill="#042f2e" stroke="#0d9488" strokeWidth="1.5" />
+                  <text x="440" y="105" fill="#5eead4" fontSize="12" fontWeight="bold">METHOD 2: 2's Comp Hardware Adder</text>
+                  <text x="440" y="135" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                      1 1 0 0 0  (+24)
+                  </text>
+                  <text x="440" y="160" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                    + 1 0 1 0 1  (-11 in 2's comp)
+                  </text>
+                  <line x1="440" y1="170" x2="660" y2="170" stroke="#64748b" />
+                  <text x="440" y="195" fill="#2dd4bf" fontSize="14" fontWeight="bold" fontFamily="monospace">
+                    = 1 0 1 1 0 1  (Drop End Carry!)
+                  </text>
+                  <text x="440" y="235" fill="#a7f3d0" fontSize="11">
+                    Uses standard adder + XOR gate. 0 extra subtractor silicon needed!
+                  </text>
+                </svg>
               </div>
-            )}
-          </div>
+              <p className="text-xs text-slate-400">
+                🔌 <strong>Silicon Decision:</strong> Hardware always chooses Method 2 (2's complement addition) because it reuses existing adder logic and eliminates borrow chains!
+              </p>
+            </div>
+          )}
         </section>
 
-        {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Binary arithmetic: addition, subtraction
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Select Execution Phase / Clock Cycle:
-              </span>
-              <div className="flex gap-2">
-                {[1, 2, 3, 4].map((step) => (
+        {/* ─── 4. Live Interactive Workbench ──────────────────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-slate-900/90 p-6 md:p-8 shadow-2xl"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4 mb-6">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              🧮
+            </div>
+            <div>
+              <h2 className="text-lg md:text-xl font-bold text-teal-300">
+                Binary Addition &amp; Subtraction Visual Workbench
+              </h2>
+              <p className="text-xs text-slate-400">
+                Enter arbitrary binary numbers, select operation, and watch the column-by-column carry/borrow trace update live.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Input Controls */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  Binary Operand A (0s and 1s):
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={binInputA}
+                    onChange={(e) => setBinInputA(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-teal-300 font-mono text-sm focus:border-teal-500 focus:outline-none"
+                    placeholder="e.g. 11011"
+                  />
                   <button
-                    key={step}
-                    onClick={() => setSimStep(step)}
+                    onClick={() => { setBinInputA("11011"); setBinInputB("01110"); }}
+                    className="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold rounded text-slate-300"
+                  >
+                    27 &amp; 14
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  Binary Operand B (0s and 1s):
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={binInputB}
+                    onChange={(e) => setBinInputB(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-teal-300 font-mono text-sm focus:border-teal-500 focus:outline-none"
+                    placeholder="e.g. 01110"
+                  />
+                  <button
+                    onClick={() => { setBinInputA("11111111"); setBinInputB("00000001"); }}
+                    className="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold rounded text-slate-300"
+                  >
+                    255 &amp; 1
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">
+                  Select Arithmetic Operation:
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => setOpMode("add")}
                     className={clsx(
-                      "px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold border transition",
-                      simStep === step
-                        ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                      "p-2.5 rounded-lg text-xs font-bold border transition-all cursor-pointer",
+                      opMode === "add"
+                        ? "bg-teal-500 text-slate-950 border-teal-400 shadow-lg shadow-teal-500/30"
+                        : "bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-900"
                     )}
                   >
-                    Phase {step}
+                    BINARY ADDITION (+)
                   </button>
-                ))}
+                  <button
+                    onClick={() => setOpMode("sub")}
+                    className={clsx(
+                      "p-2.5 rounded-lg text-xs font-bold border transition-all cursor-pointer",
+                      opMode === "sub"
+                        ? "bg-teal-500 text-slate-950 border-teal-400 shadow-lg shadow-teal-500/30"
+                        : "bg-slate-950 text-slate-300 border-slate-800 hover:bg-slate-900"
+                    )}
+                  >
+                    BINARY SUBTRACTION (-)
+                  </button>
+                </div>
               </div>
+
+              {calcResult.isError && (
+                <div className="p-3 rounded-lg bg-red-950/60 border border-red-700/50 text-red-300 text-xs">
+                  {calcResult.error}
+                </div>
+              )}
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950 border border-teal-500/30 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-teal-950 text-teal-300 font-mono text-xs font-bold border border-teal-800">
-                  EXECUTION PHASE {simStep} OF 4
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Hardware State T+{simStep}</span>
+            {/* Visual Calculation Trace */}
+            {!calcResult.isError && (
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-slate-950 border border-teal-500/40 space-y-3 font-mono text-xs">
+                  <div className="text-slate-400 font-sans font-bold uppercase tracking-wider text-[11px]">
+                    Step-by-Step Column Calculation Trace:
+                  </div>
+
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    {opMode === "add" && calcResult.carries && (
+                      <div className="text-amber-400 text-[11px]">
+                        Carries:   {calcResult.carries}
+                      </div>
+                    )}
+                    {opMode === "sub" && calcResult.borrows && (
+                      <div className="text-amber-400 text-[11px]">
+                        Borrows:   {calcResult.borrows}
+                      </div>
+                    )}
+                    <div className="flex justify-between text-slate-300">
+                      <span>  {calcResult.padA}</span>
+                      <span>({calcResult.decA}₁₀)</span>
+                    </div>
+                    <div className="flex justify-between text-slate-300">
+                      <span>{opMode === "add" ? "+" : "-"} {calcResult.padB}</span>
+                      <span>({calcResult.decB}₁₀)</span>
+                    </div>
+                    <div className="border-t border-teal-500 pt-1 flex justify-between font-bold text-sm">
+                      <span className="text-white">= {calcResult.finalBin}</span>
+                      <span className="text-teal-300">{calcResult.finalDec}₁₀</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between text-[11px] text-slate-400 pt-1 border-t border-slate-800">
+                    <span>Operation: {calcResult.op}</span>
+                    <span>Hex Result: 0x{Math.abs(calcResult.finalDec).toString(16).toUpperCase()}</span>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-white">
-                {simStep === 1 && "Phase 1: Signal Conditioning & Input Ingestion"}
-                {simStep === 2 && "Phase 2: Datapath Decoding & Logic Evaluation"}
-                {simStep === 3 && "Phase 3: State Storage & Memory Interface Strobe"}
-                {simStep === 4 && "Phase 4: Output Stabilization & Verification"}
-              </h3>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 5. Real-World Engineering Case Studies ─────────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-800 bg-slate-900/90 p-6 md:p-8 shadow-2xl"
+        >
+          <div className="border-b border-slate-800 pb-4 mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <span>🏭</span> Real-World West Bengal Engineering Scenarios
+            </h2>
+            <p className="text-xs text-slate-400">
+              Where fundamental binary adders and subtractors are synthesized in laboratory and production circuits.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Scenario 1: Mamata */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-teal-500/40 transition-all">
+              <div className="flex items-center gap-2 text-teal-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Barrackpore: Breadboard 74LS283 Binary Adder Laboratory</span>
+              </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {simStep === 1 && "Signals are ingested from input pins and stabilized against ground bounce and setup timing constraints."}
-                {simStep === 2 && "Combinational logic gates and internal buses evaluate control lines to compute intermediate signals."}
-                {simStep === 3 && "Bistable registers latch stable binary states on the active clock edge."}
-                {simStep === 4 && "Outputs drive downstream data buses and status flags are committed cleanly."}
+                <strong>Mamata</strong> builds a digital trainer kit in Barrackpore. She connects a Texas Instruments 74LS283 4-bit binary adder IC to 74LS86 quad XOR gates, building an interactive hardware ALU that demonstrates real-time column addition and subtraction to engineering students.
+              </p>
+            </div>
+
+            {/* Scenario 2: Susmita */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/40 transition-all">
+              <div className="flex items-center gap-2 text-cyan-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Ichapur: Factory High-Speed Digital Frequency Counter</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong>Susmita</strong> synthesizes an FPGA pulse accumulator in Ichapur. By chaining 16 Full Adder stages, the circuit increments pulse counts directly from optical sensors at 250 MHz to measure machine turbine rotational speeds.
+              </p>
+            </div>
+
+            {/* Scenario 3: Debangshu */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-indigo-500/40 transition-all">
+              <div className="flex items-center gap-2 text-indigo-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Jadavpur: VLSI Carry-Lookahead vs Ripple Adder Timing Simulation</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong>Debangshu</strong> is simulating 64-bit adder topologies in Verilog at Jadavpur University. He proves that while a 64-bit Ripple-Carry Adder takes 128 gate delays (1.28 ns), a Kogge-Stone Parallel-Prefix Carry-Lookahead Adder completes the addition in just 6 gate delays (0.06 ns).
+              </p>
+            </div>
+
+            {/* Scenario 4: Mahima */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition-all">
+              <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Kolkata: Cryptographic Mining ASIC Binary Adder Pipeline</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong>Mahima</strong> designs custom silicon hashing accelerators in Salt Lake, Kolkata. She pipelines 32-bit modulo-2³² binary adders within SHA-256 compression loops, achieving over 140 Terahashes per second on 5nm process technology.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ─── 5. Real-World Engineering Scenarios ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE AUTOMATION
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Real-Time Process Automation</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata deployed high-reliability industrial controllers in Barrackpore. Implementing hardware synchronization eliminated race conditions across ₹45 Lakh automated assembly lines.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Deterministic SIL-4 Reliability
-              </div>
-            </div>
+        {/* ─── 6. Tips, Pitfalls, Best Practices & Checklist ──── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {/* Common Pitfalls */}
+          <div className="rounded-2xl border border-red-500/30 bg-slate-900/90 p-6 shadow-xl">
+            <h3 className="text-base font-bold text-red-400 flex items-center gap-2 mb-4">
+              <span>⚠️</span> Common Beginner Pitfalls
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">•</span>
+                <span><strong>Forgetting that 1+1+1 = 11:</strong> In a full adder, three 1s produce Sum=1 and Carry=1 (decimal 3).</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">•</span>
+                <span><strong>Borrow Value Confusion:</strong> When borrowing in binary, a borrow from the next column brings a value of 2 (base 2), NOT 10!</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">•</span>
+                <span><strong>Misaligning Radix Points:</strong> When adding fractional binary numbers, always align the binary point before adding columns.</span>
+              </li>
+            </ul>
+          </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR EMBEDDED LAB
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">High-Speed Microprocessor Signal Routing</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu analyzed clock skew across 32-bit register buses on custom FPGA prototypes, ensuring setup and hold times were met at 200 MHz clock frequencies.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Nanosecond Clock Skew Precision
-              </div>
+          {/* Professional Best Practices */}
+          <div className="rounded-2xl border border-teal-500/30 bg-slate-900/90 p-6 shadow-xl">
+            <h3 className="text-base font-bold text-teal-400 flex items-center gap-2 mb-4">
+              <span>✨</span> Senior Engineering Best Practices
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-teal-400 font-bold">•</span>
+                <span><strong>Unify Subtractors with Adders:</strong> In FPGA and ASIC design, implement subtraction using XOR inverters + Carry-In=1 to save silicon area.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-teal-400 font-bold">•</span>
+                <span><strong>Use CLA for Wide Words:</strong> For 32-bit or 64-bit adders, always synthesize Carry-Lookahead (CLA) or Parallel-Prefix trees to avoid carry ripple latency.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-teal-400 font-bold">•</span>
+                <span><strong>Use Carry-Save for Multipliers:</strong> When summing multiple partial products, use Carry-Save Adders (CSA) to defer carry propagation until the final stage.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* ─── 7. Mini Checklist ──────────────────────────────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 shadow-xl"
+        >
+          <h3 className="text-base font-bold text-amber-400 flex items-center gap-2 mb-4">
+            <span>📋</span> Student Memory Checklist
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs text-slate-300">
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>Half Adder: Sum = A ⊕ B, Carry = A · B</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>Full Adder: Sum = A ⊕ B ⊕ C_in</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>1 + 1 = 10₂ (Sum 0, Carry 1)</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>1 + 1 + 1 = 11₂ (Sum 1, Carry 1)</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>0 - 1 = 1 with Borrow 1</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>2 Full Adders + 1 OR = 1 Full Adder</span>
             </div>
           </div>
         </section>
 
-        {/* ─── 6. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Violating Setup and Hold Time Windows:</strong>
-                Changing data inputs too close to the active clock edge traps the storage element in metastability, resulting in unpredictable output oscillations.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Uncontrolled Bus Contention:</strong>
-                Enabling multiple tri-state drivers simultaneously causes high short-circuit currents and severe thermal stress on silicon chips.
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Synchronous Reset Architectures:</strong>
-                Always prefer synchronous reset lines over asynchronous resets to prevent spurious resets triggered by EMI noise spikes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Decoupling Capacitors &amp; Power Planes:</strong>
-                Place 0.1 µF bypass capacitors adjacent to every IC power pin to suppress switching transients during high-frequency clock edges.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
+        {/* ─── 8. FAQ Section ─────────────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Binary arithmetic: addition, subtraction FAQs"
+            title="Binary Arithmetic: Addition & Subtraction FAQs"
             questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 8. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <PlainTextPrint
-            content={noteText}
-            title="Binary arithmetic: addition, subtraction"
-            stampEnabled={true}
-            showDownload={true}
-            downloadButtonText="Download Note"
-            downloadFileName="topic11_note.txt"
           />
         </section>
 
@@ -465,18 +760,23 @@ const Topic11 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "In computer architecture and digital systems engineering, hardware diagrams are the blueprints of truth. " +
-              "Always trace signal paths from input pins through combinational logic and registers to output buses. When you can visualize the timing diagram in your mind, digital architecture becomes second nature!"
+              "Mastering 1-bit Half Adders and Full Adders is the ultimate foundation for all subsequent topics in computer architecture, including ALUs, Multipliers, Floating-Point Units, and Datapaths. In your digital logic laboratory practicals, make sure you know how to wire the 74LS283 adder IC and understand how the internal fast carry-lookahead logic functions!"
             }
           />
         </section>
 
-        {/* ─── 10. Footer ─────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 11 · Binary arithmetic: addition, subtraction · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
+        {/* ─── 10. Printable Plain Text Document ──────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <PlainTextPrint
+            content={noteText}
+            title="Topic 11: Binary Arithmetic: Addition & Subtraction"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Topic Note"
+            downloadFileName="topic11_binary_arithmetic_addition_subtraction_note.txt"
+          />
+        </section>
+
       </div>
     </>
   );

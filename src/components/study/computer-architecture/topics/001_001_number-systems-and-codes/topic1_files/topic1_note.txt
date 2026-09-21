@@ -2,71 +2,93 @@
 COMPUTER ARCHITECTURE & DIGITAL SYSTEMS MASTERCLASS
 MODULE: 001_001_NUMBER-SYSTEMS-AND-CODES
 TOPIC 1: CONVERSION FROM DECIMAL TO BINARY
-INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+INSTRUCTOR: SIR SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
 ================================================================================
 
-1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
+1. THEORETICAL FOUNDATION: DECIMAL TO BINARY MAPPING
 --------------------------------------------------------------------------------
-This topic provides an exhaustive theoretical and practical deep-dive into:
-"Conversion from Decimal to Binary".
-Understanding hardware number systems, binary codes, and register representations
-is foundational to computer organization, arithmetic logic unit (ALU) design,
-and low-level firmware engineering.
+In digital computer hardware, every decimal integer and real number must be
+transduced into a sequence of binary digits (bits $\in \{0, 1\}$) representing
+transistor gate voltage levels.
 
-2. FORMAL THEORETICAL FOUNDATIONS & MATHEMATICAL FORMULAS
+There are two primary algorithms to convert Decimal to Binary:
+
+A. SUCCESSIVE DIVISION BY 2 (Standard Hardware/Software Algorithm for Integers):
+   - Divide the integer $N$ by 2.
+   - Record the remainder ($R \in \{0, 1\}$).
+   - Divide the quotient by 2 and repeat until quotient equals 0.
+   - Read remainders BOTTOM-UP: The first remainder produced is the Least Significant Bit (LSB / $2^0$),
+     and the last remainder produced is the Most Significant Bit (MSB / $2^{k-1}$).
+
+B. POWER-OF-2 DECOMPOSITION (Fast Mental Math / Hardware Bit-Masking Shortcut):
+   - Identify the largest power of 2 that is $\le N$.
+   - Place a '1' in that bit position and subtract the power of 2 from $N$.
+   - Repeat for the remainder until $N = 0$.
+   - Fill all unused intermediate bit positions with '0'.
+
+2. FRACTIONAL DECIMAL TO BINARY CONVERSION (SUCCESSIVE MULTIPLICATION)
 --------------------------------------------------------------------------------
-In digital hardware architectures:
-- Representation of signed numbers: Sign-Magnitude, 1's Complement, and 2's Complement.
-- Range of n-bit signed integers in 2's Complement: [-2^(n-1) to +2^(n-1) - 1].
-- Overflow Condition: Occurs when adding two numbers of the same sign produces a result
-  with the opposite sign, or when Carry-In (C_in) to MSB != Carry-Out (C_out) from MSB (V = C_n XOR C_(n-1)).
-- Binary Coded Decimal (BCD): 8421 weighted binary representation where each decimal
-  digit is encoded in 4 bits; valid range 0000 to 1001 (0 to 9); values 1010 to 1111 are illegal.
-- Gray Code (Reflected Binary): Unit-distance code where adjacent numbers differ by
-  only 1 bit, eliminating multi-bit switching glitches in optical shaft encoders.
+For the fractional component ($0 < F < 1$):
+- Multiply the fraction by 2.
+- The integer part generated (0 or 1) is the next binary fractional digit ($b_{-1}, b_{-2}, \dots$).
+- Discard the integer part and repeat with the remaining fractional part.
+- Stop when the fraction becomes 0.000 or when desired bit-precision (e.g. 23 bits for IEEE single precision) is achieved.
+- Read integer carries TOP-DOWN (First carry = $b_{-1}$, weight 0.5; second carry = $b_{-2}$, weight 0.25).
 
 3. CONCRETE STEP-BY-STEP WORKED EXAMPLES
 --------------------------------------------------------------------------------
-Example: 8-Bit Arithmetic & 2's Complement Representation
-Decimal Value: -25
-1. Positive binary (25): (00011001)_2
-2. 1's Complement (invert bits): 11100110
-3. 2's Complement (add 1): 11100111 = (-25)_10
+Example 1: Convert Integer $156_{10}$ to Binary
+- Successive Division:
+  156 / 2 = 78  rem 0  (LSB, Bit 0)
+   78 / 2 = 39  rem 0  (Bit 1)
+   39 / 2 = 19  rem 1  (Bit 2)
+   19 / 2 =  9  rem 1  (Bit 3)
+    9 / 2 =  4  rem 1  (Bit 4)
+    4 / 2 =  2  rem 0  (Bit 5)
+    2 / 2 =  1  rem 0  (Bit 6)
+    1 / 2 =  0  rem 1  (MSB, Bit 7)
+  Read Bottom-Up: $(10011100)_2$
 
-Arithmetic Check (45 - 25 = 20):
-  +45: 00101101
-  -25: 11100111
-  Sum: 1 00010100 (End carry discarded) → Result: 00010100 = (20)_10. Verified!
+- Power-of-2 Verification:
+  $156 = 128 + 16 + 8 + 4 = 2^7 + 2^4 + 2^3 + 2^2$
+  Bit 7=1, Bit 6=0, Bit 5=0, Bit 4=1, Bit 3=1, Bit 2=1, Bit 1=0, Bit 0=0
+  Result: $(10011100)_2$. Match confirmed!
 
-4. REAL-WORLD WEST BENGAL ENGINEERING APPLICATIONS
+Example 2: Convert Fractional $(0.8125)_{10}$ to Binary
+- Successive Multiplication:
+  $0.8125 \times 2 = 1.6250 \to \text{Integer Carry } 1 \quad (\text{MSB } b_{-1})$
+  $0.6250 \times 2 = 1.2500 \to \text{Integer Carry } 1 \quad (b_{-2})$
+  $0.2500 \times 2 = 0.5000 \to \text{Integer Carry } 0 \quad (b_{-3})$
+  $0.5000 \times 2 = 1.0000 \to \text{Integer Carry } 1 \quad (b_{-4}, \text{Fraction}=0!)$
+  Read Top-Down: $(0.1101)_2$
+  Verification: $1/2 + 1/4 + 0/8 + 1/16 = 0.5 + 0.25 + 0.0625 = 0.8125_{10}$.
+
+4. REAL-WORLD PRODUCTION USE CASES (WEST BENGAL INDUSTRY CONTEXT)
 --------------------------------------------------------------------------------
-1. Barrackpore Telecom Signal Processing:
-   Mamata configures high-speed DSP buffers using 2's complement audio samples
-   preventing phase distortion during DAC reconstruction.
-2. Jadavpur Embedded Systems Lab:
-   Debangshu writes hardware drivers using Gray code rotary encoders to detect
-   motor shaft positions with zero mechanical contact bounce error.
-3. Ichapur Industrial Automation:
-   Susmita programs Siemens PLC systems interfacing with 7-segment BCD displays
-   with automatic +6 decimal correction on addition overflow.
-4. Kolkata High-Frequency Trading:
-   Mahima profiles latency-critical integer calculations avoiding CPU overflow traps.
+1. Barrackpore Thermal Power Plant Sensor Interfacing:
+   Mamata calibrates 10-bit ADC sensors measuring boiler temperature ($0\text{--}1023^\circ\text{C}$).
+   A decimal reading of $750^\circ\text{C}$ is converted to binary $1011101110_2$ before being transmitted
+   over the SPI bus to the micro-controller.
+2. Kolkata High-Speed Networking Hub:
+   Debangshu implements packet rate limiters where a decimal bandwidth cap of $200\text{ Mbps}$
+   is loaded into hardware token bucket counter registers as $(11001000)_2$.
+3. Ichapur Ordnance Automation:
+   Susmita programs CNC servo resolvers where fractional degree angles ($12.375^\circ$)
+   are converted to $(1100.011)_2$ for 16-bit motor encoder tracking.
+4. Jadavpur VLSI Design Center:
+   Mahima designs a hardware priority encoder converting decimal interrupt levels into binary IRQ vectors.
 
-5. SENIOR ARCHITECTURAL PITFALLS & BEST PRACTICES
+5. COMMON BEGINNER PITFALLS & BEST PRACTICES
 --------------------------------------------------------------------------------
-- PITFALL: Confusing 1's complement with 2's complement; 1's complement possesses
-  two representations of zero (+0 and -0), complicating ALU zero-detector logic.
-- PITFALL: Ignoring bit-width expansion during signed addition (e.g. sign-extending 8-bit to 16-bit).
-- BEST PRACTICE: Always use 2's complement for integer representation in CPU architectures.
-- BEST PRACTICE: Use hardware XOR gate between C_in and C_out of MSB to generate the ALU Overflow (V) flag.
+- PITFALL: Reversing the order of remainders (reading top-to-bottom instead of bottom-up).
+- PITFALL: Assuming all decimal fractions terminate in binary (e.g. $0.2_{10} = 0.00110011\dots_2$ is non-terminating).
+- BEST PRACTICE: For fast manual calculation, always test powers of 2 ($128, 64, 32, 16, 8, 4, 2, 1$) from left to right.
+- BEST PRACTICE: When converting fractions, check the remainder precision requirement to avoid infinite loop locks.
 
 6. TEACHER'S MASTER SUMMARY - SIR SUKANTA HUI
 --------------------------------------------------------------------------------
-"In digital system architecture, numbers are not abstract mathematical symbols;
-they represent voltage levels and register flip-flops. Always remember why 2's complement
-won the hardware revolution: subtraction is implemented using the exact same adder circuitry
-without needing a dedicated subtractor! Master these bit-level foundations from first principles."
-
-================================================================================
-END OF STUDY NOTE - TOPIC 1
+"Mastering Decimal to Binary conversion is the first step in learning computer hardware.
+Always cross-verify your division result using the power-of-2 decomposition method.
+Remember: Computers do not do math with decimal digits—every single arithmetic operation
+is an orchestrated sequence of binary full-adder steps!"
 ================================================================================

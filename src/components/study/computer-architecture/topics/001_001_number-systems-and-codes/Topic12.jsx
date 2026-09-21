@@ -1,485 +1,470 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import questions from "./topic12_files/topic12_questions";
-import noteText from "./topic12_files/topic12_note.txt?raw";
+import rawNotes from "./topic12_files/topic12_note.txt?raw";
+import topic12Questions from "./topic12_files/topic12_questions";
 
-/**
- * Topic12 – ASCII, Unicode, BCD and Gray code
- * Module: 001_001_number-systems-and-codes (Number Systems & Binary Codes)
- * Track: Computer Architecture – From Core Systems to Performance Engineering
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with multi-tabbed vector schematic suite,
- *                        live simulation workbench, real-world case studies, best practices, FAQs, and printable notes.
- */
-const Topic12 = () => {
-  const [activeDiagramTab, setActiveDiagramTab] = useState("tab1");
-  const [simStep, setSimStep] = useState(1);
-  const sectionRefs = useRef([]);
+export default function Topic12() {
+  const [activeTab, setActiveTab] = useState("utf8");
+  
+  // Interactive Workbench State
+  const [inputText, setInputText] = useState("KOLKATA");
+  const [inputNumber, setInputNumber] = useState(25);
+  const [grayMode, setGrayMode] = useState("bin2gray"); // bin2gray or gray2bin
+  const [grayInput, setGrayInput] = useState("1011");
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
+  // Helper conversions
+  const getAsciiTable = (str) => {
+    return str.split("").map((ch) => {
+      const code = ch.charCodeAt(0);
+      const bin7 = (code & 0x7f).toString(2).padStart(7, "0");
+      const evenParity = bin7.split("").filter((b) => b === "1").length % 2 === 0 ? "0" : "1";
+      const hex = code.toString(16).toUpperCase().padStart(2, "0");
+      return { ch, code, bin7, evenParity: evenParity + bin7, hex };
     });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
   };
 
+  const getBcdPacked = (num) => {
+    const s = Math.abs(Math.floor(num)).toString();
+    const unpacked = s.split("").map((digit) => {
+      const val = parseInt(digit, 10);
+      return { digit, bin4: val.toString(2).padStart(4, "0") };
+    });
+    const packedHex = unpacked.map(u => u.bin4).join(" ");
+    return { unpacked, packedHex };
+  };
+
+  const binToGray = (binStr) => {
+    if (!/^[01]+$/.test(binStr)) return { gray: "Invalid Binary", steps: [] };
+    let gray = binStr[0];
+    const steps = [`G[${binStr.length - 1}] = B[${binStr.length - 1}] = ${binStr[0]}`];
+    for (let i = 1; i < binStr.length; i++) {
+      const bPrev = parseInt(binStr[i - 1], 10);
+      const bCurr = parseInt(binStr[i], 10);
+      const gBit = bPrev ^ bCurr;
+      gray += gBit;
+      steps.push(`G[${binStr.length - 1 - i}] = B[${binStr.length - i}] ⊕ B[${binStr.length - 1 - i}] (${bPrev} ⊕ ${bCurr}) = ${gBit}`);
+    }
+    return { gray, steps };
+  };
+
+  const grayToBin = (grayStr) => {
+    if (!/^[01]+$/.test(grayStr)) return { bin: "Invalid Gray Code", steps: [] };
+    let bin = grayStr[0];
+    const steps = [`B[${grayStr.length - 1}] = G[${grayStr.length - 1}] = ${grayStr[0]}`];
+    for (let i = 1; i < grayStr.length; i++) {
+      const bPrev = parseInt(bin[i - 1], 10);
+      const gCurr = parseInt(grayStr[i], 10);
+      const bBit = bPrev ^ gCurr;
+      bin += bBit;
+      steps.push(`B[${grayStr.length - 1 - i}] = B[${grayStr.length - i}] ⊕ G[${grayStr.length - 1 - i}] (${bPrev} ⊕ ${gCurr}) = ${bBit}`);
+    }
+    return { bin, steps };
+  };
+
+  const asciiRows = getAsciiTable(inputText || " ");
+  const bcdData = getBcdPacked(inputNumber || 0);
+  const grayResult = grayMode === "bin2gray" ? binToGray(grayInput || "0") : grayToBin(grayInput || "0");
+
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
-
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+    <div className="dark min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>⚡</span>
-            <span>Computer Architecture Masterclass · Module 001 · Topic 12</span>
+        {/* Title & Metadata */}
+        <header className="space-y-4 border-b border-slate-800 pb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-3 py-1 bg-teal-500/10 text-teal-400 border border-teal-500/20 text-xs font-semibold uppercase tracking-wider rounded-full">
+              Computer Architecture • Module 001.001 • Topic 12
+            </span>
+            <span className="px-3 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-semibold uppercase tracking-wider rounded-full">
+              Data Representation & Encoding
+            </span>
           </div>
-          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
-            ASCII, Unicode, BCD and Gray code
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Binary Codes: ASCII, Unicode (UTF-8), BCD, and Gray Code
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Understand how computers represent numbers and characters at the hardware level.
+          <p className="text-slate-400 text-lg leading-relaxed max-w-4xl">
+            Uncover how computers translate numbers, alphabets, and physical sensor rotations into digital bits. Explore 7-bit ASCII, global UTF-8 variable-length encoding, commercial Packed BCD for financial math, and unit-distance Gray codes preventing mechanical jitter in robotic shaft encoders.
           </p>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              🔒 Hardware Circuit Schematic
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⏱️ Timing &amp; Invariants
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 State Transitions &amp; Buses
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Silicon Synthesis
-            </span>
-          </div>
         </header>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* 3-Tab Architecture SVG Suite */}
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: ASCII, Unicode, BCD and Gray code
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">⚡</span> Architectural Code Standards & Hardware Encoders
               </h2>
-              <p className="text-xs text-slate-400">
-                Understanding computer architecture fundamentals and silicon-level mechanics from first principles
+              <p className="text-sm text-slate-400">
+                Visualizing character representations, mechanical shaft discs, and packed financial digits.
               </p>
             </div>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setActiveTab("utf8")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "utf8"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                1. UTF-8 Byte Layouts
+              </button>
+              <button
+                onClick={() => setActiveTab("gray")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "gray"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                2. Gray Code vs Binary Discs
+              </button>
+              <button
+                onClick={() => setActiveTab("bcd")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "bcd"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                3. Packed BCD & +6 Correction
+              </button>
+            </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Hardware Implementation Reality
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">ASCII, Unicode, BCD and Gray code</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Zero Glitch Architecture · Deterministic State Transitions
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to strict setup/hold times and bus arbitration protocols, hardware guarantees exact execution semantics across millions of concurrent cycles.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Hardware performance is the product of clean datapath layout, minimal critical path delay, and cache locality!"</em>
-              </div>
-            </div>
+          <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-6 flex flex-col items-center justify-center">
+            {activeTab === "utf8" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <defs>
+                  <linearGradient id="utf1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#0d9488" />
+                    <stop offset="100%" stopColor="#14b8a6" />
+                  </linearGradient>
+                  <linearGradient id="utf2" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#3b82f6" />
+                    <stop offset="100%" stopColor="#60a5fa" />
+                  </linearGradient>
+                  <linearGradient id="utf3" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#8b5cf6" />
+                    <stop offset="100%" stopColor="#a78bfa" />
+                  </linearGradient>
+                </defs>
+                <text x="425" y="30" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Unicode UTF-8 Variable-Length Encoding Standard (RFC 3629)
+                </text>
 
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated railway freight terminal in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Synchronized Routing:</strong> Trains are switched between parallel tracks strictly according to master clock signals.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Interlock Protection:</strong> Hardware lockouts prevent concurrent write conflicts and hazardous race conditions.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Silicon Advantage:</strong> High instruction throughput with 100% data integrity!
-              </div>
-            </div>
+                {/* 1-Byte (ASCII) */}
+                <g transform="translate(40, 60)">
+                  <rect width="770" height="60" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="20" y="25" fill="#38bdf8" fontSize="13" fontWeight="bold">1-Byte Sequence (U+0000 to U+007F - Standard ASCII)</text>
+                  <rect x="20" y="32" width="60" height="22" rx="4" fill="#14b8a6" />
+                  <text x="50" y="47" textAnchor="middle" fill="#022c22" fontSize="11" fontWeight="bold">0 (Prefix)</text>
+                  <rect x="85" y="32" width="220" height="22" rx="4" fill="#1e293b" stroke="#0d9488" />
+                  <text x="195" y="47" textAnchor="middle" fill="#ccfbf1" fontSize="11">7 Payload Bits (x x x x x x x)</text>
+                  <text x="330" y="47" fill="#94a3b8" fontSize="12">Example: 'A' (U+0041) → 01000001 (0x41)</text>
+                </g>
+
+                {/* 2-Byte */}
+                <g transform="translate(40, 135)">
+                  <rect width="770" height="60" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="20" y="25" fill="#60a5fa" fontSize="13" fontWeight="bold">2-Byte Sequence (U+0080 to U+07FF - Greek, Arabic, Latin Ext)</text>
+                  <rect x="20" y="32" width="70" height="22" rx="4" fill="#3b82f6" />
+                  <text x="55" y="47" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">1 1 0 (Pfx)</text>
+                  <rect x="95" y="32" width="120" height="22" rx="4" fill="#1e293b" stroke="#3b82f6" />
+                  <text x="155" y="47" textAnchor="middle" fill="#dbeafe" fontSize="11">5 Bits (x x x x x)</text>
+                  <rect x="225" y="32" width="60" height="22" rx="4" fill="#60a5fa" />
+                  <text x="255" y="47" textAnchor="middle" fill="#0f172a" fontSize="11" fontWeight="bold">1 0 (Cont)</text>
+                  <rect x="290" y="32" width="140" height="22" rx="4" fill="#1e293b" stroke="#3b82f6" />
+                  <text x="360" y="47" textAnchor="middle" fill="#dbeafe" fontSize="11">6 Bits (x x x x x x)</text>
+                  <text x="450" y="47" fill="#94a3b8" fontSize="12">Total: 11 payload bits</text>
+                </g>
+
+                {/* 3-Byte */}
+                <g transform="translate(40, 210)">
+                  <rect width="770" height="65" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="20" y="23" fill="#a78bfa" fontSize="13" fontWeight="bold">3-Byte Sequence (U+0800 to U+FFFF - Bengali, Devanagari, CJK, Symbols)</text>
+                  <rect x="20" y="32" width="80" height="24" rx="4" fill="#8b5cf6" />
+                  <text x="60" y="48" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">1 1 1 0 (Pfx)</text>
+                  <rect x="105" y="32" width="100" height="24" rx="4" fill="#1e293b" stroke="#8b5cf6" />
+                  <text x="155" y="48" textAnchor="middle" fill="#ede9fe" fontSize="11">4 Bits (xxxx)</text>
+                  <rect x="215" y="32" width="60" height="24" rx="4" fill="#a78bfa" />
+                  <text x="245" y="48" textAnchor="middle" fill="#1e1b4b" fontSize="11" fontWeight="bold">1 0 (Cont)</text>
+                  <rect x="280" y="32" width="110" height="24" rx="4" fill="#1e293b" stroke="#8b5cf6" />
+                  <text x="335" y="48" textAnchor="middle" fill="#ede9fe" fontSize="11">6 Bits (xxxxxx)</text>
+                  <rect x="400" y="32" width="60" height="24" rx="4" fill="#a78bfa" />
+                  <text x="430" y="48" textAnchor="middle" fill="#1e1b4b" fontSize="11" fontWeight="bold">1 0 (Cont)</text>
+                  <rect x="465" y="32" width="110" height="24" rx="4" fill="#1e293b" stroke="#8b5cf6" />
+                  <text x="520" y="48" textAnchor="middle" fill="#ede9fe" fontSize="11">6 Bits (xxxxxx)</text>
+                  <text x="590" y="48" fill="#c084fc" fontSize="12" fontWeight="bold">Bengali 'ক' (U+0995) → E0 A6 95</text>
+                </g>
+
+                <text x="425" y="315" textAnchor="middle" fill="#64748b" fontSize="12">
+                  Key Benefit: 100% backward compatible with ASCII. Continuation bytes always start with '10' for instant self-synchronization.
+                </text>
+              </svg>
+            )}
+
+            {activeTab === "gray" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="30" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Gray Code vs Standard Binary: Eliminating Mechanical Shaft Jitter
+                </text>
+
+                {/* Binary Track Glitch */}
+                <g transform="translate(60, 65)">
+                  <rect width="340" height="240" rx="10" fill="#0f172a" stroke="#ef4444" strokeWidth="1.5" />
+                  <text x="170" y="30" textAnchor="middle" fill="#f87171" fontSize="14" fontWeight="bold">Natural Binary Transition (3 → 4)</text>
+                  <rect x="40" y="55" width="260" height="50" rx="6" fill="#1e293b" />
+                  <text x="60" y="75" fill="#94a3b8" fontSize="12">Value 3:</text>
+                  <text x="140" y="75" fill="#38bdf8" fontSize="13" fontFamily="monospace" fontWeight="bold">0 0 1 1</text>
+                  <text x="60" y="95" fill="#94a3b8" fontSize="12">Value 4:</text>
+                  <text x="140" y="95" fill="#38bdf8" fontSize="13" fontFamily="monospace" fontWeight="bold">0 1 0 0</text>
+                  <text x="210" y="85" fill="#ef4444" fontSize="12" fontWeight="bold">3 bits flip!</text>
+
+                  <rect x="30" y="125" width="280" height="90" rx="6" fill="#450a0a" border="1" stroke="#dc2626" />
+                  <text x="40" y="148" fill="#fca5a5" fontSize="12" fontWeight="bold">⚠️ Optical Switch Asynchrony Hazard:</text>
+                  <text x="40" y="170" fill="#fecaca" fontSize="11">If sensor bit 2 triggers slightly before 0 & 1:</text>
+                  <text x="40" y="190" fill="#fca5a5" fontSize="12" fontFamily="monospace">0011 → 0111 (Value 7! Glitch Spike)</text>
+                  <text x="40" y="205" fill="#ef4444" fontSize="11">Causes robot joint jerk or tachometer error.</text>
+                </g>
+
+                {/* Gray Code Safety */}
+                <g transform="translate(450, 65)">
+                  <rect width="340" height="240" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="170" y="30" textAnchor="middle" fill="#34d399" fontSize="14" fontWeight="bold">Gray Code Transition (3 → 4)</text>
+                  <rect x="40" y="55" width="260" height="50" rx="6" fill="#1e293b" />
+                  <text x="60" y="75" fill="#94a3b8" fontSize="12">Gray 3:</text>
+                  <text x="140" y="75" fill="#34d399" fontSize="13" fontFamily="monospace" fontWeight="bold">0 0 1 0</text>
+                  <text x="60" y="95" fill="#94a3b8" fontSize="12">Gray 4:</text>
+                  <text x="140" y="95" fill="#34d399" fontSize="13" fontFamily="monospace" fontWeight="bold">0 1 1 0</text>
+                  <text x="210" y="85" fill="#10b981" fontSize="12" fontWeight="bold">Only 1 bit flips!</text>
+
+                  <rect x="30" y="125" width="280" height="90" rx="6" fill="#064e3b" border="1" stroke="#059669" />
+                  <text x="40" y="148" fill="#a7f3d0" fontSize="12" fontWeight="bold">✅ Unit Distance Principle:</text>
+                  <text x="40" y="170" fill="#d1fae5" fontSize="11">Only one optical sensor changes state per step.</text>
+                  <text x="40" y="190" fill="#a7f3d0" fontSize="12" fontFamily="monospace">Intermediate state is either 3 or 4.</text>
+                  <text x="40" y="205" fill="#34d399" fontSize="11">Zero false spikes. Perfect for CNC & robotics.</text>
+                </g>
+
+                <text x="425" y="335" textAnchor="middle" fill="#64748b" fontSize="12">
+                  XOR Conversion Rule: Gray = Binary ⊕ (Binary &gt;&gt; 1)
+                </text>
+              </svg>
+            )}
+
+            {activeTab === "bcd" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="30" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Packed BCD (8421) Representation & DAA +6 Adjustment
+                </text>
+
+                {/* Packed Byte Layout */}
+                <g transform="translate(60, 60)">
+                  <rect width="730" height="100" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="25" y="30" fill="#38bdf8" fontSize="13" fontWeight="bold">1 Byte Packed BCD representing Number 95:</text>
+                  
+                  <rect x="100" y="45" width="240" height="35" rx="6" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="220" y="68" textAnchor="middle" fill="#fbbf24" fontSize="14" fontWeight="bold">Upper Nibble: 1 0 0 1 (Digit 9)</text>
+                  
+                  <rect x="390" y="45" width="240" height="35" rx="6" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="510" y="68" textAnchor="middle" fill="#34d399" fontSize="14" fontWeight="bold">Lower Nibble: 0 1 0 1 (Digit 5)</text>
+                </g>
+
+                {/* BCD Addition & Correction */}
+                <g transform="translate(60, 180)">
+                  <rect width="730" height="145" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="25" y="25" fill="#f43f5e" fontSize="13" fontWeight="bold">Why BCD Addition Needs +6 (0110) Correction:</text>
+                  
+                  <text x="40" y="55" fill="#cbd5e1" fontSize="12" fontFamily="monospace">
+                    Compute 7 + 8 in 4-bit Binary: 0111 + 1000 = 1111 (Binary 15, Hex 0xF)
+                  </text>
+                  <text x="40" y="78" fill="#fca5a5" fontSize="12">
+                    ❌ 1111 is an INVALID BCD nibble (Valid BCD is strictly 0000 to 1001 / 0 to 9).
+                  </text>
+                  <text x="40" y="102" fill="#cbd5e1" fontSize="12" fontFamily="monospace">
+                    Hardware DAA adds 6 (0110): 1111 + 0110 = [1] 0101 (Carry 1, Lower 5 → BCD 15!)
+                  </text>
+                  <text x="40" y="125" fill="#34d399" fontSize="12" fontWeight="bold">
+                    ✅ Adding 6 skips the 6 invalid 4-bit states (10..15) and triggers decimal tens carry!
+                  </text>
+                </g>
+              </svg>
+            )}
           </div>
         </section>
 
-        {/* ─── 3. Multi-Tabbed Schematic & Architectural Suite ── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Timing Diagrams
+        {/* Live Interactive Code Workbench */}
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div className="border-b border-slate-800 pb-4">
+            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+              <span className="text-indigo-400">🧪</span> Live Interactive Multi-Code Converter Workbench
             </h2>
-            {/* Tab Selector */}
-            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
-              <button
-                onClick={() => setActiveDiagramTab("tab1")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab1"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                1. Radix Conversion Engine
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("tab2")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab2"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                2. 2's Complement Sign Unit
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("tab3")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab3"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                3. Positional Bit Weights
-              </button>
-            </div>
+            <p className="text-sm text-slate-400">
+              Test ASCII, UTF-8 strings, financial BCD packaging, and step-by-step Gray code XOR conversions live.
+            </p>
           </div>
 
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            {activeDiagramTab === "tab1" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
-                  1. Radix Conversion Engine
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 300" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="30" y="30" width="220" height="240" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="140" y="65" fill="#5eead4" textAnchor="middle" fontWeight="bold" fontSize="14">Input Integer / Fraction</text>
-          <text x="140" y="100" fill="#ffffff" textAnchor="middle" fontSize="18" fontWeight="bold">Value N (Base-10)</text>
-          <rect x="50" y="120" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="145" fill="#cbd5e1" textAnchor="middle">Integer Part: Div by Base r</text>
-          <rect x="50" y="175" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="200" fill="#cbd5e1" textAnchor="middle">Fraction: Mul by Base r</text>
-          <text x="140" y="245" fill="#94a3b8" textAnchor="middle" fontSize="10">Positional: Σ (dᵢ · rⁱ)</text>
-
-          <line x1="250" y1="150" x2="350" y2="150" stroke="#38bdf8" strokeWidth="3" strokeDasharray="5 3" />
-          <polygon points="350,145 365,150 350,155" fill="#38bdf8" />
-          <text x="300" y="140" fill="#38bdf8" textAnchor="middle" fontSize="11">Iterative Modulo</text>
-
-          <rect x="365" y="30" width="280" height="240" rx="12" fill="#0f172a" stroke="#38bdf8" strokeWidth="2.5" />
-          <text x="505" y="65" fill="#7dd3fc" textAnchor="middle" fontWeight="bold" fontSize="14">Successive Radix Hardware</text>
-          <rect x="385" y="85" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="110" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Integer Stack: Read Bottom-Up</text>
-          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) → MSB (Last Rem)</text>
-          <rect x="385" y="170" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="195" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Fraction Queue: Read Top-Down</text>
-          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) → LSB (Last Int)</text>
-
-          <line x1="645" y1="150" x2="745" y2="150" stroke="#22c55e" strokeWidth="3" />
-          <polygon points="745,145 760,150 745,155" fill="#22c55e" />
-          <text x="695" y="140" fill="#22c55e" textAnchor="middle" fontSize="11">Target Output</text>
-
-          <rect x="760" y="30" width="150" height="240" rx="12" fill="#052e16" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="835" y="70" fill="#86efac" textAnchor="middle" fontWeight="bold" fontSize="14">Output Base-R</text>
-          <text x="835" y="110" fill="#ffffff" textAnchor="middle" fontSize="20" fontWeight="bold">Binary / Hex</text>
-          <text x="835" y="150" fill="#86efac" textAnchor="middle" fontSize="11">Radix Point (.)</text>
-          <text x="835" y="190" fill="#bbf7d0" textAnchor="middle" fontSize="10">Zero Truncation</text>
-          <text x="835" y="235" fill="#4ade80" textAnchor="middle" fontSize="11" fontWeight="bold">Exact Precision</text>
-        </svg>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Tool 1: ASCII & Parity Inspector */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-5 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">Tool A: ASCII & 7-Bit Code</span>
+                <span className="text-xs text-slate-500">Char → Bits</span>
               </div>
-            )}
-
-            {activeDiagramTab === "tab2" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
-                  2. 2's Complement Sign Unit
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="40" y="40" width="160" height="150" rx="10" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="120" y="70" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="13">Raw Magnitude (A)</text>
-          <text x="120" y="115" fill="#ffffff" textAnchor="middle" fontSize="16" fontWeight="bold">[ 0 1 0 1 1 0 0 1 ]</text>
-          <text x="120" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Unsigned / Positive</text>
-
-          <line x1="200" y1="115" x2="300" y2="115" stroke="#f59e0b" strokeWidth="3" />
-          <polygon points="300,110 315,115 300,120" fill="#f59e0b" />
-          <text x="250" y="105" fill="#f59e0b" textAnchor="middle" fontSize="11">Bitwise NOT</text>
-
-          <rect x="315" y="40" width="180" height="150" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="2.5" />
-          <text x="405" y="70" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="13">1's Complement (Ā)</text>
-          <text x="405" y="115" fill="#fde68a" textAnchor="middle" fontSize="16" fontWeight="bold">[ 1 0 1 0 0 1 1 0 ]</text>
-          <text x="405" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Inverted Bits</text>
-
-          <line x1="495" y1="115" x2="595" y2="115" stroke="#38bdf8" strokeWidth="3" />
-          <polygon points="595,110 610,115 595,120" fill="#38bdf8" />
-          <text x="545" y="105" fill="#38bdf8" textAnchor="middle" fontSize="11">+ 1 LSB Adder</text>
-
-          <rect x="610" y="40" width="280" height="150" rx="10" fill="#0f172a" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="750" y="70" fill="#22c55e" textAnchor="middle" fontWeight="bold" fontSize="13">2's Complement Negation (-A)</text>
-          <text x="750" y="115" fill="#86efac" textAnchor="middle" fontSize="18" fontWeight="bold">[ 1 0 1 0 0 1 1 1 ]</text>
-          <text x="750" y="155" fill="#cbd5e1" textAnchor="middle" fontSize="11">MSB = 1 (Negative Sign Bit) | Value = -A</text>
-        </svg>
-                </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Enter Text (e.g. Mamata, Kolkata):</label>
+                <input
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value.slice(0, 10))}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-teal-500 font-mono uppercase"
+                  placeholder="Enter text..."
+                />
               </div>
-            )}
 
-            {activeDiagramTab === "tab3" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  3. Positional Bit Weights
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <text x="470" y="35" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">8-Bit Signed Binary Positional Weight Matrix</text>
-          {[-128, 64, 32, 16, 8, 4, 2, 1].map((wt, i) => (
-            <g key={i} transform={`translate(${60 + i * 105}, 60)`}>
-              <rect width="90" height="120" rx="8" fill="#1e293b" stroke={i === 0 ? "#f43f5e" : "#38bdf8"} strokeWidth="2" />
-              <text x="45" y="30" fill={i === 0 ? "#f43f5e" : "#38bdf8"} textAnchor="middle" fontWeight="bold" fontSize="12">Bit {7 - i}</text>
-              <text x="45" y="60" fill="#ffffff" textAnchor="middle" fontWeight="bold" fontSize="14">{i === 0 ? "Sign" : "Mag"}</text>
-              <text x="45" y="95" fill={i === 0 ? "#fca5a5" : "#7dd3fc"} textAnchor="middle" fontWeight="bold" fontSize="13">{wt}</text>
-            </g>
-          ))}
-          <text x="470" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">Total Value = -128·b₇ + 64·b₆ + 32·b₅ + 16·b₄ + 8·b₃ + 4·b₂ + 2·b₁ + 1·b₀</text>
-        </svg>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: ASCII, Unicode, BCD and Gray code
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Select Execution Phase / Clock Cycle:
-              </span>
-              <div className="flex gap-2">
-                {[1, 2, 3, 4].map((step) => (
-                  <button
-                    key={step}
-                    onClick={() => setSimStep(step)}
-                    className={clsx(
-                      "px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold border transition",
-                      simStep === step
-                        ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
-                    )}
-                  >
-                    Phase {step}
-                  </button>
+              <div className="max-h-56 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
+                {asciiRows.map((r, i) => (
+                  <div key={i} className="bg-slate-900 border border-slate-800/80 rounded p-2 text-xs flex items-center justify-between">
+                    <span className="font-bold text-white px-2 py-0.5 bg-slate-800 rounded">'{r.ch}'</span>
+                    <span className="text-slate-400 font-mono">Dec: {r.code}</span>
+                    <span className="text-amber-400 font-mono">Hex: 0x{r.hex}</span>
+                    <span className="text-teal-300 font-mono font-bold">{r.bin7}</span>
+                  </div>
                 ))}
               </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950 border border-teal-500/30 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-teal-950 text-teal-300 font-mono text-xs font-bold border border-teal-800">
-                  EXECUTION PHASE {simStep} OF 4
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Hardware State T+{simStep}</span>
-              </div>
-              <h3 className="text-base font-bold text-white">
-                {simStep === 1 && "Phase 1: Signal Conditioning & Input Ingestion"}
-                {simStep === 2 && "Phase 2: Datapath Decoding & Logic Evaluation"}
-                {simStep === 3 && "Phase 3: State Storage & Memory Interface Strobe"}
-                {simStep === 4 && "Phase 4: Output Stabilization & Verification"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {simStep === 1 && "Signals are ingested from input pins and stabilized against ground bounce and setup timing constraints."}
-                {simStep === 2 && "Combinational logic gates and internal buses evaluate control lines to compute intermediate signals."}
-                {simStep === 3 && "Bistable registers latch stable binary states on the active clock edge."}
-                {simStep === 4 && "Outputs drive downstream data buses and status flags are committed cleanly."}
+              <p className="text-[11px] text-slate-500">
+                Notice uppercase 'A' is 0x41 (01000001) and lowercase 'a' is 0x61 (01100001) - flipping bit 5 toggles case!
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* ─── 5. Real-World Engineering Scenarios ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+            {/* Tool 2: BCD Financial Packer */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-5 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Tool B: Packed BCD Inspector</span>
+                <span className="text-xs text-slate-500">Exact Decimal</span>
+              </div>
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE AUTOMATION
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Real-Time Process Automation</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata deployed high-reliability industrial controllers in Barrackpore. Implementing hardware synchronization eliminated race conditions across ₹45 Lakh automated assembly lines.
-                </p>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Enter Decimal Number (0 - 99999):</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="99999"
+                  value={inputNumber}
+                  onChange={(e) => setInputNumber(Math.max(0, Math.min(99999, parseInt(e.target.value || "0", 10))))}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500 font-mono"
+                />
               </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Deterministic SIL-4 Reliability
+
+              <div className="space-y-3">
+                <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-2">
+                  <span className="text-[11px] text-slate-400 uppercase font-semibold">Digit Nibble Breakdown:</span>
+                  <div className="flex flex-wrap gap-2">
+                    {bcdData.unpacked.map((u, i) => (
+                      <div key={i} className="flex-1 min-w-[50px] bg-slate-950 border border-amber-500/30 rounded p-2 text-center">
+                        <div className="text-lg font-bold text-amber-400">{u.digit}</div>
+                        <div className="text-xs font-mono text-slate-300">{u.bin4}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-slate-900 border border-slate-800 rounded-lg p-3">
+                  <span className="text-[11px] text-slate-400 uppercase font-semibold block mb-1">Packed BCD Bitstream:</span>
+                  <p className="font-mono text-xs text-teal-300 break-all">{bcdData.packedHex}</p>
+                </div>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+            {/* Tool 3: Binary <-> Gray Code Step Tracer */}
+            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-5 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Tool C: Gray Code Converter</span>
+                <div className="flex gap-1">
+                  <button
+                    onClick={() => setGrayMode("bin2gray")}
+                    className={`px-2 py-0.5 text-[10px] rounded ${grayMode === "bin2gray" ? "bg-indigo-600 text-white font-bold" : "bg-slate-800 text-slate-400"}`}
+                  >
+                    Bin → Gray
+                  </button>
+                  <button
+                    onClick={() => setGrayMode("gray2bin")}
+                    className={`px-2 py-0.5 text-[10px] rounded ${grayMode === "gray2bin" ? "bg-indigo-600 text-white font-bold" : "bg-slate-800 text-slate-400"}`}
+                  >
+                    Gray → Bin
+                  </button>
+                </div>
+              </div>
+
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR EMBEDDED LAB
+                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                  {grayMode === "bin2gray" ? "Enter Binary (e.g. 1011):" : "Enter Gray Code (e.g. 1110):"}
+                </label>
+                <input
+                  type="text"
+                  maxLength={6}
+                  value={grayInput}
+                  onChange={(e) => setGrayInput(e.target.value.replace(/[^01]/g, ""))}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500 font-mono tracking-widest"
+                />
+              </div>
+
+              <div className="bg-slate-900 border border-slate-800 rounded-lg p-3 space-y-2">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-slate-400 font-semibold">Output Result:</span>
+                  <span className="font-mono text-base font-bold text-indigo-300">
+                    {grayMode === "bin2gray" ? grayResult.gray : grayResult.bin}
                   </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
                 </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">High-Speed Microprocessor Signal Routing</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu analyzed clock skew across 32-bit register buses on custom FPGA prototypes, ensuring setup and hold times were met at 200 MHz clock frequencies.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Nanosecond Clock Skew Precision
+                <div className="border-t border-slate-800 pt-2 max-h-24 overflow-y-auto space-y-1 text-[11px] font-mono text-slate-400">
+                  {grayResult.steps.map((st, i) => (
+                    <div key={i}>{st}</div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ─── 6. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Violating Setup and Hold Time Windows:</strong>
-                Changing data inputs too close to the active clock edge traps the storage element in metastability, resulting in unpredictable output oscillations.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Uncontrolled Bus Contention:</strong>
-                Enabling multiple tri-state drivers simultaneously causes high short-circuit currents and severe thermal stress on silicon chips.
-              </div>
-            </div>
+        {/* Deep Dive Theory & Real-World Case Studies */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="p-1.5 bg-teal-500/10 text-teal-400 rounded-md">🏢</span>
+              Case Study: Financial Ledger Precision in Barrackpore
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              When <strong>Mamata</strong> and <strong>Mahima</strong> built a core banking transaction service at <strong>Barrackpore</strong>, floating-point rounding errors (where <code className="text-teal-300">0.1 + 0.2 = 0.30000000000000004</code>) could not be tolerated for statutory audit compliance.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              They implemented <strong>Packed BCD</strong> (Binary Coded Decimal) storage in their mainframe database schema. Because each decimal digit is encoded exactly into 4 bits without fractional base-2 approximations, every single paisa transaction remained exact to the last decimal place without floating-point drift.
+            </p>
+          </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Synchronous Reset Architectures:</strong>
-                Always prefer synchronous reset lines over asynchronous resets to prevent spurious resets triggered by EMI noise spikes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Decoupling Capacitors &amp; Power Planes:</strong>
-                Place 0.1 µF bypass capacitors adjacent to every IC power pin to suppress switching transients during high-frequency clock edges.
-              </div>
-            </div>
+          <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="p-1.5 bg-indigo-500/10 text-indigo-400 rounded-md">🤖</span>
+              Case Study: Robotic Shaft Positioning in Ichapur Factory
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              At an automated munitions stamping facility in <strong>Ichapur</strong>, engineer <strong>Debangshu</strong> and researcher <strong>Susmita</strong> tested high-speed optical shaft encoders.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Standard binary encoders caused sudden destructive robotic arm torque spikes during transitions from position 7 (<code className="text-indigo-300">0111</code>) to 8 (<code className="text-indigo-300">1000</code>) due to multi-sensor timing discrepancies reading intermediate false codes like 15 (<code className="text-rose-400">1111</code>). Switching to <strong>Gray Code</strong> ensured only 1 bit toggled per mechanical step, completely eliminating sensor jitter and equipment wear.
+            </p>
           </div>
         </section>
 
-        {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="ASCII, Unicode, BCD and Gray code FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
+        {/* 30 Curated FAQs */}
+        <FAQTemplate questions={topic12Questions} />
 
-        {/* ─── 8. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <PlainTextPrint
-            content={noteText}
-            title="ASCII, Unicode, BCD and Gray code"
-            stampEnabled={true}
-            showDownload={true}
-            downloadButtonText="Download Note"
-            downloadFileName="topic12_note.txt"
-          />
-        </section>
+        {/* Printable Text Notes Component */}
+        <PlainTextPrint rawNotes={rawNotes} />
 
-        {/* ─── 9. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <Teacher
-            note={
-              "In computer architecture and digital systems engineering, hardware diagrams are the blueprints of truth. " +
-              "Always trace signal paths from input pins through combinational logic and registers to output buses. When you can visualize the timing diagram in your mind, digital architecture becomes second nature!"
-            }
-          />
-        </section>
-
-        {/* ─── 10. Footer ─────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 12 · ASCII, Unicode, BCD and Gray code · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
+        {/* Teacher Sukanta Hui Footer / Bio */}
+        <Teacher />
       </div>
-    </>
+    </div>
   );
-};
-
-export default Topic12;
+}

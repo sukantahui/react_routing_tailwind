@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import clsx from "clsx";
 
 // ─── Common Framework Imports ──────────────────────────────────────────
@@ -12,14 +12,14 @@ import noteText from "./topic3_files/topic3_note.txt?raw";
  * Topic3 – Conversion from Decimal to HexaDecimal
  * Module: 001_001_number-systems-and-codes (Number Systems & Binary Codes)
  * Track: Computer Architecture – From Core Systems to Performance Engineering
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with multi-tabbed vector schematic suite,
- *                        live simulation workbench, real-world case studies, best practices, FAQs, and printable notes.
  */
 const Topic3 = () => {
-  const [activeDiagramTab, setActiveDiagramTab] = useState("tab1");
-  const [simStep, setSimStep] = useState(1);
+  const [activeTab, setActiveTab] = useState("tab1");
+  const [decInput, setDecInput] = useState("7562");
+  const [fracInput, setFracInput] = useState("0.6875");
+  const [rgbR, setRgbR] = useState(255);
+  const [rgbG, setRgbG] = useState(138);
+  const [rgbB, setRgbB] = useState(61);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Topic3 = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
 
     sectionRefs.current.forEach((el) => {
@@ -46,6 +46,82 @@ const Topic3 = () => {
       sectionRefs.current.push(el);
     }
   };
+
+  // Convert decimal integer to hexadecimal with division steps
+  const integerDivisionSteps = useMemo(() => {
+    const num = parseInt(decInput, 10);
+    if (isNaN(num) || num < 0) return { error: "Please enter a valid non-negative integer", steps: [], result: "" };
+    if (num === 0) {
+      return {
+        steps: [{ dividend: 0, quotient: 0, remainder: 0, hexDigit: "0", bit4: "0000" }],
+        result: "0",
+        binary: "0000",
+        num
+      };
+    }
+
+    const hexMap = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+    const steps = [];
+    let current = num;
+
+    while (current > 0) {
+      const quotient = Math.floor(current / 16);
+      const remainder = current % 16;
+      const hexDigit = hexMap[remainder];
+      const bit4 = remainder.toString(2).padStart(4, "0");
+      steps.push({
+        dividend: current,
+        quotient,
+        remainder,
+        hexDigit,
+        bit4
+      });
+      current = quotient;
+    }
+
+    const result = steps.map((s) => s.hexDigit).reverse().join("");
+    const binary = steps.map((s) => s.bit4).reverse().join(" ");
+
+    return { steps, result, binary, num };
+  }, [decInput]);
+
+  // Convert decimal fraction to hexadecimal with multiplication steps
+  const fractionalMultiplicationSteps = useMemo(() => {
+    const frac = parseFloat(fracInput);
+    if (isNaN(frac) || frac < 0 || frac >= 1) {
+      return { error: "Please enter a decimal fraction strictly between 0.0 and 0.9999", steps: [], result: "" };
+    }
+
+    const hexMap = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+    const steps = [];
+    let current = frac;
+    let iterations = 0;
+
+    while (current > 0.00000001 && iterations < 8) {
+      const product = current * 16;
+      const intPart = Math.floor(product);
+      const newFrac = product - intPart;
+      const hexDigit = hexMap[intPart];
+      steps.push({
+        multiplicand: current,
+        product: product.toFixed(4),
+        integerPart: intPart,
+        hexDigit,
+        remainingFraction: newFrac.toFixed(4)
+      });
+      current = newFrac;
+      iterations++;
+    }
+
+    const result = "0." + steps.map((s) => s.hexDigit).join("");
+    return { steps, result, frac, iterations };
+  }, [fracInput]);
+
+  // Hex color representation
+  const hexColor = useMemo(() => {
+    const toHex = (n) => Math.max(0, Math.min(255, n)).toString(16).toUpperCase().padStart(2, "0");
+    return `#${toHex(rgbR)}${toHex(rgbG)}${toHex(rgbB)}`;
+  }, [rgbR, rgbG, rgbB]);
 
   return (
     <>
@@ -67,25 +143,25 @@ const Topic3 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001 · Topic 3</span>
           </div>
-          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
             Conversion from Decimal to HexaDecimal
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Understand how computers represent numbers and characters at the hardware level.
+            Master radix-16 mathematics, the successive division &amp; multiplication algorithms, 4-bit nibble groupings, memory address pointer formats, and true-color hardware encodings.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              🔒 Hardware Circuit Schematic
+              ➗ Successive Division by 16
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⏱️ Timing &amp; Invariants
+              ✖️ Fractional Radix-16 Multiplication
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 State Transitions &amp; Buses
+              📦 4-Bit Nibble ↔ Hex Digit Mapping
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Silicon Synthesis
+              🎨 24-Bit TrueColor RGB / Memory Pointers
             </span>
           </div>
         </header>
@@ -100,364 +176,712 @@ const Topic3 = () => {
               👨‍🏫
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Conversion from Decimal to HexaDecimal
+              <h2 className="text-lg md:text-xl font-bold text-teal-300">
+                Classroom Lecture: The Bridge from Silicon to Human Comprehension
               </h2>
               <p className="text-xs text-slate-400">
-                Understanding computer architecture fundamentals and silicon-level mechanics from first principles
+                Sukanta Hui · Coder &amp; AccoTax · Shibtala Road, Barrackpore
               </p>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Hardware Implementation Reality
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">Conversion from Decimal to HexaDecimal</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Zero Glitch Architecture · Deterministic State Transitions
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to strict setup/hold times and bus arbitration protocols, hardware guarantees exact execution semantics across millions of concurrent cycles.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Hardware performance is the product of clean datapath layout, minimal critical path delay, and cache locality!"</em>
-              </div>
-            </div>
+          <div className="mt-6 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p>
+              Why do software and hardware engineers use Hexadecimal (Base-16) instead of writing raw binary or pure decimal? The answer lies in the mathematical elegance of powers of two: <code className="text-teal-300 font-mono font-bold">16 = 2⁴</code>.
+            </p>
+            <p>
+              In a 64-bit CPU architecture, a raw memory address is a blinding sequence of 64 ones and zeros:
+              <br />
+              <code className="text-xs sm:text-sm font-mono text-amber-300 bg-slate-950 px-2 py-1 rounded border border-slate-800 inline-block my-1 break-all">
+                0111111111111110101110101111111100000000000000001010110011011110
+              </code>
+              <br />
+              Converting this to decimal produces <code className="text-cyan-300 font-mono">9,222,969,876,243,983,582</code>, which conceals all the underlying bit patterns, byte boundaries, and bus alignment. But when expressed in Hexadecimal, each group of 4 bits collapses into exactly one symbol:
+              <br />
+              <code className="text-xs sm:text-sm font-mono text-teal-300 bg-slate-950 px-2 py-1 rounded border border-slate-800 inline-block my-1">
+                0x7FFE_BAFF_0000_ACDE
+              </code>
+            </p>
+            <p>
+              Notice how easily you can read each individual byte: <code className="text-teal-300 font-mono">7F</code>, <code className="text-teal-300 font-mono">FE</code>, <code className="text-teal-300 font-mono">BA</code>, <code className="text-teal-300 font-mono">FF</code>, etc. Hexadecimal is the ultimate human shorthand for binary memory dumps, machine opcodes, hardware register maps, and network packets.
+            </p>
+          </div>
 
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated railway freight terminal in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Synchronized Routing:</strong> Trains are switched between parallel tracks strictly according to master clock signals.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Interlock Protection:</strong> Hardware lockouts prevent concurrent write conflicts and hazardous race conditions.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Silicon Advantage:</strong> High instruction throughput with 100% data integrity!
-              </div>
+          {/* Hex Symbol Alphabet Table */}
+          <div className="mt-8 overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/80 p-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-400 mb-3">
+              The 16 Hexadecimal Symbols &amp; Their 4-Bit Binary Equivalents
+            </h3>
+            <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-16 gap-1.5 text-center text-xs">
+              {[
+                { dec: 0, hex: "0", bin: "0000" },
+                { dec: 1, hex: "1", bin: "0001" },
+                { dec: 2, hex: "2", bin: "0010" },
+                { dec: 3, hex: "3", bin: "0011" },
+                { dec: 4, hex: "4", bin: "0100" },
+                { dec: 5, hex: "5", bin: "0101" },
+                { dec: 6, hex: "6", bin: "0110" },
+                { dec: 7, hex: "7", bin: "0111" },
+                { dec: 8, hex: "8", bin: "1000" },
+                { dec: 9, hex: "9", bin: "1001" },
+                { dec: 10, hex: "A", bin: "1010" },
+                { dec: 11, hex: "B", bin: "1011" },
+                { dec: 12, hex: "C", bin: "1100" },
+                { dec: 13, hex: "D", bin: "1101" },
+                { dec: 14, hex: "E", bin: "1110" },
+                { dec: 15, hex: "F", bin: "1111" }
+              ].map((item) => (
+                <div
+                  key={item.hex}
+                  className="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-teal-500/50 transition-colors"
+                >
+                  <div className="text-slate-400 text-[10px]">{item.dec}</div>
+                  <div className="text-base font-bold text-teal-300 font-mono my-0.5">{item.hex}</div>
+                  <div className="text-[10px] text-cyan-400 font-mono">{item.bin}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ─── 3. Multi-Tabbed Schematic & Architectural Suite ── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Timing Diagrams
-            </h2>
-            {/* Tab Selector */}
-            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+        {/* ─── 3. Multi-Tabbed Custom SVG Instructional Suite ─── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-800 bg-slate-900/90 p-6 md:p-8 shadow-2xl"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
+            <div>
+              <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                <span>📐</span> Architectural Visualizer &amp; Schematics
+              </h2>
+              <p className="text-xs text-slate-400">
+                Interactive SVG diagrams detailing hardware radix division, nibble mapping, and fractional multiplication.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
               <button
-                onClick={() => setActiveDiagramTab("tab1")}
+                onClick={() => setActiveTab("tab1")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab1"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                  activeTab === "tab1"
+                    ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/30"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
               >
-                1. Radix Conversion Engine
+                1. Division by 16 Ladder
               </button>
               <button
-                onClick={() => setActiveDiagramTab("tab2")}
+                onClick={() => setActiveTab("tab2")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab2"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                  activeTab === "tab2"
+                    ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/30"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
               >
-                2. 2's Complement Sign Unit
+                2. Nibble &amp; Byte Architecture
               </button>
               <button
-                onClick={() => setActiveDiagramTab("tab3")}
+                onClick={() => setActiveTab("tab3")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab3"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                  activeTab === "tab3"
+                    ? "bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/30"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 )}
               >
-                3. Positional Bit Weights
+                3. Fractional Multiplication
               </button>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            {activeDiagramTab === "tab1" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
-                  1. Radix Conversion Engine
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 300" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="30" y="30" width="220" height="240" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="140" y="65" fill="#5eead4" textAnchor="middle" fontWeight="bold" fontSize="14">Input Integer / Fraction</text>
-          <text x="140" y="100" fill="#ffffff" textAnchor="middle" fontSize="18" fontWeight="bold">Value N (Base-10)</text>
-          <rect x="50" y="120" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="145" fill="#cbd5e1" textAnchor="middle">Integer Part: Div by Base r</text>
-          <rect x="50" y="175" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="200" fill="#cbd5e1" textAnchor="middle">Fraction: Mul by Base r</text>
-          <text x="140" y="245" fill="#94a3b8" textAnchor="middle" fontSize="10">Positional: Σ (dᵢ · rⁱ)</text>
+          {/* Tab 1: Division by 16 Ladder */}
+          {activeTab === "tab1" && (
+            <div className="space-y-4">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <svg
+                  viewBox="0 0 800 380"
+                  className="w-full h-auto font-sans"
+                  style={{ maxHeight: "420px" }}
+                >
+                  <defs>
+                    <linearGradient id="ladderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#0d9488" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+                    </linearGradient>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#14b8a6" />
+                    </marker>
+                  </defs>
 
-          <line x1="250" y1="150" x2="350" y2="150" stroke="#38bdf8" strokeWidth="3" strokeDasharray="5 3" />
-          <polygon points="350,145 365,150 350,155" fill="#38bdf8" />
-          <text x="300" y="140" fill="#38bdf8" textAnchor="middle" fontSize="11">Iterative Modulo</text>
+                  {/* Title Banner */}
+                  <rect x="20" y="15" width="760" height="40" rx="8" fill="#1e293b" />
+                  <text x="400" y="40" fill="#2dd4bf" fontSize="14" fontWeight="bold" textAnchor="middle">
+                    Division by 16 Ladder: Decimal (7562)₁₀ → (1D8A)₁₆
+                  </text>
 
-          <rect x="365" y="30" width="280" height="240" rx="12" fill="#0f172a" stroke="#38bdf8" strokeWidth="2.5" />
-          <text x="505" y="65" fill="#7dd3fc" textAnchor="middle" fontWeight="bold" fontSize="14">Successive Radix Hardware</text>
-          <rect x="385" y="85" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="110" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Integer Stack: Read Bottom-Up</text>
-          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) → MSB (Last Rem)</text>
-          <rect x="385" y="170" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="195" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Fraction Queue: Read Top-Down</text>
-          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) → LSB (Last Int)</text>
+                  {/* Step 1 */}
+                  <rect x="40" y="75" width="460" height="50" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="55" y="105" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                    7562 ÷ 16 = <tspan fill="#38bdf8" fontWeight="bold">472</tspan>
+                  </text>
+                  <text x="240" y="105" fill="#f59e0b" fontSize="13" fontFamily="monospace">
+                    Remainder: 10
+                  </text>
+                  <rect x="360" y="85" width="120" height="30" rx="6" fill="#134e4a" stroke="#14b8a6" />
+                  <text x="420" y="105" fill="#5eead4" fontSize="13" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    10 → 'A' (LSD)
+                  </text>
 
-          <line x1="645" y1="150" x2="745" y2="150" stroke="#22c55e" strokeWidth="3" />
-          <polygon points="745,145 760,150 745,155" fill="#22c55e" />
-          <text x="695" y="140" fill="#22c55e" textAnchor="middle" fontSize="11">Target Output</text>
+                  {/* Step 2 */}
+                  <rect x="40" y="135" width="460" height="50" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="55" y="165" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                     472 ÷ 16 = <tspan fill="#38bdf8" fontWeight="bold">29</tspan>
+                  </text>
+                  <text x="240" y="165" fill="#f59e0b" fontSize="13" fontFamily="monospace">
+                    Remainder: 8
+                  </text>
+                  <rect x="360" y="145" width="120" height="30" rx="6" fill="#134e4a" stroke="#14b8a6" />
+                  <text x="420" y="165" fill="#5eead4" fontSize="13" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    8 → '8'
+                  </text>
 
-          <rect x="760" y="30" width="150" height="240" rx="12" fill="#052e16" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="835" y="70" fill="#86efac" textAnchor="middle" fontWeight="bold" fontSize="14">Output Base-R</text>
-          <text x="835" y="110" fill="#ffffff" textAnchor="middle" fontSize="20" fontWeight="bold">Binary / Hex</text>
-          <text x="835" y="150" fill="#86efac" textAnchor="middle" fontSize="11">Radix Point (.)</text>
-          <text x="835" y="190" fill="#bbf7d0" textAnchor="middle" fontSize="10">Zero Truncation</text>
-          <text x="835" y="235" fill="#4ade80" textAnchor="middle" fontSize="11" fontWeight="bold">Exact Precision</text>
-        </svg>
-                </div>
+                  {/* Step 3 */}
+                  <rect x="40" y="195" width="460" height="50" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="55" y="225" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                      29 ÷ 16 = <tspan fill="#38bdf8" fontWeight="bold">1</tspan>
+                  </text>
+                  <text x="240" y="225" fill="#f59e0b" fontSize="13" fontFamily="monospace">
+                    Remainder: 13
+                  </text>
+                  <rect x="360" y="205" width="120" height="30" rx="6" fill="#134e4a" stroke="#14b8a6" />
+                  <text x="420" y="225" fill="#5eead4" fontSize="13" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    13 → 'D'
+                  </text>
+
+                  {/* Step 4 */}
+                  <rect x="40" y="255" width="460" height="50" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="55" y="285" fill="#e2e8f0" fontSize="13" fontFamily="monospace">
+                       1 ÷ 16 = <tspan fill="#38bdf8" fontWeight="bold">0</tspan>
+                  </text>
+                  <text x="240" y="285" fill="#f59e0b" fontSize="13" fontFamily="monospace">
+                    Remainder: 1
+                  </text>
+                  <rect x="360" y="265" width="120" height="30" rx="6" fill="#134e4a" stroke="#14b8a6" />
+                  <text x="420" y="285" fill="#5eead4" fontSize="13" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    1 → '1' (MSD)
+                  </text>
+
+                  {/* Read Direction Arrow */}
+                  <path d="M 520 285 L 520 105" stroke="#14b8a6" strokeWidth="3" fill="none" markerEnd="url(#arrow)" strokeDasharray="4 4" />
+                  <text x="540" y="200" fill="#2dd4bf" fontSize="12" fontWeight="bold" transform="rotate(-90 540 200)">
+                    READ BOTTOM-TO-TOP (MSD → LSD)
+                  </text>
+
+                  {/* Result Box */}
+                  <rect x="580" y="125" width="190" height="150" rx="12" fill="#042f2e" stroke="#0d9488" strokeWidth="2" />
+                  <text x="675" y="160" fill="#99f6e4" fontSize="12" fontWeight="bold" textAnchor="middle">
+                    FINAL HEX RESULT
+                  </text>
+                  <text x="675" y="205" fill="#ffffff" fontSize="24" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    0x1D8A
+                  </text>
+                  <text x="675" y="240" fill="#a7f3d0" fontSize="11" textAnchor="middle">
+                    (1×4096 + 13×256 + 8×16 + 10)
+                  </text>
+                </svg>
               </div>
-            )}
+              <p className="text-xs text-slate-400">
+                💡 <strong>Instructor Insight:</strong> The first remainder obtained from the initial division by 16 represents the units digit (<code className="text-teal-300">16⁰</code>), which is the Least Significant Digit (LSD). Never read remainders top-to-bottom for integers!
+              </p>
+            </div>
+          )}
 
-            {activeDiagramTab === "tab2" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
-                  2. 2's Complement Sign Unit
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="40" y="40" width="160" height="150" rx="10" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="120" y="70" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="13">Raw Magnitude (A)</text>
-          <text x="120" y="115" fill="#ffffff" textAnchor="middle" fontSize="16" fontWeight="bold">[ 0 1 0 1 1 0 0 1 ]</text>
-          <text x="120" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Unsigned / Positive</text>
+          {/* Tab 2: Nibble & Byte Architecture */}
+          {activeTab === "tab2" && (
+            <div className="space-y-4">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <svg
+                  viewBox="0 0 800 360"
+                  className="w-full h-auto font-sans"
+                  style={{ maxHeight: "400px" }}
+                >
+                  {/* Title */}
+                  <rect x="20" y="15" width="760" height="40" rx="8" fill="#1e293b" />
+                  <text x="400" y="40" fill="#2dd4bf" fontSize="14" fontWeight="bold" textAnchor="middle">
+                    Byte Architecture: 1 Byte (8 Bits) = 2 Nibbles (High &amp; Low) = 2 Hex Digits
+                  </text>
 
-          <line x1="200" y1="115" x2="300" y2="115" stroke="#f59e0b" strokeWidth="3" />
-          <polygon points="300,110 315,115 300,120" fill="#f59e0b" />
-          <text x="250" y="105" fill="#f59e0b" textAnchor="middle" fontSize="11">Bitwise NOT</text>
+                  {/* 8-bit Register Box */}
+                  <rect x="80" y="80" width="640" height="80" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
 
-          <rect x="315" y="40" width="180" height="150" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="2.5" />
-          <text x="405" y="70" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="13">1's Complement (Ā)</text>
-          <text x="405" y="115" fill="#fde68a" textAnchor="middle" fontSize="16" fontWeight="bold">[ 1 0 1 0 0 1 1 0 ]</text>
-          <text x="405" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Inverted Bits</text>
+                  {/* 8 Individual Bit Cells */}
+                  {[
+                    { bit: "1", label: "b7" },
+                    { bit: "1", label: "b6" },
+                    { bit: "0", label: "b5" },
+                    { bit: "1", label: "b4" },
+                    { bit: "1", label: "b3" },
+                    { bit: "0", label: "b2" },
+                    { bit: "0", label: "b1" },
+                    { bit: "0", label: "b0" }
+                  ].map((b, idx) => (
+                    <g key={idx}>
+                      <rect
+                        x={80 + idx * 80}
+                        y="80"
+                        width="80"
+                        height="80"
+                        fill={idx < 4 ? "#1e1b4b" : "#042f2e"}
+                        stroke="#475569"
+                        strokeWidth="1"
+                      />
+                      <text
+                        x={120 + idx * 80}
+                        y="125"
+                        fill="#ffffff"
+                        fontSize="22"
+                        fontWeight="bold"
+                        fontFamily="monospace"
+                        textAnchor="middle"
+                      >
+                        {b.bit}
+                      </text>
+                      <text
+                        x={120 + idx * 80}
+                        y="150"
+                        fill="#94a3b8"
+                        fontSize="10"
+                        textAnchor="middle"
+                      >
+                        {b.label}
+                      </text>
+                    </g>
+                  ))}
 
-          <line x1="495" y1="115" x2="595" y2="115" stroke="#38bdf8" strokeWidth="3" />
-          <polygon points="595,110 610,115 595,120" fill="#38bdf8" />
-          <text x="545" y="105" fill="#38bdf8" textAnchor="middle" fontSize="11">+ 1 LSB Adder</text>
+                  {/* High Nibble Bracket */}
+                  <rect x="80" y="180" width="320" height="50" rx="8" fill="#312e81" stroke="#6366f1" strokeWidth="1.5" />
+                  <text x="240" y="205" fill="#c7d2fe" fontSize="12" fontWeight="bold" textAnchor="middle">
+                    HIGH NIBBLE (Bits 7..4: 1101)
+                  </text>
+                  <text x="240" y="223" fill="#ffffff" fontSize="14" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    8 + 4 + 0 + 1 = 13 → Hex 'D'
+                  </text>
 
-          <rect x="610" y="40" width="280" height="150" rx="10" fill="#0f172a" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="750" y="70" fill="#22c55e" textAnchor="middle" fontWeight="bold" fontSize="13">2's Complement Negation (-A)</text>
-          <text x="750" y="115" fill="#86efac" textAnchor="middle" fontSize="18" fontWeight="bold">[ 1 0 1 0 0 1 1 1 ]</text>
-          <text x="750" y="155" fill="#cbd5e1" textAnchor="middle" fontSize="11">MSB = 1 (Negative Sign Bit) | Value = -A</text>
-        </svg>
-                </div>
+                  {/* Low Nibble Bracket */}
+                  <rect x="400" y="180" width="320" height="50" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
+                  <text x="560" y="205" fill="#a7f3d0" fontSize="12" fontWeight="bold" textAnchor="middle">
+                    LOW NIBBLE (Bits 3..0: 1000)
+                  </text>
+                  <text x="560" y="223" fill="#ffffff" fontSize="14" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    8 + 0 + 0 + 0 = 8 → Hex '8'
+                  </text>
+
+                  {/* Consolidated Output */}
+                  <rect x="250" y="260" width="300" height="60" rx="10" fill="#0f172a" stroke="#14b8a6" strokeWidth="2" />
+                  <text x="400" y="295" fill="#2dd4bf" fontSize="20" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    Byte Value = 0xD8 (216₁₀)
+                  </text>
+                </svg>
               </div>
-            )}
+              <p className="text-xs text-slate-400">
+                📦 <strong>Hardware Structure:</strong> Since every byte in RAM is 8 bits, it can always be represented by exactly two hexadecimal characters without truncation or loss.
+              </p>
+            </div>
+          )}
 
-            {activeDiagramTab === "tab3" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  3. Positional Bit Weights
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <text x="470" y="35" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">8-Bit Signed Binary Positional Weight Matrix</text>
-          {[-128, 64, 32, 16, 8, 4, 2, 1].map((wt, i) => (
-            <g key={i} transform={`translate(${60 + i * 105}, 60)`}>
-              <rect width="90" height="120" rx="8" fill="#1e293b" stroke={i === 0 ? "#f43f5e" : "#38bdf8"} strokeWidth="2" />
-              <text x="45" y="30" fill={i === 0 ? "#f43f5e" : "#38bdf8"} textAnchor="middle" fontWeight="bold" fontSize="12">Bit {7 - i}</text>
-              <text x="45" y="60" fill="#ffffff" textAnchor="middle" fontWeight="bold" fontSize="14">{i === 0 ? "Sign" : "Mag"}</text>
-              <text x="45" y="95" fill={i === 0 ? "#fca5a5" : "#7dd3fc"} textAnchor="middle" fontWeight="bold" fontSize="13">{wt}</text>
-            </g>
-          ))}
-          <text x="470" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">Total Value = -128·b₇ + 64·b₆ + 32·b₅ + 16·b₄ + 8·b₃ + 4·b₂ + 2·b₁ + 1·b₀</text>
-        </svg>
-                </div>
+          {/* Tab 3: Fractional Multiplication */}
+          {activeTab === "tab3" && (
+            <div className="space-y-4">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <svg
+                  viewBox="0 0 800 340"
+                  className="w-full h-auto font-sans"
+                  style={{ maxHeight: "380px" }}
+                >
+                  <defs>
+                    <marker id="downArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8" />
+                    </marker>
+                  </defs>
+
+                  {/* Title */}
+                  <rect x="20" y="15" width="760" height="40" rx="8" fill="#1e293b" />
+                  <text x="400" y="40" fill="#38bdf8" fontSize="14" fontWeight="bold" textAnchor="middle">
+                    Successive Multiplication by 16: Decimal Fraction (0.6875)₁₀ → (0.B)₁₆
+                  </text>
+
+                  {/* Calculation Card */}
+                  <rect x="40" y="80" width="460" height="90" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="60" y="115" fill="#e2e8f0" fontSize="14" fontFamily="monospace">
+                    0.6875 × 16 = <tspan fill="#38bdf8" fontWeight="bold">11.0000</tspan>
+                  </text>
+                  <text x="60" y="145" fill="#f59e0b" fontSize="13">
+                    Integer Part = 11 → <tspan fill="#2dd4bf" fontWeight="bold">'B'</tspan> | Remaining Fraction = 0.0000 (Terminated)
+                  </text>
+
+                  {/* Second Step Example for (0.3125) */}
+                  <rect x="40" y="190" width="460" height="90" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1.5" />
+                  <text x="60" y="225" fill="#e2e8f0" fontSize="14" fontFamily="monospace">
+                    0.3125 × 16 = <tspan fill="#38bdf8" fontWeight="bold">5.0000</tspan>
+                  </text>
+                  <text x="60" y="255" fill="#f59e0b" fontSize="13">
+                    Integer Part = 5 → <tspan fill="#2dd4bf" fontWeight="bold">'5'</tspan> | Remaining Fraction = 0.0000 (Terminated)
+                  </text>
+
+                  {/* Direction Arrow */}
+                  <path d="M 520 90 L 520 270" stroke="#38bdf8" strokeWidth="3" fill="none" markerEnd="url(#downArrow)" strokeDasharray="4 4" />
+                  <text x="540" y="180" fill="#38bdf8" fontSize="12" fontWeight="bold" transform="rotate(90 540 180)">
+                    READ TOP-TO-BOTTOM (MSD → LSD)
+                  </text>
+
+                  {/* Result Summary */}
+                  <rect x="580" y="100" width="190" height="160" rx="12" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
+                  <text x="675" y="135" fill="#bae6fd" fontSize="12" fontWeight="bold" textAnchor="middle">
+                    FRACTIONAL CONVERSION
+                  </text>
+                  <text x="675" y="175" fill="#ffffff" fontSize="22" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    0.6875 = 0.B₁₆
+                  </text>
+                  <text x="675" y="210" fill="#ffffff" fontSize="18" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+                    0.3125 = 0.5₁₆
+                  </text>
+                  <text x="675" y="240" fill="#7dd3fc" fontSize="11" textAnchor="middle">
+                    11/16 = 0.6875 | 5/16 = 0.3125
+                  </text>
+                </svg>
               </div>
-            )}
-          </div>
+              <p className="text-xs text-slate-400">
+                ⚠️ <strong>Key Rule:</strong> Unlike integers which are read bottom-to-top, fractional bits/digits are read <strong>top-to-bottom</strong> as successive powers of <code className="text-teal-300">16⁻¹</code>, <code className="text-teal-300">16⁻²</code>, etc.
+              </p>
+            </div>
+          )}
         </section>
 
-        {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Conversion from Decimal to HexaDecimal
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Select Execution Phase / Clock Cycle:
-              </span>
+        {/* ─── 4. Live Interactive Converter Workbench ─────────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-slate-900/90 p-6 md:p-8 shadow-2xl"
+        >
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4 mb-6">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
+              🧮
+            </div>
+            <div>
+              <h2 className="text-lg md:text-xl font-bold text-teal-300">
+                Interactive Decimal ↔ Hexadecimal Workbench
+              </h2>
+              <p className="text-xs text-slate-400">
+                Test any decimal number, inspect the dynamic step-by-step division ladder, and preview 24-bit TrueColor Hex codes.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left: Integer Converter */}
+            <div className="space-y-4">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                Enter Decimal Integer:
+              </label>
               <div className="flex gap-2">
-                {[1, 2, 3, 4].map((step) => (
-                  <button
-                    key={step}
-                    onClick={() => setSimStep(step)}
-                    className={clsx(
-                      "px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold border transition",
-                      simStep === step
-                        ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
-                    )}
-                  >
-                    Phase {step}
-                  </button>
-                ))}
+                <input
+                  type="number"
+                  min="0"
+                  max="100000000"
+                  value={decInput}
+                  onChange={(e) => setDecInput(e.target.value)}
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:border-teal-500 focus:outline-none"
+                  placeholder="e.g. 7562"
+                />
+                <button
+                  onClick={() => setDecInput("65535")}
+                  className="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300 transition-colors"
+                >
+                  65535
+                </button>
+                <button
+                  onClick={() => setDecInput("1048576")}
+                  className="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300 transition-colors"
+                >
+                  1MB
+                </button>
               </div>
+
+              {integerDivisionSteps.error ? (
+                <div className="p-3 rounded-lg bg-red-950/60 border border-red-700/50 text-red-300 text-xs">
+                  {integerDivisionSteps.error}
+                </div>
+              ) : (
+                <>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-slate-400">Hexadecimal Result:</span>
+                      <span className="text-lg font-bold font-mono text-teal-300">
+                        0x{integerDivisionSteps.result}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-slate-400">Binary 4-Bit Grouping:</span>
+                      <span className="text-xs font-mono text-cyan-300">
+                        {integerDivisionSteps.binary}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="overflow-x-auto max-h-60 rounded-lg border border-slate-800">
+                    <table className="w-full text-left text-xs font-mono">
+                      <thead className="bg-slate-800 text-slate-300 sticky top-0">
+                        <tr>
+                          <th className="p-2">Dividend</th>
+                          <th className="p-2">÷ 16</th>
+                          <th className="p-2">Quotient</th>
+                          <th className="p-2">Remainder</th>
+                          <th className="p-2 text-teal-300">Hex Digit</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800 bg-slate-950/50">
+                        {integerDivisionSteps.steps.map((s, idx) => (
+                          <tr key={idx} className="hover:bg-slate-900/80">
+                            <td className="p-2 text-slate-200">{s.dividend}</td>
+                            <td className="p-2 text-slate-400">÷ 16</td>
+                            <td className="p-2 text-cyan-300">{s.quotient}</td>
+                            <td className="p-2 text-amber-300">{s.remainder}</td>
+                            <td className="p-2 font-bold text-teal-300">
+                              '{s.hexDigit}' {idx === 0 ? "(LSD)" : idx === integerDivisionSteps.steps.length - 1 ? "(MSD)" : ""}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              )}
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950 border border-teal-500/30 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-teal-950 text-teal-300 font-mono text-xs font-bold border border-teal-800">
-                  EXECUTION PHASE {simStep} OF 4
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Hardware State T+{simStep}</span>
+            {/* Right: TrueColor RGB Hex Picker */}
+            <div className="space-y-4">
+              <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                24-Bit TrueColor RGB ↔ Hex Code Simulator:
+              </label>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-16 h-16 rounded-xl border-2 border-slate-700 shadow-inner flex-shrink-0 transition-all duration-300"
+                    style={{ backgroundColor: hexColor }}
+                  />
+                  <div>
+                    <div className="text-xs text-slate-400">Calculated CSS/Hardware Hex:</div>
+                    <div className="text-xl font-bold font-mono text-white tracking-wider">
+                      {hexColor}
+                    </div>
+                    <div className="text-[11px] text-teal-400 font-mono">
+                      RGB({rgbR}, {rgbG}, {rgbB})
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2 pt-2 border-t border-slate-800 text-xs">
+                  <div>
+                    <div className="flex justify-between text-slate-400 mb-1">
+                      <span>Red Channel (0-255): {rgbR}</span>
+                      <span className="font-mono text-red-400">0x{rgbR.toString(16).toUpperCase().padStart(2, "0")}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="255"
+                      value={rgbR}
+                      onChange={(e) => setRgbR(parseInt(e.target.value, 10))}
+                      className="w-full accent-red-500"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-slate-400 mb-1">
+                      <span>Green Channel (0-255): {rgbG}</span>
+                      <span className="font-mono text-green-400">0x{rgbG.toString(16).toUpperCase().padStart(2, "0")}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="255"
+                      value={rgbG}
+                      onChange={(e) => setRgbG(parseInt(e.target.value, 10))}
+                      className="w-full accent-green-500"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-slate-400 mb-1">
+                      <span>Blue Channel (0-255): {rgbB}</span>
+                      <span className="font-mono text-blue-400">0x{rgbB.toString(16).toUpperCase().padStart(2, "0")}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="255"
+                      value={rgbB}
+                      onChange={(e) => setRgbB(parseInt(e.target.value, 10))}
+                      className="w-full accent-blue-500"
+                    />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-white">
-                {simStep === 1 && "Phase 1: Signal Conditioning & Input Ingestion"}
-                {simStep === 2 && "Phase 2: Datapath Decoding & Logic Evaluation"}
-                {simStep === 3 && "Phase 3: State Storage & Memory Interface Strobe"}
-                {simStep === 4 && "Phase 4: Output Stabilization & Verification"}
-              </h3>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. Real-World Engineering Case Studies ─────────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-800 bg-slate-900/90 p-6 md:p-8 shadow-2xl"
+        >
+          <div className="border-b border-slate-800 pb-4 mb-6">
+            <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <span>🏭</span> Real-World West Bengal Engineering Scenarios
+            </h2>
+            <p className="text-xs text-slate-400">
+              How students and engineers in Barrackpore, Ichapur, Jadavpur, and Kolkata apply decimal-to-hex conversions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Scenario 1: Mamata */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-teal-500/40 transition-all">
+              <div className="flex items-center gap-2 text-teal-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Barrackpore: ARM Cortex-M4 Microcontroller Firmware</span>
+              </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {simStep === 1 && "Signals are ingested from input pins and stabilized against ground bounce and setup timing constraints."}
-                {simStep === 2 && "Combinational logic gates and internal buses evaluate control lines to compute intermediate signals."}
-                {simStep === 3 && "Bistable registers latch stable binary states on the active clock edge."}
-                {simStep === 4 && "Outputs drive downstream data buses and status flags are committed cleanly."}
+                <strong>Mamata</strong> is writing bare-metal C drivers for an STM32 microcontroller. The GPIO Port A base address is specified in the technical datasheet as decimal offset <code className="text-teal-300 font-mono">1073872896</code>. Mamata converts this decimal address to hexadecimal <code className="text-teal-300 font-mono">0x40020000</code> to define the memory-mapped I/O pointer: <code className="text-amber-300 font-mono">#define GPIOA_BASE (0x40020000UL)</code>.
+              </p>
+            </div>
+
+            {/* Scenario 2: Susmita */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/40 transition-all">
+              <div className="flex items-center gap-2 text-cyan-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Ichapur: Factory Automation &amp; 24-Bit RGB Display Control</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong>Susmita</strong> programs an industrial status indicator board. The sensor input indicates an alert color of Red=255, Green=138, Blue=61. By converting each channel (255→FF, 138→8A, 61→3D), she generates the compact 3-byte payload <code className="text-cyan-300 font-mono">0xFF8A3D</code> transmitted over RS-485 serial cables across the plant floor.
+              </p>
+            </div>
+
+            {/* Scenario 3: Debangshu */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-indigo-500/40 transition-all">
+              <div className="flex items-center gap-2 text-indigo-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Jadavpur: x86-64 Virtual Memory &amp; Page Table Walking</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong>Debangshu</strong> is auditing an operating systems kernel crash dump. The faulting address reported by the CPU MMU in decimal is <code className="text-indigo-300 font-mono">140734799806464</code>. Debangshu converts it to <code className="text-indigo-300 font-mono">0x7FFE_3FFF_0000</code>, instantly isolating the 9-bit Level-4 Page Table Index, Directory Index, and 4KB page offset.
+              </p>
+            </div>
+
+            {/* Scenario 4: Mahima */}
+            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition-all">
+              <div className="flex items-center gap-2 text-amber-400 font-semibold text-sm mb-2">
+                <span>📍</span>
+                <span>Kolkata: High-Speed Network Packet Inspection</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <strong>Mahima</strong> develops a zero-copy packet parser at a financial trading desk. When packet headers arrive as raw decimal byte streams, she converts the protocol type identifiers (decimal 2048 to <code className="text-amber-300 font-mono">0x0800</code> for IPv4 and decimal 34525 to <code className="text-amber-300 font-mono">0x86DD</code> for IPv6) to route market telemetry under 50 nanoseconds.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ─── 5. Real-World Engineering Scenarios ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE AUTOMATION
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Real-Time Process Automation</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata deployed high-reliability industrial controllers in Barrackpore. Implementing hardware synchronization eliminated race conditions across ₹45 Lakh automated assembly lines.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Deterministic SIL-4 Reliability
-              </div>
-            </div>
+        {/* ─── 6. Tips, Pitfalls, Best Practices & Checklist ──── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {/* Common Pitfalls */}
+          <div className="rounded-2xl border border-red-500/30 bg-slate-900/90 p-6 shadow-xl">
+            <h3 className="text-base font-bold text-red-400 flex items-center gap-2 mb-4">
+              <span>⚠️</span> Common Beginner Pitfalls
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">•</span>
+                <span><strong>Writing '10' instead of 'A':</strong> In hexadecimal, remainders 10 to 15 must be replaced by symbols A through F. Writing 10 creates two digits instead of one.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">•</span>
+                <span><strong>Reversing Integer Read Direction:</strong> For integers, remainders must be read from bottom to top (last remainder = MSD).</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-red-400 font-bold">•</span>
+                <span><strong>Reversing Fractional Read Direction:</strong> For fractions, products are read from top to bottom (first integer part = MSD after radix point).</span>
+              </li>
+            </ul>
+          </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR EMBEDDED LAB
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">High-Speed Microprocessor Signal Routing</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu analyzed clock skew across 32-bit register buses on custom FPGA prototypes, ensuring setup and hold times were met at 200 MHz clock frequencies.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Nanosecond Clock Skew Precision
-              </div>
+          {/* Professional Best Practices */}
+          <div className="rounded-2xl border border-teal-500/30 bg-slate-900/90 p-6 shadow-xl">
+            <h3 className="text-base font-bold text-teal-400 flex items-center gap-2 mb-4">
+              <span>✨</span> Senior Engineering Best Practices
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-teal-400 font-bold">•</span>
+                <span><strong>Always Use Standard Prefixes:</strong> In code, write <code className="text-teal-300 font-mono">0x2A</code> or <code className="text-teal-300 font-mono">0xFF</code> to avoid compiler ambiguity with decimal integers.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-teal-400 font-bold">•</span>
+                <span><strong>Align on Byte Boundaries:</strong> Pad hex numbers with leading zeros to match architecture widths: 2 digits for 8-bit, 4 for 16-bit, 8 for 32-bit, 16 for 64-bit.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-teal-400 font-bold">•</span>
+                <span><strong>Shortcut via Binary Nibbles:</strong> Convert decimal → binary → 4-bit nibbles → hex for rapid mental calculation.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* ─── 7. Mini Checklist ──────────────────────────────── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-800 bg-slate-900/80 p-6 shadow-xl"
+        >
+          <h3 className="text-base font-bold text-amber-400 flex items-center gap-2 mb-4">
+            <span>📋</span> Student Memory Checklist
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs text-slate-300">
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>1 Hex Digit = Exactly 4 Binary Bits (1 Nibble)</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>A=10, B=11, C=12, D=13, E=14, F=15</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>Integers: Successive Division by 16 (Bottom-to-Top)</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>Fractions: Successive Multiplication by 16 (Top-to-Bottom)</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>1 Byte = 2 Hex Digits (Max value 0xFF = 255)</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+              <span className="text-teal-400 font-bold">✓</span>
+              <span>Always prefix literals with 0x in C/C++/Python/JS</span>
             </div>
           </div>
         </section>
 
-        {/* ─── 6. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Violating Setup and Hold Time Windows:</strong>
-                Changing data inputs too close to the active clock edge traps the storage element in metastability, resulting in unpredictable output oscillations.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Uncontrolled Bus Contention:</strong>
-                Enabling multiple tri-state drivers simultaneously causes high short-circuit currents and severe thermal stress on silicon chips.
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Synchronous Reset Architectures:</strong>
-                Always prefer synchronous reset lines over asynchronous resets to prevent spurious resets triggered by EMI noise spikes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Decoupling Capacitors &amp; Power Planes:</strong>
-                Place 0.1 µF bypass capacitors adjacent to every IC power pin to suppress switching transients during high-frequency clock edges.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
+        {/* ─── 8. FAQ Section ─────────────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
             title="Conversion from Decimal to HexaDecimal FAQs"
             questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
-
-        {/* ─── 8. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <PlainTextPrint
-            content={noteText}
-            title="Conversion from Decimal to HexaDecimal"
-            stampEnabled={true}
-            showDownload={true}
-            downloadButtonText="Download Note"
-            downloadFileName="topic3_note.txt"
           />
         </section>
 
@@ -465,18 +889,23 @@ const Topic3 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "In computer architecture and digital systems engineering, hardware diagrams are the blueprints of truth. " +
-              "Always trace signal paths from input pins through combinational logic and registers to output buses. When you can visualize the timing diagram in your mind, digital architecture becomes second nature!"
+              "Remember: When working on embedded systems, Linux device drivers, or network packet analyzers, you will rarely look at raw binary. Hexadecimal is your day-to-day language. Practice converting powers of 16 (16, 256, 4096, 65536) in your head. When converting fractions, watch out for recurring fractions like 0.1, which produces 0.19999... in hex. Always double-check your remainders 10 through 15 and map them accurately to letters A through F!"
             }
           />
         </section>
 
-        {/* ─── 10. Footer ─────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 3 · Conversion from Decimal to HexaDecimal · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
+        {/* ─── 10. Printable Plain Text Document ──────────────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
+          <PlainTextPrint
+            content={noteText}
+            title="Topic 3: Conversion from Decimal to HexaDecimal"
+            stampEnabled={true}
+            showDownload={true}
+            downloadButtonText="Download Topic Note"
+            downloadFileName="topic3_decimal_to_hexadecimal_note.txt"
+          />
+        </section>
+
       </div>
     </>
   );

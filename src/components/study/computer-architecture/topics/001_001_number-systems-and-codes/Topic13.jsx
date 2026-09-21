@@ -1,485 +1,559 @@
-import React, { useState, useEffect, useRef } from "react";
-import clsx from "clsx";
-
-// ─── Common Framework Imports ──────────────────────────────────────────
+import React, { useState } from "react";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
-import questions from "./topic13_files/topic13_questions";
 import noteText from "./topic13_files/topic13_note.txt?raw";
+import questions from "./topic13_files/topic13_questions";
 
-/**
- * Topic13 – Why 2’s Complement is preferred in computer systems
- * Module: 001_001_number-systems-and-codes (Number Systems & Binary Codes)
- * Track: Computer Architecture – From Core Systems to Performance Engineering
- *
- * @component
- * @returns {JSX.Element} Interactive tutorial component with multi-tabbed vector schematic suite,
- *                        live simulation workbench, real-world case studies, best practices, FAQs, and printable notes.
- */
-const Topic13 = () => {
-  const [activeDiagramTab, setActiveDiagramTab] = useState("tab1");
-  const [simStep, setSimStep] = useState(1);
-  const sectionRefs = useRef([]);
+export default function Topic13() {
+  const [activeTab, setActiveTab] = useState("unified");
+  
+  // Interactive Workbench State
+  const [testVal, setTestVal] = useState(-25);
+  const [opA, setOpA] = useState(45);
+  const [opB, setOpB] = useState(25);
+  const [isSubtract, setIsSubtract] = useState(true);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  // Conversions for comparative workbench
+  const getRepresentations = (v) => {
+    const val = Math.max(-128, Math.min(127, v));
+    const isNeg = val < 0;
+    const absVal = Math.abs(val);
 
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
+    // 1. Sign-Magnitude (8-bit)
+    let signMag = "Out of range";
+    if (absVal <= 127) {
+      const signBit = isNeg ? "1" : "0";
+      const magBits = absVal.toString(2).padStart(7, "0");
+      signMag = `${signBit} ${magBits}`;
     }
+
+    // 2. 1's Complement (8-bit)
+    let onesComp = "Out of range";
+    if (absVal <= 127) {
+      if (!isNeg) {
+        onesComp = val.toString(2).padStart(8, "0");
+      } else {
+        const posBin = absVal.toString(2).padStart(8, "0");
+        onesComp = posBin.split("").map((b) => (b === "0" ? "1" : "0")).join("");
+      }
+    }
+
+    // 3. 2's Complement (8-bit)
+    let twosCompInt = val < 0 ? 256 + val : val;
+    let twosComp = (twosCompInt & 0xff).toString(2).padStart(8, "0");
+
+    // 4. Excess-128 (Biased)
+    let excess128Int = val + 128;
+    let excess128 = (excess128Int & 0xff).toString(2).padStart(8, "0");
+
+    return { val, signMag, onesComp, twosComp, excess128 };
   };
 
+  // ALU Adder/Subtractor Simulation
+  const computeAlu = () => {
+    const aVal = Math.max(-128, Math.min(127, opA));
+    const bVal = Math.max(-128, Math.min(127, opB));
+    
+    const aBin = ((aVal < 0 ? 256 + aVal : aVal) & 0xff).toString(2).padStart(8, "0");
+    const bRawBin = ((bVal < 0 ? 256 + bVal : bVal) & 0xff).toString(2).padStart(8, "0");
+    
+    // B XOR Sub
+    const bXorBin = bRawBin.split("").map(bit => isSubtract ? (bit === "0" ? "1" : "0") : bit).join("");
+    const cin = isSubtract ? 1 : 0;
+
+    // Simulate bit by bit addition
+    let carry = cin;
+    let sumBits = [];
+    let carryArray = [cin];
+
+    for (let i = 7; i >= 0; i--) {
+      const bitA = parseInt(aBin[i], 10);
+      const bitB = parseInt(bXorBin[i], 10);
+      const sumBit = bitA ^ bitB ^ carry;
+      carry = (bitA & bitB) | (carry & (bitA ^ bitB));
+      sumBits.unshift(sumBit);
+      carryArray.unshift(carry);
+    }
+
+    const sumBin = sumBits.join("");
+    const rawSumInt = parseInt(sumBin, 2);
+    const signedSum = rawSumInt >= 128 ? rawSumInt - 256 : rawSumInt;
+    const cout = carryArray[0];
+    const cinMsb = carryArray[1];
+    
+    // Flags
+    const zFlag = rawSumInt === 0 ? 1 : 0;
+    const nFlag = sumBits[0];
+    const cFlag = cout;
+    const vFlag = cinMsb ^ cout;
+
+    return {
+      aVal,
+      bVal,
+      aBin,
+      bRawBin,
+      bXorBin,
+      cin,
+      sumBin,
+      signedSum,
+      cout,
+      cinMsb,
+      zFlag,
+      nFlag,
+      cFlag,
+      vFlag,
+      expected: isSubtract ? aVal - bVal : aVal + bVal
+    };
+  };
+
+  const compData = getRepresentations(testVal);
+  const alu = computeAlu();
+
   return (
-    <>
-      <style>{`
-        .reveal-section {
-          transform: translateY(0);
-          transition: transform 0.4s ease-out;
-        }
-        .reveal-section.is-visible {
-          transform: translateY(0);
-        }
-      `}</style>
-
-      <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+    <div className="dark min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-teal-500/30 selection:text-teal-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         
-        {/* ─── 1. Header Section ──────────────────────────────── */}
-        <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-950/70 border border-teal-700/60 text-teal-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-lg">
-            <span>⚡</span>
-            <span>Computer Architecture Masterclass · Module 001 · Topic 13</span>
+        {/* Header */}
+        <header className="space-y-4 border-b border-slate-800 pb-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="px-3 py-1 bg-teal-500/10 text-teal-400 border border-teal-500/20 text-xs font-semibold uppercase tracking-wider rounded-full">
+              Computer Architecture • Module 001.001 • Topic 13
+            </span>
+            <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold uppercase tracking-wider rounded-full">
+              Silicon Optimization & Datapath Design
+            </span>
           </div>
-          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
-            Why 2’s Complement is preferred in computer systems
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Why 2’s Complement is Preferred in Computer Systems
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Understand how computers represent numbers and characters at the hardware level.
+          <p className="text-slate-400 text-lg leading-relaxed max-w-4xl">
+            Discover why 2's complement won the computing hardware revolution. Learn how a single unified adder handles both addition and subtraction with zero extra ALU stages, eliminates the duplicate zero logic hazard, and provides deterministic single-gate overflow detection.
           </p>
-
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              🔒 Hardware Circuit Schematic
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⏱️ Timing &amp; Invariants
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 State Transitions &amp; Buses
-            </span>
-            <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Silicon Synthesis
-            </span>
-          </div>
         </header>
 
-        {/* ─── 2. Classroom Teacher Masterclass Section ───────── */}
-        <section
-          ref={addRef}
-          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-teal-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl shadow-teal-950/20"
-        >
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400 font-bold text-lg">
-              👨‍🏫
-            </div>
+        {/* 3-Tab Architectural Schematics Suite */}
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Why 2’s Complement is preferred in computer systems
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">⚡</span> Architectural Hardware Schematics & Silicon Comparisons
               </h2>
-              <p className="text-xs text-slate-400">
-                Understanding computer architecture fundamentals and silicon-level mechanics from first principles
+              <p className="text-sm text-slate-400">
+                Visualizing the unified adder/subtractor datapath, zero representation proofs, and gate propagation paths.
               </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setActiveTab("unified")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "unified"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                1. Unified ALU Adder/Subtractor
+              </button>
+              <button
+                onClick={() => setActiveTab("zero")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "zero"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                2. The "Dual Zero" Hardware Trap
+              </button>
+              <button
+                onClick={() => setActiveTab("latency")}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+                  activeTab === "latency"
+                    ? "bg-teal-500 text-slate-950 shadow-md shadow-teal-500/20"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                }`}
+              >
+                3. End-Around Carry vs 2's Comp
+              </button>
             </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 mb-2">
-                  <span>💡</span> Hardware Implementation Reality
-                </span>
-                <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">Why 2’s Complement is preferred in computer systems</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
-                </p>
-                <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Zero Glitch Architecture · Deterministic State Transitions
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to strict setup/hold times and bus arbitration protocols, hardware guarantees exact execution semantics across millions of concurrent cycles.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Hardware performance is the product of clean datapath layout, minimal critical path delay, and cache locality!"</em>
-              </div>
-            </div>
+          <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-6 flex flex-col items-center justify-center">
+            {activeTab === "unified" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <defs>
+                  <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                    <polygon points="0 0, 7 3.5, 0 7" fill="#38bdf8" />
+                  </marker>
+                </defs>
+                <text x="425" y="28" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Unified N-Bit Binary Adder / Subtractor (Single Circuit Architecture)
+                </text>
 
-            <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
-                </span>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated railway freight terminal in Barrackpore:
-                </p>
-                <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
-                  <li>
-                    <strong className="text-slate-200">Synchronized Routing:</strong> Trains are switched between parallel tracks strictly according to master clock signals.
-                  </li>
-                  <li>
-                    <strong className="text-slate-200">Interlock Protection:</strong> Hardware lockouts prevent concurrent write conflicts and hazardous race conditions.
-                  </li>
-                </ul>
-              </div>
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Silicon Advantage:</strong> High instruction throughput with 100% data integrity!
-              </div>
-            </div>
+                {/* Operand A */}
+                <g transform="translate(60, 60)">
+                  <rect width="140" height="45" rx="6" fill="#1e293b" stroke="#0ea5e9" strokeWidth="1.5" />
+                  <text x="70" y="28" textAnchor="middle" fill="#38bdf8" fontSize="13" fontWeight="bold">Operand A (a₇..a₀)</text>
+                </g>
+
+                {/* Operand B & XOR block */}
+                <g transform="translate(240, 60)">
+                  <rect width="140" height="45" rx="6" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="70" y="28" textAnchor="middle" fill="#fbbf24" fontSize="13" fontWeight="bold">Operand B (b₇..b₀)</text>
+                </g>
+
+                {/* SUB Control Line */}
+                <g transform="translate(430, 45)">
+                  <rect width="170" height="35" rx="6" fill="#0f172a" stroke="#ec4899" strokeWidth="2" />
+                  <text x="85" y="22" textAnchor="middle" fill="#f472b6" fontSize="12" fontWeight="bold">SUB Control (0=ADD, 1=SUB)</text>
+                </g>
+
+                {/* 8x XOR Gates */}
+                <g transform="translate(240, 130)">
+                  <rect width="140" height="50" rx="8" fill="#1e293b" stroke="#ec4899" strokeWidth="1.5" />
+                  <text x="70" y="25" textAnchor="middle" fill="#f472b6" fontSize="12" fontWeight="bold">8 × XOR Gates</text>
+                  <text x="70" y="42" textAnchor="middle" fill="#cbd5e1" fontSize="10">bᵢ ⊕ SUB</text>
+                </g>
+
+                {/* Lines to XOR */}
+                <line x1="310" y1="105" x2="310" y2="130" stroke="#fbbf24" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                <line x1="515" y1="80" x2="515" y2="155" stroke="#ec4899" strokeWidth="2" />
+                <line x1="515" y1="155" x2="380" y2="155" stroke="#ec4899" strokeWidth="2" markerEnd="url(#arrowhead)" />
+
+                {/* Carry-In Injection */}
+                <line x1="515" y1="155" x2="515" y2="225" stroke="#ec4899" strokeWidth="2" />
+                <line x1="515" y1="225" x2="440" y2="225" stroke="#ec4899" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                <text x="490" y="215" fill="#f472b6" fontSize="11" fontWeight="bold">C₀ = SUB</text>
+
+                {/* 8-Bit Parallel Full Adder */}
+                <g transform="translate(60, 200)">
+                  <rect width="380" height="70" rx="10" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
+                  <text x="190" y="32" textAnchor="middle" fill="#a7f3d0" fontSize="15" fontWeight="bold">
+                    8-Bit Parallel Binary Full Adder
+                  </text>
+                  <text x="190" y="55" textAnchor="middle" fill="#d1fae5" fontSize="11">
+                    Computes: A + (B ⊕ SUB) + C₀ (One unified datapath)
+                  </text>
+                </g>
+
+                {/* Lines into Adder */}
+                <line x1="130" y1="105" x2="130" y2="200" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                <line x1="310" y1="180" x2="310" y2="200" stroke="#f472b6" strokeWidth="2" markerEnd="url(#arrowhead)" />
+
+                {/* Results & Flags */}
+                <g transform="translate(60, 290)">
+                  <rect width="250" height="45" rx="6" fill="#0f172a" stroke="#14b8a6" strokeWidth="1.5" />
+                  <text x="125" y="28" textAnchor="middle" fill="#2dd4bf" fontSize="13" fontWeight="bold">Sum Output (S₇..S₀)</text>
+                </g>
+                <line x1="185" y1="270" x2="185" y2="290" stroke="#14b8a6" strokeWidth="2" markerEnd="url(#arrowhead)" />
+
+                <g transform="translate(340, 290)">
+                  <rect width="450" height="45" rx="6" fill="#0f172a" stroke="#8b5cf6" strokeWidth="1.5" />
+                  <text x="225" y="28" textAnchor="middle" fill="#c084fc" fontSize="12" fontWeight="bold">
+                    Direct Status Flags: Z = ~(|S), N = S₇, C = C₈, V = C₈ ⊕ C₇
+                  </text>
+                </g>
+                <line x1="380" y1="270" x2="380" y2="290" stroke="#8b5cf6" strokeWidth="2" markerEnd="url(#arrowhead)" />
+              </svg>
+            )}
+
+            {activeTab === "zero" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="28" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  The Zero Representation Comparison: Eliminating Redundant Code Points
+                </text>
+
+                {/* Sign-Magnitude */}
+                <g transform="translate(50, 60)">
+                  <rect width="220" height="250" rx="10" fill="#0f172a" stroke="#ef4444" strokeWidth="1.5" />
+                  <text x="110" y="30" textAnchor="middle" fill="#f87171" fontSize="13" fontWeight="bold">Sign-Magnitude</text>
+                  <rect x="20" y="55" width="180" height="40" rx="6" fill="#1e293b" />
+                  <text x="110" y="80" textAnchor="middle" fill="#38bdf8" fontSize="12" fontFamily="monospace">+0: 0000 0000</text>
+                  <rect x="20" y="105" width="180" height="40" rx="6" fill="#1e293b" />
+                  <text x="110" y="130" textAnchor="middle" fill="#f87171" fontSize="12" fontFamily="monospace">-0: 1000 0000</text>
+                  <text x="110" y="170" textAnchor="middle" fill="#fca5a5" fontSize="11" fontWeight="bold">❌ Dual Zero Hazard</text>
+                  <text x="110" y="195" textAnchor="middle" fill="#94a3b8" fontSize="10">255 unique values</text>
+                  <text x="110" y="215" textAnchor="middle" fill="#94a3b8" fontSize="10">Wastes 1 bit pattern</text>
+                  <text x="110" y="235" textAnchor="middle" fill="#ef4444" fontSize="10">Requires 2 zero checks</text>
+                </g>
+
+                {/* 1's Complement */}
+                <g transform="translate(315, 60)">
+                  <rect width="220" height="250" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="110" y="30" textAnchor="middle" fill="#fbbf24" fontSize="13" fontWeight="bold">1's Complement</text>
+                  <rect x="20" y="55" width="180" height="40" rx="6" fill="#1e293b" />
+                  <text x="110" y="80" textAnchor="middle" fill="#38bdf8" fontSize="12" fontFamily="monospace">+0: 0000 0000</text>
+                  <rect x="20" y="105" width="180" height="40" rx="6" fill="#1e293b" />
+                  <text x="110" y="130" textAnchor="middle" fill="#fbbf24" fontSize="12" fontFamily="monospace">-0: 1111 1111</text>
+                  <text x="110" y="170" textAnchor="middle" fill="#fde68a" fontSize="11" fontWeight="bold">❌ Dual Zero Hazard</text>
+                  <text x="110" y="195" textAnchor="middle" fill="#94a3b8" fontSize="10">255 unique values</text>
+                  <text x="110" y="215" textAnchor="middle" fill="#94a3b8" fontSize="10">Requires end-around carry</text>
+                  <text x="110" y="235" textAnchor="middle" fill="#f59e0b" fontSize="10">Extra gate latency</text>
+                </g>
+
+                {/* 2's Complement */}
+                <g transform="translate(580, 60)">
+                  <rect width="220" height="250" rx="10" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
+                  <text x="110" y="30" textAnchor="middle" fill="#34d399" fontSize="13" fontWeight="bold">2's Complement (Optimal)</text>
+                  <rect x="20" y="55" width="180" height="40" rx="6" fill="#022c22" stroke="#059669" />
+                  <text x="110" y="80" textAnchor="middle" fill="#86efac" fontSize="12" fontFamily="monospace">0: 0000 0000</text>
+                  <rect x="20" y="105" width="180" height="40" rx="6" fill="#022c22" stroke="#059669" />
+                  <text x="110" y="130" textAnchor="middle" fill="#a7f3d0" fontSize="12" fontFamily="monospace">-128: 1000 0000</text>
+                  <text x="110" y="170" textAnchor="middle" fill="#86efac" fontSize="11" fontWeight="bold">✅ Single Unique Zero!</text>
+                  <text x="110" y="195" textAnchor="middle" fill="#d1fae5" fontSize="10">Full 256 unique values</text>
+                  <text x="110" y="215" textAnchor="middle" fill="#d1fae5" fontSize="10">Gains extra negative (-128)</text>
+                  <text x="110" y="235" textAnchor="middle" fill="#34d399" fontSize="10">Zero test is simple NOR</text>
+                </g>
+
+                <text x="425" y="335" textAnchor="middle" fill="#94a3b8" fontSize="12">
+                  Negating 00000000 in 2's Comp: ~00000000 + 1 = 11111111 + 1 = [1] 00000000 (Trunked back to 00000000!)
+                </text>
+              </svg>
+            )}
+
+            {activeTab === "latency" && (
+              <svg viewBox="0 0 850 360" className="w-full max-w-4xl h-auto">
+                <text x="425" y="28" textAnchor="middle" fill="#f8fafc" fontSize="16" fontWeight="bold">
+                  Arithmetic Datapath Latency: 1's Complement vs 2's Complement
+                </text>
+
+                {/* 1's Complement 2-Pass Flow */}
+                <g transform="translate(60, 60)">
+                  <rect width="340" height="240" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
+                  <text x="170" y="30" textAnchor="middle" fill="#fbbf24" fontSize="13" fontWeight="bold">1's Comp: End-Around Carry (2 Passes)</text>
+                  
+                  <rect x="30" y="55" width="280" height="40" rx="6" fill="#1e293b" />
+                  <text x="170" y="80" textAnchor="middle" fill="#cbd5e1" fontSize="12">Pass 1: A + B Addition (Delay T_add)</text>
+                  
+                  <line x1="170" y1="95" x2="170" y2="120" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrowhead)" />
+                  <text x="210" y="112" fill="#fbbf24" fontSize="11">C_out generated</text>
+
+                  <rect x="30" y="125" width="280" height="50" rx="6" fill="#451a03" stroke="#b45309" />
+                  <text x="170" y="148" textAnchor="middle" fill="#fed7aa" fontSize="12" fontWeight="bold">End-Around Carry Re-circulation:</text>
+                  <text x="170" y="165" textAnchor="middle" fill="#fed7aa" fontSize="11">Pass 2: Partial Sum + C_out into LSB</text>
+
+                  <rect x="30" y="190" width="280" height="30" rx="6" fill="#1e293b" />
+                  <text x="170" y="210" textAnchor="middle" fill="#f87171" fontSize="12" fontWeight="bold">Total Latency ≈ 2 × T_add</text>
+                </g>
+
+                {/* 2's Complement 1-Pass Flow */}
+                <g transform="translate(450, 60)">
+                  <rect width="340" height="240" rx="10" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
+                  <text x="170" y="30" textAnchor="middle" fill="#34d399" fontSize="13" fontWeight="bold">2's Comp: Discard Carry (1 Pass Only)</text>
+                  
+                  <rect x="30" y="55" width="280" height="50" rx="6" fill="#022c22" stroke="#059669" />
+                  <text x="170" y="78" textAnchor="middle" fill="#a7f3d0" fontSize="12" fontWeight="bold">Pass 1: A + (~B) + C₀=1</text>
+                  <text x="170" y="95" textAnchor="middle" fill="#d1fae5" fontSize="11">Inversion & +1 happen in parallel</text>
+
+                  <line x1="170" y1="105" x2="170" y2="135" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrowhead)" />
+
+                  <rect x="30" y="135" width="280" height="40" rx="6" fill="#022c22" stroke="#059669" />
+                  <text x="170" y="160" textAnchor="middle" fill="#86efac" fontSize="12">Discard C_out (Modulo 2^n natural truncation)</text>
+
+                  <rect x="30" y="190" width="280" height="30" rx="6" fill="#022c22" />
+                  <text x="170" y="210" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">Total Latency = 1 × T_add (2x Faster!)</text>
+                </g>
+
+                <text x="425" y="335" textAnchor="middle" fill="#64748b" fontSize="12">
+                  In modern 4 GHz superscalar processors, eliminating the second addition pass is non-negotiable for pipeline throughput.
+                </text>
+              </svg>
+            )}
           </div>
         </section>
 
-        {/* ─── 3. Multi-Tabbed Schematic & Architectural Suite ── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Timing Diagrams
+        {/* Live Interactive Head-to-Head Number System Workbench */}
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div className="border-b border-slate-800 pb-4">
+            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+              <span className="text-indigo-400">🧪</span> Live Interactive Head-to-Head Number System Inspector
             </h2>
-            {/* Tab Selector */}
-            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
-              <button
-                onClick={() => setActiveDiagramTab("tab1")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab1"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                1. Radix Conversion Engine
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("tab2")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab2"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                2. 2's Complement Sign Unit
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("tab3")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "tab3"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                3. Positional Bit Weights
-              </button>
-            </div>
+            <p className="text-sm text-slate-400">
+              Type any integer between -128 and +127 to inspect how it translates across all 4 historical signed formats.
+            </p>
           </div>
 
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            {activeDiagramTab === "tab1" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
-                  1. Radix Conversion Engine
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 300" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="30" y="30" width="220" height="240" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="140" y="65" fill="#5eead4" textAnchor="middle" fontWeight="bold" fontSize="14">Input Integer / Fraction</text>
-          <text x="140" y="100" fill="#ffffff" textAnchor="middle" fontSize="18" fontWeight="bold">Value N (Base-10)</text>
-          <rect x="50" y="120" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="145" fill="#cbd5e1" textAnchor="middle">Integer Part: Div by Base r</text>
-          <rect x="50" y="175" width="180" height="40" rx="6" fill="#1e293b" stroke="#334155" />
-          <text x="140" y="200" fill="#cbd5e1" textAnchor="middle">Fraction: Mul by Base r</text>
-          <text x="140" y="245" fill="#94a3b8" textAnchor="middle" fontSize="10">Positional: Σ (dᵢ · rⁱ)</text>
-
-          <line x1="250" y1="150" x2="350" y2="150" stroke="#38bdf8" strokeWidth="3" strokeDasharray="5 3" />
-          <polygon points="350,145 365,150 350,155" fill="#38bdf8" />
-          <text x="300" y="140" fill="#38bdf8" textAnchor="middle" fontSize="11">Iterative Modulo</text>
-
-          <rect x="365" y="30" width="280" height="240" rx="12" fill="#0f172a" stroke="#38bdf8" strokeWidth="2.5" />
-          <text x="505" y="65" fill="#7dd3fc" textAnchor="middle" fontWeight="bold" fontSize="14">Successive Radix Hardware</text>
-          <rect x="385" y="85" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="110" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Integer Stack: Read Bottom-Up</text>
-          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) → MSB (Last Rem)</text>
-          <rect x="385" y="170" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
-          <text x="505" y="195" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Fraction Queue: Read Top-Down</text>
-          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) → LSB (Last Int)</text>
-
-          <line x1="645" y1="150" x2="745" y2="150" stroke="#22c55e" strokeWidth="3" />
-          <polygon points="745,145 760,150 745,155" fill="#22c55e" />
-          <text x="695" y="140" fill="#22c55e" textAnchor="middle" fontSize="11">Target Output</text>
-
-          <rect x="760" y="30" width="150" height="240" rx="12" fill="#052e16" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="835" y="70" fill="#86efac" textAnchor="middle" fontWeight="bold" fontSize="14">Output Base-R</text>
-          <text x="835" y="110" fill="#ffffff" textAnchor="middle" fontSize="20" fontWeight="bold">Binary / Hex</text>
-          <text x="835" y="150" fill="#86efac" textAnchor="middle" fontSize="11">Radix Point (.)</text>
-          <text x="835" y="190" fill="#bbf7d0" textAnchor="middle" fontSize="10">Zero Truncation</text>
-          <text x="835" y="235" fill="#4ade80" textAnchor="middle" fontSize="11" fontWeight="bold">Exact Precision</text>
-        </svg>
-                </div>
-              </div>
-            )}
-
-            {activeDiagramTab === "tab2" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
-                  2. 2's Complement Sign Unit
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="40" y="40" width="160" height="150" rx="10" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="120" y="70" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="13">Raw Magnitude (A)</text>
-          <text x="120" y="115" fill="#ffffff" textAnchor="middle" fontSize="16" fontWeight="bold">[ 0 1 0 1 1 0 0 1 ]</text>
-          <text x="120" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Unsigned / Positive</text>
-
-          <line x1="200" y1="115" x2="300" y2="115" stroke="#f59e0b" strokeWidth="3" />
-          <polygon points="300,110 315,115 300,120" fill="#f59e0b" />
-          <text x="250" y="105" fill="#f59e0b" textAnchor="middle" fontSize="11">Bitwise NOT</text>
-
-          <rect x="315" y="40" width="180" height="150" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="2.5" />
-          <text x="405" y="70" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="13">1's Complement (Ā)</text>
-          <text x="405" y="115" fill="#fde68a" textAnchor="middle" fontSize="16" fontWeight="bold">[ 1 0 1 0 0 1 1 0 ]</text>
-          <text x="405" y="155" fill="#94a3b8" textAnchor="middle" fontSize="11">Inverted Bits</text>
-
-          <line x1="495" y1="115" x2="595" y2="115" stroke="#38bdf8" strokeWidth="3" />
-          <polygon points="595,110 610,115 595,120" fill="#38bdf8" />
-          <text x="545" y="105" fill="#38bdf8" textAnchor="middle" fontSize="11">+ 1 LSB Adder</text>
-
-          <rect x="610" y="40" width="280" height="150" rx="10" fill="#0f172a" stroke="#22c55e" strokeWidth="2.5" />
-          <text x="750" y="70" fill="#22c55e" textAnchor="middle" fontWeight="bold" fontSize="13">2's Complement Negation (-A)</text>
-          <text x="750" y="115" fill="#86efac" textAnchor="middle" fontSize="18" fontWeight="bold">[ 1 0 1 0 0 1 1 1 ]</text>
-          <text x="750" y="155" fill="#cbd5e1" textAnchor="middle" fontSize="11">MSB = 1 (Negative Sign Bit) | Value = -A</text>
-        </svg>
-                </div>
-              </div>
-            )}
-
-            {activeDiagramTab === "tab3" && (
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  3. Positional Bit Weights
-                </span>
-                <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <text x="470" y="35" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">8-Bit Signed Binary Positional Weight Matrix</text>
-          {[-128, 64, 32, 16, 8, 4, 2, 1].map((wt, i) => (
-            <g key={i} transform={`translate(${60 + i * 105}, 60)`}>
-              <rect width="90" height="120" rx="8" fill="#1e293b" stroke={i === 0 ? "#f43f5e" : "#38bdf8"} strokeWidth="2" />
-              <text x="45" y="30" fill={i === 0 ? "#f43f5e" : "#38bdf8"} textAnchor="middle" fontWeight="bold" fontSize="12">Bit {7 - i}</text>
-              <text x="45" y="60" fill="#ffffff" textAnchor="middle" fontWeight="bold" fontSize="14">{i === 0 ? "Sign" : "Mag"}</text>
-              <text x="45" y="95" fill={i === 0 ? "#fca5a5" : "#7dd3fc"} textAnchor="middle" fontWeight="bold" fontSize="13">{wt}</text>
-            </g>
-          ))}
-          <text x="470" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">Total Value = -128·b₇ + 64·b₆ + 32·b₅ + 16·b₄ + 8·b₃ + 4·b₂ + 2·b₁ + 1·b₀</text>
-        </svg>
-                </div>
-              </div>
-            )}
+          {/* Value Slider & Input */}
+          <div className="flex flex-wrap items-center gap-4 bg-slate-950/80 border border-slate-800 p-4 rounded-xl">
+            <label className="text-xs font-bold uppercase tracking-wider text-teal-400">
+              Test Decimal Integer:
+            </label>
+            <input
+              type="number"
+              min="-128"
+              max="127"
+              value={testVal}
+              onChange={(e) => setTestVal(parseInt(e.target.value || "0", 10))}
+              className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-base font-mono font-bold text-white w-28 focus:outline-none focus:border-teal-500"
+            />
+            <input
+              type="range"
+              min="-128"
+              max="127"
+              value={testVal}
+              onChange={(e) => setTestVal(parseInt(e.target.value, 10))}
+              className="flex-1 accent-teal-500 cursor-pointer min-w-[200px]"
+            />
           </div>
-        </section>
 
-        {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Why 2’s Complement is preferred in computer systems
-          </h2>
-          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Select Execution Phase / Clock Cycle:
-              </span>
-              <div className="flex gap-2">
-                {[1, 2, 3, 4].map((step) => (
-                  <button
-                    key={step}
-                    onClick={() => setSimStep(step)}
-                    className={clsx(
-                      "px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold border transition",
-                      simStep === step
-                        ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
-                    )}
-                  >
-                    Phase {step}
-                  </button>
-                ))}
+          {/* 4 Cards Comparison */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-slate-950 border border-rose-500/30 rounded-xl p-4 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-rose-400 block">1. Sign-Magnitude</span>
+              <div className="text-lg font-mono font-bold text-white bg-slate-900 p-2 rounded text-center border border-slate-800">
+                {compData.signMag}
               </div>
+              <p className="text-[11px] text-slate-400">
+                {compData.val < -127 ? "❌ Underflow! (-128 cannot be represented)" : "MSB is sign bit; lower 7 bits are absolute magnitude."}
+              </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950 border border-teal-500/30 space-y-3">
+            <div className="bg-slate-950 border border-amber-500/30 rounded-xl p-4 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block">2. 1's Complement</span>
+              <div className="text-lg font-mono font-bold text-white bg-slate-900 p-2 rounded text-center border border-slate-800">
+                {compData.onesComp}
+              </div>
+              <p className="text-[11px] text-slate-400">
+                {compData.val < -127 ? "❌ Underflow! (-128 cannot be represented)" : "Negative formed by bitwise NOT (~X). Requires end-around carry."}
+              </p>
+            </div>
+
+            <div className="bg-slate-950 border border-teal-500/60 rounded-xl p-4 space-y-2 ring-1 ring-teal-500/40">
               <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-teal-950 text-teal-300 font-mono text-xs font-bold border border-teal-800">
-                  EXECUTION PHASE {simStep} OF 4
-                </span>
-                <span className="text-xs text-slate-500 font-mono">Hardware State T+{simStep}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-teal-400">3. 2's Complement</span>
+                <span className="text-[10px] bg-teal-500/20 text-teal-300 px-1.5 py-0.5 rounded font-bold">Standard</span>
               </div>
-              <h3 className="text-base font-bold text-white">
-                {simStep === 1 && "Phase 1: Signal Conditioning & Input Ingestion"}
-                {simStep === 2 && "Phase 2: Datapath Decoding & Logic Evaluation"}
-                {simStep === 3 && "Phase 3: State Storage & Memory Interface Strobe"}
-                {simStep === 4 && "Phase 4: Output Stabilization & Verification"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {simStep === 1 && "Signals are ingested from input pins and stabilized against ground bounce and setup timing constraints."}
-                {simStep === 2 && "Combinational logic gates and internal buses evaluate control lines to compute intermediate signals."}
-                {simStep === 3 && "Bistable registers latch stable binary states on the active clock edge."}
-                {simStep === 4 && "Outputs drive downstream data buses and status flags are committed cleanly."}
+              <div className="text-lg font-mono font-bold text-teal-300 bg-slate-900 p-2 rounded text-center border border-teal-500/40">
+                {compData.twosComp}
+              </div>
+              <p className="text-[11px] text-slate-400">
+                ✅ Single zero (00000000), represents full [-128..+127] range cleanly.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 border border-indigo-500/30 rounded-xl p-4 space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 block">4. Excess-128 (Biased)</span>
+              <div className="text-lg font-mono font-bold text-white bg-slate-900 p-2 rounded text-center border border-slate-800">
+                {compData.excess128}
+              </div>
+              <p className="text-[11px] text-slate-400">
+                Value + 128 unsigned. Ideal for IEEE-754 exponent comparison.
               </p>
             </div>
           </div>
-        </section>
 
-        {/* ─── 5. Real-World Engineering Scenarios ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE AUTOMATION
-                  </span>
-                  <span className="text-xs text-slate-400">Barrackpore Hub</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Real-Time Process Automation</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata deployed high-reliability industrial controllers in Barrackpore. Implementing hardware synchronization eliminated race conditions across ₹45 Lakh automated assembly lines.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Deterministic SIL-4 Reliability
+          {/* Interactive Unified Adder/Subtractor Simulation Box */}
+          <div className="bg-slate-950/90 border border-slate-800 rounded-xl p-5 space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-3">
+              <span className="text-sm font-bold text-white flex items-center gap-2">
+                <span>⚙️</span> Interactive Hardware Unified ALU Adder/Subtractor Live Trace
+              </span>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsSubtract(false)}
+                  className={`px-3 py-1 rounded text-xs font-bold ${!isSubtract ? "bg-teal-500 text-slate-950" : "bg-slate-800 text-slate-400"}`}
+                >
+                  ADD Mode (SUB = 0)
+                </button>
+                <button
+                  onClick={() => setIsSubtract(true)}
+                  className={`px-3 py-1 rounded text-xs font-bold ${isSubtract ? "bg-pink-600 text-white" : "bg-slate-800 text-slate-400"}`}
+                >
+                  SUB Mode (SUB = 1)
+                </button>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR EMBEDDED LAB
-                  </span>
-                  <span className="text-xs text-slate-400">Jadavpur University</span>
-                </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">High-Speed Microprocessor Signal Routing</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu analyzed clock skew across 32-bit register buses on custom FPGA prototypes, ensuring setup and hold times were met at 200 MHz clock frequencies.
-                </p>
+                <label className="block text-xs font-semibold text-slate-400 mb-1">Operand A (-128 to 127):</label>
+                <input
+                  type="number"
+                  min="-128"
+                  max="127"
+                  value={opA}
+                  onChange={(e) => setOpA(parseInt(e.target.value || "0", 10))}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white font-mono"
+                />
               </div>
-              <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Nanosecond Clock Skew Precision
+              <div>
+                <label className="block text-xs font-semibold text-slate-400 mb-1">Operand B (-128 to 127):</label>
+                <input
+                  type="number"
+                  min="-128"
+                  max="127"
+                  value={opB}
+                  onChange={(e) => setOpB(parseInt(e.target.value || "0", 10))}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white font-mono"
+                />
+              </div>
+            </div>
+
+            {/* Signal & Bit Level Trace */}
+            <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-xs space-y-2">
+              <div className="flex justify-between text-slate-400 border-b border-slate-800 pb-1">
+                <span>Operation: {alu.aVal} {isSubtract ? "-" : "+"} ({alu.bVal})</span>
+                <span className="text-teal-300 font-bold">Mathematical Expected: {alu.expected}</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-slate-300">
+                <div>
+                  <p>A (8-bit binary): <span className="text-teal-300 font-bold">{alu.aBin}</span></p>
+                  <p>B (raw binary):   <span className="text-amber-300">{alu.bRawBin}</span></p>
+                  <p>B ⊕ SUB:          <span className="text-pink-300 font-bold">{alu.bXorBin}</span></p>
+                  <p>Carry-In (C₀):    <span className="text-pink-400 font-bold">{alu.cin}</span></p>
+                </div>
+                <div>
+                  <p>Sum Result (S₇..S₀): <span className="text-emerald-400 font-bold text-sm">{alu.sumBin}</span> ({alu.signedSum})</p>
+                  <p>Carry-Out (C₈):      <span className="text-slate-300">{alu.cout}</span> (Discarded under modulo 256)</p>
+                  <div className="flex gap-2 pt-2">
+                    <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${alu.zFlag ? "bg-teal-900 text-teal-200 border border-teal-500" : "bg-slate-800 text-slate-500"}`}>Z={alu.zFlag}</span>
+                    <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${alu.nFlag ? "bg-blue-900 text-blue-200 border border-blue-500" : "bg-slate-800 text-slate-500"}`}>N={alu.nFlag}</span>
+                    <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${alu.cFlag ? "bg-amber-900 text-amber-200 border border-amber-500" : "bg-slate-800 text-slate-500"}`}>C={alu.cFlag}</span>
+                    <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${alu.vFlag ? "bg-rose-900 text-rose-200 border border-rose-500" : "bg-slate-800 text-slate-500"}`}>V={alu.vFlag}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ─── 6. Senior Pitfalls & Best Practices ────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
-              <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Violating Setup and Hold Time Windows:</strong>
-                Changing data inputs too close to the active clock edge traps the storage element in metastability, resulting in unpredictable output oscillations.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Uncontrolled Bus Contention:</strong>
-                Enabling multiple tri-state drivers simultaneously causes high short-circuit currents and severe thermal stress on silicon chips.
-              </div>
-            </div>
+        {/* Real-World Case Studies */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="p-1.5 bg-teal-500/10 text-teal-400 rounded-md">🎧</span>
+              Case Study: Zero DC Drift in Barrackpore Audio DSP
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              When <strong>Mamata</strong> and <strong>Mahima</strong> engineered an audio DSP filter in <strong>Barrackpore</strong>, they evaluated why 1's complement caused audible low-frequency hum.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Because 1's complement has both <code className="text-rose-400">+0</code> and <code className="text-rose-400">-0</code>, small negative audio signals oscillated between dual zeroes during silence. In <strong>2's complement</strong>, zero is strictly unique (<code className="text-teal-300">00000000</code>), guaranteeing zero DC offset bias and clean acoustic signal reconstruction.
+            </p>
+          </div>
 
-            <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-4">
-              <h3 className="text-base font-bold text-emerald-300 flex items-center gap-2">
-                <span>✓</span> Production Best Practices
-              </h3>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Synchronous Reset Architectures:</strong>
-                Always prefer synchronous reset lines over asynchronous resets to prevent spurious resets triggered by EMI noise spikes.
-              </div>
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Decoupling Capacitors &amp; Power Planes:</strong>
-                Place 0.1 µF bypass capacitors adjacent to every IC power pin to suppress switching transients during high-frequency clock edges.
-              </div>
-            </div>
+          <div className="bg-slate-900/40 border border-slate-800 rounded-xl p-6 space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="p-1.5 bg-indigo-500/10 text-indigo-400 rounded-md">🔬</span>
+              Case Study: 40% Silicon Area Reduction at Jadavpur FPGA Lab
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              At the <strong>Jadavpur University</strong> VLSI laboratory, researchers <strong>Debangshu</strong> and <strong>Susmita</strong> synthesized custom 32-bit RISC-V ALUs on FPGA hardware.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Comparing a sign-magnitude datapath (requiring separate adders, subtractors, and magnitude comparator trees) against a unified <strong>2's complement adder</strong>, the 2's complement architecture cut look-up table (LUT) utilization by 43% and boosted the maximum clock speed from 115 MHz to 195 MHz.
+            </p>
           </div>
         </section>
 
-        {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <FAQTemplate
-            title="Why 2’s Complement is preferred in computer systems FAQs"
-            questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
-            showPrint
-            showExpandAll
-            showSearch
-            showProgress
-          />
-        </section>
+        {/* 30 Curated FAQs */}
+        <FAQTemplate questions={questions} />
 
-        {/* ─── 8. Printable Plain Text Note ───────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <PlainTextPrint
-            content={noteText}
-            title="Why 2’s Complement is preferred in computer systems"
-            stampEnabled={true}
-            showDownload={true}
-            downloadButtonText="Download Note"
-            downloadFileName="topic13_note.txt"
-          />
-        </section>
+        {/* Printable Text Notes Component */}
+        <PlainTextPrint rawNotes={noteText} />
 
-        {/* ─── 9. Teacher's Note ──────────────────────────────── */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
-          <Teacher
-            note={
-              "In computer architecture and digital systems engineering, hardware diagrams are the blueprints of truth. " +
-              "Always trace signal paths from input pins through combinational logic and registers to output buses. When you can visualize the timing diagram in your mind, digital architecture becomes second nature!"
-            }
-          />
-        </section>
-
-        {/* ─── 10. Footer ─────────────────────────────────────── */}
-        <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>
-            Topic 13 · Why 2’s Complement is preferred in computer systems · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
-          </span>
-        </footer>
+        {/* Teacher Sukanta Hui Footer / Bio */}
+        <Teacher />
       </div>
-    </>
+    </div>
   );
-};
-
-export default Topic13;
+}

@@ -9,18 +9,25 @@ import questions from "./topic12_files/topic12_questions";
 import noteText from "./topic12_files/topic12_note.txt?raw";
 
 /**
- * Topic12 – Characteristic Table vs Excitation Table: Masterclass Theory, Conversion Algorithms & Live Demonstration
+ * Topic12 – Characteristic Table vs Excitation Table: Masterclass Theory, Worked Examples & Live Workbench
  * Module: 001_003_flipflops-and-sequential-circuits (Flip‑Flops & Sequential Circuits)
  * Track: Computer Architecture – From Core Systems to Performance Engineering
  *
  * @component
- * @returns {JSX.Element} Exhaustive masterclass with side-by-side comparative matrices, step-by-step
- *                        conversion worked examples, interactive circuit probe simulator, and K-Map logic derivations.
+ * @returns {JSX.Element} Exhaustive masterclass with side-by-side comparative matrices,
+ *                        dedicated worked examples for SR, JK, D, and T flip-flop tables,
+ *                        step-by-step conversion synthesis, live circuit probe simulator, and K-Map logic derivations.
  */
 const Topic12 = () => {
-  const [activeDiagramTab, setActiveDiagramTab] = useState("matrix-view");
-  const [selectedExample, setSelectedExample] = useState("sr-to-jk"); // "sr-to-jk", "jk-to-d", "sr-to-d", "d-to-t"
-  
+  // Active Tab for Flip-Flop Table Deep Dive
+  const [selectedFFTable, setSelectedFFTable] = useState("jk"); // "sr", "jk", "d", "t", "master"
+
+  // Active Tab for Worked Conversion Examples
+  const [selectedConversion, setSelectedConversion] = useState("sr-to-jk"); // "sr-to-jk", "jk-to-d", "sr-to-d", "d-to-t", "t-to-d"
+
+  // Hardware Schematic Tabs
+  const [activeDiagramTab, setActiveDiagramTab] = useState("sr-to-jk-schematic");
+
   // Interactive Excitation Evaluator State
   const [presentQ, setPresentQ] = useState(0);
   const [nextQ, setNextQ] = useState(1);
@@ -66,18 +73,22 @@ const Topic12 = () => {
     setSimClkPulse(true);
     setTimeout(() => {
       let nextState = simStoredQ;
-      if (selectedExample === "sr-to-jk") {
+      if (selectedConversion === "sr-to-jk") {
         const j = simTargetInputs.in1;
         const k = simTargetInputs.in2;
         if (j && k) nextState = simStoredQ === 0 ? 1 : 0;
         else if (j && !k) nextState = 1;
         else if (!j && k) nextState = 0;
-      } else if (selectedExample === "jk-to-d" || selectedExample === "sr-to-d") {
+      } else if (selectedConversion === "jk-to-d" || selectedConversion === "sr-to-d") {
         const d = simTargetInputs.in1;
         nextState = d ? 1 : 0;
-      } else if (selectedExample === "d-to-t") {
-        const t = simTargetInputs.in1;
-        if (t) nextState = simStoredQ === 0 ? 1 : 0;
+      } else if (selectedConversion === "d-to-t" || selectedConversion === "t-to-d") {
+        const inVal = simTargetInputs.in1;
+        if (selectedConversion === "d-to-t") {
+          if (inVal) nextState = simStoredQ === 0 ? 1 : 0;
+        } else {
+          nextState = inVal ? 1 : 0;
+        }
       }
       setSimStoredQ(nextState);
       setSimClkPulse(false);
@@ -89,58 +100,70 @@ const Topic12 = () => {
     const q = simStoredQ;
     const qBar = q === 0 ? 1 : 0;
 
-    if (selectedExample === "sr-to-jk") {
+    if (selectedConversion === "sr-to-jk") {
       const j = simTargetInputs.in1 ? 1 : 0;
       const k = simTargetInputs.in2 ? 1 : 0;
       const s = j & qBar;
       const r = k & q;
       return {
         formula: "S = J · Q̄ , R = K · Q",
-        inputLabel1: "J (Set)",
-        inputLabel2: "K (Reset)",
+        inputLabel1: "Target J",
+        inputLabel2: "Target K",
         availLabel: "Available SR Flip-Flop",
         probe1: `S = ${j} · ${qBar} = ${s}`,
         probe2: `R = ${k} · ${q} = ${r}`,
         activeAction: j && k ? "Toggle Mode" : j ? "Set Mode" : k ? "Reset Mode" : "Hold Mode"
       };
-    } else if (selectedExample === "jk-to-d") {
+    } else if (selectedConversion === "jk-to-d") {
       const d = simTargetInputs.in1 ? 1 : 0;
       const j = d;
       const k = d === 1 ? 0 : 1;
       return {
         formula: "J = D , K = D̄",
-        inputLabel1: "D (Data)",
+        inputLabel1: "Target D",
         inputLabel2: "None (Single Input)",
         availLabel: "Available JK Flip-Flop",
         probe1: `J = D = ${j}`,
         probe2: `K = D̄ = ${k}`,
         activeAction: d ? "Transparent Set (1)" : "Transparent Reset (0)"
       };
-    } else if (selectedExample === "sr-to-d") {
+    } else if (selectedConversion === "sr-to-d") {
       const d = simTargetInputs.in1 ? 1 : 0;
       const s = d;
       const r = d === 1 ? 0 : 1;
       return {
         formula: "S = D , R = D̄",
-        inputLabel1: "D (Data)",
+        inputLabel1: "Target D",
         inputLabel2: "None (Single Input)",
         availLabel: "Available SR Flip-Flop",
         probe1: `S = D = ${s}`,
         probe2: `R = D̄ = ${r}`,
         activeAction: d ? "Set Storage (1)" : "Reset Storage (0)"
       };
-    } else {
-      // d-to-t
+    } else if (selectedConversion === "d-to-t") {
       const t = simTargetInputs.in1 ? 1 : 0;
       const d = t ^ q;
       return {
         formula: "D = T ⊕ Q = T · Q̄ + T̄ · Q",
-        inputLabel1: "T (Toggle)",
+        inputLabel1: "Target T",
         inputLabel2: "None (Single Input)",
         availLabel: "Available D Flip-Flop",
         probe1: `D = ${t} ⊕ ${q} = ${d}`,
-        probe2: "XOR Logic Active",
+        probe2: "XOR Combinational Gate Active",
         activeAction: t ? "Toggle Operation" : "Hold Operation"
+      };
+    } else {
+      // t-to-d
+      const d = simTargetInputs.in1 ? 1 : 0;
+      const t = d ^ q;
+      return {
+        formula: "T = D ⊕ Q",
+        inputLabel1: "Target D",
+        inputLabel2: "None (Single Input)",
+        availLabel: "Available T Flip-Flop",
+        probe1: `T = ${d} ⊕ ${q} = ${t}`,
+        probe2: "XOR Logic Driving T",
+        activeAction: d === q ? "Hold Current State" : "Toggle to Reach Desired D"
       };
     }
   };
@@ -184,12 +207,12 @@ const Topic12 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 12</span>
           </div>
-          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
-            Characteristic Table vs Excitation Table: Masterclass Theory &amp; Conversion Synthesis
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
+            Characteristic Table vs Excitation Table: Masterclass Theory, Worked Examples &amp; Synthesis
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Gain complete mastery over sequential analysis and synthesis. Explore why excitation tables drive sequential circuit design,
-            master the universal 5-step conversion algorithm, and see live signal probing in real-time conversion hardware.
+            master the universal 5-step conversion algorithm, and explore interactive worked tables for SR, JK, D, and T flip-flops.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
@@ -197,13 +220,13 @@ const Topic12 = () => {
               📊 Analysis (Forward) vs Synthesis (Reverse)
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⚡ 4-in-1 Master Excitation Matrix (SR, JK, D, T)
+              ⚡ All 4 Characteristic &amp; Excitation Tables
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
               🎯 Step-by-Step Conversion Engine with K-Maps
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-purple-300">
-              🧠 Exam Mnemonics ("01XX / XX10" &amp; XOR Rule)
+              🧠 Exam Mnemonics (&quot;01XX / XX10&quot; &amp; XOR Rule)
             </span>
           </div>
         </header>
@@ -219,7 +242,7 @@ const Topic12 = () => {
             </div>
             <div>
               <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Forward Analysis vs Reverse Synthesis
+                Teacher&apos;s Concept Breakdown: Forward Analysis vs Reverse Synthesis
               </h2>
               <p className="text-xs text-slate-400">
                 Understanding the two foundational perspectives of sequential logic design
@@ -235,7 +258,7 @@ const Topic12 = () => {
                   <span>🔍</span> 1. Characteristic Table: Forward Analysis
                 </span>
                 <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  Answers: <strong className="text-teal-300">"Given the Present State Q(t) and applied Inputs, what will be the Next State Q(t+1)?"</strong>
+                  Answers: <strong className="text-teal-300">&quot;Given the Present State Q(t) and applied Inputs, what will be the Next State Q(t+1)?&quot;</strong>
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs text-teal-200 text-center font-bold">
                   [ Inputs + Present State Q(t) ] → Compute Next State Q(t+1)
@@ -245,7 +268,7 @@ const Topic12 = () => {
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                💡 <strong>Analogy:</strong> <em>"Characteristic table is like reading a map — you are at city Q(t), you follow road (Inputs), and see where you arrive (Q_next)."</em>
+                💡 <strong>Analogy:</strong> <em>&quot;Characteristic table is like reading a map — you are at city Q(t), you follow road (Inputs), and see where you arrive (Q_next).&quot;</em>
               </div>
             </div>
 
@@ -256,7 +279,7 @@ const Topic12 = () => {
                   <span>🛠️</span> 2. Excitation Table: Reverse Synthesis
                 </span>
                 <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  Answers: <strong className="text-cyan-300">"To force a transition from Present State Q(t) to Next State Q(t+1), what Inputs must we excite?"</strong>
+                  Answers: <strong className="text-cyan-300">&quot;To force a transition from Present State Q(t) to Next State Q(t+1), what Inputs must we excite?&quot;</strong>
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-cyan-950/40 border border-cyan-800/60 font-mono text-xs text-cyan-200 text-center font-bold">
                   [ Desired Transition Q(t) → Q(t+1) ] → Derive Required Inputs
@@ -266,71 +289,519 @@ const Topic12 = () => {
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-cyan-950/30 border border-cyan-800/40 text-xs text-cyan-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"In engineering, synthesis is what builds silicon. The excitation table is the exact blueprint for state machine synthesis!"</em>
+                🎯 <strong>Teacher&apos;s Law:</strong> <em>&quot;In engineering, synthesis is what builds silicon. The excitation table is the exact blueprint for state machine synthesis!&quot;</em>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ─── 3. Multi-Tabbed Hardware Schematics Section ───── */}
+        {/* ─── 2.5 SPECIAL SECTION: OBJECTIVE & USES OF EXCITATION TABLES IN SIMPLE MANNER ─── */}
+        <section
+          ref={addRef}
+          className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-amber-500/40 bg-gradient-to-b from-amber-950/20 via-slate-900 to-slate-900 p-6 md:p-8 shadow-2xl shadow-amber-950/20"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-amber-500/20 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 font-bold text-xl">
+                🎯
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                  <span>What is an Excitation Table &amp; Why Do We Need It?</span>
+                  <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded-full bg-amber-950/80 border border-amber-600/50 text-amber-300">
+                    Explained Simply
+                  </span>
+                </h2>
+                <p className="text-xs text-slate-400">
+                  The foundational purpose, core objectives, and real-world practical uses in plain English
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Plain English Core Definition Box */}
+          <div className="mt-6 p-5 rounded-xl bg-slate-950/90 border border-amber-500/30 space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+              <span>💡</span> The 10-Second Concept: The &quot;Reverse Recipe&quot;
+            </span>
+            <p className="text-sm md:text-base text-slate-200 leading-relaxed">
+              In normal life, you follow a <strong>recipe</strong>: you add sugar and flour (<em>inputs</em>), and you get a cake (<em>output</em>). This is the <strong>Characteristic Table</strong>.
+            </p>
+            <p className="text-sm md:text-base text-slate-200 leading-relaxed">
+              In digital circuit design, you work <strong>in reverse</strong>: you already know what you have right now (<em>Present State Q</em>), and you know what you MUST become next (<em>Desired Next State Q<sub>next</sub></em>). An <strong>Excitation Table</strong> answers one simple, crucial question:
+            </p>
+            <div className="p-3.5 rounded-lg bg-amber-950/40 border border-amber-700/60 font-mono text-sm md:text-base text-amber-200 font-bold text-center">
+              &quot;What exact signals (0 or 1) do I need to feed into the flip-flop pins RIGHT NOW to make that jump happen on the next clock tick?&quot;
+            </div>
+          </div>
+
+          {/* Everyday Real-World Analogies */}
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <span className="text-xs font-mono font-bold text-teal-300 flex items-center gap-1.5">
+                <span>🚗</span> Analogy 1: The Car Accelerator &amp; Gear
+              </span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                You are currently cruising at <strong>20 km/h</strong> (Present State), and you need to reach <strong>60 km/h</strong> (Next State). You do not ask what speed you have; you ask: <em>&quot;Which gear must I shift into and how hard do I press the accelerator?&quot;</em> The Excitation Table is that exact gear-and-throttle manual.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
+              <span className="text-xs font-mono font-bold text-cyan-300 flex items-center gap-1.5">
+                <span>📺</span> Analogy 2: The TV Remote &amp; Don&apos;t Cares (X)
+              </span>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                If the TV is already on <strong>Channel 1</strong> and you want it to stay on <strong>Channel 1</strong> (0 → 0 or 1 → 1 transition), you could press NOTHING (Hold) or press the &quot;1&quot; button again. Both work! That freedom is why Excitation Tables have <strong>Don&apos;t-Cares (X)</strong>, allowing us to build cheaper circuits.
+              </p>
+            </div>
+          </div>
+
+          {/* The 4 Major Objectives and Practical Uses */}
+          <div className="mt-6 space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
+              🚀 The 4 Main Objectives &amp; Practical Uses of an Excitation Table:
+            </span>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-teal-500/20 text-teal-300 font-bold text-xs">1</span>
+                  <strong className="text-white text-sm">Designing Digital Counters</strong>
+                </div>
+                <p className="text-slate-300 leading-relaxed">
+                  When designing a 3-bit binary counter (000 → 001 → 010 → ... → 111), the excitation table tells the designer what inputs (J, K or D or T) each individual flip-flop must receive at every single step.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs">2</span>
+                  <strong className="text-white text-sm">Flip-Flop Conversion</strong>
+                </div>
+                <p className="text-slate-300 leading-relaxed">
+                  If your electronics shop in Barrackpore has plenty of SR latches but you urgently need a JK or D flip-flop, the excitation table lets you calculate the exact logic gates (AND, NOT) to convert them with 100% precision.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-purple-500/20 text-purple-300 font-bold text-xs">3</span>
+                  <strong className="text-white text-sm">Building CPU Control Units &amp; FSMs</strong>
+                </div>
+                <p className="text-slate-300 leading-relaxed">
+                  In microprocessors, sequence controllers cycle through Fetch → Decode → Execute states. Excitation tables allow synthesis software to translate high-level state machine diagrams into silicon gates.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-300 font-bold text-xs">4</span>
+                  <strong className="text-white text-sm">Minimizing Silicon Area (Don&apos;t Cares)</strong>
+                </div>
+                <p className="text-slate-300 leading-relaxed">
+                  Excitation tables show whenever an input is a &quot;Don&apos;t Care&quot; (X). Placing these X&apos;s into K-Maps lets us group larger blocks, eliminating unnecessary logic gates, reducing chip heat, and extending battery life.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 3. Dedicated Characteristic vs Excitation Table Deep Dive ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Conversion Synthesis
-            </h2>
-            {/* Tab Selector */}
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <span className="text-teal-400">📖</span> Full Characteristic &amp; Excitation Tables by Flip-Flop
+              </h2>
+              <p className="text-xs text-slate-400 mt-1">
+                Select a flip-flop to inspect its complete characteristic truth table side-by-side with its derived excitation table.
+              </p>
+            </div>
+
+            {/* Flip-Flop Selector Tabs */}
             <div className="flex flex-wrap items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
-              <button
-                onClick={() => setActiveDiagramTab("matrix-view")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "matrix-view"
-                    ? "bg-teal-900/80 border border-teal-500 text-teal-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                1. 4-in-1 Master Excitation Matrix
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("sr-to-jk-schematic")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "sr-to-jk-schematic"
-                    ? "bg-cyan-900/80 border border-cyan-500 text-cyan-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                2. SR → JK Conversion Schematic
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("jk-to-d-schematic")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "jk-to-d-schematic"
-                    ? "bg-emerald-900/80 border border-emerald-500 text-emerald-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                3. JK → D &amp; D → T Schematics
-              </button>
-              <button
-                onClick={() => setActiveDiagramTab("kmap-synthesis")}
-                className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
-                  activeDiagramTab === "kmap-synthesis"
-                    ? "bg-amber-900/80 border border-amber-500 text-amber-200"
-                    : "text-slate-400 hover:text-slate-200"
-                )}
-              >
-                4. K-Map Grouping &amp; Don't Cares
-              </button>
+              {[
+                { id: "jk", label: "JK Flip-Flop" },
+                { id: "sr", label: "SR Flip-Flop" },
+                { id: "d", label: "D Flip-Flop" },
+                { id: "t", label: "T Flip-Flop" },
+                { id: "master", label: "4-in-1 Master Matrix" }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setSelectedFFTable(tab.id)}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition",
+                    selectedFFTable === tab.id
+                      ? "bg-teal-900/80 border border-teal-500 text-teal-200 shadow-md"
+                      : "text-slate-400 hover:text-slate-200"
+                  )}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
-            
-            {/* ─── TAB 1: 4-in-1 Master Excitation Matrix ───────── */}
-            {activeDiagramTab === "matrix-view" && (
+            {/* ─── TAB: JK Flip-Flop Deep Dive ─────────────── */}
+            {selectedFFTable === "jk" && (
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                  <span className="text-sm font-bold text-cyan-300 flex items-center gap-2">
+                    <span>⚡</span> JK Flip-Flop: Characteristic Table vs Excitation Table
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">
+                    Equation: <code className="text-teal-300 font-bold">Q(t+1) = J·Q̄ + K̄·Q</code>
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* JK Characteristic Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-teal-300 uppercase block">
+                      A. Characteristic Table (Forward Analysis: 8 Rows)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">J</th>
+                            <th className="p-2.5">K</th>
+                            <th className="p-2.5">Q(t)</th>
+                            <th className="p-2.5 text-teal-300 font-bold">Q(t+1)</th>
+                            <th className="p-2.5">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 text-slate-400">Hold (No Change)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 text-slate-400">Hold (No Change)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-rose-400">0</td><td className="p-2.5 text-rose-400">Reset Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-rose-400">0</td><td className="p-2.5 text-rose-400">Reset Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-emerald-400">1</td><td className="p-2.5 text-emerald-400">Set Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-emerald-400">1</td><td className="p-2.5 text-emerald-400">Set Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40 bg-teal-950/20"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-cyan-300">1</td><td className="p-2.5 text-cyan-300">Toggle Mode (0→1)</td></tr>
+                          <tr className="hover:bg-slate-900/40 bg-teal-950/20"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-cyan-300">0</td><td className="p-2.5 text-cyan-300">Toggle Mode (1→0)</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* JK Excitation Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-cyan-300 uppercase block">
+                      B. Excitation Table (Reverse Synthesis: 4 Transitions)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">Q(t) → Q(t+1)</th>
+                            <th className="p-2.5 text-cyan-300 font-bold">J</th>
+                            <th className="p-2.5 text-cyan-300 font-bold">K</th>
+                            <th className="p-2.5">Derivation Reasoning</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 0</td>
+                            <td className="p-2.5 font-bold text-cyan-300">0</td>
+                            <td className="p-2.5 font-bold text-amber-400">X</td>
+                            <td className="p-2.5 text-slate-400">Hold (0,0) or Reset (0,1)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 1</td>
+                            <td className="p-2.5 font-bold text-cyan-300">1</td>
+                            <td className="p-2.5 font-bold text-amber-400">X</td>
+                            <td className="p-2.5 text-slate-400">Set (1,0) or Toggle (1,1)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 0</td>
+                            <td className="p-2.5 font-bold text-amber-400">X</td>
+                            <td className="p-2.5 font-bold text-cyan-300">1</td>
+                            <td className="p-2.5 text-slate-400">Reset (0,1) or Toggle (1,1)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 1</td>
+                            <td className="p-2.5 font-bold text-amber-400">X</td>
+                            <td className="p-2.5 font-bold text-cyan-300">0</td>
+                            <td className="p-2.5 text-slate-400">Hold (0,0) or Set (1,0)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="p-3 rounded-lg bg-cyan-950/30 border border-cyan-800/40 text-xs font-mono text-cyan-200">
+                      🧠 <strong>Exam Mnemonic:</strong> J column is <strong className="text-white">0, 1, X, X</strong> (01XX) and K column is <strong className="text-white">X, X, 1, 0</strong> (XX10)!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ─── TAB: SR Flip-Flop Deep Dive ─────────────── */}
+            {selectedFFTable === "sr" && (
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                  <span className="text-sm font-bold text-teal-300 flex items-center gap-2">
+                    <span>⚡</span> SR Flip-Flop: Characteristic Table vs Excitation Table
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">
+                    Equation: <code className="text-teal-300 font-bold">Q(t+1) = S + R̄·Q [S·R = 0]</code>
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* SR Characteristic Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-teal-300 uppercase block">
+                      A. Characteristic Table (Forward Analysis: 8 Rows)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">S</th>
+                            <th className="p-2.5">R</th>
+                            <th className="p-2.5">Q(t)</th>
+                            <th className="p-2.5 text-teal-300 font-bold">Q(t+1)</th>
+                            <th className="p-2.5">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 text-slate-400">Hold (No Change)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 text-slate-400">Hold (No Change)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-rose-400">0</td><td className="p-2.5 text-rose-400">Reset Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-rose-400">0</td><td className="p-2.5 text-rose-400">Reset Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-emerald-400">1</td><td className="p-2.5 text-emerald-400">Set Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-emerald-400">1</td><td className="p-2.5 text-emerald-400">Set Mode</td></tr>
+                          <tr className="hover:bg-slate-900/40 bg-rose-950/30"><td className="p-2.5 text-rose-400 font-bold">1</td><td className="p-2.5 text-rose-400 font-bold">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-rose-400">X</td><td className="p-2.5 text-rose-400 font-bold">Forbidden (Invalid)</td></tr>
+                          <tr className="hover:bg-slate-900/40 bg-rose-950/30"><td className="p-2.5 text-rose-400 font-bold">1</td><td className="p-2.5 text-rose-400 font-bold">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-rose-400">X</td><td className="p-2.5 text-rose-400 font-bold">Forbidden (Invalid)</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* SR Excitation Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-teal-300 uppercase block">
+                      B. Excitation Table (Reverse Synthesis: 4 Transitions)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">Q(t) → Q(t+1)</th>
+                            <th className="p-2.5 text-teal-300 font-bold">S</th>
+                            <th className="p-2.5 text-rose-300 font-bold">R</th>
+                            <th className="p-2.5">Derivation Reasoning</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 0</td>
+                            <td className="p-2.5 font-bold text-teal-300">0</td>
+                            <td className="p-2.5 font-bold text-amber-400">X</td>
+                            <td className="p-2.5 text-slate-400">Hold (0,0) or Reset (0,1)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 1</td>
+                            <td className="p-2.5 font-bold text-teal-300">1</td>
+                            <td className="p-2.5 font-bold text-rose-400">0</td>
+                            <td className="p-2.5 text-slate-400">Set (1,0) only</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 0</td>
+                            <td className="p-2.5 font-bold text-teal-300">0</td>
+                            <td className="p-2.5 font-bold text-rose-400">1</td>
+                            <td className="p-2.5 text-slate-400">Reset (0,1) only</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 1</td>
+                            <td className="p-2.5 font-bold text-amber-400">X</td>
+                            <td className="p-2.5 font-bold text-rose-400">0</td>
+                            <td className="p-2.5 text-slate-400">Hold (0,0) or Set (1,0)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs font-mono text-teal-200">
+                      💡 <strong>Key takeaway:</strong> When next state is 0, S must be 0 (S=0, R=X or S=0, R=1). When next state is 1, R must be 0 (S=1, R=0 or S=X, R=0).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ─── TAB: D Flip-Flop Deep Dive ──────────────── */}
+            {selectedFFTable === "d" && (
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                  <span className="text-sm font-bold text-emerald-300 flex items-center gap-2">
+                    <span>⚡</span> D (Data / Delay) Flip-Flop: Characteristic Table vs Excitation Table
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">
+                    Equation: <code className="text-emerald-300 font-bold">Q(t+1) = D</code>
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* D Characteristic Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-emerald-300 uppercase block">
+                      A. Characteristic Table (Forward Analysis: 4 Rows)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">D</th>
+                            <th className="p-2.5">Q(t)</th>
+                            <th className="p-2.5 text-emerald-300 font-bold">Q(t+1)</th>
+                            <th className="p-2.5">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-rose-400">0</td><td className="p-2.5 text-slate-400">Direct Transfer (D=0 → Next=0)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-rose-400">0</td><td className="p-2.5 text-slate-400">Direct Transfer (D=0 → Next=0)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-emerald-400">1</td><td className="p-2.5 text-slate-400">Direct Transfer (D=1 → Next=1)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-emerald-400">1</td><td className="p-2.5 text-slate-400">Direct Transfer (D=1 → Next=1)</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* D Excitation Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-emerald-300 uppercase block">
+                      B. Excitation Table (Reverse Synthesis: 4 Transitions)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">Q(t) → Q(t+1)</th>
+                            <th className="p-2.5 text-emerald-300 font-bold">Required D Input</th>
+                            <th className="p-2.5">Derivation Reasoning</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 0</td>
+                            <td className="p-2.5 font-bold text-emerald-300">0</td>
+                            <td className="p-2.5 text-slate-400">Next state is 0, so D must be 0</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 1</td>
+                            <td className="p-2.5 font-bold text-emerald-300">1</td>
+                            <td className="p-2.5 text-slate-400">Next state is 1, so D must be 1</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 0</td>
+                            <td className="p-2.5 font-bold text-emerald-300">0</td>
+                            <td className="p-2.5 text-slate-400">Next state is 0, so D must be 0</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 1</td>
+                            <td className="p-2.5 font-bold text-emerald-300">1</td>
+                            <td className="p-2.5 text-slate-400">Next state is 1, so D must be 1</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs font-mono text-emerald-200">
+                      🌟 <strong>Rule:</strong> The D input is literally identical to the desired next state column: <strong className="text-white">D = Q(t+1)</strong>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ─── TAB: T Flip-Flop Deep Dive ──────────────── */}
+            {selectedFFTable === "t" && (
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                  <span className="text-sm font-bold text-purple-300 flex items-center gap-2">
+                    <span>⚡</span> T (Toggle) Flip-Flop: Characteristic Table vs Excitation Table
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">
+                    Equation: <code className="text-purple-300 font-bold">Q(t+1) = T ⊕ Q(t)</code>
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* T Characteristic Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-purple-300 uppercase block">
+                      A. Characteristic Table (Forward Analysis: 4 Rows)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">T</th>
+                            <th className="p-2.5">Q(t)</th>
+                            <th className="p-2.5 text-purple-300 font-bold">Q(t+1)</th>
+                            <th className="p-2.5">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 text-slate-400">Hold Mode (No Toggle)</td></tr>
+                          <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 text-slate-400">Hold Mode (No Toggle)</td></tr>
+                          <tr className="hover:bg-slate-900/40 bg-purple-950/20"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-purple-300">1</td><td className="p-2.5 text-purple-300">Toggle Mode (0 → 1)</td></tr>
+                          <tr className="hover:bg-slate-900/40 bg-purple-950/20"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-purple-300">0</td><td className="p-2.5 text-purple-300">Toggle Mode (1 → 0)</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* T Excitation Table */}
+                  <div className="space-y-2">
+                    <span className="text-xs font-mono font-bold text-purple-300 uppercase block">
+                      B. Excitation Table (Reverse Synthesis: 4 Transitions)
+                    </span>
+                    <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                      <table className="w-full text-left text-xs font-mono">
+                        <thead className="bg-slate-900/80 border-b border-slate-800 text-slate-400">
+                          <tr>
+                            <th className="p-2.5">Q(t) → Q(t+1)</th>
+                            <th className="p-2.5 text-purple-300 font-bold">Required T Input</th>
+                            <th className="p-2.5">Derivation Reasoning</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 0</td>
+                            <td className="p-2.5 font-bold text-purple-300">0</td>
+                            <td className="p-2.5 text-slate-400">No toggle needed (state stays 0)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">0 → 1</td>
+                            <td className="p-2.5 font-bold text-purple-300">1</td>
+                            <td className="p-2.5 text-slate-400">Toggle needed (state inverts 0→1)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 0</td>
+                            <td className="p-2.5 font-bold text-purple-300">1</td>
+                            <td className="p-2.5 text-slate-400">Toggle needed (state inverts 1→0)</td>
+                          </tr>
+                          <tr className="hover:bg-slate-900/40">
+                            <td className="p-2.5 font-bold text-white">1 → 1</td>
+                            <td className="p-2.5 font-bold text-purple-300">0</td>
+                            <td className="p-2.5 text-slate-400">No toggle needed (state stays 1)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="p-3 rounded-lg bg-purple-950/30 border border-purple-800/40 text-xs font-mono text-purple-200">
+                      ⚡ <strong>XOR Rule:</strong> <strong className="text-white">T = Q(t) ⊕ Q(t+1)</strong>. If states are identical, T=0. If states are different, T=1.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ─── TAB: 4-in-1 Master Matrix ───────────────── */}
+            {selectedFFTable === "master" && (
               <div className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
                   Complete Comparative Matrix: Characteristic Equations vs Excitation Requirements
@@ -409,8 +880,364 @@ const Topic12 = () => {
                 </div>
               </div>
             )}
+          </div>
+        </section>
 
-            {/* ─── TAB 2: SR to JK Conversion Schematic ────────── */}
+        {/* ─── 4. Step-by-Step Worked Conversion Examples ─────── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <span className="text-amber-400">🎯</span> Step-by-Step Flip-Flop Conversion Examples
+              </h2>
+              <p className="text-xs text-slate-400 mt-1">
+                Walk through complete worked conversions using the 5-step universal synthesis algorithm.
+              </p>
+            </div>
+
+            {/* Conversion Selector Tabs */}
+            <div className="flex flex-wrap items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+              {[
+                { id: "sr-to-jk", label: "SR → JK" },
+                { id: "jk-to-d", label: "JK → D" },
+                { id: "sr-to-d", label: "SR → D" },
+                { id: "d-to-t", label: "D → T" },
+                { id: "t-to-d", label: "T → D" }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setSelectedConversion(tab.id)}
+                  className={clsx(
+                    "px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition",
+                    selectedConversion === tab.id
+                      ? "bg-amber-900/80 border border-amber-500 text-amber-200 shadow-md"
+                      : "text-slate-400 hover:text-slate-200"
+                  )}
+                  dangerouslySetInnerHTML={{ __html: tab.label }}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            {/* ─── WORKED EXAMPLE 1: SR to JK ──────────────── */}
+            {selectedConversion === "sr-to-jk" && (
+              <div className="space-y-6">
+                <div className="border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-amber-300">
+                    Example 1: Convert Available SR Flip-Flop → Target JK Flip-Flop
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Goal: Synthesize combinational logic for S and R inputs such that the circuit behaves as a JK flip-flop.
+                  </p>
+                </div>
+
+                {/* Step 1 & 2 Combined Table */}
+                <div className="space-y-2">
+                  <span className="text-xs font-mono font-bold text-teal-300 uppercase block">
+                    Steps 1 &amp; 2: Target JK Characteristic Table + Appended Available SR Excitations
+                  </span>
+                  <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                    <table className="w-full text-left text-xs font-mono">
+                      <thead className="bg-slate-900/90 border-b border-slate-800 text-slate-400">
+                        <tr>
+                          <th className="p-2.5 text-cyan-300">Target J</th>
+                          <th className="p-2.5 text-cyan-300">Target K</th>
+                          <th className="p-2.5">Present Q(t)</th>
+                          <th className="p-2.5 text-white font-bold">Next Q(t+1)</th>
+                          <th className="p-2.5 text-teal-300 font-bold">Required S</th>
+                          <th className="p-2.5 text-rose-300 font-bold">Required R</th>
+                          <th className="p-2.5">Transition Lookup</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                        <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-teal-300">0</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 text-slate-500">0 → 0</td></tr>
+                        <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 font-bold text-rose-300">0</td><td className="p-2.5 text-slate-500">1 → 1</td></tr>
+                        <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-teal-300">0</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 text-slate-500">0 → 0</td></tr>
+                        <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-teal-300">0</td><td className="p-2.5 font-bold text-rose-300">1</td><td className="p-2.5 text-slate-500">1 → 0</td></tr>
+                        <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-teal-300">1</td><td className="p-2.5 font-bold text-rose-300">0</td><td className="p-2.5 text-slate-500">0 → 1</td></tr>
+                        <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 font-bold text-rose-300">0</td><td className="p-2.5 text-slate-500">1 → 1</td></tr>
+                        <tr className="hover:bg-slate-900/40 bg-teal-950/20"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-teal-300">1</td><td className="p-2.5 font-bold text-rose-300">0</td><td className="p-2.5 text-slate-500">0 → 1 (Toggle)</td></tr>
+                        <tr className="hover:bg-slate-900/40 bg-teal-950/20"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-teal-300">0</td><td className="p-2.5 font-bold text-rose-300">1</td><td className="p-2.5 text-slate-500">1 → 0 (Toggle)</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                {/* Steps 3 & 4: K-Maps */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 space-y-3">
+                    <span className="text-xs font-bold text-teal-300 block">
+                      Step 3 &amp; 4: K-Map for S (Variables: J, K, Q)
+                    </span>
+                    <table className="w-full text-center text-xs font-mono border-collapse">
+                      <thead>
+                        <tr className="border-b border-slate-800 text-slate-400">
+                          <th className="p-2">J \ KQ</th>
+                          <th className="p-2">00</th>
+                          <th className="p-2">01</th>
+                          <th className="p-2">11</th>
+                          <th className="p-2">10</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800 text-slate-300">
+                        <tr><td className="p-2 font-bold text-slate-400">0</td><td className="p-2">0</td><td className="p-2">0</td><td className="p-2 text-amber-400 font-bold">X</td><td className="p-2 text-amber-400 font-bold">X</td></tr>
+                        <tr className="bg-teal-950/30"><td className="p-2 font-bold text-slate-400">1</td><td className="p-2 text-emerald-400 font-bold">1</td><td className="p-2">0</td><td className="p-2 text-amber-400 font-bold">X</td><td className="p-2 text-emerald-400 font-bold">1</td></tr>
+                      </tbody>
+                    </table>
+                    <div className="p-2.5 rounded-lg bg-teal-950/50 border border-teal-800/60 font-mono text-xs text-teal-200">
+                      <strong>Minimized S Equation:</strong> <span className="text-white font-bold">S = J · Q̄</span>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 space-y-3">
+                    <span className="text-xs font-bold text-rose-300 block">
+                      Step 3 &amp; 4: K-Map for R (Variables: J, K, Q)
+                    </span>
+                    <table className="w-full text-center text-xs font-mono border-collapse">
+                      <thead>
+                        <tr className="border-b border-slate-800 text-slate-400">
+                          <th className="p-2">J \ KQ</th>
+                          <th className="p-2">00</th>
+                          <th className="p-2">01</th>
+                          <th className="p-2">11</th>
+                          <th className="p-2">10</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800 text-slate-300">
+                        <tr><td className="p-2 font-bold text-slate-400">0</td><td className="p-2 text-amber-400 font-bold">X</td><td className="p-2">0</td><td className="p-2 text-emerald-400 font-bold">1</td><td className="p-2">0</td></tr>
+                        <tr className="bg-rose-950/30"><td className="p-2 font-bold text-slate-400">1</td><td className="p-2 text-amber-400 font-bold">X</td><td className="p-2">0</td><td className="p-2 text-emerald-400 font-bold">1</td><td className="p-2">0</td></tr>
+                      </tbody>
+                    </table>
+                    <div className="p-2.5 rounded-lg bg-rose-950/50 border border-rose-800/60 font-mono text-xs text-rose-200">
+                      <strong>Minimized R Equation:</strong> <span className="text-white font-bold">R = K · Q</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mathematical Proof */}
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1">
+                  <strong className="text-cyan-300 block">Step 5: Safety Verification against Invalid SR Condition (S·R = 0):</strong>
+                  <p className="text-slate-300">
+                    S · R = (J · Q̄) · (K · Q) = J · K · (Q̄ · Q) = J · K · 0 = <strong>0</strong>.
+                    <span className="text-emerald-400 ml-2">✓ S and R can NEVER be 1 simultaneously!</span>
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* ─── WORKED EXAMPLE 2: JK to D ──────────────── */}
+            {selectedConversion === "jk-to-d" && (
+              <div className="space-y-6">
+                <div className="border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-cyan-300">
+                    Example 2: Convert Available JK Flip-Flop → Target D Flip-Flop
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Goal: Synthesize inputs J and K from target input D and present state Q.
+                  </p>
+                </div>
+
+                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                  <table className="w-full text-left text-xs font-mono">
+                    <thead className="bg-slate-900/90 border-b border-slate-800 text-slate-400">
+                      <tr>
+                        <th className="p-2.5 text-emerald-300">Target D</th>
+                        <th className="p-2.5">Present Q(t)</th>
+                        <th className="p-2.5 text-white font-bold">Next Q(t+1)</th>
+                        <th className="p-2.5 text-cyan-300 font-bold">Required J</th>
+                        <th className="p-2.5 text-cyan-300 font-bold">Required K</th>
+                        <th className="p-2.5">Transition Lookup</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-cyan-300">0</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 text-slate-500">0 → 0</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 font-bold text-cyan-300">1</td><td className="p-2.5 text-slate-500">1 → 0</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-cyan-300">1</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 text-slate-500">0 → 1</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 font-bold text-cyan-300">0</td><td className="p-2.5 text-slate-500">1 → 1</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono">
+                    <strong className="text-cyan-300 block mb-1">Derived J Equation:</strong>
+                    J = D (Independent of Q!)
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono">
+                    <strong className="text-cyan-300 block mb-1">Derived K Equation:</strong>
+                    K = D̄ (Requires just 1 inverter!)
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ─── WORKED EXAMPLE 3: SR to D ──────────────── */}
+            {selectedConversion === "sr-to-d" && (
+              <div className="space-y-6">
+                <div className="border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-emerald-300">
+                    Example 3: Convert Available SR Flip-Flop → Target D Flip-Flop
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Goal: Synthesize inputs S and R from target data line D.
+                  </p>
+                </div>
+
+                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                  <table className="w-full text-left text-xs font-mono">
+                    <thead className="bg-slate-900/90 border-b border-slate-800 text-slate-400">
+                      <tr>
+                        <th className="p-2.5 text-emerald-300">Target D</th>
+                        <th className="p-2.5">Present Q(t)</th>
+                        <th className="p-2.5 text-white font-bold">Next Q(t+1)</th>
+                        <th className="p-2.5 text-teal-300 font-bold">Required S</th>
+                        <th className="p-2.5 text-rose-300 font-bold">Required R</th>
+                        <th className="p-2.5">Transition Lookup</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-teal-300">0</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 text-slate-500">0 → 0</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-teal-300">0</td><td className="p-2.5 font-bold text-rose-300">1</td><td className="p-2.5 text-slate-500">1 → 0</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-teal-300">1</td><td className="p-2.5 font-bold text-rose-300">0</td><td className="p-2.5 text-slate-500">0 → 1</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-amber-400">X</td><td className="p-2.5 font-bold text-rose-300">0</td><td className="p-2.5 text-slate-500">1 → 1</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1">
+                  <strong className="text-emerald-300 block">Final Equations: S = D , R = D̄</strong>
+                  <p className="text-slate-400">A single NOT gate connects D to the R pin while D connects directly to S.</p>
+                </div>
+              </div>
+            )}
+
+            {/* ─── WORKED EXAMPLE 4: D to T ──────────────── */}
+            {selectedConversion === "d-to-t" && (
+              <div className="space-y-6">
+                <div className="border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-purple-300">
+                    Example 4: Convert Available D Flip-Flop → Target T Flip-Flop
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Goal: Synthesize input D from target toggle signal T and current state Q.
+                  </p>
+                </div>
+
+                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                  <table className="w-full text-left text-xs font-mono">
+                    <thead className="bg-slate-900/90 border-b border-slate-800 text-slate-400">
+                      <tr>
+                        <th className="p-2.5 text-purple-300">Target T</th>
+                        <th className="p-2.5">Present Q(t)</th>
+                        <th className="p-2.5 text-white font-bold">Next Q(t+1)</th>
+                        <th className="p-2.5 text-emerald-300 font-bold">Required D</th>
+                        <th className="p-2.5">Derivation Reasoning</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-emerald-300">0</td><td className="p-2.5 text-slate-500">D = Next Q = 0</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-emerald-300">1</td><td className="p-2.5 text-slate-500">D = Next Q = 1</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-emerald-300">1</td><td className="p-2.5 text-slate-500">D = Next Q = 1</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-emerald-300">0</td><td className="p-2.5 text-slate-500">D = Next Q = 0</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1">
+                  <strong className="text-purple-300 block">Final Equation: D = T ⊕ Q = T · Q̄ + T̄ · Q</strong>
+                  <p className="text-slate-400">A 2-input XOR gate taking T and feedback Q drives the D input directly.</p>
+                </div>
+              </div>
+            )}
+
+            {/* ─── WORKED EXAMPLE 5: T to D ──────────────── */}
+            {selectedConversion === "t-to-d" && (
+              <div className="space-y-6">
+                <div className="border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-emerald-300">
+                    Example 5: Convert Available T Flip-Flop → Target D Flip-Flop
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Goal: Synthesize input T from target data signal D and present state Q.
+                  </p>
+                </div>
+
+                <div className="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950">
+                  <table className="w-full text-left text-xs font-mono">
+                    <thead className="bg-slate-900/90 border-b border-slate-800 text-slate-400">
+                      <tr>
+                        <th className="p-2.5 text-emerald-300">Target D</th>
+                        <th className="p-2.5">Present Q(t)</th>
+                        <th className="p-2.5 text-white font-bold">Next Q(t+1)</th>
+                        <th className="p-2.5 text-purple-300 font-bold">Required T</th>
+                        <th className="p-2.5">Derivation Reasoning</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-purple-300">0</td><td className="p-2.5 text-slate-500">0 → 0: No toggle needed</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">0</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">0</td><td className="p-2.5 font-bold text-purple-300">1</td><td className="p-2.5 text-slate-500">1 → 0: Toggle needed</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">0</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-purple-300">1</td><td className="p-2.5 text-slate-500">0 → 1: Toggle needed</td></tr>
+                      <tr className="hover:bg-slate-900/40"><td className="p-2.5">1</td><td className="p-2.5">1</td><td className="p-2.5 font-bold text-white">1</td><td className="p-2.5 font-bold text-purple-300">0</td><td className="p-2.5 text-slate-500">1 → 1: No toggle needed</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1">
+                  <strong className="text-emerald-300 block">Final Equation: T = D ⊕ Q</strong>
+                  <p className="text-slate-400">Driving T with D ⊕ Q turns the T flip-flop into a transparent D flip-flop.</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* ─── 5. Multi-Tabbed Hardware Schematics Section ───── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Conversion Synthesis
+            </h2>
+            {/* Tab Selector */}
+            <div className="flex flex-wrap items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+              <button
+                onClick={() => setActiveDiagramTab("sr-to-jk-schematic")}
+                className={clsx(
+                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
+                  activeDiagramTab === "sr-to-jk-schematic"
+                    ? "bg-cyan-900/80 border border-cyan-500 text-cyan-200"
+                    : "text-slate-400 hover:text-slate-200"
+                )}
+              >
+                1. SR → JK Conversion Schematic
+              </button>
+              <button
+                onClick={() => setActiveDiagramTab("jk-to-d-schematic")}
+                className={clsx(
+                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
+                  activeDiagramTab === "jk-to-d-schematic"
+                    ? "bg-emerald-900/80 border border-emerald-500 text-emerald-200"
+                    : "text-slate-400 hover:text-slate-200"
+                )}
+              >
+                2. JK → D &amp; D → T Schematics
+              </button>
+              <button
+                onClick={() => setActiveDiagramTab("kmap-synthesis")}
+                className={clsx(
+                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
+                  activeDiagramTab === "kmap-synthesis"
+                    ? "bg-amber-900/80 border border-amber-500 text-amber-200"
+                    : "text-slate-400 hover:text-slate-200"
+                )}
+              >
+                3. K-Map Grouping &amp; Don&apos;t Cares
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            {/* ─── TAB 1: SR to JK Conversion Schematic ────────── */}
             {activeDiagramTab === "sr-to-jk-schematic" && (
               <div className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
@@ -480,7 +1307,7 @@ const Topic12 = () => {
               </div>
             )}
 
-            {/* ─── TAB 3: JK to D and D to T Schematics ─────────── */}
+            {/* ─── TAB 2: JK to D and D to T Schematics ─────────── */}
             {activeDiagramTab === "jk-to-d-schematic" && (
               <div className="space-y-6">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 block">
@@ -555,11 +1382,11 @@ const Topic12 = () => {
               </div>
             )}
 
-            {/* ─── TAB 4: K-Map Derivation & Synthesis ─────────── */}
+            {/* ─── TAB 3: K-Map Derivation & Synthesis ─────────── */}
             {activeDiagramTab === "kmap-synthesis" && (
               <div className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  K-Map Minimization for SR to JK Conversion: Grouping Don't-Cares (X)
+                  K-Map Minimization for SR to JK Conversion: Grouping Don&apos;t-Cares (X)
                 </span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* K-Map for S Input */}
@@ -645,7 +1472,7 @@ const Topic12 = () => {
           </div>
         </section>
 
-        {/* ─── 4. Live Interactive Synthesis & Circuit Probe Simulator ─ */}
+        {/* ─── 6. Live Interactive Synthesis & Circuit Probe Simulator ─ */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
             <span className="text-emerald-400">⚡</span> Live Interactive Circuit Probe &amp; Excitation Workbench
@@ -743,14 +1570,15 @@ const Topic12 = () => {
                     { id: "sr-to-jk", label: "SR → JK" },
                     { id: "jk-to-d", label: "JK → D" },
                     { id: "sr-to-d", label: "SR → D" },
-                    { id: "d-to-t", label: "D → T" }
+                    { id: "d-to-t", label: "D → T" },
+                    { id: "t-to-d", label: "T → D" }
                   ].map((item) => (
                     <button
                       key={item.id}
-                      onClick={() => setSelectedExample(item.id)}
+                      onClick={() => setSelectedConversion(item.id)}
                       className={clsx(
                         "px-3 py-1.5 rounded-lg text-xs font-mono font-bold border transition",
-                        selectedExample === item.id
+                        selectedConversion === item.id
                           ? "bg-teal-900/80 border-teal-400 text-teal-200"
                           : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                       )}
@@ -795,7 +1623,7 @@ const Topic12 = () => {
                     onClick={triggerConversionClock}
                     className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg shadow-cyan-900/50 transition flex items-center gap-2"
                   >
-                    <span>⏱️</span> PULSE CLOCK (↑)
+                    <span>⏱️</span> {simClkPulse ? "CLOCK PULSING..." : "PULSE CLOCK (↑)"}
                   </button>
                 </div>
 
@@ -826,7 +1654,7 @@ const Topic12 = () => {
           </div>
         </section>
 
-        {/* ─── 5. Universal 5-Step Conversion Algorithm ───────── */}
+        {/* ─── 7. Universal 5-Step Conversion Algorithm ───────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
             <span className="text-amber-400">📋</span> The 5-Step Universal Flip-Flop Conversion Algorithm
@@ -850,7 +1678,7 @@ const Topic12 = () => {
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
               <div className="h-7 w-7 rounded-lg bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center">4</div>
               <strong className="text-slate-100 block">Group 1s &amp; X</strong>
-              <p className="text-slate-400 leading-relaxed">Leverage Don't-Cares (X) to group largest rectangular powers of 2.</p>
+              <p className="text-slate-400 leading-relaxed">Leverage Don&apos;t-Cares (X) to group largest rectangular powers of 2.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
               <div className="h-7 w-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">5</div>
@@ -860,7 +1688,7 @@ const Topic12 = () => {
           </div>
         </section>
 
-        {/* ─── 6. Real-World Engineering Scenarios ────────────── */}
+        {/* ─── 8. Real-World Engineering Scenarios ────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
             <span className="text-amber-400">🏢</span> Real-World Engineering Scenarios (West Bengal Context)
@@ -876,7 +1704,7 @@ const Topic12 = () => {
                 </div>
                 <h3 className="text-base font-bold text-slate-100 mb-2">Retrofitting Legacy SR Chips into D-Registers</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata needed to synthesize 8-bit synchronous data registers using existing warehouse stocks of 74LS279 SR latches. Using excitation conversion (S = D, R = D̄), she added inverters to transform all SR chips into transparent D-registers with 0 additional component purchase cost.
+                  Mamata and Mahima needed to synthesize 8-bit synchronous data registers using existing warehouse stocks of 74LS279 SR latches. Using excitation conversion (S = D, R = D̄), they added inverters to transform all SR chips into transparent D-registers with 0 additional component purchase cost.
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
@@ -894,7 +1722,7 @@ const Topic12 = () => {
                 </div>
                 <h3 className="text-base font-bold text-slate-100 mb-2">Automated State Machine Synthesis</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu automated FPGA sequence detector compilation. By computing T flip-flop excitations (T = Q ⊕ Q_next), the synthesis tool generated 35% smaller routing footprints compared to direct unoptimized D flip-flop synthesis.
+                  Debangshu and Susmita automated FPGA sequence detector compilation at Jadavpur. By computing T flip-flop excitations (T = Q ⊕ Q_next), the synthesis tool generated 35% smaller routing footprints compared to direct unoptimized D flip-flop synthesis.
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-cyan-300">
@@ -904,7 +1732,7 @@ const Topic12 = () => {
           </div>
         </section>
 
-        {/* ─── 7. Senior Pitfalls & Best Practices ────────────── */}
+        {/* ─── 9. Senior Pitfalls & Best Practices ────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
             <span className="text-rose-400">🛡️</span> Common Pitfalls &amp; Production Best Practices
@@ -919,8 +1747,8 @@ const Topic12 = () => {
                 Never try to synthesize a counter using a Characteristic Table. You MUST use Excitation Tables because your goal is determining required inputs from desired state transitions.
               </div>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Ignoring Don't-Care Optimization:</strong>
-                Forgetting to include Don't-Cares (X) in K-Maps results in overly complex combinational circuits with extra unnecessary gates!
+                <strong className="text-rose-200 block mb-1">• Ignoring Don&apos;t-Care Optimization:</strong>
+                Forgetting to include Don&apos;t-Cares (X) in K-Maps results in overly complex combinational circuits with extra unnecessary gates!
               </div>
             </div>
 
@@ -940,7 +1768,7 @@ const Topic12 = () => {
           </div>
         </section>
 
-        {/* ─── 8. FAQ & Practice Questions ────────────────────── */}
+        {/* ─── 10. FAQ & Practice Questions ────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
             title="Characteristic vs Excitation Table FAQs"
@@ -953,7 +1781,7 @@ const Topic12 = () => {
           />
         </section>
 
-        {/* ─── 9. Printable Plain Text Note ───────────────────── */}
+        {/* ─── 11. Printable Plain Text Note ───────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
@@ -965,7 +1793,7 @@ const Topic12 = () => {
           />
         </section>
 
-        {/* ─── 10. Teacher's Note ─────────────────────────────── */}
+        {/* ─── 12. Teacher's Note ─────────────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
@@ -976,7 +1804,7 @@ const Topic12 = () => {
           />
         </section>
 
-        {/* ─── 11. Footer ─────────────────────────────────────── */}
+        {/* ─── 13. Footer ─────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
             Topic 12 · Characteristic vs Excitation Tables · Computer Architecture Masterclass · Coder &amp; AccoTax Barrackpore
