@@ -32,6 +32,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import coursesData from '../data/courses.json';
+import CourseSelectDropdown from '../components/CourseSelectDropdown';
 
 const DEFAULT_LOGO = '/assets/cnat.png';
 const MAITRI_LOGO = '/assets/maitri-mahotsav-27.png';
@@ -970,28 +971,20 @@ const QRCodeGenerator = () => {
                         <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
                           Select Course
                         </label>
-                        <select
-                          value={courseData.courseId}
-                          onChange={(e) => {
-                            const selectedId = e.target.value;
-                            const found = allCoursesList.find((c) => c.courseID === selectedId);
-                            const numFee = found?.fee
-                              ? parseFloat(String(found.fee).replace(/[^0-9.]/g, '')) || 1500
+                        <CourseSelectDropdown
+                          courses={allCoursesList}
+                          selectedCourseId={courseData.courseId}
+                          onSelectCourse={(c) => {
+                            const numFee = c?.fee
+                              ? parseFloat(String(c.fee).replace(/[^0-9.]/g, '')) || 1500
                               : 1500;
                             setCourseData({
                               ...courseData,
-                              courseId: selectedId,
+                              courseId: c.courseID,
                               amount: String(Math.min(numFee, 1500)),
                             });
                           }}
-                          className="w-full px-3.5 py-2.5 bg-slate-950/80 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                        >
-                          {allCoursesList.map((c) => (
-                            <option key={c.courseID} value={c.courseID}>
-                              [{c.category}] {c.title} — {c.fee || 'Fee'} ({c.duration || 'Course'})
-                            </option>
-                          ))}
-                        </select>
+                        />
                       </div>
 
                       {/* Student Name & Phone */}

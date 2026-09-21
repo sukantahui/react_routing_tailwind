@@ -25,6 +25,7 @@ const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
 const MenstrualCalendarApp = lazy(() => import('../components/menstrual-calendar/MenstrualCalendarApp'));
 
 // Dedicated SEO Course Landing Pages
+const CoursesPage = lazy(() => import('./CoursesPage'));
 const GSTFilingPage = lazy(() => import('./CoursePages/GSTFilingPage'));
 const TDSIncomeTaxPage = lazy(() => import('./CoursePages/TDSIncomeTaxPage'));
 const TallyAccountingPage = lazy(() => import('./CoursePages/TallyAccountingPage'));
@@ -612,6 +613,8 @@ export default function AppRoutes() {
         <Route path={ROUTES.JSON_FORMATTER} element={<JsonFormatter />} />
 
         {/* ---------- Dedicated SEO Course Landing Pages ---------- */}
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/catalog" element={<CoursesPage />} />
         <Route path={ROUTES.COURSE_GST} element={<GSTFilingPage />} />
         <Route path={ROUTES.COURSE_TDS} element={<TDSIncomeTaxPage />} />
         <Route path={ROUTES.COURSE_TALLY} element={<TallyAccountingPage />} />
@@ -765,9 +768,17 @@ export default function AppRoutes() {
         />
 
         <Route
-          path={ROUTES.ADD_COURSE}
+          path="/admin/courses"
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
+              <AddCourse />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/courses/manage"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
               <AddCourse />
             </ProtectedRouteWrapper>
           }
