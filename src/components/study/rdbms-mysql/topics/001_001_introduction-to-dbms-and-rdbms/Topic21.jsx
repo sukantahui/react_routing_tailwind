@@ -103,11 +103,7 @@ const Topic21 = () => {
 
       {/* ─── Main Container ────────────────────────────────── */}
       <div
-        className={clsx(
-          "w-full max-w-4xl mx-auto px-4 py-10 md:py-14",
-          "bg-white text-slate-800",
-          "dark:bg-slate-950 dark:text-slate-100"
-        )}
+        className="dark w-full max-w-4xl mx-auto px-4 py-10 md:py-14 bg-slate-950 text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-200"
       >
         {/* ─── Header ──────────────────────────────────────── */}
         <div ref={addRef} className="reveal-section mb-10 text-center">

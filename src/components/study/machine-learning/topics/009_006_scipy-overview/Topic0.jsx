@@ -5,16 +5,20 @@ import {
   BookOpen,
   Code2,
   HelpCircle,
-  Copy,
-  Check,
   Layers,
   Cpu,
   Compass,
   PieChart,
   Binary,
   Maximize2,
-  CheckCircle2
+  CheckCircle2,
+  Workflow
 } from "lucide-react";
+
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
 import pyCode1 from "./topic0_files/01_intro_scipy_ecosystem.py?raw";
 import pyCode2 from "./topic0_files/02_subpackage_overview.py?raw";
@@ -30,7 +34,8 @@ const subpackages = [
     desc: "Probability distributions (Normal, Student-t, Poisson), descriptive stats (z-score, skew, kurtosis), and hypothesis testing.",
     icon: PieChart,
     color: "#38bdf8",
-    methods: ["stats.norm", "stats.ttest_ind", "stats.zscore", "stats.describe", "stats.mode"]
+    methods: ["stats.norm", "stats.ttest_ind", "stats.zscore", "stats.describe", "stats.mode"],
+    mlUse: "Feature standardization, p-value hypothesis testing, distribution fitting, outlier detection."
   },
   {
     id: "spatial",
@@ -39,7 +44,8 @@ const subpackages = [
     desc: "Distance algorithms (Euclidean, Cityblock, Cosine, Minkowski), KDTree for rapid KNN spatial search, and Delaunay triangulation.",
     icon: Compass,
     color: "#818cf8",
-    methods: ["distance.euclidean", "distance.cityblock", "distance.cosine", "KDTree", "Voronoi"]
+    methods: ["distance.euclidean", "distance.cityblock", "distance.cosine", "KDTree", "Voronoi"],
+    mlUse: "K-Nearest Neighbors indexing, embedding similarity metrics, clustering centroid matching."
   },
   {
     id: "linalg",
@@ -48,7 +54,8 @@ const subpackages = [
     desc: "Fast BLAS/LAPACK solvers, matrix inverses, eigenvalues, eigenvectors, SVD, LU, and Cholesky matrix factorizations.",
     icon: Binary,
     color: "#34d399",
-    methods: ["linalg.inv", "linalg.solve", "linalg.det", "linalg.eig", "linalg.svd"]
+    methods: ["linalg.inv", "linalg.solve", "linalg.det", "linalg.eig", "linalg.svd"],
+    mlUse: "PCA dimensionality reduction, ordinary least squares linear regression, matrix inversion."
   },
   {
     id: "optimize",
@@ -57,55 +64,54 @@ const subpackages = [
     desc: "Loss minimization algorithms (BFGS, Nelder-Mead, L-BFGS-B), non-linear least squares curve fitting, and root finding.",
     icon: Maximize2,
     color: "#f59e0b",
-    methods: ["optimize.minimize", "optimize.curve_fit", "optimize.root", "optimize.least_squares"]
+    methods: ["optimize.minimize", "optimize.curve_fit", "optimize.root", "optimize.least_squares"],
+    mlUse: "Custom cost function optimization, logistic sigmoid parameter fitting, hyperparameter search."
   },
   {
-    id: "signal",
-    name: "scipy.signal",
-    title: "Signal Processing & Filtering",
-    desc: "Convolution, B-splines, FIR/IIR digital filter design, spectral analysis, and Fourier transforms for feature extraction.",
-    icon: Activity,
+    id: "sparse",
+    name: "scipy.sparse",
+    title: "Sparse Matrices & Compressed Storage",
+    desc: "Compressed Sparse Row (CSR), CSC, and COO matrix representations to store high-dimensional sparse datasets with 99% RAM savings.",
+    icon: Layers,
     color: "#ec4899",
-    methods: ["signal.convolve", "signal.butter", "signal.spectrogram", "signal.find_peaks"]
+    methods: ["sparse.csr_matrix", "sparse.csc_matrix", "sparse.eye", "sparse.vstack", "sparse.linalg.svds"],
+    mlUse: "TF-IDF text feature matrices, graph adjacency matrices, recommendation collaborative filtering."
+  }
+];
+
+const PYTHON_SCRIPTS = [
+  {
+    id: "part1",
+    fileName: "01_intro_scipy_ecosystem.py",
+    title: "1. SciPy Ecosystem & Architecture",
+    badge: "Ecosystem Overview",
+    code: pyCode1,
+    summary: "Demonstrates how SciPy sits on top of NumPy, passing raw contiguous memory buffers directly into C/Fortran solvers."
+  },
+  {
+    id: "part2",
+    fileName: "02_subpackage_overview.py",
+    title: "2. Core Subpackages & Essential Modules",
+    badge: "Subpackage Tour",
+    code: pyCode2,
+    summary: "Walks through scipy.stats, scipy.spatial, scipy.linalg, and scipy.optimize with concrete ML examples."
+  },
+  {
+    id: "part3",
+    fileName: "03_scipy_architecture.py",
+    title: "3. Compiled C/BLAS Acceleration Check",
+    badge: "Low-Level Performance",
+    code: pyCode3,
+    summary: "Inspects underlying BLAS/LAPACK linking, confirming hardware SIMD acceleration across numerical routines."
   }
 ];
 
 export default function Topic0() {
   const [activeTab, setActiveTab] = useState("interactive");
-  const [selectedScript, setSelectedScript] = useState(0);
-  const [copied, setCopied] = useState(false);
-
-  // Interactive controls
+  const [selectedScriptId, setSelectedScriptId] = useState("part1");
   const [activeSubpackage, setActiveSubpackage] = useState(subpackages[0]);
 
-  // Quiz state
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [submittedQuiz, setSubmittedQuiz] = useState(false);
-
-  const scripts = [
-    { name: "01_intro_scipy_ecosystem.py", code: pyCode1 },
-    { name: "02_subpackage_overview.py", code: pyCode2 },
-    { name: "03_scipy_architecture.py", code: pyCode3 }
-  ];
-
-  const copyCode = (text) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleSelectAnswer = (qId, optionIdx) => {
-    if (submittedQuiz) return;
-    setSelectedAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
-  };
-
-  const calculateScore = () => {
-    let score = 0;
-    questions.forEach((q) => {
-      if (selectedAnswers[q.id] === q.correctAnswer) score++;
-    });
-    return score;
-  };
+  const activeScript = PYTHON_SCRIPTS.find((s) => s.id === selectedScriptId) || PYTHON_SCRIPTS[0];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8 font-sans">
@@ -137,7 +143,7 @@ export default function Topic0() {
               { id: "interactive", label: "Interactive Ecosystem Studio", icon: Sparkles },
               { id: "code", label: "Python Code Lab", icon: Code2 },
               { id: "notes", label: "Revision Notes", icon: BookOpen },
-              { id: "quiz", label: "Knowledge Check", icon: HelpCircle }
+              { id: "quiz", label: "Practice & FAQs", icon: HelpCircle }
             ].map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -152,226 +158,220 @@ export default function Topic0() {
                   }`}
                 >
                   <Icon className="w-4 h-4" />
-                  {tab.label}
+                  <span>{tab.label}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Tab 1: Interactive Studio */}
+        {/* Tab 1: Interactive Ecosystem Studio */}
         {activeTab === "interactive" && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Subpackages Navigator */}
-            <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6">
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm border-b border-slate-800 pb-3">
-                <Layers className="w-4 h-4" />
-                <span>SciPy Core Subpackages</span>
+          <div className="space-y-6">
+            {/* Ecosystem Hierarchy Card */}
+            <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <Workflow className="w-5 h-5 text-emerald-400" />
+                  <span>Scientific Python Software Stack</span>
+                </h3>
+                <span className="text-xs text-slate-400 font-mono">Layered Architecture</span>
               </div>
 
-              <div className="space-y-2.5">
-                {subpackages.map((pkg) => {
-                  const Icon = pkg.icon;
-                  const isSel = activeSubpackage.id === pkg.id;
-                  return (
-                    <div
-                      key={pkg.id}
-                      onClick={() => setActiveSubpackage(pkg)}
-                      className={`p-3.5 rounded-xl border cursor-pointer transition-all ${
-                        isSel
-                          ? "bg-emerald-950/60 border-emerald-500 shadow-md"
-                          : "bg-slate-950 border-slate-800 hover:border-slate-700"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <Icon className="w-4 h-4" style={{ color: pkg.color }} />
-                          <span className="font-semibold text-xs text-white">{pkg.name}</span>
-                        </div>
-                        <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: pkg.color }} />
-                      </div>
-                      <p className="text-[11px] text-slate-400 mt-1 line-clamp-2">{pkg.title}</p>
-                    </div>
-                  );
-                })}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div className="p-4 rounded-xl bg-indigo-950/40 border border-indigo-500/30 space-y-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-bold">Layer 4: ML Frameworks</span>
+                  <h4 className="text-sm font-bold text-white">Scikit-Learn, PyTorch</h4>
+                  <p className="text-xs text-slate-300">Estimators, Neural Nets, Model Selection pipelines.</p>
+                </div>
+                <div className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold">Layer 3: Scientific Algorithms</span>
+                  <h4 className="text-sm font-bold text-white">SciPy</h4>
+                  <p className="text-xs text-slate-300">Stats distributions, KDTree spatial search, numerical optimizers.</p>
+                </div>
+                <div className="p-4 rounded-xl bg-cyan-950/40 border border-cyan-500/30 space-y-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-bold">Layer 2: N-D Array Engine</span>
+                  <h4 className="text-sm font-bold text-white">NumPy &amp; Pandas</h4>
+                  <p className="text-xs text-slate-300">Fast contiguous ndarrays, vectorized SIMD math, tabular frames.</p>
+                </div>
+                <div className="p-4 rounded-xl bg-amber-950/40 border border-amber-500/30 space-y-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold">Layer 1: Compiled Kernels</span>
+                  <h4 className="text-sm font-bold text-white">C / Fortran / BLAS</h4>
+                  <p className="text-xs text-slate-300">LAPACK, OpenBLAS, MKL hardware vectorized primitives.</p>
+                </div>
               </div>
             </div>
 
-            {/* Subpackage Deep Dive Inspector */}
-            <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                  <div>
-                    <span className="text-xs uppercase font-mono tracking-widest text-emerald-400">Subpackage Spotlight</span>
-                    <h2 className="text-xl font-bold text-white mt-0.5">{activeSubpackage.name}</h2>
+            {/* Subpackage Selector Studio */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider">
+                  Select SciPy Subpackage
+                </h3>
+                <div className="space-y-2">
+                  {subpackages.map((sub) => {
+                    const Icon = sub.icon;
+                    const isSelected = activeSubpackage.id === sub.id;
+                    return (
+                      <button
+                        key={sub.id}
+                        onClick={() => setActiveSubpackage(sub)}
+                        className={`w-full p-3.5 rounded-xl border text-left transition-all duration-150 flex items-start gap-3 ${
+                          isSelected
+                            ? "bg-slate-850 border-emerald-500/80 shadow-md shadow-emerald-950/50"
+                            : "bg-slate-900/70 border-slate-800 hover:bg-slate-850 text-slate-400 hover:text-slate-200"
+                        }`}
+                      >
+                        <div
+                          className="p-2 rounded-lg shrink-0 mt-0.5"
+                          style={{ backgroundColor: `${sub.color}20`, color: sub.color }}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <div className="space-y-0.5">
+                          <span className="text-xs font-mono font-bold text-white block">{sub.name}</span>
+                          <span className="text-[11px] text-slate-400 block line-clamp-1">{sub.title}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Subpackage Inspector Card */}
+              <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-5">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="p-3 rounded-xl"
+                      style={{ backgroundColor: `${activeSubpackage.color}20`, color: activeSubpackage.color }}
+                    >
+                      <activeSubpackage.icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white">{activeSubpackage.name}</h3>
+                      <p className="text-xs text-slate-400">{activeSubpackage.title}</p>
+                    </div>
                   </div>
-                  <div
-                    className="p-3 rounded-2xl border"
-                    style={{ backgroundColor: `${activeSubpackage.color}15`, borderColor: `${activeSubpackage.color}40` }}
-                  >
-                    <activeSubpackage.icon className="w-6 h-6" style={{ color: activeSubpackage.color }} />
-                  </div>
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                    High-Performance C/Fortran
+                  </span>
                 </div>
 
-                <div className="mt-4 space-y-4">
-                  <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-4">
-                    <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Functional Description</h3>
-                    <p className="text-sm text-slate-300 leading-relaxed">{activeSubpackage.desc}</p>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                      Functional Description
+                    </h4>
+                    <p className="text-sm text-slate-200 leading-relaxed">{activeSubpackage.desc}</p>
                   </div>
 
                   <div>
-                    <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Key API Methods &amp; Functions</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+                      Core Functions &amp; Classes
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
                       {activeSubpackage.methods.map((method, idx) => (
-                        <div key={idx} className="flex items-center gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800/60 font-mono text-xs text-emerald-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                          <span>{method}</span>
-                        </div>
+                        <span
+                          key={idx}
+                          className="px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-emerald-300"
+                        >
+                          {method}
+                        </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Architecture comparison box */}
-                  <div className="p-4 rounded-xl bg-gradient-to-r from-slate-950 to-slate-900 border border-slate-800 space-y-2">
-                    <div className="text-xs font-semibold text-slate-200">Why SciPy in Machine Learning?</div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      While NumPy provides the <span className="text-white font-mono">ndarray</span> container and basic linear algebra, SciPy supplies the scientific computational machinery. Scikit-learn, TensorFlow, and PyTorch rely heavily on SciPy routines for underlying statistical checks, KDTree searches, and numerical optimization.
-                    </p>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <h4 className="text-xs font-semibold text-indigo-400 uppercase tracking-wider">
+                      🎯 Machine Learning Application
+                    </h4>
+                    <p className="text-xs text-slate-300 leading-relaxed">{activeSubpackage.mlUse}</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                <span>Underlying implementations: Compiled C, C++, and Fortran wrappers</span>
-                <span className="text-emerald-400 font-semibold">Zero Python overhead</span>
               </div>
             </div>
           </div>
         )}
 
-        {/* Tab 2: Code Lab */}
+        {/* Tab 2: Python Code Lab */}
         {activeTab === "code" && (
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-800 pb-4">
-              <div className="flex flex-wrap gap-2">
-                {scripts.map((script, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSelectedScript(idx)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                      selectedScript === idx
-                        ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
-                        : "bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800"
-                    }`}
-                  >
-                    {script.name}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={() => copyCode(scripts[selectedScript].code)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition-colors"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "Copied!" : "Copy Code"}</span>
-              </button>
+          <div className="space-y-6">
+            {/* Script Selection Bar */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {PYTHON_SCRIPTS.map((script) => (
+                <button
+                  key={script.id}
+                  onClick={() => setSelectedScriptId(script.id)}
+                  className={`p-3.5 rounded-xl border text-left transition-all ${
+                    selectedScriptId === script.id
+                      ? "bg-emerald-950/40 border-emerald-500 shadow-md shadow-emerald-950/40 scale-[1.02]"
+                      : "bg-slate-900/80 border-slate-800 hover:bg-slate-850 text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span
+                      className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
+                        selectedScriptId === script.id
+                          ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                          : "bg-slate-800 text-slate-500 border-slate-700"
+                      }`}
+                    >
+                      {script.badge}
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-mono">.py</span>
+                  </div>
+                  <p className="text-xs font-bold text-white truncate">{script.title}</p>
+                  <p className="text-[11px] text-slate-400 line-clamp-1 mt-1">{script.summary}</p>
+                </button>
+              ))}
             </div>
 
-            <div className="bg-slate-950 border border-slate-800/80 rounded-xl p-4 overflow-x-auto font-mono text-xs leading-relaxed text-slate-300">
-              <pre>{scripts[selectedScript].code}</pre>
+            {/* Active Script Code Viewer */}
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 md:p-6 shadow-2xl">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-4 border-b border-slate-800 pb-3">
+                <div>
+                  <h3 className="text-base font-bold text-emerald-300">{activeScript.title}</h3>
+                  <p className="text-xs text-slate-400 font-mono mt-0.5">{activeScript.fileName}</p>
+                </div>
+                <span className="text-xs px-3 py-1 bg-slate-800 text-slate-300 rounded-full border border-slate-700">
+                  SciPy Demonstration Lab
+                </span>
+              </div>
+              <PythonFileLoader fileModule={activeScript.code} title={activeScript.fileName} />
             </div>
           </div>
         )}
 
         {/* Tab 3: Notes */}
         {activeTab === "notes" && (
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-            <div className="flex justify-between items-center border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
-                <BookOpen className="w-4 h-4" />
-                <span>Classroom Printable Notes</span>
-              </div>
-              <button
-                onClick={() => copyCode(noteText)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition-colors"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "Copied!" : "Copy Notes"}</span>
-              </button>
-            </div>
-            <div className="bg-slate-950 border border-slate-800/80 rounded-xl p-4 overflow-x-auto font-mono text-xs leading-relaxed text-slate-300 whitespace-pre-wrap">
-              {noteText}
+          <div className="space-y-6">
+            <Teacher
+              note={
+                "Mastering SciPy is the bridge between pure mathematical theory and scalable machine learning engineering. While NumPy stores your matrices, SciPy gives you the statistical inference, probability calculus, and numerical solvers required to understand how algorithms converge under the hood. — Sukanta Hui, Barrackpore ML Lab"
+              }
+            />
+            <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl">
+              <PlainTextPrint
+                content={noteText}
+                title="Introduction to SciPy — Study Note"
+                stampEnabled={true}
+                showDownload={true}
+                downloadButtonText="Download Topic 0 Study Note"
+                downloadFileName="scipy_intro_note.txt"
+              />
             </div>
           </div>
         )}
 
-        {/* Tab 4: Knowledge Quiz */}
+        {/* Tab 4: Practice & FAQs */}
         {activeTab === "quiz" && (
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
-                <HelpCircle className="w-4 h-4" />
-                <span>Concept Validation &amp; Knowledge Check</span>
-              </div>
-              {submittedQuiz && (
-                <div className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-semibold">
-                  Score: {calculateScore()} / {questions.length}
-                </div>
-              )}
-            </div>
-
-            <div className="space-y-6">
-              {questions.map((q, idx) => {
-                const selected = selectedAnswers[q.id];
-                return (
-                  <div key={q.id} className="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-3">
-                    <h3 className="text-sm font-semibold text-white">
-                      {idx + 1}. {q.question}
-                    </h3>
-                    <div className="grid grid-cols-1 gap-2">
-                      {q.options.map((opt, optIdx) => {
-                        let btnClass = "bg-slate-900 hover:bg-slate-800/80 border-slate-800 text-slate-300";
-                        if (selected === optIdx) {
-                          btnClass = "bg-emerald-950 border-emerald-500 text-white";
-                        }
-                        if (submittedQuiz) {
-                          if (optIdx === q.correctAnswer) {
-                            btnClass = "bg-emerald-900/80 border-emerald-500 text-white font-semibold";
-                          } else if (selected === optIdx && selected !== q.correctAnswer) {
-                            btnClass = "bg-rose-950 border-rose-500 text-rose-200";
-                          }
-                        }
-                        return (
-                          <button
-                            key={optIdx}
-                            onClick={() => handleSelectAnswer(q.id, optIdx)}
-                            className={`p-3 rounded-lg border text-left text-xs transition-all ${btnClass}`}
-                          >
-                            {opt}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {submittedQuiz && (
-                      <div className="mt-3 p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1">
-                        <span className="font-semibold text-emerald-400">Explanation: </span>
-                        <span>{q.explanation}</span>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="flex justify-end pt-4 border-t border-slate-800">
-              <button
-                onClick={() => setSubmittedQuiz(!submittedQuiz)}
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-lg shadow-emerald-600/30"
-              >
-                {submittedQuiz ? "Reset Quiz" : "Submit Answers"}
-              </button>
-            </div>
+          <div className="space-y-6">
+            <FAQTemplate
+              title="Introduction to SciPy — Domain FAQs"
+              subtitle="Master essential scientific Python architecture, subpackage roles, and ML integration patterns"
+              questions={questions}
+            />
           </div>
         )}
       </div>

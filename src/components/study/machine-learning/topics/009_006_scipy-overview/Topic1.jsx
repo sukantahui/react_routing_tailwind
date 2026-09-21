@@ -5,14 +5,18 @@ import {
   BookOpen,
   Code2,
   HelpCircle,
-  Copy,
-  Check,
   Sparkles,
   Layers,
   Cpu,
   AlertTriangle,
-  CheckCircle2
+  CheckCircle2,
+  PackageCheck
 } from "lucide-react";
+
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
 import pyCode1 from "./topic1_files/01_pip_install_scipy.py?raw";
 import pyCode2 from "./topic1_files/02_import_submodules.py?raw";
@@ -21,79 +25,69 @@ import noteText from "./topic1_files/topic1_note.txt?raw";
 import questions from "./topic1_files/topic1_questions.js";
 
 const submodulesList = [
-  { name: "scipy.stats", role: "Probability distributions, hypothesis tests, descriptive metrics", color: "#38bdf8" },
-  { name: "scipy.spatial", role: "KD-Tree, spatial distances (Euclidean, Manhattan, Cosine)", color: "#818cf8" },
-  { name: "scipy.linalg", role: "Direct LAPACK/BLAS wrappers, matrix inversion, eigenvalue solver", color: "#34d399" },
-  { name: "scipy.optimize", role: "Minimization routines, BFGS, least-squares curve fitting", color: "#f59e0b" },
-  { name: "scipy.sparse", role: "Memory-efficient matrices (CSR, CSC, COO) for high-dimensional ML", color: "#ec4899" },
-  { name: "scipy.integrate", role: "Definite numerical integrals, quad, ODE solvers", color: "#a855f7" }
+  { name: "scipy.stats", alias: "import scipy.stats as stats", role: "Probability distributions, hypothesis tests, descriptive metrics", color: "#38bdf8" },
+  { name: "scipy.spatial", alias: "import scipy.spatial.distance as pdist", role: "KD-Tree, spatial distances (Euclidean, Manhattan, Cosine)", color: "#818cf8" },
+  { name: "scipy.linalg", alias: "import scipy.linalg as la", role: "Direct LAPACK/BLAS wrappers, matrix inversion, eigenvalue solver", color: "#34d399" },
+  { name: "scipy.optimize", alias: "import scipy.optimize as opt", role: "Minimization routines, BFGS, least-squares curve fitting", color: "#f59e0b" },
+  { name: "scipy.sparse", alias: "import scipy.sparse as sp", role: "Memory-efficient matrices (CSR, CSC, COO) for high-dimensional ML", color: "#ec4899" },
+  { name: "scipy.integrate", alias: "import scipy.integrate as integrate", role: "Definite numerical integrals, quad, ODE solvers", color: "#a855f7" }
+];
+
+const PYTHON_SCRIPTS = [
+  {
+    id: "part1",
+    fileName: "01_pip_install_scipy.py",
+    title: "1. Installation & Environment Verification",
+    badge: "Install & Setup",
+    code: pyCode1,
+    summary: "Standard pip and conda installation verification, version checking, and path location."
+  },
+  {
+    id: "part2",
+    fileName: "02_import_submodules.py",
+    title: "2. Explicit Submodule Import Conventions",
+    badge: "Namespaces & Imports",
+    code: pyCode2,
+    summary: "Demonstrates why explicit subpackage imports are mandatory and contrasts with dangerous wildcard imports."
+  },
+  {
+    id: "part3",
+    fileName: "03_system_check_and_versions.py",
+    title: "3. BLAS & Hardware Acceleration Sanity",
+    badge: "System Configuration",
+    code: pyCode3,
+    summary: "Inspects show_config() and checks compiler flags and OpenBLAS/MKL acceleration linkage."
+  }
 ];
 
 export default function Topic1() {
   const [activeTab, setActiveTab] = useState("interactive");
-  const [selectedScript, setSelectedScript] = useState(0);
-  const [copied, setCopied] = useState(false);
-
-  // Interactive controls
+  const [selectedScriptId, setSelectedScriptId] = useState("part1");
   const [manager, setManager] = useState("pip");
   const [selectedSubmodule, setSelectedSubmodule] = useState(submodulesList[0]);
 
-  // Quiz state
-  const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [submittedQuiz, setSubmittedQuiz] = useState(false);
-
-  const scripts = [
-    { name: "01_pip_install_scipy.py", code: pyCode1 },
-    { name: "02_import_submodules.py", code: pyCode2 },
-    { name: "03_system_check_and_versions.py", code: pyCode3 }
-  ];
-
-  const copyCode = (text) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleSelectAnswer = (qId, optionIdx) => {
-    if (submittedQuiz) return;
-    setSelectedAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
-  };
-
-  const calculateScore = () => {
-    let score = 0;
-    questions.forEach((q) => {
-      if (selectedAnswers[q.id] === q.correctAnswer) score++;
-    });
-    return score;
-  };
-
-  const commands = {
-    pip: "$ pip install -U scipy",
-    conda: "$ conda install -c conda-forge scipy",
-    poetry: "$ poetry add scipy",
-    pipenv: "$ pipenv install scipy"
-  };
+  const activeScript = PYTHON_SCRIPTS.find((s) => s.id === selectedScriptId) || PYTHON_SCRIPTS[0];
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8 font-sans">
       <div className="max-w-6xl mx-auto space-y-6">
         {/* Header Banner */}
-        <div className="bg-gradient-to-r from-emerald-950 via-slate-900 to-teal-950 border border-emerald-800/40 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute -right-8 -top-8 w-44 h-44 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-gradient-to-r from-sky-950 via-slate-900 to-indigo-950 border border-sky-800/40 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute -right-8 -top-8 w-44 h-44 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs uppercase tracking-widest mb-2">
+              <div className="flex items-center gap-2 text-sky-400 font-semibold text-xs uppercase tracking-widest mb-2">
                 <DownloadCloud className="w-4 h-4" />
                 <span>Machine Learning Module 009_006 • Topic 1</span>
               </div>
               <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
-                Installing and Importing SciPy
+                Installation &amp; Submodule Architecture
               </h1>
               <p className="text-slate-400 text-sm mt-1 max-w-2xl">
-                Set up your high-performance scientific Python environment. Master explicit submodule loading, hardware BLAS/LAPACK linking, and avoid common namespace pitfalls.
+                Mastering the installation pipelines, explicit submodule importing standards, lazy-loading conventions, and hardware BLAS/LAPACK linking in SciPy.
               </p>
             </div>
-            <div className="px-3.5 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+            <div className="px-3.5 py-1.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-mono">
               Coder &amp; AccoTax • Barrackpore
             </div>
           </div>
@@ -101,10 +95,10 @@ export default function Topic1() {
           {/* Navigation Tabs */}
           <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-800/80">
             {[
-              { id: "interactive", label: "Installation & Import Studio", icon: Sparkles },
+              { id: "interactive", label: "Interactive Setup Studio", icon: Sparkles },
               { id: "code", label: "Python Code Lab", icon: Code2 },
               { id: "notes", label: "Revision Notes", icon: BookOpen },
-              { id: "quiz", label: "Knowledge Check", icon: HelpCircle }
+              { id: "quiz", label: "Practice & FAQs", icon: HelpCircle }
             ].map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -114,230 +108,202 @@ export default function Topic1() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-xs md:text-sm transition-all duration-200 ${
                     isActive
-                      ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/30"
+                      ? "bg-sky-600 text-white shadow-lg shadow-sky-600/30"
                       : "bg-slate-900/80 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
-                  {tab.label}
+                  <span>{tab.label}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Tab 1: Interactive Studio */}
+        {/* Tab 1: Interactive Setup Studio */}
         {activeTab === "interactive" && (
           <div className="space-y-6">
-            {/* Terminal Package Manager Selector */}
-            <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
-                  <Terminal className="w-4 h-4" />
-                  <span>Package Manager Installation Command</span>
-                </div>
-                <div className="flex gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
-                  {["pip", "conda", "poetry", "pipenv"].map((mgr) => (
+            {/* Terminal Installation Simulator */}
+            <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <Terminal className="w-5 h-5 text-sky-400" />
+                  <span>Package Manager Terminal Command Builder</span>
+                </h3>
+                <div className="flex gap-2">
+                  {["pip", "conda", "poetry", "docker"].map((m) => (
                     <button
-                      key={mgr}
-                      onClick={() => setManager(mgr)}
-                      className={`px-3 py-1 rounded-lg text-xs font-mono font-medium transition-all ${
-                        manager === mgr ? "bg-emerald-600 text-white" : "text-slate-400 hover:text-white"
+                      key={m}
+                      onClick={() => setManager(m)}
+                      className={`px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase transition ${
+                        manager === m
+                          ? "bg-sky-500/20 text-sky-300 border border-sky-500/40"
+                          : "bg-slate-950 text-slate-400 border border-slate-800 hover:bg-slate-800"
                       }`}
                     >
-                      {mgr}
+                      {m}
                     </button>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 flex items-center justify-between">
-                <code className="font-mono text-xs md:text-sm text-emerald-400">{commands[manager]}</code>
-                <button
-                  onClick={() => copyCode(commands[manager])}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition-colors"
-                >
-                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>{copied ? "Copied" : "Copy"}</span>
-                </button>
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs space-y-2">
+                <p className="text-slate-500"># Run in your activated virtual environment terminal:</p>
+                <div className="text-emerald-400 font-bold text-sm bg-slate-900 p-3 rounded-lg border border-slate-800 flex items-center justify-between">
+                  <span>
+                    {manager === "pip" && "$ pip install --upgrade pip && pip install scipy numpy pandas"}
+                    {manager === "conda" && "$ conda install -c conda-forge scipy numpy pandas"}
+                    {manager === "poetry" && "$ poetry add scipy numpy pandas"}
+                    {manager === "docker" && "$ RUN pip install --no-cache-dir scipy numpy pandas"}
+                  </span>
+                </div>
+                <p className="text-slate-400 text-[11px]">
+                  💡 All binary wheels are pre-compiled with OpenBLAS / LAPACK runtime acceleration for instant installation.
+                </p>
               </div>
             </div>
 
-            {/* Submodule Import Rules */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Common Pitfall vs Best Practice */}
-              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm">
-                  <AlertTriangle className="w-4 h-4" />
-                  <span>The SciPy Explicit Import Gotcha</span>
-                </div>
-                <div className="bg-rose-950/30 border border-rose-900/50 rounded-xl p-4 space-y-2 text-xs">
-                  <div className="font-bold text-rose-300">❌ Incorrect Top-Level Loading:</div>
-                  <pre className="font-mono text-rose-200 bg-slate-950 p-2.5 rounded-lg border border-rose-900/40">
-                    {`import scipy\n\n# Raises AttributeError:\n# module 'scipy' has no attribute 'stats'\nresult = scipy.stats.zscore([1, 2, 3])`}
-                  </pre>
-                </div>
-                <div className="bg-emerald-950/30 border border-emerald-900/50 rounded-xl p-4 space-y-2 text-xs">
-                  <div className="font-bold text-emerald-300">✅ Idiomatic Explicit Submodule Loading:</div>
-                  <pre className="font-mono text-emerald-200 bg-slate-950 p-2.5 rounded-lg border border-emerald-900/40">
-                    {`from scipy import stats\nfrom scipy import spatial\n\n# Works seamlessly!\nz = stats.zscore([1, 2, 3])`}
-                  </pre>
+            {/* Submodule Explorer */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider">
+                  Select Submodule
+                </h3>
+                <div className="space-y-2">
+                  {submodulesList.map((sub) => {
+                    const isSelected = selectedSubmodule.name === sub.name;
+                    return (
+                      <button
+                        key={sub.name}
+                        onClick={() => setSelectedSubmodule(sub)}
+                        className={`w-full p-3 rounded-xl border text-left transition-all ${
+                          isSelected
+                            ? "bg-slate-850 border-sky-500 text-white shadow-md shadow-sky-950/40"
+                            : "bg-slate-900/70 border-slate-800 hover:bg-slate-850 text-slate-400 hover:text-slate-200"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-xs font-bold text-sky-300">{sub.name}</span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">Subpackage</span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 mt-1 line-clamp-1">{sub.role}</p>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Submodules Quick Reference */}
-              <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
-                  <Layers className="w-4 h-4" />
-                  <span>Essential ML Submodules</span>
+              {/* Submodule Details Card */}
+              <div className="lg:col-span-2 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-white">{selectedSubmodule.name}</h3>
+                    <p className="text-xs text-slate-400">{selectedSubmodule.role}</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-sky-500/10 text-sky-300 border border-sky-500/30">
+                    Production Canonical Alias
+                  </span>
                 </div>
-                <div className="space-y-2">
-                  {submodulesList.map((sub, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => setSelectedSubmodule(sub)}
-                      className={`p-3 rounded-xl border cursor-pointer transition-all ${
-                        selectedSubmodule.name === sub.name
-                          ? "bg-emerald-950/60 border-emerald-500"
-                          : "bg-slate-950 border-slate-800 hover:border-slate-700"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-mono text-xs font-bold text-emerald-300">{sub.name}</span>
-                        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: sub.color }} />
-                      </div>
-                      <p className="text-[11px] text-slate-400 mt-0.5">{sub.role}</p>
-                    </div>
-                  ))}
+
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                  <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider block">
+                    Recommended Python Import Syntax:
+                  </span>
+                  <code className="text-emerald-400 font-mono text-sm font-bold block bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                    {selectedSubmodule.alias}
+                  </code>
+                </div>
+
+                <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 text-xs text-amber-200/90 space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-amber-300">
+                    <AlertTriangle className="w-4 h-4 text-amber-400" />
+                    <span>Why Lazy Loading Matters:</span>
+                  </div>
+                  <p>
+                    SciPy intentionally does not import subpackages upon <code>import scipy</code>. Subpackages must be imported explicitly (e.g. <code>import scipy.stats as stats</code>) to prevent loading hundreds of megabytes of compiled C/Fortran libraries on application startup.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        {/* Tab 2: Code Lab */}
+        {/* Tab 2: Python Code Lab */}
         {activeTab === "code" && (
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-800 pb-4">
-              <div className="flex flex-wrap gap-2">
-                {scripts.map((script, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSelectedScript(idx)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                      selectedScript === idx
-                        ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
-                        : "bg-slate-950 hover:bg-slate-800 text-slate-400 border border-slate-800"
-                    }`}
-                  >
-                    {script.name}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={() => copyCode(scripts[selectedScript].code)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition-colors"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "Copied!" : "Copy Code"}</span>
-              </button>
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {PYTHON_SCRIPTS.map((script) => (
+                <button
+                  key={script.id}
+                  onClick={() => setSelectedScriptId(script.id)}
+                  className={`p-3.5 rounded-xl border text-left transition-all ${
+                    selectedScriptId === script.id
+                      ? "bg-sky-950/40 border-sky-500 shadow-md shadow-sky-950/40 scale-[1.02]"
+                      : "bg-slate-900/80 border-slate-800 hover:bg-slate-850 text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span
+                      className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
+                        selectedScriptId === script.id
+                          ? "bg-sky-500/20 text-sky-300 border-sky-500/40"
+                          : "bg-slate-800 text-slate-500 border-slate-700"
+                      }`}
+                    >
+                      {script.badge}
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-mono">.py</span>
+                  </div>
+                  <p className="text-xs font-bold text-white truncate">{script.title}</p>
+                  <p className="text-[11px] text-slate-400 line-clamp-1 mt-1">{script.summary}</p>
+                </button>
+              ))}
             </div>
 
-            <div className="bg-slate-950 border border-slate-800/80 rounded-xl p-4 overflow-x-auto font-mono text-xs leading-relaxed text-slate-300">
-              <pre>{scripts[selectedScript].code}</pre>
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 md:p-6 shadow-2xl">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-4 border-b border-slate-800 pb-3">
+                <div>
+                  <h3 className="text-base font-bold text-sky-300">{activeScript.title}</h3>
+                  <p className="text-xs text-slate-400 font-mono mt-0.5">{activeScript.fileName}</p>
+                </div>
+                <span className="text-xs px-3 py-1 bg-slate-800 text-slate-300 rounded-full border border-slate-700">
+                  Installation &amp; Import Suite
+                </span>
+              </div>
+              <PythonFileLoader fileModule={activeScript.code} title={activeScript.fileName} />
             </div>
           </div>
         )}
 
         {/* Tab 3: Notes */}
         {activeTab === "notes" && (
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-4">
-            <div className="flex justify-between items-center border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
-                <BookOpen className="w-4 h-4" />
-                <span>Classroom Printable Notes</span>
-              </div>
-              <button
-                onClick={() => copyCode(noteText)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition-colors"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "Copied!" : "Copy Notes"}</span>
-              </button>
-            </div>
-            <div className="bg-slate-950 border border-slate-800/80 rounded-xl p-4 overflow-x-auto font-mono text-xs leading-relaxed text-slate-300 whitespace-pre-wrap">
-              {noteText}
+          <div className="space-y-6">
+            <Teacher
+              note={
+                "A common pitfall for beginners is typing `import scipy` and expecting `scipy.stats` to be accessible. Always use explicit submodule imports. This ensures clean code, avoids namespace collisions, and keeps memory overhead minimal. — Sukanta Hui, Barrackpore ML Lab"
+              }
+            />
+            <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl">
+              <PlainTextPrint
+                content={noteText}
+                title="Installation & Submodule Structure — Study Note"
+                stampEnabled={true}
+                showDownload={true}
+                downloadButtonText="Download Topic 1 Study Note"
+                downloadFileName="scipy_install_and_submodules_note.txt"
+              />
             </div>
           </div>
         )}
 
-        {/* Tab 4: Knowledge Quiz */}
+        {/* Tab 4: Practice & FAQs */}
         {activeTab === "quiz" && (
-          <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
-                <HelpCircle className="w-4 h-4" />
-                <span>Concept Validation &amp; Knowledge Check</span>
-              </div>
-              {submittedQuiz && (
-                <div className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-semibold">
-                  Score: {calculateScore()} / {questions.length}
-                </div>
-              )}
-            </div>
-
-            <div className="space-y-6">
-              {questions.map((q, idx) => {
-                const selected = selectedAnswers[q.id];
-                return (
-                  <div key={q.id} className="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-3">
-                    <h3 className="text-sm font-semibold text-white">
-                      {idx + 1}. {q.question}
-                    </h3>
-                    <div className="grid grid-cols-1 gap-2">
-                      {q.options.map((opt, optIdx) => {
-                        let btnClass = "bg-slate-900 hover:bg-slate-800/80 border-slate-800 text-slate-300";
-                        if (selected === optIdx) {
-                          btnClass = "bg-emerald-950 border-emerald-500 text-white";
-                        }
-                        if (submittedQuiz) {
-                          if (optIdx === q.correctAnswer) {
-                            btnClass = "bg-emerald-900/80 border-emerald-500 text-white font-semibold";
-                          } else if (selected === optIdx && selected !== q.correctAnswer) {
-                            btnClass = "bg-rose-950 border-rose-500 text-rose-200";
-                          }
-                        }
-                        return (
-                          <button
-                            key={optIdx}
-                            onClick={() => handleSelectAnswer(q.id, optIdx)}
-                            className={`p-3 rounded-lg border text-left text-xs transition-all ${btnClass}`}
-                          >
-                            {opt}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {submittedQuiz && (
-                      <div className="mt-3 p-3 rounded-lg bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-1">
-                        <span className="font-semibold text-emerald-400">Explanation: </span>
-                        <span>{q.explanation}</span>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="flex justify-end pt-4 border-t border-slate-800">
-              <button
-                onClick={() => setSubmittedQuiz(!submittedQuiz)}
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all shadow-lg shadow-emerald-600/30"
-              >
-                {submittedQuiz ? "Reset Quiz" : "Submit Answers"}
-              </button>
-            </div>
+          <div className="space-y-6">
+            <FAQTemplate
+              title="Installation & Submodule Architecture — Domain FAQs"
+              subtitle="Master package managers, explicit namespace imports, lazy loading, and BLAS verification"
+              questions={questions}
+            />
           </div>
         )}
       </div>
