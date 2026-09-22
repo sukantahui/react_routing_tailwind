@@ -132,7 +132,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       color: "from-indigo-500/20 to-purple-500/10 text-indigo-400 border-indigo-500/30",
       items: [
         {
-          to: "/courses",
+          to: "/admin/courses",
           label: "Courses Master",
           desc: "Curriculums, duration & pricing",
           icon: "bi-collection-fill",

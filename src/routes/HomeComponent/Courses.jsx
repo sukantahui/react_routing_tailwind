@@ -10,8 +10,10 @@
 
 import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Loader2, Database, RefreshCw, Sparkles, CheckCircle2 } from "lucide-react";
 import coursesData from "../../data/courses.json";
 import StudentCourseQRModal from "../../components/StudentCourseQRModal";
+import { courseService } from "../../services/courseService";
 
 // Course & Group Images
 import javaImg from "../../assets/course-images/java-logo.svg";
@@ -63,6 +65,167 @@ const imageMap = {
   accountsImg,
   dataanalysisImg,
   studentImg,
+};
+
+const getImageKey = (title = "", category = "") => {
+  const t = String(title).toLowerCase();
+  const c = String(category).toLowerCase();
+  if (t.includes("react")) return "reactImg";
+  if (t.includes("node")) return "nodeImg";
+  if (t.includes("java") && !t.includes("script")) return "javaImg";
+  if (t.includes("python")) return "pythonImg";
+  if (t.includes("dsa") || t.includes("algorithm") || t.includes("structures")) return "dsa";
+  if (t.includes("c++") || t.includes("c programming") || t.includes("c language")) return "clanguage";
+  if (t.includes("mysql")) return "mysql";
+  if (t.includes("sql") || t.includes("database")) return "sql";
+  if (t.includes("excel")) return "excelCourseImg";
+  if (t.includes("git")) return "gitImg";
+  if (t.includes("js") || t.includes("javascript")) return "jsImg";
+  if (c.includes("web")) return "webDevImg";
+  if (c.includes("account") || c.includes("tax")) return "taxImg";
+  if (c.includes("data")) return "dataanalysisImg";
+  return "defaultImg";
+};
+
+const getGroupImageKey = (category = "") => {
+  const c = String(category).toLowerCase();
+  if (c.includes("web")) return "webDevImg";
+  if (c.includes("program")) return "programmingImg";
+  if (c.includes("database") || c.includes("sql") || c.includes("rdbms")) return "databaseServer";
+  if (c.includes("account") || c.includes("tax") || c.includes("tally") || c.includes("gst")) return "accountsImg";
+  if (c.includes("data") || c.includes("analytics")) return "dataanalysisImg";
+  if (c.includes("school") || c.includes("icse") || c.includes("isc") || c.includes("cbse") || c.includes("wb")) return "studentImg";
+  return "codeImg";
+};
+
+const getCategoryDescription = (category = "") => {
+  const c = String(category).toLowerCase();
+  if (c.includes("web")) {
+    return "Master frontend, backend, modern full-stack web architectures, databases, and responsive UI.";
+  }
+  if (c.includes("program")) {
+    return "Core & advanced programming in Python, Java, C, C++, Data Structures & algorithmic problem-solving.";
+  }
+  if (c.includes("sql") || c.includes("database") || c.includes("rdbms")) {
+    return "Relational Database Management Systems, schema architecture, MySQL indexing, and query optimization.";
+  }
+  if (c.includes("account") || c.includes("tax") || c.includes("tally") || c.includes("gst")) {
+    return "Practical business accounting with Tally Prime, GST returns, e-invoicing, TDS, and financial audit.";
+  }
+  if (c.includes("data") || c.includes("analytics") || c.includes("machine")) {
+    return "Data analytics using Excel, Power BI, Python for Data Science, statistics, and machine learning.";
+  }
+  if (c.includes("school") || c.includes("board")) {
+    return "Curriculum-aligned Computer Applications & Computer Science for ICSE, ISC, CBSE, and West Bengal Board.";
+  }
+  return "Professional certification programs with hands-on lab sessions and lifetime mentorship.";
+};
+
+// Maps raw database record from cnat_api to rich course object
+const mapDatabaseCourseToCard = (dbCourse, idx = 0) => {
+  const topics = Array.isArray(dbCourse.details)
+    ? dbCourse.details
+    : Array.isArray(dbCourse.topics)
+    ? dbCourse.topics
+    : [];
+
+  const rawTitle = dbCourse.courseName || dbCourse.course_name || dbCourse.title || "Specialized IT Course";
+  const courseCode = dbCourse.courseCode || dbCourse.course_code || `CNAT-${dbCourse.id || idx + 1}`;
+  const feeNum = Number(dbCourse.courseFees || dbCourse.course_fees || 0);
+  const feeStr = feeNum > 0 ? `₹${feeNum.toLocaleString("en-IN")}` : (dbCourse.fee || "Standard Fee");
+
+  // Determine category
+  let category = dbCourse.category || dbCourse.courseCategory || dbCourse.category_name;
+  if (!category) {
+    const titleLower = rawTitle.toLowerCase();
+    if (titleLower.includes("react") || titleLower.includes("web") || titleLower.includes("html") || titleLower.includes("css") || titleLower.includes("node") || titleLower.includes("frontend") || titleLower.includes("backend") || titleLower.includes("full stack")) {
+      category = "Web Development";
+    } else if (titleLower.includes("python") || titleLower.includes("java") || titleLower.includes("c++") || titleLower.includes("c language") || titleLower.includes("dsa") || titleLower.includes("algorithm")) {
+      category = "Programming Languages";
+    } else if (titleLower.includes("sql") || titleLower.includes("mysql") || titleLower.includes("database") || titleLower.includes("rdbms") || titleLower.includes("oracle")) {
+      category = "RDBMS & SQL";
+    } else if (titleLower.includes("tally") || titleLower.includes("gst") || titleLower.includes("tax") || titleLower.includes("account") || titleLower.includes("tds")) {
+      category = "Accounts & Taxation";
+    } else if (titleLower.includes("excel") || titleLower.includes("data") || titleLower.includes("analytics") || titleLower.includes("power bi") || titleLower.includes("machine learning")) {
+      category = "Data Analysis";
+    } else if (titleLower.includes("icse") || titleLower.includes("isc") || titleLower.includes("cbse") || titleLower.includes("wb") || titleLower.includes("class")) {
+      category = "School Courses (CBSE/ICSE/WBCHSE)";
+    } else {
+      category = "Specialized IT Tracks";
+    }
+  }
+
+  // Calculate total classes / duration
+  let totalHours = 0;
+  topics.forEach((t) => {
+    totalHours += Number(t.theoryDuration || t.theory_duration || 0) + Number(t.practicalDuration || t.practical_duration || 0);
+  });
+  const durationStr = totalHours > 0 ? `${totalHours} Hours (${topics.length || 1} Modules)` : (dbCourse.duration || `${topics.length > 0 ? topics.length + " Modules" : "3-6 Months"}`);
+
+  // Skills
+  const extractedSkills = topics.map((t) => t.topicTitle || t.topic_title).filter(Boolean);
+  const skills = Array.isArray(dbCourse.skills) && dbCourse.skills.length > 0 ? dbCourse.skills : (extractedSkills.length > 0 ? extractedSkills : [rawTitle, "Practical Labs", "Hands-on Projects"]);
+
+  // Syllabus list
+  const syllabus = topics.map((t, topicIdx) => {
+    const title = t.topicTitle || t.topic_title || `Module ${topicIdx + 1}`;
+    const desc = t.topicDescription || t.topic_description;
+    return desc ? `${title} – ${desc}` : title;
+  });
+
+  return {
+    courseID: String(dbCourse.id || dbCourse.courseID || courseCode),
+    courseCode: courseCode,
+    title: rawTitle,
+    category: category,
+    fee: feeStr,
+    numericFee: feeNum,
+    duration: durationStr,
+    level: dbCourse.level || "Beginner to Advanced",
+    mode: dbCourse.mode || "Online / Offline (Hybrid)",
+    instructor: dbCourse.instructor || "Sukanta Hui",
+    badge: dbCourse.badge || (feeNum > 15000 ? "Advanced" : "Popular"),
+    rating: dbCourse.rating || 4.9,
+    studentsEnrolled: dbCourse.studentsEnrolled || 240,
+    desc: dbCourse.courseDescription || dbCourse.course_description || dbCourse.desc || `Complete hands-on practical training for ${rawTitle}.`,
+    skills: skills,
+    image: getImageKey(rawTitle, category),
+    meritDiscount: dbCourse.meritDiscount || {
+      available: true,
+      maxDiscountPercent: 15,
+      actualDiscountPercent: 10,
+      criteria: "Based on academic performance (85%+) or entrance evaluation.",
+      note: "Special fee concession applicable on merit assessment.",
+    },
+    details: {
+      overview: dbCourse.courseDescription || dbCourse.course_description || `The ${rawTitle} course provides in-depth conceptual and practical knowledge designed to make students and professionals industry-ready with live projects.`,
+      syllabus: syllabus.length > 0 ? syllabus : [`Fundamentals of ${rawTitle}`, `Advanced topics and practical syntax`, `Real-world lab assignments`, `Capstone project and evaluation`],
+      learningOutcomes: [
+        `Master essential concepts and core tools for ${rawTitle}`,
+        `Gain confident hands-on problem-solving and coding capability`,
+        `Complete practical portfolio projects and earn verifiable certification`
+      ],
+      projects: [`Real-world application for ${rawTitle}`, `Industry case study & lab evaluation`]
+    }
+  };
+};
+
+// Groups a flat list of courses by category
+const groupCoursesByCategory = (coursesList = []) => {
+  const groupsMap = {};
+  coursesList.forEach((c) => {
+    const cat = c.category || "Specialized IT Tracks";
+    if (!groupsMap[cat]) {
+      groupsMap[cat] = {
+        category: cat,
+        groupImage: getGroupImageKey(cat),
+        groupDesc: getCategoryDescription(cat),
+        courses: [],
+      };
+    }
+    groupsMap[cat].courses.push(c);
+  });
+  return Object.values(groupsMap);
 };
 
 const WHATSAPP_NUMBER = "919432456083";
@@ -578,6 +741,11 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
 };
 
 const Courses = () => {
+  const [coursesGroups, setCoursesGroups] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isFromDatabase, setIsFromDatabase] = useState(false);
+  const [apiError, setApiError] = useState(null);
+
   const [expandedGroups, setExpandedGroups] = useState({});
   const [selectedCourseModal, setSelectedCourseModal] = useState(null);
   const [qrModalCourse, setQrModalCourse] = useState(null);
@@ -585,18 +753,77 @@ const Courses = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const courseRefs = useRef({});
 
+  const loadCourses = useCallback(async () => {
+    setLoading(true);
+    setApiError(null);
+    try {
+      // 1. Fetch courses with full syllabus & topic details from cnat_api
+      const res = await courseService.getAllWithDetails();
+      let rawList = [];
+      if (res?.status === true && Array.isArray(res.data)) {
+        rawList = res.data;
+      } else if (Array.isArray(res?.data)) {
+        rawList = res.data;
+      } else if (Array.isArray(res)) {
+        rawList = res;
+      }
+
+      if (rawList && rawList.length > 0) {
+        const mapped = rawList.map((c, i) => mapDatabaseCourseToCard(c, i));
+        const grouped = groupCoursesByCategory(mapped);
+        setCoursesGroups(grouped);
+        setIsFromDatabase(true);
+        return;
+      }
+
+      // 2. Fallback to basic /courses API endpoint if details is empty
+      const basicRes = await courseService.getAll();
+      let basicList = [];
+      if (basicRes?.status === true && Array.isArray(basicRes.data)) {
+        basicList = basicRes.data;
+      } else if (Array.isArray(basicRes?.data)) {
+        basicList = basicRes.data;
+      } else if (Array.isArray(basicRes)) {
+        basicList = basicRes;
+      }
+
+      if (basicList && basicList.length > 0) {
+        const mapped = basicList.map((c, i) => mapDatabaseCourseToCard(c, i));
+        const grouped = groupCoursesByCategory(mapped);
+        setCoursesGroups(grouped);
+        setIsFromDatabase(true);
+        return;
+      }
+
+      // 3. Fallback to catalog data
+      setCoursesGroups(coursesData);
+      setIsFromDatabase(false);
+    } catch (err) {
+      console.warn("Could not load from cnat_api, using catalog fallback:", err);
+      setCoursesGroups(coursesData);
+      setIsFromDatabase(false);
+      setApiError("Displaying offline catalog");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadCourses();
+  }, [loadCourses]);
+
   // Collect all unique categories from data
   const filterCategories = useMemo(() => {
-    if (!Array.isArray(coursesData)) return ["All"];
-    const cats = ["All", ...new Set(coursesData.map((g) => g.category).filter(Boolean))];
+    if (!Array.isArray(coursesGroups) || coursesGroups.length === 0) return ["All"];
+    const cats = ["All", ...new Set(coursesGroups.map((g) => g.category).filter(Boolean))];
     return cats;
-  }, []);
+  }, [coursesGroups]);
 
   // Total courses count
   const totalCoursesCount = useMemo(() => {
-    if (!Array.isArray(coursesData)) return 0;
-    return coursesData.reduce((acc, curr) => acc + (curr.courses?.length || 0), 0);
-  }, []);
+    if (!Array.isArray(coursesGroups)) return 0;
+    return coursesGroups.reduce((acc, curr) => acc + (curr.courses?.length || 0), 0);
+  }, [coursesGroups]);
 
   const toggleGroup = (category) => {
     setExpandedGroups((prev) => (prev[category] ? {} : { [category]: true }));
@@ -606,10 +833,10 @@ const Courses = () => {
   useEffect(() => {
     if (searchTerm.trim().length >= 2) {
       const matched = {};
-      coursesData.forEach((group) => {
-        const hasMatch = group.courses.some(
+      coursesGroups.forEach((group) => {
+        const hasMatch = (group.courses || []).some(
           (c) =>
-            c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            c.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             c.desc?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             c.skills?.some((s) => s.toLowerCase().includes(searchTerm.toLowerCase()))
         );
@@ -617,7 +844,7 @@ const Courses = () => {
       });
       setExpandedGroups(matched);
     }
-  }, [searchTerm]);
+  }, [searchTerm, coursesGroups]);
 
   const filteredCourses = useCallback(
     (group) => {
@@ -625,7 +852,7 @@ const Courses = () => {
       const term = searchTerm.toLowerCase();
       return (group.courses || []).filter(
         (c) =>
-          c.title.toLowerCase().includes(term) ||
+          c.title?.toLowerCase().includes(term) ||
           c.desc?.toLowerCase().includes(term) ||
           c.more?.toLowerCase().includes(term) ||
           c.skills?.some((s) => s.toLowerCase().includes(term)) ||
@@ -652,14 +879,31 @@ const Courses = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-sky-400 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 inline-block">
-            Course Catalog & Curriculum
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-3 tracking-tight">
+          <div className="flex items-center justify-center gap-2 flex-wrap mb-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-400 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 inline-flex items-center gap-1.5">
+              <Database size={12} className="text-sky-400" />
+              <span>Course Catalog &amp; Curriculum</span>
+            </span>
+
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{isFromDatabase ? "cnat_api Database (Live)" : "Database Catalog"}</span>
+            </span>
+
+            <button
+              onClick={loadCourses}
+              className="p-1 rounded-full text-slate-400 hover:text-white transition cursor-pointer"
+              title="Refresh courses from database"
+            >
+              <RefreshCw size={13} className={loading ? "animate-spin text-sky-400" : ""} />
+            </button>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-2 tracking-tight">
             Explore Comprehensive Courses
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-            Hands-on practical training designed for beginners, high-school students, and job seekers. Click any course to view full syllabus & projects.
+            Hands-on practical training designed for beginners, high-school students, and job seekers. Click any course to view full syllabus &amp; projects.
           </p>
         </div>
 
@@ -679,7 +923,7 @@ const Courses = () => {
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 cursor-pointer"
                 aria-label="Clear search"
               >
                 ✕
@@ -693,7 +937,7 @@ const Courses = () => {
               <button
                 key={cat}
                 onClick={() => setSelectedFilter(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
                   selectedFilter === cat
                     ? "bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md shadow-sky-500/25 scale-105"
                     : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
@@ -710,14 +954,40 @@ const Courses = () => {
               Showing {selectedFilter === "All" ? "All Programs" : selectedFilter}
             </span>
             <span>
-              Total {totalCoursesCount} professional courses available
+              {loading ? (
+                <span className="inline-flex items-center gap-1 text-sky-400">
+                  <Loader2 size={12} className="animate-spin" /> Fetching courses from cnat_api...
+                </span>
+              ) : (
+                `Total ${totalCoursesCount} professional courses ready`
+              )}
             </span>
           </div>
         </div>
 
+        {/* Loading Skeleton */}
+        {loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {[1, 2, 3, 4].map((n) => (
+              <div
+                key={n}
+                className="p-6 rounded-3xl bg-slate-900/40 border border-slate-800 animate-pulse space-y-4"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-800" />
+                  <div className="space-y-2 flex-1">
+                    <div className="h-4 bg-slate-800 rounded w-1/2" />
+                    <div className="h-3 bg-slate-800/60 rounded w-3/4" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* 🌟 Course Groups Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          {coursesData
+          {coursesGroups
             .filter((group) => isGroupMatchingFilter(group.category))
             .map((group) => {
               const isExpanded = expandedGroups[group.category];

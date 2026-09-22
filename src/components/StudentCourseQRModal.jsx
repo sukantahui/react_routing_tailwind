@@ -38,6 +38,8 @@ import {
 } from "lucide-react";
 import coursesData from "../data/courses.json";
 import cnatLogo from "../assets/cnat.png";
+import CourseSelectDropdown from "./CourseSelectDropdown";
+import { courseService } from "../services/courseService";
 
 const OFFICIAL_WHATSAPP = "919432456083";
 const UPI_ID = "9432456083@upi";
@@ -69,8 +71,49 @@ export default function StudentCourseQRModal({
   initialStudentName = "",
   initialStudentPhone = "",
 }) {
-  // Flatten all courses from courses.json
+  const [dbCourses, setDbCourses] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchCourses = async () => {
+      try {
+        const res = await courseService.getAllWithDetails();
+        let raw = [];
+        if (res?.status === true && Array.isArray(res.data)) raw = res.data;
+        else if (Array.isArray(res?.data)) raw = res.data;
+        else if (Array.isArray(res)) raw = res;
+
+        if (raw && raw.length > 0 && isMounted) {
+          const mapped = raw.map((c, i) => ({
+            courseID: String(c.id || c.courseID || c.courseCode || `course_${i}`),
+            courseCode: c.courseCode || c.course_code,
+            title: c.courseName || c.course_name || c.title,
+            category: c.category || c.courseCategory || "Academic Course",
+            fee: `₹${Number(c.courseFees || c.course_fees || 1500).toLocaleString("en-IN")}`,
+            numericFee: Number(c.courseFees || c.course_fees || 1500),
+            duration: c.duration || `${c.details?.length || 40} Classes`,
+            mode: c.mode || "Online / Offline",
+            level: c.level || "All Levels",
+            instructor: c.instructor || "Sukanta Hui",
+            desc: c.courseDescription || c.course_description || "",
+            skills: Array.isArray(c.details) ? c.details.map((t) => t.topicTitle || t.topic_title).filter(Boolean) : [],
+            meritDiscount: { available: true, maxDiscountPercent: 15, actualDiscountPercent: 10 },
+          }));
+          setDbCourses(mapped);
+        }
+      } catch (err) {
+        console.warn("QR modal using default courses list:", err);
+      }
+    };
+    fetchCourses();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // Flatten all courses (from cnat_api database or catalog)
   const allCourses = useMemo(() => {
+    if (dbCourses.length > 0) return dbCourses;
     const list = [];
     if (Array.isArray(coursesData)) {
       coursesData.forEach((group) => {
@@ -86,7 +129,7 @@ export default function StudentCourseQRModal({
       });
     }
     return list;
-  }, []);
+  }, [dbCourses]);
 
   // Selected course state
   const [selectedCourseId, setSelectedCourseId] = useState(
@@ -325,22 +368,22 @@ export default function StudentCourseQRModal({
   // Active QR payload based on qrType
   const activeQrCodeValue = useMemo(() => {
     if (qrType === "wa") {
-      return officialWhatsAppUrl;
+      const shortMsg = `Hello Coder & AccoTax, admission & fee advice for ${studentName.trim() || "Student"} in ${activeCourse.title || "Course"}. Ref: ${studentRef}`;
+      return `https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(shortMsg)}`;
     }
     if (qrType === "summary") {
       return JSON.stringify({
-        institute: "Coder & AccoTax",
+        inst: "Coder & AccoTax",
         upi: UPI_ID,
-        student: studentName.trim() || "Student",
-        course: activeCourse.title,
+        student: (studentName.trim() || "Student").slice(0, 30),
+        course: (activeCourse?.title || "").slice(0, 40),
         ref: studentRef,
-        amount: feeSummary.payingNow,
+        payNow: feeSummary.payingNow,
         netFee: feeSummary.netPayable,
-        date: new Date().toISOString().split("T")[0],
       });
     }
     return upiPayload;
-  }, [qrType, officialWhatsAppUrl, studentName, activeCourse, studentRef, feeSummary, upiPayload]);
+  }, [qrType, studentName, activeCourse, studentRef, feeSummary, upiPayload]);
 
   // Copy Detail Text
   const handleCopyDetailText = async () => {
@@ -445,10 +488,10 @@ export default function StudentCourseQRModal({
       );
 
       // Generate QR Data URL
-      const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue, {
+      const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue || UPI_ID, {
         width: 540,
         margin: 2,
-        errorCorrectionLevel: "H",
+        errorCorrectionLevel: "M",
         color: {
           dark: "#090d16",
           light: "#ffffff",
@@ -530,10 +573,10 @@ export default function StudentCourseQRModal({
   // Copy QR Image to Clipboard (PNG Blob)
   const handleCopyQRImage = async () => {
     try {
-      const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue, {
+      const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue || UPI_ID, {
         width: 800,
         margin: 2,
-        errorCorrectionLevel: "H",
+        errorCorrectionLevel: "M",
         color: {
           dark: "#090d16",
           light: "#ffffff",
@@ -568,96 +611,128 @@ export default function StudentCourseQRModal({
 
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
-      <div className="relative w-full max-w-5xl max-h-[92vh] flex flex-col bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden my-auto text-slate-100">
-        
-        {/* Modal Top Header Bar */}
-        <div className="flex items-center justify-between px-6 py-4 bg-slate-950 border-b border-slate-800 flex-shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500/20 to-emerald-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 p-1.5 shadow-inner">
-              <img src={cnatLogo} alt="CNAT" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                  Student Course QR &amp; WhatsApp Share
-                </h3>
-                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
-                  <ShieldCheck size={12} />
-                  Official +91 94324 56083
-                </span>
-              </div>
-              <p className="text-xs text-slate-400">
-                Generate student payment advice QR and send structured detail message directly to WhatsApp.
-              </p>
-            </div>
-          </div>
+  const isModal = Boolean(onClose);
 
-          {onClose && (
-            <button
-              onClick={onClose}
-              className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
-              title="Close modal"
-            >
-              <X size={18} />
-            </button>
-          )}
+  const modalBody = (
+    <div className={`relative w-full max-w-5xl flex flex-col bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl text-slate-100 ${isModal ? "max-h-[92vh] overflow-hidden my-auto" : "shadow-slate-950/80"}`}>
+      
+      {/* Modal Top Header Bar */}
+      <div className="flex items-center justify-between px-6 py-4 bg-slate-950 border-b border-slate-800 flex-shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500/20 to-emerald-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 p-1.5 shadow-inner">
+            <img src={cnatLogo} alt="CNAT" className="w-full h-full object-contain" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                Student Course QR &amp; WhatsApp Share
+              </h3>
+              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
+                <ShieldCheck size={12} />
+                Official +91 94324 56083
+              </span>
+            </div>
+            <p className="text-xs text-slate-400">
+              Generate student payment advice QR and send structured detail message directly to WhatsApp.
+            </p>
+          </div>
         </div>
 
-        {/* Modal Body: Two Columns (Left Form 7 cols | Right QR & Share 5 cols) */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+            title="Close modal"
+          >
+            <X size={18} />
+          </button>
+        )}
+      </div>
+
+      {/* Modal Body: Two Columns (Left Form 7 cols | Right QR & Share 5 cols) */}
+      <div className={`p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 ${isModal ? "flex-1 overflow-y-auto" : ""}`}>
+        
+        {/* LEFT COLUMN: STUDENT & COURSE INPUT FORM (7 cols) */}
+        <div className="lg:col-span-7 space-y-5">
           
-          {/* LEFT COLUMN: STUDENT & COURSE INPUT FORM (7 cols) */}
-          <div className="lg:col-span-7 space-y-5">
-            
-            {/* Step 1: Course Selection Card */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <BookOpen size={14} />
-                  <span>1. Select Course &amp; Track</span>
-                </label>
-                <button
-                  type="button"
-                  onClick={() => setIsCustomCourse(!isCustomCourse)}
-                  className="text-[11px] text-sky-400 hover:text-sky-300 underline font-medium cursor-pointer"
-                >
-                  {isCustomCourse ? "Select from Catalog" : "+ Custom Subject / Topic"}
-                </button>
-              </div>
+          {/* Step 1: Course Selection Card */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                <BookOpen size={14} />
+                <span>1. Select Course &amp; Track</span>
+              </label>
+              <button
+                type="button"
+                onClick={() => setIsCustomCourse(!isCustomCourse)}
+                className="text-[11px] text-sky-400 hover:text-sky-300 underline font-medium cursor-pointer"
+              >
+                {isCustomCourse ? "Select from Catalog" : "+ Custom Subject / Topic"}
+              </button>
+            </div>
 
-              {!isCustomCourse ? (
-                <div className="space-y-2">
-                  <select
-                    value={selectedCourseId}
-                    onChange={(e) => setSelectedCourseId(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
-                  >
-                    {allCourses.map((c) => (
-                      <option key={c.courseID} value={c.courseID}>
-                        [{c.category}] {c.title} — {c.fee || "Standard Fee"} ({c.duration || "Course"})
-                      </option>
-                    ))}
-                  </select>
-
-                  {/* Course Quick Summary Pill */}
-                  <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-slate-300">
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700">
-                      ⏱️ {activeCourse.duration || "40-60 Classes"}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700">
-                      📍 {activeCourse.mode || "Online / Offline"}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700">
-                      👨‍🏫 {activeCourse.instructor || "Sukanta Hui"}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold">
-                      Fee: {activeCourse.fee || "₹1,500"}
-                    </span>
+            {!isCustomCourse ? (
+              <div className="space-y-3">
+                {/* 1-Click Popular Ongoing Batches Chips */}
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5 flex items-center gap-1">
+                    <span>⚡ Quick Select Active Ongoing Course:</span>
+                  </span>
+                  <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+                    {allCourses.slice(0, 7).map((c) => {
+                      const isSel = c.courseID === selectedCourseId;
+                      return (
+                        <button
+                          key={c.courseID}
+                          type="button"
+                          onClick={() => {
+                            setSelectedCourseId(c.courseID);
+                            setIsCustomCourse(false);
+                          }}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer flex items-center gap-1 ${
+                            isSel
+                              ? "bg-sky-500 text-white shadow-sm font-bold"
+                              : "bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/80"
+                          }`}
+                        >
+                          <span>{c.title}</span>
+                          <span className={`text-[10px] font-mono ${isSel ? "text-sky-100 font-bold" : "text-emerald-400"}`}>
+                            ({c.fee})
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
-              ) : (
+
+                {/* Beautiful Modern Course Selector Dropdown */}
+                <CourseSelectDropdown
+                  courses={allCourses}
+                  selectedCourseId={selectedCourseId}
+                  onSelectCourse={(course) => setSelectedCourseId(course.courseID)}
+                  onSwitchToCustom={() => setIsCustomCourse(true)}
+                />
+
+                {/* Course Quick Summary Pill */}
+                <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-slate-300">
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 flex items-center gap-1">
+                    <span>⏱️</span>
+                    <span>{activeCourse.duration || "40-60 Classes"}</span>
+                  </span>
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 flex items-center gap-1">
+                    <span>📍</span>
+                    <span>{activeCourse.mode || "Online / Offline"}</span>
+                  </span>
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700 flex items-center gap-1">
+                    <span>👨‍🏫</span>
+                    <span>{activeCourse.instructor || "Sukanta Hui"}</span>
+                  </span>
+                  <span className="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold">
+                    Total Fee: {activeCourse.fee || "₹1,500"}
+                  </span>
+                </div>
+              </div>
+            ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="sm:col-span-2">
                     <input
@@ -959,11 +1034,11 @@ export default function StudentCourseQRModal({
               <div className="p-4 bg-white rounded-2xl shadow-xl flex flex-col items-center relative group">
                 <div className="w-[190px] h-[190px] flex items-center justify-center relative">
                   <QRCode
-                    value={activeQrCodeValue}
+                    value={activeQrCodeValue || UPI_ID}
                     size={190}
                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                     viewBox="0 0 256 256"
-                    level="H"
+                    level="M"
                     fgColor="#090d16"
                     bgColor="#ffffff"
                   />
@@ -1149,6 +1224,15 @@ export default function StudentCourseQRModal({
         </div>
 
       </div>
-    </div>
   );
+
+  if (isModal) {
+    return (
+      <div className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
+        {modalBody}
+      </div>
+    );
+  }
+
+  return modalBody;
 }
