@@ -82,7 +82,7 @@ const StudentAdmission = () => {
     remarks: "",
   });
 
-  const [showFormJson, setShowFormJson] = useState(false);
+  const [_showFormJson, _setShowFormJson] = useState(false);
 
   // Previous course admissions and payment ledger history for selected student
   const [studentHistory, setStudentHistory] = useState(null);
@@ -403,7 +403,7 @@ const StudentAdmission = () => {
     setLoading((prev) => ({ ...prev, submit: true }));
 
     try {
-      const createdAdmissionRes = await admissionService.create(payload);
+      const _createdAdmissionRes = await admissionService.create(payload);
       const studentIdSaved = formData.studentId;
 
       setFormData({
@@ -426,26 +426,102 @@ const StudentAdmission = () => {
       await loadAdmissions();
 
       // Offer immediate actionable next-steps for the admin
-      const postAction = await Swal.fire({
+      await Swal.fire({
         icon: "success",
         title: "Course Assigned & Student Admitted! 🎓",
-        text: "Student has been successfully enrolled into the course. What would you like to do next?",
-        showCancelButton: true,
-        showDenyButton: true,
-        confirmButtonText: "💰 Collect Additional Fees",
-        denyButtonText: "📊 Record Exam Result",
-        cancelButtonText: "Stay on Admissions",
-        confirmButtonColor: "#10b981",
-        denyButtonColor: "#6366f1",
-        cancelButtonColor: "#475569",
-        ...swalTheme,
-      });
+        html: `
+          <p class="text-xs sm:text-sm text-slate-300 mb-4 text-center">
+            Student has been successfully enrolled into the course. What would you like to do next?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 text-left">
+            <button
+              id="swal-btn-payment-list"
+              type="button"
+              class="w-full px-3.5 py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 transition flex items-center justify-between gap-2 cursor-pointer group"
+            >
+              <div class="flex items-center gap-2.5">
+                <span class="text-lg">🧾</span>
+                <div>
+                  <div class="font-bold text-white leading-tight">Go to Payment List</div>
+                  <div class="text-[10px] text-emerald-100 font-normal mt-0.5">View all vouchers &amp; ledger</div>
+                </div>
+              </div>
+              <span class="text-emerald-200 group-hover:translate-x-0.5 transition-transform text-xs font-bold">➔</span>
+            </button>
 
-      if (postAction.isConfirmed) {
-        navigate(`/payments?studentId=${studentIdSaved}`);
-      } else if (postAction.isDenied) {
-        navigate(`/results?studentId=${studentIdSaved}`);
-      }
+            <button
+              id="swal-btn-collect-fees"
+              type="button"
+              class="w-full px-3.5 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-xs shadow-lg shadow-sky-600/30 transition flex items-center justify-between gap-2 cursor-pointer group"
+            >
+              <div class="flex items-center gap-2.5">
+                <span class="text-lg">💰</span>
+                <div>
+                  <div class="font-bold text-white leading-tight">Collect Student Fee</div>
+                  <div class="text-[10px] text-sky-100 font-normal mt-0.5">Record fee for this student</div>
+                </div>
+              </div>
+              <span class="text-sky-200 group-hover:translate-x-0.5 transition-transform text-xs font-bold">➔</span>
+            </button>
+
+            <button
+              id="swal-btn-exam-result"
+              type="button"
+              class="w-full px-3.5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition flex items-center justify-between gap-2 cursor-pointer group"
+            >
+              <div class="flex items-center gap-2.5">
+                <span class="text-lg">📊</span>
+                <div>
+                  <div class="font-bold text-white leading-tight">Record Exam Result</div>
+                  <div class="text-[10px] text-indigo-100 font-normal mt-0.5">Enter marks &amp; publish grades</div>
+                </div>
+              </div>
+              <span class="text-indigo-200 group-hover:translate-x-0.5 transition-transform text-xs font-bold">➔</span>
+            </button>
+
+            <button
+              id="swal-btn-stay-admissions"
+              type="button"
+              class="w-full px-3.5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-semibold text-xs shadow transition flex items-center justify-between gap-2 cursor-pointer group"
+            >
+              <div class="flex items-center gap-2.5">
+                <span class="text-lg">🎓</span>
+                <div>
+                  <div class="font-bold text-white leading-tight">Stay on Admissions</div>
+                  <div class="text-[10px] text-slate-400 font-normal mt-0.5">Admit another course/student</div>
+                </div>
+              </div>
+              <span class="text-slate-400 group-hover:translate-x-0.5 transition-transform text-xs font-bold">➔</span>
+            </button>
+          </div>
+        `,
+        showConfirmButton: false,
+        showCancelButton: false,
+        showDenyButton: false,
+        customClass: {
+          popup: "border border-slate-700 rounded-3xl shadow-2xl bg-[#0f172a] text-slate-100 max-w-lg w-full",
+        },
+        background: "#0f172a",
+        color: "#f8fafc",
+        didOpen: (popup) => {
+          popup.style.border = "1px solid #374151";
+          popup.querySelector("#swal-btn-payment-list")?.addEventListener("click", () => {
+            Swal.close();
+            navigate("/payments");
+          });
+          popup.querySelector("#swal-btn-collect-fees")?.addEventListener("click", () => {
+            Swal.close();
+            navigate(`/payments?studentId=${studentIdSaved}`);
+          });
+          popup.querySelector("#swal-btn-exam-result")?.addEventListener("click", () => {
+            Swal.close();
+            navigate(`/results?studentId=${studentIdSaved}`);
+          });
+          popup.querySelector("#swal-btn-stay-admissions")?.addEventListener("click", () => {
+            Swal.close();
+          });
+        },
+      });
     } catch (error) {
       let message = "Something went wrong";
 
@@ -536,7 +612,7 @@ const StudentAdmission = () => {
   }, [courses, formData.courseId]);
 
   // Grouped courses for clean, lightweight optgroup dropdown
-  const groupedCourses = useMemo(() => {
+  const _groupedCourses = useMemo(() => {
     const groups = {
       "💻 Software & Web Development": [],
       "📊 Accounting, Finance & Office": [],
@@ -605,7 +681,7 @@ const StudentAdmission = () => {
 
   // Print function
   const handlePrint = () => {
-    const printContent = document.getElementById("admissions-table");
+    const _printContent = document.getElementById("admissions-table");
     const printWindow = window.open("", "_blank");
 
     const today = new Date().toLocaleDateString("en-US", {
@@ -698,12 +774,24 @@ const StudentAdmission = () => {
         transition={{ duration: 0.5 }}
         className="max-w-6xl mx-auto bg-gray-900/80 border border-gray-800 rounded-3xl shadow-xl p-8"
       >
-        {/* Navigation Breadcrumb */}
-        <div className="flex items-center justify-between mb-4">
+        {/* Navigation Breadcrumb & Quick Navigation */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-3 border-b border-gray-800">
           <div className="flex items-center gap-2 text-xs text-slate-400">
+            <Link to="/admin" className="hover:text-white transition">Admin</Link>
+            <span>/</span>
             <Link to="/dashboard" className="hover:text-white transition">Dashboard</Link>
             <span>/</span>
             <span className="text-sky-400 font-semibold">Assign Course to Student (Admission)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Link
+              to="/payments"
+              className="px-3.5 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 text-xs font-semibold transition flex items-center gap-1.5 shadow-sm"
+              title="Go directly to Fee Payments & Receipts List"
+            >
+              <CreditCard className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Go to Payment List</span>
+            </Link>
           </div>
         </div>
 

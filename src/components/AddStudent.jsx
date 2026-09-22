@@ -18,6 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { studentService } from "../services/studentService";
+import { userService, DEFAULT_STUDENT_PASSWORD } from "../services/userService";
 
 export default function AddStudent() {
   const navigate = useNavigate();
@@ -108,7 +109,15 @@ export default function AddStudent() {
           ${cleanPayload.email ? `<p><b class="text-slate-400">Email:</b> <span class="text-sky-300">${cleanPayload.email}</span></p>` : ""}
           ${cleanPayload.dob ? `<p><b class="text-slate-400">Date of Birth:</b> <span class="text-slate-300">${cleanPayload.dob}</span></p>` : ""}
           ${cleanPayload.blood_group ? `<p><b class="text-slate-400">Blood Group:</b> <span class="text-rose-400 font-bold">${cleanPayload.blood_group}</span></p>` : ""}
-          <p class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+          
+          <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-[11px] text-emerald-300 space-y-0.5">
+            <span class="font-bold flex items-center gap-1 text-emerald-400">
+              <i class="bi bi-shield-lock-fill"></i> Auto User Account Provisioning
+            </span>
+            <p>Role: <b>Student</b> • Default Password: <b class="font-mono text-amber-300">${DEFAULT_STUDENT_PASSWORD}</b></p>
+          </div>
+
+          <p class="text-[11px] text-slate-400 pt-1 border-t border-slate-800">
             Secondary details (address, parents, blood group) can be updated anytime from the Dashboard!
           </p>
         </div>
@@ -130,12 +139,72 @@ export default function AddStudent() {
     try {
       const res = await studentService.create(cleanPayload);
       if (res.status) {
-        const studentId = res.data?.id || res.data?.studentId || res.data?.student?.id;
+        const createdStudent = res.data?.student || res.data?.data || res.data || {};
+        const studentId = createdStudent?.id || createdStudent?.studentId || res.data?.id;
+
+        const regNo =
+          createdStudent?.registration_number ||
+          createdStudent?.registrationNumber ||
+          createdStudent?.enrollment_number ||
+          createdStudent?.enrollment_no ||
+          createdStudent?.enrollmentNo ||
+          createdStudent?.enrollmentNumber ||
+          createdStudent?.reg_no ||
+          createdStudent?.regNo ||
+          res.data?.registration_number ||
+          res.data?.registrationNumber ||
+          res.data?.enrollment_number ||
+          "";
+
+        // Auto-create user account for student with role Student, enrollment number as username, and default password
+        let userAccount = null;
+        if (studentId) {
+          userAccount = await userService.createStudentUser({
+            id: studentId,
+            student_name: form.student_name,
+            email: cleanPayload.email,
+            whatsapp: form.whatsapp,
+            enrollment_number: regNo,
+            registration_number: regNo,
+          }, DEFAULT_STUDENT_PASSWORD);
+        }
+
+        const displayUsername = userAccount?.username || userAccount?.email || regNo || form.whatsapp;
+        const isUserCreated = userAccount?.success;
+
+        const userAccountHtml = isUserCreated
+          ? `
+            <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-left mb-3 space-y-1.5 text-xs">
+              <div class="flex items-center justify-between pb-1.5 border-b border-slate-800">
+                <span class="font-bold text-emerald-400 flex items-center gap-1.5">
+                  <i class="bi bi-person-check-fill"></i> Student Portal User Account
+                </span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  Role: Student
+                </span>
+              </div>
+              <p><b>Username (Enrollment No):</b> <span class="text-sky-300 font-mono font-semibold">${displayUsername}</span></p>
+              <p><b>Default Password:</b> <span class="text-amber-300 font-mono font-bold tracking-wider">${DEFAULT_STUDENT_PASSWORD}</span></p>
+              <p class="text-[11px] text-slate-400 pt-0.5">
+                The student can sign in immediately at the login portal using their enrollment number as username.
+              </p>
+            </div>
+          `
+          : `
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs text-left mb-3">
+              <span class="font-bold block mb-1">⚠️ Note on User Login Account:</span>
+              Student was saved to directory, but the user account could not be auto-created (${userAccount?.error || "Pending"}). You can generate their user account anytime from <a href="/admin/users" class="underline font-bold text-sky-400">User Management</a>.
+            </div>
+          `;
+
         Swal.fire({
           icon: "success",
           title: "Student Registered Successfully!",
           html: `
             <p class="text-sm text-slate-200 mb-3 font-medium"><b>${form.student_name}</b> has been registered in the student database.</p>
+            
+            ${userAccountHtml}
+
             <div class="p-3.5 rounded-xl bg-sky-500/15 border border-sky-500/30 text-sky-300 text-xs text-left">
               <span class="font-bold block mb-1">🎓 Next Step: Assign Course</span>
               Assign an academic course to this student now to complete their official course admission and configure tuition fees.

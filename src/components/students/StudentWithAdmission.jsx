@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Search, ChevronDown, CheckCircle2, XCircle, Sparkles, Calendar, IndianRupee, Check, X, RefreshCw } from "lucide-react";
 import api from "../../api/api";
 import { courseService } from "../../services/courseService";
+import { userService, DEFAULT_STUDENT_PASSWORD } from "../../services/userService";
 
 export default function StudentWithAdmission() {
   const navigate = useNavigate();
@@ -80,7 +81,7 @@ export default function StudentWithAdmission() {
         const parsed = JSON.parse(rawUser);
         setCurrentUser(parsed);
         const role = (parsed?.role || parsed?.userType?.userTypeName || "").trim().toLowerCase();
-        const allowed = ["admin", "developer", "owner", "manager"].includes(role);
+        const allowed = ["admin", "developer", "owner", "manager"].some((r) => role.includes(r));
         setIsAuthorized(allowed);
       } else {
         setIsAuthorized(false);
@@ -193,7 +194,7 @@ export default function StudentWithAdmission() {
   }, [courses, admissionForm.courseId]);
 
   // Grouped courses for clean, lightweight optgroup dropdown
-  const groupedCourses = useMemo(() => {
+  const _groupedCourses = useMemo(() => {
     const groups = {
       "💻 Software & Web Development": [],
       "📊 Accounting, Finance & Office": [],
@@ -503,6 +504,14 @@ export default function StudentWithAdmission() {
               `}
             </div>
           ` : `<p class="text-[11px] text-slate-400">Initial Payment: <span class="text-slate-400 italic">None at admission (pay later)</span></p>`}
+          
+          <div class="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-[11px] text-emerald-300 space-y-0.5">
+            <span class="font-bold flex items-center gap-1 text-emerald-400">
+              <i class="bi bi-shield-lock-fill"></i> Auto User Account Provisioning
+            </span>
+            <p>Role: <b>Student</b> • Default Password: <b class="font-mono text-amber-300">${DEFAULT_STUDENT_PASSWORD}</b></p>
+          </div>
+
           <p class="text-[11px] text-slate-400 pt-2 border-t border-slate-700/80">
             Do you want to confirm and save this registration and course admission record?
           </p>
@@ -530,10 +539,43 @@ export default function StudentWithAdmission() {
       if (res?.data?.status) {
         const admData = res.data?.data?.admission || res.data?.data || {};
         const receiptData = res.data?.data?.receipt || null;
+        const studentObj = res.data?.data?.student || admData?.student || {};
+        const studentId = studentObj?.id || studentObj?.studentId || admData?.studentId || admData?.student_id || res.data?.data?.student_id;
+
+        const enrollmentNo =
+          studentObj?.enrollment_number ||
+          studentObj?.enrollmentNumber ||
+          studentObj?.enrollment_no ||
+          studentObj?.enrollmentNo ||
+          admData?.enrollment_number ||
+          admData?.enrollmentNumber ||
+          studentObj?.registration_number ||
+          studentObj?.registrationNumber ||
+          studentObj?.reg_no ||
+          studentObj?.regNo ||
+          admData?.admissionNumber ||
+          admData?.admission_number ||
+          "";
+
+        // Auto-create user account for student with role Student, enrollment number as username, and default password
+        let userAccount = null;
+        if (studentId) {
+          userAccount = await userService.createStudentUser({
+            id: studentId,
+            student_name: studentForm.studentName,
+            email: studentForm.email,
+            whatsapp: studentForm.whatsapp,
+            enrollment_number: enrollmentNo,
+            registration_number: enrollmentNo,
+            admissionNumber: admData?.admissionNumber,
+          }, DEFAULT_STUDENT_PASSWORD);
+        }
+
+        const displayUsername = userAccount?.username || userAccount?.email || enrollmentNo || studentForm.whatsapp;
 
         Swal.fire({
           icon: "success",
-          title: "Student Enrolled Successfully!",
+          title: "Student Enrolled & User Created!",
           html: `
             <div class="text-left text-xs text-slate-300 space-y-2 p-3 rounded-xl bg-slate-800/80 border border-slate-700 mt-3">
               <p><b>Student:</b> <span class="text-white font-semibold">${studentForm.studentName}</span></p>
@@ -543,6 +585,33 @@ export default function StudentWithAdmission() {
               <p><b>Payment Schedule:</b> <span class="text-purple-300">${selectedFeeModeObj?.fee_modes_name || "Monthly"}</span></p>
               ${admData?.admissionNumber ? `<p><b>Admission Number:</b> <span class="font-mono text-amber-300">${admData.admissionNumber}</span></p>` : ""}
               ${receiptData?.receiptNo ? `<p><b>Receipt Generated:</b> <span class="font-mono text-emerald-400 font-bold">${receiptData.receiptNo}</span></p>` : ""}
+              
+              ${
+                userAccount?.success
+                  ? `
+                    <div class="mt-2.5 pt-2.5 border-t border-slate-700/80 bg-slate-950/80 p-2.5 rounded-lg space-y-1">
+                      <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+                        <span class="font-bold text-emerald-400 flex items-center gap-1">
+                          <i class="bi bi-person-check-fill"></i> Student Portal User Account
+                        </span>
+                        <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                          Role: Student
+                        </span>
+                      </div>
+                      <p><b>Username (Enrollment No):</b> <span class="text-sky-300 font-mono font-semibold">${displayUsername}</span></p>
+                      <p><b>Default Password:</b> <span class="text-amber-300 font-mono font-bold tracking-wider">${DEFAULT_STUDENT_PASSWORD}</span></p>
+                      <p class="text-[11px] text-slate-400 pt-0.5">
+                        The student can log in right away using their enrollment number and password.
+                      </p>
+                    </div>
+                  `
+                  : `
+                    <div class="mt-2.5 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs">
+                      <b>Notice:</b> Student admission was successful, but the user account could not be auto-created (${userAccount?.error || "Pending"}). You can provision their user account anytime from <a href="/admin/users" class="underline font-bold text-sky-400">User Governance</a>.
+                    </div>
+                  `
+              }
+
               <div class="mt-2 pt-2 border-t border-slate-700 text-slate-400 text-[11px]">
                 💡 You can complete full parent, address, or document details anytime from the Dashboard!
               </div>
@@ -552,13 +621,18 @@ export default function StudentWithAdmission() {
           color: "#f8fafc",
           iconColor: "#38bdf8",
           showCancelButton: true,
+          showDenyButton: true,
           confirmButtonColor: "#0284c7",
+          denyButtonColor: "#10b981",
           cancelButtonColor: "#475569",
           confirmButtonText: "View on Dashboard",
+          denyButtonText: "🧾 Go to Payment List",
           cancelButtonText: "Enroll Another Student",
         }).then((result) => {
           if (result.isConfirmed) {
             navigate("/dashboard");
+          } else if (result.isDenied) {
+            navigate("/payments");
           } else {
             setStudentForm({
               studentName: "",
@@ -640,11 +714,13 @@ export default function StudentWithAdmission() {
         <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
+              <Link to="/admin" className="hover:text-white transition">Admin</Link>
+              <span>/</span>
               <Link to="/dashboard" className="hover:text-white transition">Dashboard</Link>
               <span>/</span>
               <span className="text-slate-400">Students</span>
               <span>/</span>
-              <span className="text-sky-400 font-semibold">Fast Admission &amp; Fees</span>
+              <span className="text-sky-400 font-semibold">Student + Course + Fee</span>
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-2">
@@ -661,13 +737,30 @@ export default function StudentWithAdmission() {
             </p>
           </div>
 
-          <Link
-            to="/dashboard"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white border border-slate-700/80 transition"
-          >
-            <i className="bi bi-speedometer2"></i>
-            <span>Dashboard</span>
-          </Link>
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <Link
+              to="/payments"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition"
+              title="Go directly to Payment & Receipts List"
+            >
+              <i className="bi bi-receipt-cutoff text-emerald-400"></i>
+              <span>Payment List</span>
+            </Link>
+            <Link
+              to="/admin"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition"
+            >
+              <i className="bi bi-shield-lock-fill text-amber-400"></i>
+              <span>Admin Panel</span>
+            </Link>
+            <Link
+              to="/dashboard"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition"
+            >
+              <i className="bi bi-speedometer2"></i>
+              <span>Dashboard</span>
+            </Link>
+          </div>
         </div>
 
         {/* Rapid Onboarding Tip */}

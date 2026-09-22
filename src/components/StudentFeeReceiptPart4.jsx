@@ -8,6 +8,7 @@ import { studentService } from '../services/studentService';
 import { courseService } from '../services/courseService';
 import { loginService } from '../services/loginService';
 import { simpleFeesReceiptService } from '../services/simpleFeesReceiptService';
+import { userService, DEFAULT_STUDENT_PASSWORD } from '../services/userService';
 
 const StudentFeeReceiptPart4 = () => {
   // Get current date in YYYY-MM-DD format for default value
@@ -247,6 +248,7 @@ const StudentFeeReceiptPart4 = () => {
       const response = await studentService.createBasic(payload);
 
       if (response && response.status === true) {
+        const createdStudent = response.data;
         const studentIdVal = createdStudent?.id || createdStudent?.studentId;
         const studentNameVal = createdStudent?.studentName || createdStudent?.student_name || '';
         const regNoVal = createdStudent?.registrationNumber || createdStudent?.regNo || createdStudent?.reg_no || '';
@@ -260,6 +262,19 @@ const StudentFeeReceiptPart4 = () => {
             phone: createdStudent.whatsapp || createdStudent.phone1 || '',
             registrationNumber: regNoVal,
           }));
+
+          // Auto-create user account for student with role Student, enrollment number as username, and default password
+          try {
+            await userService.createStudentUser({
+              id: studentIdVal,
+              student_name: studentNameVal,
+              whatsapp: newStudentData.whatsapp.trim(),
+              enrollment_number: regNoVal,
+              registration_number: regNoVal,
+            }, DEFAULT_STUDENT_PASSWORD);
+          } catch (uErr) {
+            console.warn("Auto student user creation notice:", uErr);
+          }
         }
 
         setNewStudentData({

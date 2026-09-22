@@ -43,6 +43,8 @@ import {
   LogIn,
   LogOut,
   Shield,
+  GitCompare,
+  Filter,
 } from "lucide-react";
 import { authService } from "../api/auth.service";
 import { loginService } from "../services/loginService";
@@ -153,6 +155,10 @@ export default function Bijoya() {
   const [customMessageText, setCustomMessageText] = useState("");
   const [selectedPhoneType, setSelectedPhoneType] = useState("wp"); // 'wp' | 'mobile'
   const [copiedCustomMessage, setCopiedCustomMessage] = useState(false);
+
+  // Logical Duplicate Entry Governance State (Admin Only)
+  const [showDuplicateModal, setShowDuplicateModal] = useState(false);
+  const [duplicateFilterCriteria, setDuplicateFilterCriteria] = useState("all"); // 'all' | 'phone' | 'name' | 'email'
 
   const formRef = useRef(null);
   const ticketRef = useRef(null);
@@ -1291,6 +1297,263 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
     URL.revokeObjectURL(url);
   };
 
+  // Logical Duplicate Entries Clustering Engine (Admin Only)
+  const duplicateAnalysis = useMemo(() => {
+    if (!isAdmin || !Array.isArray(guests) || guests.length < 2) {
+      return {
+        clusters: [],
+        duplicateGuestIds: new Set(),
+        totalDuplicates: 0,
+        totalClusters: 0,
+        phoneClustersCount: 0,
+        nameClustersCount: 0,
+        emailClustersCount: 0,
+      };
+    }
+
+    const normalizePhone = (num) => {
+      if (!num) return "";
+      const digits = String(num).replace(/\D/g, "");
+      return digits.length >= 10 ? digits.slice(-10) : digits;
+    };
+
+    const normalizeName = (name) => {
+      if (!name || typeof name !== "string") return "";
+      return name.trim().toLowerCase().replace(/\s+/g, " ");
+    };
+
+    const normalizeEmail = (email) => {
+      if (!email || typeof email !== "string") return "";
+      return email.trim().toLowerCase();
+    };
+
+    const getGuestKey = (g) => String(g.guestId || g.id || g._id || g.token);
+
+    // Group by Phone
+    const phoneMap = new Map();
+    // Group by Name
+    const nameMap = new Map();
+    // Group by Email
+    const emailMap = new Map();
+
+    guests.forEach((g) => {
+      const m = normalizePhone(g.mobile);
+      const w = normalizePhone(g.wpNumber);
+      const phones = new Set([m, w].filter((p) => p && p.length >= 10));
+      phones.forEach((p) => {
+        if (!phoneMap.has(p)) phoneMap.set(p, []);
+        phoneMap.get(p).push(g);
+      });
+
+      const n = normalizeName(g.guestName);
+      if (n && n.length >= 2) {
+        if (!nameMap.has(n)) nameMap.set(n, []);
+        nameMap.get(n).push(g);
+      }
+
+      const e = normalizeEmail(g.email);
+      if (e && e.includes("@")) {
+        if (!emailMap.has(e)) emailMap.set(e, []);
+        emailMap.get(e).push(g);
+      }
+    });
+
+    // Adjacency graph for clustering
+    const adj = new Map();
+    const guestByKey = new Map();
+
+    guests.forEach((g) => {
+      const k = getGuestKey(g);
+      guestByKey.set(k, g);
+      if (!adj.has(k)) adj.set(k, new Map());
+    });
+
+    const addEdge = (g1, g2, reason, type) => {
+      const k1 = getGuestKey(g1);
+      const k2 = getGuestKey(g2);
+      if (k1 === k2) return;
+
+      if (!adj.get(k1).has(k2)) {
+        adj.get(k1).set(k2, { guest: g2, reasons: [], types: new Set() });
+      }
+      adj.get(k1).get(k2).reasons.push(reason);
+      adj.get(k1).get(k2).types.add(type);
+
+      if (!adj.get(k2).has(k1)) {
+        adj.get(k2).set(k1, { guest: g1, reasons: [], types: new Set() });
+      }
+      adj.get(k2).get(k1).reasons.push(reason);
+      adj.get(k2).get(k1).types.add(type);
+    };
+
+    // Phone edges
+    phoneMap.forEach((list, phone) => {
+      if (list.length > 1) {
+        for (let i = 0; i < list.length; i++) {
+          for (let j = i + 1; j < list.length; j++) {
+            addEdge(list[i], list[j], `Matching Phone/WhatsApp: ${phone}`, "phone");
+          }
+        }
+      }
+    });
+
+    // Name edges
+    nameMap.forEach((list, name) => {
+      if (list.length > 1) {
+        for (let i = 0; i < list.length; i++) {
+          for (let j = i + 1; j < list.length; j++) {
+            addEdge(list[i], list[j], `Matching Name: "${toProperCase(name)}"`, "name");
+          }
+        }
+      }
+    });
+
+    // Email edges
+    emailMap.forEach((list, email) => {
+      if (list.length > 1) {
+        for (let i = 0; i < list.length; i++) {
+          for (let j = i + 1; j < list.length; j++) {
+            addEdge(list[i], list[j], `Matching Email: ${email}`, "email");
+          }
+        }
+      }
+    });
+
+    // Traverse components (BFS)
+    const visited = new Set();
+    const clusters = [];
+    const duplicateGuestIds = new Set();
+
+    guests.forEach((g) => {
+      const startKey = getGuestKey(g);
+      if (visited.has(startKey)) return;
+
+      const neighbors = adj.get(startKey);
+      if (!neighbors || neighbors.size === 0) return;
+
+      const componentGuests = [];
+      const componentReasons = new Set();
+      const componentTypes = new Set();
+      const queue = [startKey];
+      visited.add(startKey);
+
+      while (queue.length > 0) {
+        const currKey = queue.shift();
+        const currGuest = guestByKey.get(currKey);
+        componentGuests.push(currGuest);
+        duplicateGuestIds.add(currKey);
+
+        const currNeighbors = adj.get(currKey);
+        if (currNeighbors) {
+          currNeighbors.forEach((edgeData, neighborKey) => {
+            edgeData.reasons.forEach((r) => componentReasons.add(r));
+            edgeData.types.forEach((t) => componentTypes.add(t));
+
+            if (!visited.has(neighborKey)) {
+              visited.add(neighborKey);
+              queue.push(neighborKey);
+            }
+          });
+        }
+      }
+
+      if (componentGuests.length > 1) {
+        clusters.push({
+          id: `cluster-${clusters.length + 1}-${startKey}`,
+          index: clusters.length + 1,
+          guests: componentGuests,
+          reasons: Array.from(componentReasons),
+          types: Array.from(componentTypes),
+          hasPhone: componentTypes.has("phone"),
+          hasName: componentTypes.has("name"),
+          hasEmail: componentTypes.has("email"),
+        });
+      }
+    });
+
+    return {
+      clusters,
+      duplicateGuestIds,
+      totalDuplicates: duplicateGuestIds.size,
+      totalClusters: clusters.length,
+      phoneClustersCount: clusters.filter((c) => c.hasPhone).length,
+      nameClustersCount: clusters.filter((c) => c.hasName).length,
+      emailClustersCount: clusters.filter((c) => c.hasEmail).length,
+    };
+  }, [guests, isAdmin]);
+
+  // Export Duplicates Audit Report to CSV (Admin Only)
+  const exportDuplicatesToCSV = () => {
+    if (!duplicateAnalysis.clusters.length) {
+      Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "No Duplicates",
+        text: "No duplicate records found to export.",
+        icon: "info",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+      return;
+    }
+
+    const headers = [
+      "Cluster ID",
+      "Duplicate Conflict Reasons",
+      "Token",
+      "Guest Name",
+      "Mobile",
+      "WhatsApp",
+      "Email",
+      "Gender",
+      "Food Preference",
+      "Attending",
+      "Address",
+      "Comment",
+    ];
+
+    const rows = [];
+    duplicateAnalysis.clusters.forEach((cluster) => {
+      cluster.guests.forEach((guest) => {
+        rows.push([
+          `Cluster #${cluster.index}`,
+          cluster.reasons.join(" | "),
+          formatToken(guest),
+          guest.guestName || "",
+          guest.mobile || "",
+          guest.wpNumber || "",
+          guest.email || "",
+          guest.genderName || (guest.genderId === "1" ? "Male" : "Female"),
+          guest.foodPreferenceName || (guest.foodPreferenceId === "1" ? "Vegetarian" : "Non-Vegetarian"),
+          checkIsAttending(guest) ? "Yes" : "No",
+          guest.address || "",
+          guest.comment || "",
+        ]);
+      });
+    });
+
+    const csvContent = [
+      headers.join(","),
+      ...rows.map((row) =>
+        row
+          .map((item) => `"${String(item).replace(/"/g, '""')}"`)
+          .join(",")
+      ),
+    ].join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute(
+      "download",
+      `Bijoya_2026_Duplicate_Records_${new Date().toISOString().slice(0, 10)}.csv`
+    );
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   // Filtered Guests computation
   const filteredGuests = useMemo(() => {
     return guests.filter((guest) => {
@@ -1313,10 +1576,14 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
       if (activeFilter === "present") {
         return checkIsAttending(guest);
       }
+      if (activeFilter === "duplicates") {
+        const gId = String(guest.guestId || guest.id || guest._id || guest.token);
+        return duplicateAnalysis.duplicateGuestIds.has(gId);
+      }
 
       return true;
     });
-  }, [guests, searchQuery, activeFilter]);
+  }, [guests, searchQuery, activeFilter, duplicateAnalysis]);
 
   // Dynamic Statistics
   const stats = useMemo(() => {
@@ -1324,9 +1591,10 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
     const veg = guests.filter((g) => checkIsVeg(g)).length;
     const nonVeg = guests.filter((g) => !checkIsVeg(g)).length;
     const present = guests.filter((g) => checkIsAttending(g)).length;
+    const duplicates = duplicateAnalysis.totalDuplicates;
 
-    return { total, veg, nonVeg, present };
-  }, [guests]);
+    return { total, veg, nonVeg, present, duplicates };
+  }, [guests, duplicateAnalysis]);
 
   const handleCopyToken = () => {
     const tokenVal = formatToken(savedGuests);
@@ -2730,6 +2998,32 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                 </button>
               )}
 
+              {/* LOGICAL DUPLICATE FINDER (ONLY ADMIN CAN DO THAT) */}
+              {isAdmin && (
+                <button
+                  type="button"
+                  onClick={() => setShowDuplicateModal(true)}
+                  title="Logically scan and detect duplicate guest registrations across mobile, WhatsApp, and names"
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold transition cursor-pointer border ${
+                    duplicateAnalysis.totalDuplicates > 0
+                      ? "bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border-amber-500/40 shadow-lg shadow-amber-500/10"
+                      : "bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800"
+                  }`}
+                >
+                  <GitCompare className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Find Duplicates</span>
+                  {duplicateAnalysis.totalDuplicates > 0 ? (
+                    <span className="px-1.5 py-0.5 rounded-full bg-amber-500 text-slate-950 font-extrabold text-[10px] leading-none">
+                      {duplicateAnalysis.totalDuplicates}
+                    </span>
+                  ) : (
+                    <span className="px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400 font-medium text-[10px] leading-none">
+                      0
+                    </span>
+                  )}
+                </button>
+              )}
+
               <button
                 onClick={getAllGuest}
                 disabled={isLoading}
@@ -2797,21 +3091,72 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                 { id: "present", label: `Attending (${stats.present})` },
                 { id: "veg", label: `Veg (${stats.veg})` },
                 { id: "non-veg", label: `Non-Veg (${stats.nonVeg})` },
+                ...(isAdmin
+                  ? [
+                      {
+                        id: "duplicates",
+                        label: `Duplicates (${duplicateAnalysis.totalDuplicates})`,
+                        isAdminPill: true,
+                      },
+                    ]
+                  : []),
               ].map((filter) => (
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer flex items-center gap-1.5 ${
                     activeFilter === filter.id
-                      ? "bg-purple-500/20 border-purple-500/40 text-purple-200"
-                      : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200"
+                      ? filter.isAdminPill
+                        ? "bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-md shadow-amber-500/10"
+                        : "bg-purple-500/20 border-purple-500/40 text-purple-200"
+                      : filter.isAdminPill
+                        ? "bg-slate-900/80 border-slate-800 text-amber-400/80 hover:text-amber-300 hover:border-amber-500/30"
+                        : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200"
                   }`}
                 >
-                  {filter.label}
+                  {filter.isAdminPill && <GitCompare className="w-3 h-3 text-amber-400" />}
+                  <span>{filter.label}</span>
                 </button>
               ))}
             </div>
           </div>
+
+          {/* Admin Active Duplicate Banner */}
+          {isAdmin && activeFilter === "duplicates" && (
+            <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-amber-200 shadow-lg">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+                  <GitCompare className="w-4 h-4" />
+                </div>
+                <div>
+                  <strong className="text-white text-sm block">
+                    Showing {duplicateAnalysis.totalDuplicates} Duplicate Entries ({duplicateAnalysis.totalClusters} Clusters)
+                  </strong>
+                  <span className="text-slate-300">
+                    Entries filtered logically by matching 10-digit phone numbers, WhatsApp numbers, or identical names.
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={exportDuplicatesToCSV}
+                  className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold transition cursor-pointer flex items-center gap-1.5"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>CSV Report</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowDuplicateModal(true)}
+                  className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Open Side-by-Side Reviewer</span>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Directory Content */}
           {filteredGuests.length === 0 ? (
@@ -3434,6 +3779,367 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                   </button>
                 </div>
               </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+      {/* ============================================================== */}
+      {/* LOGICAL DUPLICATE RESOLUTION MODAL (ADMIN ONLY)                */}
+      {/* ============================================================== */}
+      <AnimatePresence>
+        {showDuplicateModal && isAdmin && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-5xl rounded-3xl bg-slate-900 border border-amber-500/40 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            >
+              {/* Top Accent Gradient */}
+              <div className="h-1.5 bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 w-full shrink-0" />
+
+              {/* Modal Header */}
+              <div className="p-5 sm:p-6 border-b border-slate-800 flex items-start justify-between gap-4 shrink-0 bg-slate-900/90">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 shadow-lg shadow-amber-500/10">
+                    <GitCompare className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-lg sm:text-xl font-bold text-white">
+                        Duplicate Entry Analyzer
+                      </h3>
+                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[11px] border border-amber-500/30">
+                        Admin Only 🛡️
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      Logical detection and resolution across phone numbers, WhatsApp numbers, names, and emails.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0">
+                  {duplicateAnalysis.totalClusters > 0 && (
+                    <button
+                      type="button"
+                      onClick={exportDuplicatesToCSV}
+                      title="Download Duplicates Audit Report"
+                      className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition cursor-pointer flex items-center gap-1.5"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Export CSV</span>
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setShowDuplicateModal(false)}
+                    className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* KPI Metrics Ribbon */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-4 sm:px-6 bg-slate-950/60 border-b border-slate-800/80 shrink-0 text-center">
+                <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
+                    Duplicate Records
+                  </span>
+                  <span className="text-lg font-bold text-amber-400 font-mono">
+                    {duplicateAnalysis.totalDuplicates}
+                  </span>
+                </div>
+                <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
+                    Conflict Clusters
+                  </span>
+                  <span className="text-lg font-bold text-white font-mono">
+                    {duplicateAnalysis.totalClusters}
+                  </span>
+                </div>
+                <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
+                    Phone Matches
+                  </span>
+                  <span className="text-lg font-bold text-cyan-400 font-mono">
+                    {duplicateAnalysis.phoneClustersCount}
+                  </span>
+                </div>
+                <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
+                    Name Matches
+                  </span>
+                  <span className="text-lg font-bold text-purple-400 font-mono">
+                    {duplicateAnalysis.nameClustersCount}
+                  </span>
+                </div>
+              </div>
+
+              {/* Filter Tabs inside Modal */}
+              <div className="px-4 sm:px-6 py-2.5 bg-slate-900/70 border-b border-slate-800 flex items-center gap-2 overflow-x-auto shrink-0">
+                <span className="text-xs text-slate-400 font-semibold shrink-0">Filter By:</span>
+                {[
+                  { id: "all", label: `All Clusters (${duplicateAnalysis.totalClusters})` },
+                  { id: "phone", label: `Phone Matches (${duplicateAnalysis.phoneClustersCount})` },
+                  { id: "name", label: `Name Matches (${duplicateAnalysis.nameClustersCount})` },
+                  { id: "email", label: `Email Matches (${duplicateAnalysis.emailClustersCount})` },
+                ].map((crit) => (
+                  <button
+                    key={crit.id}
+                    type="button"
+                    onClick={() => setDuplicateFilterCriteria(crit.id)}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold transition cursor-pointer shrink-0 border ${
+                      duplicateFilterCriteria === crit.id
+                        ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
+                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    {crit.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Scrollable Clusters Container */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
+                {(() => {
+                  const visibleClusters = duplicateAnalysis.clusters.filter((c) => {
+                    if (duplicateFilterCriteria === "phone") return c.hasPhone;
+                    if (duplicateFilterCriteria === "name") return c.hasName;
+                    if (duplicateFilterCriteria === "email") return c.hasEmail;
+                    return true;
+                  });
+
+                  if (visibleClusters.length === 0) {
+                    return (
+                      <div className="py-16 text-center space-y-3">
+                        <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto">
+                          <CheckCircle2 className="w-8 h-8" />
+                        </div>
+                        <h4 className="text-lg font-bold text-slate-200">
+                          No Duplicate Entries Found!
+                        </h4>
+                        <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto">
+                          {duplicateAnalysis.totalClusters === 0
+                            ? "Clean database! All registered attendee records have unique phone numbers, WhatsApp numbers, and names."
+                            : "No clusters match your selected filter criteria. Try viewing 'All Clusters'."}
+                        </p>
+                      </div>
+                    );
+                  }
+
+                  return visibleClusters.map((cluster) => (
+                    <div
+                      key={cluster.id}
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-amber-500/30 space-y-4 shadow-xl"
+                    >
+                      {/* Cluster Header */}
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="px-2.5 py-0.5 rounded-lg bg-amber-500 text-slate-950 font-extrabold text-xs">
+                            Cluster #{cluster.index}
+                          </span>
+                          <div className="flex flex-wrap gap-1.5">
+                            {cluster.reasons.map((r, rIdx) => (
+                              <span
+                                key={rIdx}
+                                className="px-2.5 py-0.5 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-medium"
+                              >
+                                ⚠️ {r}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <span className="text-xs font-bold text-slate-300 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+                          {cluster.guests.length} Conflicting Records
+                        </span>
+                      </div>
+
+                      {/* Cluster Comparative Cards */}
+                      <div
+                        className={`grid grid-cols-1 ${
+                          cluster.guests.length === 2
+                            ? "md:grid-cols-2"
+                            : "md:grid-cols-2 lg:grid-cols-3"
+                        } gap-3.5`}
+                      >
+                        {cluster.guests.map((guest, gIdx) => {
+                          const isVeg = checkIsVeg(guest);
+                          const isAttending = checkIsAttending(guest);
+
+                          return (
+                            <div
+                              key={guest.guestId || guest.id || guest.token || gIdx}
+                              className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 flex flex-col justify-between gap-3 transition shadow-md"
+                            >
+                              <div className="space-y-2.5">
+                                {/* Top Name & Token */}
+                                <div className="flex items-start justify-between gap-2">
+                                  <div className="flex items-center gap-2">
+                                    <div className="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0">
+                                      {guest.genderId === "2" ? (
+                                        <WomanLogo className="w-4 h-4 text-pink-400" />
+                                      ) : (
+                                        <ManLogo className="w-4 h-4 text-sky-400" />
+                                      )}
+                                    </div>
+                                    <div>
+                                      <h5 className="font-bold text-white text-sm">
+                                        {toProperCase(guest.guestName || "Unnamed Guest")}
+                                      </h5>
+                                      {guest.age && (
+                                        <span className="text-[10px] text-slate-400">
+                                          Age: {guest.age}
+                                        </span>
+                                      )}
+                                    </div>
+                                  </div>
+
+                                  <span className="font-mono font-bold text-xs text-amber-400 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 shrink-0">
+                                    {formatToken(guest)}
+                                  </span>
+                                </div>
+
+                                {/* Field Values with Conflict Highlights */}
+                                <div className="space-y-1.5 text-xs">
+                                  {/* Mobile */}
+                                  <div
+                                    className={`flex items-center justify-between p-1.5 rounded-lg font-mono ${
+                                      cluster.hasPhone
+                                        ? "bg-amber-500/10 border border-amber-500/20 text-amber-200"
+                                        : "bg-slate-950 text-slate-300"
+                                    }`}
+                                  >
+                                    <span className="text-[10px] text-slate-400">Mobile:</span>
+                                    <span className="font-bold">{guest.mobile || "—"}</span>
+                                  </div>
+
+                                  {/* WhatsApp */}
+                                  <div
+                                    className={`flex items-center justify-between p-1.5 rounded-lg font-mono ${
+                                      cluster.hasPhone
+                                        ? "bg-amber-500/10 border border-amber-500/20 text-amber-200"
+                                        : "bg-slate-950 text-slate-300"
+                                    }`}
+                                  >
+                                    <span className="text-[10px] text-slate-400">WhatsApp:</span>
+                                    <span className="font-bold">{guest.wpNumber || "—"}</span>
+                                  </div>
+
+                                  {/* Email */}
+                                  {guest.email && (
+                                    <div
+                                      className={`flex items-center justify-between p-1.5 rounded-lg text-[11px] truncate ${
+                                        cluster.hasEmail
+                                          ? "bg-amber-500/10 border border-amber-500/20 text-amber-200"
+                                          : "bg-slate-950 text-slate-300"
+                                      }`}
+                                    >
+                                      <span className="text-[10px] text-slate-400">Email:</span>
+                                      <span className="truncate">{guest.email}</span>
+                                    </div>
+                                  )}
+
+                                  {/* Meal & Attendance */}
+                                  <div className="flex items-center justify-between pt-1">
+                                    <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-300">
+                                      {isVeg ? (
+                                        <>
+                                          <Leaf className="w-3 h-3 text-emerald-400" />
+                                          <span>Veg</span>
+                                        </>
+                                      ) : (
+                                        <>
+                                          <Utensils className="w-3 h-3 text-amber-400" />
+                                          <span>Non-Veg</span>
+                                        </>
+                                      )}
+                                    </span>
+
+                                    <span
+                                      className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                                        isAttending
+                                          ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                                          : "bg-slate-800 text-slate-400"
+                                      }`}
+                                    >
+                                      {isAttending ? "Attending" : "Absent"}
+                                    </span>
+                                  </div>
+
+                                  {/* Address */}
+                                  {guest.address && (
+                                    <div className="text-[10px] text-slate-400 line-clamp-1 pt-0.5">
+                                      📍 {guest.address}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+
+                              {/* Admin Action Buttons */}
+                              <div className="pt-2 border-t border-slate-800/80 flex items-center gap-1.5">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setShowDuplicateModal(false);
+                                    handleViewExistingPass(guest);
+                                  }}
+                                  className="flex-1 py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-1"
+                                  title="View Ticket Pass"
+                                >
+                                  <Eye className="w-3.5 h-3.5 text-sky-400" />
+                                  <span className="text-[11px]">Pass</span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setShowDuplicateModal(false);
+                                    handleEdit(guest);
+                                  }}
+                                  className="flex-1 py-1.5 px-2 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-300 text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-1"
+                                  title="Edit Attendee Record"
+                                >
+                                  <Edit3 className="w-3.5 h-3.5 text-purple-400" />
+                                  <span className="text-[11px]">Edit</span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  onClick={() => handleDelete(guest)}
+                                  className="py-1.5 px-2.5 rounded-lg bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-300 text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-1"
+                                  title="Delete Redundant Duplicate Entry"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                                  <span className="text-[11px]">Delete</span>
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ));
+                })()}
+              </div>
+
+              {/* Modal Footer */}
+              <div className="p-4 sm:p-5 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
+                <p className="text-[11px] text-slate-400 leading-normal">
+                  💡 <strong className="text-slate-300">Admin Guidance:</strong> Compare registration tokens, meal preferences, and attendance status to decide which record to retain. Deleting a record is permanent.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => setShowDuplicateModal(false)}
+                  className="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition cursor-pointer shrink-0"
+                >
+                  Close Inspector
+                </button>
+              </div>
             </motion.div>
           </div>
         )}

@@ -6,6 +6,7 @@ import * as htmlToImage from 'html-to-image';
 import { studentService } from '../services/studentService';
 import { courseService } from '../services/courseService';
 import { loginService } from '../services/loginService'; // Add this import
+import { userService, DEFAULT_STUDENT_PASSWORD } from '../services/userService';
 
 const StudentFeeReceiptPart2 = () => {
   // Get current date in YYYY-MM-DD format for default value
@@ -248,6 +249,19 @@ const StudentFeeReceiptPart2 = () => {
             phone: createdStudent.whatsapp || createdStudent.phone1 || '',
             registrationNumber: regNoVal,
           }));
+
+          // Auto-create user account for student with role Student, enrollment number as username, and default password
+          try {
+            await userService.createStudentUser({
+              id: studentIdVal,
+              student_name: studentNameVal,
+              whatsapp: newStudentData.whatsapp.trim(),
+              enrollment_number: regNoVal,
+              registration_number: regNoVal,
+            }, DEFAULT_STUDENT_PASSWORD);
+          } catch (uErr) {
+            console.warn("Auto student user creation notice:", uErr);
+          }
         }
         
         setNewStudentData({

@@ -98,6 +98,8 @@ export default function AddUser() {
       employee_id: "",
       student_id: "",
       email: "",
+      password: isStudent ? "India2day@2026" : (prev.password || ""),
+      password_confirmation: isStudent ? "India2day@2026" : (prev.password_confirmation || ""),
     }));
   };
 
@@ -119,11 +121,23 @@ export default function AddUser() {
     const sId = e.target.value;
     const stu = students.find((item) => String(item.id) === String(sId));
 
+    const enrollmentNo =
+      stu?.enrollment_number ||
+      stu?.enrollmentNumber ||
+      stu?.enrollment_no ||
+      stu?.enrollmentNo ||
+      stu?.registration_number ||
+      stu?.registrationNumber ||
+      stu?.reg_no ||
+      stu?.regNo ||
+      stu?.email ||
+      "";
+
     setFormData((prev) => ({
       ...prev,
       student_id: sId,
       employee_id: "",
-      email: stu?.registration_number || stu?.email || prev.email,
+      email: enrollmentNo || prev.email,
     }));
   };
 
@@ -240,7 +254,14 @@ export default function AddUser() {
 
     setSubmitting(true);
     try {
+      const resolvedName = isStudentRole
+        ? (selectedStudentObj?.student_name || formData.email.trim())
+        : (selectedEmployeeObj?.employeeName || formData.email.trim());
+
       const payload = {
+        name: resolvedName,
+        user_name: formData.email.trim(),
+        userName: formData.email.trim(),
         email: formData.email.trim(),
         password: formData.password,
         password_confirmation: formData.password_confirmation,
@@ -425,7 +446,7 @@ export default function AddUser() {
                           <option value="">-- Select Enrolled Student ({students.length} on record) --</option>
                           {students.map((s) => (
                             <option key={s.id} value={s.id}>
-                              {s.student_name} • {s.registration_number || `ID: #${s.id}`}
+                              {s.student_name} • {s.enrollment_number || s.enrollmentNumber || s.registration_number || s.registrationNumber || `ID: #${s.id}`}
                             </option>
                           ))}
                         </select>
@@ -478,12 +499,12 @@ export default function AddUser() {
                   {/* Login Handle */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-200 mb-1.5">
-                      Login Identifier (Username or Email) <span className="text-rose-400">*</span>
+                      {isStudentRole ? "Username / Enrollment Number (saved in users table email field)" : "Login Identifier (Username or Email)"} <span className="text-rose-400">*</span>
                     </label>
                     <input
                       type="text"
                       name="email"
-                      placeholder={isStudentRole ? "e.g. CNAT-00001-2627 or student@domain.com" : "e.g. staff.username or staff@domain.com"}
+                      placeholder={isStudentRole ? "e.g. Enrollment / Reg No (e.g. CNAT-00001-2627)" : "e.g. staff.username or staff@domain.com"}
                       value={formData.email}
                       onChange={handleInputChange}
                       required

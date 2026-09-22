@@ -186,24 +186,24 @@ const Login = () => {
 
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Email / Username Field */}
+              {/* Email / Username / Enrollment No Field */}
               <div>
                 <label
                   htmlFor="email"
                   className="block text-xs font-semibold text-slate-300 mb-1.5"
                 >
-                  Email or Username
+                  Enrollment No / Username or Email
                 </label>
                 <div className="relative flex items-center">
                   <span className="absolute left-3 text-slate-500 pointer-events-none">
-                    <i className="bi bi-envelope-at-fill text-sm"></i>
+                    <i className="bi bi-person-badge text-sm"></i>
                   </span>
                   <input
                     id="email"
                     name="email"
                     type="text"
-                    autoComplete="email"
-                    placeholder="name@coderaccotax.in"
+                    autoComplete="username email"
+                    placeholder="e.g. Enrollment No or Email"
                     value={formData.email}
                     onChange={handleChange}
                     required

@@ -6,6 +6,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import api from "../api/api";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
+import { userService, DEFAULT_STUDENT_PASSWORD } from "../services/userService";
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -18,6 +19,12 @@ const UserManagement = () => {
   // Search and filter states
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRoleFilter, setSelectedRoleFilter] = useState("all");
+
+  // Grouping and View states
+  const [activeGroupTab, setActiveGroupTab] = useState("grouped"); // "grouped" | "staff" | "students" | "flat"
+  const [isStudentGroupOpen, setIsStudentGroupOpen] = useState(false); // default collapsed so list is simple
+  const [studentPage, setStudentPage] = useState(1);
+  const [studentPageSize, setStudentPageSize] = useState(10);
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,19 +53,102 @@ const UserManagement = () => {
         api.get("/user-types"),
       ]);
 
-      if (usersRes?.data?.status) {
-        setUsers(usersRes.data.data || []);
-      }
-      if (employeesRes?.data?.status) {
-        setEmployees(employeesRes.data.data || []);
-      }
-      if (studentsRes?.data?.status || Array.isArray(studentsRes?.data)) {
-        const studentList = studentsRes?.data?.data || studentsRes?.data || [];
-        setStudents(Array.isArray(studentList) ? studentList : []);
-      }
-      if (rolesRes?.data?.status) {
-        setUserTypes(rolesRes.data.data || []);
-      }
+      const rawUsers =
+        usersRes?.data?.data ||
+        (Array.isArray(usersRes?.data) ? usersRes.data : usersRes?.data?.users || []);
+      const rawEmployees =
+        employeesRes?.data?.data ||
+        (Array.isArray(employeesRes?.data) ? employeesRes.data : employeesRes?.data?.employees || []);
+      const rawStudents =
+        studentsRes?.data?.data ||
+        (Array.isArray(studentsRes?.data) ? studentsRes.data : studentsRes?.data?.students || []);
+      const rawRoles =
+        rolesRes?.data?.data ||
+        (Array.isArray(rolesRes?.data) ? rolesRes.data : rolesRes?.data?.userTypes || []);
+
+      const safeUsers = Array.isArray(rawUsers) ? rawUsers : [];
+      const safeEmployees = Array.isArray(rawEmployees) ? rawEmployees : [];
+      const safeStudents = Array.isArray(rawStudents) ? rawStudents : [];
+      const safeRoles = Array.isArray(rawRoles) ? rawRoles : [];
+
+      setEmployees(safeEmployees);
+      setStudents(safeStudents);
+      setUserTypes(safeRoles);
+
+      // Deeply enrich user objects with associated student, employee, and role data
+      const enrichedUsers = safeUsers.map((u) => {
+        const studentId = u.student_id || u.studentId;
+        const employeeId = u.employee_id || u.employeeId;
+        const roleId = u.user_type_id || u.userTypeId;
+
+        const stu = studentId
+          ? safeStudents.find((s) => String(s.id) === String(studentId))
+          : null;
+
+        const emp = employeeId
+          ? safeEmployees.find((e) => String(e.employeeId || e.id) === String(employeeId))
+          : null;
+
+        const roleObj = safeRoles.find(
+          (r) => String(r.userTypeId || r.id) === String(roleId)
+        );
+
+        const roleName =
+          u.role ||
+          u.roleName ||
+          u.userTypeName ||
+          roleObj?.userTypeName ||
+          (stu ? "Student" : emp ? "Staff" : "User");
+
+        const fullName =
+          u.name ||
+          stu?.student_name ||
+          stu?.studentName ||
+          emp?.employeeName ||
+          (stu ? `Student #${stu.id}` : emp ? `Staff #${emp.employeeId}` : u.email || "User");
+
+        const loginHandle =
+          u.userName ||
+          u.user_name ||
+          stu?.registration_number ||
+          stu?.registrationNumber ||
+          stu?.enrollment_number ||
+          u.email;
+
+        const mobileNo =
+          u.mobile ||
+          u.phone ||
+          stu?.whatsapp ||
+          stu?.phone1 ||
+          emp?.phone ||
+          emp?.mobile ||
+          "—";
+
+        const departmentName =
+          u.department ||
+          emp?.department?.name ||
+          (stu ? "Student Community" : "General");
+
+        const designationName =
+          u.designation ||
+          emp?.designation?.name ||
+          (stu ? "Enrolled Student" : "Staff");
+
+        return {
+          ...u,
+          name: fullName,
+          userName: loginHandle,
+          role: roleName,
+          mobile: mobileNo,
+          department: departmentName,
+          designation: designationName,
+          student: stu || u.student,
+          employee: emp || u.employee,
+          userType: roleObj || u.userType,
+        };
+      });
+
+      setUsers(enrichedUsers);
     } catch (err) {
       console.error("Failed to load user management data:", err);
       setError(
@@ -75,10 +165,78 @@ const UserManagement = () => {
     fetchData();
   }, []);
 
+  // Enrolled students who don't have a linked portal user account yet
+  const unlinkedStudents = useMemo(() => {
+    return students.filter(
+      (s) => !users.some((u) => String(u.student_id || u.studentId) === String(s.id))
+    );
+  }, [students, users]);
+
+  // Batch auto-provision all unlinked students
+  const handleProvisionAllMissing = async () => {
+    if (unlinkedStudents.length === 0) return;
+    const confirm = await Swal.fire({
+      title: "Provision Student Accounts?",
+      html: `
+        <div class="text-left text-xs text-slate-300 space-y-2 p-3 rounded-lg bg-slate-950 border border-slate-800">
+          <p>This will generate portal login accounts for <b>${unlinkedStudents.length}</b> enrolled student(s).</p>
+          <p>• <b>Username:</b> Student Enrollment / Reg Number</p>
+          <p>• <b>Role:</b> Student</p>
+          <p>• <b>Default Password:</b> <span class="font-mono text-amber-300">${DEFAULT_STUDENT_PASSWORD}</span></p>
+        </div>
+      `,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: `Yes, Auto-Provision (${unlinkedStudents.length})`,
+      cancelButtonText: "Cancel",
+      background: "#0f172a",
+      color: "#f8fafc",
+      confirmButtonColor: "#0284c7",
+      cancelButtonColor: "#475569",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    setLoading(true);
+    try {
+      const results = await userService.provisionMissingStudentAccounts(unlinkedStudents, users);
+      const successful = results.filter((r) => r.success).length;
+      Swal.fire({
+        icon: "success",
+        title: "Provisioning Complete!",
+        text: `Successfully provisioned ${successful} of ${unlinkedStudents.length} student account(s).`,
+        background: "#0f172a",
+        color: "#f8fafc",
+        confirmButtonColor: "#0284c7",
+      });
+      await fetchData();
+    } catch (err) {
+      console.error("Batch provisioning error:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Provisioning Failed",
+        text: err.message,
+        background: "#0f172a",
+        color: "#f8fafc",
+        confirmButtonColor: "#ef4444",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Check if current selected role is Student
   const selectedRoleObj = useMemo(() => {
     return userTypes.find((t) => String(t.userTypeId) === String(formData.user_type_id));
   }, [userTypes, formData.user_type_id]);
+
+  const selectedStudentObj = useMemo(() => {
+    return students.find((s) => String(s.id) === String(formData.student_id));
+  }, [students, formData.student_id]);
+
+  const selectedEmployeeObj = useMemo(() => {
+    return employees.find((e) => String(e.employeeId || e.id) === String(formData.employee_id));
+  }, [employees, formData.employee_id]);
 
   const isStudentRole = useMemo(() => {
     return (selectedRoleObj?.userTypeName || "").trim().toLowerCase() === "student";
@@ -97,6 +255,8 @@ const UserManagement = () => {
       employee_id: isStudent ? "" : prev.employee_id,
       student_id: isStudent ? prev.student_id : "",
       email: "",
+      password: isStudent ? "India2day@2026" : (prev.password || ""),
+      password_confirmation: isStudent ? "India2day@2026" : (prev.password_confirmation || ""),
     }));
   };
 
@@ -118,11 +278,23 @@ const UserManagement = () => {
     const sId = e.target.value;
     const selectedStudent = students.find((s) => String(s.id) === String(sId));
 
+    const enrollmentNo =
+      selectedStudent?.enrollment_number ||
+      selectedStudent?.enrollmentNumber ||
+      selectedStudent?.enrollment_no ||
+      selectedStudent?.enrollmentNo ||
+      selectedStudent?.registration_number ||
+      selectedStudent?.registrationNumber ||
+      selectedStudent?.reg_no ||
+      selectedStudent?.regNo ||
+      selectedStudent?.email ||
+      "";
+
     setFormData((prev) => ({
       ...prev,
       student_id: sId,
       employee_id: "",
-      email: selectedStudent?.registration_number || selectedStudent?.email || prev.email,
+      email: enrollmentNo || prev.email,
     }));
   };
 
@@ -210,7 +382,14 @@ const UserManagement = () => {
 
     setSubmitting(true);
     try {
+      const resolvedName = isStudentRole
+        ? (selectedStudentObj?.student_name || formData.email.trim())
+        : (selectedEmployeeObj?.employeeName || formData.email.trim());
+
       const payload = {
+        name: resolvedName,
+        user_name: formData.email.trim(),
+        userName: formData.email.trim(),
         email: formData.email.trim(),
         password: formData.password,
         password_confirmation: formData.password_confirmation,
@@ -287,6 +466,64 @@ const UserManagement = () => {
     });
   }, [users, searchTerm, selectedRoleFilter]);
 
+  // Distinguish Student accounts vs Staff / System accounts
+  const isStudentUser = (u) => {
+    return (
+      (u.role || "").toLowerCase() === "student" ||
+      Boolean(u.student_id || u.studentId || u.student)
+    );
+  };
+
+  const staffUsers = useMemo(() => {
+    return filteredUsers.filter((u) => !isStudentUser(u));
+  }, [filteredUsers]);
+
+  const studentUsers = useMemo(() => {
+    return filteredUsers.filter((u) => isStudentUser(u));
+  }, [filteredUsers]);
+
+  // Paginated students for the student group table
+  const totalStudentPages = Math.ceil(studentUsers.length / studentPageSize) || 1;
+  const paginatedStudents = useMemo(() => {
+    const start = (studentPage - 1) * studentPageSize;
+    return studentUsers.slice(start, start + studentPageSize);
+  }, [studentUsers, studentPage, studentPageSize]);
+
+  // Auto-expand student group if user is searching and matches are found
+  useEffect(() => {
+    if (searchTerm.trim().length > 0 && studentUsers.length > 0) {
+      setIsStudentGroupOpen(true);
+    }
+  }, [searchTerm, studentUsers.length]);
+
+  // Auto-expand if role filter is set to Student
+  useEffect(() => {
+    if (selectedRoleFilter.toLowerCase() === "student") {
+      setIsStudentGroupOpen(true);
+    }
+  }, [selectedRoleFilter]);
+
+  // Reset student page on search or filter change
+  useEffect(() => {
+    setStudentPage(1);
+  }, [searchTerm, selectedRoleFilter, studentPageSize]);
+
+  // Clipboard copy helper with feedback
+  const handleCopy = (text, label = "Item") => {
+    if (!text) return;
+    navigator.clipboard.writeText(text);
+    Swal.fire({
+      toast: true,
+      position: "top-end",
+      icon: "success",
+      title: `${label} copied!`,
+      showConfirmButton: false,
+      timer: 1800,
+      background: "#0f172a",
+      color: "#f8fafc",
+    });
+  };
+
   // Role pill styles helper
   const getRoleBadge = (roleName) => {
     const role = (roleName || "").toLowerCase();
@@ -327,6 +564,109 @@ const UserManagement = () => {
         <i className="bi bi-person-fill text-slate-400"></i>
         {roleName}
       </span>
+    );
+  };
+
+  // Reusable Table Header
+  const renderTableHeader = () => (
+    <thead className="bg-slate-950/70 border-b border-slate-800 text-[11px] uppercase font-semibold text-slate-400 tracking-wider">
+      <tr>
+        <th className="py-3.5 px-4">#ID</th>
+        <th className="py-3.5 px-4">User &amp; Email</th>
+        <th className="py-3.5 px-4">Login Handle</th>
+        <th className="py-3.5 px-4">Assigned Role</th>
+        <th className="py-3.5 px-4">Affiliation &amp; Category</th>
+        <th className="py-3.5 px-4">Mobile</th>
+        <th className="py-3.5 px-4 text-center">Status</th>
+      </tr>
+    </thead>
+  );
+
+  // Reusable Table Row
+  const renderUserRow = (u, isStudentRow = false) => {
+    const isStu = isStudentRow || isStudentUser(u);
+    return (
+      <tr key={u.id} className="hover:bg-slate-800/30 transition-colors">
+        <td className="py-3.5 px-4 font-mono text-slate-400 text-xs">#{u.id}</td>
+
+        <td className="py-3.5 px-4">
+          <div className="flex items-center gap-3">
+            <div
+              className={`w-8 h-8 rounded-full font-bold text-xs flex items-center justify-center shadow-inner text-white ${
+                isStu
+                  ? "bg-gradient-to-tr from-emerald-600 to-teal-500"
+                  : "bg-gradient-to-tr from-sky-600 to-indigo-600"
+              }`}
+            >
+              {(u.name || u.userName || "U").substring(0, 2).toUpperCase()}
+            </div>
+            <div>
+              <div className="font-semibold text-white text-xs sm:text-sm flex items-center gap-2">
+                <span>{u.name || "N/A"}</span>
+                {isStu && (
+                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+                    Student
+                  </span>
+                )}
+              </div>
+              <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
+                <span>{u.email || "No email"}</span>
+                {u.email && (
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(u.email, "Email")}
+                    title="Copy Email"
+                    className="hover:text-sky-400 transition cursor-pointer text-[10px]"
+                  >
+                    <i className="bi bi-clipboard"></i>
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </td>
+
+        <td className="py-3.5 px-4">
+          <div className="inline-flex items-center gap-1.5 font-mono text-slate-300 text-xs bg-slate-950/80 px-2 py-1 rounded-md border border-slate-800">
+            <span>{u.userName || u.user_name || u.email}</span>
+            <button
+              type="button"
+              onClick={() => handleCopy(u.userName || u.user_name || u.email, "Username / Login Handle")}
+              title="Copy Login Handle"
+              className="text-slate-500 hover:text-sky-400 transition cursor-pointer"
+            >
+              <i className="bi bi-copy text-[10px]"></i>
+            </button>
+          </div>
+        </td>
+
+        <td className="py-3.5 px-4">{getRoleBadge(u.role)}</td>
+
+        <td className="py-3.5 px-4">
+          <div className="text-xs text-slate-300">{u.department || (isStu ? "Enrolled Student" : "General")}</div>
+          <div className="text-[11px] text-slate-500">
+            {u.designation || (isStu ? "Student Community" : "Staff")}
+          </div>
+        </td>
+
+        <td className="py-3.5 px-4 text-xs font-mono text-slate-400">
+          {u.mobile && u.mobile !== "—" ? (
+            <span className="flex items-center gap-1">
+              <i className="bi bi-telephone text-[10px] text-slate-500"></i>
+              {u.mobile}
+            </span>
+          ) : (
+            "—"
+          )}
+        </td>
+
+        <td className="py-3.5 px-4 text-center">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Active
+          </span>
+        </td>
+      </tr>
     );
   };
 
@@ -373,9 +713,18 @@ const UserManagement = () => {
           </div>
         </div>
 
-        {/* Quick Stats Grid */}
+        {/* Quick Stats Grid (Clickable Category Filters) */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="bg-slate-900/50 border border-slate-800/80 rounded-xl p-4 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => {
+              setActiveGroupTab("grouped");
+              setSelectedRoleFilter("all");
+            }}
+            className={`text-left bg-slate-900/50 border rounded-xl p-4 flex items-center gap-4 transition cursor-pointer hover:border-sky-500/40 hover:bg-slate-900/80 ${
+              activeGroupTab === "grouped" ? "border-sky-500/40 ring-1 ring-sky-500/20" : "border-slate-800/80"
+            }`}
+          >
             <div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
               <i className="bi bi-people-fill text-lg"></i>
             </div>
@@ -383,21 +732,37 @@ const UserManagement = () => {
               <p className="text-slate-400 text-[11px] font-medium uppercase tracking-wider">Total Users</p>
               <p className="text-xl font-bold text-white">{users.length}</p>
             </div>
-          </div>
+          </button>
 
-          <div className="bg-slate-900/50 border border-slate-800/80 rounded-xl p-4 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => {
+              setActiveGroupTab("students");
+              setIsStudentGroupOpen(true);
+            }}
+            className={`text-left bg-slate-900/50 border rounded-xl p-4 flex items-center gap-4 transition cursor-pointer hover:border-emerald-500/40 hover:bg-slate-900/80 ${
+              activeGroupTab === "students" ? "border-emerald-500/40 ring-1 ring-emerald-500/20" : "border-slate-800/80"
+            }`}
+          >
             <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
               <i className="bi bi-mortarboard text-lg"></i>
             </div>
             <div>
-              <p className="text-slate-400 text-[11px] font-medium uppercase tracking-wider">Students</p>
-              <p className="text-xl font-bold text-white">
-                {users.filter((u) => (u.role || "").toLowerCase() === "student").length}
+              <p className="text-slate-400 text-[11px] font-medium uppercase tracking-wider">Students Group</p>
+              <p className="text-xl font-bold text-emerald-400">
+                {users.filter((u) => isStudentUser(u)).length}
               </p>
             </div>
-          </div>
+          </button>
 
-          <div className="bg-slate-900/50 border border-slate-800/80 rounded-xl p-4 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => {
+              setActiveGroupTab("staff");
+              setSelectedRoleFilter("Teacher");
+            }}
+            className="text-left bg-slate-900/50 border border-slate-800/80 hover:border-amber-500/40 hover:bg-slate-900/80 rounded-xl p-4 flex items-center gap-4 transition cursor-pointer"
+          >
             <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
               <i className="bi bi-person-video3 text-lg"></i>
             </div>
@@ -407,19 +772,28 @@ const UserManagement = () => {
                 {users.filter((u) => (u.role || "").toLowerCase() === "teacher").length}
               </p>
             </div>
-          </div>
+          </button>
 
-          <div className="bg-slate-900/50 border border-slate-800/80 rounded-xl p-4 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => {
+              setActiveGroupTab("staff");
+              setSelectedRoleFilter("all");
+            }}
+            className={`text-left bg-slate-900/50 border rounded-xl p-4 flex items-center gap-4 transition cursor-pointer hover:border-purple-500/40 hover:bg-slate-900/80 ${
+              activeGroupTab === "staff" ? "border-purple-500/40 ring-1 ring-purple-500/20" : "border-slate-800/80"
+            }`}
+          >
             <div className="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
               <i className="bi bi-shield-check text-lg"></i>
             </div>
             <div>
-              <p className="text-slate-400 text-[11px] font-medium uppercase tracking-wider">Admins &amp; Mgrs</p>
+              <p className="text-slate-400 text-[11px] font-medium uppercase tracking-wider">Staff &amp; Admins</p>
               <p className="text-xl font-bold text-white">
-                {users.filter((u) => ["admin", "developer", "owner", "manager"].some((r) => (u.role || "").toLowerCase().includes(r))).length}
+                {users.filter((u) => !isStudentUser(u)).length}
               </p>
             </div>
-          </div>
+          </button>
         </div>
 
         {/* Search & Filter Controls */}
@@ -455,7 +829,7 @@ const UserManagement = () => {
                   setSearchTerm("");
                   setSelectedRoleFilter("all");
                 }}
-                className="text-xs text-slate-400 hover:text-white px-2.5 py-2 hover:bg-slate-800 rounded-lg transition"
+                className="text-xs text-slate-400 hover:text-white px-2.5 py-2 hover:bg-slate-800 rounded-lg transition cursor-pointer"
               >
                 Reset
               </button>
@@ -463,81 +837,362 @@ const UserManagement = () => {
           </div>
         </div>
 
-        {/* Users Table */}
-        <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl">
-          {loading ? (
-            <div className="p-12 text-center text-slate-400">
-              <svg className="animate-spin h-8 w-8 text-sky-400 mx-auto mb-3" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-              </svg>
-              <p className="text-sm">Loading user directory...</p>
+        {/* Unlinked Students Alert Banner (if any enrolled students lack a login account) */}
+        {unlinkedStudents.length > 0 && (
+          <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs shadow-lg">
+            <div className="flex items-center gap-2.5 text-amber-300">
+              <i className="bi bi-person-exclamation text-lg flex-shrink-0"></i>
+              <div>
+                <span className="font-bold">{unlinkedStudents.length} enrolled student(s)</span> do not have a portal login account yet.
+                <div className="text-[11px] text-amber-200/70">
+                  They can be auto-provisioned with their enrollment number and default password <span className="font-mono text-amber-300">India2day@2026</span>.
+                </div>
+              </div>
             </div>
-          ) : error ? (
-            <div className="p-8 text-center text-rose-400">
-              <i className="bi bi-exclamation-triangle text-2xl mb-2 block"></i>
-              <p className="text-sm font-semibold">{error}</p>
-            </div>
-          ) : filteredUsers.length === 0 ? (
-            <div className="p-12 text-center text-slate-500">
-              <i className="bi bi-people text-3xl mb-2 block"></i>
-              <p className="text-sm">No users matched your search criteria.</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead className="bg-slate-950/70 border-b border-slate-800 text-[11px] uppercase font-semibold text-slate-400 tracking-wider">
-                  <tr>
-                    <th className="py-3.5 px-4">#ID</th>
-                    <th className="py-3.5 px-4">User &amp; Email</th>
-                    <th className="py-3.5 px-4">Login Handle</th>
-                    <th className="py-3.5 px-4">Assigned Role</th>
-                    <th className="py-3.5 px-4">Affiliation &amp; Category</th>
-                    <th className="py-3.5 px-4">Mobile</th>
-                    <th className="py-3.5 px-4 text-center">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800/60">
-                  {filteredUsers.map((u) => (
-                    <tr key={u.id} className="hover:bg-slate-800/30 transition-colors">
-                      <td className="py-3.5 px-4 font-mono text-slate-400 text-xs">#{u.id}</td>
+            <button
+              onClick={handleProvisionAllMissing}
+              disabled={loading}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 transition cursor-pointer shadow-md flex-shrink-0 disabled:opacity-50"
+            >
+              <i className="bi bi-magic"></i>
+              <span>Auto-Provision All ({unlinkedStudents.length})</span>
+            </button>
+          </div>
+        )}
 
-                      <td className="py-3.5 px-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-600 text-white font-bold text-xs flex items-center justify-center shadow-inner">
-                            {(u.name || u.userName || "U").substring(0, 2).toUpperCase()}
-                          </div>
-                          <div>
-                            <div className="font-semibold text-white text-xs sm:text-sm">{u.name || "N/A"}</div>
-                            <div className="text-[11px] text-slate-400">{u.email || "No email"}</div>
-                          </div>
-                        </div>
-                      </td>
+        {/* Navigation Tabs for Categories & Groups */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-slate-900/40 p-2 rounded-2xl border border-slate-800/80">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => setActiveGroupTab("grouped")}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                activeGroupTab === "grouped"
+                  ? "bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-md shadow-sky-500/20"
+                  : "bg-slate-950/60 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800/60"
+              }`}
+            >
+              <i className="bi bi-collection-fill"></i>
+              <span>Grouped Overview</span>
+            </button>
 
-                      <td className="py-3.5 px-4 font-mono text-slate-300 text-xs">{u.userName}</td>
+            <button
+              type="button"
+              onClick={() => setActiveGroupTab("staff")}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                activeGroupTab === "staff"
+                  ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-500/20"
+                  : "bg-slate-950/60 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800/60"
+              }`}
+            >
+              <i className="bi bi-shield-lock-fill"></i>
+              <span>Staff &amp; System Users ({staffUsers.length})</span>
+            </button>
 
-                      <td className="py-3.5 px-4">{getRoleBadge(u.role)}</td>
+            <button
+              type="button"
+              onClick={() => {
+                setActiveGroupTab("students");
+                setIsStudentGroupOpen(true);
+              }}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                activeGroupTab === "students"
+                  ? "bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/20"
+                  : "bg-slate-950/60 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800/60"
+              }`}
+            >
+              <i className="bi bi-mortarboard-fill"></i>
+              <span>Students Group ({studentUsers.length})</span>
+            </button>
 
-                      <td className="py-3.5 px-4">
-                        <div className="text-xs text-slate-300">{u.department || "General"}</div>
-                        <div className="text-[11px] text-slate-500">{u.designation || (u.studentId ? "Student" : "Staff")}</div>
-                      </td>
+            <button
+              type="button"
+              onClick={() => setActiveGroupTab("flat")}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                activeGroupTab === "flat"
+                  ? "bg-slate-700 text-white shadow-md"
+                  : "bg-slate-950/60 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800/60"
+              }`}
+            >
+              <i className="bi bi-list-ul"></i>
+              <span>Flat List ({filteredUsers.length})</span>
+            </button>
+          </div>
 
-                      <td className="py-3.5 px-4 text-xs font-mono text-slate-400">{u.mobile || "—"}</td>
-
-                      <td className="py-3.5 px-4 text-center">
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                          Active
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <div className="flex items-center gap-2 justify-end text-xs text-slate-400 px-2">
+            <span>Current View:</span>
+            <span className="font-semibold text-white">
+              {activeGroupTab === "staff"
+                ? `${staffUsers.length} Staff Users`
+                : activeGroupTab === "students"
+                ? `${studentUsers.length} Students`
+                : `${staffUsers.length} Staff + ${studentUsers.length} Grouped Students`}
+            </span>
+          </div>
         </div>
+
+        {/* Main Content Area based on View Tab & Grouping */}
+        {loading ? (
+          <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-12 text-center text-slate-400 shadow-xl">
+            <svg className="animate-spin h-8 w-8 text-sky-400 mx-auto mb-3" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            <p className="text-sm">Loading user directory...</p>
+          </div>
+        ) : error ? (
+          <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 text-center text-rose-400 shadow-xl">
+            <i className="bi bi-exclamation-triangle text-2xl mb-2 block"></i>
+            <p className="text-sm font-semibold">{error}</p>
+          </div>
+        ) : filteredUsers.length === 0 ? (
+          <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-12 text-center text-slate-500 shadow-xl">
+            <i className="bi bi-people text-3xl mb-2 block"></i>
+            <p className="text-sm">No users matched your search criteria.</p>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            {/* 1. FLAT LIST VIEW (If user specifically chooses flat list) */}
+            {activeGroupTab === "flat" && (
+              <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl">
+                <div className="p-4 bg-slate-950/60 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                  <span className="font-semibold text-white">All Users Flat Directory ({filteredUsers.length})</span>
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs sm:text-sm">
+                    {renderTableHeader()}
+                    <tbody className="divide-y divide-slate-800/60">
+                      {filteredUsers.map((u) => renderUserRow(u))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* 2. STAFF & SYSTEM USERS TABLE (Shown in 'grouped' and 'staff' views) */}
+            {(activeGroupTab === "grouped" || activeGroupTab === "staff") && (
+              <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl">
+                <div className="p-4 sm:p-5 bg-slate-950/50 border-b border-slate-800/80 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+                      <i className="bi bi-shield-lock-fill text-base"></i>
+                    </div>
+                    <div>
+                      <h2 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                        Staff &amp; System Administration Accounts
+                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">
+                          {staffUsers.length} Users
+                        </span>
+                      </h2>
+                      <p className="text-[11px] text-slate-400">
+                        Administrators, teachers, department managers, and staff accounts.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {staffUsers.length === 0 ? (
+                  <div className="p-8 text-center text-slate-500 text-xs">
+                    <i className="bi bi-people text-2xl mb-1.5 block text-slate-600"></i>
+                    No staff or administrative users match the filter.
+                  </div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-xs sm:text-sm">
+                      {renderTableHeader()}
+                      <tbody className="divide-y divide-slate-800/60">
+                        {staffUsers.map((u) => renderUserRow(u, false))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* 3. ENROLLED STUDENTS GROUP ACCORDION (Shown in 'grouped' and 'students' views) */}
+            {(activeGroupTab === "grouped" || activeGroupTab === "students") && (
+              <div className="bg-slate-900/70 border border-emerald-500/30 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300">
+                {/* Group Header (Interactive) */}
+                <div
+                  onClick={() => setIsStudentGroupOpen((prev) => !prev)}
+                  className="p-5 sm:p-6 bg-gradient-to-r from-emerald-950/40 via-slate-900/80 to-slate-950/80 cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-emerald-500/20 hover:bg-emerald-950/50 transition"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-md shadow-emerald-500/10 flex-shrink-0">
+                      <i className="bi bi-mortarboard-fill text-2xl"></i>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2.5 flex-wrap">
+                        <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                          Enrolled Students Group
+                        </h2>
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                          <i className="bi bi-people-fill text-[11px]"></i>
+                          {studentUsers.length} Student Accounts
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        Consolidated student accounts • Username is Enrollment Number
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2.5 flex-wrap w-full md:w-auto justify-between md:justify-end">
+                    {/* Default Password Quick-Copy pill */}
+                    <div
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCopy(DEFAULT_STUDENT_PASSWORD, "Default student password");
+                      }}
+                      title="Click to copy default student password"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono bg-slate-950 border border-emerald-500/30 text-emerald-300 hover:border-emerald-400 hover:bg-emerald-950/40 transition cursor-pointer shadow-sm"
+                    >
+                      <i className="bi bi-key-fill text-emerald-400 text-xs"></i>
+                      <span className="text-[11px] text-slate-400 font-sans">Default Pwd:</span>
+                      <span className="font-semibold">{DEFAULT_STUDENT_PASSWORD}</span>
+                      <i className="bi bi-clipboard text-[10px] text-slate-400 hover:text-white ml-0.5"></i>
+                    </div>
+
+                    {/* Expand / Collapse Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsStudentGroupOpen((prev) => !prev);
+                      }}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition cursor-pointer shadow-sm"
+                    >
+                      <span>{isStudentGroupOpen ? "Collapse Group" : `Expand Group (${studentUsers.length})`}</span>
+                      <i className={`bi bi-chevron-${isStudentGroupOpen ? "up" : "down"} text-xs transition-transform duration-200`}></i>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Collapsed State Preview Teaser */}
+                {!isStudentGroupOpen && (
+                  <div
+                    onClick={() => setIsStudentGroupOpen(true)}
+                    className="px-6 py-3.5 bg-slate-950/40 flex items-center justify-between gap-4 text-xs text-slate-400 cursor-pointer hover:text-slate-300 transition"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex -space-x-2 overflow-hidden">
+                        {studentUsers.slice(0, 5).map((s) => (
+                          <div
+                            key={s.id}
+                            className="inline-block h-6 w-6 rounded-full ring-2 ring-slate-900 bg-emerald-700 text-[10px] font-bold text-white flex items-center justify-center"
+                          >
+                            {(s.name || "S").substring(0, 1).toUpperCase()}
+                          </div>
+                        ))}
+                      </div>
+                      <span>
+                        {studentUsers.length > 5
+                          ? `+ ${studentUsers.length - 5} other enrolled students grouped here`
+                          : `${studentUsers.length} enrolled students grouped`}
+                        {" — "}
+                        <span className="text-emerald-400 underline decoration-emerald-500/40">
+                          Click to expand and view student logins
+                        </span>
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 hidden sm:inline">
+                      Main list kept clean &amp; simple
+                    </span>
+                  </div>
+                )}
+
+                {/* Expanded State: Students Table + Pagination */}
+                <AnimatePresence>
+                  {isStudentGroupOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {studentUsers.length === 0 ? (
+                        <div className="p-8 text-center text-slate-500 text-xs">
+                          <i className="bi bi-mortarboard text-3xl mb-2 block text-slate-600"></i>
+                          No student accounts match your filter or search.
+                        </div>
+                      ) : (
+                        <div>
+                          {/* Student Toolbar */}
+                          <div className="px-5 py-3 bg-slate-950/60 border-b border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-400">
+                            <div>
+                              Showing <span className="font-semibold text-white">{(studentPage - 1) * studentPageSize + 1}</span> to{" "}
+                              <span className="font-semibold text-white">
+                                {Math.min(studentPage * studentPageSize, studentUsers.length)}
+                              </span>{" "}
+                              of <span className="font-semibold text-emerald-400">{studentUsers.length}</span> students
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                              <div className="flex items-center gap-1.5">
+                                <span>Per page:</span>
+                                <select
+                                  value={studentPageSize}
+                                  onChange={(e) => setStudentPageSize(Number(e.target.value))}
+                                  className="bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-xs text-slate-300 focus:outline-none focus:border-emerald-500 cursor-pointer"
+                                >
+                                  <option value={10}>10</option>
+                                  <option value={25}>25</option>
+                                  <option value={50}>50</option>
+                                  <option value={100}>100</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Table */}
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-left text-xs sm:text-sm">
+                              {renderTableHeader()}
+                              <tbody className="divide-y divide-slate-800/60">
+                                {paginatedStudents.map((u) => renderUserRow(u, true))}
+                              </tbody>
+                            </table>
+                          </div>
+
+                          {/* Pagination Footer */}
+                          {totalStudentPages > 1 && (
+                            <div className="px-5 py-3.5 bg-slate-950/80 border-t border-slate-800 flex items-center justify-between gap-2">
+                              <button
+                                type="button"
+                                onClick={() => setStudentPage((p) => Math.max(1, p - 1))}
+                                disabled={studentPage === 1}
+                                className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-750 text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition cursor-pointer"
+                              >
+                                <i className="bi bi-chevron-left mr-1"></i> Prev
+                              </button>
+
+                              <div className="flex items-center gap-1 text-xs text-slate-400">
+                                <span>Page</span>
+                                <span className="font-bold text-white px-2 py-0.5 rounded bg-slate-800 border border-slate-700">
+                                  {studentPage}
+                                </span>
+                                <span>of {totalStudentPages}</span>
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => setStudentPage((p) => Math.min(totalStudentPages, p + 1))}
+                                disabled={studentPage === totalStudentPages}
+                                className="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-750 text-slate-300 disabled:opacity-40 disabled:cursor-not-allowed transition cursor-pointer"
+                              >
+                                Next <i className="bi bi-chevron-right ml-1"></i>
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Provision New User Modal */}
@@ -610,7 +1265,7 @@ const UserManagement = () => {
                         <option value="">-- Choose Enrolled Student ({students.length} available) --</option>
                         {students.map((s) => (
                           <option key={s.id} value={s.id}>
-                            {s.student_name} • {s.registration_number || `ID: #${s.id}`}
+                            {s.student_name} • {s.enrollment_number || s.enrollmentNumber || s.registration_number || s.registrationNumber || `ID: #${s.id}`}
                           </option>
                         ))}
                       </select>
@@ -646,12 +1301,12 @@ const UserManagement = () => {
                 {/* 3. Login Identifier */}
                 <div>
                   <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                    3. Login Username / Handle <span className="text-rose-400">*</span>
+                    {isStudentRole ? "3. Username / Enrollment Number (saved in users table email field)" : "3. Login Username / Handle"} <span className="text-rose-400">*</span>
                   </label>
                   <input
                     type="text"
                     name="email"
-                    placeholder={isStudentRole ? "e.g. CNAT-00001-2627 or student@domain.com" : "e.g. username or staff@domain.com"}
+                    placeholder={isStudentRole ? "e.g. Enrollment / Reg No (e.g. CNAT-00001-2627)" : "e.g. username or staff@domain.com"}
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -659,7 +1314,7 @@ const UserManagement = () => {
                   />
                   <span className="text-[10px] text-slate-500 mt-1 block">
                     {isStudentRole
-                      ? "Students can sign in using their registration number or email."
+                      ? "Enrollment number is saved into the users 'email' column and used for student login."
                       : "Staff can sign in using their username or official email."}
                   </span>
                 </div>

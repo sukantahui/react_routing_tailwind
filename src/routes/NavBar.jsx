@@ -144,6 +144,13 @@ const NavBar = () => {
       color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
       items: [
         {
+          to: "/tools/image-compressor",
+          label: "Image Compressor & Resizer",
+          desc: "Compress pictures to desired size (KB/MB) & resolution",
+          icon: "bi-file-earmark-image",
+          tag: "Optimizer",
+        },
+        {
           to: "/tools/json-formatter",
           label: "JSON Formatter",
           desc: "Format, minify & validate JSON data",

@@ -3,14 +3,13 @@
 // ============================================================================
 
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import { authService } from "../api/auth.service";
 import { toProperCase } from "./Bijoya";
 
 export default function Admin() {
-    const navigate = useNavigate();
     const [guests, setGuests] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [dietFilter, setDietFilter] = useState("all"); // 'all' | 'veg' | 'non-veg'
@@ -316,6 +315,15 @@ We eagerly await your gracious presence!
                         </button>
 
                         <Link
+                            to="/students/student-admission"
+                            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white text-xs font-bold shadow-md shadow-purple-600/25 transition active:scale-95 cursor-pointer"
+                            title="Add new student with course and payment"
+                        >
+                            <i className="bi bi-person-plus-fill text-sm"></i>
+                            <span>Add Student (Course & Fee)</span>
+                        </Link>
+
+                        <Link
                             to="/bijoya"
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition active:scale-95"
                         >
@@ -374,13 +382,22 @@ We eagerly await your gracious presence!
 
                     <Link
                         to="/students/student-admission"
-                        className="group p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
+                        className="group p-3 rounded-2xl bg-slate-900/80 border border-purple-500/30 hover:border-purple-400/80 shadow-sm hover:shadow-purple-500/20 transition hover:-translate-y-0.5"
                     >
-                        <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm mb-2 group-hover:scale-110 transition-transform">
-                            <i className="bi bi-mortarboard-fill"></i>
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                <i className="bi bi-mortarboard-fill"></i>
+                            </div>
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 uppercase tracking-wider">
+                                All-in-One
+                            </span>
                         </div>
-                        <p className="text-xs font-bold text-white truncate">Fast Enroll</p>
-                        <p className="text-[10px] text-slate-400 truncate">Student admission wizard</p>
+                        <p className="text-xs font-bold text-white group-hover:text-purple-300 transition truncate">
+                            Student + Course + Fee
+                        </p>
+                        <p className="text-[10px] text-slate-400 truncate">
+                            Add student with course & payment
+                        </p>
                     </Link>
 
                     <Link

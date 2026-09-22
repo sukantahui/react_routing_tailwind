@@ -57,8 +57,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   }, []);
 
   const isDev = Boolean(import.meta.env?.DEV);
-  const isAdmin = useMemo(() => ['admin', 'developer', 'owner'].includes((user?.role || '').toLowerCase()), [user]);
-  const isManagerOrAdmin = useMemo(() => ['admin', 'developer', 'owner', 'manager'].some((r) => (user?.role || '').toLowerCase().includes(r)), [user]);
+  const isAdmin = useMemo(() => {
+    const role = (user?.role || user?.userType?.userTypeName || '').toLowerCase();
+    return ['admin', 'developer', 'owner'].some((r) => role.includes(r));
+  }, [user]);
+  const isManagerOrAdmin = useMemo(() => {
+    const role = (user?.role || user?.userType?.userTypeName || '').toLowerCase();
+    return ['admin', 'developer', 'owner', 'manager'].some((r) => role.includes(r));
+  }, [user]);
 
   // Get user initials for avatar
   const userInitials = useMemo(() => {
@@ -103,10 +109,10 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           ? [
               {
                 to: "/students/student-admission",
-                label: "Fast Admission & Fees",
-                desc: "Quick register student, course & initial payment",
+                label: "Add Student (Course & Fee)",
+                desc: "Quick register student, course enrollment & initial fee",
                 icon: "bi-person-badge-fill",
-                badge: "Fast-Track",
+                badge: "All-in-One",
               },
               {
                 to: "/payments",
@@ -204,6 +210,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           label: "Admin Portal",
           desc: "System configuration & quick actions",
           icon: "bi-shield-lock-fill",
+        },
+        {
+          to: "/students/student-admission",
+          label: "Add Student (Course & Fee)",
+          desc: "New student registration with course & initial fee payment",
+          icon: "bi-mortarboard-fill",
+          badge: "All-in-One",
         },
         {
           to: "/bijoya",
@@ -334,6 +347,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       icon: "bi-lightning-charge-fill",
       color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
       items: [
+        {
+          to: "/tools/image-compressor",
+          label: "Image Compressor & Resizer",
+          desc: "Compress pictures to desired size (KB/MB) & resolution",
+          icon: "bi-file-earmark-image",
+          tag: "Optimizer",
+        },
         {
           to: "/tools/json-formatter",
           label: "JSON Formatter",

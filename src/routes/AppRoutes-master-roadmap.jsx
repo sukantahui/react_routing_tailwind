@@ -22,6 +22,7 @@ const TypingLearn = lazy(() => import('../components/typing-app/TypingLearn'));
 const SortingVisualizer = lazy(() => import('../components/SortingVisualizer'));
 const BigOCalculator = lazy(() => import('../components/BigOCalculator'));
 const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
+const ImageCompressor = lazy(() => import('../components/ImageCompressor'));
 const MenstrualCalendarApp = lazy(() => import('../components/menstrual-calendar/MenstrualCalendarApp'));
 
 // Dedicated SEO Course Landing Pages
@@ -136,6 +137,7 @@ const ROUTES = {
   SORTING_VISUALIZER: '/tools/sorting-visualizer',
   BIG_O_CALCULATOR: '/tools/big-o-calculator',
   JSON_FORMATTER: '/tools/json-formatter',
+  IMAGE_COMPRESSOR: '/tools/image-compressor',
   PLAYGROUND: '/play',
 
   PYTHON_PLAY: '/python-play',
@@ -143,6 +145,7 @@ const ROUTES = {
   VSCODE: '/vscode',
   WHITEBOARD: '/whiteBoard',
   STUDENT_WITH_ADMISSION: '/students/student-admission',
+  ADMIN_STUDENT_ADMISSION: '/admin/student-admission',
   FEE_PAYMENTS_LIST: '/payments',
   FEE_RECEIPTS_LIST: '/fees-receipts',
   REGISTER_STUDENT_ADMISSION: '/students/register-admission',
@@ -610,6 +613,9 @@ export default function AppRoutes() {
         <Route path={ROUTES.SORTING_VISUALIZER} element={<SortingVisualizer />} />
         <Route path={ROUTES.BIG_O_CALCULATOR} element={<BigOCalculator />} />
         <Route path={ROUTES.JSON_FORMATTER} element={<JsonFormatter />} />
+        <Route path={ROUTES.IMAGE_COMPRESSOR} element={<ImageCompressor />} />
+        <Route path="/tools/image-compress" element={<ImageCompressor />} />
+        <Route path="/tools/compress-image" element={<ImageCompressor />} />
 
         {/* ---------- Dedicated SEO Course Landing Pages ---------- */}
         <Route path={ROUTES.COURSE_GST} element={<GSTFilingPage />} />
@@ -661,6 +667,30 @@ export default function AppRoutes() {
         />
         <Route
           path={ROUTES.STUDENT_WITH_ADMISSION}
+          element={
+            <ProtectedRouteWrapper>
+              <StudentWithAdmission />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path={ROUTES.ADMIN_STUDENT_ADMISSION}
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']}>
+              <StudentWithAdmission />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/admin/add-student"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']}>
+              <StudentWithAdmission />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path={ROUTES.REGISTER_STUDENT_ADMISSION}
           element={
             <ProtectedRouteWrapper>
               <StudentWithAdmission />

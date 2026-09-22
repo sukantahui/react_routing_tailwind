@@ -499,8 +499,9 @@ export default function Dashboard() {
               whileTap={{ scale: 0.97 }}
               onClick={() => navigate("/students/student-admission")}
               className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white px-4 py-2 rounded-xl shadow-md text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+              title="Add new student with course and payment (All-in-One)"
             >
-              <span>⚡ Fast Enroll Student</span>
+              <span>⚡ Add Student (Course & Fee)</span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
