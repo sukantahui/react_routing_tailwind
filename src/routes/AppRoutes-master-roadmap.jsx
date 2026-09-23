@@ -23,6 +23,7 @@ const SortingVisualizer = lazy(() => import('../components/SortingVisualizer'));
 const BigOCalculator = lazy(() => import('../components/BigOCalculator'));
 const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
 const ImageCompressor = lazy(() => import('../components/ImageCompressor'));
+const ScreenRecorder = lazy(() => import('../components/ScreenRecorder'));
 const MenstrualCalendarApp = lazy(() => import('../components/menstrual-calendar/MenstrualCalendarApp'));
 
 // Dedicated SEO Course Landing Pages
@@ -139,6 +140,7 @@ const ROUTES = {
   BIG_O_CALCULATOR: '/tools/big-o-calculator',
   JSON_FORMATTER: '/tools/json-formatter',
   IMAGE_COMPRESSOR: '/tools/image-compressor',
+  SCREEN_RECORDER: '/tools/screen-recorder',
   PLAYGROUND: '/play',
 
   PYTHON_PLAY: '/python-play',
@@ -617,6 +619,10 @@ export default function AppRoutes() {
         <Route path={ROUTES.IMAGE_COMPRESSOR} element={<ImageCompressor />} />
         <Route path="/tools/image-compress" element={<ImageCompressor />} />
         <Route path="/tools/compress-image" element={<ImageCompressor />} />
+        <Route path={ROUTES.SCREEN_RECORDER} element={<ScreenRecorder />} />
+        <Route path="/screen-recorder" element={<ScreenRecorder />} />
+        <Route path="/tools/screenrecorder" element={<ScreenRecorder />} />
+        <Route path="/tools/screen-recording" element={<ScreenRecorder />} />
 
         {/* ---------- Dedicated SEO Course Landing Pages ---------- */}
         <Route path="/courses" element={<CoursesPage />} />

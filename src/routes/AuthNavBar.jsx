@@ -348,6 +348,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
       items: [
         {
+          to: "/tools/screen-recorder",
+          label: "CNAT Screen Recorder",
+          desc: "Download Windows screen & audio recorder software (.EXE)",
+          icon: "bi-camera-video-fill",
+          tag: "Desktop App",
+        },
+        {
           to: "/tools/image-compressor",
           label: "Image Compressor & Resizer",
           desc: "Compress pictures to desired size (KB/MB) & resolution",
@@ -625,7 +632,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   }, [location.pathname]);
 
   const isToolsActive = useMemo(() => {
-    const paths = ["/tools", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer"];
+    const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer"];
     return paths.some((p) => location.pathname.startsWith(p));
   }, [location.pathname]);
 
