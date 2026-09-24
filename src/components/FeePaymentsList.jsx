@@ -33,13 +33,17 @@ import {
   Plus,
   AlertCircle,
   Sparkles,
+  Settings as SettingsIcon,
 } from "lucide-react";
 import api from "../api/api";
 import { loginService } from "../services/loginService";
 import { studentService } from "../services/studentService";
+import { admissionService } from "../services/admissionService";
+import AdmissionStatusModal from "./common/AdmissionStatusModal";
 import CNATLogo from "../assets/cnat.png";
 import paidStamp from "../assets/images/paid-stamp.png";
 import CNATQR from "../assets/images/CNAT_QR.jpeg";
+import instructorSign from "../assets/instructor-sign.png";
 import QRCode from "qrcode";
 
 export default function FeePaymentsList() {
@@ -63,6 +67,7 @@ export default function FeePaymentsList() {
   const [currentUser, setCurrentUser] = useState(null);
   const [logoDataUrl, setLogoDataUrl] = useState("");
   const [paidStampDataUrl, setPaidStampDataUrl] = useState("");
+  const [signatureDataUrl, setSignatureDataUrl] = useState("");
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState("");
   const [isSavingImage, setIsSavingImage] = useState(false);
   const [isSendingWhatsApp, setIsSendingWhatsApp] = useState(false);
@@ -94,6 +99,62 @@ export default function FeePaymentsList() {
   const [duesFilter, setDuesFilter] = useState("DUES_ONLY"); // 'DUES_ONLY' | 'ALL' | 'MULTI_COURSE' | 'MONTHLY' | 'LUMPSUM' | 'CLEARED'
   const [duesSearchTerm, setDuesSearchTerm] = useState("");
   const [expandedStudents, setExpandedStudents] = useState({});
+
+  // Status & Closing Date Modal State
+  const [statusModalAdmission, setStatusModalAdmission] = useState(null);
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
+
+  const handleOpenStatusModal = (adm) => {
+    setStatusModalAdmission({
+      admissionId: adm.admissionId || adm.id,
+      admissionNumber: adm.admissionNumber || adm.admissionNo,
+      studentName: adm.studentName || adm.student?.name || adm.student?.studentName || adm.student?.student_name,
+      courseName: adm.courseName || adm.course?.name || adm.course?.courseName || adm.course?.course_name,
+      admissionDate: adm.admissionDate || adm.admission_date,
+      completionDate: adm.completionDate || adm.completion_date,
+      courseStatusId:
+        adm.courseStatusId ||
+        adm.course_status_id ||
+        adm.courseStatus?.id ||
+        (adm.courseStatusName === "Completed" || adm.courseStatus?.statusName === "Completed"
+          ? 2
+          : adm.courseStatusName === "Incomplete" || adm.courseStatus?.statusName === "Incomplete"
+          ? 3
+          : 1),
+    });
+    setIsStatusModalOpen(true);
+  };
+
+  const handleStatusUpdateSuccess = ({ admissionId, courseStatusId, courseStatusName, completionDate }) => {
+    // 1. If active ledger modal is open for this admission, reload the ledger
+    if (
+      selectedLedger &&
+      String(selectedLedger.admission?.admissionId || selectedLedger.admission?.id) === String(admissionId)
+    ) {
+      handleOpenLedgerForAdmission(admissionId);
+    }
+    // 2. If dues report is active, reload dues
+    loadDuesData();
+    // 3. Update admissionsList if loaded
+    setAdmissionsList((prev) =>
+      prev.map((a) => {
+        if (String(a.admissionId || a.id) === String(admissionId)) {
+          return {
+            ...a,
+            courseStatusId,
+            courseStatus: {
+              ...(a.courseStatus || {}),
+              id: courseStatusId,
+              courseStatusName,
+              statusName: courseStatusName,
+            },
+            completionDate,
+          };
+        }
+        return a;
+      })
+    );
+  };
 
   // Live Comprehensive Filter for Student Ledger Modal (Admission ID, Admission No, Reg No, Student Name, Phone, Course)
   const filteredAdmissions = useMemo(() => {
@@ -137,6 +198,16 @@ export default function FeePaymentsList() {
         const stampReader = new FileReader();
         stampReader.onloadend = () => setPaidStampDataUrl(stampReader.result);
         stampReader.readAsDataURL(stampBlob);
+
+        try {
+          const signRes = await fetch(instructorSign);
+          const signBlob = await signRes.blob();
+          const signReader = new FileReader();
+          signReader.onloadend = () => setSignatureDataUrl(signReader.result);
+          signReader.readAsDataURL(signBlob);
+        } catch (signErr) {
+          console.warn("Signature preload note:", signErr);
+        }
 
         const qrRes = await fetch(CNATQR);
         const qrBlob = await qrRes.blob();
@@ -875,6 +946,7 @@ export default function FeePaymentsList() {
     const logoSrc = logoDataUrl || CNATLogo || "/assets/cnat.png";
     const qrSrc = qrCodeDataUrl || CNATQR || "/assets/CNAT_QR.jpeg";
     const stampSrc = paidStampDataUrl || paidStamp || "/assets/images/paid-stamp.png";
+    const signatureSrc = signatureDataUrl || instructorSign || "/assets/instructor-sign.png";
     const nowFormatted = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
       month: "long",
@@ -1319,7 +1391,10 @@ export default function FeePaymentsList() {
         <div class="stamp-container">
           <img src="${stampSrc}" alt="Official Stamp" />
         </div>
-        <div>
+        <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+          <div style="height: 36px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 2px;">
+            <img src="${signatureSrc}" alt="Authorized Signature" style="max-height: 34px; width: auto; object-fit: contain;" />
+          </div>
           <div class="sig-line">Authorized Signatory</div>
           <div style="font-size: 7.5px; color: #64748b; margin-top: 2px;">Accounts Department, CNAT</div>
         </div>
@@ -2303,6 +2378,7 @@ export default function FeePaymentsList() {
     const collectorDesignation = getCollectorDesignation();
     const logoImgSrc = logoDataUrl || CNATLogo || "/assets/cnat.png";
     const paidStampImgSrc = paidStampDataUrl || paidStamp;
+    const signatureImgSrc = signatureDataUrl || instructorSign || "/assets/instructor-sign.png";
 
     printWindow.document.write(`
     <!DOCTYPE html>
@@ -2854,9 +2930,12 @@ export default function FeePaymentsList() {
                     <p>Student's Signature</p>
                     <p>(Student)</p>
                   </div>
-                  <div class="signature-line">
+                  <div class="signature-line" style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="height: 36px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 2px;">
+                      <img src="${signatureImgSrc}" alt="Authorized Signature" style="max-height: 34px; width: auto; object-fit: contain;" />
+                    </div>
                     <p>Authorized Signatory</p>
-                    <p>(Coder & AccoTax)</p>
+                    <p>(Coder &amp; AccoTax)</p>
                   </div>
                 </div>
                 <div class="footer-note">
@@ -4318,9 +4397,16 @@ export default function FeePaymentsList() {
                           (Student)
                         </div>
                       </div>
-                      <div className="text-center w-44">
-                        <p className="text-[9px] text-slate-500 mb-1">Authorized Signatory</p>
-                        <div className="border-t border-slate-300 pt-1 text-[10px] font-semibold text-slate-800">
+                      <div className="text-center w-44 flex flex-col items-center">
+                        <div className="h-10 flex items-end justify-center mb-0.5">
+                          <img
+                            src={signatureDataUrl || instructorSign || "/assets/instructor-sign.png"}
+                            alt="Authorized Signature"
+                            className="max-h-9 w-auto object-contain pointer-events-none"
+                          />
+                        </div>
+                        <p className="text-[9px] text-slate-500 mb-0.5">Authorized Signatory</p>
+                        <div className="w-full border-t border-slate-300 pt-1 text-[10px] font-semibold text-slate-800">
                           (Coder &amp; AccoTax)
                         </div>
                       </div>
@@ -4639,17 +4725,59 @@ export default function FeePaymentsList() {
                   </div>
 
                   <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-1.5">
-                    <div className="font-bold text-indigo-400 uppercase tracking-wider text-[11px] pb-1 border-b border-slate-800">
-                      📚 Academic Enrollment
+                    <div className="flex items-center justify-between pb-1 border-b border-slate-800">
+                      <div className="font-bold text-indigo-400 uppercase tracking-wider text-[11px]">
+                        📚 Academic Enrollment
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleOpenStatusModal({
+                            admissionId: selectedLedger.admission?.admissionId || selectedLedger.admission?.id,
+                            admissionNumber: selectedLedger.admission?.admissionNumber,
+                            studentName: selectedLedger.student?.name,
+                            courseName: selectedLedger.course?.name,
+                            admissionDate: selectedLedger.admission?.admissionDate,
+                            completionDate: selectedLedger.admission?.completionDate,
+                            courseStatusId: selectedLedger.admission?.courseStatusId,
+                            courseStatusName: selectedLedger.admission?.courseStatusName,
+                          })
+                        }
+                        className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 transition cursor-pointer flex items-center gap-1 shadow-sm"
+                        title="Mark Completed / Discontinued & Assign Closing Date"
+                      >
+                        <SettingsIcon className="w-3 h-3" />
+                        <span>Set Status &amp; Closing Date</span>
+                      </button>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Enrolled Course:</span>
                       <strong className="text-white">{selectedLedger.course?.name}</strong>
                     </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-400">Course Status:</span>
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                          Number(selectedLedger.admission?.courseStatusId) === 2 || selectedLedger.admission?.courseStatusName === "Completed"
+                            ? "bg-blue-500/15 text-blue-400 border-blue-500/30"
+                            : Number(selectedLedger.admission?.courseStatusId) === 3 || selectedLedger.admission?.courseStatusName === "Incomplete"
+                            ? "bg-rose-500/15 text-rose-400 border-rose-500/30"
+                            : "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                        }`}
+                      >
+                        {selectedLedger.admission?.courseStatusName || (selectedLedger.admission?.completionDate ? "Completed" : "Ongoing")}
+                      </span>
+                    </div>
                     <div className="flex justify-between">
                       <span className="text-slate-400">Admission Date:</span>
                       <span className="text-slate-200 font-semibold">{selectedLedger.admission?.admissionDate || "N/A"}</span>
                     </div>
+                    {selectedLedger.admission?.completionDate && (
+                      <div className="flex justify-between">
+                        <span className="text-slate-400">Closing Date:</span>
+                        <span className="text-amber-300 font-mono font-bold">{selectedLedger.admission?.completionDate}</span>
+                      </div>
+                    )}
                     <div className="flex justify-between">
                       <span className="text-slate-400">Fee Mode:</span>
                       <span className="text-emerald-400 font-bold">{selectedLedger.admission?.feeMode}</span>
@@ -5283,6 +5411,26 @@ export default function FeePaymentsList() {
 
                                         <button
                                           type="button"
+                                          onClick={() =>
+                                            handleOpenStatusModal({
+                                              admissionId: c.admissionId,
+                                              admissionNumber: c.admissionNo,
+                                              studentName: s.studentName,
+                                              courseName: c.courseName,
+                                              admissionDate: c.admissionDate,
+                                              completionDate: c.completionDate,
+                                              courseStatusId: c.courseStatusId,
+                                              courseStatusName: c.courseStatusName,
+                                            })
+                                          }
+                                          className="p-1.5 rounded-lg text-slate-400 hover:text-amber-300 hover:bg-slate-800 transition cursor-pointer"
+                                          title="Mark Completed / Discontinued & Assign Closing Date"
+                                        >
+                                          <SettingsIcon className="w-3.5 h-3.5" />
+                                        </button>
+
+                                        <button
+                                          type="button"
                                           onClick={() => handlePayDue(c)}
                                           className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1 shadow-sm cursor-pointer"
                                           title="Record fee payment for this course"
@@ -5383,6 +5531,25 @@ export default function FeePaymentsList() {
                                   </button>
                                   <button
                                     type="button"
+                                    onClick={() =>
+                                      handleOpenStatusModal({
+                                        admissionId: e.admissionId,
+                                        admissionNumber: e.admissionNo,
+                                        studentName: e.studentName,
+                                        courseName: e.courseName,
+                                        admissionDate: e.admissionDate,
+                                        completionDate: e.completionDate,
+                                        courseStatusId: e.courseStatusId,
+                                        courseStatusName: e.courseStatusName,
+                                      })
+                                    }
+                                    className="p-1 rounded-lg text-slate-400 hover:text-amber-300 hover:bg-slate-800 transition cursor-pointer"
+                                    title="Mark Completed / Discontinued & Assign Closing Date"
+                                  >
+                                    <SettingsIcon className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
                                     onClick={() => handlePayDue(e)}
                                     className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition cursor-pointer"
                                     title="Record Fee Payment"
@@ -5430,6 +5597,17 @@ export default function FeePaymentsList() {
           </div>
         )}
       </AnimatePresence>
+
+      {/* Course Status & Closing Date Modal */}
+      <AdmissionStatusModal
+        isOpen={isStatusModalOpen}
+        onClose={() => {
+          setIsStatusModalOpen(false);
+          setStatusModalAdmission(null);
+        }}
+        admission={statusModalAdmission}
+        onSuccess={handleStatusUpdateSuccess}
+      />
     </div>
   );
 }

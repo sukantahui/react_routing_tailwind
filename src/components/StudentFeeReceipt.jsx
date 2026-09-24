@@ -955,9 +955,12 @@ const StudentFeeReceipt = () => {
                     <p>Student's Signature</p>
                     <p>(Student)</p>
                   </div>
-                  <div class="signature-line">
+                  <div class="signature-line" style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="height: 36px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 2px;">
+                      <img src="/assets/instructor-sign.png" alt="Authorized Signature" style="max-height: 34px; width: auto; object-fit: contain;" />
+                    </div>
                     <p>Authorized Signatory</p>
-                    <p>(Coder & AccoTax)</p>
+                    <p>(Coder &amp; AccoTax)</p>
                   </div>
                 </div>
                 <div class="footer-note">

@@ -32,11 +32,13 @@ import {
   MapPin,
   Mail,
   Layers,
+  Settings as SettingsIcon,
 } from "lucide-react";
 import { admissionService } from "../services/admissionService";
 import { studentService } from "../services/studentService";
 import { courseService } from "../services/courseService";
 import api from "../api/api";
+import AdmissionStatusModal from "./common/AdmissionStatusModal";
 
 const StudentAdmission = () => {
   const navigate = useNavigate();
@@ -70,7 +72,68 @@ const StudentAdmission = () => {
     feeModesId: 1,
     courseFees: "",
     admissionDate: new Date().toISOString().split("T")[0],
+    completionDate: "",
   });
+
+  const [selectedAdmissionForStatus, setSelectedAdmissionForStatus] = useState(null);
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
+
+  const handleOpenStatusModal = (adm) => {
+    setSelectedAdmissionForStatus({
+      admissionId: adm.admissionId || adm.id,
+      admissionNumber: adm.admissionNumber || adm.admissionNo,
+      studentName:
+        adm.student?.studentName ||
+        adm.student?.student_name ||
+        adm.studentName ||
+        (formData.studentId
+          ? students.find((s) => String(s.studentId || s.id) === String(formData.studentId))?.studentName
+          : ""),
+      courseName: adm.course?.courseName || adm.course?.course_name || adm.courseName,
+      admissionDate: adm.admissionDate,
+      completionDate: adm.completionDate,
+      courseStatusId:
+        adm.courseStatusId ||
+        adm.courseStatus?.id ||
+        (adm.courseStatus?.courseStatusName === "Completed" || adm.courseStatus?.statusName === "Completed"
+          ? 2
+          : adm.courseStatus?.courseStatusName === "Incomplete" || adm.courseStatus?.statusName === "Incomplete"
+          ? 3
+          : 1),
+    });
+    setIsStatusModalOpen(true);
+  };
+
+  const handleStatusUpdateSuccess = ({ admissionId, courseStatusId, courseStatusName, completionDate }) => {
+    // 1. Update main admissions table
+    setAdmissions((prev) =>
+      prev.map((a) => {
+        if (String(a.admissionId || a.id) === String(admissionId)) {
+          return {
+            ...a,
+            courseStatusId,
+            courseStatus: {
+              ...(a.courseStatus || {}),
+              id: courseStatusId,
+              courseStatusName,
+              statusName: courseStatusName,
+            },
+            completionDate,
+          };
+        }
+        return a;
+      })
+    );
+
+    // 2. Reload studentHistory if open
+    if (formData.studentId) {
+      studentService.getPreviousAdmissions(formData.studentId).then((res) => {
+        if (res?.status && res?.data) {
+          setStudentHistory(res.data);
+        }
+      });
+    }
+  };
 
   const [feePayment, setFeePayment] = useState({
     collectFeeNow: true,
@@ -365,6 +428,7 @@ const StudentAdmission = () => {
       feeModesId: Number(formData.feeModesId || 1),
       courseFees: Number(formData.courseFees),
       admissionDate: formData.admissionDate || new Date().toISOString().split("T")[0],
+      completionDate: formData.completionDate || null,
     };
 
     if (feePayment.collectFeeNow && Number(feePayment.amountPaid) > 0) {
@@ -850,6 +914,7 @@ const StudentAdmission = () => {
                   setExpandedReceipts((prev) => ({ ...prev, [admId]: !prev[admId] }))
                 }
                 selectedStudentObj={selectedStudentObj}
+                onOpenStatusModal={handleOpenStatusModal}
               />
             )}
 
@@ -886,6 +951,39 @@ const StudentAdmission = () => {
                 min="0"
                 step="any"
                 placeholder="e.g. 14000"
+              />
+            </div>
+
+            {/* Admission Date, Course Status, and Closing / Target Date */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Input
+                label="Admission Date"
+                name="admissionDate"
+                value={formData.admissionDate}
+                onChange={handleChange}
+                type="date"
+                required
+              />
+
+              <Select
+                label="Course Status"
+                name="courseStatusId"
+                value={String(formData.courseStatusId || "1")}
+                onChange={handleChange}
+                options={[
+                  { value: "1", label: "Ongoing (Active)" },
+                  { value: "2", label: "Completed" },
+                  { value: "3", label: "Incomplete / Discontinued" },
+                ]}
+              />
+
+              <Input
+                label="Closing / Completion Date (Optional)"
+                name="completionDate"
+                value={formData.completionDate || ""}
+                onChange={handleChange}
+                type="date"
+                placeholder="Optional closing date"
               />
             </div>
 
@@ -1246,44 +1344,98 @@ const StudentAdmission = () => {
                       Admission Date <SortIcon columnKey="admissionDate" />
                     </div>
                   </th>
+                  <th className="p-3.5">Closing Date</th>
                   <th className="p-3.5">Status</th>
+                  <th className="p-3.5 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-800">
                 {sortedAdmissions.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="text-center py-8 text-gray-500">
+                    <td colSpan={8} className="text-center py-8 text-gray-500">
                       No admission records found.
                     </td>
                   </tr>
                 ) : (
-                  sortedAdmissions.map((adm, i) => (
-                    <tr key={adm.admissionId || adm.id || i} className="hover:bg-gray-800/40 transition">
-                      <td className="p-3.5">{i + 1}</td>
-                      <td className="p-3.5 font-semibold text-white">
-                        {adm.student?.studentName || `ID: ${adm.student?.studentId}`}
-                      </td>
-                      <td className="p-3.5 text-sky-400">
-                        {adm.course?.courseName || `ID: ${adm.course?.courseId}`}
-                      </td>
-                      <td className="p-3.5 text-right font-extrabold text-emerald-400">
-                        ₹{Number(adm.courseFees || 0).toLocaleString()}
-                      </td>
-                      <td className="p-3.5">
-                        {adm.admissionDate ? new Date(adm.admissionDate).toLocaleDateString() : "—"}
-                      </td>
-                      <td className="p-3.5">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                          {adm.courseStatus?.courseStatusName || "Ongoing"}
-                        </span>
-                      </td>
-                    </tr>
-                  ))
+                  sortedAdmissions.map((adm, i) => {
+                    const statusName =
+                      adm.courseStatus?.courseStatusName ||
+                      adm.courseStatus?.statusName ||
+                      (adm.completionDate ? "Completed" : "Ongoing");
+                    const statusId = Number(adm.courseStatusId || adm.courseStatus?.id || 1);
+
+                    return (
+                      <tr key={adm.admissionId || adm.id || i} className="hover:bg-gray-800/40 transition">
+                        <td className="p-3.5 font-mono text-slate-400">{i + 1}</td>
+                        <td className="p-3.5 font-semibold text-white">
+                          <div>{adm.student?.studentName || `ID: ${adm.student?.studentId}`}</div>
+                          {adm.student?.registrationNumber && (
+                            <div className="text-[10px] font-mono text-slate-400">
+                              {adm.student.registrationNumber}
+                            </div>
+                          )}
+                        </td>
+                        <td className="p-3.5 text-sky-400 font-medium">
+                          {adm.course?.courseName || `ID: ${adm.course?.courseId}`}
+                        </td>
+                        <td className="p-3.5 text-right font-extrabold text-emerald-400">
+                          ₹{Number(adm.courseFees || 0).toLocaleString()}
+                        </td>
+                        <td className="p-3.5 font-mono text-slate-300">
+                          {adm.admissionDate ? new Date(adm.admissionDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) : "—"}
+                        </td>
+                        <td className="p-3.5 font-mono">
+                          {adm.completionDate ? (
+                            <span className="text-amber-300 font-semibold">
+                              {new Date(adm.completionDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })}
+                            </span>
+                          ) : (
+                            <span className="text-slate-500">—</span>
+                          )}
+                        </td>
+                        <td className="p-3.5">
+                          <span
+                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold border ${
+                              statusId === 2 || statusName === "Completed"
+                                ? "bg-blue-500/15 text-blue-400 border-blue-500/30"
+                                : statusId === 3 || statusName === "Incomplete"
+                                ? "bg-rose-500/15 text-rose-400 border-rose-500/30"
+                                : "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                            }`}
+                          >
+                            {statusName}
+                          </span>
+                        </td>
+                        <td className="p-3.5 text-right">
+                          <button
+                            type="button"
+                            onClick={() => handleOpenStatusModal(adm)}
+                            className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm"
+                            title="Update Status / Assign Closing Date"
+                          >
+                            <SettingsIcon className="w-3.5 h-3.5" />
+                            <span>Status &amp; Closing Date</span>
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
                 )}
               </tbody>
             </table>
           </div>
         </div>
+
+        {/* Course Status & Closing Date Modal */}
+        <AdmissionStatusModal
+          isOpen={isStatusModalOpen}
+          onClose={() => {
+            setIsStatusModalOpen(false);
+            setSelectedAdmissionForStatus(null);
+          }}
+          admission={selectedAdmissionForStatus}
+          onSuccess={handleStatusUpdateSuccess}
+        />
       </motion.div>
     </div>
   );
@@ -2214,6 +2366,7 @@ function StudentAcademicHistoryCard({
   expandedReceipts = {},
   onToggleReceipts,
   selectedStudentObj,
+  onOpenStatusModal,
 }) {
   const student = history?.student || (selectedStudentObj ? {
     studentName: selectedStudentObj.student_name || selectedStudentObj.studentName,
@@ -2402,9 +2555,26 @@ function StudentAcademicHistoryCard({
                           <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
                             [{course.courseCode}]
                           </span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                            {adm.courseStatus?.statusName || "Ongoing"}
+                          <span
+                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                              Number(adm.courseStatus?.id) === 2 || adm.courseStatus?.statusName === "Completed"
+                                ? "bg-blue-500/15 text-blue-400 border-blue-500/30"
+                                : Number(adm.courseStatus?.id) === 3 || adm.courseStatus?.statusName === "Incomplete"
+                                ? "bg-rose-500/15 text-rose-400 border-rose-500/30"
+                                : "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                            }`}
+                          >
+                            {adm.courseStatus?.statusName || (adm.completionDate ? "Completed" : "Ongoing")}
                           </span>
+
+                          <button
+                            type="button"
+                            onClick={() => onOpenStatusModal && onOpenStatusModal(adm)}
+                            className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 transition cursor-pointer flex items-center gap-1 shadow-sm"
+                            title="Update Status / Assign Closing Date"
+                          >
+                            <span>⚙️ Status &amp; Closing Date</span>
+                          </button>
                         </div>
 
                         <div className="flex items-center gap-2 text-[11px] text-slate-400 mt-0.5 flex-wrap">

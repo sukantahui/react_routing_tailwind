@@ -1594,6 +1594,9 @@
   .h-px {
     height: 1px;
   }
+  .max-h-9 {
+    max-height: calc(var(--spacing) * 9);
+  }
   .max-h-24 {
     max-height: calc(var(--spacing) * 24);
   }
