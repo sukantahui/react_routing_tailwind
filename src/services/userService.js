@@ -37,6 +37,20 @@ export const userService = {
     }
   },
 
+  // Reset a user's password (Admin only)
+  resetPassword: async (userId, newPassword = DEFAULT_STUDENT_PASSWORD) => {
+    try {
+      const response = await api.post(`/users/${userId}/reset-password`, {
+        password: newPassword,
+        new_password: newPassword,
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error resetting user password:", error);
+      throw error;
+    }
+  },
+
   /**
    * Automatically creates a new user account for a student
    * with role "Student", enrollment number as username (saved in 'email' field via API),

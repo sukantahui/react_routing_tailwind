@@ -64,4 +64,40 @@ export const loginService = {
       throw error;
     }
   },
+
+  changePassword: async ({ currentPassword, newPassword, confirmPassword }) => {
+    try {
+      const payload = {
+        current_password: currentPassword,
+        oldPassword: currentPassword,
+        old_password: currentPassword,
+        new_password: newPassword,
+        newPassword: newPassword,
+        confirm_password: confirmPassword,
+        confirmPassword: confirmPassword,
+      };
+      const response = await api.post("/change-password", payload);
+      return response.data;
+    } catch (error) {
+      console.error("Change password failed:", error);
+      throw error;
+    }
+  },
+
+  resetPassword: async ({ email, password, confirmPassword }) => {
+    try {
+      const payload = {
+        email: email ? String(email).trim() : "",
+        password: password,
+        new_password: password,
+        confirm_password: confirmPassword || password,
+      };
+      const response = await api.post("/reset-password", payload);
+      return response.data;
+    } catch (error) {
+      console.error("Password reset failed:", error);
+      throw error;
+    }
+  },
 };
+

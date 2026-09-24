@@ -61,6 +61,8 @@ const IntroductionToJava = lazy(() => import('../components/GeneralSubjects/java
 
 // Admin / protected features
 const Admin = lazy(() => import('./Admin'));
+const Profile = lazy(() => import('../components/Profile'));
+const Settings = lazy(() => import('../components/Settings'));
 const UserManagement = lazy(() => import('../components/UserManagement'));
 const AddUser = lazy(() => import('../components/AddUser'));
 const DatabaseBackup = lazy(() => import('../components/DatabaseBackup'));
@@ -94,6 +96,8 @@ const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
   DASHBOARD: '/dashboard',
+  PROFILE: '/profile',
+  SETTINGS: '/settings',
   MENSTRUAL_CALENDAR: '/menstrual-calendar',
   CERTIFICATES_PORTAL: '/certificates',
   CERTIFICATE_VIEW: '/certificates/:certificateId',
@@ -654,6 +658,24 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper>
               <Dashboard />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.PROFILE}
+          element={
+            <ProtectedRouteWrapper>
+              <Profile />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.SETTINGS}
+          element={
+            <ProtectedRouteWrapper>
+              <Settings />
             </ProtectedRouteWrapper>
           }
         />

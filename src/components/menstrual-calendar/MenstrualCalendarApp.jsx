@@ -15,6 +15,38 @@ import { X, CheckCircle2, AlertTriangle, Info, Lock } from 'lucide-react';
 export default function MenstrualCalendarApp() {
   const navigate = useNavigate();
 
+  // Modals visibility state
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [isTestsOpen, setIsTestsOpen] = useState(false);
+
+  // Cycle data hook
+  const {
+    isLoaded,
+    isApiMode,
+    isSyncing,
+    periodStarts,
+    periodEntries,
+    settings,
+    apiProfile,
+    cycleStats,
+    predictedCycles,
+    dateStatusMap,
+    notification,
+    addPeriodStart,
+    bulkAddPeriodDates,
+    editPeriodStart,
+    deletePeriodStart,
+    clearHistory,
+    loadSampleData,
+    updateSettings,
+    updateHealthProfile,
+    syncToCloud,
+    exportData,
+    importData,
+    dismissNotification,
+  } = useCycleData();
+
   // Explicit Authentication Check
   const token = localStorage.getItem('token');
   const rawUser = localStorage.getItem('user');
@@ -57,36 +89,6 @@ export default function MenstrualCalendarApp() {
       </div>
     );
   }
-  const {
-    isLoaded,
-    isApiMode,
-    isSyncing,
-    periodStarts,
-    periodEntries,
-    settings,
-    apiProfile,
-    cycleStats,
-    predictedCycles,
-    dateStatusMap,
-    notification,
-    addPeriodStart,
-    bulkAddPeriodDates,
-    editPeriodStart,
-    deletePeriodStart,
-    clearHistory,
-    loadSampleData,
-    updateSettings,
-    updateHealthProfile,
-    syncToCloud,
-    exportData,
-    importData,
-    dismissNotification,
-  } = useCycleData();
-
-  // Modals visibility state
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
-  const [isTestsOpen, setIsTestsOpen] = useState(false);
 
   if (!isLoaded) {
     return (

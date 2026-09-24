@@ -36,25 +36,55 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   const searchInputRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  // Safely parse user from localStorage
-  const user = useMemo(() => {
+  // Safely parse user from localStorage with reactive state
+  const [user, setUser] = useState(() => {
     try {
       const rawUser = localStorage.getItem("user");
-      if (!rawUser) return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator" };
+      if (!rawUser) return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator", avatar: "" };
       if (typeof rawUser === "string" && (rawUser.startsWith("{") || rawUser.startsWith("["))) {
         const parsed = JSON.parse(rawUser);
         return {
           name: parsed.name || parsed.username || parsed.fullName || "Faculty Admin",
           email: parsed.email || "admin@coderaccotax.in",
           role: parsed.role || "Administrator",
+          avatar: parsed.avatar || parsed.profilePicture || parsed.image || localStorage.getItem("userAvatar") || "",
           ...parsed,
         };
       }
-      return { name: rawUser, email: "admin@coderaccotax.in", role: "Administrator" };
+      return { name: rawUser, email: "admin@coderaccotax.in", role: "Administrator", avatar: "" };
     } catch {
-      return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator" };
+      return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator", avatar: "" };
     }
+  });
+
+  useEffect(() => {
+    const handleAuthChange = () => {
+      try {
+        const rawUser = localStorage.getItem("user");
+        if (rawUser && (rawUser.startsWith("{") || rawUser.startsWith("["))) {
+          const parsed = JSON.parse(rawUser);
+          setUser({
+            name: parsed.name || parsed.username || parsed.fullName || "Faculty Admin",
+            email: parsed.email || "admin@coderaccotax.in",
+            role: parsed.role || "Administrator",
+            avatar: parsed.avatar || parsed.profilePicture || parsed.image || localStorage.getItem("userAvatar") || "",
+            ...parsed,
+          });
+        }
+      } catch (err) {
+        void err;
+      }
+    };
+
+    window.addEventListener("storage", handleAuthChange);
+    window.addEventListener("authChanged", handleAuthChange);
+    return () => {
+      window.removeEventListener("storage", handleAuthChange);
+      window.removeEventListener("authChanged", handleAuthChange);
+    };
   }, []);
+
+  const userAvatar = user?.avatar || user?.profilePicture || user?.image || "";
 
   const isDev = Boolean(import.meta.env?.DEV);
   const isAdmin = useMemo(() => {
@@ -1116,8 +1146,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                   aria-label="User Account Menu"
                 >
                   {/* Avatar with gradient & online dot */}
-                  <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-tr from-sky-600 via-indigo-600 to-purple-600 text-white font-bold text-xs shadow-md shadow-sky-500/20">
-                    {userInitials}
+                  <div className="relative flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-tr from-sky-600 via-indigo-600 to-purple-600 text-white font-bold text-xs shadow-md shadow-sky-500/20 overflow-hidden">
+                    {userAvatar ? (
+                      <img
+                        src={userAvatar}
+                        alt="Avatar"
+                        className="w-full h-full object-cover"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    ) : (
+                      userInitials
+                    )}
                     <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
                   </div>
 
@@ -1150,8 +1189,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                       {/* User Header Summary */}
                       <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 mb-2">
                         <div className="flex items-center gap-2.5 mb-1.5">
-                          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
-                            {userInitials}
+                          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md overflow-hidden">
+                            {userAvatar ? (
+                              <img
+                                src={userAvatar}
+                                alt="Avatar"
+                                className="w-full h-full object-cover"
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                              />
+                            ) : (
+                              userInitials
+                            )}
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-bold text-white truncate">

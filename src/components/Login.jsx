@@ -3,7 +3,7 @@
 // ============================================================================
 
 import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import { loginService } from "../services/loginService";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,10 +11,11 @@ import cnat from "../assets/cnat.png";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(location.state?.error || "");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -78,7 +79,8 @@ const Login = () => {
             popup: "border border-slate-800 rounded-2xl shadow-2xl shadow-sky-950",
           },
         }).finally(() => {
-          navigate("/dashboard", { replace: true });
+          const redirectPath = location.state?.from || "/dashboard";
+          navigate(redirectPath, { replace: true });
         });
       } else {
         setError(res?.message || "Invalid login credentials. Please try again.");
@@ -101,6 +103,80 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleForgotPassword = () => {
+    Swal.fire({
+      title: "Reset Account Password",
+      html: `
+        <div class="text-left space-y-3 text-xs text-slate-300">
+          <p class="text-slate-400">Enter your registered email or student enrollment number along with your new password.</p>
+          <div>
+            <label class="block font-semibold text-slate-200 mb-1">Email / Enrollment No</label>
+            <input id="swal-reset-email" type="text" value="${formData.email || ""}" placeholder="e.g. Enrollment No or Email" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-sky-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-200 mb-1">New Password</label>
+            <input id="swal-reset-pass" type="password" placeholder="Minimum 6 characters" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-sky-500" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-200 mb-1">Confirm New Password</label>
+            <input id="swal-reset-confirm" type="password" placeholder="Re-type new password" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white outline-none focus:border-sky-500" />
+          </div>
+        </div>
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Reset Password",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#0284c7",
+      cancelButtonColor: "#334155",
+      background: "#0f172a",
+      color: "#f8fafc",
+      focusConfirm: false,
+      preConfirm: async () => {
+        const email = document.getElementById("swal-reset-email")?.value?.trim();
+        const pass = document.getElementById("swal-reset-pass")?.value;
+        const confirm = document.getElementById("swal-reset-confirm")?.value;
+
+        if (!email || !pass) {
+          Swal.showValidationMessage("Please provide email/enrollment and new password.");
+          return false;
+        }
+        if (pass.length < 6) {
+          Swal.showValidationMessage("Password must be at least 6 characters.");
+          return false;
+        }
+        if (pass !== confirm) {
+          Swal.showValidationMessage("Passwords do not match.");
+          return false;
+        }
+
+        try {
+          const res = await loginService.resetPassword({
+            email,
+            password: pass,
+            confirmPassword: confirm,
+          });
+          return res;
+        } catch (err) {
+          Swal.showValidationMessage(
+            err.response?.data?.message || "Failed to reset password. Please check your details."
+          );
+          return false;
+        }
+      },
+    }).then((res) => {
+      if (res.isConfirmed && res.value) {
+        Swal.fire({
+          title: "Password Reset Successfully!",
+          text: "Your password has been updated. You can now sign in with your new password.",
+          icon: "success",
+          background: "#0f172a",
+          color: "#f8fafc",
+          confirmButtonColor: "#0284c7",
+        });
+      }
+    });
   };
 
   return (
@@ -223,16 +299,7 @@ const Login = () => {
                   </label>
                   <button
                     type="button"
-                    onClick={() => {
-                      Swal.fire({
-                        title: "Account Recovery",
-                        text: "Please contact the institute administrator to reset your credentials.",
-                        icon: "info",
-                        confirmButtonColor: "#0284c7",
-                        background: "#0f172a",
-                        color: "#f8fafc",
-                      });
-                    }}
+                    onClick={handleForgotPassword}
                     className="text-[11px] text-sky-400 hover:text-sky-300 hover:underline font-medium cursor-pointer"
                   >
                     Forgot password?

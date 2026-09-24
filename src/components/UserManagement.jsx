@@ -567,6 +567,55 @@ const UserManagement = () => {
     );
   };
 
+  const handleResetUserPassword = (userObj) => {
+    const displayName = userObj.name || userObj.userName || `User #${userObj.id}`;
+    Swal.fire({
+      title: "Reset User Password",
+      html: `
+        <div class="text-left space-y-3 text-xs text-slate-300">
+          <p>Reset password for <b class="text-white">${displayName}</b> (<span class="font-mono text-sky-400">${userObj.email || userObj.userName}</span>).</p>
+          <div>
+            <label class="block font-semibold text-slate-200 mb-1">New Password</label>
+            <input id="swal-user-new-pass" type="text" value="${DEFAULT_STUDENT_PASSWORD}" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-amber-300 font-mono text-sm outline-none focus:border-sky-500" />
+            <p class="text-[10px] text-slate-400 mt-1">Default student &amp; staff credential: <span class="font-mono text-amber-300 font-bold">${DEFAULT_STUDENT_PASSWORD}</span></p>
+          </div>
+        </div>
+      `,
+      showCancelButton: true,
+      confirmButtonText: "Reset Password",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#f59e0b",
+      cancelButtonColor: "#334155",
+      background: "#0f172a",
+      color: "#f8fafc",
+      preConfirm: async () => {
+        const pass = document.getElementById("swal-user-new-pass")?.value?.trim();
+        if (!pass || pass.length < 6) {
+          Swal.showValidationMessage("Password must be at least 6 characters.");
+          return false;
+        }
+        try {
+          const res = await userService.resetPassword(userObj.id, pass);
+          return { res, pass };
+        } catch (err) {
+          Swal.showValidationMessage(err.response?.data?.message || "Failed to reset user password.");
+          return false;
+        }
+      },
+    }).then((res) => {
+      if (res.isConfirmed && res.value) {
+        Swal.fire({
+          title: "Password Reset Complete!",
+          html: `<p class="text-xs text-slate-300 mb-2">Password for <b class="text-white">${displayName}</b> has been set to:</p><p class="font-mono text-sm text-amber-300 font-bold bg-slate-950 p-2.5 rounded-xl border border-slate-700 select-all">${res.value.pass}</p>`,
+          icon: "success",
+          background: "#0f172a",
+          color: "#f8fafc",
+          confirmButtonColor: "#0284c7",
+        });
+      }
+    });
+  };
+
   // Reusable Table Header
   const renderTableHeader = () => (
     <thead className="bg-slate-950/70 border-b border-slate-800 text-[11px] uppercase font-semibold text-slate-400 tracking-wider">
@@ -578,6 +627,7 @@ const UserManagement = () => {
         <th className="py-3.5 px-4">Affiliation &amp; Category</th>
         <th className="py-3.5 px-4">Mobile</th>
         <th className="py-3.5 px-4 text-center">Status</th>
+        <th className="py-3.5 px-4 text-right">Actions</th>
       </tr>
     </thead>
   );
@@ -665,6 +715,18 @@ const UserManagement = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             Active
           </span>
+        </td>
+
+        <td className="py-3.5 px-4 text-right">
+          <button
+            type="button"
+            onClick={() => handleResetUserPassword(u)}
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition cursor-pointer"
+            title="Reset password for this user"
+          >
+            <i className="bi bi-key-fill text-[11px] text-amber-400"></i>
+            <span>Reset Pass</span>
+          </button>
         </td>
       </tr>
     );

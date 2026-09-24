@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { toPng } from "html-to-image";
+import { jsPDF } from "jspdf";
 import lessonsData from "./typing-lessons.json";
 
 const LESSONS = lessonsData;
@@ -7,14 +9,14 @@ const LESSONS = lessonsData;
 // 🖐 Touch Typing Finger Mapping
 // ===============================
 const FINGER_MAP = {
-  leftPinky: "qaz",
-  leftRing: "wsx",
-  leftMiddle: "edc",
-  leftIndex: "rfvtgb",
-  rightIndex: "yhnujm",
-  rightMiddle: "ik,",
-  rightRing: "ol.",
-  rightPinky: "p;",
+  leftPinky: "qaz`~1!",
+  leftRing: "wsx2@",
+  leftMiddle: "edc3#",
+  leftIndex: "rfvtgb4$5%",
+  rightIndex: "yhnujm6^7&",
+  rightMiddle: "ik,8*",
+  rightRing: "ol.9(",
+  rightPinky: "p;/:?\"'{[}]_+=-\\|0)",
   thumbs: " ",
 };
 
@@ -29,6 +31,130 @@ const FINGER_LABELS = {
   rightPinky: "Right Pinky",
   thumbs: "Thumb (Space)",
 };
+
+// ===============================
+// 🏆 Achievement Badges Definition
+// ===============================
+export const BADGES = [
+  {
+    id: "first_step",
+    title: "First Step",
+    icon: "🌟",
+    description: "Complete your very first typing lesson.",
+    category: "Milestone",
+    check: (stats) => (stats.completedLessonsCount || 0) >= 1,
+  },
+  {
+    id: "perfectionist",
+    title: "Perfectionist",
+    icon: "🎯",
+    description: "Complete any lesson with 100% accuracy.",
+    category: "Accuracy",
+    check: (_stats, currentResult) => currentResult?.accuracy === 100,
+  },
+  {
+    id: "sharpshooter",
+    title: "Sharpshooter",
+    icon: "🏹",
+    description: "Complete a lesson with 95% or higher accuracy.",
+    category: "Accuracy",
+    check: (_stats, currentResult) => (currentResult?.accuracy || 0) >= 95,
+  },
+  {
+    id: "pace_setter",
+    title: "Pace Setter",
+    icon: "⚡",
+    description: "Achieve 25+ WPM in a completed lesson.",
+    category: "Speed",
+    check: (_stats, currentResult) => (currentResult?.wpm || 0) >= 25,
+  },
+  {
+    id: "speed_demon",
+    title: "Speed Demon",
+    icon: "🚀",
+    description: "Achieve 45+ WPM in a completed lesson.",
+    category: "Speed",
+    check: (_stats, currentResult) => (currentResult?.wpm || 0) >= 45,
+  },
+  {
+    id: "mach_speed",
+    title: "Mach Speed",
+    icon: "🏎️",
+    description: "Achieve 65+ WPM in a completed lesson.",
+    category: "Speed",
+    check: (_stats, currentResult) => (currentResult?.wpm || 0) >= 65,
+  },
+  {
+    id: "streak_3",
+    title: "Consistency Cadet",
+    icon: "🔥",
+    description: "Practice for 3 consecutive days.",
+    category: "Streak",
+    check: (stats) => (stats.streak || 0) >= 3,
+  },
+  {
+    id: "streak_7",
+    title: "Unstoppable",
+    icon: "👑",
+    description: "Practice for 7 consecutive days.",
+    category: "Streak",
+    check: (stats) => (stats.streak || 0) >= 7,
+  },
+  {
+    id: "scholar_10",
+    title: "Scholar",
+    icon: "📚",
+    description: "Complete 10 different typing lessons.",
+    category: "Milestone",
+    check: (stats) => (stats.completedLessonIds || []).length >= 10,
+  },
+  {
+    id: "master_25",
+    title: "Typing Veteran",
+    icon: "🛡️",
+    description: "Complete 25 different typing lessons.",
+    category: "Milestone",
+    check: (stats) => (stats.completedLessonIds || []).length >= 25,
+  },
+  {
+    id: "beginner_master",
+    title: "Beginner Master",
+    icon: "🌱",
+    description: "Complete all Beginner level lessons.",
+    category: "Tier",
+    check: (stats, _currentResult, allLessons) => {
+      const beginner = (allLessons || []).filter((l) => l.level === "Beginner");
+      return (
+        beginner.length > 0 &&
+        beginner.every((l) => (stats.completedLessonIds || []).includes(l.id))
+      );
+    },
+  },
+  {
+    id: "time_15m",
+    title: "Dedicated Typist",
+    icon: "⏳",
+    description: "Spend over 15 minutes in total practice time.",
+    category: "Time",
+    check: (stats) => (stats.totalPracticeTime || 0) >= 900,
+  },
+  {
+    id: "xp_1000",
+    title: "XP Pioneer",
+    icon: "💎",
+    description: "Earn 1,000 Total Experience Points.",
+    category: "XP",
+    check: (stats) => (stats.totalXP || 0) >= 1000,
+  },
+  {
+    id: "xp_3000",
+    title: "XP Titan",
+    icon: "🌌",
+    description: "Earn 3,000 Total Experience Points.",
+    category: "XP",
+    check: (stats) => (stats.totalXP || 0) >= 3000,
+  },
+];
 
 // ===============================
 // 🎵 Sound Feedback (Web Audio)
@@ -50,12 +176,17 @@ const playSound = (type) => {
     }
     oscillator.start();
     oscillator.stop(audioCtx.currentTime + 0.08);
-  } catch (e) {}
+  } catch {
+    // Web Audio API may be restricted before user gesture
+  }
 };
 
 export default class TypingLearn extends Component {
   constructor(props) {
     super(props);
+
+    this.textareaRef = null;
+    this.cardRef = null;
 
     this.state = {
       currentLessonIndex: 0,
@@ -82,6 +213,13 @@ export default class TypingLearn extends Component {
       sortField: "date",
       sortDirection: "desc",
       recordsFilter: "",
+      // Badges State
+      unlockedBadges: {},
+      showBadgesModal: false,
+      badgesFilter: "all",
+      newlyUnlockedBadges: [],
+      isDownloading: false,
+      copiedToast: false,
     };
   }
 
@@ -93,7 +231,11 @@ export default class TypingLearn extends Component {
     this.loadSoundPreference();
     this.loadCompletedLessons();
     this.loadPerformanceRecords();
+    this.loadUnlockedBadges();
     document.addEventListener("keydown", this.handleKeyDown);
+    if (this.textareaRef) {
+      this.textareaRef.focus();
+    }
   }
 
   componentWillUnmount() {
@@ -104,7 +246,7 @@ export default class TypingLearn extends Component {
   }
 
   // ------------------------------------------------
-  // Key handler (Escape to close modals)
+  // Key handler (Escape to close modals & Ctrl+Shift+Arrows)
   // ------------------------------------------------
   handleKeyDown = (e) => {
     if (e.key === "Escape") {
@@ -114,18 +256,32 @@ export default class TypingLearn extends Component {
       if (this.state.showRecordsModal) {
         this.toggleRecordsModal();
       }
+      if (this.state.showBadgesModal) {
+        this.toggleBadgesModal();
+      }
+    }
+    if (e.ctrlKey && e.shiftKey) {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        this.nextLesson();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        this.prevLesson();
+      }
     }
   };
 
   // ------------------------------------------------
-  // Helpers (same as before)
+  // Helpers
   // ------------------------------------------------
   getCurrentLesson = () => LESSONS[this.state.currentLessonIndex];
+
   formatTime = (seconds) => {
     const m = Math.floor(seconds / 60).toString().padStart(2, "0");
     const s = (seconds % 60).toString().padStart(2, "0");
     return `${m}:${s}`;
   };
+
   formatDate = (dateStr) => {
     if (!dateStr) return "";
     const d = new Date(dateStr);
@@ -137,12 +293,14 @@ export default class TypingLearn extends Component {
       minute: "2-digit",
     });
   };
+
   computeWeakKeys = (mistakeMap) => {
     const entries = Object.entries(mistakeMap || {});
     if (!entries.length) return [];
     entries.sort((a, b) => b[1] - a[1]);
     return entries.slice(0, 5).map(([key]) => key);
   };
+
   getFingerForChar = (char) => {
     if (!char) return null;
     const c = char.toLowerCase();
@@ -151,6 +309,7 @@ export default class TypingLearn extends Component {
     }
     return null;
   };
+
   getFingerKeyForChar = (char) => {
     if (!char) return null;
     const c = char.toLowerCase();
@@ -159,21 +318,29 @@ export default class TypingLearn extends Component {
     }
     return null;
   };
+
   isCorrectFingerUsed = (typed, expected) => {
     if (!typed || !expected || typed !== expected) return null;
     return this.getFingerForChar(typed) === this.getFingerForChar(expected);
   };
+
   loadSoundPreference = () => {
     try {
       const pref = localStorage.getItem("typingLearn_soundEnabled");
       if (pref !== null) this.setState({ soundEnabled: pref === "true" });
-    } catch (e) {}
+    } catch {
+      // localStorage might be disabled
+    }
   };
+
   saveSoundPreference = (enabled) => {
     try {
       localStorage.setItem("typingLearn_soundEnabled", String(enabled));
-    } catch (e) {}
+    } catch {
+      // localStorage might be disabled
+    }
   };
+
   loadCompletedLessons = () => {
     const completed = [];
     try {
@@ -184,9 +351,66 @@ export default class TypingLearn extends Component {
           if (!isNaN(id)) completed.push(id);
         }
       }
-    } catch (e) {}
+    } catch {
+      // localStorage might be disabled
+    }
     this.setState({ completedLessonIds: completed });
   };
+
+  loadUnlockedBadges = () => {
+    try {
+      const data = localStorage.getItem("typingLearn_unlockedBadges");
+      if (data) {
+        const parsed = JSON.parse(data);
+        if (parsed && typeof parsed === "object") {
+          this.setState({ unlockedBadges: parsed });
+        }
+      }
+    } catch {
+      // localStorage might be disabled
+    }
+  };
+
+  checkAndUnlockBadges = (currentResult, updatedStats) => {
+    const { unlockedBadges } = this.state;
+    const newlyUnlocked = [];
+    const updatedUnlockedBadges = { ...unlockedBadges };
+
+    BADGES.forEach((badge) => {
+      if (!updatedUnlockedBadges[badge.id]) {
+        const isEligible = badge.check(updatedStats, currentResult, LESSONS);
+        if (isEligible) {
+          const badgeData = {
+            unlockedAt: new Date().toISOString(),
+            lessonId: currentResult?.lessonId,
+            lessonTitle: currentResult?.lessonTitle,
+          };
+          updatedUnlockedBadges[badge.id] = badgeData;
+          newlyUnlocked.push({ ...badge, ...badgeData });
+        }
+      }
+    });
+
+    if (newlyUnlocked.length > 0) {
+      try {
+        localStorage.setItem(
+          "typingLearn_unlockedBadges",
+          JSON.stringify(updatedUnlockedBadges)
+        );
+      } catch {
+        // localStorage might be disabled
+      }
+      this.setState({
+        unlockedBadges: updatedUnlockedBadges,
+        newlyUnlockedBadges: newlyUnlocked,
+      });
+    } else {
+      this.setState({
+        newlyUnlockedBadges: [],
+      });
+    }
+  };
+
   loadGlobalStats = () => {
     let totalXP = 0,
       totalPracticeTime = 0,
@@ -207,12 +431,14 @@ export default class TypingLearn extends Component {
       if (mm) {
         try {
           mistakeMap = JSON.parse(mm) || {};
-        } catch (e) {
+        } catch {
           mistakeMap = {};
         }
       }
       weakKeys = this.computeWeakKeys(mistakeMap);
-    } catch (e) {}
+    } catch {
+      // localStorage might be disabled
+    }
     const level = 1 + Math.floor(totalXP / 500);
     this.setState({
       totalXP,
@@ -223,6 +449,7 @@ export default class TypingLearn extends Component {
       weakKeys,
     });
   };
+
   loadPerformanceRecords = () => {
     try {
       const data = localStorage.getItem("typingLearn_performance");
@@ -230,8 +457,11 @@ export default class TypingLearn extends Component {
         const records = JSON.parse(data);
         if (Array.isArray(records)) this.setState({ performanceRecords: records });
       }
-    } catch (e) {}
+    } catch {
+      // localStorage might be disabled
+    }
   };
+
   savePerformanceRecord = (lessonId, stats) => {
     const newRecord = {
       lessonId,
@@ -253,18 +483,25 @@ export default class TypingLearn extends Component {
             "typingLearn_performance",
             JSON.stringify(this.state.performanceRecords)
           );
-        } catch (e) {}
+        } catch {
+          // localStorage might be disabled
+        }
       }
     );
   };
 
-  // NEW: Clear all performance records
   clearPerformanceRecords = () => {
-    if (window.confirm("Are you sure you want to delete ALL performance records? This cannot be undone.")) {
+    if (
+      window.confirm(
+        "Are you sure you want to delete ALL performance records? This cannot be undone."
+      )
+    ) {
       this.setState({ performanceRecords: [] }, () => {
         try {
           localStorage.removeItem("typingLearn_performance");
-        } catch (e) {}
+        } catch {
+          // localStorage might be disabled
+        }
       });
     }
   };
@@ -277,16 +514,18 @@ export default class TypingLearn extends Component {
         const v = parseInt(stored, 10);
         return isNaN(v) ? null : v;
       }
-    } catch (err) {
+    } catch {
       return null;
     }
     return null;
   };
+
   updateBestTimeForLesson = (lessonId, currentTime) => {
     const key = `typingLearn_bestTime_${lessonId}`;
     let bestTime = null,
       isNewRecord = false;
-    if (!currentTime || currentTime <= 0) return { bestTime: null, isNewRecord: false };
+    if (!currentTime || currentTime <= 0)
+      return { bestTime: null, isNewRecord: false };
     try {
       const stored = localStorage.getItem(key);
       if (stored !== null) {
@@ -308,12 +547,13 @@ export default class TypingLearn extends Component {
         isNewRecord = true;
         localStorage.setItem(key, String(currentTime));
       }
-    } catch (err) {
+    } catch {
       bestTime = null;
       isNewRecord = false;
     }
     return { bestTime, isNewRecord };
   };
+
   calculateXPEarned = (accuracy, textLength, timeSeconds) => {
     if (!timeSeconds || timeSeconds <= 0) return 0;
     const speedFactor = textLength / timeSeconds;
@@ -322,6 +562,7 @@ export default class TypingLearn extends Component {
     const xp = Math.round(base * accuracyFactor * 5);
     return Math.max(10, xp);
   };
+
   updateGlobalStats = (lessonId, xpEarned, sessionTime, sessionMistakes) => {
     let totalXP = 0,
       totalPracticeTime = 0,
@@ -333,19 +574,27 @@ export default class TypingLearn extends Component {
     const todayDate = new Date(todayStr);
     try {
       totalXP = parseInt(localStorage.getItem("typingLearn_totalXP") || "0", 10);
-      totalPracticeTime = parseInt(localStorage.getItem("typingLearn_totalTime") || "0", 10);
-      completedLessonsCount = parseInt(localStorage.getItem("typingLearn_completedLessons") || "0", 10);
+      totalPracticeTime = parseInt(
+        localStorage.getItem("typingLearn_totalTime") || "0",
+        10
+      );
+      completedLessonsCount = parseInt(
+        localStorage.getItem("typingLearn_completedLessons") || "0",
+        10
+      );
       streak = parseInt(localStorage.getItem("typingLearn_streak") || "0", 10);
       lastPracticeDate = localStorage.getItem("typingLearn_lastPracticeDate");
       const mm = localStorage.getItem("typingLearn_mistakeMap");
       if (mm) {
         try {
           mistakeMap = JSON.parse(mm) || {};
-        } catch (e) {
+        } catch {
           mistakeMap = {};
         }
       }
-    } catch (e) {}
+    } catch {
+      // localStorage might be disabled
+    }
     totalXP += xpEarned;
     totalPracticeTime += sessionTime;
     completedLessonsCount += 1;
@@ -364,26 +613,35 @@ export default class TypingLearn extends Component {
     try {
       localStorage.setItem("typingLearn_totalXP", String(totalXP));
       localStorage.setItem("typingLearn_totalTime", String(totalPracticeTime));
-      localStorage.setItem("typingLearn_completedLessons", String(completedLessonsCount));
+      localStorage.setItem(
+        "typingLearn_completedLessons",
+        String(completedLessonsCount)
+      );
       localStorage.setItem("typingLearn_streak", String(streak));
       localStorage.setItem("typingLearn_lastPracticeDate", todayStr);
-      localStorage.setItem("typingLearn_mistakeMap", JSON.stringify(updatedMistakeMap));
+      localStorage.setItem(
+        "typingLearn_mistakeMap",
+        JSON.stringify(updatedMistakeMap)
+      );
       localStorage.setItem(`typingLearn_completed_${lessonId}`, "true");
-    } catch (e) {}
-    this.setState((prev) => ({
-      completedLessonIds: [...prev.completedLessonIds, lessonId],
-    }));
+    } catch {
+      // localStorage might be disabled
+    }
+    const completedLessonIds = [...new Set([...this.state.completedLessonIds, lessonId])];
+    this.setState({ completedLessonIds });
     const weakKeys = this.computeWeakKeys(updatedMistakeMap);
     const level = 1 + Math.floor(totalXP / 500);
     return {
       totalXP,
       totalPracticeTime,
       completedLessonsCount,
+      completedLessonIds,
       streak,
       weakKeys,
       level,
     };
   };
+
   startTimer = () => {
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -393,6 +651,7 @@ export default class TypingLearn extends Component {
       }));
     }, 1000);
   };
+
   stopTimer = () => {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
@@ -400,62 +659,320 @@ export default class TypingLearn extends Component {
     }
     this.setState({ timerRunning: false });
   };
-  handleInputChange = (e) => {
-    const rawValue = e.target.value;
-    const lesson = this.getCurrentLesson();
-    const target = lesson.text;
-    const value = rawValue.slice(0, target.length);
-    const prevLength = this.state.input.length;
-    let correct = 0;
-    const len = Math.min(value.length, target.length);
-    for (let i = 0; i < len; i++) {
-      if (value[i] === target[i]) correct++;
-    }
-    if (value.length > prevLength) {
-      const index = value.length - 1;
-      const typedChar = value[index];
-      const targetChar = target[index];
-      if (typedChar && targetChar && typedChar !== targetChar) {
-        this.setState((prev) => {
-          const map = { ...prev.sessionMistakes };
-          const key = targetChar;
-          map[key] = (map[key] || 0) + 1;
-          return { sessionMistakes: map };
-        });
-        if (this.state.soundEnabled) playSound("wrong");
-      } else if (typedChar === targetChar && this.state.soundEnabled) {
-        playSound("correct");
+
+  // ==============================================================
+  // 🧠 SMART Word-Level & Character-Level Alignment Engine
+  // ==============================================================
+  evaluateInput = (targetText, inputText) => {
+    const targetWords = targetText.split(" ");
+    const typedWords = inputText.length > 0 ? inputText.split(" ") : [""];
+    const currentWordIndex = Math.min(
+      typedWords.length - 1,
+      targetWords.length - 1
+    );
+    const isLastWord = currentWordIndex === targetWords.length - 1;
+
+    let totalCorrectChars = 0;
+    let totalTypedChars = 0;
+    let totalTargetChars = targetText.length;
+    let completedTargetChars = 0;
+
+    const wordEvaluations = targetWords.map((tWord, wIdx) => {
+      if (wIdx < currentWordIndex) {
+        // --- COMPLETED WORD IN THE PAST ---
+        const pWord = typedWords[wIdx] !== undefined ? typedWords[wIdx] : "";
+        const chars = [];
+        let wordCorrect = true;
+
+        for (let i = 0; i < tWord.length; i++) {
+          const tChar = tWord[i];
+          if (i < pWord.length) {
+            const pChar = pWord[i];
+            const isMatch = pChar === tChar;
+            if (isMatch) totalCorrectChars++;
+            else wordCorrect = false;
+            totalTypedChars++;
+            chars.push({
+              char: tChar,
+              typed: pChar,
+              status: isMatch ? "correct" : "wrong",
+            });
+          } else {
+            wordCorrect = false;
+            chars.push({ char: tChar, typed: null, status: "missed" });
+          }
+        }
+
+        const extraChars = [];
+        if (pWord.length > tWord.length) {
+          wordCorrect = false;
+          for (let i = tWord.length; i < pWord.length; i++) {
+            totalTypedChars++;
+            extraChars.push(pWord[i]);
+          }
+        }
+
+        totalTypedChars++;
+        totalCorrectChars++;
+        completedTargetChars += tWord.length + 1;
+
+        return {
+          targetWord: tWord,
+          typedWord: pWord,
+          chars,
+          extraChars,
+          isCompleted: true,
+          isActive: false,
+          isPending: false,
+          hasError: !wordCorrect,
+        };
+      } else if (wIdx === currentWordIndex) {
+        // --- ACTIVE WORD CURRENTLY BEING TYPED ---
+        const curWord = typedWords[wIdx] !== undefined ? typedWords[wIdx] : "";
+        const chars = [];
+        let wordHasErrorSoFar = false;
+
+        for (let i = 0; i < tWord.length; i++) {
+          const tChar = tWord[i];
+          if (i < curWord.length) {
+            const curChar = curWord[i];
+            const isMatch = curChar === tChar;
+            if (isMatch) totalCorrectChars++;
+            else wordHasErrorSoFar = true;
+            totalTypedChars++;
+            chars.push({
+              char: tChar,
+              typed: curChar,
+              status: isMatch ? "correct" : "wrong",
+            });
+          } else if (i === curWord.length) {
+            chars.push({ char: tChar, typed: null, status: "cursor" });
+          } else {
+            chars.push({ char: tChar, typed: null, status: "pending" });
+          }
+        }
+
+        const extraChars = [];
+        if (curWord.length > tWord.length) {
+          wordHasErrorSoFar = true;
+          for (let i = tWord.length; i < curWord.length; i++) {
+            totalTypedChars++;
+            extraChars.push(curWord[i]);
+          }
+        }
+
+        completedTargetChars += Math.min(curWord.length, tWord.length);
+
+        return {
+          targetWord: tWord,
+          typedWord: curWord,
+          chars,
+          extraChars,
+          isCompleted: false,
+          isActive: true,
+          isPending: false,
+          hasError: wordHasErrorSoFar,
+          cursorAtSpace: curWord.length >= tWord.length,
+        };
+      } else {
+        // --- PENDING WORD IN THE FUTURE ---
+        const chars = tWord.split("").map((ch) => ({
+          char: ch,
+          typed: null,
+          status: "pending",
+        }));
+
+        return {
+          targetWord: tWord,
+          typedWord: "",
+          chars,
+          extraChars: [],
+          isCompleted: false,
+          isActive: false,
+          isPending: true,
+          hasError: false,
+        };
+      }
+    });
+
+    let expectedChar = "";
+    if (currentWordIndex < targetWords.length) {
+      const curEval = wordEvaluations[currentWordIndex];
+      if (curEval) {
+        if (curEval.cursorAtSpace) {
+          expectedChar = isLastWord ? "" : " ";
+        } else {
+          const curCharObj = curEval.chars.find((c) => c.status === "cursor");
+          expectedChar = curCharObj ? curCharObj.char : "";
+        }
       }
     }
+
+    let isLessonCompleted = false;
+    if (typedWords.length > targetWords.length) {
+      isLessonCompleted = true;
+    } else if (typedWords.length === targetWords.length) {
+      const lastTyped = typedWords[targetWords.length - 1] || "";
+      const lastTarget = targetWords[targetWords.length - 1] || "";
+      if (lastTyped.length >= lastTarget.length) {
+        isLessonCompleted = true;
+      }
+    }
+
+    const accuracy =
+      totalTypedChars > 0
+        ? Math.round((totalCorrectChars / totalTypedChars) * 100)
+        : 0;
+
+    const progressPercent = Math.min(
+      100,
+      Math.round((completedTargetChars / Math.max(1, totalTargetChars)) * 100)
+    );
+
+    return {
+      targetWords,
+      typedWords,
+      currentWordIndex,
+      wordEvaluations,
+      expectedChar,
+      totalCorrectChars,
+      totalTypedChars,
+      accuracy,
+      progressPercent,
+      isLessonCompleted,
+    };
+  };
+
+  handleInputChange = (e) => {
+    let rawValue = e.target.value;
+    const lesson = this.getCurrentLesson();
+    const target = lesson.text;
+    const prevInput = this.state.input;
+
+    if (rawValue.startsWith(" ")) {
+      rawValue = rawValue.trimStart();
+    }
+
+    rawValue = rawValue.replace(/ {2,}/g, " ");
+
+    const targetWords = target.split(" ");
+    const rawWords = rawValue.split(" ");
+
+    if (rawWords.length > targetWords.length) {
+      const validWords = rawWords.slice(0, targetWords.length);
+      rawValue = validWords.join(" ");
+    }
+
+    const prevWords = prevInput.length > 0 ? prevInput.split(" ") : [""];
+    const curWords = rawValue.length > 0 ? rawValue.split(" ") : [""];
+
+    if (rawValue.length > prevInput.length) {
+      const isSpaceTyped = rawValue.endsWith(" ") && !prevInput.endsWith(" ");
+      const prevActiveIdx = prevWords.length - 1;
+      const targetWord = targetWords[prevActiveIdx] || "";
+
+      if (isSpaceTyped) {
+        const finishedWord = curWords[prevActiveIdx] || "";
+        let wordHasError = false;
+
+        for (let i = 0; i < targetWord.length; i++) {
+          if (i >= finishedWord.length || finishedWord[i] !== targetWord[i]) {
+            wordHasError = true;
+            const missedChar = targetWord[i];
+            this.setState((prev) => {
+              const map = { ...prev.sessionMistakes };
+              map[missedChar] = (map[missedChar] || 0) + 1;
+              return { sessionMistakes: map };
+            });
+          }
+        }
+
+        if (this.state.soundEnabled) {
+          playSound(wordHasError ? "wrong" : "correct");
+        }
+      } else {
+        const activeIdx = curWords.length - 1;
+        const curWord = curWords[activeIdx] || "";
+        const charIdx = curWord.length - 1;
+        const typedChar = curWord[charIdx];
+        const activeTargetWord = targetWords[activeIdx] || "";
+        const expectedTargetChar = activeTargetWord[charIdx];
+
+        if (expectedTargetChar) {
+          if (typedChar === expectedTargetChar) {
+            if (this.state.soundEnabled) playSound("correct");
+          } else {
+            if (this.state.soundEnabled) playSound("wrong");
+            this.setState((prev) => {
+              const map = { ...prev.sessionMistakes };
+              map[expectedTargetChar] = (map[expectedTargetChar] || 0) + 1;
+              return { sessionMistakes: map };
+            });
+          }
+        } else {
+          if (this.state.soundEnabled) playSound("wrong");
+        }
+      }
+    }
+
+    const evalResult = this.evaluateInput(target, rawValue);
     const alreadyCompleted = this.state.lessonCompleted;
     const shouldStartTimer =
-      !this.state.timerRunning && len > 0 && !alreadyCompleted;
-    const hasJustCompleted = len === target.length && !alreadyCompleted;
+      !this.state.timerRunning && rawValue.length > 0 && !alreadyCompleted;
+    const hasJustCompleted = evalResult.isLessonCompleted && !alreadyCompleted;
+
     this.setState(
       (prev) => ({
-        input: value,
+        input: rawValue,
         started: true,
-        correctChars: correct,
-        totalChars: value.length,
+        correctChars: evalResult.totalCorrectChars,
+        totalChars: evalResult.totalTypedChars,
         lessonCompleted: hasJustCompleted ? true : prev.lessonCompleted,
       }),
       () => {
         if (shouldStartTimer) this.startTimer();
         if (hasJustCompleted) {
           this.stopTimer();
-          this.handleLessonCompletion();
+          this.handleLessonCompletion(evalResult);
         }
       }
     );
   };
-  handleLessonCompletion = () => {
-    const { correctChars, totalChars, timer, sessionMistakes } = this.state;
+
+  handleLessonCompletion = (evalResult) => {
+    const { timer, sessionMistakes } = this.state;
     const lesson = this.getCurrentLesson();
-    const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
+    const evaluation =
+      evalResult || this.evaluateInput(lesson.text, this.state.input);
+    const accuracy = evaluation.accuracy;
+    const totalChars = evaluation.totalTypedChars;
     const wpm = timer > 0 ? Math.round((totalChars / 5) / (timer / 60)) : 0;
-    const { bestTime } = this.updateBestTimeForLesson(lesson.id, timer);
+    const { bestTime, isNewRecord } = this.updateBestTimeForLesson(lesson.id, timer);
     const xpEarned = this.calculateXPEarned(accuracy, lesson.text.length, timer);
-    const globalStats = this.updateGlobalStats(lesson.id, xpEarned, timer, sessionMistakes);
+    const globalStats = this.updateGlobalStats(
+      lesson.id,
+      xpEarned,
+      timer,
+      sessionMistakes
+    );
+
+    const resultData = {
+      lessonTitle: lesson.title,
+      lessonId: lesson.id,
+      level: lesson.level,
+      accuracy,
+      time: timer,
+      chars: totalChars,
+      wpm,
+      bestTime,
+      isNewRecord,
+      xpEarned,
+      totalXP: globalStats.totalXP,
+      levelNum: globalStats.level,
+      streak: globalStats.streak,
+      date: new Date().toISOString(),
+    };
+
     this.savePerformanceRecord(lesson.id, {
       title: lesson.title,
       level: lesson.level,
@@ -464,21 +981,13 @@ export default class TypingLearn extends Component {
       wpm,
       xp: xpEarned,
     });
+
+    // Check & unlock achievement badges
+    this.checkAndUnlockBadges(resultData, globalStats);
+
     this.setState({
       showCompletionModal: true,
-      lastResult: {
-        lessonTitle: lesson.title,
-        lessonId: lesson.id,
-        accuracy,
-        time: timer,
-        chars: totalChars,
-        wpm,
-        bestTime,
-        xpEarned,
-        totalXP: globalStats.totalXP,
-        level: globalStats.level,
-        streak: globalStats.streak,
-      },
+      lastResult: resultData,
       totalXP: globalStats.totalXP,
       level: globalStats.level,
       completedLessonsCount: globalStats.completedLessonsCount,
@@ -488,72 +997,103 @@ export default class TypingLearn extends Component {
       sessionMistakes: {},
     });
   };
+
   resetCurrentLesson = () => {
     this.stopTimer();
-    this.setState({
-      input: "",
-      started: false,
-      correctChars: 0,
-      totalChars: 0,
-      timer: 0,
-      lessonCompleted: false,
-      showCompletionModal: false,
-      lastResult: null,
-      sessionMistakes: {},
-    });
+    this.setState(
+      {
+        input: "",
+        started: false,
+        correctChars: 0,
+        totalChars: 0,
+        timer: 0,
+        lessonCompleted: false,
+        showCompletionModal: false,
+        lastResult: null,
+        sessionMistakes: {},
+      },
+      () => {
+        if (this.textareaRef) this.textareaRef.focus();
+      }
+    );
   };
+
   goToLesson = (index) => {
     if (index < 0 || index >= LESSONS.length) return;
     this.stopTimer();
-    this.setState({
-      currentLessonIndex: index,
-      input: "",
-      started: false,
-      correctChars: 0,
-      totalChars: 0,
-      timer: 0,
-      lessonCompleted: false,
-      showCompletionModal: false,
-      lastResult: null,
-      sessionMistakes: {},
-    });
+    this.setState(
+      {
+        currentLessonIndex: index,
+        input: "",
+        started: false,
+        correctChars: 0,
+        totalChars: 0,
+        timer: 0,
+        lessonCompleted: false,
+        showCompletionModal: false,
+        lastResult: null,
+        sessionMistakes: {},
+      },
+      () => {
+        if (this.textareaRef) this.textareaRef.focus();
+      }
+    );
   };
+
   nextLesson = () => this.goToLesson(this.state.currentLessonIndex + 1);
   prevLesson = () => this.goToLesson(this.state.currentLessonIndex - 1);
 
   // ------------------------------------------------
-  // Modal close handlers
+  // Modal handlers
   // ------------------------------------------------
   handleCloseModal = () => {
     this.setState({
       showCompletionModal: false,
       lastResult: null,
+      newlyUnlockedBadges: [],
     });
   };
+
   handleRetryFromModal = () => {
-    this.setState({ showCompletionModal: false, lastResult: null }, () =>
-      this.resetCurrentLesson()
+    this.setState(
+      { showCompletionModal: false, lastResult: null, newlyUnlockedBadges: [] },
+      () => this.resetCurrentLesson()
     );
   };
+
   handleNextFromModal = () => {
     if (this.state.currentLessonIndex < LESSONS.length - 1) {
-      this.setState({ showCompletionModal: false, lastResult: null }, () =>
-        this.nextLesson()
+      this.setState(
+        { showCompletionModal: false, lastResult: null, newlyUnlockedBadges: [] },
+        () => this.nextLesson()
       );
     } else {
-      this.setState({ showCompletionModal: false, lastResult: null });
+      this.setState({
+        showCompletionModal: false,
+        lastResult: null,
+        newlyUnlockedBadges: [],
+      });
     }
   };
+
   toggleRecordsModal = () => {
     this.setState((prev) => ({ showRecordsModal: !prev.showRecordsModal }));
   };
+
+  toggleBadgesModal = () => {
+    this.setState((prev) => ({ showBadgesModal: !prev.showBadgesModal }));
+  };
+
   handleSort = (field) => {
     this.setState((prev) => {
       const direction =
-        prev.sortField === field && prev.sortDirection === "asc" ? "desc" : "asc";
+        prev.sortField === field && prev.sortDirection === "asc"
+          ? "desc"
+          : "asc";
       return { sortField: field, sortDirection: direction };
     });
   };
+
   getSortedRecords = () => {
     const { performanceRecords, sortField, sortDirection, recordsFilter } =
       this.state;
@@ -562,7 +1102,8 @@ export default class TypingLearn extends Component {
       const q = recordsFilter.trim().toLowerCase();
       filtered = filtered.filter(
         (r) =>
-          r.title.toLowerCase().includes(q) || r.level.toLowerCase().includes(q)
+          r.title.toLowerCase().includes(q) ||
+          r.level.toLowerCase().includes(q)
       );
     }
     return filtered.sort((a, b) => {
@@ -579,7 +1120,79 @@ export default class TypingLearn extends Component {
   };
 
   // ------------------------------------------------
-  // Rendering helpers (unchanged)
+  // Share & Export Handlers
+  // ------------------------------------------------
+  downloadCardAsPNG = async () => {
+    if (!this.cardRef) return;
+    this.setState({ isDownloading: true });
+    try {
+      const dataUrl = await toPng(this.cardRef, {
+        pixelRatio: 2,
+        cacheBust: true,
+      });
+      const link = document.createElement("a");
+      const safeTitle =
+        this.state.lastResult?.lessonTitle?.replace(/[^a-zA-Z0-9]/g, "-") ||
+        "lesson";
+      link.download = `CNAT-Typing-Certificate-${safeTitle}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error("Error generating card PNG:", err);
+      alert("Failed to export card image. Please try again.");
+    } finally {
+      this.setState({ isDownloading: false });
+    }
+  };
+
+  downloadCardAsPDF = async () => {
+    if (!this.cardRef) return;
+    this.setState({ isDownloading: true });
+    try {
+      const dataUrl = await toPng(this.cardRef, {
+        pixelRatio: 2,
+        cacheBust: true,
+      });
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "px",
+        format: [680, 440],
+      });
+      pdf.addImage(dataUrl, "PNG", 0, 0, 680, 440);
+      const safeTitle =
+        this.state.lastResult?.lessonTitle?.replace(/[^a-zA-Z0-9]/g, "-") ||
+        "lesson";
+      pdf.save(`CNAT-Typing-Certificate-${safeTitle}.pdf`);
+    } catch (err) {
+      console.error("Error generating card PDF:", err);
+      alert("Failed to export certificate PDF. Please try again.");
+    } finally {
+      this.setState({ isDownloading: false });
+    }
+  };
+
+  copyShareSummary = () => {
+    const { lastResult } = this.state;
+    if (!lastResult) return;
+    const text =
+      `🏆 CNAT Typing Lab Achievement!\n` +
+      `📖 Lesson: ${lastResult.lessonTitle} (${lastResult.level || "Beginner"})\n` +
+      `⚡ Speed: ${lastResult.wpm} WPM\n` +
+      `🎯 Accuracy: ${lastResult.accuracy}%\n` +
+      `⏱️ Time: ${this.formatTime(lastResult.time)}\n` +
+      `💎 XP: +${lastResult.xpEarned} XP (Total: ${lastResult.totalXP} XP | Lv. ${lastResult.levelNum})\n` +
+      `🔥 Streak: ${lastResult.streak} days\n` +
+      `Practice typing with CNAT Typing Learning Lab!`;
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      this.setState({ copiedToast: true });
+      setTimeout(() => this.setState({ copiedToast: false }), 3000);
+    }
+  };
+
+  // ------------------------------------------------
+  // Visual presentation helpers
   // ------------------------------------------------
   renderHomeRowGuide = () => {
     const homeRowKeys = [
@@ -631,7 +1244,8 @@ export default class TypingLearn extends Component {
           const displayKey = k === " " ? "␣" : k.toUpperCase();
           const normalizedKey = k.toLowerCase();
           const isActive = normalizedKey === expectedChar?.toLowerCase();
-          const isInFingerGroup = fingerKeys && fingerKeys.includes(normalizedKey);
+          const isInFingerGroup =
+            fingerKeys && fingerKeys.includes(normalizedKey);
           let className =
             "px-3 py-2 rounded-md border text-sm font-semibold transition-transform ";
           if (isActive) {
@@ -659,8 +1273,6 @@ export default class TypingLearn extends Component {
     const {
       currentLessonIndex,
       input,
-      correctChars,
-      totalChars,
       timer,
       showCompletionModal,
       lastResult,
@@ -677,34 +1289,60 @@ export default class TypingLearn extends Component {
       sortField,
       sortDirection,
       recordsFilter,
+      unlockedBadges,
+      showBadgesModal,
+      badgesFilter,
+      newlyUnlockedBadges,
+      isDownloading,
+      copiedToast,
     } = this.state;
 
     const lesson = this.getCurrentLesson();
     const target = lesson.text;
-    const accuracy =
-      totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
+    const evalResult = this.evaluateInput(target, input);
+
+    const accuracy = evalResult.accuracy;
+    const correctChars = evalResult.totalCorrectChars;
+    const totalChars = evalResult.totalTypedChars;
     const wpm = timer > 0 ? Math.round((totalChars / 5) / (timer / 60)) : 0;
-    const expectedChar =
-      input.length < target.length ? target[input.length] : "";
+    const expectedChar = evalResult.expectedChar;
     const fingerHint = this.getFingerForChar(expectedChar);
-    const lastTypedChar = input.length > 0 ? input[input.length - 1] : "";
-    const expectedTypedChar =
-      input.length > 0 ? target[input.length - 1] : "";
+
+    let lastTypedChar = "";
+    let expectedLastChar = "";
+    if (input.length > 0) {
+      const curWords = input.split(" ");
+      const curWordIdx = curWords.length - 1;
+      const targetWords = target.split(" ");
+      const curWord = curWords[curWordIdx] || "";
+      const targetWord = targetWords[curWordIdx] || "";
+      if (input.endsWith(" ")) {
+        lastTypedChar = " ";
+        expectedLastChar = " ";
+      } else if (curWord.length > 0) {
+        lastTypedChar = curWord[curWord.length - 1];
+        expectedLastChar = targetWord[curWord.length - 1] || "";
+      }
+    }
     const fingerCorrectness = this.isCorrectFingerUsed(
       lastTypedChar,
-      expectedTypedChar
+      expectedLastChar
     );
+
     const isLastLesson = currentLessonIndex === LESSONS.length - 1;
     const xpPerLevel = 500;
     const xpIntoLevel = totalXP % xpPerLevel;
-    const xpPercent = Math.min(100, Math.round((xpIntoLevel / xpPerLevel) * 100));
+    const xpPercent = Math.min(
+      100,
+      Math.round((xpIntoLevel / xpPerLevel) * 100)
+    );
     const sessionWeakKeys = Object.entries(sessionMistakes)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3)
       .map(([ch]) => (ch === " " ? "Space" : ch.toUpperCase()));
-    const progressPercent =
-      target.length > 0 ? (input.length / target.length) * 100 : 0;
+    const progressPercent = evalResult.progressPercent;
     const sortedRecords = this.getSortedRecords();
+    const unlockedBadgesList = Object.keys(unlockedBadges);
 
     return (
       <div
@@ -720,8 +1358,8 @@ export default class TypingLearn extends Component {
             <h1 className="text-3xl md:text-4xl font-extrabold text-sky-400">
               CNAT Typing Learning Lab
             </h1>
-            <div className="flex items-center gap-4 mt-2 md:mt-0 flex-wrap">
-              <label className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-3 mt-2 md:mt-0 flex-wrap">
+              <label className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer bg-gray-800/80 px-3 py-1.5 rounded-lg border border-gray-700">
                 <input
                   type="checkbox"
                   checked={soundEnabled}
@@ -730,13 +1368,24 @@ export default class TypingLearn extends Component {
                     this.setState({ soundEnabled: val });
                     this.saveSoundPreference(val);
                   }}
-                  className="w-4 h-4 accent-sky-500"
+                  className="w-4 h-4 accent-sky-500 cursor-pointer"
                 />
                 Sound
               </label>
+
+              <button
+                onClick={this.toggleBadgesModal}
+                className="px-3 py-1.5 text-sm rounded-lg border border-amber-500 text-amber-300 hover:bg-amber-600/20 transition flex items-center gap-1.5 font-medium shadow-sm"
+              >
+                <span>🏆 Badges</span>
+                <span className="bg-amber-500/20 text-amber-200 text-xs px-1.5 py-0.5 rounded-full border border-amber-500/40">
+                  {unlockedBadgesList.length}/{BADGES.length}
+                </span>
+              </button>
+
               <button
                 onClick={this.toggleRecordsModal}
-                className="px-3 py-1.5 text-sm rounded-lg border border-sky-500 text-sky-300 hover:bg-sky-600/20 transition flex items-center gap-1"
+                className="px-3 py-1.5 text-sm rounded-lg border border-sky-500 text-sky-300 hover:bg-sky-600/20 transition flex items-center gap-1 font-medium"
               >
                 📊 Records
               </button>
@@ -775,7 +1424,12 @@ export default class TypingLearn extends Component {
         {/* MAIN LAYOUT: two columns */}
         <div className="w-full max-w-7xl flex flex-col md:flex-row gap-4 mt-6">
           {/* LEFT: PRACTICE AREA */}
-          <div className="md:flex-[2] bg-gray-800/80 border border-gray-700 rounded-2xl p-5 md:p-6 shadow-xl">
+          <div
+            className="md:flex-[2] bg-gray-800/80 border border-gray-700 rounded-2xl p-5 md:p-6 shadow-xl cursor-text"
+            onClick={() => {
+              if (this.textareaRef) this.textareaRef.focus();
+            }}
+          >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
               <div>
                 <p className="text-xs uppercase tracking-wide text-gray-400">
@@ -790,7 +1444,10 @@ export default class TypingLearn extends Component {
               </div>
               <div className="flex flex-wrap gap-2 justify-start md:justify-end">
                 <button
-                  onClick={this.prevLesson}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    this.prevLesson();
+                  }}
                   disabled={currentLessonIndex === 0}
                   className={
                     "px-3 py-1.5 text-sm rounded-full border " +
@@ -802,7 +1459,10 @@ export default class TypingLearn extends Component {
                   ◀ Previous
                 </button>
                 <button
-                  onClick={this.nextLesson}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    this.nextLesson();
+                  }}
                   disabled={isLastLesson}
                   className={
                     "px-3 py-1.5 text-sm rounded-full border " +
@@ -814,7 +1474,10 @@ export default class TypingLearn extends Component {
                   Next ▶
                 </button>
                 <button
-                  onClick={this.resetCurrentLesson}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    this.resetCurrentLesson();
+                  }}
                   className="px-3 py-1.5 text-sm rounded-full border border-red-500/70 text-red-200 hover:bg-red-600/10"
                 >
                   Reset Lesson
@@ -847,7 +1510,9 @@ export default class TypingLearn extends Component {
                       </span>
                     ) : (
                       <span className="text-gray-400 italic">
-                        Waiting for next key…
+                        {evalResult.isLessonCompleted
+                          ? "Lesson Completed! 🎉"
+                          : "Waiting for next key…"}
                       </span>
                     )}
                   </div>
@@ -855,44 +1520,94 @@ export default class TypingLearn extends Component {
                     <div
                       className={
                         "text-sm font-semibold flex items-center gap-1 " +
-                        (fingerCorrectness ? "text-emerald-400" : "text-rose-400")
+                        (fingerCorrectness
+                          ? "text-emerald-400"
+                          : "text-rose-400")
                       }
                     >
-                      {fingerCorrectness ? "✔ Correct finger" : "❌ Wrong finger"}
+                      {fingerCorrectness
+                        ? "✔ Correct finger"
+                        : "❌ Wrong finger"}
                     </div>
                   )}
                 </div>
               </div>
             )}
 
-            <div className="bg-gray-900/70 rounded-xl p-4 md:p-5 mb-4 text-base md:text-lg font-mono leading-relaxed border border-gray-700">
-              {target.split("").map((char, index) => {
-                let className = "text-gray-500";
-                if (index < input.length) {
-                  className =
-                    input[index] === char ? "text-emerald-400" : "text-red-400";
-                } else if (index === input.length) {
-                  className += " bg-sky-600/30 rounded-sm";
+            {/* SMART WORD-BY-WORD TARGET TEXT DISPLAY */}
+            <div className="bg-gray-900/90 rounded-2xl p-5 md:p-6 mb-4 text-lg md:text-xl font-mono leading-relaxed border border-gray-700/80 shadow-inner flex flex-wrap items-center gap-x-2.5 gap-y-2 select-none min-h-[90px]">
+              {evalResult.wordEvaluations.map((wEval, wIdx) => {
+                let wordWrapperClass =
+                  "relative inline-flex items-center px-1.5 py-0.5 rounded-md transition-all duration-150 ";
+                if (wEval.isActive) {
+                  wordWrapperClass +=
+                    "bg-sky-500/15 ring-1 ring-sky-400/50 shadow-sm ";
+                } else if (wEval.isCompleted && wEval.hasError) {
+                  wordWrapperClass +=
+                    "bg-rose-500/10 border-b-2 border-rose-500/60 ";
+                } else if (wEval.isCompleted) {
+                  wordWrapperClass += "border-b-2 border-emerald-500/40 ";
                 }
+
                 return (
-                  <span key={index} className={className}>
-                    {char}
+                  <span key={wIdx} className={wordWrapperClass}>
+                    {wEval.chars.map((cObj, cIdx) => {
+                      let charClass = "transition-colors duration-100 ";
+                      if (cObj.status === "correct") {
+                        charClass += "text-emerald-400 font-semibold";
+                      } else if (cObj.status === "wrong") {
+                        charClass +=
+                          "text-rose-400 bg-rose-500/25 px-0.5 rounded font-bold";
+                      } else if (cObj.status === "missed") {
+                        charClass +=
+                          "text-rose-300/70 underline decoration-rose-500 decoration-wavy";
+                      } else if (cObj.status === "cursor") {
+                        charClass +=
+                          "text-white bg-sky-500 px-0.5 rounded-sm font-bold shadow-[0_0_8px_rgba(56,189,248,0.8)] animate-pulse";
+                      } else {
+                        charClass += "text-gray-400";
+                      }
+
+                      return (
+                        <span key={cIdx} className={charClass}>
+                          {cObj.char}
+                        </span>
+                      );
+                    })}
+
+                    {wEval.extraChars && wEval.extraChars.length > 0 && (
+                      <span className="text-rose-400 font-semibold bg-rose-950/70 px-1 ml-0.5 rounded border border-rose-500/40 line-through text-sm">
+                        {wEval.extraChars.join("")}
+                      </span>
+                    )}
+
+                    {wEval.isActive &&
+                      wEval.cursorAtSpace &&
+                      wIdx < evalResult.targetWords.length - 1 && (
+                        <span className="ml-1 text-xs px-1.5 py-0.5 rounded bg-sky-500/30 text-sky-200 border border-sky-400/50 font-sans animate-pulse">
+                          ␣ space
+                        </span>
+                      )}
                   </span>
                 );
               })}
             </div>
 
+            {/* INPUT TEXTAREA */}
             <textarea
+              ref={(el) => (this.textareaRef = el)}
               value={input}
               onChange={this.handleInputChange}
               placeholder="Start typing the text shown above..."
-              className="w-full h-32 md:h-40 p-3 md:p-4 bg-gray-900 border border-gray-700 rounded-xl text-base md:text-lg font-mono outline-none focus:ring-2 focus:ring-sky-500 resize-none"
+              className="w-full h-32 md:h-36 p-3 md:p-4 bg-gray-900 border border-gray-700 rounded-xl text-base md:text-lg font-mono outline-none focus:ring-2 focus:ring-sky-500 resize-none text-gray-100 shadow-inner"
               onPaste={(e) => e.preventDefault()}
               onCopy={(e) => e.preventDefault()}
               onCut={(e) => e.preventDefault()}
               onContextMenu={(e) => e.preventDefault()}
+              autoFocus
             />
 
+            {/* REAL-TIME STATS */}
             <div className="flex flex-wrap items-center gap-4 mt-4 text-sm md:text-base">
               <div>
                 <span className="text-gray-400 mr-1">Accuracy:</span>
@@ -944,6 +1659,7 @@ export default class TypingLearn extends Component {
 
           {/* RIGHT: SIDEBAR */}
           <div className="md:flex-[1] space-y-5">
+            {/* PROGRESS OVERVIEW */}
             <div className="bg-gray-800/90 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-3">
                 Your Progress Overview
@@ -1001,8 +1717,50 @@ export default class TypingLearn extends Component {
               </p>
             </div>
 
+            {/* BADGES SHOWCASE WIDGET */}
+            <div className="bg-gradient-to-br from-gray-800/95 via-gray-800 to-amber-950/30 border border-amber-500/30 rounded-2xl p-4 shadow-xl">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-sm font-bold text-amber-300 flex items-center gap-1.5">
+                  <span>🏆 Badges</span>
+                  <span className="text-xs bg-amber-500/20 text-amber-200 px-2 py-0.5 rounded-full border border-amber-500/40">
+                    {unlockedBadgesList.length} / {BADGES.length}
+                  </span>
+                </h3>
+                <button
+                  onClick={this.toggleBadgesModal}
+                  className="text-xs text-sky-400 hover:text-sky-300 underline font-medium"
+                >
+                  View All
+                </button>
+              </div>
+
+              <div className="flex gap-2 flex-wrap mb-2">
+                {BADGES.slice(0, 5).map((badge) => {
+                  const isUnlocked = !!unlockedBadges[badge.id];
+                  return (
+                    <div
+                      key={badge.id}
+                      title={`${badge.title}: ${badge.description}`}
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl transition-all cursor-pointer ${
+                        isUnlocked
+                          ? "bg-amber-500/20 border-2 border-amber-400 shadow-lg shadow-amber-500/20 scale-105"
+                          : "bg-gray-900/60 border border-gray-700/60 opacity-40 grayscale"
+                      }`}
+                      onClick={this.toggleBadgesModal}
+                    >
+                      {badge.icon}
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="text-[11px] text-gray-400">
+                Unlock badges through accuracy, speed, streaks, and milestones!
+              </p>
+            </div>
+
             {this.renderHomeRowGuide()}
 
+            {/* ON-SCREEN KEYBOARD */}
             <div className="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-2">
                 On-screen Keyboard
@@ -1032,6 +1790,7 @@ export default class TypingLearn extends Component {
               </div>
             </div>
 
+            {/* LESSONS LIST OVERVIEW */}
             <div className="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-4">
                 Lessons Overview
@@ -1053,7 +1812,8 @@ export default class TypingLearn extends Component {
                             const realIndex = LESSONS.indexOf(lsn);
                             const isActive = realIndex === currentLessonIndex;
                             const bestTime = this.getBestTimeForLesson(lsn.id);
-                            const isCompleted = completedLessonIds.includes(lsn.id);
+                            const isCompleted =
+                              completedLessonIds.includes(lsn.id);
                             return (
                               <button
                                 key={lsn.id}
@@ -1099,94 +1859,205 @@ export default class TypingLearn extends Component {
                   consistently above{" "}
                   <span className="text-emerald-300 font-semibold">90%</span>.
                 </p>
-                <button
-                  onClick={this.toggleRecordsModal}
-                  className="w-full py-2 px-4 rounded-lg border border-sky-500 text-sky-300 text-xs font-semibold hover:bg-sky-600/20 transition"
-                >
-                  📊 Performance Records
-                </button>
+                <div className="grid grid-cols-2 gap-2 mt-1">
+                  <button
+                    onClick={this.toggleBadgesModal}
+                    className="w-full py-2 px-3 rounded-lg border border-amber-500/70 text-amber-300 text-xs font-semibold hover:bg-amber-600/20 transition text-center"
+                  >
+                    🏆 Badges Gallery
+                  </button>
+                  <button
+                    onClick={this.toggleRecordsModal}
+                    className="w-full py-2 px-3 rounded-lg border border-sky-500 text-sky-300 text-xs font-semibold hover:bg-sky-600/20 transition text-center"
+                  >
+                    📊 Records
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* =============================================
-            COMPLETION MODAL (fixed)
+            COMPLETION MODAL WITH SHAREABLE CERTIFICATE CARD
         ============================================== */}
         {showCompletionModal && lastResult && (
           <div
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black/85 flex items-center justify-center z-50 p-4 overflow-y-auto"
             onClick={this.handleCloseModal}
           >
             <div
-              className="bg-gray-900 border border-sky-600 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full mx-4"
+              className="bg-gray-900 border border-sky-500/60 rounded-3xl shadow-2xl p-6 md:p-8 max-w-2xl w-full my-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="text-xl md:text-2xl font-bold text-sky-400 mb-2 text-center">
-                Lesson Completed
-              </h2>
-              <p className="text-sm text-gray-300 text-center mb-4">
-                {lastResult.lessonTitle}
-              </p>
+              {/* NEW BADGE CELEBRATION BANNER */}
+              {newlyUnlockedBadges.length > 0 && (
+                <div className="mb-5 p-3.5 bg-gradient-to-r from-amber-500/20 via-yellow-500/20 to-amber-500/20 border-2 border-amber-400 rounded-2xl animate-pulse text-center">
+                  <p className="text-xs uppercase tracking-widest text-amber-300 font-extrabold mb-1">
+                    🎉 NEW BADGE UNLOCKED!
+                  </p>
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
+                    {newlyUnlockedBadges.map((b) => (
+                      <span
+                        key={b.id}
+                        className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-400 text-black font-black text-sm rounded-full shadow-md"
+                      >
+                        <span>{b.icon}</span>
+                        <span>{b.title}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-              <div className="grid grid-cols-2 gap-4 mt-2 mb-4 text-sm">
-                <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
-                  <p className="text-gray-400 text-xs mb-1">Time Taken</p>
-                  <p className="text-lg font-bold text-lime-300">
-                    {this.formatTime(lastResult.time)}
+              {/* SHAREABLE PERFORMANCE CARD (Export Target) */}
+              <div
+                ref={(el) => (this.cardRef = el)}
+                className="bg-gradient-to-br from-slate-950 via-gray-900 to-indigo-950 border-2 border-amber-500/50 rounded-2xl p-6 shadow-2xl relative overflow-hidden text-white mb-6"
+              >
+                {/* Background watermark & decorative glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+                {/* Card Header */}
+                <div className="flex items-center justify-between border-b border-gray-700/80 pb-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">👑</span>
+                    <div>
+                      <h3 className="font-extrabold text-sm uppercase tracking-wider text-sky-400">
+                        CNAT Typing Learning Lab
+                      </h3>
+                      <p className="text-[10px] text-amber-300 tracking-widest font-semibold uppercase">
+                        Official Performance Certificate
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <span className="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-xs font-bold">
+                      {lastResult.level || "Beginner"}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Lesson Title */}
+                <div className="text-center my-3">
+                  <p className="text-xs text-gray-400 uppercase tracking-wider">
+                    Lesson Completed
+                  </p>
+                  <h2 className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-amber-200 mt-0.5">
+                    {lastResult.lessonTitle}
+                  </h2>
+                  <p className="text-[11px] text-gray-400 mt-1">
+                    {this.formatDate(lastResult.date)}
                   </p>
                 </div>
-                <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
-                  <p className="text-gray-400 text-xs mb-1">Accuracy</p>
-                  <p className="text-lg font-bold text-amber-300">
-                    {lastResult.accuracy}%
-                  </p>
+
+                {/* Stat Badges Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-4">
+                  <div className="bg-gray-900/90 border border-lime-500/30 rounded-xl p-3 text-center shadow-md">
+                    <p className="text-[10px] uppercase font-bold text-gray-400 mb-0.5">
+                      Speed
+                    </p>
+                    <p className="text-2xl font-black text-lime-300">
+                      {lastResult.wpm}
+                    </p>
+                    <p className="text-[10px] text-lime-400 font-semibold">WPM</p>
+                  </div>
+                  <div className="bg-gray-900/90 border border-amber-500/30 rounded-xl p-3 text-center shadow-md">
+                    <p className="text-[10px] uppercase font-bold text-gray-400 mb-0.5">
+                      Accuracy
+                    </p>
+                    <p className="text-2xl font-black text-amber-300">
+                      {lastResult.accuracy}%
+                    </p>
+                    <p className="text-[10px] text-amber-400 font-semibold">
+                      {lastResult.accuracy >= 95 ? "Flawless" : "Solid"}
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/90 border border-sky-500/30 rounded-xl p-3 text-center shadow-md">
+                    <p className="text-[10px] uppercase font-bold text-gray-400 mb-0.5">
+                      Time
+                    </p>
+                    <p className="text-2xl font-black text-sky-300">
+                      {this.formatTime(lastResult.time)}
+                    </p>
+                    <p className="text-[10px] text-sky-400 font-semibold">
+                      {lastResult.chars} chars
+                    </p>
+                  </div>
+                  <div className="bg-gray-900/90 border border-emerald-500/30 rounded-xl p-3 text-center shadow-md">
+                    <p className="text-[10px] uppercase font-bold text-gray-400 mb-0.5">
+                      XP Earned
+                    </p>
+                    <p className="text-2xl font-black text-emerald-300">
+                      +{lastResult.xpEarned}
+                    </p>
+                    <p className="text-[10px] text-emerald-400 font-semibold">
+                      Lv. {lastResult.levelNum}
+                    </p>
+                  </div>
                 </div>
-                <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
-                  <p className="text-gray-400 text-xs mb-1">Typed Characters</p>
-                  <p className="text-lg font-bold text-sky-300">
-                    {lastResult.chars}
-                  </p>
-                </div>
-                <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
-                  <p className="text-gray-400 text-xs mb-1">Best Time</p>
-                  <p className="text-lg font-bold text-emerald-300">
-                    {lastResult.bestTime !== null
-                      ? this.formatTime(lastResult.bestTime)
-                      : "—"}
-                  </p>
+
+                {/* Highlights / Badges on Certificate */}
+                <div className="flex flex-wrap items-center justify-between gap-2 border-t border-gray-700/80 pt-3 text-xs">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {lastResult.accuracy === 100 && (
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-300 font-bold text-[10px]">
+                        🎯 100% Perfection
+                      </span>
+                    )}
+                    {lastResult.wpm >= 50 && (
+                      <span className="px-2 py-0.5 rounded-full bg-lime-500/20 border border-lime-400 text-lime-300 font-bold text-[10px]">
+                        🚀 Speed Demon
+                      </span>
+                    )}
+                    {lastResult.isNewRecord && (
+                      <span className="px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-400 text-amber-300 font-bold text-[10px]">
+                        ⭐ New Best Record!
+                      </span>
+                    )}
+                    <span className="text-gray-400 text-[11px]">
+                      Streak:{" "}
+                      <span className="text-emerald-300 font-bold">
+                        {lastResult.streak} days
+                      </span>
+                    </span>
+                  </div>
+                  <div className="text-[10px] text-amber-400/90 font-mono tracking-wider font-bold">
+                    VERIFIED #CNAT-{lastResult.lessonId}-{Math.floor(Math.random() * 900 + 100)}
+                  </div>
                 </div>
               </div>
 
-              <div className="mb-4 text-xs text-center text-gray-300 space-y-1">
-                <p>
-                  XP earned:{" "}
-                  <span className="text-emerald-300 font-semibold">
-                    {lastResult.xpEarned}
-                  </span>
-                  , Total XP:{" "}
-                  <span className="text-sky-300 font-semibold">
-                    {lastResult.totalXP}
-                  </span>
-                </p>
-                <p>
-                  Level:{" "}
-                  <span className="text-sky-300 font-semibold">
-                    Lv. {lastResult.level}
-                  </span>{" "}
-                  • Streak:{" "}
-                  <span className="text-emerald-300 font-semibold">
-                    {lastResult.streak} day{lastResult.streak === 1 ? "" : "s"}
-                  </span>
-                </p>
+              {/* CARD DOWNLOAD & SHARE ACTIONS */}
+              <div className="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+                <button
+                  onClick={this.downloadCardAsPNG}
+                  disabled={isDownloading}
+                  className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs md:text-sm transition flex items-center gap-2 shadow-lg shadow-sky-600/30"
+                >
+                  <span>📷</span>
+                  <span>{isDownloading ? "Generating..." : "Download Card (PNG)"}</span>
+                </button>
+                <button
+                  onClick={this.downloadCardAsPDF}
+                  disabled={isDownloading}
+                  className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs md:text-sm transition flex items-center gap-2 shadow-lg shadow-indigo-600/30"
+                >
+                  <span>📄</span>
+                  <span>Download PDF Certificate</span>
+                </button>
+                <button
+                  onClick={this.copyShareSummary}
+                  className="px-4 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-600 text-gray-200 font-semibold text-xs md:text-sm transition flex items-center gap-2"
+                >
+                  <span>📋</span>
+                  <span>{copiedToast ? "Copied to Clipboard! ✓" : "Copy Share Text"}</span>
+                </button>
               </div>
 
-              <p className="text-xs text-gray-400 text-center mb-4">
-                Aim to reduce your time while keeping accuracy above{" "}
-                <span className="text-emerald-300 font-semibold">90%</span>.
-              </p>
-
-              <div className="flex flex-wrap justify-center gap-3 mt-2">
+              {/* MODAL FOOTER BUTTONS */}
+              <div className="flex flex-wrap justify-center gap-3 pt-3 border-t border-gray-800">
                 <button
                   onClick={this.handleRetryFromModal}
                   className="px-4 py-2 rounded-full text-sm bg-gray-800 border border-gray-600 text-gray-100 hover:bg-gray-700"
@@ -1196,14 +2067,14 @@ export default class TypingLearn extends Component {
                 <button
                   onClick={this.handleNextFromModal}
                   className={
-                    "px-4 py-2 rounded-full text-sm border text-white " +
+                    "px-5 py-2 rounded-full text-sm font-semibold border text-white " +
                     (isLastLesson
                       ? "bg-sky-700/40 border-sky-600/60 cursor-not-allowed"
-                      : "bg-sky-600 border-sky-500 hover:bg-sky-500")
+                      : "bg-emerald-600 border-emerald-500 hover:bg-emerald-500 shadow-lg shadow-emerald-600/30")
                   }
                   disabled={isLastLesson}
                 >
-                  {isLastLesson ? "No Next Lesson" : "Next Lesson"}
+                  {isLastLesson ? "Final Lesson Done" : "Next Lesson ▶"}
                 </button>
                 <button
                   onClick={this.handleCloseModal}
@@ -1217,7 +2088,144 @@ export default class TypingLearn extends Component {
         )}
 
         {/* =============================================
-            PERFORMANCE RECORDS MODAL (with Clear button)
+            ACHIEVEMENT BADGES GALLERY MODAL
+        ============================================== */}
+        {showBadgesModal && (
+          <div
+            className="fixed inset-0 bg-black/85 flex items-center justify-center z-50 p-4"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) this.toggleBadgesModal();
+            }}
+          >
+            <div className="bg-gray-900 border border-amber-500/60 rounded-3xl shadow-2xl p-6 w-full max-w-4xl max-h-[90vh] flex flex-col">
+              <div className="flex justify-between items-center mb-4 pb-2 border-b border-gray-800">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-3xl">🏆</span>
+                  <div>
+                    <h2 className="text-2xl font-black text-amber-300">
+                      Achievement Badges
+                    </h2>
+                    <p className="text-xs text-gray-400">
+                      Unlocked:{" "}
+                      <span className="text-amber-300 font-bold">
+                        {unlockedBadgesList.length}
+                      </span>{" "}
+                      of {BADGES.length} total badges
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={this.toggleBadgesModal}
+                  className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-600 text-gray-300 hover:bg-gray-700 text-sm font-medium"
+                >
+                  ✕ Close
+                </button>
+              </div>
+
+              {/* FILTER TABS */}
+              <div className="flex gap-2 mb-4">
+                {["all", "unlocked", "locked"].map((tab) => {
+                  const isActive = badgesFilter === tab;
+                  return (
+                    <button
+                      key={tab}
+                      onClick={() => this.setState({ badgesFilter: tab })}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition ${
+                        isActive
+                          ? "bg-amber-500 text-black shadow-md"
+                          : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                      }`}
+                    >
+                      {tab === "all"
+                        ? `All (${BADGES.length})`
+                        : tab === "unlocked"
+                        ? `Unlocked (${unlockedBadgesList.length})`
+                        : `Locked (${BADGES.length - unlockedBadgesList.length})`}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* BADGES GRID */}
+              <div className="flex-1 overflow-y-auto pr-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  {BADGES.filter((badge) => {
+                    const isUnlocked = !!unlockedBadges[badge.id];
+                    if (badgesFilter === "unlocked") return isUnlocked;
+                    if (badgesFilter === "locked") return !isUnlocked;
+                    return true;
+                  }).map((badge) => {
+                    const isUnlocked = !!unlockedBadges[badge.id];
+                    const unlockInfo = unlockedBadges[badge.id];
+                    return (
+                      <div
+                        key={badge.id}
+                        className={`p-4 rounded-2xl border transition-all flex flex-col justify-between ${
+                          isUnlocked
+                            ? "bg-gradient-to-br from-gray-800/90 via-gray-800 to-amber-950/40 border-amber-500/60 shadow-lg shadow-amber-500/10"
+                            : "bg-gray-900/80 border-gray-800 opacity-60"
+                        }`}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div
+                            className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl shrink-0 ${
+                              isUnlocked
+                                ? "bg-amber-500/25 border border-amber-400 shadow-md"
+                                : "bg-gray-800 border border-gray-700 grayscale"
+                            }`}
+                          >
+                            {badge.icon}
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <h4
+                                className={`font-bold text-sm ${
+                                  isUnlocked ? "text-amber-200" : "text-gray-300"
+                                }`}
+                              >
+                                {badge.title}
+                              </h4>
+                              <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700">
+                                {badge.category}
+                              </span>
+                            </div>
+                            <p className="text-xs text-gray-400 mt-1 leading-relaxed">
+                              {badge.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="mt-3 pt-2.5 border-t border-gray-700/50 flex items-center justify-between text-[11px]">
+                          {isUnlocked ? (
+                            <>
+                              <span className="text-emerald-400 font-bold flex items-center gap-1">
+                                ✓ Unlocked
+                              </span>
+                              <span className="text-gray-400 text-[10px]">
+                                {unlockInfo?.unlockedAt
+                                  ? new Date(
+                                      unlockInfo.unlockedAt
+                                    ).toLocaleDateString()
+                                  : "Completed"}
+                              </span>
+                            </>
+                          ) : (
+                            <span className="text-gray-500 italic">
+                              🔒 Locked · Complete requirement
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =============================================
+            PERFORMANCE RECORDS MODAL
         ============================================== */}
         {showRecordsModal && (
           <div
@@ -1314,19 +2322,28 @@ export default class TypingLearn extends Component {
                   <tbody className="divide-y divide-gray-700">
                     {sortedRecords.length === 0 ? (
                       <tr>
-                        <td colSpan="7" className="px-3 py-6 text-center text-gray-400">
+                        <td
+                          colSpan="7"
+                          className="px-3 py-6 text-center text-gray-400"
+                        >
                           No records found. Complete a lesson to see data here.
                         </td>
                       </tr>
                     ) : (
                       sortedRecords.map((record, idx) => {
-                        const lessonRecords = this.state.performanceRecords.filter(
-                          (r) => r.lessonId === record.lessonId
+                        const lessonRecords =
+                          this.state.performanceRecords.filter(
+                            (r) => r.lessonId === record.lessonId
+                          );
+                        const bestTime = Math.min(
+                          ...lessonRecords.map((r) => r.time)
                         );
-                        const bestTime = Math.min(...lessonRecords.map((r) => r.time));
-                        const bestAccuracy = Math.max(...lessonRecords.map((r) => r.accuracy));
+                        const bestAccuracy = Math.max(
+                          ...lessonRecords.map((r) => r.accuracy)
+                        );
                         const isBestTime = record.time === bestTime;
-                        const isBestAccuracy = record.accuracy === bestAccuracy;
+                        const isBestAccuracy =
+                          record.accuracy === bestAccuracy;
                         return (
                           <tr
                             key={idx}
@@ -1348,7 +2365,9 @@ export default class TypingLearn extends Component {
                                 </span>
                               )}
                             </td>
-                            <td className="px-3 py-2 text-gray-300">{record.level}</td>
+                            <td className="px-3 py-2 text-gray-300">
+                              {record.level}
+                            </td>
                             <td className="px-3 py-2">
                               <span
                                 className={
@@ -1365,8 +2384,12 @@ export default class TypingLearn extends Component {
                             <td className="px-3 py-2 text-gray-300">
                               {this.formatTime(record.time)}
                             </td>
-                            <td className="px-3 py-2 text-gray-300">{record.wpm}</td>
-                            <td className="px-3 py-2 text-gray-300">{record.xp}</td>
+                            <td className="px-3 py-2 text-gray-300">
+                              {record.wpm}
+                            </td>
+                            <td className="px-3 py-2 text-gray-300">
+                              {record.xp}
+                            </td>
                           </tr>
                         );
                       })
@@ -1377,11 +2400,10 @@ export default class TypingLearn extends Component {
 
               <div className="mt-3 text-xs text-gray-400 flex justify-between">
                 <span>
-                  Showing {sortedRecords.length} of {this.state.performanceRecords.length} total records.
+                  Showing {sortedRecords.length} of{" "}
+                  {this.state.performanceRecords.length} total records.
                 </span>
-                <span>
-                  ⭐ Best time · 🎯 Best accuracy per lesson
-                </span>
+                <span>⭐ Best time · 🎯 Best accuracy per lesson</span>
               </div>
             </div>
           </div>
