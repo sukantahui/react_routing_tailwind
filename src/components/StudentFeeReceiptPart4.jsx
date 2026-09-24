@@ -1467,7 +1467,7 @@ const StudentFeeReceiptPart4 = () => {
                   <div class="qr-title">📱 Pay Online via UPI</div>
                   <div class="qr-text">Scan official QR to make payment</div>
                   <div class="qr-text">Any UPI App (Google Pay, PhonePe, Paytm)</div>
-                  <div class="upi-id">UPI ID: codernaccotax@okhdfcbank</div>
+                  <div class="upi-id">UPI ID: codernaccotax@okhdfcbank / 9432456083@upi</div>
                 </div>
                 <div class="qr-code" style="width: 78px; height: 96px; display: flex; align-items: center; justify-content: center;">
                   <img src="${qrCodeDataUrl || CNATQR || '/assets/CNAT_QR.jpeg'}" alt="CNAT Payment QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; border: 1px solid #e9d5ff;" />
@@ -2137,7 +2137,7 @@ const StudentFeeReceiptPart4 = () => {
                           className="w-20 h-24 object-contain mx-auto rounded border border-purple-200"
                         />
                       </div>
-                      <div className="text-[8px] font-mono font-bold text-gray-600 mt-1">UPI ID: codernaccotax@okhdfcbank</div>
+                        <div className="text-[8px] font-mono font-bold text-gray-600 mt-1">UPI ID: codernaccotax@okhdfcbank / 9432456083@upi</div>
                       <div className="mt-2 pt-1 border-t border-gray-100">
                         <p className="text-[7px] text-gray-500">📞 For any query: <span className="font-semibold text-gray-700">7003756860</span></p>
                         <p className="text-[7px] text-gray-500 mt-0.5">🌐 Visit us: <span className="font-semibold text-blue-600">www.codernaccotax.co.in</span></p>

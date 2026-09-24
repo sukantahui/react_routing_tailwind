@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import * as htmlToImage from "html-to-image";
@@ -15,6 +15,7 @@ import {
   CheckCircle2,
   Sparkles,
   CalendarCheck,
+  Calendar,
   Utensils,
   Leaf,
   ShieldCheck,
@@ -45,9 +46,22 @@ import {
   Shield,
   GitCompare,
   Filter,
+  Link2,
+  Unlink,
+  Crown,
+  Heart,
+  UserPlus,
+  Users2,
+  ChevronRight,
+  ArrowRight,
+  Flame,
+  Navigation,
+  HelpCircle,
+  ChevronDown,
 } from "lucide-react";
 import { authService } from "../api/auth.service";
 import { loginService } from "../services/loginService";
+import LinkPhoneGroupModal from "../components/bijoya/LinkPhoneGroupModal";
 import qr from "../assets/google_review_QR.png";
 import maitriLogo from "../assets/maitri-mahotsav-27.png";
 
@@ -105,7 +119,7 @@ export const maskPhone = (phone) => {
 export default function Bijoya() {
   const [guests, setGuests] = useState([]);
   const [savedGuests, setSavedGuests] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [_isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     guestName: "",
     age: "",
@@ -124,6 +138,7 @@ export default function Bijoya() {
   const [sameAsMobile, setSameAsMobile] = useState(false);
   const [showPin, setShowPin] = useState(false);
   const [showConfirmPin, setShowConfirmPin] = useState(false);
+  const [showPinExplanation, setShowPinExplanation] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editGuestId, setEditGuestId] = useState(null);
@@ -158,7 +173,51 @@ export default function Bijoya() {
 
   // Logical Duplicate Entry Governance State (Admin Only)
   const [showDuplicateModal, setShowDuplicateModal] = useState(false);
-  const [duplicateFilterCriteria, setDuplicateFilterCriteria] = useState("all"); // 'all' | 'phone' | 'name' | 'email'
+  const [duplicateFilterCriteria, setDuplicateFilterCriteria] = useState("all"); // 'all' | 'unresolved' | 'linked' | 'phone' | 'name' | 'email'
+
+  // Linked Phone Groups State (Family & Shared Contact Groups)
+  const [linkedPhoneGroups, setLinkedPhoneGroups] = useState(() => {
+    try {
+      const saved = localStorage.getItem("bijoya_linked_phone_groups");
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [activePhoneGroupToLink, setActivePhoneGroupToLink] = useState(null);
+  const [showLinkGroupModal, setShowLinkGroupModal] = useState(false);
+
+  // Live Event Countdown (Target: Nov 1, 2026, 19:30 IST)
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    isExpired: false,
+  });
+
+  useEffect(() => {
+    const targetDate = new Date("2026-11-01T19:30:00+05:30").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true });
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        setTimeLeft({ days, hours, minutes, seconds, isExpired: false });
+      }
+    };
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const formRef = useRef(null);
   const ticketRef = useRef(null);
@@ -220,6 +279,94 @@ export default function Bijoya() {
     ...options,
   });
 
+  // Helper to find all attendees sharing a phone number
+  const getGuestsByPhone = useCallback(
+    (phone) => {
+      if (!phone) return [];
+      const clean = String(phone).replace(/\D/g, "").slice(-10);
+      if (!clean || clean.length < 10) return [];
+      return guests.filter((g) => {
+        const m = (g.mobile || "").replace(/\D/g, "").slice(-10);
+        const w = (g.wpNumber || "").replace(/\D/g, "").slice(-10);
+        return m === clean || w === clean;
+      });
+    },
+    [guests]
+  );
+
+  // Open Link Modal for a Phone Number
+  const handleOpenLinkModalForPhone = (phone, customGuests = null) => {
+    const clean = String(phone).replace(/\D/g, "").slice(-10);
+    if (!clean) return;
+    const groupGuests = customGuests || getGuestsByPhone(clean);
+    const existing = linkedPhoneGroups[clean] || null;
+
+    setActivePhoneGroupToLink({
+      phone: clean,
+      guests: groupGuests,
+      existingGroup: existing,
+    });
+    setShowLinkGroupModal(true);
+  };
+
+  // Save/Update Linked Phone Group
+  const handleSaveLinkedGroup = (groupData) => {
+    const clean = String(groupData.phone).replace(/\D/g, "").slice(-10);
+    if (!clean) return;
+
+    setLinkedPhoneGroups((prev) => {
+      const updated = {
+        ...prev,
+        [clean]: groupData,
+      };
+      try {
+        localStorage.setItem("bijoya_linked_phone_groups", JSON.stringify(updated));
+      } catch (err) {
+        console.error("Failed to save linked phone groups:", err);
+      }
+      return updated;
+    });
+
+    Swal.fire({
+      ...getBijoyaSwalTheme(),
+      icon: "success",
+      title: "Family Group Linked! 🔗",
+      html: `
+        <div class="text-xs text-slate-300 space-y-1.5 pt-1">
+          <p>Attendees sharing phone <strong class="text-amber-300 font-mono">${maskPhone(clean)}</strong> are now linked under <strong class="text-white">${groupData.groupName}</strong>.</p>
+          <p class="text-slate-400 text-[11px]">This group is now recognized as a valid linked unit in the guest registry &amp; duplicate analyzer.</p>
+        </div>
+      `,
+      timer: 2200,
+      showConfirmButton: false,
+    });
+  };
+
+  // Unlink Phone Group
+  const handleUnlinkGroup = (phone) => {
+    const clean = String(phone).replace(/\D/g, "").slice(-10);
+    if (!clean) return;
+
+    setLinkedPhoneGroups((prev) => {
+      const updated = { ...prev };
+      delete updated[clean];
+      try {
+        localStorage.setItem("bijoya_linked_phone_groups", JSON.stringify(updated));
+      } catch (err) {
+        console.error("Failed to update linked phone groups:", err);
+      }
+      return updated;
+    });
+
+    Swal.fire({
+      ...getBijoyaSwalTheme(),
+      icon: "info",
+      title: "Group Unlinked",
+      text: `Phone link for ${maskPhone(clean)} has been removed.`,
+      timer: 1800,
+      showConfirmButton: false,
+    });
+  };
 
   // Check login status on mount & listen to storage
   const checkAuth = () => {
@@ -1011,6 +1158,123 @@ export default function Bijoya() {
     }
   };
 
+  // 1-Click Fast Attendance Toggle Handler (Admin Only)
+  const handleToggleAttendance = async (guest) => {
+    if (!guest) return;
+    const guestId = guest.guestId || guest.id;
+    if (!guestId) return;
+
+    if (!isAdmin) {
+      const authPrompt = await Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "Admin Privileges Required 🛡️",
+        html: `
+          <div class="text-left space-y-2 text-xs sm:text-sm text-slate-300">
+            <p>Only authorized administrators can modify attendee attendance / RSVP status.</p>
+            <p class="text-slate-400">Please sign in with your administrative credentials to continue.</p>
+          </div>
+        `,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sign In as Admin 🔐",
+        cancelButtonText: "Cancel",
+      });
+
+      if (authPrompt.isConfirmed) {
+        setShowAdminLoginModal(true);
+      }
+      return;
+    }
+
+    const currentAttending = checkIsAttending(guest);
+    const newAttending = !currentAttending;
+    const guestName = toProperCase(guest.guestName || "Guest");
+    const tokenDisplay = formatToken(guest);
+
+    // Optimistic Local State Update for instantaneous UI responsiveness
+    setGuests((prevGuests) =>
+      prevGuests.map((g) => {
+        const gId = g.guestId || g.id;
+        if (gId === guestId) {
+          return {
+            ...g,
+            is_present: newAttending,
+            is_attending: newAttending,
+            isAttending: newAttending,
+          };
+        }
+        return g;
+      })
+    );
+
+    try {
+      const payload = {
+        guestName: guest.guestName,
+        age: guest.age ? Number(guest.age) : null,
+        mobile: guest.mobile ? String(guest.mobile).replace(/\\D/g, "") : null,
+        wpNumber: guest.wpNumber
+          ? String(guest.wpNumber).replace(/\\D/g, "")
+          : (guest.mobile ? String(guest.mobile).replace(/\\D/g, "") : null),
+        address: guest.address || null,
+        email: guest.email || null,
+        pin: guest.pin !== undefined && guest.pin !== null ? String(guest.pin) : null,
+        genderId: Number(guest.genderId || 1),
+        foodPreferenceId: Number(guest.foodPreferenceId || 2),
+        is_attending: newAttending,
+        is_present: newAttending,
+        comment: guest.comment || null,
+      };
+
+      const response = await authService.updateGuest(guestId, payload);
+      if (response?.status || response) {
+        Swal.fire({
+          toast: true,
+          position: "top-end",
+          icon: newAttending ? "success" : "info",
+          title: newAttending
+            ? `✅ Marked ATTENDING: ${guestName}`
+            : `⭕ Marked NOT ATTENDING: ${guestName}`,
+          html: `<span class="text-[11px] text-amber-300 font-mono font-bold">${tokenDisplay}</span>`,
+          showConfirmButton: false,
+          timer: 2200,
+          timerProgressBar: true,
+          background: "#0f172a",
+          color: "#f8fafc",
+          customClass: {
+            popup: "border border-amber-500/30 rounded-2xl shadow-xl",
+          },
+        });
+      }
+    } catch (err) {
+      console.error("Failed to update attendance status:", err);
+      // Rollback optimistic update
+      setGuests((prevGuests) =>
+        prevGuests.map((g) => {
+          const gId = g.guestId || g.id;
+          if (gId === guestId) {
+            return {
+              ...g,
+              is_present: currentAttending,
+              is_attending: currentAttending,
+              isAttending: currentAttending,
+            };
+          }
+          return g;
+        })
+      );
+
+      Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "Attendance Update Failed",
+        text:
+          err?.response?.data?.message ||
+          err?.message ||
+          "Failed to update attendance status on the server.",
+        icon: "error",
+      });
+    }
+  };
+
   const resetForm = () => {
     setFormData({
       guestName: "",
@@ -1458,6 +1722,16 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
       }
 
       if (componentGuests.length > 1) {
+        const clusterPhones = new Set();
+        componentGuests.forEach((g) => {
+          const p1 = normalizePhone(g.mobile);
+          const p2 = normalizePhone(g.wpNumber);
+          if (p1) clusterPhones.add(p1);
+          if (p2) clusterPhones.add(p2);
+        });
+        const primaryPhone = Array.from(clusterPhones)[0] || "";
+        const linkedGroupData = primaryPhone ? linkedPhoneGroups[primaryPhone] : null;
+
         clusters.push({
           id: `cluster-${clusters.length + 1}-${startKey}`,
           index: clusters.length + 1,
@@ -1467,20 +1741,30 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
           hasPhone: componentTypes.has("phone"),
           hasName: componentTypes.has("name"),
           hasEmail: componentTypes.has("email"),
+          primaryPhone,
+          clusterPhones: Array.from(clusterPhones),
+          isLinkedGroup: Boolean(linkedGroupData?.isLinked),
+          linkedGroupData,
         });
       }
     });
+
+    const phoneClusters = clusters.filter((c) => c.hasPhone);
+    const linkedGroupsCount = clusters.filter((c) => c.isLinkedGroup).length;
+    const unresolvedDuplicates = clusters.filter((c) => !c.isLinkedGroup).length;
 
     return {
       clusters,
       duplicateGuestIds,
       totalDuplicates: duplicateGuestIds.size,
       totalClusters: clusters.length,
-      phoneClustersCount: clusters.filter((c) => c.hasPhone).length,
+      phoneClustersCount: phoneClusters.length,
+      linkedGroupsCount,
+      unresolvedDuplicates,
       nameClustersCount: clusters.filter((c) => c.hasName).length,
       emailClustersCount: clusters.filter((c) => c.hasEmail).length,
     };
-  }, [guests, isAdmin]);
+  }, [guests, isAdmin, linkedPhoneGroups]);
 
   // Export Duplicates Audit Report to CSV (Admin Only)
   const exportDuplicatesToCSV = () => {
@@ -1592,8 +1876,11 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
     const nonVeg = guests.filter((g) => !checkIsVeg(g)).length;
     const present = guests.filter((g) => checkIsAttending(g)).length;
     const duplicates = duplicateAnalysis.totalDuplicates;
+    const vegPct = total > 0 ? Math.round((veg / total) * 100) : 0;
+    const nonVegPct = total > 0 ? Math.round((nonVeg / total) * 100) : 0;
+    const presentPct = total > 0 ? Math.round((present / total) * 100) : 0;
 
-    return { total, veg, nonVeg, present, duplicates };
+    return { total, veg, nonVeg, present, duplicates, vegPct, nonVegPct, presentPct };
   }, [guests, duplicateAnalysis]);
 
   const handleCopyToken = () => {
@@ -1659,77 +1946,139 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background Ambience / Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-[#060913] text-slate-100 py-6 sm:py-10 px-3 sm:px-6 lg:px-8 relative overflow-hidden font-sans selection:bg-amber-500 selection:text-slate-950">
+      {/* Dynamic Ambient Background Illumination */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-600/12 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: "8s" }} />
+      <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-rose-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-2/3 left-1/3 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none" />
+      
+      {/* Subtle Geometric Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px]" 
+        aria-hidden="true" 
+      />
 
-      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12 relative z-10">
         {/* ============================================================== */}
-        {/* HERO HEADER                                                   */}
+        {/* TOP FLOATING QUICK NAVIGATION & BRANDING BAR                   */}
+        {/* ============================================================== */}
+        <header className="sticky top-3 z-40 max-w-5xl mx-auto">
+          <div className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full bg-slate-950/85 backdrop-blur-2xl border border-slate-800/90 shadow-2xl shadow-black/80 flex items-center justify-between gap-3">
+            {/* Brand Logo & Event Tag */}
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-[1.5px] shrink-0 shadow-md shadow-amber-500/20">
+                <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-amber-400" />
+                </div>
+              </div>
+              <div className="truncate">
+                <div className="flex items-center gap-1.5 font-bold text-xs sm:text-sm text-white tracking-tight">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-rose-300 to-purple-200">
+                    ২৭ তম মৈত্রী মহোৎসব
+                  </span>
+                  <span className="hidden md:inline px-1.5 py-0.2 rounded text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    2026
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-400 truncate hidden sm:block">
+                  Coder & AccoTax • Barrackpore
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Action Navigation Links */}
+            <nav className="flex items-center gap-1 sm:gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={() => {
+                  formRef.current?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-amber-300 hover:bg-slate-900 transition cursor-pointer flex items-center gap-1"
+              >
+                <span>📝 Register</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  const dir = document.getElementById("guest-directory");
+                  dir?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-purple-300 hover:bg-slate-900 transition cursor-pointer flex items-center gap-1.5"
+              >
+                <span>👥 Guests</span>
+                <span className="px-1.5 py-0.2 rounded-full bg-purple-500/20 text-purple-300 text-[10px] font-bold">
+                  {stats.total}
+                </span>
+              </button>
+
+              {/* Admin Access / Status Button */}
+              {isAdmin ? (
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-500/20 border border-purple-500/40 text-purple-300 text-xs font-bold shadow-sm">
+                  <ShieldCheck className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                  <span className="hidden sm:inline">Admin:</span>
+                  <span className="text-white max-w-[90px] sm:max-w-[120px] truncate">
+                    {currentUser?.employee?.employeeName || currentUser?.name || currentUser?.userName || "Admin"}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleAdminLogout}
+                    title="Sign out of Admin Mode"
+                    className="p-0.5 rounded-full hover:bg-slate-800 text-slate-400 hover:text-rose-400 transition cursor-pointer ml-1"
+                  >
+                    <LogOut className="w-3 h-3" />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setShowAdminLoginModal(true)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 hover:text-white hover:border-amber-400 text-xs font-bold transition cursor-pointer shadow-sm shadow-amber-500/5 active:scale-95"
+                >
+                  <Lock className="w-3 h-3 text-amber-400" />
+                  <span className="hidden sm:inline">Admin Sign In</span>
+                  <span className="sm:hidden">Admin</span>
+                </button>
+              )}
+            </nav>
+          </div>
+        </header>
+
+        {/* ============================================================== */}
+        {/* HERO HEADER SECTION                                            */}
         {/* ============================================================== */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-2.5 sm:space-y-3"
+          className="text-center space-y-5 sm:space-y-6"
         >
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
-              <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
-              <span>🌸 ২৭ তম মৈত্রী মহোৎসব ২০২৬</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-              <span className="text-amber-200">1st November, 2026 • 7:30 PM onwards</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-              <span className="text-slate-300">Coder & AccoTax</span>
-            </div>
-
-            {isAdmin ? (
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600/20 via-slate-900 to-indigo-600/20 border border-purple-500/40 text-purple-300 text-xs font-semibold shadow-md">
-                <ShieldCheck className="w-4 h-4 text-purple-400 shrink-0" />
-                <span>Admin: <strong className="text-white">{currentUser?.employee?.employeeName || currentUser?.name || currentUser?.userName || "Authorized"}</strong></span>
-                <button
-                  type="button"
-                  onClick={handleAdminLogout}
-                  title="Sign out of Admin Mode"
-                  className="ml-1 p-0.5 rounded hover:bg-slate-800 text-slate-400 hover:text-rose-400 transition cursor-pointer"
-                >
-                  <LogOut className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setShowAdminLoginModal(true)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 hover:border-amber-500/50 text-slate-300 hover:text-amber-300 text-xs font-semibold transition cursor-pointer shadow-sm"
-              >
-                <Lock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Admin Access</span>
-              </button>
-            )}
+          {/* Top Tagline Pill */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
+            <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
+            <span>🌸 ২৭ তম মৈত্রী মহোৎসব ২০২৬ • 27th Maitri Mahotsav</span>
           </div>
 
           {/* Accessible H1 for SEO & screen readers */}
-          <h1 className="sr-only">২৭ তম মৈত্রী মহোৎসব ২০২৬ • Maitri Mahotsav 2026</h1>
+          <h1 className="sr-only">২৭ তম মৈত্রী মহোৎসব ২০২৬ • Maitri Mahotsav 2026 • Coder & AccoTax Barrackpore</h1>
 
           {/* Hero Banner Image Card */}
-          <div className="my-0.5">
-            <div className="relative inline-block w-full max-w-[260px] sm:max-w-sm md:max-w-md mx-auto group">
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500/30 via-rose-500/25 to-purple-500/30 rounded-2xl blur-lg opacity-70 group-hover:opacity-95 transition duration-500 pointer-events-none" />
-              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-amber-500/40 shadow-xl shadow-amber-500/10">
+          <div className="my-1">
+            <div className="relative inline-block w-full max-w-[280px] sm:max-w-md md:max-w-lg mx-auto group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-amber-500/30 via-rose-500/25 to-purple-600/30 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-amber-500/40 shadow-2xl shadow-amber-500/10 bg-slate-950/80 p-2 sm:p-3">
                 <img
                   src={maitriLogo}
-                  alt="২৭ তম মৈত্রী মহোৎসব"
+                  alt="২৭ তম মৈত্রী মহোৎসব ২০২৬"
                   className="w-full h-auto object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                 />
               </div>
             </div>
           </div>
 
-          {/* Welcoming Theme Quote Banner */}
-          <div className="inline-block px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 border border-amber-500/25 backdrop-blur-md shadow-lg shadow-amber-500/5 max-w-lg mx-auto space-y-0.5">
-            <p className="text-sm sm:text-base font-bold text-amber-200 tracking-wide font-serif">
+          {/* Welcoming Cultural Theme Quote Card */}
+          <div className="inline-block px-5 py-3 sm:px-7 sm:py-3.5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 border border-amber-500/25 backdrop-blur-xl shadow-xl shadow-amber-500/5 max-w-xl mx-auto space-y-1">
+            <p className="text-sm sm:text-lg font-bold text-amber-200 tracking-wide font-serif">
               “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
             </p>
             <p className="text-xs sm:text-sm font-semibold text-rose-200/95 font-hindi tracking-wide">
@@ -1740,54 +2089,113 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
             </p>
           </div>
 
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-            Welcome to the official guest registration and attendance portal for <strong>Maitri Mahotsav 2026</strong>. Join us on <strong>1st November, 2026 at 7:30 PM onwards</strong> at <strong>Coder & AccoTax</strong>.
-          </p>
+          {/* Real-Time Live Event Countdown Timer */}
+          <div className="max-w-2xl mx-auto pt-1">
+            <div className="p-4 sm:p-5 rounded-3xl bg-slate-950/70 border border-slate-800/90 backdrop-blur-2xl shadow-2xl space-y-3">
+              <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-wider uppercase text-amber-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>Event Countdown: 1st November, 2026 • 7:30 PM IST</span>
+              </div>
+
+              <div className="grid grid-cols-4 gap-2 sm:gap-3.5">
+                {[
+                  { value: timeLeft.days, label: "Days", color: "from-amber-400 to-amber-600" },
+                  { value: timeLeft.hours, label: "Hours", color: "from-rose-400 to-rose-600" },
+                  { value: timeLeft.minutes, label: "Minutes", color: "from-purple-400 to-purple-600" },
+                  { value: timeLeft.seconds, label: "Seconds", color: "from-cyan-400 to-cyan-600" },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-2.5 sm:p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col items-center justify-center shadow-inner"
+                  >
+                    <span className={`text-xl sm:text-3xl md:text-4xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-b ${item.color}`}>
+                      {String(item.value).padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mt-0.5">
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Event Location & Schedule Meta Chips */}
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-300">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-800">
+                  <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Sunday, 1st November, 2026</span>
+                </span>
+
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-800">
+                  <Clock className="w-3.5 h-3.5 text-amber-400" />
+                  <span>7:30 PM Onwards</span>
+                </span>
+
+                <a
+                  href="https://maps.google.com/?q=Coder+and+AccoTax+Barrackpore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 text-amber-300 hover:text-amber-200 transition"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Coder & AccoTax, Barrackpore</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+          </div>
 
           {/* Quick Stats Ribbon */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 pt-2 max-w-4xl mx-auto">
+            {/* Total Registered */}
             <motion.div
-              whileHover={{ y: -3 }}
-              className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl"
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="p-4 rounded-3xl bg-slate-900/70 border border-purple-500/25 hover:border-purple-500/40 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl shadow-purple-950/20 transition group"
             >
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-2">
+              <div className="w-10 h-10 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-300 mb-2 group-hover:scale-110 transition">
                 <Users className="w-5 h-5" />
               </div>
-              <span className="text-2xl sm:text-3xl font-extrabold text-white">{stats.total}</span>
-              <span className="text-xs text-slate-400 font-medium">Total Registered</span>
+              <span className="text-2xl sm:text-3xl font-black text-white">{stats.total}</span>
+              <span className="text-xs text-purple-200/80 font-semibold mt-0.5">Total Registered</span>
+              <span className="text-[10px] text-purple-300/60 font-mono mt-0.5">Live Guest Count</span>
             </motion.div>
 
+            {/* Non-Vegetarian Feast */}
             <motion.div
-              whileHover={{ y: -3 }}
-              className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl"
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="p-4 rounded-3xl bg-slate-900/70 border border-rose-500/25 hover:border-rose-500/40 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl shadow-rose-950/20 transition group"
             >
-              <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mb-2">
+              <div className="w-10 h-10 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-300 mb-2 group-hover:scale-110 transition">
                 <Utensils className="w-5 h-5" />
               </div>
-              <span className="text-2xl sm:text-3xl font-extrabold text-rose-300">{stats.nonVeg}</span>
-              <span className="text-xs text-slate-400 font-medium">🍗 Non-Vegetarian</span>
+              <span className="text-2xl sm:text-3xl font-black text-rose-300">{stats.nonVeg}</span>
+              <span className="text-xs text-rose-200/80 font-semibold mt-0.5">🍗 Non-Vegetarian</span>
+              <span className="text-[10px] text-rose-300/70 font-mono mt-0.5">{stats.nonVegPct}% of attendees</span>
             </motion.div>
 
+            {/* Vegetarian Feast */}
             <motion.div
-              whileHover={{ y: -3 }}
-              className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl"
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="p-4 rounded-3xl bg-slate-900/70 border border-emerald-500/25 hover:border-emerald-500/40 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl shadow-emerald-950/20 transition group"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-2">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-300 mb-2 group-hover:scale-110 transition">
                 <Leaf className="w-5 h-5" />
               </div>
-              <span className="text-2xl sm:text-3xl font-extrabold text-emerald-300">{stats.veg}</span>
-              <span className="text-xs text-slate-400 font-medium">🌱 Vegetarian</span>
+              <span className="text-2xl sm:text-3xl font-black text-emerald-300">{stats.veg}</span>
+              <span className="text-xs text-emerald-200/80 font-semibold mt-0.5">🌱 Vegetarian</span>
+              <span className="text-[10px] text-emerald-300/70 font-mono mt-0.5">{stats.vegPct}% of attendees</span>
             </motion.div>
 
+            {/* Attending Guests */}
             <motion.div
-              whileHover={{ y: -3 }}
-              className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl"
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="p-4 rounded-3xl bg-slate-900/70 border border-cyan-500/25 hover:border-cyan-500/40 backdrop-blur-xl flex flex-col items-center justify-center text-center shadow-xl shadow-cyan-950/20 transition group"
             >
-              <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-2">
+              <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-2 group-hover:scale-110 transition">
                 <CalendarCheck className="w-5 h-5" />
               </div>
-              <span className="text-2xl sm:text-3xl font-extrabold text-cyan-300">{stats.present}</span>
-              <span className="text-xs text-slate-400 font-medium">Attending Guests</span>
+              <span className="text-2xl sm:text-3xl font-black text-cyan-300">{stats.present}</span>
+              <span className="text-xs text-cyan-200/80 font-semibold mt-0.5">Confirmed RSVP</span>
+              <span className="text-[10px] text-cyan-300/70 font-mono mt-0.5">{stats.presentPct}% attendance</span>
             </motion.div>
           </div>
         </motion.div>
@@ -2115,11 +2523,84 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                   </div>
 
                   {/* PIN Section */}
-                  <div className="p-4 rounded-2xl bg-slate-950/40 border border-slate-800 space-y-4">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-400">
-                      <ShieldCheck className="w-4 h-4" />
-                      <span>{isEdit ? "Security Authorization PIN" : "Security PIN for Self-Service & Verification"}</span>
+                  <div className="p-4 sm:p-5 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-4 shadow-inner">
+                    <div className="flex items-center justify-between gap-2 flex-wrap pb-1 border-b border-slate-800/80">
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+                        <ShieldCheck className="w-4 h-4 text-amber-400" />
+                        <span>{isEdit ? "Security Authorization PIN" : "Security PIN for Self-Service & Protection"}</span>
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        {!isEdit && (
+                          <button
+                            type="button"
+                            onClick={() => setShowPinExplanation((prev) => !prev)}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-amber-200 text-[11px] font-semibold transition cursor-pointer active:scale-95 shadow-sm"
+                            title="Click to learn why a 4-digit PIN is needed"
+                          >
+                            <HelpCircle className="w-3.5 h-3.5 text-amber-400" />
+                            <span>Why do I need a PIN?</span>
+                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${showPinExplanation ? "rotate-180" : ""}`} />
+                          </button>
+                        )}
+                        <span className="px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] font-bold">
+                          4-Digit Key
+                        </span>
+                      </div>
                     </div>
+
+                    {/* On-Demand Explanatory Info Accordion Card */}
+                    <AnimatePresence>
+                      {showPinExplanation && !isEdit && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0, y: -6 }}
+                          animate={{ opacity: 1, height: "auto", y: 0 }}
+                          exit={{ opacity: 0, height: 0, y: -6 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/10 via-purple-500/5 to-slate-900 border border-amber-500/30 space-y-2 text-xs relative shadow-md">
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="flex items-center gap-2 text-amber-300 font-bold">
+                                <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                                <span>Why you need to set a 4-Digit Security PIN:</span>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => setShowPinExplanation(false)}
+                                className="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition cursor-pointer"
+                                title="Close explanation"
+                              >
+                                <X className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                            <ul className="space-y-1.5 text-[11px] text-slate-300 leading-relaxed">
+                              <li className="flex items-start gap-2">
+                                <span className="text-amber-400 font-bold">✓</span>
+                                <span>
+                                  <strong className="text-white font-semibold">Self-Service Pass Access:</strong> Allows you to re-download, reprint, or view your digital event pass anytime without re-registering.
+                                </span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-amber-400 font-bold">✓</span>
+                                <span>
+                                  <strong className="text-white font-semibold">Prevent Unauthorized Edits:</strong> Only you can update your meal preference (Veg / Non-Veg) or contact details later.
+                                </span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-amber-400 font-bold">✓</span>
+                                <span>
+                                  <strong className="text-white font-semibold">Fast Entrance Verification:</strong> Used as your confidential check-in code at the reception and buffet counters.
+                                </span>
+                              </li>
+                            </ul>
+                            <div className="pt-1 text-[10px] text-amber-200/90 font-medium italic flex items-center gap-1 border-t border-amber-500/15">
+                              <span>💡 <strong>Tip:</strong> Choose an easy-to-remember 4-digit code (e.g. birth year or memorable 4 numbers).</span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {isEdit ? (
@@ -2207,8 +2688,6 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                                   className={`w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border text-white placeholder-slate-500 focus:outline-none focus:ring-2 text-sm tracking-widest ${
                                     formData.pin.length === 4
                                       ? formData.pin === storedPin
-                                        ? "border-emerald-500/60 focus:ring-emerald-500"
-                                        : "border-rose-500/60 focus:ring-rose-500"
                                       : "border-slate-700 focus:ring-amber-500"
                                   }`}
                                 />
@@ -2231,10 +2710,10 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                           {/* 4 Digit PIN */}
                           <div className="space-y-1.5">
                             <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
-                              <span>Enter 4-Digit PIN <span className="text-rose-400">*</span></span>
+                              <span>Set 4-Digit Security PIN <span className="text-rose-400">*</span></span>
                               {formData.pin && (
-                                <span className={isPinValid ? "text-emerald-400 text-xs" : "text-rose-400 text-xs"}>
-                                  {formData.pin.length}/4
+                                <span className={isPinValid ? "text-emerald-400 text-xs font-semibold" : "text-rose-400 text-xs"}>
+                                  {formData.pin.length}/4 digits
                                 </span>
                               )}
                             </label>
@@ -2245,18 +2724,20 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                                 maxLength={4}
                                 value={formData.pin}
                                 onChange={handleChange}
-                                placeholder="e.g. 1234"
+                                placeholder="e.g. 1995"
                                 required
-                                className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest"
+                                className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest font-mono"
                               />
                               <button
                                 type="button"
                                 onClick={() => setShowPin(!showPin)}
                                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                                title={showPin ? "Hide PIN" : "Show PIN"}
                               >
                                 {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                               </button>
                             </div>
+                            <span className="text-[10px] text-slate-500 block">4 numeric digits (0–9)</span>
                           </div>
 
                           {/* Confirm PIN */}
@@ -2264,8 +2745,8 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                             <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
                               <span>Confirm 4-Digit PIN <span className="text-rose-400">*</span></span>
                               {formData.confirmPin && (
-                                <span className={isPinMatched ? "text-emerald-400 text-xs flex items-center gap-1" : "text-rose-400 text-xs"}>
-                                  {isPinMatched ? "✓ Matched" : "Mismatch"}
+                                <span className={isPinMatched ? "text-emerald-400 text-xs font-semibold flex items-center gap-1" : "text-rose-400 text-xs font-semibold"}>
+                                  {isPinMatched ? "✓ Matched" : "✗ Mismatch"}
                                 </span>
                               )}
                             </label>
@@ -2276,18 +2757,20 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                                 maxLength={4}
                                 value={formData.confirmPin}
                                 onChange={handleChange}
-                                placeholder="Re-enter 4-Digit PIN"
+                                placeholder="Re-enter 4-digit PIN"
                                 required
-                                className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest"
+                                className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest font-mono"
                               />
                               <button
                                 type="button"
                                 onClick={() => setShowConfirmPin(!showConfirmPin)}
                                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                                title={showConfirmPin ? "Hide PIN" : "Show PIN"}
                               >
                                 {showConfirmPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                               </button>
                             </div>
+                            <span className="text-[10px] text-slate-500 block">Re-type to confirm</span>
                           </div>
                         </>
                       )}
@@ -2456,17 +2939,34 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                   </div>
 
                   {/* Attendance Switch */}
-                  <label className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-950/50 border border-slate-800 hover:border-slate-700 cursor-pointer transition">
+                  <label className={`flex items-start sm:items-center gap-3 p-3.5 rounded-2xl transition cursor-pointer ${
+                    isEdit && isAdmin
+                      ? "bg-purple-950/30 border border-purple-500/40 ring-1 ring-purple-500/20"
+                      : "bg-slate-950/50 border border-slate-800 hover:border-slate-700"
+                  }`}>
                     <input
                       type="checkbox"
                       name="is_present"
                       checked={formData.is_present}
                       onChange={handleChange}
-                      className="w-5 h-5 rounded border-slate-700 bg-slate-900 text-purple-600 focus:ring-purple-500"
+                      className="w-5 h-5 mt-0.5 sm:mt-0 rounded border-slate-700 bg-slate-900 text-purple-600 focus:ring-purple-500 shrink-0 cursor-pointer"
                     />
-                    <div className="text-sm">
-                      <span className="font-semibold text-slate-100">I will attend ২৭ তম মৈত্রী মহোৎসব ২০২৬ (1st Nov, 2026 • 7:30 PM onwards)</span>
-                      <p className="text-xs text-slate-400">Help us arrange feast catering accurately at Coder & AccoTax.</p>
+                    <div className="text-sm flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-semibold text-slate-100">
+                          {formData.is_present ? "Confirmed Attending ২৭ তম মৈত্রী মহোৎসব ২০২৬" : "Not Attending (Absent / Regrets)"}
+                        </span>
+                        {isEdit && isAdmin && (
+                          <span className="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[10px] font-bold border border-purple-500/30">
+                            🛡️ Admin Attendance Override
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-slate-400 mt-0.5">
+                        {formData.is_present
+                          ? "Marked as attending on 1st Nov, 2026 • 7:30 PM onwards at Coder & AccoTax."
+                          : "Attendee will be marked as not attending (excluded from active catering headcount)."}
+                      </p>
                     </div>
                   </label>
 
@@ -2860,6 +3360,12 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                       <span>Print Pass</span>
                     </button>
                   </div>
+
+                  {/* Security PIN Self-Service Reminder on Pass */}
+                  <div className="ticket-export-hide print-hide pt-1 flex items-center justify-center gap-1.5 text-[11px] text-amber-300/90 bg-amber-500/10 py-1.5 px-3 rounded-xl border border-amber-500/20">
+                    <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                    <span>Remember your 4-digit PIN for future self-service edits or pass re-downloads.</span>
+                  </div>
                 </div>
 
                 {/* ============================================================== */}
@@ -3080,8 +3586,18 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name, mobile, or #token..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
               />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-0.5 rounded cursor-pointer"
+                  title="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
 
             {/* Filter Pills */}
@@ -3198,9 +3714,56 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                       {/* Guest Name & Phone */}
                       <div className="mt-3">
                         <h3 className="text-base font-bold text-white truncate">{toProperCase(guest.guestName)}</h3>
-                        <p className="text-xs font-mono text-slate-400 mt-0.5">
-                          {guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "No Phone"}
-                        </p>
+                        <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                          <p className="text-xs font-mono text-slate-400">
+                            {guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "No Phone"}
+                          </p>
+
+                          {/* Linked Family Group Badge or Shared Phone Trigger */}
+                          {(() => {
+                            const rawPhone = guest.mobile || guest.wpNumber || "";
+                            const clean = rawPhone.replace(/\D/g, "").slice(-10);
+                            if (!clean || clean.length < 10) return null;
+                            const familyGroup = linkedPhoneGroups[clean];
+                            const sharedGuests = getGuestsByPhone(clean);
+
+                            if (familyGroup?.isLinked) {
+                              return (
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleOpenLinkModalForPhone(clean, sharedGuests);
+                                  }}
+                                  className="px-2 py-0.5 rounded-md bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-[10px] font-bold text-emerald-300 flex items-center gap-1 transition cursor-pointer"
+                                  title={`Linked to ${familyGroup.groupName} (${sharedGuests.length} Guests) - Click to manage`}
+                                >
+                                  <Users className="w-3 h-3" />
+                                  <span>{familyGroup.groupName || "Family Group"} ({sharedGuests.length})</span>
+                                </button>
+                              );
+                            }
+
+                            if (sharedGuests.length > 1) {
+                              return (
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleOpenLinkModalForPhone(clean, sharedGuests);
+                                  }}
+                                  className="px-2 py-0.5 rounded-md bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-[10px] font-bold text-amber-300 flex items-center gap-1 transition cursor-pointer"
+                                  title={`${sharedGuests.length} attendees share this phone - Click to link as Family`}
+                                >
+                                  <Link2 className="w-3 h-3" />
+                                  <span>Shared Phone ({sharedGuests.length})</span>
+                                </button>
+                              );
+                            }
+
+                            return null;
+                          })()}
+                        </div>
                       </div>
 
                       {/* Badges Ribbon */}
@@ -3229,10 +3792,37 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                           )}
                         </span>
 
-                        {isAtt && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/20">
-                            Attending
-                          </span>
+                        {/* Attendance Status & Admin 1-Click Toggle */}
+                        {isAdmin ? (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleToggleAttendance(guest);
+                            }}
+                            title={isAtt ? "Admin: Click to mark as Not Attending" : "Admin: Click to mark as Attending"}
+                            className={`text-xs px-2.5 py-0.5 rounded-full font-semibold border transition cursor-pointer flex items-center gap-1 group shadow-sm ${
+                              isAtt
+                                ? "bg-cyan-500/15 hover:bg-rose-500/20 text-cyan-300 hover:text-rose-300 border-cyan-500/30 hover:border-rose-500/40"
+                                : "bg-slate-800 hover:bg-cyan-500/20 text-slate-400 hover:text-cyan-300 border-slate-700 hover:border-cyan-500/40"
+                            }`}
+                          >
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full transition ${
+                                isAtt
+                                  ? "bg-cyan-400 group-hover:bg-rose-400"
+                                  : "bg-slate-500 group-hover:bg-cyan-400"
+                              }`}
+                            />
+                            <span className="group-hover:hidden">{isAtt ? "Attending" : "Not Attending"}</span>
+                            <span className="hidden group-hover:inline">{isAtt ? "Mark Absent" : "Mark Attending"}</span>
+                          </button>
+                        ) : (
+                          isAtt && (
+                            <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/20">
+                              Attending
+                            </span>
+                          )
                         )}
                       </div>
 
@@ -3338,7 +3928,45 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                           )}
                         </td>
                         <td className="px-4 py-3 font-mono text-xs text-slate-300">
-                          {guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "-"}
+                          <div>{guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "-"}</div>
+                          {/* Table Row Linked Group / Shared Phone Badge */}
+                          {(() => {
+                            const rawPhone = guest.mobile || guest.wpNumber || "";
+                            const clean = rawPhone.replace(/\D/g, "").slice(-10);
+                            if (!clean || clean.length < 10) return null;
+                            const familyGroup = linkedPhoneGroups[clean];
+                            const sharedGuests = getGuestsByPhone(clean);
+
+                            if (familyGroup?.isLinked) {
+                              return (
+                                <button
+                                  type="button"
+                                  onClick={() => handleOpenLinkModalForPhone(clean, sharedGuests)}
+                                  className="mt-1 px-1.5 py-0.5 rounded bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-[9px] font-bold text-emerald-300 inline-flex items-center gap-1 transition cursor-pointer"
+                                  title="Linked Family Group"
+                                >
+                                  <Users className="w-2.5 h-2.5" />
+                                  <span className="truncate max-w-[110px]">{familyGroup.groupName || "Family"} ({sharedGuests.length})</span>
+                                </button>
+                              );
+                            }
+
+                            if (sharedGuests.length > 1) {
+                              return (
+                                <button
+                                  type="button"
+                                  onClick={() => handleOpenLinkModalForPhone(clean, sharedGuests)}
+                                  className="mt-1 px-1.5 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-[9px] font-bold text-amber-300 inline-flex items-center gap-1 transition cursor-pointer"
+                                  title="Shared Phone - Click to link"
+                                >
+                                  <Link2 className="w-2.5 h-2.5" />
+                                  <span>Shared ({sharedGuests.length})</span>
+                                </button>
+                              );
+                            }
+
+                            return null;
+                          })()}
                         </td>
                         <td className="px-4 py-3">
                           <span
@@ -3367,15 +3995,40 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                           </span>
                         </td>
                         <td className="px-4 py-3">
-                          <span
-                            className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${
-                              isAtt
-                                ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/20"
-                                : "bg-slate-800 text-slate-400"
-                            }`}
-                          >
-                            {isAtt ? "Attending" : "Invited"}
-                          </span>
+                          {isAdmin ? (
+                            <button
+                              type="button"
+                              onClick={() => handleToggleAttendance(guest)}
+                              title={isAtt ? "Admin: Click to mark as Not Attending" : "Admin: Click to mark as Attending"}
+                              className={`px-2.5 py-1 rounded-xl text-xs font-semibold border transition cursor-pointer flex items-center gap-1.5 group shadow-sm ${
+                                isAtt
+                                  ? "bg-cyan-500/15 hover:bg-rose-500/20 text-cyan-300 hover:text-rose-300 border-cyan-500/30 hover:border-rose-500/40"
+                                  : "bg-slate-800 hover:bg-emerald-500/20 text-slate-400 hover:text-emerald-300 border-slate-700 hover:border-emerald-500/40"
+                              }`}
+                            >
+                              <span
+                                className={`w-2 h-2 rounded-full transition ${
+                                  isAtt
+                                    ? "bg-cyan-400 group-hover:bg-rose-400"
+                                    : "bg-slate-500 group-hover:bg-emerald-400"
+                                }`}
+                              />
+                              <span className="group-hover:hidden">{isAtt ? "Attending" : "Not Attending"}</span>
+                              <span className="hidden group-hover:inline font-bold">
+                                {isAtt ? "Mark Absent ❌" : "Mark Attending ✅"}
+                              </span>
+                            </button>
+                          ) : (
+                            <span
+                              className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${
+                                isAtt
+                                  ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/20"
+                                  : "bg-slate-800 text-slate-400"
+                              }`}
+                            >
+                              {isAtt ? "Attending" : "Invited"}
+                            </span>
+                          )}
                         </td>
                         <td className="px-4 py-3 text-right">
                           <div className="inline-flex items-center gap-1.5">
@@ -3843,7 +4496,7 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
               </div>
 
               {/* KPI Metrics Ribbon */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-4 sm:px-6 bg-slate-950/60 border-b border-slate-800/80 shrink-0 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 p-4 sm:px-6 bg-slate-950/60 border-b border-slate-800/80 shrink-0 text-center">
                 <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
                   <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">
                     Duplicate Records
@@ -3858,6 +4511,14 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                   </span>
                   <span className="text-lg font-bold text-white font-mono">
                     {duplicateAnalysis.totalClusters}
+                  </span>
+                </div>
+                <div className="p-2 rounded-xl bg-slate-900 border border-emerald-500/30 bg-emerald-500/5">
+                  <span className="text-[10px] uppercase tracking-wider text-emerald-400 block font-semibold">
+                    Linked Groups 🔗
+                  </span>
+                  <span className="text-lg font-bold text-emerald-400 font-mono">
+                    {duplicateAnalysis.linkedGroupsCount}
                   </span>
                 </div>
                 <div className="p-2 rounded-xl bg-slate-900 border border-slate-800">
@@ -3883,6 +4544,8 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                 <span className="text-xs text-slate-400 font-semibold shrink-0">Filter By:</span>
                 {[
                   { id: "all", label: `All Clusters (${duplicateAnalysis.totalClusters})` },
+                  { id: "unresolved", label: `Unresolved (${duplicateAnalysis.unresolvedDuplicates})` },
+                  { id: "linked", label: `Linked Groups (${duplicateAnalysis.linkedGroupsCount})` },
                   { id: "phone", label: `Phone Matches (${duplicateAnalysis.phoneClustersCount})` },
                   { id: "name", label: `Name Matches (${duplicateAnalysis.nameClustersCount})` },
                   { id: "email", label: `Email Matches (${duplicateAnalysis.emailClustersCount})` },
@@ -3906,6 +4569,8 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
               <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
                 {(() => {
                   const visibleClusters = duplicateAnalysis.clusters.filter((c) => {
+                    if (duplicateFilterCriteria === "unresolved") return !c.isLinkedGroup;
+                    if (duplicateFilterCriteria === "linked") return c.isLinkedGroup;
                     if (duplicateFilterCriteria === "phone") return c.hasPhone;
                     if (duplicateFilterCriteria === "name") return c.hasName;
                     if (duplicateFilterCriteria === "email") return c.hasEmail;
@@ -3933,14 +4598,31 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                   return visibleClusters.map((cluster) => (
                     <div
                       key={cluster.id}
-                      className="p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-amber-500/30 space-y-4 shadow-xl"
+                      className={`p-4 sm:p-5 rounded-2xl bg-slate-950/80 border space-y-4 shadow-xl ${
+                        cluster.isLinkedGroup
+                          ? "border-emerald-500/40 ring-1 ring-emerald-500/20"
+                          : "border-amber-500/30"
+                      }`}
                     >
-                      {/* Cluster Header */}
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+                      {/* Cluster Header with Link Options */}
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-slate-800">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="px-2.5 py-0.5 rounded-lg bg-amber-500 text-slate-950 font-extrabold text-xs">
+                          <span className={`px-2.5 py-0.5 rounded-lg font-extrabold text-xs ${
+                            cluster.isLinkedGroup
+                              ? "bg-emerald-500 text-slate-950"
+                              : "bg-amber-500 text-slate-950"
+                          }`}>
                             Cluster #{cluster.index}
                           </span>
+
+                          {/* Linked Group Status Tag */}
+                          {cluster.isLinkedGroup && (
+                            <span className="px-2.5 py-0.5 rounded-md bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center gap-1">
+                              <Users className="w-3 h-3" />
+                              <span>Linked Group: "{cluster.linkedGroupData?.groupName || "Family"}"</span>
+                            </span>
+                          )}
+
                           <div className="flex flex-wrap gap-1.5">
                             {cluster.reasons.map((r, rIdx) => (
                               <span
@@ -3953,9 +4635,28 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                           </div>
                         </div>
 
-                        <span className="text-xs font-bold text-slate-300 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
-                          {cluster.guests.length} Conflicting Records
-                        </span>
+                        {/* Cluster Action Ribbon: Link Option for Phone Duplicates */}
+                        <div className="flex items-center gap-2 flex-wrap">
+                          {cluster.hasPhone && (
+                            <button
+                              type="button"
+                              onClick={() => handleOpenLinkModalForPhone(cluster.primaryPhone, cluster.guests)}
+                              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-sm ${
+                                cluster.isLinkedGroup
+                                  ? "bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300"
+                                  : "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-amber-500/20"
+                              }`}
+                              title={cluster.isLinkedGroup ? "Edit Family Linkage" : "Link these attendees as a Family Group"}
+                            >
+                              <Link2 className="w-3.5 h-3.5" />
+                              <span>{cluster.isLinkedGroup ? "Edit Family Link" : "Link as Family Group"}</span>
+                            </button>
+                          )}
+
+                          <span className="text-xs font-bold text-slate-300 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+                            {cluster.guests.length} Conflicting Records
+                          </span>
+                        </div>
                       </div>
 
                       {/* Cluster Comparative Cards */}
@@ -3969,11 +4670,21 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                         {cluster.guests.map((guest, gIdx) => {
                           const isVeg = checkIsVeg(guest);
                           const isAttending = checkIsAttending(guest);
+                          const gId = String(guest.guestId || guest.id || guest.token || gIdx);
+                          const isPrimaryInGroup =
+                            cluster.isLinkedGroup &&
+                            String(cluster.linkedGroupData?.primaryGuestId) === gId;
+                          const guestRoleInGroup =
+                            cluster.linkedGroupData?.relationships?.[gId] || null;
 
                           return (
                             <div
                               key={guest.guestId || guest.id || guest.token || gIdx}
-                              className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 flex flex-col justify-between gap-3 transition shadow-md"
+                              className={`p-4 rounded-xl bg-slate-900/90 border flex flex-col justify-between gap-3 transition shadow-md ${
+                                isPrimaryInGroup
+                                  ? "border-amber-500/40 ring-1 ring-amber-500/20"
+                                  : "border-slate-800 hover:border-slate-700"
+                              }`}
                             >
                               <div className="space-y-2.5">
                                 {/* Top Name & Token */}
@@ -3987,14 +4698,22 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                                       )}
                                     </div>
                                     <div>
-                                      <h5 className="font-bold text-white text-sm">
-                                        {toProperCase(guest.guestName || "Unnamed Guest")}
-                                      </h5>
-                                      {guest.age && (
-                                        <span className="text-[10px] text-slate-400">
-                                          Age: {guest.age}
-                                        </span>
-                                      )}
+                                      <div className="flex items-center gap-1.5 flex-wrap">
+                                        <h5 className="font-bold text-white text-sm">
+                                          {toProperCase(guest.guestName || "Unnamed Guest")}
+                                        </h5>
+                                        {isPrimaryInGroup && (
+                                          <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[9px] font-extrabold border border-amber-500/40">
+                                            👑 Primary
+                                          </span>
+                                        )}
+                                      </div>
+                                      <div className="flex items-center gap-2 text-[10px] text-slate-400">
+                                        {guest.age && <span>Age: {guest.age}</span>}
+                                        {guestRoleInGroup && (
+                                          <span className="text-emerald-400 font-semibold">• {guestRoleInGroup}</span>
+                                        )}
+                                      </div>
                                     </div>
                                   </div>
 
@@ -4059,15 +4778,19 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                                       )}
                                     </span>
 
-                                    <span
-                                      className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                                    {/* Admin 1-Click Attendance Toggle in Duplicate Reviewer */}
+                                    <button
+                                      type="button"
+                                      onClick={() => handleToggleAttendance(guest)}
+                                      title={isAttending ? "Admin: Click to mark as Not Attending" : "Admin: Click to mark as Attending"}
+                                      className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full transition cursor-pointer flex items-center gap-1 border ${
                                         isAttending
-                                          ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-                                          : "bg-slate-800 text-slate-400"
+                                          ? "bg-emerald-500/20 hover:bg-rose-500/20 text-emerald-300 hover:text-rose-300 border-emerald-500/30 hover:border-rose-500/40"
+                                          : "bg-slate-800 hover:bg-emerald-500/20 text-slate-400 hover:text-emerald-300 border-slate-700 hover:border-emerald-500/40"
                                       }`}
                                     >
-                                      {isAttending ? "Attending" : "Absent"}
-                                    </span>
+                                      <span>{isAttending ? "✅ Attending" : "⭕ Absent"}</span>
+                                    </button>
                                   </div>
 
                                   {/* Address */}
@@ -4129,7 +4852,7 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
               {/* Modal Footer */}
               <div className="p-4 sm:p-5 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
                 <p className="text-[11px] text-slate-400 leading-normal">
-                  💡 <strong className="text-slate-300">Admin Guidance:</strong> Compare registration tokens, meal preferences, and attendance status to decide which record to retain. Deleting a record is permanent.
+                  💡 <strong className="text-slate-300">Admin Guidance:</strong> Duplicate phone numbers can be linked into a coordinated Family/Shared Contact Group or pruned if redundant.
                 </p>
 
                 <button
@@ -4144,6 +4867,29 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
           </div>
         )}
       </AnimatePresence>
+
+      {/* Link Phone Group / Family Modal */}
+      {showLinkGroupModal && activePhoneGroupToLink && (
+        <LinkPhoneGroupModal
+          isOpen={showLinkGroupModal}
+          onClose={() => {
+            setShowLinkGroupModal(false);
+            setActivePhoneGroupToLink(null);
+          }}
+          phone={activePhoneGroupToLink.phone}
+          guests={activePhoneGroupToLink.guests}
+          existingGroup={activePhoneGroupToLink.existingGroup}
+          isAdmin={isAdmin}
+          onToggleAttendance={handleToggleAttendance}
+          onSaveGroup={handleSaveLinkedGroup}
+          onUnlinkGroup={handleUnlinkGroup}
+          onViewPass={(guest) => {
+            setShowLinkGroupModal(false);
+            setShowDuplicateModal(false);
+            handleViewExistingPass(guest);
+          }}
+        />
+      )}
     </div>
   );
 }

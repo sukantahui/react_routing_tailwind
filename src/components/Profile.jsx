@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import api from "../api/api";
 import { loginService } from "../services/loginService";
 import { BADGES } from "./typing-app/TypingLearn";
+import ImageCropperModal from "./common/ImageCropperModal";
 
 const makeSvgAvatar = (bg1, bg2, emoji, ringColor) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
@@ -55,6 +56,8 @@ export default function Profile() {
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState("");
   const [previewAvatar, setPreviewAvatar] = useState(null);
+  const [rawImageToCrop, setRawImageToCrop] = useState(null);
+  const [showCropperModal, setShowCropperModal] = useState(false);
   const fileInputRef = useRef(null);
 
   // Editable Profile Form
@@ -417,11 +420,11 @@ export default function Profile() {
       return;
     }
 
-    if (file.size > 5 * 1024 * 1024) {
+    if (file.size > 10 * 1024 * 1024) {
       Swal.fire({
         icon: "error",
         title: "File Too Large",
-        text: "Please select an image smaller than 5MB.",
+        text: "Please select an image smaller than 10MB.",
         background: "#0f172a",
         color: "#f8fafc",
       });
@@ -430,34 +433,20 @@ export default function Profile() {
 
     const reader = new FileReader();
     reader.onload = (event) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        const maxDim = 256;
-        let width = img.width;
-        let height = img.height;
-        if (width > height) {
-          if (width > maxDim) {
-            height = Math.round((height * maxDim) / width);
-            width = maxDim;
-          }
-        } else {
-          if (height > maxDim) {
-            width = Math.round((width * maxDim) / height);
-            height = maxDim;
-          }
-        }
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0, width, height);
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-        setPreviewAvatar(dataUrl);
-        setSelectedPreset("");
-      };
-      img.src = event.target.result;
+      const rawDataUrl = event.target.result;
+      setRawImageToCrop(rawDataUrl);
+      setShowCropperModal(true);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     };
     reader.readAsDataURL(file);
+  };
+
+  const handleCropComplete = (croppedDataUrl) => {
+    setPreviewAvatar(croppedDataUrl);
+    setSelectedPreset("");
+    setShowCropperModal(false);
   };
 
   const handleSaveAvatar = (overrideImage) => {
@@ -481,6 +470,7 @@ export default function Profile() {
       setAvatarUrl(chosenAvatar || "");
       setPreviewAvatar(null);
       setSelectedPreset("");
+      setRawImageToCrop(null);
       setShowAvatarModal(false);
 
       window.dispatchEvent(new Event("storage"));
@@ -1633,7 +1623,7 @@ export default function Profile() {
               <div className="space-y-2 text-center sm:text-left flex-1 min-w-0">
                 <p className="text-sm font-bold text-white">
                   {previewAvatar
-                    ? "Custom Image Uploaded"
+                    ? "Custom Photo Selected & Cropped"
                     : selectedPreset
                     ? "Preset Avatar Selected"
                     : avatarUrl
@@ -1643,25 +1633,46 @@ export default function Profile() {
                 <p className="text-xs text-slate-400">
                   {previewAvatar || selectedPreset
                     ? "Click 'Save Picture' below to apply your new profile photo."
-                    : "Choose an image from your device or pick a preset style below."}
+                    : "Upload an image from your device or pick a preset style below."}
                 </p>
-                {(avatarUrl || previewAvatar || selectedPreset) && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (previewAvatar || selectedPreset) {
-                        setPreviewAvatar(null);
-                        setSelectedPreset("");
-                      } else {
-                        handleSaveAvatar("");
-                      }
-                    }}
-                    className="text-xs text-rose-400 hover:text-rose-300 font-semibold flex items-center gap-1.5 cursor-pointer mx-auto sm:mx-0"
-                  >
-                    <i className="bi bi-trash3-fill"></i>
-                    <span>{previewAvatar || selectedPreset ? "Clear Selection" : "Remove Current Photo"}</span>
-                  </button>
-                )}
+                <div className="flex flex-wrap items-center gap-2.5 pt-1 justify-center sm:justify-start">
+                  {/* Adjust Portion / Re-crop Button */}
+                  {(previewAvatar || rawImageToCrop || avatarUrl) && !selectedPreset && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const srcToCrop = rawImageToCrop || previewAvatar || avatarUrl;
+                        if (srcToCrop) {
+                          setRawImageToCrop(srcToCrop);
+                          setShowCropperModal(true);
+                        }
+                      }}
+                      className="px-3 py-1 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/40 text-xs font-semibold text-sky-300 flex items-center gap-1.5 transition cursor-pointer shadow-xs"
+                    >
+                      <i className="bi bi-crop"></i>
+                      <span>Adjust & Crop Portion</span>
+                    </button>
+                  )}
+
+                  {(avatarUrl || previewAvatar || selectedPreset) && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (previewAvatar || selectedPreset) {
+                          setPreviewAvatar(null);
+                          setSelectedPreset("");
+                          setRawImageToCrop(null);
+                        } else {
+                          handleSaveAvatar("");
+                        }
+                      }}
+                      className="text-xs text-rose-400 hover:text-rose-300 font-semibold flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <i className="bi bi-trash3-fill"></i>
+                      <span>{previewAvatar || selectedPreset ? "Clear Selection" : "Remove Photo"}</span>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -1767,6 +1778,14 @@ export default function Profile() {
           </div>
         </div>
       )}
+
+      {/* Image Cropper & Portion Selector Modal */}
+      <ImageCropperModal
+        isOpen={showCropperModal}
+        imageSrc={rawImageToCrop}
+        onClose={() => setShowCropperModal(false)}
+        onCropComplete={handleCropComplete}
+      />
     </div>
   );
 }

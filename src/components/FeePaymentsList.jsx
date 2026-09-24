@@ -918,7 +918,7 @@ export default function FeePaymentsList() {
       text += `• ${t.paymentDate || "N/A"}: *${t.receiptNo}* — ₹${t.amountPaid?.toLocaleString("en-IN")}/- (${t.coveragePeriod}) [${t.paymentMode}]\n`;
     });
 
-    text += `\n💳 *Pay Online via UPI:* codernaccotax@okhdfcbank\n`;
+    text += `\n💳 *Pay Online via UPI:* codernaccotax@okhdfcbank | 9432456083@upi\n`;
     text += `_For any accounts queries, contact CNAT Accounts Department._`;
 
     const cleanPhone = phone.replace(/[^0-9]/g, "");
@@ -1382,7 +1382,7 @@ export default function FeePaymentsList() {
         <div class="upi-text">
           <strong>Online Fee Payment via UPI:</strong><br />
           Scan QR code or send payment to UPI ID:<br />
-          <span class="upi-id">codernaccotax@okhdfcbank</span><br />
+          <span class="upi-id">codernaccotax@okhdfcbank</span> | <span class="upi-id">9432456083@upi</span><br />
           Supports Google Pay, PhonePe, Paytm, BHIM UPI.
         </div>
       </div>
@@ -1572,7 +1572,7 @@ export default function FeePaymentsList() {
       `💰 *TOTAL OUTSTANDING DUE: ₹${Number(student.totalDue).toLocaleString("en-IN")}/-*\n` +
       `━━━━━━━━━━━━━━━━━━━━\n\n` +
       `📱 *Instant Payment via UPI / QR:*\n` +
-      `UPI ID: *codernaccotax@okhdfcbank*\n` +
+      `UPI ID: *codernaccotax@okhdfcbank* | *9432456083@upi*\n` +
       `Pay via Google Pay / PhonePe / Paytm / BHIM\n\n` +
       `Kindly clear the pending dues at your earliest convenience. If already paid, please ignore or share the transaction screenshot.\n\n` +
       `For queries: +91 70037 56860\n` +
@@ -1618,7 +1618,7 @@ export default function FeePaymentsList() {
 
     msg +=
       `📱 *Instant Payment via UPI / QR:*\n` +
-      `UPI ID: *codernaccotax@okhdfcbank*\n\n` +
+      `UPI ID: *codernaccotax@okhdfcbank* | *9432456083@upi*\n\n` +
       `Please clear the dues at your earliest convenience.\n` +
       `Coder & AccoTax (Barrackpore) | +91 70037 56860`;
 
@@ -1739,7 +1739,7 @@ export default function FeePaymentsList() {
     <div class="report-title">Student &amp; Course-wise Outstanding Dues Statement</div>
     <div class="meta-bar">
       <span>Academic Session: 2026–2027</span>
-      <span>UPI Payment ID: codernaccotax@okhdfcbank</span>
+      <span>UPI Payment ID: codernaccotax@okhdfcbank / 9432456083@upi</span>
       <span>Statement As Of: ${nowFormatted}</span>
     </div>
   </div>
@@ -1835,7 +1835,7 @@ export default function FeePaymentsList() {
   <div class="footer">
     <div style="font-size: 9px; color: #64748b; max-width: 380px;">
       * Computer generated institutional fee report. All figures are verified from system ledger.<br>
-      Students with pending dues can pay via official UPI ID <strong>codernaccotax@okhdfcbank</strong>.
+      Students with pending dues can pay via official UPI IDs <strong>codernaccotax@okhdfcbank</strong> or <strong>9432456083@upi</strong>.
     </div>
     <div class="signature-box">
       <div class="sig-line">Accounts Department / Admin</div>
@@ -2909,7 +2909,7 @@ export default function FeePaymentsList() {
                   <div class="qr-title">📱 Pay Online via UPI</div>
                   <div class="qr-text">Scan official QR to pay installments or verify</div>
                   <div class="qr-text">Any UPI App (Google Pay, PhonePe, Paytm)</div>
-                  <div class="upi-id">UPI ID: codernaccotax@okhdfcbank</div>
+                  <div class="upi-id">UPI ID: codernaccotax@okhdfcbank / 9432456083@upi</div>
                 </div>
                 <div class="qr-code" style="width: 78px; height: 96px; display: flex; align-items: center; justify-content: center;">
                   <img src="${qrImgSrc}" alt="CNAT Payment QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; border: 1px solid #e9d5ff;" />
@@ -4369,8 +4369,13 @@ export default function FeePaymentsList() {
                         <p className="text-xs font-bold text-purple-900">📱 Pay Online via UPI</p>
                         <p className="text-[9px] text-slate-600">Scan official QR to pay installments or verify</p>
                         <p className="text-[9px] text-slate-500">Works with Google Pay, PhonePe, Paytm, etc.</p>
-                        <div className="inline-block mt-1 px-2 py-0.5 rounded bg-white border border-purple-200 text-[10px] font-mono font-bold text-[#1a3e6f]">
-                          UPI ID: codernaccotax@okhdfcbank
+                        <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                          <div className="px-2 py-0.5 rounded bg-white border border-purple-200 text-[10px] font-mono font-bold text-[#1a3e6f] shadow-xs">
+                            UPI ID: codernaccotax@okhdfcbank
+                          </div>
+                          <div className="px-2 py-0.5 rounded bg-white border border-purple-200 text-[10px] font-mono font-bold text-[#1a3e6f] shadow-xs">
+                            UPI ID: 9432456083@upi
+                          </div>
                         </div>
                       </div>
                       <div className="shrink-0 bg-white p-1 rounded-lg border border-purple-200 shadow-sm flex items-center justify-center">
