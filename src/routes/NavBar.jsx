@@ -492,319 +492,330 @@ const NavBar = () => {
             </div>
 
             {/* 2. DESKTOP NAVIGATION TABS */}
-            <nav className="hidden lg:flex items-center gap-1 text-xs sm:text-sm font-medium">
+            <nav className="hidden lg:flex items-center gap-1.5 text-xs sm:text-sm font-medium">
               
-              {/* HOME / SECTION LINKS */}
-              <NavLink
-                to="/"
-                end
-                onClick={closeAllDropdowns}
-                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                  isHome && (!activeHash || activeHash === "#")
-                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                }`}
-              >
-                <i className="bi bi-house-door text-sky-400 text-xs xl:text-sm"></i>
-                <span>Home</span>
-              </NavLink>
-
-              <HashLink
-                smooth
-                to="/#about"
-                onClick={closeAllDropdowns}
-                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                  isHome && activeHash === "#about"
-                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                }`}
-              >
-                <i className="bi bi-info-circle text-sky-400 text-xs"></i>
-                <span>About</span>
-              </HashLink>
-
-              <HashLink
-                smooth
-                to="/#courses"
-                onClick={closeAllDropdowns}
-                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                  isHome && activeHash === "#courses"
-                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                }`}
-              >
-                <i className="bi bi-book text-sky-400 text-xs"></i>
-                <span>Courses</span>
-              </HashLink>
-
-              <HashLink
-                smooth
-                to="/#fees"
-                onClick={closeAllDropdowns}
-                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                  isHome && activeHash === "#fees"
-                    ? "text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 shadow-sm shadow-emerald-500/10 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                }`}
-              >
-                <i className="bi bi-credit-card text-emerald-400 text-xs"></i>
-                <span>Fees</span>
-              </HashLink>
-
-              <HashLink
-                smooth
-                to="/#teachers"
-                onClick={closeAllDropdowns}
-                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                  isHome && activeHash === "#teachers"
-                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                }`}
-              >
-                <i className="bi bi-people text-sky-400 text-xs"></i>
-                <span>Teachers</span>
-              </HashLink>
-
-              <HashLink
-                smooth
-                to="/#contact"
-                onClick={closeAllDropdowns}
-                className={`inline-flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                  isHome && activeHash === "#contact"
-                    ? "text-sky-300 bg-sky-500/15 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                    : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                }`}
-              >
-                <i className="bi bi-envelope text-sky-400 text-xs"></i>
-                <span>Contact</span>
-              </HashLink>
-
-              {/* TOOLS MEGA MENU */}
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => toggleDropdown("tools")}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
-                    activeDropdown === "tools" || isToolsActive
-                      ? "text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 shadow-sm shadow-cyan-500/10 font-semibold"
-                      : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
+              {/* Core Site Navigation Capsule */}
+              <div className="flex items-center gap-0.5 bg-slate-900/60 p-1 rounded-2xl border border-slate-800/80 backdrop-blur-md">
+                {/* HOME */}
+                <NavLink
+                  to="/"
+                  end
+                  onClick={closeAllDropdowns}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isHome && (!activeHash || activeHash === "#")
+                      ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
                   }`}
-                  aria-expanded={activeDropdown === "tools"}
                 >
-                  <i className="bi bi-tools text-cyan-400 text-sm"></i>
-                  <span>Tools</span>
-                  <i
-                    className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
-                      activeDropdown === "tools" ? "rotate-180 text-cyan-400" : ""
-                    }`}
-                  ></i>
-                </button>
+                  <i className="bi bi-house-door text-sky-400 text-xs"></i>
+                  <span>Home</span>
+                </NavLink>
 
-                {/* Tools Mega Dropdown Panel */}
-                <AnimatePresence>
-                  {activeDropdown === "tools" && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[820px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
-                    >
-                      {/* Header */}
-                      <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3 px-1">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50"></span>
-                          <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                            Interactive Compilers, Visualizers & Academic Utilities
-                          </span>
-                        </div>
-                        <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
-                          {toolsGroups.reduce((acc, g) => acc + g.items.length, 0)} Utilities Ready
-                        </span>
-                      </div>
+                {/* ABOUT */}
+                <HashLink
+                  smooth
+                  to="/#about"
+                  onClick={closeAllDropdowns}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isHome && activeHash === "#about"
+                      ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                  }`}
+                >
+                  <i className="bi bi-info-circle text-sky-400 text-xs"></i>
+                  <span>About</span>
+                </HashLink>
 
-                      {/* 4-Column Grid */}
-                      <div className="grid grid-cols-4 gap-3">
-                        {toolsGroups.map((group) => (
-                          <div key={group.id} className="space-y-1.5">
-                            <div className="flex items-center gap-1.5 px-1 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                              <i className={`bi ${group.icon} text-cyan-400`}></i>
-                              <span className="truncate">{group.title}</span>
-                            </div>
+                {/* COURSES */}
+                <HashLink
+                  smooth
+                  to="/#courses"
+                  onClick={closeAllDropdowns}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isHome && activeHash === "#courses"
+                      ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                  }`}
+                >
+                  <i className="bi bi-book text-sky-400 text-xs"></i>
+                  <span>Courses</span>
+                </HashLink>
 
-                            <div className="space-y-1">
-                              {group.items.map((item) => (
-                                <NavLink
-                                  key={item.to}
-                                  to={item.to}
-                                  onClick={closeAllDropdowns}
-                                  className={({ isActive }) =>
-                                    `group/tool flex items-start gap-2 p-2 rounded-xl transition-all duration-150 ${
-                                      isActive
-                                        ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/30"
-                                        : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
-                                    }`
-                                  }
-                                >
-                                  <div className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-cyan-400 group-hover/tool:border-cyan-500/40 group-hover/tool:text-cyan-300 group-hover/tool:scale-105 transition">
-                                    <i className={`bi ${item.icon} text-xs`}></i>
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between">
-                                      <span className="text-[11px] font-semibold truncate group-hover/tool:text-cyan-300 transition">
-                                        {item.label}
-                                      </span>
-                                    </div>
-                                    <p className="text-[9px] text-slate-400 line-clamp-1 group-hover/tool:text-slate-300 transition">
-                                      {item.desc}
-                                    </p>
-                                  </div>
-                                </NavLink>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                {/* FEES */}
+                <HashLink
+                  smooth
+                  to="/#fees"
+                  onClick={closeAllDropdowns}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isHome && activeHash === "#fees"
+                      ? "text-emerald-300 bg-emerald-500/20 border border-emerald-500/30 shadow-sm shadow-emerald-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                  }`}
+                >
+                  <i className="bi bi-credit-card text-emerald-400 text-xs"></i>
+                  <span>Fees</span>
+                </HashLink>
 
-                      {/* Bottom Footer */}
-                      <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
-                        <span className="flex items-center gap-1.5">
-                          <i className="bi bi-cpu text-cyan-400"></i>
-                          Live client-side interpreters & interactive data structures
-                        </span>
-                        <div className="flex items-center gap-2">
-                          <NavLink
-                            to="/whiteBoard"
-                            onClick={closeAllDropdowns}
-                            className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 hover:underline text-xs"
-                          >
-                            <i className="bi bi-easel2"></i>
-                            <span>Open Whiteboard</span>
-                          </NavLink>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* TEACHERS */}
+                <HashLink
+                  smooth
+                  to="/#teachers"
+                  onClick={closeAllDropdowns}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isHome && activeHash === "#teachers"
+                      ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                  }`}
+                >
+                  <i className="bi bi-people text-sky-400 text-xs"></i>
+                  <span>Teachers</span>
+                </HashLink>
+
+                {/* CONTACT */}
+                <HashLink
+                  smooth
+                  to="/#contact"
+                  onClick={closeAllDropdowns}
+                  className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                    isHome && activeHash === "#contact"
+                      ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                  }`}
+                >
+                  <i className="bi bi-envelope text-sky-400 text-xs"></i>
+                  <span>Contact</span>
+                </HashLink>
               </div>
 
-              {/* TUTORIALS MEGA MENU */}
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => toggleDropdown("tutorials")}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
-                    activeDropdown === "tutorials" || isTutorialsActive
-                      ? "text-purple-300 bg-purple-500/15 border border-purple-500/30 shadow-sm shadow-purple-500/10 font-semibold"
-                      : "text-slate-300 hover:text-white hover:bg-slate-900/90 border border-transparent"
-                  }`}
-                  aria-expanded={activeDropdown === "tutorials"}
-                >
-                  <i className="bi bi-journal-bookmark-fill text-purple-400 text-sm"></i>
-                  <span>Tutorials</span>
-                  <i
-                    className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
-                      activeDropdown === "tutorials" ? "rotate-180 text-purple-400" : ""
+              {/* Academic & Interactive Tools Capsule */}
+              <div className="flex items-center gap-1 bg-slate-900/60 p-1 rounded-2xl border border-slate-800/80 backdrop-blur-md">
+                {/* TOOLS MEGA MENU */}
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => toggleDropdown("tools")}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                      activeDropdown === "tools" || isToolsActive
+                        ? "text-cyan-300 bg-cyan-500/20 border border-cyan-500/30 shadow-sm shadow-cyan-500/10 font-semibold"
+                        : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
                     }`}
-                  ></i>
-                </button>
+                    aria-expanded={activeDropdown === "tools"}
+                  >
+                    <i className="bi bi-tools text-cyan-400 text-sm"></i>
+                    <span>Tools</span>
+                    <i
+                      className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
+                        activeDropdown === "tools" ? "rotate-180 text-cyan-400" : ""
+                      }`}
+                    ></i>
+                  </button>
 
-                {/* Tutorials Mega Dropdown Panel */}
-                <AnimatePresence>
-                  {activeDropdown === "tutorials" && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                      transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-2/3 top-full mt-2 w-[760px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
-                    >
-                      {/* Top Search & Filter Bar */}
-                      <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-800/80 mb-3">
-                        {/* Category filter pills */}
-                        <div className="flex items-center gap-1 overflow-x-auto py-0.5">
-                          {tutorialsCategories.map((cat) => (
-                            <button
-                              key={cat.id}
-                              type="button"
-                              onClick={() => setTutorialCategoryFilter(cat.id)}
-                              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
-                                tutorialCategoryFilter === cat.id
-                                  ? "bg-purple-600 text-white shadow-sm shadow-purple-500/20"
-                                  : "text-slate-400 hover:text-white hover:bg-slate-800"
-                              }`}
-                            >
-                              <i className={`bi ${cat.icon} text-[10px]`}></i>
-                              <span>{cat.label}</span>
-                            </button>
+                  {/* Tools Mega Dropdown Panel */}
+                  <AnimatePresence>
+                    {activeDropdown === "tools" && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[820px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                      >
+                        {/* Header */}
+                        <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3 px-1">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400/50"></span>
+                            <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                              Interactive Compilers, Visualizers &amp; Academic Utilities
+                            </span>
+                          </div>
+                          <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
+                            {toolsGroups.reduce((acc, g) => acc + g.items.length, 0)} Utilities Ready
+                          </span>
+                        </div>
+
+                        {/* 4-Column Grid */}
+                        <div className="grid grid-cols-4 gap-3">
+                          {toolsGroups.map((group) => (
+                            <div key={group.id} className="space-y-1.5">
+                              <div className="flex items-center gap-1.5 px-1 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                                <i className={`bi ${group.icon} text-cyan-400`}></i>
+                                <span className="truncate">{group.title}</span>
+                              </div>
+
+                              <div className="space-y-1">
+                                {group.items.map((item) => (
+                                  <NavLink
+                                    key={item.to}
+                                    to={item.to}
+                                    onClick={closeAllDropdowns}
+                                    className={({ isActive }) =>
+                                      `group/tool flex items-start gap-2 p-2 rounded-xl transition-all duration-150 ${
+                                        isActive
+                                          ? "bg-cyan-500/20 text-cyan-200 border border-cyan-500/30"
+                                          : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
+                                      }`
+                                    }
+                                  >
+                                    <div className="mt-0.5 flex-shrink-0 w-6 h-6 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-cyan-400 group-hover/tool:border-cyan-500/40 group-hover/tool:text-cyan-300 group-hover/tool:scale-105 transition">
+                                      <i className={`bi ${item.icon} text-xs`}></i>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center justify-between">
+                                        <span className="text-[11px] font-semibold truncate group-hover/tool:text-cyan-300 transition">
+                                          {item.label}
+                                        </span>
+                                      </div>
+                                      <p className="text-[9px] text-slate-400 line-clamp-1 group-hover/tool:text-slate-300 transition">
+                                        {item.desc}
+                                      </p>
+                                    </div>
+                                  </NavLink>
+                                ))}
+                              </div>
+                            </div>
                           ))}
                         </div>
 
-                        {/* Dropdown in-line Search */}
-                        <div className="relative w-44 flex-shrink-0">
-                          <i className="bi bi-search absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-                          <input
-                            type="text"
-                            value={tutorialDropdownSearch}
-                            onChange={(e) => setTutorialDropdownSearch(e.target.value)}
-                            placeholder="Filter roadmaps..."
-                            className="w-full bg-slate-950/80 border border-slate-800 rounded-lg pl-7 pr-2.5 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/60"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Tutorials Grid */}
-                      <div className="max-h-[360px] overflow-y-auto pr-1 grid grid-cols-3 gap-2">
-                        {filteredTutorials.length === 0 ? (
-                          <div className="col-span-3 py-8 text-center text-slate-500 text-xs">
-                            <i className="bi bi-search text-lg block mb-1"></i>
-                            No roadmaps matching "{tutorialDropdownSearch}"
-                          </div>
-                        ) : (
-                          filteredTutorials.map((item) => (
+                        {/* Bottom Footer */}
+                        <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
+                          <span className="flex items-center gap-1.5">
+                            <i className="bi bi-cpu text-cyan-400"></i>
+                            Live client-side interpreters &amp; interactive data structures
+                          </span>
+                          <div className="flex items-center gap-2">
                             <NavLink
-                              key={item.to}
-                              to={item.to}
+                              to="/whiteBoard"
                               onClick={closeAllDropdowns}
-                              className={({ isActive }) =>
-                                `group/tut flex items-center justify-between p-2.5 rounded-xl border transition-all duration-150 ${
-                                  isActive
-                                    ? "bg-purple-500/20 text-purple-200 border-purple-500/30"
-                                    : "bg-slate-950/40 hover:bg-slate-800/80 text-slate-300 hover:text-white border-slate-800/60 hover:border-purple-500/30"
-                                }`
-                              }
+                              className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 hover:underline text-xs"
                             >
-                              <div className="flex items-center gap-2.5 min-w-0">
-                                <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-sm border ${item.color} group-hover/tut:scale-105 transition`}>
-                                  <i className={`bi ${item.icon}`}></i>
-                                </div>
-                                <span className="text-xs font-semibold truncate group-hover/tut:text-purple-300 transition">
-                                  {item.label}
-                                </span>
-                              </div>
-                              {item.badge && (
-                                <span className="text-[9px] px-1.5 py-0.2 rounded-md font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30 flex-shrink-0">
-                                  {item.badge}
-                                </span>
-                              )}
+                              <i className="bi bi-easel2"></i>
+                              <span>Open Whiteboard</span>
                             </NavLink>
-                          ))
-                        )}
-                      </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
-                      {/* Bottom Info */}
-                      <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
-                        <span className="flex items-center gap-1.5">
-                          <i className="bi bi-patch-check-fill text-purple-400"></i>
-                          Free Step-by-Step Curriculum & Interactive Roadmaps
-                        </span>
-                        <span className="text-slate-400">
-                          Showing {filteredTutorials.length} Roadmaps
-                        </span>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* TUTORIALS MEGA MENU */}
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => toggleDropdown("tutorials")}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                      activeDropdown === "tutorials" || isTutorialsActive
+                        ? "text-purple-300 bg-purple-500/20 border border-purple-500/30 shadow-sm shadow-purple-500/10 font-semibold"
+                        : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                    }`}
+                    aria-expanded={activeDropdown === "tutorials"}
+                  >
+                    <i className="bi bi-journal-bookmark-fill text-purple-400 text-sm"></i>
+                    <span>Tutorials</span>
+                    <i
+                      className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
+                        activeDropdown === "tutorials" ? "rotate-180 text-purple-400" : ""
+                      }`}
+                    ></i>
+                  </button>
+
+                  {/* Tutorials Mega Dropdown Panel */}
+                  <AnimatePresence>
+                    {activeDropdown === "tutorials" && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                        transition={{ duration: 0.18, ease: "easeOut" }}
+                        className="absolute left-1/2 -translate-x-2/3 top-full mt-2 w-[760px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                      >
+                        {/* Top Search & Filter Bar */}
+                        <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-800/80 mb-3">
+                          {/* Category filter pills */}
+                          <div className="flex items-center gap-1 overflow-x-auto py-0.5">
+                            {tutorialsCategories.map((cat) => (
+                              <button
+                                key={cat.id}
+                                type="button"
+                                onClick={() => setTutorialCategoryFilter(cat.id)}
+                                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition cursor-pointer ${
+                                  tutorialCategoryFilter === cat.id
+                                    ? "bg-purple-600 text-white shadow-sm shadow-purple-500/20"
+                                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                                }`}
+                              >
+                                <i className={`bi ${cat.icon} text-[10px]`}></i>
+                                <span>{cat.label}</span>
+                              </button>
+                            ))}
+                          </div>
+
+                          {/* Dropdown in-line Search */}
+                          <div className="relative w-44 flex-shrink-0">
+                            <i className="bi bi-search absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                            <input
+                              type="text"
+                              value={tutorialDropdownSearch}
+                              onChange={(e) => setTutorialDropdownSearch(e.target.value)}
+                              placeholder="Filter roadmaps..."
+                              className="w-full bg-slate-950/80 border border-slate-800 rounded-lg pl-7 pr-2.5 py-1 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500/60"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Tutorials Grid */}
+                        <div className="max-h-[360px] overflow-y-auto pr-1 grid grid-cols-3 gap-2">
+                          {filteredTutorials.length === 0 ? (
+                            <div className="col-span-3 py-8 text-center text-slate-500 text-xs">
+                              <i className="bi bi-search text-lg block mb-1"></i>
+                              No roadmaps matching "{tutorialDropdownSearch}"
+                            </div>
+                          ) : (
+                            filteredTutorials.map((item) => (
+                              <NavLink
+                                key={item.to}
+                                to={item.to}
+                                onClick={closeAllDropdowns}
+                                className={({ isActive }) =>
+                                  `group/tut flex items-center justify-between p-2.5 rounded-xl border transition-all duration-150 ${
+                                    isActive
+                                      ? "bg-purple-500/20 text-purple-200 border-purple-500/30"
+                                      : "bg-slate-950/40 hover:bg-slate-800/80 text-slate-300 hover:text-white border-slate-800/60 hover:border-purple-500/30"
+                                  }`
+                                }
+                              >
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                  <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-sm border ${item.color} group-hover/tut:scale-105 transition`}>
+                                    <i className={`bi ${item.icon}`}></i>
+                                  </div>
+                                  <span className="text-xs font-semibold truncate group-hover/tut:text-purple-300 transition">
+                                    {item.label}
+                                  </span>
+                                </div>
+                                {item.badge && (
+                                  <span className="text-[9px] px-1.5 py-0.2 rounded-md font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30 flex-shrink-0">
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </NavLink>
+                            ))
+                          )}
+                        </div>
+
+                        {/* Bottom Info */}
+                        <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
+                          <span className="flex items-center gap-1.5">
+                            <i className="bi bi-patch-check-fill text-purple-400"></i>
+                            Free Step-by-Step Curriculum &amp; Interactive Roadmaps
+                          </span>
+                          <span className="text-slate-400">
+                            Showing {filteredTutorials.length} Roadmaps
+                          </span>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
 
               {/* SPECIAL FESTIVE LINK: BIJOYA 2026 GUEST REGISTRATION (Valid upto 1st Nov 2026) */}
@@ -813,35 +824,16 @@ const NavBar = () => {
                   to="/bijoya"
                   onClick={closeAllDropdowns}
                   className={({ isActive }) =>
-                    `relative group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-300 overflow-hidden ${
+                    `inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
                       isActive
-                        ? "text-amber-200 bg-gradient-to-r from-amber-500/25 via-rose-500/25 to-purple-500/25 border border-amber-400/60 shadow-lg shadow-amber-500/20 font-semibold"
-                        : "text-amber-300 hover:text-amber-100 bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-purple-500/15 hover:from-amber-500/25 hover:via-rose-500/20 hover:to-purple-500/25 border border-amber-500/35 hover:border-amber-400/70 shadow-sm shadow-amber-500/10 hover:shadow-md hover:shadow-amber-500/20 hover:scale-[1.02] active:scale-95"
+                        ? "text-amber-200 bg-amber-500/20 border border-amber-400/50 shadow-sm shadow-amber-500/15 font-semibold"
+                        : "text-amber-300 hover:text-amber-100 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/25 hover:border-amber-400/40"
                     }`
                   }
                 >
-                  {/* Animated Shimmer beam */}
-                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
-
-                  {/* Pulsing Live Dot */}
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.9)]"></span>
-                  </span>
-
-                  {/* Celebration Icon */}
-                  <span className="text-sm select-none group-hover:scale-110 group-hover:rotate-12 transition-transform duration-200">
-                    🌸
-                  </span>
-
-                  {/* Text Label */}
-                  <span className="font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-rose-200 to-amber-100 whitespace-nowrap">
-                    Bijoya 2026
-                  </span>
-
-                  {/* Guest Pass Chip */}
-                  <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-300 border border-amber-400/40">
-                    <i className="bi bi-ticket-perforated-fill text-[9px] text-amber-400"></i>
+                  <span className="text-xs">🌸</span>
+                  <span className="font-semibold text-xs tracking-tight">Bijoya 2026</span>
+                  <span className="hidden xl:inline-flex items-center px-1.5 py-0.2 rounded-md text-[9px] font-bold uppercase tracking-wider bg-amber-500/25 text-amber-300 border border-amber-400/30">
                     Guest Pass
                   </span>
                 </NavLink>
@@ -849,7 +841,7 @@ const NavBar = () => {
             </nav>
 
             {/* 3. RIGHT CONTROLS: SEARCH SPOTLIGHT & LOGIN BUTTON */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-2.5">
               
               {/* SPOTLIGHT / COMMAND SEARCH BUTTON */}
               <button
@@ -858,25 +850,29 @@ const NavBar = () => {
                   setSearchModalOpen(true);
                   closeAllDropdowns();
                 }}
-                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800/80 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-medium transition shadow-sm hover:shadow group cursor-pointer"
-                title="Search courses & roadmaps (Ctrl+K)"
+                className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-medium transition shadow-sm hover:shadow cursor-pointer"
+                title="Search courses &amp; roadmaps (Ctrl+K)"
               >
-                <i className="bi bi-search text-slate-400 group-hover:text-sky-400 transition-colors"></i>
-                <span className="text-slate-400 group-hover:text-slate-300">Quick Jump...</span>
-                <kbd className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 bg-slate-800 rounded border border-slate-700/60 shadow-xs">
+                <i className="bi bi-search text-slate-400 text-xs"></i>
+                <span className="text-slate-400">Quick Jump...</span>
+                <kbd className="inline-flex items-center px-1.5 py-0.2 text-[10px] font-semibold text-slate-400 bg-slate-800 rounded border border-slate-700/60">
                   ⌘K
                 </kbd>
               </button>
 
-              {/* LOGIN BUTTON (DESKTOP) */}
+              {/* Subtle Vertical Divider */}
+              <div className="hidden sm:block h-5 w-[1px] bg-slate-800 my-auto" />
+
+              {/* LOGIN / SIGN IN BUTTON (DESKTOP) */}
               <NavLink
                 to="/login"
                 onClick={closeAllDropdowns}
-                title="Portal Login"
-                aria-label="Portal Login"
-                className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-400 hover:via-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 transform hover:scale-105 active:scale-95"
+                title="Portal Sign In"
+                aria-label="Portal Sign In"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white text-xs font-bold shadow-md shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 transform hover:scale-105 active:scale-95"
               >
-                <i className="bi bi-box-arrow-in-right text-base"></i>
+                <i className="bi bi-box-arrow-in-right text-sm"></i>
+                <span>Sign In</span>
               </NavLink>
 
               {/* MOBILE SEARCH & HAMBURGER TOGGLE */}
