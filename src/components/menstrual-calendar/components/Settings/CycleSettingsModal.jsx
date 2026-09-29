@@ -132,7 +132,6 @@ export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdate
             }`}
           >
             <Heart className="w-4 h-4" /> Health Profile
-            {!isApiMode && <span className="text-[10px] text-amber-400 font-normal">(login required)</span>}
           </button>
         </div>
 
@@ -143,15 +142,6 @@ export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdate
             {/* ═══════════════════════════ HEALTH PROFILE TAB ═══════════════════════════ */}
             {activeTab === 'health' && (
               <div className="space-y-4">
-
-                {!isApiMode && (
-                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20">
-                    <Activity className="w-5 h-5 text-amber-400 shrink-0" />
-                    <p className="text-amber-300 text-xs leading-relaxed">
-                      Health profile is saved to your account. You are currently in local mode — data will be saved once you log in.
-                    </p>
-                  </div>
-                )}
 
                 {/* Goal */}
                 <div className="space-y-2 bg-slate-950/80 p-4 rounded-2xl border border-slate-800">

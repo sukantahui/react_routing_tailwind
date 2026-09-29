@@ -2,13 +2,13 @@
  * Custom React Hook — Menstrual Cycle State Management
  *
  * Strategy:
- *  - On mount: call GET /api/cycle/me (auth:sanctum). On success, use DB data
- *    as source of truth and mirror it to localStorage as offline cache.
- *  - All mutations (add/edit/delete/clear/sync) call the API first; on success
- *    update local React state (which the API response always returns in full).
- *  - If the API call fails (network error / not logged in), falls back to
- *    localStorage-only mode so the UI still works.
- *  - "Sync to Cloud" syncs any localStorage-only data to the DB.
+ *  - STRICT DATABASE PERSISTENCE via cnat_api (Laravel + MySQL backend).
+ *  - ZERO LOCAL BROWSER STORAGE: No cycle dates, settings, or health records are
+ *    saved in localStorage or browser cookies.
+ *  - On mount: GET /api/cycle/me fetches the authenticated user's records from DB.
+ *  - All mutations (add, edit, delete, bulk sync, settings update, health profile)
+ *    send atomic API calls directly to the cnat_api backend and update React state
+ *    from the fresh database response.
  */
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
@@ -22,32 +22,7 @@ import {
 import { validatePeriodStartDate, validateImportedData } from '../utils/validation';
 import { cycleApi } from '../api/cycleApi';
 
-const LOCAL_STORAGE_KEY = 'menstrual_cycle_app_data_v1';
-
-// ─── Helpers ────────────────────────────────────────────────────────────────
-
-/** Read from localStorage */
-function readLocalStorage() {
-  try {
-    const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
-}
-
-/** Write to localStorage */
-function writeLocalStorage(periodStarts, settings) {
-  try {
-    localStorage.setItem(
-      LOCAL_STORAGE_KEY,
-      JSON.stringify({ periodStarts, settings, lastUpdated: new Date().toISOString() })
-    );
-  } catch (e) {
-    console.warn('localStorage write failed:', e);
-  }
-}
+const LEGACY_LOCAL_STORAGE_KEY = 'menstrual_cycle_app_data_v1';
 
 /** Map Laravel API settings response → React DEFAULT_SETTINGS shape */
 function apiSettingsToReact(apiSettings) {
@@ -63,17 +38,16 @@ function apiSettingsToReact(apiSettings) {
   };
 }
 
-// ─── Hook ───────────────────────────────────────────────────────────────────
-
 export function useCycleData() {
   const [periodStarts, setPeriodStarts]   = useState([]);
-  const [periodEntries, setPeriodEntries] = useState([]);   // full DB entry objects: { id, period_start_date, notes }
+  const [periodEntries, setPeriodEntries] = useState([]);   // full DB entry objects: [{ id, period_start_date, notes }]
   const [settings, setSettings]           = useState(DEFAULT_SETTINGS);
   const [isLoaded, setIsLoaded]           = useState(false);
-  const [isApiMode, setIsApiMode]         = useState(false);   // true = DB is source of truth
+  const [isApiMode, setIsApiMode]         = useState(false);   // true = connected to cnat_api database
   const [isSyncing, setIsSyncing]         = useState(false);   // API call in-flight
   const [notification, setNotification]   = useState(null);
   const [apiProfile, setApiProfile]       = useState(null);    // raw profile from API (goal, DOB, etc.)
+  const [apiError, setApiError]           = useState(null);
 
   // ── Notification helper ──────────────────────────────────────────────────
 
@@ -89,7 +63,7 @@ export function useCycleData() {
   const applyApiData = useCallback((data) => {
     if (!data) return;
     const rawStarts = data.periodStarts || data.period_starts || [];
-    const starts = rawStarts.sort(compareISODates);
+    const starts = [...rawStarts].sort(compareISODates);
 
     const rawEntries = data.periodEntries || data.period_entries || [];
     const entries = rawEntries.map((e) => ({
@@ -100,410 +74,323 @@ export function useCycleData() {
     })).sort((a, b) =>
       compareISODates(a.periodStartDate || a.period_start_date, b.periodStartDate || b.period_start_date)
     );
-    const merged = { ...DEFAULT_SETTINGS, ...apiSettingsToReact(data.settings) };
+
+    const mergedSettings = { ...DEFAULT_SETTINGS, ...apiSettingsToReact(data.settings) };
 
     setPeriodStarts(starts);
     setPeriodEntries(entries);
-    setSettings(merged);
+    setSettings(mergedSettings);
     setApiProfile(data);
-    writeLocalStorage(starts, merged);
+    setIsApiMode(true);
+    setApiError(null);
   }, []);
 
-  // ── 1. Mount & Auth Sync: load from API, fall back to localStorage ────
+  // ── 1. Mount & Database Load: Fetch directly from cnat_api ─────────────────
 
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadData() {
-      const token = localStorage.getItem('token');
-      const rawUser = localStorage.getItem('user');
-      const isAuth = !!token && token !== 'null' && token !== 'undefined' && token.trim() !== '' && !!rawUser;
-
-      if (!isAuth) {
-        setIsApiMode(false);
-        setIsLoaded(true);
-        return;
-      }
-
-      // Try the API with the authenticated token
-      try {
-        const res = await cycleApi.getMe();
-        if (cancelled) return;
-
-        if (res.data?.status && res.data?.data) {
-          applyApiData(res.data.data);
-          setIsApiMode(true);
-
-          // If this is a new profile AND localStorage has existing data,
-          // sync local dates to the new DB profile automatically.
-          const cached = readLocalStorage();
-          if (res.data.data.is_new_profile && cached?.periodStarts?.length > 0) {
-            try {
-              const syncRes = await cycleApi.syncPeriodDates(cached.periodStarts);
-              if (!cancelled && syncRes.data?.status) {
-                applyApiData(syncRes.data.data);
-                notify('Your previous local dates have been saved to cnat_api database.', 'success');
-              }
-            } catch {
-              // ignore sync failure — data already in state
-            }
-          }
-        }
-      } catch (err) {
-        if (cancelled) return;
-        console.warn('Cycle API unavailable, using localStorage:', err.message);
-        const cached = readLocalStorage();
-        if (cached) {
-          const starts = [...(cached.periodStarts || [])].sort(compareISODates);
-          setPeriodStarts(starts);
-          setSettings({ ...DEFAULT_SETTINGS, ...(cached.settings || {}) });
-        }
-        setIsApiMode(false);
-      } finally {
-        if (!cancelled) setIsLoaded(true);
-      }
+  const loadData = useCallback(async () => {
+    // Purge any legacy localStorage cache to guarantee no local browser storage
+    try {
+      localStorage.removeItem(LEGACY_LOCAL_STORAGE_KEY);
+    } catch {
+      // ignore
     }
 
+    const token = localStorage.getItem('token');
+    const rawUser = localStorage.getItem('user');
+    const isAuth = !!token && token !== 'null' && token !== 'undefined' && token.trim() !== '' && !!rawUser;
+
+    if (!isAuth) {
+      setIsApiMode(false);
+      setIsLoaded(true);
+      return;
+    }
+
+    try {
+      setIsSyncing(true);
+      const res = await cycleApi.getMe();
+      if (res.data?.status && res.data?.data) {
+        applyApiData(res.data.data);
+      } else {
+        setIsApiMode(false);
+        setApiError('Unable to load data from database.');
+      }
+    } catch (err) {
+      console.error('Cycle API fetch error:', err);
+      setIsApiMode(false);
+      const msg = err.response?.data?.message || 'Failed to connect to cnat_api database. Please ensure WAMP is running.';
+      setApiError(msg);
+      notify(msg, 'error');
+    } finally {
+      setIsSyncing(false);
+      setIsLoaded(true);
+    }
+  }, [applyApiData, notify]);
+
+  useEffect(() => {
+    let active = true;
     loadData();
 
     const handleAuthChange = () => {
-      loadData();
+      if (active) loadData();
     };
 
     window.addEventListener('storage', handleAuthChange);
     window.addEventListener('authChanged', handleAuthChange);
 
     return () => {
-      cancelled = true;
+      active = false;
       window.removeEventListener('storage', handleAuthChange);
       window.removeEventListener('authChanged', handleAuthChange);
     };
-  }, [applyApiData, notify]);
+  }, [loadData]);
 
-  // ── 2. localStorage persistence (always keep in sync) ───────────────────
-
-  useEffect(() => {
-    if (!isLoaded) return;
-    writeLocalStorage(periodStarts, settings);
-  }, [periodStarts, settings, isLoaded]);
-
-  // ── 3. Add Period Start Date ─────────────────────────────────────────────
+  // ── 2. Add Period Start Date (Direct to Database via API) ────────────────
 
   const addPeriodStart = useCallback(
     async (dateStr, notes = null) => {
       const val = validatePeriodStartDate(dateStr, periodStarts);
-      if (!val.isValid) { notify(val.error, 'error'); return false; }
-
-      if (isApiMode) {
-        setIsSyncing(true);
-        try {
-          const res = await cycleApi.addPeriodDate(dateStr, notes);
-          if (res.data?.status) {
-            applyApiData(res.data.data);
-            notify(val.warning || `Period date ${dateStr} added.`, val.warning ? 'warning' : 'success');
-            return true;
-          }
-          notify(res.data?.message || 'Failed to add date.', 'error');
-          return false;
-        } catch (err) {
-          const msg = err.response?.data?.message || 'Network error. Date not saved to server.';
-          notify(msg, 'error');
-          return false;
-        } finally {
-          setIsSyncing(false);
-        }
+      if (!val.isValid) {
+        notify(val.error, 'error');
+        return false;
       }
 
-      // localStorage-only mode
-      const updated = [...periodStarts, dateStr].sort(compareISODates);
-      setPeriodStarts(updated);
-      // Also track entry locally (no id, no server round-trip)
-      setPeriodEntries((prev) => [
-        ...prev,
-        { id: null, period_start_date: dateStr, notes: notes || null },
-      ].sort((a, b) => compareISODates(a.period_start_date, b.period_start_date)));
-      notify(val.warning || `Period date ${dateStr} added.`, val.warning ? 'warning' : 'success');
-      return true;
+      setIsSyncing(true);
+      try {
+        const res = await cycleApi.addPeriodDate(dateStr, notes);
+        if (res.data?.status && res.data?.data) {
+          applyApiData(res.data.data);
+          notify(val.warning || `Period date ${dateStr} saved to database.`, val.warning ? 'warning' : 'success');
+          return true;
+        }
+        notify(res.data?.message || 'Failed to save date to database.', 'error');
+        return false;
+      } catch (err) {
+        const msg = err.response?.data?.message || 'Network error. Date not saved to database.';
+        notify(msg, 'error');
+        return false;
+      } finally {
+        setIsSyncing(false);
+      }
     },
-    [periodStarts, isApiMode, notify, applyApiData]
+    [periodStarts, notify, applyApiData]
   );
 
-  // ── 4. Edit Period Start Date ────────────────────────────────────────────
+  // ── 3. Edit Period Start Date (Direct to Database via API) ───────────────
 
   const editPeriodStart = useCallback(
-    async (oldDateStr, newDateStr) => {
+    async (oldDateStr, newDateStr, notes = null) => {
       if (oldDateStr === newDateStr) return true;
 
       const otherStarts = periodStarts.filter((d) => d !== oldDateStr);
       const val = validatePeriodStartDate(newDateStr, otherStarts);
-      if (!val.isValid) { notify(val.error, 'error'); return false; }
-
-      if (isApiMode) {
-        setIsSyncing(true);
-        try {
-          const res = await cycleApi.editPeriodDate(oldDateStr, newDateStr);
-          if (res.data?.status) {
-            applyApiData(res.data.data);
-            notify(`Updated ${oldDateStr} to ${newDateStr}.`, 'success');
-            return true;
-          }
-          notify(res.data?.message || 'Failed to update date.', 'error');
-          return false;
-        } catch (err) {
-          notify(err.response?.data?.message || 'Network error.', 'error');
-          return false;
-        } finally {
-          setIsSyncing(false);
-        }
+      if (!val.isValid) {
+        notify(val.error, 'error');
+        return false;
       }
 
-      const updated = [...otherStarts, newDateStr].sort(compareISODates);
-      setPeriodStarts(updated);
-      notify(`Updated ${oldDateStr} to ${newDateStr}.`, 'success');
-      return true;
-    },
-    [periodStarts, isApiMode, notify, applyApiData]
-  );
-
-  // ── 5. Delete Period Start Date ─────────────────────────────────────────
-
-  const deletePeriodStart = useCallback(
-    async (dateStr) => {
-      if (isApiMode) {
-        setIsSyncing(true);
-        try {
-          const res = await cycleApi.deletePeriodDate(dateStr);
-          if (res.data?.status) {
-            applyApiData(res.data.data);
-            notify(`Removed ${dateStr}.`, 'info');
-            return;
-          }
-        } catch (err) {
-          notify(err.response?.data?.message || 'Network error.', 'error');
-          return;
-        } finally {
-          setIsSyncing(false);
-        }
-      }
-
-      setPeriodStarts((prev) => prev.filter((d) => d !== dateStr));
-      notify(`Removed ${dateStr}.`, 'info');
-    },
-    [isApiMode, notify, applyApiData]
-  );
-
-  // ── 6. Clear History ─────────────────────────────────────────────────────
-
-  const clearHistory = useCallback(async () => {
-    if (isApiMode) {
       setIsSyncing(true);
       try {
-        const res = await cycleApi.clearAllPeriods();
-        if (res.data?.status) {
+        const res = await cycleApi.editPeriodDate(oldDateStr, newDateStr, notes);
+        if (res.data?.status && res.data?.data) {
           applyApiData(res.data.data);
-          notify('All period history cleared.', 'info');
-          return;
+          notify(`Updated ${oldDateStr} to ${newDateStr} in database.`, 'success');
+          return true;
         }
-      } catch {
-        notify('Network error — clearing locally only.', 'warning');
+        notify(res.data?.message || 'Failed to update date in database.', 'error');
+        return false;
+      } catch (err) {
+        const msg = err.response?.data?.message || 'Network error while updating date in database.';
+        notify(msg, 'error');
+        return false;
       } finally {
         setIsSyncing(false);
       }
+    },
+    [periodStarts, notify, applyApiData]
+  );
+
+  // ── 4. Delete Period Start Date (Direct from Database via API) ───────────
+
+  const deletePeriodStart = useCallback(
+    async (dateStr) => {
+      setIsSyncing(true);
+      try {
+        const res = await cycleApi.deletePeriodDate(dateStr);
+        if (res.data?.status && res.data?.data) {
+          applyApiData(res.data.data);
+          notify(`Removed ${dateStr} from database.`, 'info');
+          return true;
+        }
+        notify(res.data?.message || 'Failed to delete date from database.', 'error');
+        return false;
+      } catch (err) {
+        const msg = err.response?.data?.message || 'Network error while deleting date.';
+        notify(msg, 'error');
+        return false;
+      } finally {
+        setIsSyncing(false);
+      }
+    },
+    [notify, applyApiData]
+  );
+
+  // ── 5. Clear History (Direct from Database via API) ──────────────────────
+
+  const clearHistory = useCallback(async () => {
+    setIsSyncing(true);
+    try {
+      const res = await cycleApi.clearAllPeriods();
+      if (res.data?.status && res.data?.data) {
+        applyApiData(res.data.data);
+        notify('All period history deleted from database.', 'info');
+        return true;
+      }
+      notify(res.data?.message || 'Failed to clear history from database.', 'error');
+      return false;
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Network error while clearing period history.';
+      notify(msg, 'error');
+      return false;
+    } finally {
+      setIsSyncing(false);
     }
+  }, [notify, applyApiData]);
 
-    setPeriodStarts([]);
-    notify('All period history cleared.', 'info');
-  }, [isApiMode, notify, applyApiData]);
-
-  // ── 6b. Bulk Add Period Dates ────────────────────────────────────────────
-  // Accepts an array of 'YYYY-MM-DD' strings (new dates to add).
-  // Merges with existing dates, deduplicates, then syncs in one API call.
-  // Returns { added: number, skipped: number } so the modal can report results.
+  // ── 6. Bulk Add Period Dates (Direct to Database via API) ────────────────
 
   const bulkAddPeriodDates = useCallback(
     async (newDates) => {
       if (!newDates || newDates.length === 0) return { added: 0, skipped: 0 };
 
-      // Deduplicate and identify which are truly new
-      const uniqueNew  = [...new Set(newDates.filter(Boolean))];
-      const newOnly    = uniqueNew.filter((d) => !periodStarts.includes(d));
-      const skipped    = uniqueNew.length - newOnly.length;
+      const uniqueNew = [...new Set(newDates.filter(Boolean))];
+      const newOnly = uniqueNew.filter((d) => !periodStarts.includes(d));
+      const skipped = uniqueNew.length - newOnly.length;
 
       if (newOnly.length === 0) {
-        notify(`All ${skipped} date(s) already exist — nothing added.`, 'info');
+        notify(`All ${skipped} date(s) already exist in database — nothing added.`, 'info');
         return { added: 0, skipped };
       }
 
-      // Merged sorted list
       const merged = [...periodStarts, ...newOnly].sort(compareISODates);
 
-      if (isApiMode) {
-        setIsSyncing(true);
-        try {
-          const res = await cycleApi.syncPeriodDates(merged);
-          if (res.data?.status) {
-            applyApiData(res.data.data);
-            notify(
-              `${newOnly.length} date(s) added${skipped > 0 ? `, ${skipped} skipped (duplicates)` : ''}.`,
-              'success'
-            );
-            return { added: newOnly.length, skipped };
-          }
-          notify(res.data?.message || 'Bulk save failed.', 'error');
-          return { added: 0, skipped };
-        } catch (err) {
-          notify(err.response?.data?.message || 'Network error during bulk save.', 'error');
-          return { added: 0, skipped };
-        } finally {
-          setIsSyncing(false);
-        }
-      }
-
-      // localStorage-only mode
-      setPeriodStarts(merged);
-      setPeriodEntries((prev) => {
-        const existing = new Set(prev.map((e) => e.period_start_date));
-        const newEntries = newOnly
-          .filter((d) => !existing.has(d))
-          .map((d) => ({ id: null, period_start_date: d, notes: null }));
-        return [...prev, ...newEntries].sort((a, b) =>
-          compareISODates(a.period_start_date, b.period_start_date)
-        );
-      });
-      notify(
-        `${newOnly.length} date(s) added${skipped > 0 ? `, ${skipped} skipped (duplicates)` : ''}.`,
-        'success'
-      );
-      return { added: newOnly.length, skipped };
-    },
-    [periodStarts, isApiMode, notify, applyApiData]
-  );
-
-
-
-  // ── 7. Load Sample Data ──────────────────────────────────────────────────
-
-  const loadSampleData = useCallback(async () => {
-    const sorted = [...SAMPLE_PERIOD_STARTS].sort(compareISODates);
-
-    if (isApiMode) {
       setIsSyncing(true);
       try {
-        const res = await cycleApi.syncPeriodDates(sorted);
-        if (res.data?.status) {
+        const res = await cycleApi.syncPeriodDates(merged);
+        if (res.data?.status && res.data?.data) {
           applyApiData(res.data.data);
-          notify('Sample cycle history loaded.', 'success');
-          return;
+          notify(
+            `${newOnly.length} date(s) saved to database${skipped > 0 ? `, ${skipped} skipped (duplicates)` : ''}.`,
+            'success'
+          );
+          return { added: newOnly.length, skipped };
         }
-      } catch {
-        notify('Network error — loaded sample data locally only.', 'warning');
+        notify(res.data?.message || 'Bulk save to database failed.', 'error');
+        return { added: 0, skipped };
+      } catch (err) {
+        const msg = err.response?.data?.message || 'Network error during bulk database save.';
+        notify(msg, 'error');
+        return { added: 0, skipped };
       } finally {
         setIsSyncing(false);
       }
-    }
-
-    setPeriodStarts(sorted);
-    notify('Sample cycle history loaded.', 'success');
-  }, [isApiMode, notify, applyApiData]);
-
-  // ── 8. Update Settings ───────────────────────────────────────────────────
-
-  const updateSettings = useCallback(
-    async (newSettings) => {
-      const merged = { ...settings, ...newSettings };
-      setSettings(merged);
-
-      if (isApiMode) {
-        setIsSyncing(true);
-        try {
-          const res = await cycleApi.updateProfile(newSettings);
-          if (res.data?.status) {
-            applyApiData(res.data.data);
-            notify('Settings saved to your account.', 'success');
-            return;
-          }
-        } catch {
-          notify('Settings saved locally (network error).', 'warning');
-        } finally {
-          setIsSyncing(false);
-        }
-      } else {
-        notify('Settings updated.', 'success');
-      }
     },
-    [settings, isApiMode, notify, applyApiData]
+    [periodStarts, notify, applyApiData]
   );
 
-  // ── 9. Update Health Profile ─────────────────────────────────────────────
+  // ── 7. Load Sample Data (Direct to Database via API) ─────────────────────
 
-  const updateHealthProfile = useCallback(
-    async (profileData) => {
-      if (isApiMode) {
-        setIsSyncing(true);
-        try {
-          const res = await cycleApi.updateProfile(profileData);
-          if (res.data?.status) {
-            applyApiData(res.data.data);
-            notify('Health profile saved.', 'success');
-            return true;
-          }
-          notify(res.data?.message || 'Failed to save profile.', 'error');
-          return false;
-        } catch (err) {
-          notify(err.response?.data?.message || 'Network error.', 'error');
-          return false;
-        } finally {
-          setIsSyncing(false);
-        }
-      }
-
-      notify('Please log in to save your health profile.', 'warning');
-      return false;
-    },
-    [isApiMode, notify, applyApiData]
-  );
-
-  // ── 10. Sync localStorage → cnat_api Database ───────────────────────────
-
-  const syncToCloud = useCallback(async () => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      notify('Please sign in to save your dates to the cnat_api database. Redirecting to login...', 'info');
-      setTimeout(() => {
-        window.location.href = '/login';
-      }, 1200);
-      return;
-    }
-
-    if (periodStarts.length === 0) {
-      notify('No period dates to sync.', 'info');
-      return;
-    }
-
+  const loadSampleData = useCallback(async () => {
+    const sorted = [...SAMPLE_PERIOD_STARTS].sort(compareISODates);
     setIsSyncing(true);
     try {
-      // Verify/load profile first
-      await cycleApi.getMe();
-      const res = await cycleApi.syncPeriodDates(periodStarts);
-      if (res.data?.status) {
+      const res = await cycleApi.syncPeriodDates(sorted);
+      if (res.data?.status && res.data?.data) {
         applyApiData(res.data.data);
-        setIsApiMode(true);
-        notify('All period dates saved to cnat_api database successfully!', 'success');
-      } else {
-        notify(res.data?.message || 'Sync failed.', 'error');
+        notify('Sample cycle history saved to database successfully.', 'success');
+        return true;
       }
+      notify(res.data?.message || 'Failed to save sample data to database.', 'error');
+      return false;
     } catch (err) {
-      console.error('Cloud sync error:', err);
-      if (err.response?.status === 401) {
-        notify('Session expired. Please sign in again to sync to database.', 'warning');
-        setTimeout(() => { window.location.href = '/login'; }, 1500);
-      } else {
-        notify(err.response?.data?.message || 'Sync failed. Please check network/WAMP connection.', 'error');
-      }
+      const msg = err.response?.data?.message || 'Network error while loading sample data.';
+      notify(msg, 'error');
+      return false;
     } finally {
       setIsSyncing(false);
     }
-  }, [periodStarts, notify, applyApiData]);
+  }, [notify, applyApiData]);
+
+  // ── 8. Update Settings (Direct to Database via API) ──────────────────────
+
+  const updateSettings = useCallback(
+    async (newSettings) => {
+      setIsSyncing(true);
+      try {
+        const res = await cycleApi.updateProfile(newSettings);
+        if (res.data?.status && res.data?.data) {
+          applyApiData(res.data.data);
+          notify('Settings saved to database successfully.', 'success');
+          return true;
+        }
+        notify(res.data?.message || 'Failed to save settings to database.', 'error');
+        return false;
+      } catch (err) {
+        const msg = err.response?.data?.message || 'Network error while saving settings.';
+        notify(msg, 'error');
+        return false;
+      } finally {
+        setIsSyncing(false);
+      }
+    },
+    [notify, applyApiData]
+  );
+
+  // ── 9. Update Health Profile (Direct to Database via API) ────────────────
+
+  const updateHealthProfile = useCallback(
+    async (profileData) => {
+      setIsSyncing(true);
+      try {
+        const res = await cycleApi.updateProfile(profileData);
+        if (res.data?.status && res.data?.data) {
+          applyApiData(res.data.data);
+          notify('Health profile saved to database successfully.', 'success');
+          return true;
+        }
+        notify(res.data?.message || 'Failed to save health profile to database.', 'error');
+        return false;
+      } catch (err) {
+        const msg = err.response?.data?.message || 'Network error while saving health profile.';
+        notify(msg, 'error');
+        return false;
+      } finally {
+        setIsSyncing(false);
+      }
+    },
+    [notify, applyApiData]
+  );
+
+  // ── 10. Refresh from Database ────────────────────────────────────────────
+
+  const refreshFromDatabase = useCallback(async () => {
+    setIsSyncing(true);
+    try {
+      const res = await cycleApi.getMe();
+      if (res.data?.status && res.data?.data) {
+        applyApiData(res.data.data);
+        notify('Data refreshed from cnat_api database.', 'success');
+        return true;
+      }
+      notify(res.data?.message || 'Refresh failed.', 'error');
+      return false;
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Failed to refresh from database.';
+      notify(msg, 'error');
+      return false;
+    } finally {
+      setIsSyncing(false);
+    }
+  }, [notify, applyApiData]);
 
   // ── 11. Export / Import ──────────────────────────────────────────────────
 
@@ -511,58 +398,65 @@ export function useCycleData() {
     const dataObj = {
       app: 'MenstrualCycleCalendar',
       version: '1.0.0',
+      source: 'cnat_api database',
       exportDate: new Date().toISOString(),
       periodStarts,
       settings,
+      healthProfile: apiProfile ? {
+        goal: apiProfile.goal,
+        date_of_birth: apiProfile.date_of_birth,
+        weight_kg: apiProfile.weight_kg,
+        height_cm: apiProfile.height_cm,
+        blood_group: apiProfile.blood_group,
+        medical_notes: apiProfile.medical_notes,
+      } : null,
     };
     const jsonString = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(dataObj, null, 2))}`;
     const a = document.createElement('a');
     a.setAttribute('href', jsonString);
-    a.setAttribute('download', `menstrual_cycle_data_${new Date().toISOString().slice(0, 10)}.json`);
+    a.setAttribute('download', `menstrual_cycle_database_export_${new Date().toISOString().slice(0, 10)}.json`);
     document.body.appendChild(a);
     a.click();
     a.remove();
-    notify('Cycle data exported.', 'success');
-  }, [periodStarts, settings, notify]);
+    notify('Cycle database data exported as JSON.', 'success');
+  }, [periodStarts, settings, apiProfile, notify]);
 
   const importData = useCallback(
     async (jsonContent) => {
       try {
         const parsed = JSON.parse(jsonContent);
         const val = validateImportedData(parsed);
-        if (!val.isValid) { notify(val.error, 'error'); return false; }
+        if (!val.isValid) {
+          notify(val.error, 'error');
+          return false;
+        }
 
-        if (isApiMode) {
-          setIsSyncing(true);
-          try {
-            const res = await cycleApi.syncPeriodDates(val.data.periodStarts);
-            if (res.data?.status) {
-              applyApiData(res.data.data);
-              if (val.data.settings && Object.keys(val.data.settings).length > 0) {
-                await cycleApi.updateProfile(val.data.settings);
-              }
-              notify('Data imported and saved to your account!', 'success');
-              return true;
+        setIsSyncing(true);
+        try {
+          const res = await cycleApi.syncPeriodDates(val.data.periodStarts);
+          if (res.data?.status && res.data?.data) {
+            applyApiData(res.data.data);
+            if (val.data.settings && Object.keys(val.data.settings).length > 0) {
+              await cycleApi.updateProfile(val.data.settings);
             }
-          } catch {
-            notify('Import failed on server. Saved locally.', 'warning');
-          } finally {
-            setIsSyncing(false);
+            notify('Data imported and saved to database successfully!', 'success');
+            return true;
           }
+          notify(res.data?.message || 'Import failed on server.', 'error');
+          return false;
+        } catch (err) {
+          const msg = err.response?.data?.message || 'Failed to save imported data to database.';
+          notify(msg, 'error');
+          return false;
+        } finally {
+          setIsSyncing(false);
         }
-
-        setPeriodStarts(val.data.periodStarts);
-        if (val.data.settings && Object.keys(val.data.settings).length > 0) {
-          setSettings((prev) => ({ ...prev, ...val.data.settings }));
-        }
-        notify('Data imported successfully!', 'success');
-        return true;
       } catch {
         notify('Failed to parse JSON file.', 'error');
         return false;
       }
     },
-    [isApiMode, notify, applyApiData]
+    [notify, applyApiData]
   );
 
   // ── Derived calculations ─────────────────────────────────────────────────
@@ -586,6 +480,7 @@ export function useCycleData() {
     isLoaded,
     isApiMode,
     isSyncing,
+    apiError,
     periodStarts,
     periodEntries,    // full DB entry objects: [{ id, period_start_date, notes }]
     settings,
@@ -602,7 +497,7 @@ export function useCycleData() {
     loadSampleData,
     updateSettings,
     updateHealthProfile,
-    syncToCloud,
+    refreshFromDatabase,
     exportData,
     importData,
     dismissNotification: () => setNotification(null),

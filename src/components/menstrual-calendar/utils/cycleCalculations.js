@@ -10,13 +10,13 @@ import {
   subDays,
   differenceInCalendarDays,
   compareISODates,
-} from './dateUtils';
+} from './dateUtils.js';
 import {
   DEFAULT_SETTINGS,
   CONFIDENCE_LEVELS,
   CONFIDENCE_THRESHOLDS,
   DAY_TYPES,
-} from '../constants/cycleConstants';
+} from '../constants/cycleConstants.js';
 
 /**
  * 1. Calculate individual historical cycle lengths (in days)
@@ -335,3 +335,125 @@ export function getCycleDayInfo(targetDateStr, periodStarts, settings = DEFAULT_
     cycleStart: activeStart,
   };
 }
+
+/**
+ * 10. Get Today's Detailed Phase & Daily Holistic Wellness Insights
+ */
+export function getDailyPhaseAndWellness(targetDateStr = formatISODate(new Date()), periodStarts = [], settings = DEFAULT_SETTINGS) {
+  const sortedStarts = [...(periodStarts || [])].sort(compareISODates);
+  const stats = calculateCycleStats(sortedStarts, settings);
+  const cycleLen = stats.averageCycleLength || settings.averageCycleLength || 28;
+  const periodDur = settings.periodDuration || DEFAULT_SETTINGS.periodDuration;
+  const lutealLen = settings.lutealPhaseLength || DEFAULT_SETTINGS.lutealPhaseLength;
+  const fertileBefore = settings.fertileWindowDaysBefore || DEFAULT_SETTINGS.fertileWindowDaysBefore;
+  const fertileAfter = settings.fertileWindowDaysAfter || DEFAULT_SETTINGS.fertileWindowDaysAfter;
+
+  if (sortedStarts.length === 0) {
+    return {
+      hasData: false,
+      cycleDay: null,
+      totalCycleLength: cycleLen,
+      phaseKey: 'unknown',
+      phaseName: 'Cycle Tracking',
+      phaseSubtitle: 'Log your first period date to unlock personalized daily insights',
+      pregnancyChance: 'Unknown',
+      colorTheme: 'rose',
+      hormoneInsight: 'Tracking your cycle reveals natural hormonal rhythms and personal energy patterns.',
+      nutritionTip: 'Stay hydrated with warm water, herbal teas, and nutrient-rich whole foods.',
+      movementTip: 'Gentle stretching, daily walking, or bodyweight movement supports circulation.',
+      selfCareTip: 'Take a mindful 5-minute break today to check in with your body.',
+      daysUntilNextPeriod: null,
+      nextPeriodDate: null,
+      ovulationDate: null,
+      progressPercent: 0,
+    };
+  }
+
+  const predictedCycles = generatePredictedCycles(stats.latestPeriodStart, cycleLen, settings);
+  const nextCycle = predictedCycles[0] || null;
+
+  const cycleDayInfo = getCycleDayInfo(targetDateStr, sortedStarts, settings);
+  let cycleDay = cycleDayInfo?.cycleDay;
+
+  // If cycleDay exceeds average length or is in a future predicted cycle, normalize it
+  let normalizedCycleDay = cycleDay;
+  if (!normalizedCycleDay || normalizedCycleDay < 1) {
+    normalizedCycleDay = 1;
+  } else if (normalizedCycleDay > cycleLen) {
+    normalizedCycleDay = ((normalizedCycleDay - 1) % cycleLen) + 1;
+  }
+
+  const daysUntilNextPeriod = nextCycle ? differenceInCalendarDays(nextCycle.startDate, targetDateStr) : null;
+  const estimatedOvulationDay = Math.max(periodDur + 2, cycleLen - lutealLen);
+  const fertileStartDay = Math.max(periodDur + 1, estimatedOvulationDay - fertileBefore);
+  const fertileEndDay = Math.min(cycleLen - 1, estimatedOvulationDay + fertileAfter);
+
+  let phaseKey = 'follicular';
+  let phaseName = 'Follicular Phase';
+  let phaseSubtitle = 'Rising Energy & Creativity';
+  let pregnancyChance = 'Low to Moderate';
+  let colorTheme = 'emerald';
+  let hormoneInsight = 'Estrogen is steadily rising as your body prepares a new follicle. You may feel sharper focus, higher energy, and a brighter mood.';
+  let nutritionTip = 'Support liver and gut health with fermented foods (kimchi, kefir), colorful salads, fresh citrus, and lean proteins.';
+  let movementTip = 'Great time for strength training, upbeat cardio, jogging, or trying new workout routines.';
+  let selfCareTip = 'Channel rising motivation into new creative projects, social outings, or planning goals.';
+
+  if (normalizedCycleDay <= periodDur) {
+    phaseKey = 'menstrual';
+    phaseName = 'Menstrual Phase';
+    phaseSubtitle = 'Rest, Renewal & Inner Calm';
+    pregnancyChance = 'Very Low';
+    colorTheme = 'rose';
+    hormoneInsight = 'Progesterone and estrogen levels are at their baseline. Your body is directing energy inward for natural shedding and renewal.';
+    nutritionTip = 'Replenish iron and minerals with warm bone/veggie broths, dark leafy greens, lentils, beets, and magnesium-rich dark chocolate.';
+    movementTip = 'Prioritize restorative yin yoga, gentle walks in nature, soothing stretches, and warm Epsom salt baths.';
+    selfCareTip = 'Give yourself permission to slow down, rest, avoid burnout, and stay cozy.';
+  } else if (normalizedCycleDay >= fertileStartDay && normalizedCycleDay <= fertileEndDay) {
+    phaseKey = 'ovulatory';
+    phaseName = 'Ovulatory Phase';
+    phaseSubtitle = 'Peak Vitality & High Fertility';
+    pregnancyChance = normalizedCycleDay === estimatedOvulationDay ? 'Peak Conception Likelihood' : 'High Conception Likelihood';
+    colorTheme = 'purple';
+    hormoneInsight = 'Luteinizing Hormone (LH) surges alongside peak estrogen, triggering ovulation. High confidence, magnetic vitality, and radiant skin.';
+    nutritionTip = 'Eat antioxidant-rich berries, zinc-rich pumpkin seeds, avocados, leafy brassicas, and drink plenty of electrolyte water.';
+    movementTip = 'Peak stamina window! Perfect for HIIT, circuit workouts, dancing, or high-energy sports.';
+    selfCareTip = 'Ideal days for big presentations, meaningful conversations, connecting with loved ones, and social energy.';
+  } else if (normalizedCycleDay > fertileEndDay) {
+    phaseKey = 'luteal';
+    phaseName = 'Luteal Phase';
+    phaseSubtitle = 'Focus, Reflection & Self-Care';
+    pregnancyChance = 'Low Chance';
+    colorTheme = 'amber';
+    hormoneInsight = 'Progesterone rises to support the uterine lining, then drops if no pregnancy occurs. Metabolism increases slightly.';
+    nutritionTip = 'Stabilize blood sugar with complex carbs (sweet potatoes, oats, quinoa), magnesium (nuts, seeds), and calming chamomile tea.';
+    movementTip = 'Switch to moderate pilates, swimming, resistance bands, or mindful outdoor walks.';
+    selfCareTip = 'Practice gentle evening wind-down rituals, journal, reduce caffeine, and prepare for restorative sleep.';
+  }
+
+  const progressPercent = Math.min(100, Math.max(0, Math.round(((normalizedCycleDay - 1) / cycleLen) * 100)));
+
+  return {
+    hasData: true,
+    cycleDay: normalizedCycleDay,
+    actualCycleDay: cycleDay,
+    totalCycleLength: cycleLen,
+    periodDuration: periodDur,
+    phaseKey,
+    phaseName,
+    phaseSubtitle,
+    pregnancyChance,
+    colorTheme,
+    hormoneInsight,
+    nutritionTip,
+    movementTip,
+    selfCareTip,
+    daysUntilNextPeriod,
+    nextPeriodDate: nextCycle?.startDate || null,
+    ovulationDate: nextCycle?.ovulationDate || null,
+    progressPercent,
+    estimatedOvulationDay,
+    fertileStartDay,
+    fertileEndDay,
+  };
+}
+

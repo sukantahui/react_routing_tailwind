@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCycleData } from './hooks/useCycleData';
 import Header from './components/Header';
 import DisclaimerBanner from './components/DisclaimerBanner';
+import CycleWheelHero from './components/Dashboard/CycleWheelHero';
 import CycleDashboard from './components/Dashboard/CycleDashboard';
 import MenstrualCalendar from './components/Calendar/MenstrualCalendar';
 import PeriodHistorySection from './components/PeriodHistory/PeriodHistorySection';
@@ -10,7 +11,12 @@ import CycleInsights from './components/Insights/CycleInsights';
 import CycleSettingsModal from './components/Settings/CycleSettingsModal';
 import PrivacySection from './components/Privacy/PrivacySection';
 import CalculationTestSuite from './components/Testing/CalculationTestSuite';
+import RelaxationBreathingModal from './components/Relaxation/RelaxationBreathingModal';
+import SymptomLoggerModal from './components/PeriodHistory/SymptomLoggerModal';
+import DoctorReportModal from './components/Insights/DoctorReportModal';
+import UserManualModal from './components/Manual/UserManualModal';
 import { X, CheckCircle2, AlertTriangle, Info, Lock } from 'lucide-react';
+import { formatISODate } from './utils/dateUtils';
 
 export default function MenstrualCalendarApp() {
   const navigate = useNavigate();
@@ -19,6 +25,11 @@ export default function MenstrualCalendarApp() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isTestsOpen, setIsTestsOpen] = useState(false);
+  const [isRelaxationOpen, setIsRelaxationOpen] = useState(false);
+  const [isDoctorReportOpen, setIsDoctorReportOpen] = useState(false);
+  const [isSymptomModalOpen, setIsSymptomModalOpen] = useState(false);
+  const [isManualOpen, setIsManualOpen] = useState(false);
+  const [symptomInitialDate, setSymptomInitialDate] = useState(formatISODate(new Date()));
 
   // Cycle data hook
   const {
@@ -41,7 +52,7 @@ export default function MenstrualCalendarApp() {
     loadSampleData,
     updateSettings,
     updateHealthProfile,
-    syncToCloud,
+    refreshFromDatabase,
     exportData,
     importData,
     dismissNotification,
@@ -70,18 +81,36 @@ export default function MenstrualCalendarApp() {
     }
   }, [isAuth, navigate]);
 
+  // Open Symptom Logger handler
+  const handleOpenSymptomLogger = useCallback((dateStr = formatISODate(new Date())) => {
+    setSymptomInitialDate(dateStr);
+    setIsSymptomModalOpen(true);
+  }, []);
+
+  // Save Symptom Entry handler
+  const handleSaveSymptomEntry = useCallback(
+    async (dateStr, noteText, markAsPeriod) => {
+      if (periodStarts.includes(dateStr)) {
+        return await editPeriodStart(dateStr, dateStr, noteText);
+      } else {
+        return await addPeriodStart(dateStr, noteText);
+      }
+    },
+    [periodStarts, editPeriodStart, addPeriodStart]
+  );
+
   if (!isAuth) {
     return (
-      <div className="min-h-screen bg-[#030712] text-slate-100 flex items-center justify-center p-6">
-        <div className="text-center p-8 bg-slate-900 border border-slate-800 rounded-2xl max-w-md shadow-2xl">
-          <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400">
+      <div className="min-h-screen bg-[#060b14] text-slate-100 flex items-center justify-center p-6">
+        <div className="text-center p-8 bg-slate-900/90 border border-slate-800 rounded-3xl max-w-md shadow-2xl backdrop-blur-xl">
+          <div className="w-12 h-12 mx-auto mb-4 rounded-2xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400">
             <Lock size={24} />
           </div>
           <h2 className="text-xl font-bold text-white mb-2">Authentication Required</h2>
-          <p className="text-sm text-slate-400 mb-6">You must be logged in to view the Menstrual Cycle Calendar.</p>
+          <p className="text-sm text-slate-400 mb-6">You must be logged in to access the Menstrual Cycle Calendar.</p>
           <button
             onClick={() => navigate('/login', { replace: true })}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-indigo-600 text-white font-medium text-sm shadow-lg shadow-rose-500/25 hover:scale-105 transition cursor-pointer"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-indigo-600 text-white font-bold text-sm shadow-lg shadow-rose-500/25 hover:scale-105 transition cursor-pointer"
           >
             Sign In to Continue
           </button>
@@ -92,11 +121,11 @@ export default function MenstrualCalendarApp() {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen bg-[#030712] text-slate-100 flex items-center justify-center p-6">
-        <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl">
+      <div className="min-h-screen bg-[#060b14] text-slate-100 flex items-center justify-center p-6">
+        <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 p-6 rounded-3xl shadow-2xl backdrop-blur-xl">
           <div className="w-6 h-6 border-2 border-rose-500 border-t-transparent rounded-full animate-spin"></div>
           <span className="text-sm font-semibold text-slate-300">
-            Loading Menstrual Cycle Data...
+            Loading Menstrual Cycle &amp; Health Data...
           </span>
         </div>
       </div>
@@ -104,7 +133,7 @@ export default function MenstrualCalendarApp() {
   }
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 p-4 md:p-8 space-y-8 max-w-7xl mx-auto selection:bg-rose-500/30 selection:text-rose-200">
+    <div className="min-h-screen bg-[#070c18] text-slate-100 p-4 md:p-8 space-y-8 max-w-7xl mx-auto selection:bg-rose-500/30 selection:text-rose-200">
       {/* Toast Notification Popup */}
       {notification && (
         <div
@@ -113,7 +142,7 @@ export default function MenstrualCalendarApp() {
               ? 'bg-rose-950/90 border-rose-500/50 text-rose-200 shadow-rose-950/50'
               : notification.type === 'warning'
               ? 'bg-amber-950/90 border-amber-500/50 text-amber-200 shadow-amber-950/50'
-              : 'bg-slate-900/90 border-slate-700 text-slate-100 shadow-slate-950/50'
+              : 'bg-slate-900/95 border-slate-700 text-slate-100 shadow-slate-950/50'
           }`}
         >
           {notification.type === 'error' && <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0" />}
@@ -141,25 +170,40 @@ export default function MenstrualCalendarApp() {
         hasData={periodStarts.length > 0}
         isApiMode={isApiMode}
         isSyncing={isSyncing}
-        onSyncToCloud={syncToCloud}
+        onRefresh={refreshFromDatabase}
+        onOpenRelaxation={() => setIsRelaxationOpen(true)}
+        onOpenDoctorReport={() => setIsDoctorReportOpen(true)}
+        onOpenSymptomLogger={handleOpenSymptomLogger}
+        onOpenManual={() => setIsManualOpen(true)}
       />
 
       {/* 2. Medical & Privacy Disclaimer Banner */}
       <DisclaimerBanner />
 
-      {/* 3. Compact Cycle Statistics Dashboard */}
+      {/* 3. Holistic Cycle Dial & Today's Hormonal Phase Hero */}
+      <CycleWheelHero
+        periodStarts={periodStarts}
+        settings={settings}
+        onOpenSymptomLogger={handleOpenSymptomLogger}
+        onMarkPeriodStart={addPeriodStart}
+        onOpenRelaxation={() => setIsRelaxationOpen(true)}
+        onOpenManual={() => setIsManualOpen(true)}
+      />
+
+      {/* 4. Compact Cycle Statistics Dashboard */}
       <CycleDashboard cycleStats={cycleStats} predictedCycles={predictedCycles} />
 
-      {/* 4. Interactive Monthly Calendar */}
+      {/* 5. Interactive Monthly & Multi-Horizon Calendar */}
       <MenstrualCalendar
         periodStarts={periodStarts}
         dateStatusMap={dateStatusMap}
         cycleStats={cycleStats}
         settings={settings}
         onMarkPeriodStart={addPeriodStart}
+        onOpenSymptomLogger={handleOpenSymptomLogger}
       />
 
-      {/* 5. Period History Section */}
+      {/* 6. Period History Section */}
       <PeriodHistorySection
         periodStarts={periodStarts}
         periodEntries={periodEntries}
@@ -174,8 +218,11 @@ export default function MenstrualCalendarApp() {
         isSyncing={isSyncing}
       />
 
-      {/* 6. Statistical Insights & Bar Chart */}
-      <CycleInsights cycleStats={cycleStats} />
+      {/* 7. Statistical Insights & Bar Chart */}
+      <CycleInsights
+        cycleStats={cycleStats}
+        onOpenDoctorReport={() => setIsDoctorReportOpen(true)}
+      />
 
       {/* Modals */}
       <CycleSettingsModal
@@ -197,6 +244,36 @@ export default function MenstrualCalendarApp() {
       <CalculationTestSuite
         isOpen={isTestsOpen}
         onClose={() => setIsTestsOpen(false)}
+      />
+
+      <RelaxationBreathingModal
+        isOpen={isRelaxationOpen}
+        onClose={() => setIsRelaxationOpen(false)}
+      />
+
+      <SymptomLoggerModal
+        isOpen={isSymptomModalOpen}
+        onClose={() => setIsSymptomModalOpen(false)}
+        initialDateStr={symptomInitialDate}
+        periodEntries={periodEntries}
+        onSaveSymptomEntry={handleSaveSymptomEntry}
+        isSyncing={isSyncing}
+      />
+
+      <DoctorReportModal
+        isOpen={isDoctorReportOpen}
+        onClose={() => setIsDoctorReportOpen(false)}
+        cycleStats={cycleStats}
+        apiProfile={apiProfile}
+        periodStarts={periodStarts}
+        periodEntries={periodEntries}
+        settings={settings}
+      />
+
+      {/* User Manual Modal */}
+      <UserManualModal
+        isOpen={isManualOpen}
+        onClose={() => setIsManualOpen(false)}
       />
     </div>
   );

@@ -1,11 +1,3 @@
-/**
- * DayDetailModal.jsx
- *
- * Shows details for a clicked calendar day.
- * Includes a one-click "Mark as Period Start" / "Remove Period Start"
- * action so users don't have to leave the calendar to log a date.
- */
-
 import React, { useState } from 'react';
 import {
   X,
@@ -16,8 +8,10 @@ import {
   Info,
   ShieldCheck,
   PlusCircle,
-  MinusCircle,
+  Smile,
   Loader2,
+  Droplets,
+  CheckCircle2,
 } from 'lucide-react';
 import { formatDateDisplay } from '../../utils/dateUtils';
 import { DAY_TYPES } from '../../constants/cycleConstants';
@@ -27,6 +21,7 @@ export default function DayDetailModal({
   onClose,
   selectedDateInfo,
   onMarkPeriodStart,    // async fn(dateStr) → boolean
+  onOpenSymptomLogger,  // fn(dateStr)
 }) {
   const [isMarking, setIsMarking] = useState(false);
 
@@ -43,7 +38,7 @@ export default function DayDetailModal({
 
   const statusType = statusInfo?.type || DAY_TYPES.NORMAL;
 
-  // Prevent marking future dates as period starts (soft check — API validates too)
+  // Prevent marking future dates as period starts (soft check)
   const today = new Date().toISOString().slice(0, 10);
   const isFuture = dateStr > today;
 
@@ -59,7 +54,7 @@ export default function DayDetailModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn">
       <div
         className="bg-slate-900 border border-slate-800 w-full max-w-md rounded-3xl p-6 shadow-2xl space-y-5 relative text-slate-200"
         role="dialog"
@@ -76,7 +71,7 @@ export default function DayDetailModal({
 
         {/* Modal Header */}
         <div className="space-y-1 pr-8">
-          <span className="text-xs font-semibold uppercase tracking-wider text-sky-400">
+          <span className="text-xs font-bold uppercase tracking-wider text-rose-400">
             Calendar Day Overview
           </span>
           <h3 className="text-xl font-extrabold text-white tracking-tight">
@@ -84,51 +79,48 @@ export default function DayDetailModal({
           </h3>
         </div>
 
-        {/* ── Quick Action: Mark / Unmark Period Start ─────────────────── */}
-        {onMarkPeriodStart && (
-          <div className={`rounded-2xl border p-4 space-y-2 ${
-            isPeriodStart
-              ? 'bg-rose-950/40 border-rose-700/50'
-              : 'bg-slate-950/60 border-slate-700'
-          }`}>
-            <div className="flex items-center gap-2 text-xs">
-              <Calendar className={`w-4 h-4 ${isPeriodStart ? 'text-rose-400' : 'text-slate-400'}`} />
-              <span className={`font-bold ${isPeriodStart ? 'text-rose-300' : 'text-slate-300'}`}>
-                {isPeriodStart ? 'Recorded as Period Start' : 'Period Start Date'}
-              </span>
-            </div>
+        {/* ── Quick Action: Mark / Log Date ─────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {onMarkPeriodStart && (
+            <button
+              onClick={handleMarkPeriodStart}
+              disabled={isMarking || isFuture || isPeriodStart}
+              className={`flex items-center justify-center gap-2 p-3 rounded-2xl font-bold text-xs transition-all shadow-md ${
+                isPeriodStart
+                  ? 'bg-rose-950/40 text-rose-300 border border-rose-800/50 opacity-90'
+                  : 'bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white shadow-rose-500/20 cursor-pointer disabled:opacity-50'
+              }`}
+              title={isFuture ? 'Cannot mark future date' : isPeriodStart ? 'Already marked as period start' : 'Mark as Period Start'}
+            >
+              {isMarking ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : isPeriodStart ? (
+                <CheckCircle2 className="w-4 h-4 text-rose-400" />
+              ) : (
+                <PlusCircle className="w-4 h-4" />
+              )}
+              <span>{isMarking ? 'Saving…' : isPeriodStart ? 'Period Start Logged' : 'Mark Period Start'}</span>
+            </button>
+          )}
 
-            {isPeriodStart ? (
-              <p className="text-[11px] text-rose-200/70 leading-relaxed">
-                This date is already in your period history. Use the history table below if you need to remove it.
-              </p>
-            ) : (
-              <>
-                <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Was this the first day of your period? Mark it to improve cycle prediction accuracy.
-                </p>
-                <button
-                  onClick={handleMarkPeriodStart}
-                  disabled={isMarking || isFuture}
-                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs shadow-lg shadow-rose-500/20 transition-all duration-200"
-                  title={isFuture ? 'Cannot mark a future date as period start' : 'Mark this date as a period start'}
-                >
-                  {isMarking ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    <PlusCircle className="w-4 h-4" />
-                  )}
-                  {isMarking ? 'Saving…' : isFuture ? 'Future date — cannot mark' : 'Mark as Period Start'}
-                </button>
-              </>
-            )}
-          </div>
-        )}
+          {onOpenSymptomLogger && (
+            <button
+              onClick={() => {
+                onClose();
+                onOpenSymptomLogger(dateStr);
+              }}
+              className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-slate-950 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 font-semibold text-xs transition-all cursor-pointer"
+            >
+              <Smile className="w-4 h-4 text-amber-400" />
+              <span>Log Symptoms</span>
+            </button>
+          )}
+        </div>
 
         {/* Primary Status Card */}
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-400">Current Status:</span>
+            <span className="text-xs font-semibold text-slate-400">Current Phase:</span>
             <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-800 text-slate-200 border border-slate-700">
               {statusInfo?.label || 'Lower Fertility Estimate'}
             </span>
@@ -136,7 +128,7 @@ export default function DayDetailModal({
 
           {cycleDayInfo?.cycleDay && (
             <div className="flex items-center justify-between border-t border-slate-800 pt-2.5 text-xs">
-              <span className="text-slate-400">Cycle Day Position:</span>
+              <span className="text-slate-400">Cycle Position:</span>
               <span className="font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
                 Cycle Day {cycleDayInfo.cycleDay}
               </span>
@@ -144,72 +136,61 @@ export default function DayDetailModal({
           )}
         </div>
 
-        {/* Details List */}
+        {/* Details Explanation */}
         <div className="space-y-2.5 text-xs">
           {statusType === DAY_TYPES.ACTUAL_PERIOD && (
-            <div className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl text-rose-300 flex items-start gap-2.5">
-              <Activity className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+            <div className="p-3.5 bg-rose-500/10 border border-rose-500/20 rounded-2xl text-rose-300 flex items-start gap-2.5">
+              <Droplets className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold">Recorded Period Start</p>
-                <p className="text-[11px] text-rose-200/80">
-                  This date marks an actual recorded start of menstrual bleeding in your history.
+                <p className="text-[11px] text-rose-200/80 mt-0.5">
+                  This date marks an actual recorded start of menstrual bleeding in your history stored in the database.
                 </p>
               </div>
             </div>
           )}
 
           {statusType === DAY_TYPES.ESTIMATED_OVULATION && (
-            <div className="p-3 bg-purple-500/10 border border-purple-500/20 rounded-xl text-purple-300 flex items-start gap-2.5">
+            <div className="p-3.5 bg-purple-500/10 border border-purple-500/20 rounded-2xl text-purple-300 flex items-start gap-2.5">
               <Sparkles className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold">Estimated Ovulation Date</p>
-                <p className="text-[11px] text-purple-200/80">
-                  Approximate date calculated from your average cycle length. Actual ovulation timing varies.
+                <p className="font-bold">Estimated Ovulation Day</p>
+                <p className="text-[11px] text-purple-200/80 mt-0.5">
+                  Approximate date calculated from your average cycle length (~14 days before next period). Peak conception chance.
                 </p>
               </div>
             </div>
           )}
 
           {statusType === DAY_TYPES.ESTIMATED_FERTILE && (
-            <div className="p-3 bg-sky-500/10 border border-sky-500/20 rounded-xl text-sky-300 flex items-start gap-2.5">
+            <div className="p-3.5 bg-sky-500/10 border border-sky-500/20 rounded-2xl text-sky-300 flex items-start gap-2.5">
               <Heart className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
               <div>
                 <p className="font-bold">Estimated Fertile Window</p>
-                <p className="text-[11px] text-sky-200/80">
-                  Higher conception likelihood window (5 days prior through 1 day post ovulation).
+                <p className="text-[11px] text-sky-200/80 mt-0.5">
+                  Window of elevated conception likelihood (5 days prior through 1 day post estimated ovulation).
                 </p>
               </div>
             </div>
           )}
 
           {statusType === DAY_TYPES.NORMAL && !isPeriodStart && (
-            <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 flex items-start gap-2.5">
+            <div className="p-3.5 bg-slate-950 border border-slate-800 rounded-2xl text-slate-400 flex items-start gap-2.5">
               <Info className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-slate-300">Lower Fertility Estimate</p>
-                <p className="text-[11px] text-slate-400 leading-relaxed">
-                  Days outside the estimated fertile window. Note: Conception is still possible as cycle timing varies.
+                <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5">
+                  Days outside the estimated fertile window. Note: Conception is still possible as natural rhythms vary.
                 </p>
               </div>
             </div>
           )}
         </div>
 
-        {/* Prediction Confidence Indicator */}
-        <div className="p-3.5 bg-slate-950/60 border border-slate-800 rounded-2xl flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span className="text-slate-300 font-medium">Prediction Reliability:</span>
-          </div>
-          <span className="font-bold text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full border border-sky-500/20">
-            {cycleStats?.reliability || 'Lower'}
-          </span>
-        </div>
-
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="w-full py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-sm transition-all duration-200"
+          className="w-full py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition-all duration-200"
         >
           Close
         </button>
