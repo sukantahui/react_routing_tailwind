@@ -1555,6 +1555,9 @@
   .h-\[270px\] {
     height: 270px;
   }
+  .h-\[280px\] {
+    height: 280px;
+  }
   .h-\[300px\] {
     height: 300px;
   }
@@ -1746,6 +1749,9 @@
   }
   .min-h-\[60px\] {
     min-height: 60px;
+  }
+  .min-h-\[64px\] {
+    min-height: 64px;
   }
   .min-h-\[70vh\] {
     min-height: 70vh;
@@ -1971,6 +1977,9 @@
   }
   .w-\[500px\] {
     width: 500px;
+  }
+  .w-\[540px\] {
+    width: 540px;
   }
   .w-\[550px\] {
     width: 550px;
@@ -30874,6 +30883,11 @@
       height: 210px;
     }
   }
+  .sm\:min-h-\[76px\] {
+    @media (width >= 40rem) {
+      min-height: 76px;
+    }
+  }
   .sm\:w-2\/5 {
     @media (width >= 40rem) {
       width: calc(2 / 5 * 100%);
@@ -31272,6 +31286,11 @@
   .sm\:object-contain {
     @media (width >= 40rem) {
       object-fit: contain;
+    }
+  }
+  .sm\:p-2 {
+    @media (width >= 40rem) {
+      padding: calc(var(--spacing) * 2);
     }
   }
   .sm\:p-3 {
