@@ -1,30 +1,67 @@
 ================================================================================
 ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_003 | TOPIC 3: IMPERATIVE SENTENCES & COMMUNICATIVE MOODS
+MODULE 001_003 | TOPIC 3: IMPERATIVE SENTENCES: COMMANDS, REQUESTS & THE IMPLIED 'YOU'
 Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE IMPERATIVE SPECTRUM
+1. CORE DEFINITION & SYNTACTIC ARCHITECTURE
 --------------------------------------------------------------------------------
-Imperative sentences execute 5 distinct communicative duties:
-  1. Command / Order:    "Stop talking and start coding immediately."
-  2. Polite Request:     "Please pass the algorithm documentation."
-  3. Professional Advice:"Review your codebase before committing."
-  4. Invitation:         "Join us for the technical workshop tomorrow."
-  5. Warning/Instruction:"Do not touch the exposed high-voltage wiring."
+An Imperative sentence expresses a command, request, piece of advice, invitation, 
+prohibition, or instructional directive.
 
-2. SYNTACTIC ARCHITECTURE
---------------------------------------------------------------------------------
-- Implied Subject: [ You ] (Elliptical / understood).
-- Verb Form: Base Form (V1 - uninflected).
-- Negative Imperative: "Don't / Do not" + Base Verb (e.g. "Don't panic.").
-- Emphatic Imperative: "Do" + Base Verb (e.g. "Do come to the session.").
-- Cohort Imperative: "Let's" (Let us) + Base Verb (e.g. "Let's innovate.").
+* SYNTACTIC RULE 1: The grammatical subject is almost always the implied 
+  second-person pronoun '(You)', omitted from surface structure.
+  - Surface: "[0] Open the compiler terminal."
+  - Underlying: "(You) open the compiler terminal."
 
-3. PASSIVE VOICE FORMULA FOR IMPERATIVES
+* SYNTACTIC RULE 2: The verb is ALWAYS in the BARE INFINITIVE / BASE FORM (V1).
+
 --------------------------------------------------------------------------------
-Active:  "Execute the script."
-Passive: "Let [the script] be [executed]." (Formula: Let + Object + be + V3).
+2. COMMUNICATIVE SPECTRUM OF IMPERATIVES
+--------------------------------------------------------------------------------
++---+----------------------+--------------------+-------------------------------+
+| # | Functional Category  | Politeness Level   | Exemplar Sentence             |
++---+----------------------+--------------------+-------------------------------+
+| 1 | Direct Command/Order | High Authority     | "Execute the build script now."|
+| 2 | Courteous Request    | Polite Marker      | "Please pass the handbook."   |
+| 3 | Advice / Counsel     | Guidance           | "Never skip code reviews."    |
+| 4 | Instructional Step   | Neutral Technical  | "First import React from 'react'."|
+| 5 | Warm Invitation      | Social Hospitality | "Do come inside and sit down."|
+| 6 | Caution / Warning    | Urgent Alarm       | "Beware of malicious links!"  |
+| 7 | Joint Cohort Action  | 1st Person Plural  | "Let's optimize this query."  |
+| 8 | 3rd Person Command   | 3rd Person Obj     | "Let them debug the module."  |
++---+----------------------+--------------------+-------------------------------+
+
+--------------------------------------------------------------------------------
+3. SPECIAL IMPERATIVE CONSTRUCTIONS
+--------------------------------------------------------------------------------
+A. EMPHATIC IMPERATIVE (With 'Do'):
+   Prefixing 'Do' to the base verb adds emotional warmth, urgency, or insistence:
+   - "Do write to us whenever you face difficulties!"
+
+B. CONDITIONAL IMPERATIVE (Imperative + and/or):
+   - "Work with dedication, AND you will achieve mastery." (= If you work...)
+   - "Save your changes now, OR you will lose data." (= If you do not save...)
+
+C. PASSIVE TRANSFORMATIONS:
+   - Command: "Shut the gate." ===> "Let the gate be shut."
+   - Advice:  "Help the needy." ===> "The needy should be helped."
+   - Request: "Please come." ===> "You are requested to come."
+
+--------------------------------------------------------------------------------
+4. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. INFINITIVE CONFUSION TRAP:
+   * INCORRECT: *Please to help me.
+   * CORRECT:    Please help me. ('Please' takes bare infinitive, no 'to').
+
+2. LET + PRONOUN CASE TRAP:
+   * INCORRECT: *Let he do the work.
+   * CORRECT:    Let HIM do the work. ('Let' is a transitive verb taking OBJECT pronouns).
+
+3. OVERT 'YOU' USAGE:
+   * Standard: "Sit down."
+   * Emphatic/Reproachful: "YOU sit down and keep quiet!" (Explicit 'You' expresses anger/contrast).
 
 ================================================================================
 CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR

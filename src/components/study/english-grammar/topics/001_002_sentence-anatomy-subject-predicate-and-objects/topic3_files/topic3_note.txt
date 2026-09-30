@@ -1,39 +1,59 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 3: SIMPLE PREDICATE VS COMPLETE PREDICATE
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 3: The Simple Predicate (Verb Phrase) vs Complete Predicate
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. SIMPLE PREDICATE (THE FINITE VERB GROUP)
+1. CORE TAXONOMY: THE PREDICATE ENGINE (বিধেয় ও ক্রিয়া কাঠামো)
 --------------------------------------------------------------------------------
-- Definition: Strictly the lexical verb plus all its modal and auxiliary 
-  operators (without objects, complements, or modifiers).
-- Examples:
-  * "The researcher [arrived]." -> Simple Predicate: arrived.
-  * "The researcher [has been working]." -> Simple Predicate: has been working.
-  * "The researcher [could have been analyzing]." -> Simple Predicate: could have been analyzing.
+1. SIMPLE PREDICATE (The Pure Verb Engine):
+   • Consists strictly of the Finite Verb Phrase (Lexical verb + Auxiliaries/Modals).
+   • Excludes all adverbs, negative particles ('not'), objects, and prepositional phrases.
+   • Examples:
+     - "Swadeep [codes]." -> Simple Predicate = "codes".
+     - "Swadeep [has been coding]." -> Simple Predicate = "has been coding".
+     - "Swadeep [might have been studying]." -> Simple Predicate = "might have been studying".
 
-2. COMPLETE PREDICATE (THE FULL ASSERTION)
+2. COMPLETE PREDICATE (The Full Predication):
+   • Encompasses the Simple Predicate + all Direct/Indirect Objects + Complements + Adverbials.
+   • Example: "[has been diligently coding the web application all evening]".
+
+2. SPECIAL PREDICATE VARIATIONS & DISCONTINUOUS STRUCTURES
 --------------------------------------------------------------------------------
-- Definition: The finite verb group + Direct Object + Indirect Object + 
-  Subject/Object Complement + Prepositional & Adverbial Modifiers.
-- Example:
-  "The researcher [has been analyzing the dataset meticulously in the laboratory]."
-  * Complete Predicate = "has been analyzing the dataset meticulously in the laboratory"
+1. DISCONTINUOUS / SPLIT PREDICATES:
+   • Interrupted by Adverbs: "He has [always] arrived on time." -> Simple Pred = "has arrived".
+   • Interrupted by Negation: "She does [not] understand." -> Simple Pred = "does understand".
+   • In Questions: "[Did] Tuhina [complete] the task?" -> Simple Pred = "Did complete".
+   • In Negative Inversion: "Rarely [have] I [seen] such dedication." -> Simple Pred = "have seen".
 
-3. COMPOUND PREDICATES
+2. COMPOUND PREDICATES (Multiple Actions for One Subject):
+   • Single Subject + Two or more coordinate verbs:
+     - "Swadeep [entered the lab] and [started coding]."
+   • Rule: Maintain strict Tense Harmony across coordinate verbs (*"entered and start" is WRONG!).
+   • Punctuation: Do NOT use a comma between two verbs of a simple compound predicate.
+
+3. PHRASAL VERB PREDICATES:
+   • Verb + Particle functions as a single semantic unit:
+     - "The police [looked into] the incident." -> Simple Pred = "looked into".
+
+3. BENGALI LEARNER BRIDGES & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-- Definition: Two or more verbs sharing the EXACT SAME subject without repeating 
-  the subject pronoun.
-- Example: "Swadeep [designed the algorithm, wrote the code, and tested the output]."
-  (Single Subject 'Swadeep' -> Three compound verbs).
+[X] TRAP 1: Treating 'not' or adverbs as part of the verb phrase
+    - 'not' is a Negative Adverb; it is part of the Complete Predicate, but not the Simple Predicate.
 
-4. BENGALI LEARNER PEDAGOGICAL NOTES
+[X] TRAP 2: Missing the helping verb in passive structures
+    - In "The report was submitted yesterday", the Simple Predicate is "was submitted" (Aux + V3), 
+      not just "submitted".
+
+[X] TRAP 3: Tense discord in compound predicates
+    - "Debangshu came home and eat lunch" [WRONG: Past + Present].
+    - "Debangshu came home and ATE lunch" [CORRECT: Past + Past].
+
+4. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-* বাংলায় ক্রিয়াপদ সাধারণত বাক্যের শেষে বসে (যেমন: "তিনি কাজটি করেছেন")। 
-  ইংরেজিতে Finite Verb Subject-এর ঠিক পরেই বসে (যেমন: "He has done the work")।
-* বাক্যে Finite Verb শনাক্ত করার পরই Subject ও Predicate-এর বিভাজন সম্পূর্ণ হয়।
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Can isolate multi-verb chains (Modal + Have + Been + V4) as the Simple Predicate.
+[✓] Recognize split/discontinuous verb phrases in questions and negative clauses.
+[✓] Maintain tense parallelism across all verbs in a Compound Predicate.
+[✓] Master the engine analogy: Simple Predicate = Verb; Complete Predicate = Verb + Cargo.
 ================================================================================

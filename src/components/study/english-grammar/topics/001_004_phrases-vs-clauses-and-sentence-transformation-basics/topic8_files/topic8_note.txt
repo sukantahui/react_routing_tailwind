@@ -1,30 +1,35 @@
-========================================================================
-MODULE 001_004 | TOPIC 8: CLASSROOM DIALOGUE & WORKED DRILLS
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004 | TOPIC 8: CLASSROOM TRANSFORMATION CLINIC & WORKED DRILLS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-CRITICAL STEP-BY-STEP WORKED TRANSFORMATION DRILLS:
+1. BARRACKPORE TRANSFORMATION CLINIC: HIGH-FREQUENCY DIAGNOSTICS
+--------------------------------------------------------------------------------
+CASE 1: THE TEMPORAL CORRELATIVE ALIGNMENT
+- Attempt: *No sooner had he arrived WHEN the bell rang.
+- Diagnosis: 'No sooner' strictly pairs with 'THAN'.
+- Correct:  "NO SOONER had he arrived THAN the bell rang."
+- Parallel: "HARDLY / SCARCELY had he arrived WHEN the bell rang."
 
-DRILL 1: THE DUMMY OPERATOR IN NEGATIVE INVERSION
-- Statement: "No sooner did the inspector entered..." ❌ ERROR!
-- Rule: 'Did' takes base verb (V1) 'enter'.
-- Correction: "No sooner did the inspector enter than..." ✅
+CASE 2: THE TENSE HARMONY AUDIT
+- Attempt: *He was so tired that he CANNOT walk.
+- Diagnosis: Matrix verb 'was' is past tense -> Subordinate modal must be 'COULD NOT'.
+- Correct:  "He WAS so tired that he COULD NOT walk."
 
-DRILL 2: DOUBLE NEGATIVE TRAPS WITH 'TOO'
-- Statement: "He is too wise not to see through the deception."
-- Breakdown: 'too... not to' = positive capacity.
-- Transformed: "He is so wise that he will certainly see through the deception." ✅
+CASE 3: THE SUPERLATIVE 'ONE OF THE' CONVERSION
+- Superlative: "Tagore was ONE OF THE GREATEST poets."
+- Comparative: "Tagore was GREATER THAN MOST OTHER poets."
+- Positive:    "VERY FEW poets were AS GREAT AS Tagore."
 
-DRILL 3: HARDLY / SCARCELY VS NO SOONER
-- "Hardly had the meeting started WHEN the power failed." (Pairs with WHEN)
-- "No sooner had the meeting started THAN the power failed." (Pairs with THAN)
-* NEVER MIX 'Hardly... than' or 'No sooner... when'.
+--------------------------------------------------------------------------------
+2. THE 4-POINT TRANSFORMATION DIAGNOSTIC CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Check 1: 100% Semantic Fidelity (Meaning has NOT altered).
+[ ] Check 2: Tense Invariance (Past remains past, present remains present).
+[ ] Check 3: Correlative Harmony (no sooner...than, neither...nor, so...that).
+[ ] Check 4: Punctuation Integrity (Interrogative '?', Exclamatory '!', Assertive '.').
 
-DRILL 4: INTERROGATIVE RHETORICAL EQUIVALENCE
-- Assertive: "Knowledge is true power."
-- Interrogative: "Is knowledge not true power?"
-
-BENGALI SUMMARY (বাংলা সংক্ষেপ):
-- 'Did'-এর পরে সবসময় Verb-এর Present/Base Form (V1) বসে।
-- 'No sooner'-এর সাথে সর্বদা 'than' এবং 'Hardly/Scarcely'-র সাথে 'when' বসে।
-========================================================================
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

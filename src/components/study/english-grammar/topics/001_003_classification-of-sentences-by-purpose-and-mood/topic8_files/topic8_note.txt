@@ -1,38 +1,63 @@
-========================================================================
-MODULE 001_003 | TOPIC 8: MODULE CAPSTONE REVISION & SELF-ASSESSMENT
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 8: MODULE CAPSTONE SELF-ASSESSMENT & SYNTHESIS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-MASTER SUMMARY OF SENTENCE CLASSIFICATION BY COMMUNICATIVE PURPOSE:
+1. THE 5 COMMUNICATIVE SENTENCE ARCHITECTURES (MASTER MATRIX)
+--------------------------------------------------------------------------------
++---+---------------+----------------------+--------------------+---------------+
+| # | Sentence Type | Core Function        | Syntactic Formula  | Terminal Mark |
++---+---------------+----------------------+--------------------+---------------+
+| 1 | Assertive     | States facts/opinion | S + V + O/C/A      | Period (.)    |
+| 2 | Interrogative | Seeks info / confirm | Aux + S + V ... ?  | Question (?)  |
+| 3 | Imperative    | Commands / Requests  | Base V1 (You)      | Period / (!)  |
+| 4 | Exclamatory   | Spontaneous emotion  | What a / How + S+V | Exclamation(!)|
+| 5 | Optative      | Prayers / Blessings  | May + S + V1       | Exclamation(!)|
++---+---------------+----------------------+--------------------+---------------+
 
-1. DECLARATIVE (ASSERTIVE):
-   - Purpose: Statements of fact, belief, or opinion.
-   - Types: Affirmative ("Sun rises in the east") & Negative ("He is not here").
-   - Terminal mark: Period (.)
+--------------------------------------------------------------------------------
+2. QUESTION TAG SYNTACTIC INVARIANTS
+--------------------------------------------------------------------------------
+* POLARITY PRINCIPLE: Positive Statement <===> Negative Tag; Negative Statement <===> Positive Tag.
+* SPECIAL TAG CATALOG:
+  - "I am right"                ===> "aren't I?"
+  - "I am not late"             ===> "am I?"
+  - "Let's proceed"             ===> "shall we?"
+  - "Let us work" (permission)  ===> "will you?"
+  - "Close the door"            ===> "will you? / won't you?"
+  - "Don't touch"               ===> "will you?"
+  - "He seldom studies"         ===> "does he?" (Semi-negative -> Positive tag)
+  - "Everybody was present"     ===> "weren't they?" (Indefinite person -> 'they')
+  - "Nothing happened"          ===> "did it?" (Inanimate entity -> 'it')
+  - "There is hope"             ===> "isn't there?" (Existential 'there' retained)
 
-2. INTERROGATIVE:
-   - Yes/No: Formed by Subject-Auxiliary Inversion (Aux + Sub + Verb).
-   - Wh- Questions: Wh-word + Aux + Sub + Verb.
-   - Question Tags: Statement + Tag Pronoun + Auxiliary (Polarity Inversion).
+--------------------------------------------------------------------------------
+3. MASTER TRANSFORMATION CHEATSHEET
+--------------------------------------------------------------------------------
+* AFFIRMATIVE <===> NEGATIVE:
+  - "Man is mortal"          <===> "Man is NOT immortal."
+  - "Only Swadeep came"      <===> "NONE BUT Swadeep came."
+  - "He is too weak to walk" <===> "He is SO weak THAT he CANNOT walk."
+  - "As soon as he came..."  <===> "NO SOONER DID he come THAN..."
 
-3. IMPERATIVE:
-   - Purpose: Commands, requests, directions, invitations, warnings.
-   - Subject: Implied/Understood 2nd person "(You)".
-   - Verb Form: Base verb (V1) bare infinitive.
+* ASSERTIVE <===> INTERROGATIVE (RHETORICAL):
+  - "Everyone loves freedom" <===> "WHO DOES NOT love freedom?"
+  - "Nobody can bear this"   <===> "WHO CAN bear this?"
 
-4. EXCLAMATORY:
-   - Purpose: Spontaneous outpouring of intense emotion, wonder, shock.
-   - Formulas: "What a + [Adj] + [Noun] + [S] + [V]!" or "How + [Adj/Adv] + [S] + [V]!"
-   - Terminal mark: Exclamation mark (!)
+* EXCLAMATORY <===> ASSERTIVE:
+  - "What a pity it is!"     <===> "It is a GREAT pity."
+  - "How fast he ran!"       <===> "He ran VERY fast."
 
-5. OPTATIVE:
-   - Purpose: Wishes, blessings, prayers, solemn hopes.
-   - Formulas: "May + [Sub] + [V1]!" or Elliptical ("Long live the King!").
+* IMPERATIVE <===> ASSERTIVE:
+  - "Please help me"         <===> "You are REQUESTED to help me."
+  - "Shut the door"          <===> "You are ORDERED to shut the door."
 
-BENGALI CHEAT SHEET (বাংলা সংক্ষেপ):
-- Assertive: সাধারণ বিবৃতিমূলক বাক্য (.)
-- Interrogative: প্রশ্নবোধক বাক্য (?)
-- Imperative: আদেশ, উপদেশ বা অনুরোধমূলক বাক্য (.)
-- Exclamatory: আবেগ বা বিস্ময়সূচক বাক্য (!)
-- Optative: প্রার্থনা বা শুভকামনামূলক বাক্য (!)
-========================================================================
+* OPTATIVE <===> ASSERTIVE:
+  - "May you prosper!"       <===> "I PRAY / WISH THAT you may prosper."
+
+================================================================================
+CONGRATULATIONS ON MASTERING MODULE 001_003!
+PROCEED TO MODULE 001_004: PHRASES VS CLAUSES & TRANSFORMATION BASICS
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

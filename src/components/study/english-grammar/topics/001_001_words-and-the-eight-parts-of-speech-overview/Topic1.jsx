@@ -16,7 +16,11 @@ import {
   Lock,
   Boxes,
   Cpu,
-  MessageSquare
+  MessageSquare,
+  Lightbulb,
+  Target,
+  Heart,
+  Compass
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -194,7 +198,215 @@ export default function Topic1() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+        
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Nouns & Pronouns in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                Nouns are the official name tags of everything. Pronouns are the helpful substitutes.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              Names vs Stand-ins
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Nouns = The Official Name Tags</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                A Noun is simply any word that names a person, place, physical object, or abstract concept (e.g. Swadeep, Kolkata, computer, freedom).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 [Swadeep] bought a new [laptop] in [Barrackpore].
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Pronouns = The Smart Substitutes</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Without pronouns, you would have to say: "Swadeep took Swadeep's bag because Swadeep was late." Pronouns fix this: "Swadeep took HIS bag because HE was late."
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 [He] loves [his] mentor because [he] guides [him].
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Proper Noun</span>
+                <p className="text-xs text-slate-300">Specific Capitalized Name: Swadeep, Barrackpore</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Common Noun</span>
+                <p className="text-xs text-slate-300">General Category: student, city, computer</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Personal Pronoun</span>
+                <p className="text-xs text-slate-300">Direct Person: I, you, he, she, they, we</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Possessive Pronoun</span>
+                <p className="text-xs text-slate-300">Ownership: his, her, their, my, our</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Debangshu opened his laptop because he wanted to test the program."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় নাম ও সর্বনাম:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Noun হলো যেকোনো কিছুর আসল নাম (ব্যক্তি, বস্তু, স্থান, ভাব)। আর একই নাম বারবার না বলে তার জায়গায় যে শব্দ বসাই (He, She, It, They) তা-ই হলো Pronoun।
+              </p>
+            </div>
+          )}
+        </div>
+
+{/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Nouns & Pronouns in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                Nouns are the official name tags of everything. Pronouns are the helpful substitutes.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              Names vs Stand-ins
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Nouns = The Official Name Tags</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                A Noun is simply any word that names a person, place, physical object, or abstract concept (e.g. Swadeep, Kolkata, computer, freedom).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 [Swadeep] bought a new [laptop] in [Barrackpore].
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Pronouns = The Smart Substitutes</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Without pronouns, you would have to say: "Swadeep took Swadeep's bag because Swadeep was late." Pronouns fix this: "Swadeep took HIS bag because HE was late."
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 [He] loves [his] mentor because [he] guides [him].
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Proper Noun</span>
+                <p className="text-xs text-slate-300">Specific Capitalized Name: Swadeep, Barrackpore</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Common Noun</span>
+                <p className="text-xs text-slate-300">General Category: student, city, computer</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Personal Pronoun</span>
+                <p className="text-xs text-slate-300">Direct Person: I, you, he, she, they, we</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Possessive Pronoun</span>
+                <p className="text-xs text-slate-300">Ownership: his, her, their, my, our</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Debangshu opened his laptop because he wanted to test the program."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় নাম ও সর্বনাম:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Noun হলো যেকোনো কিছুর আসল নাম (ব্যক্তি, বস্তু, স্থান, ভাব)। আর একই নাম বারবার না বলে তার জায়গায় যে শব্দ বসাই (He, She, It, They) তা-ই হলো Pronoun।
+              </p>
+            </div>
+          )}
+        </div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {openClasses.map((item, idx) => (
                 <div key={idx} className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
                   <div className="flex items-center justify-between">
@@ -268,6 +480,53 @@ export default function Topic1() {
           </div>
         )}
 
+        {/* Visual Architecture & Lexicon Tree Diagram */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-4">
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <Sparkles className="w-5 h-5 text-amber-400" />
+            <h2 className="text-xl font-bold text-white">Visual Architecture: The Two Great Lexicon Hemispheres</h2>
+          </div>
+          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800/80 flex items-center justify-center overflow-x-auto">
+            <svg viewBox="0 0 800 240" className="w-full max-w-3xl text-xs font-mono select-none" xmlns="http://www.w3.org/2000/svg">
+              {/* Root */}
+              <rect x="290" y="10" width="220" height="40" rx="8" fill="#1e1b4b" stroke="#6366f1" strokeWidth="2" />
+              <text x="400" y="35" fill="#e0e7ff" textAnchor="middle" fontWeight="bold" fontSize="13">THE ENGLISH LEXICON</text>
+
+              {/* Branch Left: Open */}
+              <path d="M 330 50 L 200 90" stroke="#3b82f6" strokeWidth="2" fill="none" />
+              <rect x="70" y="90" width="260" height="45" rx="8" fill="#172554" stroke="#3b82f6" strokeWidth="2" />
+              <text x="200" y="112" fill="#93c5fd" textAnchor="middle" fontWeight="bold" fontSize="12">OPEN CLASSES (Content)</text>
+              <text x="200" y="127" fill="#60a5fa" textAnchor="middle" fontSize="10">Infinite · Meaning Carriers · Dynamic</text>
+
+              {/* Branch Right: Closed */}
+              <path d="M 470 50 L 600 90" stroke="#a855f7" strokeWidth="2" fill="none" />
+              <rect x="470" y="90" width="260" height="45" rx="8" fill="#3b0764" stroke="#a855f7" strokeWidth="2" />
+              <text x="600" y="112" fill="#d8b4fe" textAnchor="middle" fontWeight="bold" fontSize="12">CLOSED CLASSES (Structure)</text>
+              <text x="600" y="127" fill="#c084fc" textAnchor="middle" fontSize="10">~300 Items · Grammatical Scaffolding</text>
+
+              {/* Open Class Items */}
+              <rect x="30" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" />
+              <text x="67" y="185" fill="#38bdf8" textAnchor="middle" fontWeight="bold">NOUN</text>
+              <rect x="115" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" />
+              <text x="152" y="185" fill="#38bdf8" textAnchor="middle" fontWeight="bold">VERB</text>
+              <rect x="200" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" />
+              <text x="237" y="185" fill="#38bdf8" textAnchor="middle" fontWeight="bold">ADJECTIVE</text>
+              <rect x="285" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#38bdf8" />
+              <text x="322" y="185" fill="#38bdf8" textAnchor="middle" fontWeight="bold">ADVERB</text>
+
+              {/* Closed Class Items */}
+              <rect x="440" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#c084fc" />
+              <text x="477" y="185" fill="#c084fc" textAnchor="middle" fontWeight="bold">PRONOUN</text>
+              <rect x="525" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#c084fc" />
+              <text x="562" y="185" fill="#c084fc" textAnchor="middle" fontWeight="bold">PREP</text>
+              <rect x="610" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#c084fc" />
+              <text x="647" y="185" fill="#c084fc" textAnchor="middle" fontWeight="bold">CONJ</text>
+              <rect x="695" y="160" width="75" height="40" rx="6" fill="#0f172a" stroke="#c084fc" />
+              <text x="732" y="185" fill="#c084fc" textAnchor="middle" fontWeight="bold">DET/ART</text>
+            </svg>
+          </div>
+        </div>
+
         {/* High-Level Comparison Matrix */}
         <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
@@ -313,7 +572,7 @@ export default function Topic1() {
         {/* Auxiliary Components */}
         <div className="space-y-8 pt-4">
           <FAQTemplate
-            title="Topic 1 Diagnostic Assessment (10 Questions)"
+            title="Topic 1 Diagnostic Assessment (25 Questions)"
             questions={questions}
           />
 

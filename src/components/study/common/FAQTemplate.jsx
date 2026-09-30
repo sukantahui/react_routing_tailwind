@@ -62,7 +62,7 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
                   {q.options && q.options.length > 0 && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
                       {q.options.map((opt, oIdx) => {
-                        const isAnswer = opt === q.answer;
+                        const isAnswer = opt === q.answer || (typeof q.correctAnswer === 'number' && oIdx === q.correctAnswer);
                         return (
                           <div
                             key={oIdx}
@@ -84,6 +84,13 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
                     <div className="p-3 rounded-lg bg-slate-950 border border-slate-800/80 text-slate-300 text-xs leading-relaxed space-y-1">
                       <div className="font-bold text-sky-400 text-[11px] uppercase tracking-wider">Detailed Technical Explanation:</div>
                       <p>{renderFormattedText(q.explanation)}</p>
+                    </div>
+                  )}
+
+                  {q.explanationBn && (
+                    <div className="p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/30 text-emerald-200 text-xs leading-relaxed space-y-1">
+                      <div className="font-bold text-emerald-400 text-[11px] uppercase tracking-wider">🇧🇩 বাংলা ব্যাখ্যা (Bengali Explanation):</div>
+                      <p>{renderFormattedText(q.explanationBn)}</p>
                     </div>
                   )}
                 </div>

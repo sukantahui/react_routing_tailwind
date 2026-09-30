@@ -1,29 +1,66 @@
 ================================================================================
 ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_003 | TOPIC 5: OPTATIVE SENTENCES (PRAYERS & WISHES)
+MODULE 001_003 | TOPIC 5: OPTATIVE SENTENCES: PRAYERS, BLESSINGS & SOLEMN WISHES
 Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. WHAT IS AN OPTATIVE SENTENCE?
+1. CORE DEFINITION & COMMUNICATIVE ESSENCE
 --------------------------------------------------------------------------------
-- Definition: A sentence that articulates an earnest prayer, pious wish, 
-  blessing, or solemn invocation.
-- Structural Formula:
-  [ MAY ] + [ SUBJECT ] + [ BASE VERB (V1) ] ... [ ! / . ]
-- Examples:
-  * "May you achieve the highest distinction in your academic career!"
-  * "May God grant you health, wisdom, and peace!"
+An Optative sentence expresses a prayer, blessing, benediction, heartfelt wish, 
+or solemn curse/imprecation.
 
-2. ELLIPTICAL OPTATIVE FORMULAS (WITHOUT SURFACE 'MAY')
---------------------------------------------------------------------------------
-In traditional and literary prose, 'May' is often understood:
-  * "Long live the Republic!" (=[May] the Republic live long).
-  * "God save the nation!"    (=[May] God save the nation).
+* Structural Hallmark: Starts with the modal auxiliary 'May' or employs an 
+  elliptical subjunctive root, terminating with an Exclamation Mark (!).
 
-3. REPORTED SPEECH (NARRATION) RULE FOR OPTATIVES
 --------------------------------------------------------------------------------
-Direct:   The mentor said to Swadeep, "May you prosper in life!"
-Indirect: The mentor PRAYED / WISHED that Swadeep MIGHT prosper in life.
+2. THE TWO PRIMARY SYNTACTIC FORMULAS
+--------------------------------------------------------------------------------
+FORMULA 1: EXPLICIT 'MAY' CONSTRUCTION
+  [ MAY ] + [ SUBJECT ] + [ BASE VERB (V1) ] + [ COMPLEMENT / OBJECT ] !
+  - "May God shower blessings upon your family!"
+  - "May you achieve the highest honor in your career!"
+  - "May peace reign across our nation!"
+
+FORMULA 2: ELLIPTICAL SUBJUNCTIVE ROOT (UNDERSTOOD 'MAY')
+  Used in traditional greetings, royal proclamations, and solemn prayers:
+  - "Long live the Republic of India!" (= [May] the Republic live long!)
+  - "God save the President!"         (= [May] God save the President!)
+  - "Wish you a speedy recovery!"      (= [I] wish you a speedy recovery!)
+
+--------------------------------------------------------------------------------
+3. OPTATIVE VS INTERROGATIVE 'MAY' CLARIFICATION
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| Feature           | Optative Sentence          | Interrogative Sentence      |
++-------------------+----------------------------+-----------------------------+
+| Purpose           | Blessing, Wish, or Prayer  | Seeking Permission / Inquiry|
+| Final Punctuation | Exclamation Mark (!)       | Question Mark (?)           |
+| Exemplar          | "May you prosper in life!" | "May I enter the hall?"     |
+| Meaning           | "I pray that you prosper." | "Do I have permission?"     |
++-------------------+----------------------------+-----------------------------+
+
+--------------------------------------------------------------------------------
+4. INDIRECT NARRATION OF OPTATIVE SENTENCES
+--------------------------------------------------------------------------------
+Direct:   The mentor said to Swadeep, "May you master React and Node.js!"
+Indirect: The mentor PRAYED / WISHED THAT Swadeep MIGHT master React and Node.js.
+
+* Key Transformations:
+  1. Reporting verb becomes 'prayed' or 'wished'.
+  2. Conjunction 'that' connects the clauses.
+  3. 'May' backshifts to past modal 'might'.
+  4. Punctuation converts to a standard Period (.).
+
+--------------------------------------------------------------------------------
+5. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. INFINITIVE WITH 'TO' TRAP:
+   * INCORRECT: *May God to protect you!
+   * CORRECT:    May God protect you! (Modals require bare infinitive).
+
+2. SUBJUNCTIVE S-ENDING TRAP:
+   * INCORRECT: *Long lives the President!
+   * CORRECT:    Long LIVE the President! (Base form subjunctive).
 
 ================================================================================
 CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR

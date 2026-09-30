@@ -1,33 +1,57 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 7: INTERACTIVE PARSING WORKBENCH
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 7: Interactive Word Classification Workbench & Diagnostics
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE 5-STEP TOKEN PARSING PROTOCOL
+1. SYSTEMATIC SENTENCE PARSING BLUEPRINT (বাক্য বিশ্লেষণের সার্বিক রূপরেখা)
 --------------------------------------------------------------------------------
-Step 1: Locate the Finite Verb Group (The structural core).
-Step 2: Ask "Who/What + Verb?" to extract the Subject Nominal.
-Step 3: Check if the verb is Transitive (What/Whom?), Linking (Complement), or
-        Intransitive (Complete in itself).
-Step 4: Identify Modifiers (Adjectives qualifying nouns, Adverbs modifying verbs/adj).
-Step 5: Identify Connectives (Prepositions governing objects, Conjunctions linking clauses).
+To accurately diagnose the part of speech of every token in a sentence:
 
-2. MASTER SENTENCE DECONSTRUCTION DEMO
+STEP 1: Locate the Finite Verb (The Predicate Core).
+        - Ask: What action/state is being predicated? What is the tense?
+STEP 2: Identify the Subject (The Nominal Agent/Topic).
+        - Ask: Who or what is performing the action / being described?
+STEP 3: Identify Objects & Complements.
+        - Direct Object (What/Whom?), Indirect Object (To whom/For whom?).
+        - Subject Complement (after linking verb) or Object Complement.
+STEP 4: Trace Modifiers.
+        - Attributive Adjectives & Noun-adjuncts (modifying nouns).
+        - Adverbs of Manner, Time, Place, Degree (modifying verbs/adj/adv).
+STEP 5: Trace Connectors.
+        - Prepositions (governing nominal objects).
+        - Conjunctions (FANBOYS or Subordinating linking clauses).
+        - Interjections (independent emotive markers).
+
+2. MULTI-ROLE WORD DIAGNOSTIC BENCHMARK
 --------------------------------------------------------------------------------
-Sentence: "The exceptionally brilliant scholar solved the difficult problem with ease."
+TOKEN "UP":
+  • Preposition: "He ran up the hill." (+ Nominal Object)
+  • Adverb:      "Prices went up rapidly." (Modifies Verb 'went')
+  • Adjective:   "Board the up train." (Modifies Noun 'train')
+  • Noun:        "Life has its ups and downs." (Direct Object)
+  • Verb:        "They decided to up the stakes." (Infinitive verb)
 
-1. The          -> Definite Article / Determiner (Closed Class)
-2. exceptionally-> Adverb of Degree (Open Class - modifying 'brilliant')
-3. brilliant    -> Attributive Adjective (Open Class - modifying 'scholar')
-4. scholar      -> Singular Countable Noun (Open Class - Simple Subject)
-5. solved       -> Transitive Finite Verb in Past Tense (Open Class - Predicate)
-6. the          -> Definite Article / Determiner (Closed Class)
-7. difficult    -> Attributive Adjective (Open Class - modifying 'problem')
-8. problem      -> Singular Countable Noun (Open Class - Direct Object)
-9. with         -> Preposition (Closed Class - governs 'ease')
-10. ease        -> Abstract Noun (Open Class - Object of Preposition)
+TOKEN "SINCE":
+  • Preposition: "Since yesterday" (+ Nominal Object)
+  • Conjunction: "Since it was late, we left." (+ Clause)
+  • Adverb:      "I have not seen him since." (Stands alone at clause end)
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+TOKEN "YESTERDAY":
+  • Adverb: "She arrived yesterday." (Answers 'When?')
+  • Noun:   "Yesterday was historic." (Subject of linking verb 'was')
+
+3. BENGALI LEARNER BRIDGE (বাংলা মাধ্যমের কার্যপদ্ধতি)
+--------------------------------------------------------------------------------
+[✓] কখনো কোনো শব্দের বাহ্যিক রূপ দেখে দ্রুত সিদ্ধান্তে আসবেন না।
+[✓] সর্বদা শব্দের বাম ও ডান দিকের শব্দগুলোর সাথে তার ব্যাকরণগত সম্পর্ক যাচাই করুন।
+[✓] Noun-এর পূর্বে বসলে Adjective/Determiner/Preposition; Verb-কে modify করলে Adverb; 
+    Clause যুক্ত করলে Conjunction।
+
+4. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Master the 5-step sentence parsing blueprint.
+[✓] Can identify all 8 parts of speech in any complex sentence without hesitation.
+[✓] Demonstrate 4+ roles for 'up', 'since', 'yesterday', 'round', and 'but'.
 ================================================================================

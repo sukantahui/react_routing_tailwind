@@ -1,36 +1,48 @@
-========================================================================
-MODULE 001_004 | TOPIC 7: EXCLAMATORY TO ASSERTIVE TRANSFORMATION
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004 | TOPIC 7: EXCLAMATORY <===> ASSERTIVE SENTENCE TRANSFORMATION
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-1. STRUCTURAL CONVERSION PRINCIPLES:
-   - Exclamatory sentences express emotional intensity via fronted "What a..." or "How...".
-   - When converting to Assertive, this emotional intensity is translated into adverbs of degree (very, extremely, indeed, truly) or adjective nouns (a great, a wonderful).
+1. THE EXCLAMATORY <===> ASSERTIVE TRANSFORMATION MATRIX
+--------------------------------------------------------------------------------
++---+----------------------------------+---------------------------------------+
+| # | Exclamatory Pattern              | Assertive Equivalent                  |
++---+----------------------------------+---------------------------------------+
+| 1 | How + Adjective / Adverb         | Subject + Verb + VERY + Adj / Adv     |
+| 2 | What a / an + Adj + Noun         | Subject + Verb + a VERY + Adj + Noun  |
+| 3 | What a + Noun (no adjective)     | Subject + Verb + a GREAT / WONDERFUL  |
+| 4 | Alas! + Clause                   | It is a matter of GREAT SORROW that...|
+| 5 | Hurrah! + Clause                 | It is a matter of IMMENSE JOY that... |
+| 6 | Bravo! + Clause                  | It is a matter of GREAT PRAISE that...|
+| 7 | Fie! + Clause                    | It is extremely SHAMEFUL that...      |
+| 8 | O that / If only / Would that    | I EARNESTLY WISH that...              |
+| 9 | O for + Noun                     | I INTENSELY LONG / WISH for...        |
+|10 | Had I but known ...              | I wish I had known ...                |
++---+----------------------------------+---------------------------------------+
 
-2. KEY CONVERSION FORMULAS:
-   a. "What a + [Adj] + [Noun] + [S] + [V]!"
-      --> [S] + [V] + a very + [Adj] + [Noun].
-      Example: "What a terrible disaster it was!"
-               --> "It was a very terrible disaster."
+--------------------------------------------------------------------------------
+2. WORD ORDER MIGRATION MECHANISM
+--------------------------------------------------------------------------------
+* EXCLAMATORY ORDER (Fronting for emotional intensity):
+  [ INTENSIFIER (How/What a) + DESCRIPTOR ] + [ SUBJECT ] + [ VERB ] !
+  - "How brilliant Swadeep is!"
 
-   b. "How + [Adj/Adv] + [S] + [V]!"
-      --> [S] + [V] + very + [Adj/Adv].
-      Example: "How fast the sprinter runs!"
-               --> "The sprinter runs very fast."
+* ASSERTIVE ORDER (Restoration of grammatical baseline):
+  [ SUBJECT ] + [ VERB ] + [ INTENSIFIER (very/great) + DESCRIPTOR ] .
+  - "Swadeep is VERY brilliant."
 
-   c. Wishes & Subjunctives: "O that / If only / Would that I were...!"
-      --> "I earnestly wish / desire that I were..."
-      Example: "O that I had the wings of a dove!"
-               --> "I wish that I had the wings of a dove."
+--------------------------------------------------------------------------------
+3. BENGALI LEARNER BRIDGES & COMMON EXAM TRAPS
+--------------------------------------------------------------------------------
+1. 'VERY' VS 'GREAT' USAGE:
+   * With Adjectives -> use 'VERY' / 'EXTREMELY' ("very cold", "very beautiful").
+   * With Nouns      -> use 'GREAT' / 'WONDERFUL' ("a great fool", "a great pity").
 
-   d. Interjections (Hurrah, Alas, Fie, Bravo):
-      - Hurrah! --> "It is a matter of great joy that..."
-      - Alas!   --> "It is a matter of profound sorrow that..."
-      - Fie!    --> "It is a matter of shame that..."
-      - Bravo!  --> "It is a matter of praise that..."
+2. PUNCTUATION INTEGRITY:
+   * Exclamatory MUST end with (!)
+   * Transformed Assertive MUST end with (.)
 
-3. BENGALI SUMMARY (বাংলা সংক্ষেপ):
-   - Exclamatory থেকে Assertive করার সময় 'What a / How'-এর স্থানে 'very', 'great', বা 'extremely' বসে।
-   - আবেগসূচক অব্যয় (Alas, Hurrah) থাকলে 'It is a matter of sorrow/joy that...' ব্যবহার করুন।
-   - বিরামচিহ্ন: (!) উঠে গিয়ে (.) বসবে।
-========================================================================
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

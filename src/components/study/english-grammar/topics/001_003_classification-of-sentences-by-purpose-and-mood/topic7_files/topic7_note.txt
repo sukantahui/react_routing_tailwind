@@ -1,40 +1,60 @@
-========================================================================
-MODULE 001_003 | TOPIC 7: INTERACTIVE TRANSFORMATION WORKBENCH
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 7: INTERACTIVE SENTENCE TRANSFORMATION WORKBENCH
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-1. THE GOLDEN INVARIANT OF TRANSFORMATION:
-   - Form changes; Meaning, Truth Value, and Propositional Essence REMAIN CONSTANT.
-   - Never flip polarity without adding an opposing semantic modifier (antonym/negative operator).
+1. THE GOLDEN RULE OF TRANSFORMATION
+--------------------------------------------------------------------------------
+"Change the outward syntactic form, but preserve the underlying semantic 
+ meaning with 100% fidelity."
 
-2. KEY PATTERNS & TRANSFORMATION FORMULAS:
-   a. Affirmative to Negative:
-      - Always + Positive  -->  Never + Antonym
-        (e.g., "She is always honest" --> "She is never dishonest")
-      - Only / Alone (Person) --> None but
-        (e.g., "Only God can save us" --> "None but God can save us")
-      - Too... to  -->  So... that + cannot / could not
-        (e.g., "He is too old to run" --> "He is so old that he cannot run")
+--------------------------------------------------------------------------------
+2. MASTER TRANSFORMATION CATALOG (ACROSS ALL 5 FUNCTIONAL TYPES)
+--------------------------------------------------------------------------------
+A. AFFIRMATIVE <===> NEGATIVE (MEANING PRESERVED)
+1. Using Antonyms + Not:
+   * "Man is mortal." <===> "Man is NOT immortal."
+   * "I will always remember." <===> "I will NEVER forget."
+2. 'Only / Alone' Rules:
+   * Persons: "Only Swadeep came." <===> "NONE BUT Swadeep came."
+   * Things:  "He bought only books." <===> "He bought NOTHING BUT books."
+   * Numbers: "He is only ten." <===> "He is NOT MORE THAN ten."
+3. 'As soon as' Rule:
+   * "As soon as he saw the mentor, he stood up."
+     <===> "NO SOONER DID he see the mentor THAN he stood up."
+4. 'Too...to' Rule:
+   * "He is too weak to walk." <===> "He is SO weak THAT he CANNOT walk."
+5. 'Every' Rule:
+   * "Every mother loves her child." <===> "There is NO mother BUT loves her child."
 
-   b. Assertive to Interrogative (Rhetorical Questions):
-      - Positive Statement --> Negative Question
-        ("He is a true patriot" --> "Is he not a true patriot?")
-      - Negative Statement --> Positive Question
-        ("Nobody can touch the sky" --> "Who can touch the sky?")
-      - Universal Subject ("Everyone / All") --> "Who does not...?"
-        ("Everyone wants peace" --> "Who does not want peace?")
+B. ASSERTIVE <===> INTERROGATIVE (RHETORICAL INVERSION)
+1. Affirmative Statement ===> Negative Question:
+   * "Everyone knows Netaji." <===> "WHO DOES NOT know Netaji?"
+   * "Prevention is better than cure." <===> "ISN'T prevention better than cure?"
+2. Negative Statement ===> Positive Question:
+   * "Nobody can solve this." <===> "WHO CAN solve this?"
+   * "Their glory can never fade." <===> "WHEN CAN their glory fade?"
+3. 'There is no use' Rule:
+   * "There is no use in worrying." <===> "WHAT IS THE USE OF worrying?"
 
-   c. Exclamatory to Assertive:
-      - "What a + [Adj] + [Noun]!" --> "It is a very [Adj] [Noun]."
-      - "How + [Adj] + [Sub] + [Verb]!" --> "[Sub] + [Verb] + very/extremely [Adj]."
-      - "O that / If only I were a child again!" --> "I strongly wish that I were a child again."
+C. EXCLAMATORY <===> ASSERTIVE
+1. 'What a...' Rule:
+   * "What a terrible storm it was!" <===> "It was a VERY terrible storm."
+2. 'How...' Rule:
+   * "How sweet the melody is!" <===> "The melody is VERY sweet."
+3. 'O that / If only / Would that' Rule:
+   * "If only I were young again!" <===> "I EARNESTLY WISH I were young again."
 
-   d. Optative to Assertive:
-      - "May God bless you!" --> "I pray that God may bless you."
-      - "Long live the King!" --> "We wish that the King may live long."
+D. IMPERATIVE <===> ASSERTIVE
+1. "Please help me." <===> "You are REQUESTED to help me."
+2. "Shut the door."  <===> "You are ORDERED to shut the door."
+3. "Work hard."      <===> "You SHOULD work hard / You are ADVISED to work hard."
 
-3. BENGALI SUMMARY (সারসংক্ষেপ):
-   বাক্য রূপান্তরের প্রধান নীতি হল: কাঠামোর পরিবর্তন ঘটলেও মূল অর্থের কোনো পরিবর্তন হবে না।
-   - Positive বাক্যকে Negative করতে বিপরীত শব্দ (Antonym) ব্যবহার করুন।
-   - জোর দেওয়ার জন্য বা অলংকারিক প্রশ্নে রূপান্তরের ক্ষেত্রে Polarity পরিবর্তন আবশ্যক।
-========================================================================
+E. OPTATIVE <===> ASSERTIVE
+1. "May you succeed!" <===> "I PRAY / WISH THAT you may succeed."
+2. "Long live the Republic!" <===> "We EARNESTLY PRAY THAT the Republic may live long."
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

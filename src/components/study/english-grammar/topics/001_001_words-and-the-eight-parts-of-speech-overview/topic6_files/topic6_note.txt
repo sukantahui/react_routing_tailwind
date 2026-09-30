@@ -1,34 +1,61 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 6: CLASSROOM DIALOGUE & MENTOR LAB
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 6: Classroom Dialogue — Mentor Sukanta Sir & Barrackpore Students
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE BARRACKPORE MENTORING WORKSHOP TRANSCRIPT
+1. BARRACKPORE SEMINAR HIGHLIGHTS (শ্রেণিকক্ষের প্রশ্নোত্তর নির্যাস)
 --------------------------------------------------------------------------------
-Key questions posed by students and resolved by Sukanta Sir:
+STUDENTS: Swadeep, Tuhina, Debangshu, Abhronila
+EDUCATOR & MASTER MENTOR: Sukanta Hui
 
-Q1 (Swadeep): "Why is 'He ran fastly' rejected in grammar checks?"
-- Mentor: 'Fast' is an invariant flat adverb. English morphology never generated 
-  'fastly'. 'Fast' acts as both Adjective ("a fast train") and Adverb ("he ran fast").
+KEY DIALOGUE BREAKDOWN & PEDAGOGICAL RESOLUTIONS:
 
-Q2 (Tuhina): "If words ending in '-ly' are adverbs, why is 'lovely' an adjective?"
-- Mentor: Check the root!
-  * Noun + '-ly' = ADJECTIVE (Friend + ly = Friendly, Love + ly = Lovely).
-  * Adjective + '-ly' = ADVERB (Quick + ly = Quickly, Clear + ly = Clearly).
+Q1 (Swadeep): "Sir, why is 'fastly' incorrect if 'quickly' is correct?"
+-> RESOLUTION: 'Fast' is an ancient Germanic flat adverb. It functions as both 
+   Adjective ("fast train") and Adverb ("ran fast"). 'Fastly' does not exist!
 
-Q3 (Debangshu): "How do I know whether 'before' is a preposition or conjunction?"
-- Mentor: Inspect the following structure!
-  * Followed by Noun Phrase: Preposition ("He arrived before [sunset]").
-  * Followed by Clause (S+V): Conjunction ("He arrived before [the train left]").
+Q2 (Tuhina): "Why is 'friendly' an Adjective even though it ends in '-ly'?"
+-> RESOLUTION: Morphological Rule:
+   • Noun + '-ly' = ADJECTIVE (Friend + ly = Friendly; Love + ly = Lovely).
+   • Adjective + '-ly' = ADVERB (Quick + ly = Quickly; Brave + ly = Bravely).
+   • To use 'friendly' as an adverb: "He spoke in a friendly manner."
 
-2. HIGH-FREQUENCY EXAM CONFUSABLES SUMMARY
+Q3 (Debangshu): "Why do you say 'The rose smells sweet' and not 'sweetly'?"
+-> RESOLUTION: Sensory verbs (smell, taste, sound, feel, look) act as LINKING 
+   (Copular) verbs describing the state of the subject. They require ADJECTIVE 
+   subject complements, not adverbs of manner.
+
+Q4 (Abhronila): "How do I know if 'before' is a Preposition or a Conjunction?"
+-> RESOLUTION:
+   • Preposition: Followed only by a nominal object ("He arrived before 5 PM").
+   • Conjunction: Followed by a complete clause with subject and finite verb 
+     ("Look before you leap").
+
+2. HIGH-FREQUENCY BENGALI TRANSLATION TRAPS DECONSTRUCTED
 --------------------------------------------------------------------------------
-1. Hard (with intense effort) vs Hardly (almost not at all - Negative).
-2. Late (not on time) vs Lately (recently).
-3. Near (close in distance) vs Nearly (almost).
-4. Direct (straight, without stopping) vs Directly (immediately / without delay).
+[X] TRAP 1: Zero Copula (বাংলায় ক্রিয়া উহ্য থাকা)
+    - Bengali: "সে অসুস্থ" -> Bengali learners write: *"He ill"* [WRONG!].
+    - Rule: English sentences require an explicit Finite Verb: "He IS ill."
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[X] TRAP 2: Stative Verbs in Progressive Aspect
+    - Bengali: "আমি উত্তরটি বুঝতে পারছি" -> *"I am understanding the answer"* [WRONG!].
+    - Rule: Verbs of cognition resist -ing: "I understand the answer."
+
+[X] TRAP 3: 'Between you and I' (Hypercorrection)
+    - Rule: Prepositions govern Objective Case: "Between you and ME."
+
+3. SUKANTA SIR'S GOLDEN TEACHING DIRECTIVE
+--------------------------------------------------------------------------------
+"Never memorize words in isolation. Always examine what syntactic work the word 
+ does in the sentence. Grammar is not a burden to memorize; it is the architecture 
+ of clear thinking and confident expression." — Sukanta Hui
+
+4. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Recognize flat adverbs ('fast', 'hard', 'late') without adding '-ly'.
+[✓] Understand Noun+'-ly' (Adjective) vs Adjective+'-ly' (Adverb).
+[✓] Differentiate Prepositions (+ noun object) from Conjunctions (+ clause).
+[✓] Master linking verb complements (adjectives) vs action verb modifiers (adverbs).
 ================================================================================

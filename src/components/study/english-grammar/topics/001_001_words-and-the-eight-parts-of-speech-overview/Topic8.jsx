@@ -16,7 +16,10 @@ import {
   ShieldCheck,
   CheckCheck,
   Compass,
-  MessageSquare
+  MessageSquare,
+  Lightbulb,
+  Target,
+  Heart
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -107,7 +110,215 @@ export default function Topic8() {
             <h2 className="text-xl font-bold text-white">Module 001_001 Core Competency Checklist</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+          
+        
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Word Function Over Static Form in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                In English, a word is NOT locked to one part of speech. What it DOES in the sentence decides what it IS.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The Chameleon Rule
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. The Same Word Wearing Different Hats</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Look at the word "FAST": "He broke his fast (Noun)", "He runs fast (Adverb)", "He is a fast runner (Adjective)", "They fast on Monday (Verb)".
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 Same word 'FAST' = 4 different parts of speech!
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. The Master Test: Ask What Job It Does</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Does it name something? -> Noun. Does it do an action? -> Verb. Does it describe a noun? -> Adjective. Does it connect? -> Conjunction.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Context is King in English Syntax.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">As Noun</span>
+                <p className="text-xs text-slate-300">"The fast lasted 24 hours."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">As Verb</span>
+                <p className="text-xs text-slate-300">"Devotees fast today."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">As Adjective</span>
+                <p className="text-xs text-slate-300">"He took the fast train."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">As Adverb</span>
+                <p className="text-xs text-slate-300">"The train traveled fast."</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "All but Swadeep attended, but he worked hard on his project."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় শব্দের বহুরূপী চরিত্র:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                ইংরেজি ব্যাকরণের সবচেয়ে মজার নিয়ম: একটি শব্দের চেহারা দেখে তার পদ ঠিক করা যায় না; বাক্যে সে কী কাজ করছে তা দেখে পদ নির্ধারিত হয়। 'Fast' শব্দটি এক বাক্যে Noun, অন্য বাক্যে Verb, Adjective বা Adverb হতে পারে।
+              </p>
+            </div>
+          )}
+        </div>
+
+{/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Word Function Over Static Form in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                In English, a word is NOT locked to one part of speech. What it DOES in the sentence decides what it IS.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The Chameleon Rule
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. The Same Word Wearing Different Hats</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Look at the word "FAST": "He broke his fast (Noun)", "He runs fast (Adverb)", "He is a fast runner (Adjective)", "They fast on Monday (Verb)".
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 Same word 'FAST' = 4 different parts of speech!
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. The Master Test: Ask What Job It Does</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Does it name something? -> Noun. Does it do an action? -> Verb. Does it describe a noun? -> Adjective. Does it connect? -> Conjunction.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Context is King in English Syntax.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">As Noun</span>
+                <p className="text-xs text-slate-300">"The fast lasted 24 hours."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">As Verb</span>
+                <p className="text-xs text-slate-300">"Devotees fast today."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">As Adjective</span>
+                <p className="text-xs text-slate-300">"He took the fast train."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">As Adverb</span>
+                <p className="text-xs text-slate-300">"The train traveled fast."</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "All but Swadeep attended, but he worked hard on his project."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় শব্দের বহুরূপী চরিত্র:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                ইংরেজি ব্যাকরণের সবচেয়ে মজার নিয়ম: একটি শব্দের চেহারা দেখে তার পদ ঠিক করা যায় না; বাক্যে সে কী কাজ করছে তা দেখে পদ নির্ধারিত হয়। 'Fast' শব্দটি এক বাক্যে Noun, অন্য বাক্যে Verb, Adjective বা Adverb হতে পারে।
+              </p>
+            </div>
+          )}
+        </div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-start gap-3">
               <CheckCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
               <div>
@@ -145,7 +356,7 @@ export default function Topic8() {
         {/* Auxiliary Components */}
         <div className="space-y-8 pt-4">
           <FAQTemplate
-            title="Module 001_001 Comprehensive Diagnostic Assessment (10 Questions)"
+            title="Module 001_001 Comprehensive Diagnostic Assessment (30 Questions)"
             questions={questions}
           />
 

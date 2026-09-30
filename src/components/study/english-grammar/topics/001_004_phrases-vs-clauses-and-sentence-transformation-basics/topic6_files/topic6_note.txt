@@ -1,34 +1,49 @@
-========================================================================
-MODULE 001_004 | TOPIC 6: ASSERTIVE TO INTERROGATIVE TRANSFORMATION
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004 | TOPIC 6: ASSERTIVE <===> INTERROGATIVE RHETORICAL TRANSFORMATION
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-1. THE RHETORICAL POLARITY INVERSION:
-   - Affirmative Assertion (+)  -->  Negative Question (-)
-     "Honesty is the best policy." --> "Is honesty not the best policy?"
-   - Negative Assertion (-)     -->  Affirmative Question (+)
-     "No one can defeat fate."    --> "Who can defeat fate?"
+1. THE POLARITY INVERSION PROTOCOL
+--------------------------------------------------------------------------------
+A Rhetorical Question is an assertion in the disguise of an inquiry.
 
-2. UNIVERSAL SUBJECT RULES:
-   a. "Everyone / Everybody / All":
-      - Formula: "Who does not / did not + V1...?"
-      - Example: "Everyone knows the name of Rabindranath."
-                 --> "Who does not know the name of Rabindranath?"
+* RULE 1: Affirmative Assertive  ===>  Negative Interrogative (Contracted)
+  "Everyone loves freedom."      ===>  "WHO DOES NOT love freedom?"
+  "Knowledge is power."          ===>  "ISN'T knowledge power?"
 
-   b. "Nobody / No one / None":
-      - Formula: "Who + V1/V2...?" OR "Can anyone...?"
-      - Example: "None can escape death."
-                 --> "Who can escape death?" / "Can anyone escape death?"
+* RULE 2: Negative Assertive     ===>  Positive Interrogative
+  "Nobody can touch the stars."  ===>  "WHO CAN touch the stars?"
+  "We can never forget him."     ===>  "CAN WE EVER forget him?"
 
-   c. "Never" ↔ "Ever / When":
-      - Example: "We can never forget his sacrifice."
-                 --> "Can we ever forget his sacrifice?" / "When can we forget...?"
+--------------------------------------------------------------------------------
+2. MASTER RHETORICAL MAPPING MATRIX
+--------------------------------------------------------------------------------
++---+----------------------------------+---------------------------------------+
+| # | Assertive Pattern                | Interrogative Rhetorical Equivalent   |
++---+----------------------------------+---------------------------------------+
+| 1 | Everybody / Everyone             | Who does not + V1 ... ?               |
+| 2 | Nobody / No one / None           | Who + Finite Verb ... ?               |
+| 3 | Never                            | When can ... / Can ... ever ... ?     |
+| 4 | Nowhere                          | Where ... ?                           |
+| 5 | There is no use in ...           | What is the use of ... ?              |
+| 6 | It does not matter if ...        | What though ... ?                     |
+| 7 | A is nothing but B               | What is A but B ... ?                 |
+| 8 | Universal Truth (Positive)       | Isn't / Is not + S + Comp ... ?       |
++---+----------------------------------+---------------------------------------+
 
-   d. "It is useless to / There is no point in":
-      - Example: "It is useless to lament now."
-                 --> "Why lament now?"
+--------------------------------------------------------------------------------
+3. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. 'WHO DOES NOT' EQUIVALENCE:
+   * Bengali: "কে না দেশকে ভালোবাসে?" (= সকলেই দেশকে ভালোবাসে)।
+   * English: "Who does not love the country?" (= Everyone loves the country).
 
-3. BENGALI SUMMARY (বাংলা সংক্ষেপ):
-   - সাধারণ বাক্য থেকে প্রশ্নে রূপান্তরের সময় ভাব ঠিক রাখতে Polarity উল্টে দিতে হয় (+ থেকে -, এবং - থেকে +)।
-   - 'Everyone' থাকলে 'Who does not...?' এবং 'Nobody' থাকলে 'Who...?' দিয়ে প্রশ্ন তৈরি করতে হয়।
-========================================================================
+2. POLARITY LOSS TRAP:
+   * INCORRECT: Assertive: "He is honest." -> Interrogative: *"Is he honest?"
+     (This is a neutral question asking for info, NOT a rhetorical transformation).
+   * CORRECT:    "ISN'T he honest?" (Asserts that he IS honest).
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

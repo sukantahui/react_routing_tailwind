@@ -1,43 +1,64 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 6: SUBJECT COMPLEMENTS & LINKING VERBS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 6: Subject Complements (Predicate Nouns & Adjectives) with Linking Verbs
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. LINKING (COPULAR) VERBS
+1. CORE CONCEPTS & THE MATHEMATICAL EQUALS SIGN (লিংকিং ভার্ব ও কমপ্লিমেন্ট)
 --------------------------------------------------------------------------------
-- Definition: Verbs that do NOT express action, but connect the Subject to a 
-  word/phrase that renames or describes it.
-- Key Linking Verbs:
-  * Pure State: be (is/am/are/was/were), seem, appear, remain.
-  * Inchoative (Change of State): become, turn, grow, get.
-  * Sensory Perception: look, sound, taste, smell, feel.
+Linking (Copular) verbs DO NOT express dynamic physical actions.
+They serve as an EQUALS SIGN (=) connecting the Subject to its Complement:
 
-2. THE TWO FORMS OF SUBJECT COMPLEMENTS
+[SUBJECT]  <===== LINKING VERB =====>  [SUBJECT COMPLEMENT]
+
+A. PREDICATE NOUN / PRONOUN (Predicate Nominative):
+   • Renames, classifies, or defines the subject.
+   • Example: "Swadeep [S] IS [LV] a software engineer [Predicate Noun]."
+     (Swadeep = Software Engineer).
+   • Formal Pronoun Rule: "It is I." / "It was she who called." (Subjective case).
+
+B. PREDICATE ADJECTIVE:
+   • Ascribes a state, quality, or condition to the subject.
+   • Example: "The algorithm [S] IS [LV] optimal [Predicate Adjective]."
+     (Algorithm = Optimal).
+
+2. MASTER CATALOG OF LINKING VERBS
 --------------------------------------------------------------------------------
-A. Predicate Noun (Predicate Nominative):
-   - Renames or classifies the subject ($Subject = Noun$).
-   - Example: "Swadeep is [a software architect]." (Swadeep = architect).
-B. Predicate Adjective:
-   - Describes a quality or state of the subject ($Subject = Adjective$).
-   - Example: "The mangoes taste [sweet]." (Mangoes = sweet).
+1. VERB 'BE': is, am, are, was, were, be, being, been.
+2. VERBS OF PERCEPTION & SENSE: smell, taste, sound, feel, look, appear, seem.
+   • "The rose smells sweet." (NOT *"sweetly"*!)
+   • "The music sounded divine."
+3. VERBS OF STATE & CONTINUATION: remain, stay, keep.
+   • "The students remained silent." (NOT *"silently"*!)
+4. VERBS OF CHANGE & RESULT: become, grow, turn, prove, go, come.
+   • "The milk went sour." (went = became)
+   • "His dream came true."
 
-3. THE MASTER EQUALITY TEST (DO VS SC)
+3. THE 'BE' SUBSTITUTION DIAGNOSTIC TEST
 --------------------------------------------------------------------------------
-+--------------------+-------------------------+-------------------------+
-| Criterion          | Direct Object (SVO)     | Subject Complement (SVC)|
-+--------------------+-------------------------+-------------------------+
-| Mathematical Proof | Subject != Object       | Subject == Complement   |
-| Action Transfer    | Yes (Kinetic Action)    | No (Static State)       |
-| Example            | "He kicked the ball."   | "He is a doctor."       |
-| Passive Voice      | Possible ("The ball...")| IMPOSSIBLE              |
-+--------------------+-------------------------+-------------------------+
+To test if a verb is a Linking Verb, substitute it with 'is/are/was':
+  • "The soup tastes delicious"  -> "The soup IS delicious" (Logical -> Linking Verb!).
+  • "The chef tasted the soup"   -> *"The chef IS the soup"* (Illogical -> Action Verb!).
 
-4. CRITICAL SENSORY VERB ERROR
+4. BENGALI LEARNER BRIDGES & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-* Wrong: "The flower smells sweetly." ❌
-* Right: "The flower smells sweet." ✔️ (Subject Complement Adjective!)
+[X] TRAP 1: Using Adverbs of Manner after Sensory Linking Verbs
+    - "The flower smells sweetly" [WRONG!].
+    - "The flower smells sweet" [CORRECT: Adjective Subject Complement].
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[X] TRAP 2: Using Adverbs after 'Remain' or 'Stay'
+    - "He remained silently" [WRONG!].
+    - "He remained silent" [CORRECT: Adjective].
+
+[X] TRAP 3: Objective case after 'Be' in competitive exams
+    - "It was him who did it" [Colloquial / Informal].
+    - "It was HE who did it" [Strict Standard Formal English].
+
+5. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Master the formula: Subject = Subject Complement across a Linking Verb.
+[✓] Apply the 'BE' substitution test to distinguish linking verbs from action verbs.
+[✓] Never use an '-ly' adverb of manner as a subject complement.
+[✓] Differentiate SVO (Subject != Object) from SVC (Subject == Complement).
 ================================================================================

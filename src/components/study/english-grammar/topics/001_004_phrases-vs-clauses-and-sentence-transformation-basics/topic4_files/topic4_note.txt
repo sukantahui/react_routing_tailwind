@@ -1,28 +1,48 @@
-========================================================================
-MODULE 001_004 | TOPIC 4: TRANSFORMATION BASICS & THE GOLDEN RULE
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004 | TOPIC 4: TRANSFORMATION BASICS & THE GOLDEN RULE OF GRAMMAR
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-1. THE GOLDEN INVARIANT:
-   "Transformation of a sentence means changing its grammatical form without altering its sense or meaning in the slightest degree."
-   - P. C. Wren & H. Martin
+1. THE SUPREME LAW OF TRANSFORMATION
+--------------------------------------------------------------------------------
+"Transformation is the process of changing the grammatical architecture of a 
+ sentence WITHOUT changing its underlying meaning, tone, or temporal truth."
 
-2. TRANSFORMATION VS CONVERSION (DON'T CONFUSE THEM):
-   - Conversion: Changes meaning (Affirmative: "I agree" -> Negative: "I do not agree"). [Meaning Lost]
-   - Transformation: Retains meaning (Affirmative: "I agree" -> Negative: "I do not disagree"). [Meaning Preserved]
+* CONVERSION:   Alters meaning ("He is honest" -> "He is not honest" [FALSE]).
+* TRANSFORMATION: Preserves meaning ("He is honest" -> "He is NOT dishonest" [TRUE]).
 
-3. CORE TRANSFORMATION MECHANISMS:
-   a. Antonym Pairing: Subject + Verb + not + [Antonym]
-      ("He is honest" --> "He is not dishonest")
-   b. Double Negation / Litotes:
-      ("She loves music" --> "She is not without love for music" / "She never fails to enjoy music")
-   c. Polarity Flip in Rhetorical Interrogatives:
-      ("No one can defeat him" --> "Who can defeat him?")
-   d. Correlative Re-packaging:
-      ("As soon as..." --> "No sooner had... than...")
-      ("Too... to..." --> "So... that... cannot...")
+--------------------------------------------------------------------------------
+2. MASTER TRANSFORMATION VECTORS
+--------------------------------------------------------------------------------
+A. DEGREE OF COMPARISON INTERCHANGE:
+   - Superlative: "Iron is the most useful metal."
+   - Comparative: "Iron is MORE useful THAN any other metal."
+   - Positive:    "NO other metal is AS useful AS iron."
 
-4. BENGALI SUMMARY (বাংলা সংক্ষেপ):
-   - ব্যাকরণে রূপান্তর (Transformation)-এর অর্থ হল বাক্যের বহিরাবরণ পরিবর্তন করা, কিন্তু অন্তরের অর্থকে অপরিবর্তিত রাখা।
-   - পরীক্ষায় 'Do as Directed'-এ অর্থ পরিবর্তন হলে শূন্য নম্বর দেওয়া হয়।
-========================================================================
+B. PHRASE <===> CLAUSE EXPANSION & REDUCTION:
+   - Phrase: "ON HEARING the whistle, the train started."
+   - Clause: "AS SOON AS the whistle was blown, the train started."
+
+C. SIMPLE <===> COMPOUND <===> COMPLEX SYNTHESIS:
+   - Simple:   "BESIDES BEING intelligent, Swadeep is hardworking."
+   - Compound: "Swadeep is NOT ONLY intelligent BUT ALSO hardworking."
+   - Complex:  "Although Swadeep is hardworking, he remains humble."
+
+--------------------------------------------------------------------------------
+3. TENSE & POLARITY PRESERVATION PROTOCOL
+--------------------------------------------------------------------------------
++---+----------------------+------------------------+---------------------------+
+| # | Original Sentence    | Invalid Transformation | Valid Transformation      |
++---+----------------------+------------------------+---------------------------+
+| 1 | He was too poor to pay| *He is so poor that... | He WAS so poor that he    |
+|   | (Past Tense)         | (Tense Error)          | COULD NOT pay.            |
+| 2 | Only Swadeep can code| *Swadeep cannot code   | NONE BUT Swadeep can      |
+|   | (Affirmative)        | (Meaning Error)        | code.                     |
+| 3 | Lest you should fall | *Lest you should NOT...| Lest you SHOULD fall.     |
+|   | (Negative Purpose)   | (Double Negative Error)|                           |
++---+----------------------+------------------------+---------------------------+
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

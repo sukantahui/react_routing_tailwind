@@ -14,7 +14,11 @@ import {
   Layers,
   Award,
   ShieldCheck,
-  GraduationCap
+  GraduationCap,
+  Lightbulb,
+  Target,
+  Heart,
+  Compass
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -99,7 +103,215 @@ export default function Topic8() {
         </div>
 
         {/* 5-Type Summary Matrix */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        
+        
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Communicative Mastery in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                The grand synthesis of all 5 functional sentence types and their communicative power.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The Full Spectrum
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. The 5 Tools in Your Toolbox</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Assertive (share facts), Interrogative (gather info), Imperative (drive action), Exclamatory (share passion), Optative (share blessings).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 5 Voices for Every Situation.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Punctuation & Polarity Invariants</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Statements (.) | Questions (?) | Commands (.) | Exclamations (!) | Wishes (!).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Immaculate Punctuation & Polarity Control.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Fact Sharing</span>
+                <p className="text-xs text-slate-300">Assertive statements with clean periods</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-indigo-400 block font-mono">Inquiry & Tags</span>
+                <p className="text-xs text-slate-300">Wh- questions, inversions, and tags</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Direct Directives</span>
+                <p className="text-xs text-slate-300">Courteous and clear imperative instructions</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Emotion & Blessing</span>
+                <p className="text-xs text-slate-300">Exclamatory awe and optative prayers</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Mastering these 5 modes transforms you from a basic speaker into an articulate communicator."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>সহজ ভাষায় ৫টি ভাবের সারাংশ:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                এই মডিউলের মাধ্যমে আপনি ইংরেজি যোগাযোগের ৫টি মৌলিক সুর—তথ্য প্রদান, প্রশ্ন জিজ্ঞাসা, নির্দেশ প্রদান, বিস্ময় প্রকাশ এবং প্রার্থনা করা—সম্পূর্ণরূপে আয়ত্ত করেছেন।
+              </p>
+            </div>
+          )}
+        </div>
+
+{/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Communicative Mastery in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                The grand synthesis of all 5 functional sentence types and their communicative power.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The Full Spectrum
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. The 5 Tools in Your Toolbox</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Assertive (share facts), Interrogative (gather info), Imperative (drive action), Exclamatory (share passion), Optative (share blessings).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 5 Voices for Every Situation.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Punctuation & Polarity Invariants</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Statements (.) | Questions (?) | Commands (.) | Exclamations (!) | Wishes (!).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Immaculate Punctuation & Polarity Control.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Fact Sharing</span>
+                <p className="text-xs text-slate-300">Assertive statements with clean periods</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-indigo-400 block font-mono">Inquiry & Tags</span>
+                <p className="text-xs text-slate-300">Wh- questions, inversions, and tags</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Direct Directives</span>
+                <p className="text-xs text-slate-300">Courteous and clear imperative instructions</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Emotion & Blessing</span>
+                <p className="text-xs text-slate-300">Exclamatory awe and optative prayers</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Mastering these 5 modes transforms you from a basic speaker into an articulate communicator."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>সহজ ভাষায় ৫টি ভাবের সারাংশ:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                এই মডিউলের মাধ্যমে আপনি ইংরেজি যোগাযোগের ৫টি মৌলিক সুর—তথ্য প্রদান, প্রশ্ন জিজ্ঞাসা, নির্দেশ প্রদান, বিস্ময় প্রকাশ এবং প্রার্থনা করা—সম্পূর্ণরূপে আয়ত্ত করেছেন।
+              </p>
+            </div>
+          )}
+        </div>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {[
             { name: "Assertive", icon: "Statement", rule: "Fact / Opinion (.)", color: "border-blue-500/30 bg-blue-950/20 text-blue-300" },
             { name: "Interrogative", icon: "Question", rule: "Inversion / Wh- (?)", color: "border-indigo-500/30 bg-indigo-950/20 text-indigo-300" },
@@ -117,7 +329,7 @@ export default function Topic8() {
         {/* Auxiliary Components */}
         <div className="space-y-8 pt-4">
           <FAQTemplate
-            title="Module 001_003 Capstone Mastery Assessment (15 Questions)"
+            title="Module 001_003 Capstone Mastery Assessment (30 Questions)"
             questions={questions}
           />
 

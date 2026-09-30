@@ -1,55 +1,58 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 1: OPEN CLASSES VS CLOSED CLASSES
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 1: Word Classes — Open Classes vs Closed Classes
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. CONCEPTUAL DEFINITION
+1. CORE TAXONOMY & CLASSIFICATION (মূল বিভাজন ও শ্রেণীবিন্যাস)
 --------------------------------------------------------------------------------
-Every word in the English language belongs to either an OPEN CLASS or a 
-CLOSED CLASS based on lexical receptivity and syntactic function.
+The English lexicon is fundamentally divided into two great structural categories:
 
-2. OPEN CLASSES (CONTENT / LEXICAL WORDS)
+A. OPEN CLASSES (Content / Lexical Words)
+   • Nouns: Entities, people, concepts, digital innovations (e.g. smartphone, prompt).
+   • Lexical Verbs: Primary dynamic actions & states (e.g. to download, to stream).
+   • Adjectives: Descriptive qualifiers & determinative modifiers (e.g. viral, resilient).
+   • Adverbs: Modifiers of manner, degree, time, & position (e.g. seamlessly, globally).
+   * Characteristic: Infinitely expandable; accepts neologisms, borrowings, & coinages.
+
+B. CLOSED CLASSES (Structure / Function Words)
+   • Pronouns: Nominal substitutes (e.g. he, they, someone, which).
+   • Prepositions: Relators of space, time, cause, & logic (e.g. on, across, despite).
+   • Conjunctions: Syntactic linkers & coordinators (e.g. and, because, although).
+   • Determiners & Articles: Specificity & quantity markers (e.g. the, a, every, few).
+   • Auxiliary Verbs & Modals: Aspect & modality markers (e.g. is, have, must, should).
+   * Characteristic: Fixed inventory (~300-400 words); forms invariant syntactic rules.
+
+2. COMPARATIVE ARCHITECTURE MATRIX
 --------------------------------------------------------------------------------
-- Definition: Classes that freely admit new words (neologisms, loanwords, slang,
-  scientific coinages) and evolve continuously.
-- The 4 Open Classes:
-  1. NOUNS: smartphone, algorithm, cybersecurity, webinar, vlog.
-  2. LEXICAL VERBS: to google, to download, to troubleshoot, to livestream.
-  3. ADJECTIVES: algorithmic, viral, user-friendly, photogenic.
-  4. ADVERBS: cybernetically, seamlessly, flawlessly.
-
-3. CLOSED CLASSES (STRUCTURE / FUNCTIONAL WORDS)
+Property            Open Classes (Content)        Closed Classes (Structure)
 --------------------------------------------------------------------------------
-- Definition: Classes with a fixed, stable inventory of grammatical words that
-  rarely or never accept new members.
-- The Core Closed Classes:
-  1. PRONOUNS: he, she, it, they, someone, whoever, each.
-  2. PREPOSITIONS: in, on, at, through, despite, beneath.
-  3. CONJUNCTIONS: and, but, or, because, although, since.
-  4. DETERMINERS / ARTICLES: a, an, the, this, those, every.
-  5. AUXILIARY VERBS: is, are, was, have, do, can, must, should.
+Total Inventory     Infinite / Unbounded          Finite (~300 to 400 words)
+Expansion Method    Derivation, Compounding, etc. Virtually static
+Spoken Stress       Heavily stressed in rhythm    Normally unstressed / reduced
+Semantic Function   Carries real-world meaning    Provides grammatical scaffolding
+Exam Diagnostic     Vocabulary & Comprehension    Error Spotting, Concord, Prepositions
 
-4. COMPARATIVE MATRIX
+3. BENGALI LEARNER BRIDGE & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-+-----------------------+-----------------------+-----------------------+
-| Feature               | Open Classes          | Closed Classes        |
-+-----------------------+-----------------------+-----------------------+
-| Inventory Size        | Infinite / Growing    | Finite / Fixed (~300) |
-| Semantic Weight       | Heavy lexical meaning | Grammatical glue      |
-| Spoken Stress         | Typically stressed    | Typically unstressed  |
-| Bengali Translation   | Direct lexical match  | Postposition/Inflect. |
-+-----------------------+-----------------------+-----------------------+
+[X] COMMON ERROR: Treating closed classes as secondary or translating them literally.
+    - Bengali: "আমি ঘরে আছি" (ঘরে = ঘর + এ বিভক্তি).
+    - English requires an explicit preposition: "I am in the room." (Never "I room").
 
-5. BENGALI LEARNER PEDAGOGICAL NOTES
+[X] COMMON ERROR: Attempting to invent adverbs by adding '-ly' to everything.
+    - English has flat adverbs: 'fast', 'hard', 'late'.
+    - "Fastly" is invalid English. 'Fast' functions as both Adjective & Adverb.
+
+[✓] GOLDEN RULE BY SUKANTA HUI:
+    "Open classes give your speech flavor and substance, but Closed classes give it 
+     structural integrity. Master the 300 Closed Class function words, and your 
+     English syntax will never collapse under examination pressure."
+
+4. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-* বাংলায় যেমন নতুন বিশেষ্য বা ক্রিয়াপদ সহজে যুক্ত হতে পারে কিন্তু অনুসর্গ বা
-  যোজক (এবং, কিন্তু, অথচ) স্থির থাকে, ইংরেজিতেও Open Class পরিবর্তনশীল এবং 
-  Closed Class স্থিতিশীল।
-* ইংরেজি ভাষা দ্রুত আয়ত্ত করতে Closed Class (Preposition, Conjunction, Pronoun)
-  সম্পূর্ণ মুখস্থ করে ফেলতে হবে, আর Open Class নিয়মিত রিডিং ও ভোকাবুলারির মাধ্যমে
-  সমৃদ্ধ করতে হবে।
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Can differentiate Open Classes (Noun, Verb, Adj, Adv) from Closed Classes.
+[✓] Understand why new words like 'selfie' and 'livestream' enter Open Classes.
+[✓] Recognize why prepositions and pronouns form the bedrock of error spotting.
+[✓] Know that Content Words carry stress in spoken cadence while Function Words reduce.
 ================================================================================

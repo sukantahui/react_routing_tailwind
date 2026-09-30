@@ -16,7 +16,10 @@ import {
   Sparkle,
   Compass,
   MessageSquare,
-  Eye
+  Eye,
+  Lightbulb,
+  Target,
+  Heart
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -130,7 +133,215 @@ export default function Topic4() {
         {/* Tab Panels */}
         {activeTab === "adjectives" ? (
           <div className="space-y-6 animate-fade-in">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+        
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Prepositions in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                Prepositions show where someone is, where they are going, or when an event takes place.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The GPS & Clock
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Position & Place Prepositions</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Tells you spatial relationships: [on] the desk, [in] the classroom, [under] the table, [behind] the screen.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 The laptop is [on] the desk [in] Barrackpore.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Time & Direction Prepositions</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Tells you temporal points or movement: [at] 5 PM, [before] the test, [to] the campus, [through] the gate.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Swadeep walked [to] the academy [at] dawn.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-teal-400 block font-mono">Place (Where?)</span>
+                <p className="text-xs text-slate-300">in, on, at, under, above, between</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Time (When?)</span>
+                <p className="text-xs text-slate-300">at 5 PM, on Monday, in 2026, during</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Direction (Where to?)</span>
+                <p className="text-xs text-slate-300">to, towards, into, through, across</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Agency / Instrument</span>
+                <p className="text-xs text-slate-300">by Sukanta Sir, with a pen</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "The books on the shelf near the window were delivered at 10 AM."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় প্রেপজিশন:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Preposition হলো দিক, স্থান বা সময়ের নির্দেশক শব্দ। এটি Noun-এর আগে বসে বাক্যের বাকি অংশের সাথে তার সম্পর্ক বুঝিয়ে দেয় (যেমন: টেবিলের ওপরে, ক্লাসের ভেতরে, সকাল ৫টায়)।
+              </p>
+            </div>
+          )}
+        </div>
+
+{/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Prepositions in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                Prepositions show where someone is, where they are going, or when an event takes place.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The GPS & Clock
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Position & Place Prepositions</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Tells you spatial relationships: [on] the desk, [in] the classroom, [under] the table, [behind] the screen.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 The laptop is [on] the desk [in] Barrackpore.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Time & Direction Prepositions</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Tells you temporal points or movement: [at] 5 PM, [before] the test, [to] the campus, [through] the gate.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Swadeep walked [to] the academy [at] dawn.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-teal-400 block font-mono">Place (Where?)</span>
+                <p className="text-xs text-slate-300">in, on, at, under, above, between</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Time (When?)</span>
+                <p className="text-xs text-slate-300">at 5 PM, on Monday, in 2026, during</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Direction (Where to?)</span>
+                <p className="text-xs text-slate-300">to, towards, into, through, across</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Agency / Instrument</span>
+                <p className="text-xs text-slate-300">by Sukanta Sir, with a pen</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "The books on the shelf near the window were delivered at 10 AM."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় প্রেপজিশন:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Preposition হলো দিক, স্থান বা সময়ের নির্দেশক শব্দ। এটি Noun-এর আগে বসে বাক্যের বাকি অংশের সাথে তার সম্পর্ক বুঝিয়ে দেয় (যেমন: টেবিলের ওপরে, ক্লাসের ভেতরে, সকাল ৫টায়)।
+              </p>
+            </div>
+          )}
+        </div>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-amber-500/30 space-y-4">
                 <span className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-300 text-xs font-bold font-mono">
                   Position 1: Attributive
@@ -208,7 +419,7 @@ export default function Topic4() {
         {/* Auxiliary Components */}
         <div className="space-y-8 pt-4">
           <FAQTemplate
-            title="Topic 4 Diagnostic Assessment (10 Questions)"
+            title="Topic 4 Diagnostic Assessment (25 Questions)"
             questions={questions}
           />
 

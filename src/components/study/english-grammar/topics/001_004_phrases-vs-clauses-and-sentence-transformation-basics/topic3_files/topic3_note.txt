@@ -1,29 +1,57 @@
-========================================================================
-MODULE 001_004 | TOPIC 3: INDEPENDENT VS SUBORDINATE CLAUSES
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004 | TOPIC 3: INDEPENDENT VS SUBORDINATE (DEPENDENT) CLAUSES
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-1. INDEPENDENT (MAIN / PRINCIPAL) CLAUSE:
-   - Contains a Subject and a Finite Verb.
-   - Expresses a complete, stand-alone thought.
-   - Can form a complete simple sentence by itself.
-   - Example: [The train departed on time.]
+1. CORE SYNTACTIC DICHOTOMY
+--------------------------------------------------------------------------------
+A. INDEPENDENT (MAIN) CLAUSE:
+   - Contains: Subject + Finite Verb.
+   - Capability: Expresses a complete standalone thought.
+   - Punctuation: Can be terminated with a Period (.), Question Mark (?), or (!).
+   - Exemplar: "Swadeep mastered React state architecture."
 
-2. SUBORDINATE (DEPENDENT) CLAUSE:
-   - Contains a Subject and a Finite Verb.
-   - Introduced by a Subordinating Conjunction (because, although, when, since, if, unless, while) or Relative Pronoun (who, which, that).
-   - CANNOT stand alone; depends on the Main Clause for complete meaning.
-   - Example: [Although the weather was stormy], the train departed on time.
+B. SUBORDINATE (DEPENDENT) CLAUSE:
+   - Contains: Subordinating Conjunction/Relative Pronoun + Subject + Finite Verb.
+   - Capability: Incomplete standalone meaning; grammatically dependent on Main Clause.
+   - Exemplar: "...BECAUSE he practiced deliberately every morning."
 
-3. THE 3 SUBORDINATE CLAUSE FAMILIES:
-   a. Noun Clause: Acts as Subject/Object ("I know [that he is honest]").
-   b. Adjective (Relative) Clause: Modifies a Noun ("The boy [who won] is my friend").
-   c. Adverb Clause: Modifies Verb/Adjective ("Wait here [until I return]").
+--------------------------------------------------------------------------------
+2. THE THREE FUNCTIONAL CLASSES OF SUBORDINATE CLAUSES
+--------------------------------------------------------------------------------
++---+----------------------+--------------------+-------------------------------+
+| # | Subordinate Category | Core Syntactic Role| Structural Exemplar           |
++---+----------------------+--------------------+-------------------------------+
+| 1 | Noun Clause          | Subject / Object   | "I know THAT HE IS HONEST."   |
+| 2 | Adjective Clause     | Modifies Noun      | "The man WHO WON THE PRIZE..."|
+| 3 | Adverb Clause        | Modifies Verb/Adj  | "We left WHEN THE BELL RANG." |
++---+----------------------+--------------------+-------------------------------+
 
-4. COORDINATE CLAUSES (FANBOYS):
-   - Two independent clauses joined by For, And, Nor, But, Or, Yet, So form a COMPOUND Sentence.
+--------------------------------------------------------------------------------
+3. ADVERBIAL CLAUSE CLASSIFICATION TAXONOMY
+--------------------------------------------------------------------------------
+1. Time:        when, whenever, before, after, since, as soon as, until, while
+2. Reason:      because, since, as, seeing that
+3. Condition:   if, unless, provided that, in case
+4. Purpose:     so that, in order that, lest (+ should)
+5. Result:      so + adj + that, such + noun + that
+6. Concession:  although, though, even if, whereas, while
+7. Comparison:  as...as, than
+8. Manner:      as, as if, as though
 
-5. BENGALI SUMMARY (বাংলা সংক্ষেপ):
-   - Principal Clause: স্বাধীন উপবাক্য, যা কোনো সাহায্য ছাড়া একা সম্পূর্ণ অর্থ প্রকাশ করতে পারে।
-   - Subordinate Clause: পরাধীন উপবাক্য, যা সম্পূর্ণ অর্থের জন্য Principal Clause-এর উপর নির্ভরশীল।
-========================================================================
+--------------------------------------------------------------------------------
+4. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. SENTENCE FRAGMENT TRAP:
+   * Bengali: "যেহেতু বৃষ্টি হচ্ছিল।" (Conversational fragment).
+   * INCORRECT: *Because it was raining. (Punctuated alone as a sentence).
+   * CORRECT:    Because it was raining, the match was called off.
+
+2. COMMA SPLICE TRAP:
+   * INCORRECT: *The class ended, the students left.
+   * CORRECT:    The class ended, AND the students left. / The class ended; the students left.
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

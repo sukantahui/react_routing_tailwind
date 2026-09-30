@@ -1,45 +1,62 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 1: COMPLETE SUBJECT VS COMPLETE PREDICATE
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 1: The Two Structural Halves — Complete Subject vs Complete Predicate
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE DUAL BIPARTITE ARCHITECTURE
+1. THE FUNDAMENTAL CLAUSE PARTITION (বাক্যের মৌলিক দ্বিখণ্ডন)
 --------------------------------------------------------------------------------
-Every standard English clause divides into exactly TWO structural halves:
-  [ COMPLETE SUBJECT ] + [ COMPLETE PREDICATE ]
+Every standard English sentence consists of two fundamental syntactic halves:
 
-2. THE COMPLETE SUBJECT (THE THEME)
+A. THE COMPLETE SUBJECT (সম্পূর্ণ উদ্দেশ্য)
+   • Answers: "Who or what is performing the action / being described?"
+   • Components:
+     - Head Noun / Pronoun (Simple Subject).
+     - Determiners & Articles (a, the, this, their).
+     - Modifying Adjectives (diligent, brilliant).
+     - Prepositional Modifiers (from Barrackpore, in the laboratory).
+     - Appositive Phrases (Sukanta Hui, the master mentor).
+     - Relative Clauses (who solved the algorithm).
+
+B. THE COMPLETE PREDICATE (সম্পূর্ণ বিধেয়)
+   • Answers: "What does the subject do, experience, or what state is it in?"
+   • Components:
+     - Finite Verb & Auxiliaries (Simple Predicate / Verb Phrase).
+     - Direct & Indirect Objects.
+     - Subject & Object Complements.
+     - Adverbial Modifiers of Manner, Time, Place, Reason, and Degree.
+
+2. SPECIAL SYNTACTIC STRUCTURES & BENGALI COMPARISONS
 --------------------------------------------------------------------------------
-- Definition: The entire nominal phrase representing who or what performs the 
-  action or is being described.
-- Components:
-  * Simple Subject: The core noun/pronoun head alone.
-  * Modifiers: Articles, Attributive Adjectives, Prepositional Modifiers, 
-    Relative Clauses.
-- Example: "[The dedicated young software engineering student from Barrackpore]"
+1. IMPERATIVE SENTENCES (আদেশ ও অনুরোধ):
+   • The Subject is covert / implied: "[You] submit your code now."
+   • Bengali: "কোডটি জমা দাও" (এখানেও 'তুমি' উহ্য থাকে).
 
-3. THE COMPLETE PREDICATE (THE RHEME)
+2. INVERTED STRUCTURES (উল্টানো বাক্যরীতি):
+   • "Down the hill rolled [Predicate] the massive boulder [Subject]."
+   • "Great is [Predicate] the power of truth [Subject]."
+
+3. EXPLETIVE / DUMMY SUBJECTS ('There' and 'It'):
+   • "There are forty students in the hall." -> Real subject = "forty students".
+   • "It is essential to practice daily."    -> Real subject = "to practice daily".
+
+4. BENGALI SOV vs ENGLISH SVO:
+   • Bengali: আমি [S] ইংরেজি ব্যাকরণ [O] পড়ি [V].
+   • English: I [S] study [V] English grammar [O].
+
+3. SUKANTA SIR'S SENTENCE PARTITIONING RULE
 --------------------------------------------------------------------------------
-- Definition: Everything asserted, questioned, or commanded about the subject.
-- Mandatory Core: At least ONE FINITE VERB GROUP.
-- Components:
-  * Simple Predicate: Finite verb group (e.g., 'has been developing').
-  * Direct & Indirect Objects: (e.g., 'an AI model').
-  * Complements & Adverbials: (e.g., 'meticulously in the laboratory').
-- Example: "[has been developing an AI model meticulously in the laboratory]."
+[✓] Step 1: Scan for the primary Finite Verb phrase.
+[✓] Step 2: Draw a vertical division immediately before that verb.
+[✓] Step 3: Left side = Complete Subject; Verb + Right side = Complete Predicate.
+[✓] Note: If the sentence starts with 'There' or is inverted, find the actual entity 
+    performing or undergoing the verb to establish agreement.
 
-4. SPECIAL SYNTACTIC STRUCTURES
+4. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-1. Inverted Sentences:
-   - "Into the room rushed [the anxious students]."
-   - Verb precedes subject for dramatic or stylistic emphasis.
-2. Imperative Sentences:
-   - "[You (implied)] Please submit the code before 5 PM."
-3. Dummy Subject 'There':
-   - "There are [five new workstations] in the laboratory."
-   - The plural noun 'five new workstations' is the true grammatical subject!
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Can separate Complete Subject from Complete Predicate in complex sentences.
+[✓] Recognize implied '[You]' in all imperative commands.
+[✓] Handle inversion and identify postponed subjects after dummy 'There' and 'It'.
+[✓] Understand how appositives and prepositional phrases attach to Complete Subjects.
 ================================================================================

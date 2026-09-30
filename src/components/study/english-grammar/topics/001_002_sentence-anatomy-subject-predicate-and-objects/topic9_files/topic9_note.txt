@@ -1,35 +1,85 @@
 ================================================================================
 ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 9: SENTENCE TREE DIAGNOSTICS & CAPSTONE
+MODULE 001_002 | TOPIC 9: CLASSROOM DIALOGUE & VISUAL SENTENCE TREE DIAGNOSTICS (CAPSTONE)
 Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. HIERARCHICAL SENTENCE TREE PROTOCOL
+1. HIERARCHICAL SENTENCE TREE SYNTACTIC BLUEPRINT
 --------------------------------------------------------------------------------
-                  [ S (SENTENCE CLAUSE) ]
-                         /        \
-           [ NP (SUBJECT) ]      [ VP (PREDICATE) ]
-              /        \            /        \
-         [Det/Adj]    [Head Noun] [Verb]   [Obj / Comp / Adv]
+Every grammatical English clause deconstructs into a two-branch binary node:
 
-2. PARSING DIAGNOSTIC SUMMARY
---------------------------------------------------------------------------------
-1. Find Finite Verb.
-2. Ask "Who/What + Verb?" -> Extract Complete Subject NP.
-3. Check Transitivity:
-   - Intransitive: SV or SVA.
-   - Transitive: SVO (DO), SVOO (IO + DO), SVOA (DO + Adv).
-   - Linking (Copula): SVC (Subject Complement).
-   - Complex-Transitive: SVOC (Direct Object + Object Complement).
+                           [ S (SENTENCE CLAUSE) ]
+                                  /        \
+                  [ NP (SUBJECT) ]          [ VP (PREDICATE) ]
+                     /        \                /            \
+             [Det / Adj]   [Head Noun]    [Finite Verb]   [Object / Comp / Adjunct]
+                  |             |               |                    |
+                 The         scholar        developed          a brilliant app
 
-3. BENGALI LEARNER BRIDGES
+* NP (Noun Phrase): Contains the simple subject plus determiners, adjectives, 
+  and prepositional modifier phrases.
+* VP (Verb Phrase): Contains the finite verb, auxiliary verbs, direct objects, 
+  indirect objects, subject/object complements, and adverbials.
+
 --------------------------------------------------------------------------------
-* বাংলা বাক্যরীতি (SOV): "স্বাদ্বীপ [S] প্রোগ্রামটি [O] বানিয়েছে [V]।"
-* ইংরেজি বাক্যরীতি (SVO): "Swadeep [S] developed [V] the program [O]."
-* ট্রি পার্সিং ইংরেজি ও বাংলার এই পদবিন্যাসের পার্থক্যকে স্পষ্ট করে।
+2. THE 7 FUNDAMENTAL SENTENCE ARCHITECTURES (SUMMARY MATRIX)
+--------------------------------------------------------------------------------
++---+---------+----------------------------------+------------------------------+
+| # | Pattern | Structural Components            | Exemplar Sentence            |
++---+---------+----------------------------------+------------------------------+
+| 1 | SV      | Subject + Intransitive Verb      | The Barrackpore river flows. |
+| 2 | SVO     | Subject + Monotransitive + DO    | Students master English.     |
+| 3 | SVOO    | Subject + Ditransitive + IO + DO | Sukanta Sir gave us notes.   |
+| 4 | SVC     | Subject + Copula + Subj Comp     | The coffee tastes delicious. |
+| 5 | SVOC    | Subject + Complex-Trans + DO + OC| They elected Swadeep leader. |
+| 6 | SVA     | Subject + Intransitive + Adverb  | The train arrived on time.   |
+| 7 | SVOA    | Subject + Transitive + DO + Adv  | He placed the book on table. |
++---+---------+----------------------------------+------------------------------+
+
+--------------------------------------------------------------------------------
+3. THE THREE MASTER TESTS FOR ACCURATE SENTENCE PARSING
+--------------------------------------------------------------------------------
+TEST A: EQUALITY TEST (SVO vs SVC)
+* If Subject == Element after Verb -> SVC (Subject Complement)
+  Example: "Debangshu is a developer." (Debangshu == developer -> SVC)
+* If Subject != Element after Verb -> SVO (Direct Object)
+  Example: "Debangshu hired a developer." (Debangshu != developer -> SVO)
+
+TEST B: EQUALITY TEST (SVOO vs SVOC)
+* If Object 1 != Object 2 -> SVOO (Indirect Object + Direct Object)
+  Example: "She sent her sister a gift." (sister != gift -> SVOO)
+* If Object 1 == Object 2 -> SVOC (Direct Object + Object Complement)
+  Example: "They appointed her sister manager." (sister == manager -> SVOC)
+
+TEST C: THE DATIVE SHIFT TEST (DITRANSITIVE PREPOSITIONING)
+* S + V + IO + DO  <===>  S + V + DO + TO/FOR + IO
+  Example: "He gave me a book" <===> "He gave a book TO me"
+  Example: "She bought him tea" <===> "She bought tea FOR him"
+* LATINATE VERB EXCEPTION: Verbs like 'explain, describe, suggest, announce'
+  FORBID the SVOO pattern!
+  INCORRECT: *He explained me the logic.
+  CORRECT:    He explained the logic TO me. (SVOA pattern)
+
+--------------------------------------------------------------------------------
+4. BENGALI LEARNER BRIDGES & COMMON EXAM TRAPS
+--------------------------------------------------------------------------------
+1. SOV vs SVO WORD ORDER:
+   * Bengali Word Order (SOV): "স্বাদ্বীপ [S] সফটওয়্যার [O] তৈরি করেছে [V]।"
+   * English Word Order (SVO): "Swadeep [S] created [V] the software [O]."
+   * Common Trap: Placing objects before verbs or splitting verb phrases inappropriately.
+
+2. SENSORY LINKING VERB TRAP:
+   * Bengali: "চা-টি সুন্দর গন্ধ ছাড়ছে" / "খাবারটি সুস্বাদু লাগছে।"
+   * INCORRECT: *The soup tastes deliciously.
+   * CORRECT:    The soup tastes delicious. (SVC: Sensory Copular Verb + Adjective).
+
+3. CAUSATIVE/COMPLEX-TRANSITIVE NO-INFINITIVE TRAP:
+   * Verbs of making/naming/appointing take direct noun/adjective complements:
+   * INCORRECT: *They made him to be captain. / *They elected him as president.
+   * CORRECT:    They made him captain. / They elected him President. (SVOC).
 
 ================================================================================
-CONGRATULATIONS ON MASTERING MODULE 001_002!
-PROCEED TO: MODULE 001_003 (CLASSIFICATION OF SENTENCES BY PURPOSE & MOOD)
+CONGRATULATIONS ON COMPLETING MODULE 001_002!
+READY FOR MODULE 001_003: CLASSIFICATION OF SENTENCES BY PURPOSE & MOOD
 CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
 ================================================================================

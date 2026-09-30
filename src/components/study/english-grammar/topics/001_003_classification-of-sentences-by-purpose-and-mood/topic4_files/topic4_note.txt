@@ -1,37 +1,74 @@
 ================================================================================
 ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_003 | TOPIC 4: EXCLAMATORY SENTENCES ('WHAT A' VS 'HOW')
+MODULE 001_003 | TOPIC 4: EXCLAMATORY SENTENCES: 'WHAT A...' VS 'HOW...' MECHANICS
 Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE TWO STRUCTURAL TEMPLATES
+1. CORE DEFINITION & FUNCTION
 --------------------------------------------------------------------------------
-Template A: Using "WHAT (A/AN)" (For Noun Phrases):
-  Formula: WHAT + (a/an) + [Adjective] + [Noun] + [Subject + Verb] !
-  Example: "What a [magnificent cathedral] [it is]!"
-  Plural:  "What [brilliant ideas] [they have]!" (No 'a/an' with plurals).
+An Exclamatory sentence gives voice to sudden, intense emotion (amazement, joy, 
+grief, disgust, admiration, or alarm). It always concludes with an Exclamation Mark (!).
 
-Template B: Using "HOW" (For Bare Adjectives or Adverbs):
-  Formula: HOW + [Adjective / Adverb] + [Subject + Verb] !
-  Example: "How [sweet] [the rose smells]!"
-  Example: "How [flawlessly] [she programmed the system]!"
-
-2. ASSERTIVE <-> EXCLAMATORY TRANSFORMATION FORMULAS
 --------------------------------------------------------------------------------
-Assertive:    "The view is very charming."
-Exclamatory:  "How charming the view is!"
-
-Assertive:    "It is a truly extraordinary achievement."
-Exclamatory:  "What an extraordinary achievement it is!"
-
-Assertive:    "I wish I were a bird."
-Exclamatory:  "If only I were a bird!" / "O that I were a bird!"
-
-3. PUNCTUATION LAW WITH INTERJECTIONS
+2. THE TWO MASTER ARCHITECTURAL PATTERNS
 --------------------------------------------------------------------------------
-- Interjection + ! + Complete Assertive Sentence + .
-  * "Hurrah! We have won the championship."
-  * "Alas! The noble leader has passed away."
+TEMPLATE A: 'WHAT (A / AN)' + NOUN PHRASE
+* Used when qualifying a noun head (with or without an adjective).
+  1. Singular Countable Nouns (Take 'a/an'):
+     Formula: [ WHAT A / AN ] + [ ADJECTIVE ] + [ NOUN ] + [ S ] + [ V ] !
+     - "What a spectacular presentation Swadeep delivered!"
+  2. Plural Countable Nouns (NO article):
+     Formula: [ WHAT ] + [ ADJECTIVE ] + [ PLURAL NOUN ] + [ S ] + [ V ] !
+     - "What magnificent monuments we visited in Barrackpore!"
+  3. Uncountable Mass Nouns (NO article):
+     Formula: [ WHAT ] + [ ADJECTIVE ] + [ UNCOUNTABLE NOUN ] + [ S ] + [ V ] !
+     - "What delightful music they played!" (NOT *What a delightful music!)
+
+TEMPLATE B: 'HOW' + ADJECTIVE / ADVERB
+* Used when directly qualifying a bare adjective or adverb without a nominal head.
+  Formula: [ HOW ] + [ ADJECTIVE / ADVERB ] + [ S ] + [ V ] !
+  - "How elegantly Debangshu structured the algorithm!"
+  - "How profound the mentor's insights are!"
+
+--------------------------------------------------------------------------------
+3. INTERJECTION INVENTORY & EMOTIONAL VALENCE
+--------------------------------------------------------------------------------
++---+----------------------+--------------------+-------------------------------+
+| # | Interjection         | Emotional Valence  | Structural Exemplar           |
++---+----------------------+--------------------+-------------------------------+
+| 1 | Hurrah! / Hurray!    | Joy & Triumph      | "Hurrah! We topped the exam." |
+| 2 | Alas! / Ah!          | Grief & Sorrow     | "Alas! The legend is no more."|
+| 3 | Bravo! / Well done!  | Praise & Approval  | "Bravo! A flawless solution." |
+| 4 | Hush! / Hark!        | Silence / Listen   | "Hush! The class has begun."  |
+| 5 | Fie! / For shame!    | Disgust / Contempt | "Fie upon such cowardice!"    |
+| 6 | Ouch!                | Physical Pain      | "Ouch! The sharp edge cut me."|
+| 7 | O that! / If only!   | Yearning / Wish    | "O that I were a bird!"       |
++---+----------------------+--------------------+-------------------------------+
+
+--------------------------------------------------------------------------------
+4. EXCLAMATORY <===> ASSERTIVE TRANSFORMATION MATRIX
+--------------------------------------------------------------------------------
+* Rule: Replace 'How' with 'very / extremely'; replace 'What a' with 'a great / wonderful / terrible'.
+  - Exclamatory: "What a terrible storm it was!"
+  - Assertive:   "It was a very terrible storm."
+
+  - Exclamatory: "How fast time flies!"
+  - Assertive:   "Time flies very fast."
+
+  - Exclamatory: "If only I could see him once!"
+  - Assertive:   "I earnestly wish I could see him once."
+
+--------------------------------------------------------------------------------
+5. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. UNCOUNTABLE ARTICLE TRAP:
+   * Bengali: "কী চমৎকার আবহাওয়া!"
+   * INCORRECT: *What a pleasant weather!
+   * CORRECT:    What pleasant weather! (Weather is uncountable).
+
+2. INVERSION TRAP:
+   * INCORRECT: *How fast did he run! (Inversion is for questions only).
+   * CORRECT:    How fast he ran! (Subject precedes Verb).
 
 ================================================================================
 CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR

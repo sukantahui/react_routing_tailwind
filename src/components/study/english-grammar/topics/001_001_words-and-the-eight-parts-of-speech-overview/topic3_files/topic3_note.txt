@@ -1,47 +1,50 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 3: OVERVIEW OF NOUNS, PRONOUNS & VERBS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 3: High-Level Overview of Nouns, Pronouns, and Verbs (The Syntactic Triad)
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE PRIMARY NOMINAL & VERBAL TRIAD
+1. THE ARCHITECTURAL TRIAD (মৌলিক বাক্য ত্রয়ী)
 --------------------------------------------------------------------------------
-Every standard English clause requires a Subject entity (Noun or Pronoun) and
-an Action/State engine (Verb).
+1. NOUNS (The Entities & Namers)
+   • Proper (Barrackpore, Sukanta Hui) vs Common (student, city).
+   • Concrete (laptop, river) vs Abstract (integrity, intelligence).
+   • Countable (pen -> pens) vs Uncountable (water, information, advice).
+   • Collective (team, committee, audience).
 
-2. NOUNS (THE NAMING ANCHORS)
+2. PRONOUNS (The Nominal Substitutes & Cohesion Keepers)
+   • Personal: Subjective (I, he, they) vs Objective (me, him, them).
+   • Possessive: Determiners (my, your, their) vs Standalone (mine, yours, theirs).
+   • Relative: who, whom, whose, which, that.
+   • Reflexive / Emphatic: myself, himself, themselves.
+   • Demonstrative: this, that, these, those.
+   • Distributive: each, either, neither (Always singular verbs!).
+
+3. VERBS (The Temporal Engine & Predication Powerhouse)
+   • Lexical (Main): Transitive (needs object), Intransitive (no object), Ditransitive (2 objects).
+   • Linking (Copular): connects subject to predicate noun/adjective (is, seem, become, taste).
+   • Auxiliaries: Primary (Be, Do, Have) + Modals (Can, May, Must, Shall, Will, etc.).
+   • The 5 Conjugation Forms: V1 (Base), V2 (Past), V3 (Past Participle), V4 (-ing), V5 (-s/-es).
+
+2. COMPARATIVE BENGALI BRIDGES & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-- 5 Major Families:
-  1. Proper Noun: Specific unique names (Kolkata, Barrackpore, Sukanta Hui).
-  2. Common Noun: General class names (city, student, teacher, laptop).
-  3. Collective Noun: Unitary groups (jury, committee, team, flock).
-  4. Material Noun: Physical matter/substances (gold, water, iron, cotton).
-  5. Abstract Noun: Qualities, states, feelings (wisdom, honesty, courage).
-- Syntactic Roles: Subject, Direct Object, Indirect Object, Subject Complement,
-  Object Complement, Object of Preposition.
+[X] TRAP 1: Zero Copula (Missing Verb Trap)
+    - Bengali: "সে খুব চতুর" (No verb).
+    - English requires Finite Verb: "He IS very clever." (Never *"He very clever"*).
 
-3. PRONOUNS (THE DEICTIC SUBSTITUTES)
+[X] TRAP 2: Stative Verbs in Continuous Tense
+    - Bengali: "আমি বুঝতে পারছি"
+    - English: "I understand." (Never *"I am understanding"*).
+
+[X] TRAP 3: Uncountable Noun Plurals
+    - "Informations", "Sceneries", "Poetries", "Advices" are INVALID.
+    - Correct: "Pieces of information", "Scenery", "Poems", "Words of advice".
+
+3. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-- Personal: Nominative (I, he, she), Objective (me, him, her), Possessive (mine, hers).
-- Demonstrative: this, that, these, those.
-- Relative: who, whom, whose, which, that (links subordinate clauses).
-- Indefinite: someone, everyone, nobody, none, all, few.
-- Reflexive & Emphatic: myself, himself, themselves.
-- Distributive & Reciprocal: each, neither, either, each other, one another.
-
-4. VERBS (THE DYNAMIC PREDICATE ENGINE)
---------------------------------------------------------------------------------
-- Finite vs Non-Finite:
-  * Finite: Tensed, inflects for Person/Number ("She writes code").
-  * Non-Finite: Untensed, invariant (to write [Infinitive], writing [Gerund/Participle]).
-- Transitive, Intransitive & Linking:
-  * Transitive: Takes Direct Object ("Swadeep built an app").
-  * Intransitive: No Direct Object ("The train arrived").
-  * Linking / Copula: Connects to Subject Complement ("The soup tastes delicious").
-- Primary & Modal Auxiliaries:
-  * Primary: be, do, have (constructs aspects, negatives, passives).
-  * Modals: can, could, may, might, must, should, will, would (expresses mood/modality).
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Can identify the 5 functions of nouns (Subject, Object, Prep Object, Subj Comp, Obj Comp).
+[✓] Distinguish Subjective vs Objective pronoun case rules (e.g. 'Between you and me').
+[✓] Master the 5 principal verb forms (V1 to V5) for regular and irregular roots.
+[✓] Recognize Linking verbs and avoid adverb complements after them (e.g. 'The soup smells delicious').
 ================================================================================

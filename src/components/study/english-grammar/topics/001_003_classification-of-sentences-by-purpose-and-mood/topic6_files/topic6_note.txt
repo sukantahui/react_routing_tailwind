@@ -1,30 +1,59 @@
 ================================================================================
 ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_003 | TOPIC 6: CLASSROOM PRACTICE LAB & TONE DYNAMICS
+MODULE 001_003 | TOPIC 6: CLASSROOM PRACTICE LAB: TONE MODULATION & QUESTION TAGS
 Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. SPECIAL QUESTION TAG INVARIANTS DISSECTED
+1. BARRACKPORE MENTORING LAB CASE STUDIES
 --------------------------------------------------------------------------------
-1. Pronoun 'THEY' vs 'IT':
-   - Personal Indefinites (Everyone, Somebody, Nobody) -> THEY.
-     * "Nobody came, did [they]?"
-   - Non-Personal Indefinites (Everything, Something, Nothing) -> IT.
-     * "Nothing happened, did [it]?"
-     * "Everything is fine, isn't [it]?"
+This lab analyzes real student errors and establishes immutable syntactic invariants.
 
-2. 'LET US' VS 'LET HIM / LET THEM':
-   - "Let us (Let's) examine the code, [shall we]?" (Joint Proposal)
-   - "Let him leave the room, [will you]?" (Permission / Order to listener)
+CASE 1: THE INVISIBLE NEGATIVE TRAP
+- Student Attempt: "He has little money, hasn't he?"
+- Sir's Correction: "He has little money, HAS HE / DOES HE?"
+- Invariant: 'Little' and 'Few' are semantically negative -> Require POSITIVE tags.
+  Contrast with: "He has A little money, HASN'T HE?" (Positive quantifier -> Negative tag).
 
-3. IMPATIENT IMPERATIVES:
-   - "Shut up, [can't you]?" (Expressing annoyance)
-   - "Have a seat, [won't you]?" (Polite invitation)
+CASE 2: THE 1ST PERSON OPINION MATRIX
+- Student Attempt: "I think he is honest, don't I?"
+- Sir's Correction: "I think he is honest, ISN'T HE?"
+- Invariant: When introduced by 'I think / I believe / I suppose', the tag attaches 
+  to the SUBORDINATE clause proposition.
+  Contrast: "YOU think he is honest, DON'T YOU?" (2nd/3rd person matrices attach to main clause).
 
-2. TONE & INTONATION RULES
+CASE 3: THE DITRANSITIVE / PERMISSION 'LET US' TRAP
+- Student Attempt: "Let us go to the riverfront, will you?"
+- Sir's Correction: 
+  * Proposal/Joint Action ('Let's'): "Let's go, SHALL WE?"
+  * Seeking Permission ('Allow us'): "Let us enter the lab, WILL YOU?"
+
 --------------------------------------------------------------------------------
-- Rising Pitch (↗): Genuine Question / Verification needed.
-- Falling Pitch (↘): Confirmation / Speaker is confident of the truth.
+2. SPOKEN INTONATION & DISCOURSE PRAGMATICS
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| Intonation Type   | Pitch Contour              | Speaker's Intent            |
++-------------------+----------------------------+-----------------------------+
+| Falling (\)       | Downward pitch at the end  | Expects agreement / Certain |
+| Rising (/)        | Upward pitch at the end    | Genuinely asking / Uncertain|
++-------------------+----------------------------+-----------------------------+
+
+Examples:
+* "You are ready, aren't you? \" -> "I know you're ready; just confirming."
+* "You haven't seen my bag, have you? /" -> "I genuinely don't know if you saw it."
+
+--------------------------------------------------------------------------------
+3. PRONOUN HARMONY CHEATSHEET FOR TAGS
+--------------------------------------------------------------------------------
++---+----------------------------------+------------------+--------------------+
+| # | Subject Entity in Statement      | Tag Pronoun      | Tag Verb Number    |
++---+----------------------------------+------------------+--------------------+
+| 1 | Everybody / Everyone / Somebody  | they             | Plural (aren't/do) |
+| 2 | Nobody / No one / None           | they             | Plural Positive    |
+| 3 | Everything / Something / Nothing | it               | Singular (is/does) |
+| 4 | This / That                      | it               | Singular           |
+| 5 | These / Those                    | they             | Plural             |
+| 6 | Existential 'There'              | there            | Matches statement  |
++---+----------------------------------+------------------+--------------------+
 
 ================================================================================
 CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR

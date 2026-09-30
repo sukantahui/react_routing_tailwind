@@ -1,41 +1,57 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 4: DIRECT OBJECTS VS INDIRECT OBJECTS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 4: Direct Objects vs Indirect Objects & Ditransitive Mechanics
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. DIRECT OBJECT (DO - THE ACCUSATIVE)
+1. CORE TAXONOMY & DIAGNOSTIC TESTS (কর্মের শ্রেণিবিভাগ ও চেনার উপায়)
 --------------------------------------------------------------------------------
-- Question Test: Verb + WHAT? / Verb + WHOM?
-- Definition: The noun or pronoun that directly receives the action of the verb.
-- Example: "Swadeep developed [a web application]." (Developed WHAT? -> an app).
+1. DIRECT OBJECT (মুখ্য কর্ম - DO):
+   • Definition: The noun/pronoun that directly receives the action of a transitive verb.
+   • Diagnostic Question: Ask "VERB + WHAT? / WHOM?"
+   • Example: "Swadeep wrote [What?] a compiler [Direct Object]."
 
-2. INDIRECT OBJECT (IO - THE DATIVE)
+2. INDIRECT OBJECT (গৌণ কর্ম - IO):
+   • Definition: The beneficiary or recipient of the direct object.
+   • Diagnostic Question: Ask "VERB + TO WHOM? / FOR WHOM?"
+   • Example: "Swadeep gave [To whom?] Debangshu [IO] the documentation [DO]."
+   • Invariant Rule: An Indirect Object CANNOT exist without a Direct Object.
+
+2. THE TWO DITRANSITIVE SYNTACTIC PATTERNS
 --------------------------------------------------------------------------------
-- Question Test: Verb + TO WHOM? / FOR WHOM?
-- Definition: The person or beneficiary who receives the Direct Object entity.
-- Example: "Sukanta Sir taught [Tuhina] [English Grammar]."
-  * Tuhina = Indirect Object (Person / Beneficiary).
-  * English Grammar = Direct Object (Entity transferred).
+PATTERN A: S + V + IO + DO (No Preposition)
+  • "Mentor Sukanta Sir taught [Swadeep: IO] [advanced grammar: DO]."
+  • "Debangshu bought [Tuhina: IO] [a graphics tablet: DO]."
 
-3. DATIVE SHIFT FORMULAS
+PATTERN B: S + V + DO + Preposition + Recipient (Prepositional Complement)
+  • "Mentor Sukanta Sir taught [advanced grammar: DO] TO [Swadeep]."
+  • "Debangshu bought [a graphics tablet: DO] FOR [Tuhina]."
+
+PREPOSITION SELECTION RULES:
+  • Use "TO" with Verbs of Transfer & Communication:
+    (give, send, lend, tell, show, hand, pay, write, offer, pass, promise)
+  • Use "FOR" with Verbs of Creation & Procurement:
+    (buy, bake, cook, build, make, find, choose, order, prepare)
+
+3. BENGALI LEARNER BRIDGES & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-Formula A (Pure SVOO):
-  Subject + Verb + [Indirect Object] + [Direct Object]
-  "I gave [him] [the key]." (No preposition needed!)
+[X] TRAP 1: Confusing Direct Object with Subject Complement
+    • "Swadeep is a programmer" -> 'programmer' == Swadeep (Subject Complement after Linking Verb).
+    • "Swadeep met a programmer" -> 'programmer' != Swadeep (Direct Object after Transitive Verb).
 
-Formula B (SVO + Prepositional Phrase):
-  Subject + Verb + [Direct Object] + TO/FOR + [Object]
-  "I gave [the key] to [him]."
+[X] TRAP 2: Using prepositions inside the SVOO pattern
+    • "He gave to me a book" [WRONG!].
+    • "He gave ME a book" [CORRECT: S + V + IO + DO] OR "He gave a book TO ME" [CORRECT].
 
-4. CRITICAL BENGALI EXAM TRAP
+[X] TRAP 3: Pronoun Case Error
+    • "She gave he a book" [WRONG: Subjective case].
+    • "She gave HIM a book" [CORRECT: Objective case].
+
+4. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-* Bengali Order: "আমি তাকে বইটি দিলাম" (IO + DO).
-* English Error: Inserting 'to' before the person in SVOO:
-  - "I gave to him the book" ❌ (Incorrect!)
-  - "I gave him the book" ✔️ (Pure SVOO)
-  - "I gave the book to him" ✔️ (SVO + Prep Phrase)
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Apply Sukanta Sir's test: Verb + What? = DO; Verb + To/For whom? = IO.
+[✓] Can toggle smoothly between S-V-IO-DO and S-V-DO-Prep-Recipient.
+[✓] Know which ditransitive verbs take 'to' (transfer) vs 'for' (creation/buying).
+[✓] Understand the difference between Direct Object (Transitive) and Subject Complement (Linking).
 ================================================================================

@@ -1,36 +1,65 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 2: SIMPLE SUBJECTS VS COMPOUND SUBJECTS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 2: Simple Subjects vs Compound Subjects & Concord Invariants
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. SIMPLE SUBJECT (THE CORE NOMINAL HEAD)
+1. CORE TAXONOMY & DEFINITIONS (মূল সংজ্ঞা ও শ্রেণিবিভাগ)
 --------------------------------------------------------------------------------
-- Definition: The single noun or pronoun head stripped of all determiners, 
-  adjectives, and modifying phrases.
-- Example: "The old banyan [tree] near the river collapsed." -> Simple Subject: tree.
+1. SIMPLE SUBJECT (একক মূল কর্তা / Head Noun):
+   • The core noun or pronoun stripped of all modifiers that governs the verb.
+   • Example: "The rapid [growth] of web applications fascinates everyone."
+     -> Head noun = 'growth' (Singular) -> Verb = 'fascinates' (Singular).
 
-2. COMPOUND SUBJECT (CONJUNCTION-LINKED NOMINALS)
+2. COMPOUND SUBJECT (যৌথ উদ্দেশ্য / সমন্বিত কর্তা):
+   • Two or more subjects joined by coordinating/correlative conjunctions.
+   • Example: "Swadeep and Debangshu [Compound Subject] coded the backend."
+
+2. THE 6 INVARIANT CONCORD LAWS FOR COMPOUND SUBJECTS
 --------------------------------------------------------------------------------
-- Definition: Two or more simple subjects joined by conjunctions sharing one verb.
-- Rule 1: Joined by 'AND' -> Typically PLURAL.
-  * "Swadeep and Debangshu [are] coding."
-- Exception: Unitary Idea / Dish -> SINGULAR.
-  * "Bread and butter [is] wholesome."
-  * "Slow and steady [wins] the race."
+LAW 1: THE STANDARD 'AND' ADDITION (1 + 1 = 2 -> Plural)
+       • "Swadeep and Tuhina ARE presenting today."
 
-3. THE RULE OF PROXIMITY (EITHER... OR / NEITHER... NOR)
+LAW 2: THE SINGLE UNIT / COMPOSITE EXCEPTION (Singular)
+       • "Bread and butter IS a wholesome breakfast."
+       • "Slow and steady WINS the race."
+       • "Time and tide WAITS for no man."
+
+LAW 3: THE SINGLE ARTICLE RULE (Same Person -> Singular)
+       • "The novelist and poet HAS arrived." (1 person -> 1 article -> Singular)
+       • "The novelist and THE poet HAVE arrived." (2 people -> 2 articles -> Plural)
+
+LAW 4: THE RULE OF PROXIMITY (Either... or / Neither... nor)
+       • Verb agrees with the NEAREST subject:
+       • "Neither Swadeep nor his friends ARE coming."
+       • "Neither his friends nor Swadeep IS coming."
+
+LAW 5: THE INTERVENING PHRASE INVARIANT (As well as, Along with, Together with)
+       • Verb agrees strictly with the FIRST subject:
+       • "The mentor, along with his students, IS in the laboratory."
+
+LAW 6: THE DISTRIBUTIVE 'EACH / EVERY' RULE (Always Singular)
+       • "Every boy and every girl WAS given a certificate."
+
+3. BENGALI LEARNER BRIDGES & COMMON EXAM TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-- Verb agrees with the subject CLOSEST to it:
-  * "Neither the teacher nor the [students were] present." (Plural closest)
-  * "Neither the students nor the [teacher was] present." (Singular closest)
+[X] TRAP 1: The False Proximity Error (Prepositional Object Trap)
+    - "The quality of these apples are good" [WRONG!].
+    - "The quality [S] of these apples [Prep Obj] IS good" [CORRECT!].
 
-4. INTERVENING PARENTHETICAL TRAPS (NOT COMPOUND SUBJECTS!)
+[X] TRAP 2: 'One of + Plural Noun'
+    - "One of my friends are coming" [WRONG!].
+    - "One [S] of my friends [Prep Obj] IS coming" [CORRECT!].
+
+[X] TRAP 3: 'As well as' treated like 'And'
+    - "Debangshu as well as his classmates are present" [WRONG!].
+    - "Debangshu [S1] as well as his classmates IS present" [CORRECT!].
+
+4. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-- The following phrases DO NOT make a subject compound:
-  * as well as, along with, together with, in addition to, accompanied by.
-- Example: "The mentor, along with fifty students, [has] arrived." (Singular!)
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Can isolate the Simple Subject (Head Noun) from long noun phrases.
+[✓] Apply Rule of Proximity for 'Either... or' and 'Neither... nor'.
+[✓] Recognize single unit exceptions with 'and' (Bread and butter, Slow and steady).
+[✓] Apply the First Subject rule for 'along with', 'as well as', 'together with'.
 ================================================================================

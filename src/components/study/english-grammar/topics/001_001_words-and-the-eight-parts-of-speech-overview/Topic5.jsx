@@ -16,7 +16,10 @@ import {
   Flame,
   Compass,
   MessageSquare,
-  ShieldCheck
+  ShieldCheck,
+  Lightbulb,
+  Target,
+  Heart
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -112,7 +115,215 @@ export default function Topic5() {
         </div>
 
         {/* 3 Section Selector */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+        
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Conjunctions in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                Conjunctions are the glue that joins individual words, phrases, or entire sentences together.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The Bridges & Glue
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Coordinating Conjunctions (FANBOYS)</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Connects two equal ideas: For, And, Nor, But, Or, Yet, So. (e.g. "I like tea [and] coffee", "He studied [but] failed").
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 Swadeep coded, [and] Debangshu designed.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Subordinating Conjunctions (Cause, Condition, Time)</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Connects a dependent reason or condition: Because, Although, Since, If, When, Unless, While.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 We succeeded [because] we practiced daily.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-cyan-400 block font-mono">FANBOYS (Equal)</span>
+                <p className="text-xs text-slate-300">and, but, or, so, yet, for, nor</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Cause & Reason</span>
+                <p className="text-xs text-slate-300">because, since, as</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Condition</span>
+                <p className="text-xs text-slate-300">if, unless, provided that</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Concession / Contrast</span>
+                <p className="text-xs text-slate-300">although, though, whereas, while</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Although the problem was difficult, Swadeep persisted and solved it because he was determined."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় কনজাংশন:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Conjunction হলো বাক্য বা শব্দের জোড়াতালি দেওয়ার আঠা বা সেতু। যেমন: 'এবং' (and), 'কিন্তু' (but), 'কারণ' (because), 'যদি' (if)।
+              </p>
+            </div>
+          )}
+        </div>
+
+{/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Conjunctions in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                Conjunctions are the glue that joins individual words, phrases, or entire sentences together.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              The Bridges & Glue
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Coordinating Conjunctions (FANBOYS)</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Connects two equal ideas: For, And, Nor, But, Or, Yet, So. (e.g. "I like tea [and] coffee", "He studied [but] failed").
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 Swadeep coded, [and] Debangshu designed.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Subordinating Conjunctions (Cause, Condition, Time)</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Connects a dependent reason or condition: Because, Although, Since, If, When, Unless, While.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 We succeeded [because] we practiced daily.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-cyan-400 block font-mono">FANBOYS (Equal)</span>
+                <p className="text-xs text-slate-300">and, but, or, so, yet, for, nor</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Cause & Reason</span>
+                <p className="text-xs text-slate-300">because, since, as</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Condition</span>
+                <p className="text-xs text-slate-300">if, unless, provided that</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Concession / Contrast</span>
+                <p className="text-xs text-slate-300">although, though, whereas, while</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Although the problem was difficult, Swadeep persisted and solved it because he was determined."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>খুব সহজ ভাষায় কনজাংশন:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Conjunction হলো বাক্য বা শব্দের জোড়াতালি দেওয়ার আঠা বা সেতু। যেমন: 'এবং' (and), 'কিন্তু' (but), 'কারণ' (because), 'যদি' (if)।
+              </p>
+            </div>
+          )}
+        </div>
+
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <button
             onClick={() => setSelectedSection("prepositions")}
             className={`p-5 rounded-2xl text-left border transition-all ${
@@ -222,7 +433,7 @@ export default function Topic5() {
         {/* Auxiliary Components */}
         <div className="space-y-8 pt-4">
           <FAQTemplate
-            title="Topic 5 Diagnostic Assessment (10 Questions)"
+            title="Topic 5 Diagnostic Assessment (25 Questions)"
             questions={questions}
           />
 

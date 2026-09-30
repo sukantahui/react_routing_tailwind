@@ -1,43 +1,59 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 4: OVERVIEW OF ADJECTIVES & ADVERBS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 4: High-Level Overview of Adjectives and Adverbs (The Modifying Engines)
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE MODIFYING DUO: ADJECTIVES VS ADVERBS
+1. CORE DEFINITIONS & TAXONOMY (মূল সংজ্ঞা ও শ্রেণিবিভাগ)
 --------------------------------------------------------------------------------
-- ADJECTIVE: Modifies Nouns & Pronouns.
-  * Attributive: "A brilliant researcher." (Precedes noun)
-  * Predicative: "The researcher is brilliant." (Follows linking verb)
-  * Predicative-Only Invariants: afraid, asleep, awake, aware, alive, glad.
+1. ADJECTIVES (Nominal Qualifiers)
+   • Target: Modifies Nouns & Pronouns exclusively.
+   • Positions:
+     - Attributive: Placed directly before noun ("a brilliant student").
+     - Predicative: Placed after linking verb ("the student is brilliant").
+   • Royal Order of Cumulative Adjectives (OSASCOMP):
+     [O]pinion -> [S]ize -> [A]ge -> [S]hape -> [C]olor -> [O]rigin -> [M]aterial -> [P]urpose
+     Example: "A lovely small antique round wooden dining table."
 
-- ADVERB: Modifies Verbs, Adjectives, and other Adverbs.
-  * Modifying Verb: "Swadeep coded flawlessly."
-  * Modifying Adjective: "An exceptionally bright idea."
-  * Modifying Adverb: "He spoke very eloquently."
+2. ADVERBS (Action & Degree Modifiers)
+   • Target: Modifies Verbs, Adjectives, other Adverbs, or whole clauses.
+   • Types: Manner (how), Time (when), Place (where), Frequency (how often), Degree (how much).
+   • Royal Order of Multiple Adverbs (MPT Rule):
+     Manner -> Place -> Time
+     Example: "Swadeep sang beautifully [M] at Barrackpore [P] yesterday [T]."
 
-2. THE ROYAL ADVERB SEQUENCE (M-P-T RULE)
+2. THE "-LY" DECEPTION & FLAT ADVERB MATRIX
 --------------------------------------------------------------------------------
-Formula: Manner (How) -> Place (Where) -> Time (When)
-- Example: "Tuhina performed brilliantly [M] at the auditorium [P] yesterday [T]."
+• Noun + "-ly" = ADJECTIVE:
+  - Friend + ly  = Friendly   (e.g., "a friendly mentor")
+  - Love + ly    = Lovely     (e.g., "a lovely morning")
+  - Coward + ly  = Cowardly   (e.g., "a cowardly act")
+  * ERROR: "He spoke friendly" [WRONG] -> "He spoke in a friendly manner" [CORRECT].
 
-3. CRITICAL BENGALI LEARNER EXAM TRAPS
+• Adjective + "-ly" = ADVERB:
+  - Quick + ly = Quickly      (e.g., "he ran quickly")
+  - Brave + ly = Bravely      (e.g., "they fought bravely")
+
+• FLAT ADVERBS (Identical form for Adjective & Adverb):
+  - Fast:  "a fast car" (Adj)  vs  "drives fast" (Adv; NEVER *"fastly"*)
+  - Hard:  "hard work" (Adj)   vs  "works hard" (Adv) vs "hardly works" (Scarcely)
+  - Late:  "late train" (Adj)  vs  "arrived late" (Adv) vs "lately" (Recently)
+
+3. BENGALI LEARNER BRIDGE & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-* Trap 1: Noun + '-ly' vs Adjective + '-ly'
-  - Noun + '-ly' = ADJECTIVE (Friendly, Lovely, Cowardly, Scholarly).
-  - Adjective + '-ly' = ADVERB (Quickly, Gracefully, Beautifully).
-  - Wrong: "He talked friendly." ❌
-  - Right: "He talked in a friendly manner." ✔️
+[X] TRAP 1: Using adverbs after sensory Linking Verbs.
+    - "The flower smells sweetly" [WRONG] -> "The flower smells sweet" [CORRECT].
+    - "I feel badly" [WRONG] -> "I feel bad" [CORRECT].
 
-* Trap 2: Sensory Verbs & Complements
-  - Wrong: "The rose smells sweetly." ❌
-  - Right: "The rose smells sweet." ✔️ (Subject Complement Adjective!)
+[X] TRAP 2: Confusing 'Hard' vs 'Hardly'.
+    - "Swadeep worked hardly" [WRONG: means he did almost no work!]
+    - "Swadeep worked hard" [CORRECT: means diligent effort].
 
-* Trap 3: Confusable Adverb Pairs
-  - Hard (with effort) vs Hardly (almost not at all)
-  - Late (after time) vs Lately (recently)
-  - Fairly (+ pleasant) vs Rather (+ unpleasant / excess)
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+4. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Can apply OSASCOMP order for complex adjective sequences.
+[✓] Can apply MPT order (Manner -> Place -> Time) for adverb chains.
+[✓] Recognize that 'friendly', 'lovely', 'lonely' are adjectives requiring 'in a ... manner'.
+[✓] Distinguish linking verb adjective complements from active verb adverbs.
 ================================================================================

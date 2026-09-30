@@ -1,40 +1,56 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 7: OBJECT COMPLEMENTS & COMPLEX-TRANSITIVE VERBS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 7: Object Complements (Complex-Transitive SVOC Mechanics)
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. WHAT IS AN OBJECT COMPLEMENT?
+1. THE COMPLEX-TRANSITIVE ARCHITECTURE (জটিল সকর্মক গঠন - SVOC)
 --------------------------------------------------------------------------------
-- Definition: A noun, pronoun, or adjective that immediately follows a Direct 
-  Object to describe, qualify, or rename it.
-- Fundamental Equation: [ DIRECT OBJECT == OBJECT COMPLEMENT ]
-- Example: "They elected [Swadeep (DO)] [Captain (OC)]." (Swadeep == Captain).
+An Object Complement (OC) follows the Direct Object (DO) and completes the 
+predication by renaming, classifying, or describing that direct object.
 
-2. COMPLEX-TRANSITIVE VERBS
+CORE EQUATION: [DIRECT OBJECT]  ==  [OBJECT COMPLEMENT]
+
+A. NOUN PHRASE OBJECT COMPLEMENT (Renaming / Role / Title):
+   • "The cohort elected [Swadeep: DO] [captain: OC]." (Swadeep = Captain).
+   • "They named [the mascot: DO] [Byte: OC]." (Mascot = Byte).
+
+B. ADJECTIVE PHRASE OBJECT COMPLEMENT (Resultant State / Attribute):
+   • "Mentor Sukanta Sir painted [the door: DO] [green: OC]." (Door = Green).
+   • "His performance made [the mentor: DO] [proud: OC]." (Mentor = Proud).
+   • "The court declared [the contract: DO] [null and void: OC]."
+
+2. THE SVOO vs SVOC EQUALITY DIAGNOSTIC TEST (সমতা পরীক্ষা)
 --------------------------------------------------------------------------------
-- Common Verbs taking SVOC:
-  * Naming/Electing: appoint, elect, nominate, name, call, crown, declare.
-  * Judging/Perceiving: find, consider, think, believe, judge.
-  * Causing State: make, paint, keep, render, drive (mad).
+To distinguish Ditransitive (SVOO) from Complex-Transitive (SVOC):
 
-3. SVOO VS SVOC: THE DEFINITIVE COMPARISON
+TEST: Insert 'IS / WAS' between the two postverbal nominals:
+  • "They made [Debangshu] [team leader]" -> "Debangshu IS team leader" 
+    [LOGICAL EQUALITY -> SVOC!]
+  • "Swadeep gave [Debangshu] [a laptop]"   -> *"Debangshu IS a laptop"* 
+    [ILLOGICAL / SEPARATE ENTITIES -> SVOO!]
+
+3. MASTER CATALOG OF COMPLEX-TRANSITIVE VERBS
 --------------------------------------------------------------------------------
-+-------------------+-----------------------------+-----------------------------+
-| Feature           | SVOO (Ditransitive)         | SVOC (Complex-Transitive)   |
-+-------------------+-----------------------------+-----------------------------+
-| Entity Formula    | IO != DO (Two entities)     | DO == OC (One entity)       |
-| Example           | "He gave [him] [a prize]."  | "He called [him] [a hero]." |
-| Reality           | 'him' is NOT 'a prize'      | 'him' IS 'a hero'           |
-| Passive Forms     | TWO possible passives       | ONE possible passive        |
-+-------------------+-----------------------------+-----------------------------+
+1. VERBS OF APPOINTING / ELECTING: elect, appoint, choose, nominate, select, crown.
+2. VERBS OF NAMING / CALLING: name, call, christen, dub, title.
+3. VERBS OF COGNITION / JUDGING: consider, judge, believe, think, find, prove, deem.
+4. VERBS OF CAUSATION / MAKING: make, render, keep, paint, leave.
 
-4. PASSIVE VOICE TRANSFORMATION IN SVOC
+4. PASSIVE VOICE TRANSFORMATION INVARIANT
 --------------------------------------------------------------------------------
-Active:  "The committee elected [Debangshu] [President]." (SVOC)
-Passive: "[Debangshu] was elected [President] by the committee." (SVC in passive!)
-- Notice: The Object Complement becomes a Subject Complement in the passive!
+When an SVOC sentence is converted to PASSIVE VOICE:
+  • Direct Object becomes the PASSIVE SUBJECT.
+  • Object Complement becomes a SUBJECT COMPLEMENT.
+  
+  Active:  "They elected [Swadeep: DO] [captain: OC]."
+  Passive: "[Swadeep: Subject] was elected [captain: Subject Complement] by them."
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+5. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Master the SVOC formula: Subject + Verb + Direct Object + Object Complement.
+[✓] Apply the Equality Test (DO == OC) to instantly distinguish SVOC from SVOO.
+[✓] Understand how the active Object Complement transforms into a passive Subject Complement.
+[✓] Recognize causative verbs (make, keep, render) and bare infinitive complements.
 ================================================================================

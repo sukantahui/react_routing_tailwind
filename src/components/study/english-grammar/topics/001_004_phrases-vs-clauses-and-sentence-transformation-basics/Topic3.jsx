@@ -14,7 +14,11 @@ import {
   Layers,
   GitFork,
   ShieldCheck,
-  Split
+  Split,
+  Lightbulb,
+  Target,
+  Heart,
+  Compass
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -140,7 +144,215 @@ export default function Topic3() {
           </div>
 
           {/* Case Buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          
+        
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Independent vs Subordinate Clauses in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                An independent clause is the boss that stands alone. A subordinate clause is the helper that needs the boss.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              Standalone vs Helper
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Independent (Main) Clause = Stands on Its Own</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Makes complete, satisfying sense by itself: "Swadeep deployed the application."
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 Independent = Complete Sentence.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Subordinate (Dependent) Clause = Incomplete Helper</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Starts with a connector (because, although, if, who): "...because the code passed all unit tests." (Needs the main clause!).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Subordinate = Connective + Subject + Verb.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Main Clause</span>
+                <p className="text-xs text-slate-300">Can be a full sentence alone</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Noun Clause</span>
+                <p className="text-xs text-slate-300">"I know [that he is honest]."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Adjective Clause</span>
+                <p className="text-xs text-slate-300">"The student [who won the award]..."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Adverb Clause</span>
+                <p className="text-xs text-slate-300">"We started [when the bell rang]."</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Although the syntax was challenging, Swadeep mastered it because he practiced every day."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>সহজ ভাষায় প্রধান ও অপ্রধান ক্লজ:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Main Clause সম্পূর্ণ স্বাধীনভাবে একা অর্থ প্রকাশ করতে পারে। আর Subordinate Clause 'because', 'although', 'if', 'who' ইত্যাদি দিয়ে শুরু হয় এবং Main Clause ছাড়া একা দাঁড়াতে পারে না।
+              </p>
+            </div>
+          )}
+        </div>
+
+{/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: CORE INTUITIVE BREAKDOWN                         */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Core Intuition</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Independent vs Subordinate Clauses in Very Simple Words
+              </h2>
+              <p className="text-slate-300 text-sm">
+                An independent clause is the boss that stands alone. A subordinate clause is the helper that needs the boss.
+              </p>
+            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              Standalone vs Helper
+            </span>
+          </div>
+
+          {/* Simple 2-Part Framework Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
+                <Target className="w-4 h-4" />
+                <span>1. Independent (Main) Clause = Stands on Its Own</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Makes complete, satisfying sense by itself: "Swadeep deployed the application."
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
+                👉 Independent = Complete Sentence.
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <Heart className="w-4 h-4" />
+                <span>2. Subordinate (Dependent) Clause = Incomplete Helper</span>
+              </div>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Starts with a connector (because, although, if, who): "...because the code passed all unit tests." (Needs the main clause!).
+              </p>
+              <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
+                👉 Subordinate = Connective + Subject + Verb.
+              </div>
+            </div>
+          </div>
+
+          {/* 4 Building Blocks Matrix */}
+          <div className="space-y-3">
+            <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+              <Compass className="w-4 h-4 text-indigo-400" />
+              Key Pillars at a Glance
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Main Clause</span>
+                <p className="text-xs text-slate-300">Can be a full sentence alone</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-blue-400 block font-mono">Noun Clause</span>
+                <p className="text-xs text-slate-300">"I know [that he is honest]."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-amber-400 block font-mono">Adjective Clause</span>
+                <p className="text-xs text-slate-300">"The student [who won the award]..."</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                <span className="text-xs font-bold text-purple-400 block font-mono">Adverb Clause</span>
+                <p className="text-xs text-slate-300">"We started [when the bell rang]."</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example Box */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-indigo-500/20 space-y-2">
+            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+              Everyday Exemplar in Context
+            </span>
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
+              "Although the syntax was challenging, Swadeep mastered it because he practiced every day."
+            </div>
+          </div>
+
+          {/* Bilingual Guidance Box */}
+          {showBengali && (
+            <div className="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-xs space-y-2 animate-fade-in">
+              <div className="flex items-center gap-2 font-semibold text-indigo-300">
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>সহজ ভাষায় প্রধান ও অপ্রধান ক্লজ:</span>
+              </div>
+              <p className="leading-relaxed text-slate-200">
+                Main Clause সম্পূর্ণ স্বাধীনভাবে একা অর্থ প্রকাশ করতে পারে। আর Subordinate Clause 'because', 'although', 'if', 'who' ইত্যাদি দিয়ে শুরু হয় এবং Main Clause ছাড়া একা দাঁড়াতে পারে না।
+              </p>
+            </div>
+          )}
+        </div>
+
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {clauseCases.map((c, idx) => (
               <button
                 key={idx}
@@ -199,7 +411,7 @@ export default function Topic3() {
         {/* Auxiliary Components */}
         <div className="space-y-8 pt-4">
           <FAQTemplate
-            title="Topic 3 Diagnostic Assessment (10 Questions)"
+            title="Topic 3 Diagnostic Assessment (25 Questions)"
             questions={questions}
           />
 

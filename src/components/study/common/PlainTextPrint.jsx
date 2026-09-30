@@ -4,6 +4,7 @@ import { Printer, Copy, Check, Download, Eye, EyeOff } from "lucide-react";
 
 export default function PlainTextPrint({
   content = "",
+  text = "",
   filename = "study_note.txt",
   title = "Printable Plain-Text Study Note",
   hidePreview: initialHidePreview = true,
@@ -11,11 +12,12 @@ export default function PlainTextPrint({
   customPrintLabel = null,
   onCustomPrint = null
 }) {
+  const actualContent = content || text || "";
   const [copied, setCopied] = useState(false);
   const [showPreview, setShowPreview] = useState(!initialHidePreview);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(content);
+    navigator.clipboard.writeText(actualContent);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -27,7 +29,7 @@ export default function PlainTextPrint({
         "<html><head><title>" +
           filename +
           "</title><style>body { font-family: monospace; padding: 20px; white-space: pre-wrap; word-break: break-all; font-size: 12px; }</style></head><body>" +
-          content.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+          actualContent.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
           "</body></html>"
       );
       printWindow.document.close();
@@ -45,7 +47,7 @@ export default function PlainTextPrint({
   };
 
   const handleDownload = () => {
-    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([actualContent], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;

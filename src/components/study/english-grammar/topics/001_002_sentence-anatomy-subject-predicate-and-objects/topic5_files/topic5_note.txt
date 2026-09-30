@@ -1,34 +1,62 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 5: DITRANSITIVE POSITIONING & DATIVE EXCEPTIONS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 5: Ditransitive Verbs & Dual Positioning Mechanics ('To' vs 'For')
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE 'TO' VS 'FOR' PREPOSITIONAL RULE
+1. DATIVE ALTERNATION ARCHITECTURE (দ্বিকর্মক রূপান্তর কাঠামো)
 --------------------------------------------------------------------------------
-A. Verbs taking 'TO' (Transmission / Delivery / Communication):
-   - give, send, lend, pass, pay, promise, show, teach, tell, write, read.
-   - Example: "He lent [his laptop] TO [Swadeep]."
+Ditransitive verbs allow two interchangeable surface syntax structures:
 
-B. Verbs taking 'FOR' (Beneficiary / Creation / Acquisition):
-   - buy, cook, bake, build, choose, find, fetch, order, prepare, make.
-   - Example: "He bought [a laptop] FOR [his brother]."
+STRUCTURE 1: S + V + IO (Recipient) + DO (Entity)
+  • "Swadeep gave [Debangshu: IO] [a book: DO]."
+  • "Tuhina bought [Abhronila: IO] [a laptop: DO]."
 
-2. THE 'EXPLAIN / SUGGEST' NON-DATIVE INVARIANT
+STRUCTURE 2: S + V + DO (Entity) + PREPOSITION + Recipient
+  • "Swadeep gave [a book: DO] TO [Debangshu]."
+  • "Tuhina bought [a laptop: DO] FOR [Abhronila]."
+
+2. PREPOSITION GOVERNANCE: 'TO' vs 'FOR'
 --------------------------------------------------------------------------------
-- High-level Latinate communication verbs NEVER permit the SVOO pattern!
-- Verbs: explain, suggest, describe, announce, confess, introduce, admit, repeat.
-  * Wrong: "He explained me the question." ❌
-  * Right: "He explained the question to me." ✔️
-  * Wrong: "She suggested me a new plan." ❌
-  * Right: "She suggested a new plan to me." ✔️
+A. USE "TO" WITH VERBS OF TRANSFER & COMMUNICATION:
+   • Verbs: give, hand, lend, offer, pass, pay, promise, read, sell, send, show, teach, tell, write.
+   • Example: "He lent his notes TO Swadeep."
 
-3. PRONOUN OBJECT ORDER RULE
+B. USE "FOR" WITH VERBS OF CREATION, PROCUREMENT & SERVICE:
+   • Verbs: bake, build, buy, carve, choose, cook, fetch, find, get, knit, make, order, prepare, save.
+   • Example: "She baked a cake FOR her mentor."
+
+3. THE CRUCIAL LATINATE VERB INVARIANT (মারাত্মক ল্যাটিন ক্রিয়াপদ ফাঁদ)
 --------------------------------------------------------------------------------
-When both objects are pronouns, English mandates:
-  [Verb] + [Direct Object Pronoun] + TO/FOR + [Indirect Object Pronoun]
-  * "Give IT to ME." (Never "Give me it" in formal standard prose).
+Certain verbs of Latin origin describing communication DO NOT allow the SVOO pattern!
+They MANDATE the preposition "TO":
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[X] "Please explain me this lesson" [FATAL BENGALI CALQUE ERROR!].
+[✓] "Please explain this lesson TO ME."
+
+[X] "He suggested me a great idea" [WRONG!].
+[✓] "He suggested a great idea TO ME."
+
+[X] "Describe me the incident" [WRONG!].
+[✓] "Describe the incident TO ME."
+
+* Verbs requiring "TO": explain, describe, suggest, recommend, introduce, announce, confess, mention.
+
+4. SPECIAL DATIVE RULES
+--------------------------------------------------------------------------------
+1. DOUBLE PRONOUN RULE:
+   • When both objects are pronouns ('it' / 'them'), use Structure 2:
+   • "He gave it to me." (Standard & required in formal English).
+
+2. PRINCIPLE OF END-WEIGHT:
+   • Place long/heavy descriptive phrases at the end using the prepositional pattern:
+   • "Sukanta Sir gave the award TO the brilliant student from Barrackpore who scored top marks."
+
+5. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Master the toggle between S-V-IO-DO and S-V-DO-Prep-Recipient.
+[✓] Distinguish 'to' verbs (transfer) from 'for' verbs (creation/service).
+[✓] Never say *'explain me'* or *'suggest me'*; always use 'explain to me' / 'suggest to me'.
+[✓] Apply the double pronoun rule ('give it to me') and End-Weight principle.
 ================================================================================

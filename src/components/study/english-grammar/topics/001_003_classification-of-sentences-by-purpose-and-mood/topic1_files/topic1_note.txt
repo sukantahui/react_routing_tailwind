@@ -1,39 +1,88 @@
 ================================================================================
 ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_003 | TOPIC 1: INTERROGATIVE SENTENCES & INVERSION
+MODULE 001_003 | TOPIC 1: INTERROGATIVE SENTENCES: YES/NO INVERSION VS WH- QUESTIONS
 Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. YES/NO QUESTIONS (SUBJECT-AUXILIARY INVERSION)
+1. CORE STRUCTURAL CLASSIFICATION OF QUESTIONS
 --------------------------------------------------------------------------------
-- Formula: [ AUXILIARY VERB ] + [ SUBJECT ] + [ MAIN VERB ] ... ?
-- Examples:
-  * "He is working." -> "Is he working?"
-  * "They have solved it." -> "Have they solved it?"
-  * "Swadeep codes in Python." -> "Does Swadeep code in Python?" (Dummy 'Does')
-  * "They attended yesterday." -> "Did they attend yesterday?" (Dummy 'Did')
+Interrogative sentences seek information, confirmation, or performative interaction.
+They fall into 4 primary syntactic architectures:
 
-2. WH- INFORMATION QUESTIONS
+A. YES/NO QUESTIONS (POLAR QUESTIONS)
+   * Function: Seeking binary confirmation (True/False, Yes/No).
+   * Formula 1 (With Auxiliary/Modal/Copula Be):
+     [ AUXILIARY / MODAL / COPULAR BE ] + [ SUBJECT ] + [ MAIN VERB ] + ... ?
+     - "Are you studying?" | "Has Swadeep submitted the module?" | "Can you solve this?"
+   * Formula 2 (Simple Present / Simple Past - No Auxiliary):
+     [ DO / DOES / DID ] + [ SUBJECT ] + [ BASE VERB (V1) ] + ... ?
+     - "Do they live in Barrackpore?" | "Did Debangshu attend the seminar?"
+
+B. WH- QUESTIONS (INFORMATION QUESTIONS)
+   * Function: Inquiring about specific entities, places, times, reasons, or methods.
+   * Type 1: Wh- as OBJECT / ADVERBIAL (Mandatory Inversion):
+     [ WH- WORD ] + [ AUXILIARY / DO-OPERATOR ] + [ SUBJECT ] + [ BASE VERB ] + ... ?
+     - "Where do you practice coding?" | "Why did the system crash?"
+   * Type 2: Wh- as SUBJECT (NO Inversion, NO Dummy Do):
+     [ WH- WORD (Subject) ] + [ FINITE VERB ] + [ OBJECT / COMPLEMENT ] + ... ?
+     - "Who developed this algorithm?" (NOT *Who did develop...?)
+
+C. ALTERNATIVE QUESTIONS
+   * Offers closed choices using 'or': "Will you take tea or coffee?"
+
+D. RHETORICAL QUESTIONS
+   * Formulated as questions but functioning as powerful emphatic assertions:
+   * "Who does not desire success?" (= Everyone desires success).
+
 --------------------------------------------------------------------------------
-A. Wh- Word as OBJECT:
-   - Formula: [ Wh- Word ] + [ Auxiliary ] + [ Subject ] + [ Main Verb ] ?
-   - Example: "What did you buy?" / "Where does she live?" / "Why were they late?"
-
-B. Wh- Word as SUBJECT (NO INVERSION!):
-   - Formula: [ Wh- Subject ] + [ Finite Verb ] + [ Object ] ?
-   - Example: "Who wrote this code?" (Never "Who did write this code?").
-
-3. EMBEDDED / INDIRECT QUESTIONS (NO INVERSION!)
+2. WH- OPERATOR CATALOG & INTERROGATIVE FUNCTIONS
 --------------------------------------------------------------------------------
-- In noun clauses following verbs like wonder, ask, know:
-  * Wrong: "I do not know where does he live." ❌
-  * Right: "I do not know where he lives." ✔️
++------------+--------------------+---------------------------------------------+
+| Wh- Word   | Target Inquiry     | Structural Exemplar                         |
++------------+--------------------+---------------------------------------------+
+| Who        | Subject (Person)   | "Who won the top scholarship?"              |
+| Whom       | Object (Person)    | "Whom did you consult at the desk?"         |
+| Whose      | Possessor / Owner  | "Whose code passed the unit test?"          |
+| What       | Entity / Activity  | "What caused the rendering error?"          |
+| Which      | Choice (Restricted)| "Which of these two algorithms is optimal?" |
+| Where      | Location / Place   | "Where is the Barrackpore campus situated?" |
+| When       | Time / Temporal    | "When does the evening batch commence?"     |
+| Why        | Reason / Cause     | "Why did the client request revisions?"     |
+| How        | Manner / Quality   | "How do you optimize bundle size in Vite?"  |
+| How many   | Countable Quantity | "How many students enrolled today?"         |
+| How much   | Uncountable Amount | "How much memory does the cache consume?"   |
+| How often  | Frequency          | "How often do you deploy updates?"          |
+| How long   | Duration / Length  | "How long did the diagnostic exam last?"    |
++------------+--------------------+---------------------------------------------+
 
-4. BENGALI LEARNER PEDAGOGICAL TRAP
 --------------------------------------------------------------------------------
-* Bengali: "তুমি কেন সেখানে গেলে?" (পদক্রম পরিবর্তন হয় না).
-* English Error: "Why you went there?" ❌
-* English Correction: "Why did you go there?" ✔️ (Inversion Mandatory!)
+3. EMBEDDED & INDIRECT QUESTIONS (THE NO-INVERSION RULE)
+--------------------------------------------------------------------------------
+When a question is embedded inside a polite introductory matrix clause:
+- Matrix: "Could you please tell me..." / "Do you know..." / "I wonder..."
+- RULE: The subordinate clause REVERTS TO DECLARATIVE ORDER (Subject + Verb).
+
+INCORRECT: *Could you tell me where is the railway station?
+CORRECT:    Could you tell me where the railway station is?
+
+INCORRECT: *Do you know what time does the train arrive?
+CORRECT:    Do you know what time the train arrives?
+
+--------------------------------------------------------------------------------
+4. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. MISSING AUXILIARY TRAP:
+   * Bengali: "তুমি কাল কেন এলে না?" (No inversion concept in Bengali syntax).
+   * INCORRECT: *Why you did not come yesterday?
+   * CORRECT:    Why didn't you come yesterday? / Why did you not come yesterday?
+
+2. DOUBLE PAST TENSE TRAP:
+   * INCORRECT: *Did you finished the work?
+   * CORRECT:    Did you finish the work? ('did' absorbs the tense; verb stays V1).
+
+3. WH- SUBJECT VS OBJECT TRAP:
+   * Who called you? (Subject question: 'Who' performed the call -> No 'did').
+   * Who did you call? (Object question: 'You' called 'whom' -> Requires 'did').
 
 ================================================================================
 CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR

@@ -12,10 +12,17 @@ import {
   RotateCcw,
   Check,
   Layers,
-  Equal,
-  Sparkle,
+  Split,
+  Compass,
   MessageSquare,
-  ShieldCheck
+  ShieldCheck,
+  Lightbulb,
+  Target,
+  Heart,
+  Terminal,
+  Activity,
+  CheckSquare,
+  Info
 } from "lucide-react";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
@@ -26,32 +33,113 @@ import noteText from "./topic6_files/topic6_note.txt?raw";
 
 export default function Topic6() {
   const [showBengali, setShowBengali] = useState(false);
-  const [selectedTestId, setSelectedTestId] = useState(0);
+  const [selectedExampleIndex, setSelectedExampleIndex] = useState(0);
 
-  const tests = [
+  // 8 Multi-Domain SVOC Examples
+  const svocExamples = [
     {
-      sentence: "The surgeon examined the patient.",
-      type: "Direct Object (SVO Pattern)",
-      formula: "Subject ≠ Entity",
-      proof: "The surgeon and the patient are TWO separate living entities. An action is transferred.",
-      passive: "Possible ('The patient was examined by the surgeon')",
-      proofBn: "সার্জন ও রোগী দুজন সম্পূর্ণ আলাদা ব্যক্তি (Subject ≠ Object), তাই এটি Direct Object।"
+      id: 0,
+      title: "Verbs of Designation / Election (Elect/Appoint/Name)",
+      domain: "Corporate & Civic Leadership",
+      badge: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+      sentence: "The executive board appointed Debangshu lead technical director.",
+      verb: "appointed (Complex-Transitive)",
+      directObject: "Debangshu",
+      objectComplement: "lead technical director (Noun Phrase)",
+      equalityFormula: "Debangshu == lead technical director",
+      passiveTransformation: "Debangshu was appointed lead technical director by the executive board. (SVOC $\rightarrow$ SVC)",
+      analysisBn: "'appointed' Complex-Transitive Verb Direct Object 'Debangshu'-র নতুন পদমর্যাদা প্রকাশ করতে 'lead technical director' Object Complement গ্রহণ করেছে ('as' ব্যবহার করা বাহুল্য)।"
     },
     {
-      sentence: "The patient became impatient.",
-      type: "Subject Complement (SVC Pattern)",
-      formula: "Subject == Quality / State",
-      proof: "'impatient' describes the psychological condition of the exact same subject.",
-      passive: "IMPOSSIBLE (No direct object exists to become passive subject)",
-      proofBn: "'impatient' শব্দটি রোগীর নিজস্ব মানসিক অবস্থা নির্দেশ করছে (Subject == Complement)।"
+      id: 1,
+      title: "Verbs of Resultative Transformation (Paint/Make/Render)",
+      domain: "Civil Engineering & Architecture",
+      badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+      sentence: "The interior decorator painted the entire seminar hall immaculate white.",
+      verb: "painted (Resultative Complex-Transitive)",
+      directObject: "the entire seminar hall",
+      objectComplement: "immaculate white (Adjective Phrase)",
+      equalityFormula: "Hall == immaculate white",
+      passiveTransformation: "The entire seminar hall was painted immaculate white by the decorator.",
+      analysisBn: "'immaculate white' Adjective-টি 'painted' কাজের ফলস্বরূপ হলের নতুন রূপ প্রকাশ করে Object Complement হিসেবে বসেছে।"
     },
     {
-      sentence: "Abhronila is an exceptional researcher.",
-      type: "Subject Complement (Predicate Noun)",
-      formula: "Subject == Identity",
-      proof: "'Abhronila' and 'researcher' refer to the exact same human being.",
-      passive: "IMPOSSIBLE",
-      proofBn: "'Abhronila' এবং 'researcher' একই সত্তা, তাই এটি Predicate Noun Subject Complement।"
+      id: 2,
+      title: "Verbs of Mental Evaluation / Judgement (Consider/Deem/Judge)",
+      domain: "Law & Philosophy",
+      badge: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+      sentence: "The appellate tribunal considered the proposed regulation unconstitutional.",
+      verb: "considered (Cognitive Complex-Transitive)",
+      directObject: "the proposed regulation",
+      objectComplement: "unconstitutional (Adjective)",
+      equalityFormula: "Regulation == unconstitutional",
+      passiveTransformation: "The proposed regulation was considered unconstitutional by the tribunal.",
+      analysisBn: "'considered' Verb Direct Object 'regulation'-এর ওপর বিচারিক মূল্যায়ন প্রকাশ করতে Object Complement 'unconstitutional' নিয়েছে।"
+    },
+    {
+      id: 3,
+      title: "Verbs of State-Altering Causation (Drive/Make/Keep)",
+      domain: "Psychology & Everyday Life",
+      badge: "bg-amber-500/20 text-amber-300 border-amber-500/30",
+      sentence: "The continuous server alarms drove the on-call engineer frantic.",
+      verb: "drove (Causative State Verb)",
+      directObject: "the on-call engineer",
+      objectComplement: "frantic (Adjective of Mental State)",
+      equalityFormula: "Engineer == frantic",
+      passiveTransformation: "The on-call engineer was driven frantic by the continuous server alarms.",
+      analysisBn: "'drove' এখানে গাড়ি চালানো নয়, বরং কর্তার অবস্থা পরিবর্তনকারী Verb; 'frantic' হলো Engineer-এর মানসিক অবস্থা নির্দেশক Object Complement।"
+    },
+    {
+      id: 4,
+      title: "Perception Verb with Bare Infinitive Complement (See/Hear/Watch)",
+      domain: "Aviation & Observation",
+      badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+      sentence: "The air traffic controller watched the supersonic jet land safely on the runway.",
+      verb: "watched (Sensory Complex-Transitive)",
+      directObject: "the supersonic jet",
+      objectComplement: "land safely on the runway (Bare Infinitive Clause Complement)",
+      equalityFormula: "Jet == [land safely]",
+      passiveTransformation: "The supersonic jet was watched TO LAND safely on the runway.",
+      analysisBn: "Active Voice-এ 'watched'-এর পর Bare Infinitive ('land') Object Complement হিসেবে বসে; কিন্তু Passive-এ 'to land' রূপ নেয়।"
+    },
+    {
+      id: 5,
+      title: "Perception Verb with Present Participle Complement (Ongoing Action)",
+      domain: "Classroom Observation",
+      badge: "bg-teal-500/20 text-teal-300 border-teal-500/30",
+      sentence: "Mentor Sukanta Sir observed the programming cohort debugging asynchronous APIs.",
+      verb: "observed",
+      directObject: "the programming cohort",
+      objectComplement: "debugging asynchronous APIs (Participial Phrase Complement)",
+      equalityFormula: "Cohort == [debugging APIs]",
+      passiveTransformation: "The programming cohort was observed debugging asynchronous APIs by Sukanta Sir.",
+      analysisBn: "চলমান কাজের ক্ষেত্রে Present Participle Phrase ('debugging...') Direct Object-এর তাৎক্ষণিক অবস্থা প্রকাশ করতে Object Complement হিসেবে বসে।"
+    },
+    {
+      id: 6,
+      title: "SVOO vs SVOC Contrastive Demonstration (Cake vs Leader)",
+      domain: "Syntactic Ambiguity",
+      badge: "bg-rose-500/20 text-rose-300 border-rose-500/30",
+      sentence: "Contrast: 'I made him a cake' (SVOO: him ≠ cake) vs 'I made him a leader' (SVOC: him == leader).",
+      verb: "made (Ditransitive vs Complex-Transitive)",
+      directObject: "In SVOC: 'him' (DO) + 'a leader' (OC)",
+      objectComplement: "'a leader' (OC in SVOC)",
+      equalityFormula: "SVOO: IO ≠ DO | SVOC: DO == OC",
+      passiveTransformation: "SVOO: A cake was made for him | SVOC: He was made a leader.",
+      analysisBn: "'made him a cake' হলো SVOO (কেক এবং সে দুটি আলাদা জিনিস); কিন্তু 'made him a leader' হলো SVOC (সে নিজেই লিডার হলো: him == leader)।"
+    },
+    {
+      id: 7,
+      title: "Resultative Idiomatic SVOC Expression (Wipe/Knock)",
+      domain: "Sports & Physical Action",
+      badge: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
+      sentence: "The champion boxer knocked his formidable opponent unconscious in the third round.",
+      verb: "knocked (Resultative Complex-Transitive)",
+      directObject: "his formidable opponent",
+      objectComplement: "unconscious (Adjective Result)",
+      equalityFormula: "Opponent == unconscious",
+      passiveTransformation: "His formidable opponent was knocked unconscious in the third round.",
+      analysisBn: "'unconscious' Adjective-টি 'knocked' আঘাতের ফলে প্রতিপক্ষের অচেতন অবস্থা নির্দেশ করে Object Complement হিসেবে বসেছে।"
     }
   ];
 
@@ -70,7 +158,7 @@ export default function Topic6() {
       </style>
 
       <div className="max-w-5xl mx-auto space-y-12">
-        {/* Header with Bilingual Switcher */}
+        {/* Header */}
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-slate-800 p-8 shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -86,14 +174,13 @@ export default function Topic6() {
                 </span>
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Subject Complements & Linking (Copular) Verbs
+                Object Complements & Complex-Transitive Structures (SVOC)
               </h1>
               <p className="text-slate-300 text-base max-w-2xl leading-relaxed">
-                Master the diagnostic Equality Test ($Subject = Complement$). Distinguish between predicate nouns and predicate adjectives following stative, inchoative, and sensory verbs.
+                Deconstruct complex-transitive verbs (appoint, elect, make, consider, paint), the Direct Object == Object Complement equality formula, and passive transformations.
               </p>
             </div>
 
-            {/* Language Switcher */}
             <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
               <span className="text-xs text-slate-400 font-medium flex items-center gap-1.5">
                 <Languages className="w-3.5 h-3.5 text-indigo-400" />
@@ -120,111 +207,129 @@ export default function Topic6() {
               <div>
                 <p className="font-semibold text-emerald-300">বাংলা মাধ্যম শিক্ষার্থীদের জন্য বিশেষ নির্দেশিকা:</p>
                 <p className="text-emerald-200/90 text-xs mt-1 leading-relaxed">
-                  Linking Verb কোনো কাজ করে না; এটি Subject-এর পরিচয় বা গুণ প্রকাশক শব্দের সাথে সংযোগ স্থাপন করে। Subject ও Complement একই ব্যক্তি বা অবস্থা বোঝায় ($Subject = Complement$), তাই এর কোনো Passive Voice হয় না।
+                  <strong>Object Complement:</strong> Complex-Transitive Verb-এর পর Direct Object-এর পরিচয় পুনর্নির্ধারণ বা গুণ প্রকাশ করার জন্য যে শব্দ বসে (যেমন: <em>appointed Debangshu director</em> বা <em>painted the door white</em>)। এখানে Direct Object == Object Complement।
                 </p>
               </div>
             </div>
           )}
         </div>
 
-        {/* The Master Equality Diagnostic Matrix */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-6">
+        {/* ========================================================================= */}
+        {/* IN VERY SIMPLE LANGUAGE: ULTRA-CLEAR EXPLODED BREAKDOWN                   */}
+        {/* ========================================================================= */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/30 to-slate-900 border border-indigo-500/30 shadow-2xl space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
-            <div>
+            <div className="space-y-1">
               <div className="flex items-center gap-2 text-indigo-400 text-xs font-bold uppercase tracking-wider">
-                <Equal className="w-4 h-4" />
-                Diagnostic Equality Workbench
+                <Lightbulb className="w-4 h-4 text-amber-400" />
+                <span>Beginner Friendly · Deep Step-by-Step Intuition</span>
               </div>
-              <h2 className="text-2xl font-bold text-white tracking-tight mt-1">
-                Direct Object vs Subject Complement Proof
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Object Complements in Very Simple Words
               </h2>
+              <p className="text-slate-300 text-sm">
+                An Object Complement is a title badge or paint job given directly to the Direct Object ($DO == OC$).
+              </p>
             </div>
-            <div className="flex gap-2">
-              {tests.map((t, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedTestId(idx)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition ${
-                    selectedTestId === idx
-                      ? "bg-indigo-600 text-white border-indigo-400"
-                      : "bg-slate-950 text-slate-400 border-slate-800 hover:text-white"
-                  }`}
-                >
-                  Proof {idx + 1}
-                </button>
-              ))}
-            </div>
+            <span className="px-3.5 py-1.5 rounded-xl bg-indigo-500/20 text-indigo-300 text-xs font-mono font-bold border border-indigo-500/30 self-start sm:self-auto">
+              Badge for Object ($==$)
+            </span>
           </div>
 
-          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-sm">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-              <span className="text-indigo-300 font-bold">"{tests[selectedTestId].sentence}"</span>
-              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-indigo-500/20 text-indigo-200 border border-indigo-500/30">
-                Formula: {tests[selectedTestId].formula}
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            {/* Model 1: Title/Role Complement */}
+            <div className="p-6 rounded-2xl bg-slate-950/90 border border-pink-500/30 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span className="text-xs font-bold text-pink-400 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                  <Target className="w-4 h-4 text-pink-400" />
+                  1. Object Complement Noun (New Title)
+                </span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 font-mono">
+                  DO == New Title
+                </span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-white">
+                "The board appointed Debangshu team captain."
+              </div>
+
+              <div className="space-y-2.5 text-xs">
+                <div className="p-2.5 rounded-xl bg-blue-950/40 border border-blue-500/30 space-y-1">
+                  <span className="font-bold text-blue-300 font-mono">[The board]</span> $\rightarrow$ SUBJECT (Authority making appointment)
+                </div>
+                <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-1">
+                  <span className="font-bold text-emerald-300 font-mono">[appointed]</span> $\rightarrow$ COMPLEX-TRANSITIVE VERB
+                </div>
+                <div className="p-2.5 rounded-xl bg-purple-950/40 border border-purple-500/30 space-y-1">
+                  <span className="font-bold text-purple-300 font-mono">[Debangshu]</span> $\rightarrow$ DIRECT OBJECT (The person chosen)
+                </div>
+                <div className="p-2.5 rounded-xl bg-pink-950/40 border border-pink-500/30 space-y-1">
+                  <span className="font-bold text-pink-300 font-mono">[team captain]</span> $\rightarrow$ OBJECT COMPLEMENT (Debangshu == team captain)
+                </div>
+              </div>
+
+              {showBengali && (
+                <div className="p-3 rounded-xl bg-pink-950/40 border border-pink-500/30 text-[11px] text-pink-200 leading-relaxed">
+                  <strong>সহজ ভাষায়:</strong> 'team captain' হলো Direct Object 'Debangshu'-র নতুন পদবি। এখানে 'as' ব্যবহার করা সম্পূর্ণ ভুল।
+                </div>
+              )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-                <span className="text-slate-500 block mb-1">Syntactic Classification:</span>
-                <strong className="text-white">{tests[selectedTestId].type}</strong>
+            {/* Model 2: Resultative Adjective Complement */}
+            <div className="p-6 rounded-2xl bg-slate-950/90 border border-emerald-500/30 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                  <Heart className="w-4 h-4 text-emerald-400" />
+                  2. Resultative Adjective (New State)
+                </span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
+                  DO == New State
+                </span>
               </div>
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-                <span className="text-slate-500 block mb-1">Passive Voice Viability:</span>
-                <strong className="text-amber-300">{tests[selectedTestId].passive}</strong>
+
+              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-white">
+                "The students painted the seminar hall bright white."
               </div>
+
+              <div className="space-y-2.5 text-xs">
+                <div className="p-2.5 rounded-xl bg-blue-950/40 border border-blue-500/30 space-y-1">
+                  <span className="font-bold text-blue-300 font-mono">[The students]</span> $\rightarrow$ SUBJECT
+                </div>
+                <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-1">
+                  <span className="font-bold text-emerald-300 font-mono">[painted]</span> $\rightarrow$ VERB
+                </div>
+                <div className="p-2.5 rounded-xl bg-purple-950/40 border border-purple-500/30 space-y-1">
+                  <span className="font-bold text-purple-300 font-mono">[the seminar hall]</span> $\rightarrow$ DIRECT OBJECT (Target)
+                </div>
+                <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-1">
+                  <span className="font-bold text-emerald-300 font-mono">[bright white]</span> $\rightarrow$ OBJECT COMPLEMENT (Hall == bright white)
+                </div>
+              </div>
+
+              {showBengali && (
+                <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-[11px] text-emerald-200 leading-relaxed">
+                  <strong>সহজ ভাষায়:</strong> রং করার পর সেমিনার হলের নতুন রূপ প্রকাশ করছে 'bright white' (Object Complement)।
+                </div>
+              )}
             </div>
 
-            <p className="text-xs text-slate-300 font-sans leading-relaxed">
-              <strong>Grammatical Rationale:</strong> {tests[selectedTestId].proof}
-            </p>
-
-            {showBengali && (
-              <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-emerald-300 flex items-start gap-2 font-sans">
-                <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong>বাংলা যুক্তি:</strong> {tests[selectedTestId].proofBn}</span>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Auxiliary Components */}
-        <div className="space-y-8 pt-4">
-          <FAQTemplate
-            title="Topic 6 Diagnostic Assessment (10 Questions)"
-            questions={questions}
-          />
+        {/* Practice Questions */}
+        <FAQTemplate
+          questions={questions}
+          showBengali={showBengali}
+          title="Topic 6 Diagnostic Assessment"
+        />
 
-          <PlainTextPrint
-            text={noteText}
-            title="Topic 6: Subject Complements & Linking Verbs — Quick Notes"
-          />
+        <PlainTextPrint
+          content={noteText}
+          title="Topic 6: Object Complements & Complex-Transitive Comprehensive Note"
+        />
 
-          <WordDictionary />
-
-          <Teacher
-            note="When you master the Equality Test, you will never confuse a direct object with a subject complement again! — Sukanta Hui"
-          />
-        </div>
-
-        {/* Navigation Footers */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-3xl bg-slate-900 border border-slate-800">
-          <a
-            href="/english-grammar/topic/001_002_sentence-anatomy-subject-predicate-and-objects/5"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Previous: Topic 5 (Ditransitive Positioning)</span>
-          </a>
-
-          <a
-            href="/english-grammar/topic/001_002_sentence-anatomy-subject-predicate-and-objects/7"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-950 transition"
-          >
-            <span>Next: Topic 7 (Object Complements)</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
+        <Teacher />
       </div>
     </div>
   );

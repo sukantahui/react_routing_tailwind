@@ -1,31 +1,70 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_002 | TOPIC 8: THE 7 FUNDAMENTAL SENTENCE PATTERNS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_002: Sentence Anatomy: Subject, Predicate, Objects & Complements
+TOPIC 8: The 7 Fundamental Sentence Patterns (SV, SVO, SVOO, SVC, SVOC, SVA, SVOA)
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE SEVEN FUNDAMENTAL CLAUSE PATTERNS
+1. THE 7 CANONICAL CLAUSE BLUEPRINTS (৭টি মৌলিক বাক্য কাঠামো)
 --------------------------------------------------------------------------------
-1. SV   (Subject + Intransitive Verb)
-   - "The train arrived."
-2. SVO  (Subject + Transitive Verb + Direct Object)
-   - "Swadeep developed a web app."
-3. SVOO (Subject + Ditransitive Verb + Indirect Object + Direct Object)
-   - "Sukanta Sir taught Tuhina English Grammar."
-4. SVC  (Subject + Linking Verb + Subject Complement)
-   - "Abhronila is a brilliant researcher."
-5. SVOC (Subject + Complex-Transitive Verb + Direct Object + Object Complement)
-   - "The committee elected Debangshu team leader."
-6. SVA  (Subject + Intransitive Verb + Obligatory Adverbial)
-   - "The coaching center is located in Barrackpore."
-7. SVOA (Subject + Transitive Verb + Direct Object + Obligatory Adverbial)
-   - "He placed the reference books on the study table."
+Every standard declarative English clause maps directly to one of these 7 patterns:
 
-2. SYNTACTIC SUMMARY
+1. PATTERN 1: SV (Subject + Intransitive Verb)
+   • "Birds fly." / "The students [S] were laughing [V]."
+   • The verb requires no object or complement to make complete sense.
+
+2. PATTERN 2: SVO (Subject + Monotransitive Verb + Direct Object)
+   • "Swadeep [S] designed [V] the algorithm [DO]."
+   • The verb acts directly upon a distinct external object entity.
+
+3. PATTERN 3: SVOO (Subject + Ditransitive Verb + Indirect Object + Direct Object)
+   • "Mentor Sukanta Sir [S] gave [V] Swadeep [IO] the certificate [DO]."
+   • Ditransitive verb transferring an entity to a recipient.
+
+4. PATTERN 4: SVC (Subject + Linking Verb + Subject Complement)
+   • "The seminar [S] was [LV] extraordinarily informative [Predicate Adj]."
+   • "Debangshu [S] became [LV] a software engineer [Predicate Noun]."
+   • Equality / Description: Subject == Subject Complement.
+
+5. PATTERN 5: SVOC (Subject + Complex-Transitive Verb + Direct Object + Object Complement)
+   • "The committee [S] elected [V] Abhronila [DO] chairperson [OC]."
+   • "The mentor [S] painted [V] the door [DO] green [OC]."
+   • Equality / Resultant State: Direct Object == Object Complement.
+
+6. PATTERN 6: SVA (Subject + Verb + Obligatory Adverbial)
+   • "My friend [S] lives [V] in Barrackpore [Locational Adverbial]."
+   • "The ancient monument [S] stands [V] on the hill [A]."
+   • The adverbial is structurally mandatory (sentence is incomplete without it).
+
+7. PATTERN 7: SVOA (Subject + Transitive Verb + Direct Object + Obligatory Adverbial)
+   • "Tuhina [S] put [V] the laptop [DO] on the desk [Locational Adverbial]."
+   • "The officer [S] led [V] the child [DO] to safety [Directional Adverbial]."
+   • Both the direct object and the adverbial complement are mandatory.
+
+2. THE MASTER COMPARISON MATRIX
 --------------------------------------------------------------------------------
-Every grammatical declarative clause in standard English maps to one of these
-7 mathematical blueprints!
+Pattern   Core Formula     Typical Verb Class           Prototypical Example
+--------------------------------------------------------------------------------
+1. SV     S + V            Intransitive (sleep, fly)    "Swadeep coded."
+2. SVO    S + V + DO       Monotransitive (write, buy)  "Tuhina wrote code."
+3. SVOO   S + V + IO + DO  Ditransitive (give, tell)    "He gave me a book."
+4. SVC    S + V + SC       Linking / Copula (be, seem)  "She is brilliant."
+5. SVOC   S + V + DO + OC  Complex-Trans (elect, make)  "They made him leader."
+6. SVA    S + V + A        Locational (live, lie)       "He lives in Kolkata."
+7. SVOA   S + V + DO + A   Placement (put, place)       "She put it in the box."
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+3. BENGALI LEARNER BRIDGES & TRAPS (বাংলা মাধ্যমের সতর্কতা)
+--------------------------------------------------------------------------------
+[X] TRAP 1: Confusing SVOO (He gave me a book) with SVOC (They made him captain).
+    • Test: Me != Book (SVOO). Him == Captain (SVOC).
+
+[X] TRAP 2: Omitting the obligatory adverbial in SVA / SVOA.
+    • *"She put the book"* [INCOMPLETE] -> "She put the book ON THE DESK" [SVOA].
+
+4. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Can instantly classify any sentence into one of the 7 structural patterns.
+[✓] Apply the Equality Test to distinguish SVC (S == SC) and SVOC (DO == OC).
+[✓] Identify obligatory adverbials in SVA and SVOA constructions.
+[✓] Recognize that all complex English prose is synthesized from these 7 archetypes.
 ================================================================================

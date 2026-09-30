@@ -1,28 +1,55 @@
-========================================================================
-MODULE 001_004 | TOPIC 2: WHAT IS A CLAUSE
-========================================================================
-Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004 | TOPIC 2: WHAT IS A CLAUSE? THE SUBJECT + FINITE VERB NEXUS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
 
-1. THE CLAUSE DEFINITION:
-   - A clause is a syntactic unit consisting of a Subject and a Finite Verb (Predication Core).
-   - Formula: Clause = [Subject] + [Finite Verb (+ Objects / Complements / Adverbials)]
+1. THE CLAUSE DEFINITION & CORE NEXUS
+--------------------------------------------------------------------------------
+A Clause is a syntactic construction consisting of a SUBJECT paired with a FINITE VERB:
 
-2. FINITE VERB VS NON-FINITE VERB (THE CRUCIAL TEST):
-   - Finite Verb: Changes form according to Tense, Person, and Number (e.g. goes, went, was writing).
-   - Non-Finite Verb: Does NOT show tense or person (Infinitives: to write; Gerunds/Participles: writing, written).
-   * RULE: A clause MUST have at least ONE Finite Verb.
+                 [ CLAUSE NUCLEUS ]
+                     /        \
+          [ SUBJECT NP ]    [ FINITE VERB PREDICATE ]
+                 |                   |
+              Swadeep            developed (the software)
 
-3. COMPARATIVE TABLE: PHRASE VS CLAUSE
-   ------------------------------------------------------------------------
-   Feature             Phrase                     Clause
-   ------------------------------------------------------------------------
-   Subject-Verb pair   NO                         YES (Mandatory)
-   Finite Verb         NO                         YES
-   Complete Thought    No (fragments of meaning)  Yes (if Independent)
-   Example             "in the morning"           "when morning arrived"
-   ------------------------------------------------------------------------
+* FINITE VERB: Inflected for Tense (Past/Present), Person (1st/2nd/3rd), and Number.
+* NON-FINITE VERB: Infinitives (to do), Gerunds (doing), Participles (done/doing).
+  Non-finite verbs CANNOT anchor a clause alone.
 
-4. BENGALI SUMMARY (বাংলা সংক্ষেপ):
-   - Clause (বাক্যাংশ/উপবাক্য) হল এমন শব্দসমষ্টি যার মধ্যে নিজস্ব Subject এবং সমাপিকা ক্রিয়া (Finite Verb) থাকে।
-   - Non-finite verb (to + verb, verb+ing) কখনো একা Clause গঠন করতে পারে না।
-========================================================================
+--------------------------------------------------------------------------------
+2. PHRASE VS CLAUSE COMPARATIVE MATRIX
+--------------------------------------------------------------------------------
++---+--------------------+------------------------+-----------------------------+
+| # | Feature            | Phrase                 | Clause                      |
++---+--------------------+------------------------+-----------------------------+
+| 1 | Subject + Verb     | NO                     | YES (Mandatory)             |
+| 2 | Finite Verb        | Absent                 | Present                     |
+| 3 | Completeness       | Partial meaning        | Complete or dependent thought|
+| 4 | Exemplar           | "in the morning"       | "when the morning arrived"  |
+| 5 | Participial Variant| "Seeing the mentor"    | "When he saw the mentor"    |
++---+--------------------+------------------------+-----------------------------+
+
+--------------------------------------------------------------------------------
+3. CLAUSE COUNTING RULE
+--------------------------------------------------------------------------------
+Number of Clauses in a sentence  ===  Number of Finite Verbs.
+
+Example: "The student [1: who won the award] [2: is studying] at Barrackpore."
+- Finite Verb 1: 'won' (Past tense) -> Clause 1
+- Finite Verb 2: 'is studying' (Present continuous) -> Clause 2
+- Total: 2 Clauses (Complex Sentence).
+
+--------------------------------------------------------------------------------
+4. BENGALI LEARNER BRIDGES & EXAM TRAPS
+--------------------------------------------------------------------------------
+1. FINITE VS NON-FINITE BENGALI PARALLELS:
+   * সমাপিকা ক্রিয়া (Finite Verb): "পড়ল", "শিখছে", "যাবে" -> Clause তৈরি করে।
+   * অসমাপিকা ক্রিয়া (Non-finite Verb): "পড়ে", "শিখতে", "দেখে" -> Phrase তৈরি করে।
+   * "পড়ে [Non-finite] সে বাড়ি গেল [Finite]" -> "Having read, he went home" (1 Clause).
+   * "যখন সে পড়ল [Finite], সে বাড়ি গেল [Finite]" -> "When he read, he went home" (2 Clauses).
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

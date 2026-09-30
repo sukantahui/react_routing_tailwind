@@ -1,30 +1,50 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 8: MODULE 001_001 CAPSTONE SELF-ASSESSMENT
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 8: Grand Capstone Diagnostic & Master Assessment Summary
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. MODULE 001_001 REVISION CHECKLIST
+1. MODULE 001_001 MASTER REVISION CAPSULE (সারসংক্ষেপ)
 --------------------------------------------------------------------------------
-[x] 1. Open Classes (Nouns, Lexical Verbs, Adjectives, Adverbs) vs Closed Classes.
-[x] 2. Form vs Function: Context dictates parts of speech, not spelling.
-[x] 3. Noun Families & Syntactic duties (Subject, Direct/Indirect Object, Complement).
-[x] 4. Pronoun Classifications & Case Harmony (Nominative vs Objective).
-[x] 5. Finite vs Non-Finite Verbs; Transitive vs Intransitive vs Copular Verbs.
-[x] 6. Attributive vs Predicative Adjectives (afraid, asleep = Predicative only).
-[x] 7. The Royal M-P-T Adverb Sequence (Manner -> Place -> Time).
-[x] 8. Prepositions (governing Objective case) vs Conjunctions (FANBOYS / Subordinators).
-[x] 9. Autonomous Interjections expressing spontaneous emotion.
+• THE 8 PARTS OF SPEECH (Function dictates form):
+  1. NOUN: Names entities, persons, places, concepts, states (Subject/Object/Comp).
+  2. PRONOUN: Nominal substitute (Personal, Relative, Demonstrative, Reflexive, Distributive).
+  3. VERB: Temporal engine & predication (Lexical, Linking, Auxiliary, Modal).
+  4. ADJECTIVE: Nominal qualifier (Attributive vs Predicative; OSASCOMP order).
+  5. ADVERB: Action & degree modifier (Manner, Time, Place, Frequency, Degree; MPT order).
+  6. PREPOSITION: Spatial, temporal & causal relator (+ Objective case nominal).
+  7. CONJUNCTION: Clause synthesizer (FANBOYS coordinators, Subordinators, Correlatives).
+  8. INTERJECTION: Independent emotive markers (Joy, grief, surprise, praise).
 
-2. GOLDEN FORMULA RECAP
+• OPEN vs CLOSED CLASSES:
+  - Open: Noun, Lexical Verb, Adjective, Adverb (Infinite, content-rich, coinages).
+  - Closed: Pronoun, Preposition, Conjunction, Determiner, Auxiliary (~300 items).
+
+• FORM vs FUNCTION TRUTHS:
+  - 'Water' = Noun ("drink water"), Verb ("water plants"), Adjective ("water pipe").
+  - 'Fast'  = Adjective ("fast car"), Adverb ("run fast"; NEVER *"fastly"*), Noun ("a fast").
+  - 'Round' = Adjective ("round table"), Noun ("doctor's round"), Verb ("round the bend"), Preposition ("round the sun").
+  - 'Before'= Preposition ("before noon"), Conjunction ("before you leap"), Adverb ("never seen before").
+
+2. THE TOP 5 BENGALI LEARNER TRAPS ELIMINATED (৫টি প্রধান ফাঁদ নিরসন)
 --------------------------------------------------------------------------------
-- Noun + '-ly' = ADJECTIVE (Friendly, Lovely, Cowardly).
-- Adjective + '-ly' = ADVERB (Quickly, Diligently, Beautifully).
-- Sensory Verbs (taste, smell, look) + SUBJECT COMPLEMENT ADJECTIVE.
-- Preposition + OBJECTIVE PRONOUN ("between you and me").
+1. ZERO COPULA: "He ill" [WRONG] -> "He IS ill" [CORRECT].
+2. STATIVE VERBS: "I am understanding" [WRONG] -> "I understand" [CORRECT].
+3. FLAT ADVERBS: "He runs fastly" [WRONG] -> "He runs fast" [CORRECT].
+4. PREPOSITION CASE: "Between you and I" [WRONG] -> "Between you and ME" [CORRECT].
+5. CORRELATIVE MISMATCH: "No sooner had he come when..." [WRONG] -> "...THAN" [CORRECT].
 
-================================================================================
-CONGRATULATIONS ON COMPLETING MODULE 001_001!
-NEXT STEP: MODULE 001_002 (SENTENCE ANATOMY: SUBJECT, PREDICATE & OBJECTS)
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+3. NEXT MODULE TRANSITION: MODULE 001_002
+--------------------------------------------------------------------------------
+Congratulations on completing Module 001_001! You have established an unshakeable 
+foundation in word classification and functional syntax. 
+
+Next Module: `001_002_sentence-anatomy-subject-predicate-and-objects`
+Focus: Complete subjects, simple vs compound predicates, ditransitive verbs, 
+direct vs indirect objects, subject complements, object complements, and the 
+7 fundamental sentence patterns (SV, SVO, SVOO, SVC, SVOC, SVA, SVOA).
+
+"Grammar is pure logic. When your foundation is rock-solid, advanced composition 
+ flows with elegance, precision, and commanding authority." — Sukanta Hui
 ================================================================================

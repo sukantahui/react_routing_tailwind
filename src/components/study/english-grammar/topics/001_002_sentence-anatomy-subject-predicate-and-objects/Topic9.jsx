@@ -1,205 +1,237 @@
-import React, { useState } from "react";
-import {
-  BookOpen,
-  Sparkles,
-  CheckCircle2,
-  AlertTriangle,
-  HelpCircle,
-  ArrowRight,
-  ArrowLeft,
-  Languages,
-  Zap,
-  RotateCcw,
-  Check,
-  Layers,
-  Award,
-  GitBranch,
-  ShieldCheck,
-  MessageSquare,
-  GraduationCap,
-  User
-} from "lucide-react";
-import FAQTemplate from "../../../common/FAQTemplate";
-import PlainTextPrint from "../../../common/PlainTextPrint";
-import Teacher from "../../../common/TeacherSukantaHui";
-import WordDictionary from "../../../../../common/WordDictionary";
-import questions from "./topic9_files/topic9_questions";
-import noteText from "./topic9_files/topic9_note.txt?raw";
+import React, { useState } from 'react';
+import FAQTemplate from '../../template/FAQTemplate';
+import Teacher from '../../Teacher';
+import PlainTextPrint from '../../PlainTextPrint';
+import { topic9Questions } from './topic9_files/topic9_questions';
 
-export default function Topic9() {
-  const [showBengali, setShowBengali] = useState(false);
+const Topic9 = () => {
+  const [activeTab, setActiveTab] = useState('simple');
+  const [showBengali, setShowBengali] = useState(true);
+  const [selectedTree, setSelectedTree] = useState(0);
+
+  const explodedTokens = [
+    {
+      title: "Master Sentence Dissection (Hierarchical Tree Breakdown)",
+      badge: "Deep Hierarchy",
+      badgeColor: "bg-teal-500/20 text-teal-300 border-teal-500/40",
+      sentence: "The dedicated research team eagerly demonstrated their breakthrough algorithm to the international board yesterday.",
+      parts: [
+        { label: "Complete Subject (NP)", token: "The dedicated research team", color: "border-sky-500 bg-sky-950/40 text-sky-300", desc: "Head noun 'team' with determiner 'The' and pre-modifiers 'dedicated research'" },
+        { label: "Adverbial of Manner", token: "eagerly", color: "border-amber-500 bg-amber-950/40 text-amber-300", desc: "Pre-verbal manner adjunct" },
+        { label: "Finite Lexical Verb", token: "demonstrated", color: "border-purple-500 bg-purple-950/40 text-purple-300", desc: "Past tense transitive action core" },
+        { label: "Direct Object (NP)", token: "their breakthrough algorithm", color: "border-emerald-500 bg-emerald-950/40 text-emerald-300", desc: "Target entity receiving demonstration (Demonstrated what?)" },
+        { label: "Prepositional Recipient", token: "to the international board", color: "border-rose-500 bg-rose-950/40 text-rose-300", desc: "Prepositional phrase recipient (Demonstrated to whom?)" },
+        { label: "Adverbial of Time", token: "yesterday", color: "border-cyan-500 bg-cyan-950/40 text-cyan-300", desc: "Temporal adjunct answering 'when?'" }
+      ],
+      queryTest: "Complete Predicate: 'eagerly demonstrated their breakthrough algorithm to the international board yesterday'.",
+      proofTest: "Clause Core: [Team] + [demonstrated] + [algorithm] (SVO). All other branches are recursive adverbial/prepositional modifiers.",
+      bnNote: "যেকোনো জটিল বাক্যকে প্রথমে Subject এবং Predicate-এ ভাগ করতে হয়, তারপর Head Noun, Verb, Object এবং Adverbial মডিফায়ারে বিশ্লিষ্ট করতে হয়।"
+    }
+  ];
+
+  const treeData = [
+    {
+      title: "Sentence: 'The brilliant astronomer discovered a distant galaxy.'",
+      tree: [
+        { level: "ROOT: S (Clause)", detail: "Complete Sentence Structure" },
+        { level: "├── NP (Subject)", detail: "The brilliant astronomer (Det: The | Adj: brilliant | Noun: astronomer)" },
+        { level: "└── VP (Predicate)", detail: "discovered a distant galaxy" },
+        { level: "    ├── V (Verb Core)", detail: "discovered (Past tense transitive verb)" },
+        { level: "    └── NP (Direct Object)", detail: "a distant galaxy (Det: a | Adj: distant | Noun: galaxy)" }
+      ]
+    },
+    {
+      title: "Sentence: 'The chief engineer considered the structural design completely flawless.'",
+      tree: [
+        { level: "ROOT: S (Clause)", detail: "Complex Transitive Clause (SVOC)" },
+        { level: "├── NP (Subject)", detail: "The chief engineer (Det: The | Mod: chief | Head: engineer)" },
+        { level: "└── VP (Predicate)", detail: "considered the structural design completely flawless" },
+        { level: "    ├── V (Verb Core)", detail: "considered (Complex Transitive)" },
+        { level: "    ├── NP (Direct Object)", detail: "the structural design" },
+        { level: "    └── AdjP (Object Complement)", detail: "completely flawless (Design == flawless)" }
+      ]
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 py-10 px-4 sm:px-6 lg:px-8 font-sans">
-      <style>
-        {`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
-          }
-        `}
-      </style>
-
-      <div className="max-w-5xl mx-auto space-y-12">
-        {/* Header with Bilingual Switcher */}
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-slate-800 p-8 shadow-2xl">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                  Segment 1 · Foundations
-                </span>
-                <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  Module 001_002 · Topic 9 (Capstone)
-                </span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Classroom Dialogue & Visual Sentence Tree Diagnostics
-              </h1>
-              <p className="text-slate-300 text-base max-w-2xl leading-relaxed">
-                Step into the mentoring lab with Sukanta Sir. Deconstruct hierarchical syntactic sentence trees and master the diagnostic resolution of high-frequency exam traps.
-              </p>
-            </div>
-
-            {/* Language Switcher */}
-            <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
-              <span className="text-xs text-slate-400 font-medium flex items-center gap-1.5">
-                <Languages className="w-3.5 h-3.5 text-indigo-400" />
-                Language Explanation
+    <div className="min-h-screen bg-slate-950 text-slate-100 p-4 md:p-8 font-sans">
+      <div className="max-w-6xl mx-auto space-y-8">
+        
+        {/* Header */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-950/60 via-slate-900 to-indigo-950/60 p-6 md:p-8 border border-teal-500/30 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-teal-500/20 text-teal-300 border border-teal-500/40">
+                Topic 001_002_09
               </span>
-              <button
-                type="button"
-                onClick={() => setShowBengali(!showBengali)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 border shadow-lg ${
-                  showBengali
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-emerald-400/50 shadow-emerald-950/50 ring-2 ring-emerald-500/20"
-                    : "bg-slate-900/90 text-slate-300 border-slate-700 hover:border-slate-600 hover:text-white"
-                }`}
-              >
-                <Languages className={`w-4 h-4 transition-transform duration-300 ${showBengali ? "rotate-180 text-white" : "text-indigo-400"}`} />
-                <span>{showBengali ? "বাংলা ব্যাখ্যা সক্রিয় (Active)" : "বাংলা ব্যাখ্যা দেখুন (Toggle বাংলা)"}</span>
-              </button>
-            </div>
-          </div>
-
-          {showBengali && (
-            <div className="mt-6 p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-200 text-sm flex items-start gap-3 animate-fade-in">
-              <Sparkles className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-emerald-300">মডিউল ২ চূড়ান্ত সিনট্যাক্স ল্যাব নির্দেশিকা:</p>
-                <p className="text-emerald-200/90 text-xs mt-1 leading-relaxed">
-                  মডিউল 001_002-এর সমাপনী এই টপিকে সেন্টেন্স ট্রি ডায়াগ্রামের মাধ্যমে বাক্যের অভ্যন্তরীণ হায়ারার্কি এবং শিক্ষক-শিক্ষার্থীর বাস্তব প্রশ্নোত্তর নিয়ে আলোচনা করা হয়েছে।
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Visual Tree Card */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-xl space-y-6">
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <GitBranch className="w-6 h-6 text-indigo-400" />
-            <h2 className="text-xl font-bold text-white">Hierarchical Sentence Tree Architecture</h2>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-indigo-200 space-y-3 overflow-x-auto">
-            <div className="text-center font-bold text-amber-300 pb-2 border-b border-slate-800">
-              S [SENTENCE CLAUSE]
-            </div>
-            <div className="grid grid-cols-2 gap-6 text-center">
-              <div className="p-4 rounded-xl bg-blue-950/30 border border-blue-500/30 space-y-2">
-                <span className="font-bold text-blue-300 block">NP [SUBJECT]</span>
-                <p className="text-white text-xs">"The young scholar from Barrackpore"</p>
-                <div className="text-[11px] text-slate-400 pt-1 border-t border-slate-800">
-                  Head Noun: <strong>scholar</strong>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30 space-y-2">
-                <span className="font-bold text-emerald-300 block">VP [PREDICATE]</span>
-                <p className="text-white text-xs">"developed a brilliant web application"</p>
-                <div className="text-[11px] text-slate-400 pt-1 border-t border-slate-800">
-                  Verb: <strong>developed</strong> | DO: <strong>application</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Classroom Dialogue */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-6">
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <MessageSquare className="w-6 h-6 text-indigo-400" />
-            <h2 className="text-xl font-bold text-white">Socratic Dialogue: Sukanta Sir & Barrackpore Cohort</h2>
-          </div>
-
-          <div className="space-y-4 text-sm">
-            <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
-              <div className="flex items-center gap-2 text-xs font-bold text-blue-400">
-                <User className="w-3.5 h-3.5" />
-                <span>Swadeep (Student):</span>
-              </div>
-              <p className="text-slate-200">
-                "Sir, why is <em>'The coffee tastes bitterly'</em> wrong when coffee genuinely tastes bitter?"
+              <h1 className="text-2xl md:text-4xl font-extrabold text-white mt-2 tracking-tight">
+                Sentence Anatomy Workbench, Trees & Socratic Diagnostic Lab
+              </h1>
+              <p className="text-slate-400 text-sm md:text-base mt-1">
+                The ultimate synthesis: Parsing syntactic tree hierarchies, testing boundaries, and solving deep structural puzzles.
               </p>
             </div>
-
-            <div className="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/30 space-y-1 ml-4 sm:ml-8">
-              <div className="flex items-center gap-2 text-xs font-bold text-emerald-400">
-                <GraduationCap className="w-4 h-4" />
-                <span>Sukanta Sir (Mentor):</span>
-              </div>
-              <p className="text-slate-100">
-                "Because coffee is not actively tasting with a physical tongue, Swadeep! <em>'Tastes'</em> here is a <strong>Sensory Copular Verb</strong>. Linking verbs require a Subject Complement Adjective describing the coffee's quality: <em>'The coffee tastes <strong>bitter</strong>'</em> (SVC pattern)!"
-              </p>
-            </div>
+            <button
+              onClick={() => setShowBengali(!showBengali)}
+              className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/30 text-xs font-medium transition-all shadow-md"
+            >
+              {showBengali ? '🇧🇩 Hide Bengali' : '🇧🇩 Show Bengali'}
+            </button>
           </div>
         </div>
 
-        {/* Auxiliary Components */}
-        <div className="space-y-8 pt-4">
-          <FAQTemplate
-            title="Module 001_002 Diagnostic Assessment (10 Questions)"
-            questions={questions}
-          />
-
-          <PlainTextPrint
-            text={noteText}
-            title="Module 001_002: Sentence Tree & Diagnostics — Quick Notes"
-          />
-
-          <WordDictionary />
-
-          <Teacher
-            note="Hearty congratulations on mastering all 10 topics of Module 001_002! You have acquired the structural blueprint of English syntax. Ready for Module 001_003! — Sukanta Hui"
-          />
+        {/* Navigation Tabs */}
+        <div className="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+          {['simple', 'trees', 'socratic', 'mcq'].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                activeTab === tab
+                  ? 'bg-teal-500 text-slate-950 shadow-lg shadow-teal-500/25'
+                  : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white'
+              }`}
+            >
+              {tab === 'simple' && '⚡ Master Dissection'}
+              {tab === 'trees' && '🌳 Syntactic Parse Trees'}
+              {tab === 'socratic' && '🎓 Socratic Workshop'}
+              {tab === 'mcq' && '📝 Practice MCQ (25+)'}
+            </button>
+          ))}
         </div>
 
-        {/* Navigation Footers */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-3xl bg-slate-900 border border-slate-800">
-          <a
-            href="/english-grammar/topic/001_002_sentence-anatomy-subject-predicate-and-objects/8"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Previous: Topic 8 (The 7 Sentence Patterns)</span>
-          </a>
+        {/* Tab 1: Master Dissection */}
+        {activeTab === 'simple' && (
+          <div className="space-y-6">
+            <div className="bg-gradient-to-r from-teal-950/40 via-slate-900 to-indigo-950/40 p-5 rounded-2xl border border-teal-500/30">
+              <h2 className="text-lg font-bold text-teal-300 flex items-center gap-2">
+                <span>🔬</span> Complete Syntactic X-Ray of Complex Clauses
+              </h2>
+              <p className="text-slate-300 text-sm mt-1 leading-relaxed">
+                Break down any multi-word sentence into its atomic grammatical tokens: NP Subject, Finite Verb, Direct Object, Indirect Object/Recipient, and Adverbial Adjuncts.
+              </p>
+              {showBengali && (
+                <div className="mt-3 p-3 rounded-xl bg-teal-950/30 border border-teal-500/20 text-xs text-teal-200">
+                  🇧🇩 <strong>সহজ কথায়:</strong> বাক্যের প্রতিটি শব্দগুচ্ছের নিজস্ব স্থান ও ভূমিকা থাকে। বড় বাক্যকে পার্ট-বাই-পার্ট খণ্ড করে দেখলে ব্যাকরণ অত্যন্ত স্বচ্ছ হয়ে ওঠে।
+                </div>
+              )}
+            </div>
 
-          <a
-            href="/english-grammar/module/001_003_classification-of-sentences-by-purpose-and-mood"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-semibold shadow-lg shadow-emerald-950 transition"
-          >
-            <span>Proceed to Module 001_003</span>
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
+            <div className="grid grid-cols-1 gap-6">
+              {explodedTokens.map((item, idx) => (
+                <div key={idx} className="bg-slate-900/90 rounded-2xl p-6 border border-slate-800 shadow-xl space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+                    <h3 className="font-bold text-white text-base md:text-lg">{item.title}</h3>
+                    <span className={`text-xs px-2.5 py-1 rounded-full font-medium border ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
+                  </div>
+
+                  {/* Sentence Banner */}
+                  <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-center font-mono text-teal-300 text-sm md:text-base font-bold tracking-wide">
+                    "{item.sentence}"
+                  </div>
+
+                  {/* Exploded Tokens */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {item.parts.map((p, pIdx) => (
+                      <div key={pIdx} className={`p-3.5 rounded-xl border ${p.color} flex flex-col justify-between`}>
+                        <div>
+                          <span className="text-[10px] font-black uppercase tracking-wider block opacity-75">{p.label}</span>
+                          <span className="text-sm font-bold block mt-0.5">{p.token}</span>
+                        </div>
+                        <p className="text-xs opacity-90 mt-2">{p.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Diagnostic Tests */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-xs">
+                    <div className="p-3 rounded-xl bg-sky-950/30 border border-sky-500/20 text-sky-300">
+                      <strong>🔍 Predicate Scope:</strong> {item.queryTest}
+                    </div>
+                    <div className="p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-emerald-300">
+                      <strong>⚖️ Structural Backbone:</strong> {item.proofTest}
+                    </div>
+                  </div>
+
+                  {showBengali && (
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
+                      🇧🇩 {item.bnNote}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Tab 2: Syntactic Parse Trees */}
+        {activeTab === 'trees' && (
+          <div className="space-y-6">
+            <div className="flex gap-2">
+              {treeData.map((td, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSelectedTree(i)}
+                  className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                    selectedTree === i
+                      ? 'bg-teal-500 text-slate-950 border-teal-400 font-bold shadow-md'
+                      : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
+                  }`}
+                >
+                  Tree Example {i + 1}
+                </button>
+              ))}
+            </div>
+
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-4">
+              <h3 className="font-bold text-teal-300 text-base">{treeData[selectedTree].title}</h3>
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs md:text-sm space-y-2">
+                {treeData[selectedTree].tree.map((node, nIdx) => (
+                  <div key={nIdx} className="flex flex-wrap items-baseline gap-2">
+                    <span className="text-teal-400 font-bold">{node.level}</span>
+                    <span className="text-slate-400">➔</span>
+                    <span className="text-slate-200">{node.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Tab 3: Socratic Workshop */}
+        {activeTab === 'socratic' && (
+          <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4">
+            <h3 className="font-bold text-white text-lg flex items-center gap-2">
+              <span>🎓</span> Socratic Dialogue: Final Module Mastery with Sukanta Sir
+            </h3>
+            <div className="space-y-3 text-sm">
+              <div className="p-3 rounded-xl bg-teal-950/40 border border-teal-500/30 text-teal-200">
+                <strong>Swadeep:</strong> "Sir, we have mastered Subject, Predicate, Direct/Indirect Objects, Complements, and Adverbials. What is the ultimate takeaway?"
+              </div>
+              <div className="p-3 rounded-xl bg-indigo-950/40 border border-indigo-500/30 text-indigo-200">
+                <strong>Sukanta Sir:</strong> "The ultimate rule is: Meaning flows from syntactic form. Every word has a precise syntactic duty. Identify the Verb Core first, find who governs it (Subject), ask what receives it (Object) or equates with it (Complement), and separate all decorative scenery (Adverbials)!"
+              </div>
+              <div className="p-3 rounded-xl bg-purple-950/40 border border-purple-500/30 text-purple-200">
+                <strong>Debangshu & Abhronila:</strong> "Understood, Sir! We can now dissect and diagnose any sentence with 100% precision."
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Tab 4: MCQ */}
+        {activeTab === 'mcq' && (
+          <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <FAQTemplate title="Topic 9: Sentence Anatomy Workbench, Trees & Socratic Diagnostic Lab" questions={topic9Questions} />
+          </div>
+        )}
+
+        <Teacher />
+        <PlainTextPrint />
       </div>
     </div>
   );
-}
+};
+
+export default Topic9;

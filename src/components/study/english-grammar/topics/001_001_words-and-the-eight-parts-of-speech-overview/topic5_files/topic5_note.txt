@@ -1,42 +1,56 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 5: PREPOSITIONS, CONJUNCTIONS & INTERJECTIONS
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 5: Overview of Prepositions, Conjunctions & Interjections
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. PREPOSITIONS (THE SYNTACTIC RELATORS)
+1. THE SYNTACTIC CONNECTORS & EMOTIVE MARKERS (সংযোজক ও আবেগ প্রকাশক পদ)
 --------------------------------------------------------------------------------
-- Function: Links nominals (Noun/Pronoun/Gerund) to other clause components.
-- Case Requirement: Pronouns after prepositions MUST be in the Objective Case:
-  * "Between you and me" ✔️ (Never "between you and I" ❌).
-- State vs Motion:
-  * In (Static location) vs Into (Dynamic interior motion).
-  * On (Static surface) vs Onto (Dynamic upward/surface motion).
+1. PREPOSITIONS (The Spatial, Temporal & Causal Relators)
+   • Role: Places a nominal entity into relationship with another word.
+   • Mandatory Rule: Must be followed by a nominal object in Objective Case ("with him", "between you and me").
+   • Classification: Simple (in, on, at), Compound (in front of, according to), Phrasal (by dint of).
+   • Distinction:
+     - Preposition: "He left after 5 PM." (Followed by Noun object)
+     - Conjunction: "He left after the class ended." (Followed by full Clause)
 
-2. CONJUNCTIONS (THE SYNTACTIC BINDERS)
+2. CONJUNCTIONS (The Clause Synthesizers & Discourse Logic)
+   • Coordinating (FANBOYS): For, And, Nor, But, Or, Yet, So (Joins equals).
+   • Subordinating: Although, because, since, unless, provided that (Joins dependent to main).
+   • Correlative: Pairs requiring strict Syntactic Parallelism:
+     - Either... or
+     - Neither... nor
+     - Not only... but also
+     - No sooner... than (NEVER 'when'!)
+     - Hardly / Scarcely... when (NEVER 'than'!)
+
+3. INTERJECTIONS (The Emotive Exclamations)
+   • Stand outside syntactic clause structure; express immediate human emotion.
+   • Examples: Joy (Hurrah!, Bravo!), Grief (Alas!, Ah!), Pain (Ouch!), Attention (Hark!, Hush!).
+
+2. BENGALI LEARNER BRIDGES & HIGH-FREQUENCY TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-A. Coordinating (FANBOYS):
-   - For, And, Nor, But, Or, Yet, So.
-   - Joins independent units of equal grammatical weight.
-B. Subordinating:
-   - because, although, since, unless, if, while, whereas.
-   - Subordinates a dependent clause to a main matrix clause.
-C. Correlative Pairs:
-   - either... or, neither... nor, not only... but also, both... and.
-   - Enforces strict PARALLELISM in structure.
+[X] TRAP 1: "Despite of"
+    - Bengali: "বৃষ্টি সত্ত্বেও"
+    - English: "Despite heavy rain" OR "In spite of heavy rain" (NEVER *"Despite of"*).
 
-3. INTERJECTIONS (THE EMOTIVE MARKERS)
+[X] TRAP 2: Correlative Conjunction Mismatches
+    - "No sooner had he arrived WHEN..." [WRONG] -> "No sooner had he arrived THAN..." [CORRECT].
+    - "Hardly had we begun THAN..." [WRONG] -> "Hardly had we begun WHEN..." [CORRECT].
+
+[X] TRAP 3: Beside vs Besides
+    - Beside  = Next to ("Sit beside me").
+    - Besides = In addition to ("Besides coding, he plays violin").
+
+[X] TRAP 4: Double Negative with 'Unless'
+    - "Unless you do not work hard" [WRONG: 'Unless' already means 'If not'].
+    - "Unless you work hard" [CORRECT].
+
+3. ESSENTIAL REVISION CHECKLIST
 --------------------------------------------------------------------------------
-- Function: Spontaneous emotive bursts (Joy, Grief, Wonder, Disgust).
-- Grammatically autonomous: Alas!, Hurrah!, Bravo!, Ouch!, Eureka!
-
-4. BENGALI LEARNER PEDAGOGICAL COMPARISON
---------------------------------------------------------------------------------
-* বাংলা ভাষায় অনুসর্গ বা বিভক্তি (যেমন: 'ঘরে', 'টেবিলের ওপর') শব্দের পরে বসে;
-  ইংরেজিতে Preposition সর্বদা শব্দের পূর্বে বসে (যেমন: 'in the room', 'on the table')।
-* 'Before' / 'After' এর পর শুধু Noun থাকলে তা Preposition, কিন্তু পূর্ণাঙ্গ Clause 
-  (Subject + Verb) থাকলে তা Conjunction।
-
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] Memorize the 7 FANBOYS coordinating conjunctions.
+[✓] Master the Correlative Conjunction pairs (No sooner... than, Hardly... when).
+[✓] Ensure parallelism with 'Not only... but also' (equal parts of speech).
+[✓] Distinguish Point of time ('since 2020') from Period of time ('for 5 years').
 ================================================================================

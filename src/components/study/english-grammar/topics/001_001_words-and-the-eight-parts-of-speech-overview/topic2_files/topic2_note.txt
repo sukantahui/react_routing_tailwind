@@ -1,50 +1,69 @@
 ================================================================================
-ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
-MODULE 001_001 | TOPIC 2: FORM VS FUNCTION
-Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+CODER & ACCOTAX - ENGLISH GRAMMAR MASTER ROADMAP
+MODULE 001_001: Words & The Eight Parts of Speech Overview
+TOPIC 2: Form vs Function — Multi-Functional Words in English Syntax
+Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
-1. THE GOLDEN SYNTACTIC LAW
+1. THE GOLDEN SYNTACTIC PRINCIPLE (ফর্ম বনাম ফাংশন)
 --------------------------------------------------------------------------------
-"Never categorize a word in isolation. Look at the work it does in the sentence."
-A single orthographic form can shift across 3 to 5 different parts of speech 
-depending on its structural environment.
+In English, a word NEVER has a static, unchangeable Part of Speech in isolation.
+"It is not what a word looks like, but what work it does in a sentence that 
+ determines its Part of Speech." — Sukanta Hui
 
-2. MULTI-FUNCTIONAL WORD SHOWCASE
+2. HIGH-FREQUENCY MULTI-FUNCTION WORD CATALOG
 --------------------------------------------------------------------------------
-A. WATER:
-   - Noun:       "Drink fresh water daily." (Object Noun)
-   - Verb:       "Water the saplings in the nursery." (Action Verb)
-   - Adjective:  "Swadeep bought a water bottle." (Noun-Adjunct Modifier)
+WORD: "WATER"
+  • Noun:      "Drink clean water daily." (Object / Substance)
+  • Verb:      "Water the saplings in the garden." (Action of irrigating)
+  • Adjective: "Install a heavy-duty water pipe." (Noun-adjunct modifier)
 
-B. FAST:
-   - Adjective:  "This is a fast train to Howrah." (Qualifying 'train')
-   - Adverb:     "He ran fast to board the bus." (Modifying 'ran')
-   - Noun:       "They observed a strict fast." (Object Noun)
-   - Verb:       "Devotees fast during the celebration." (Action Verb)
+WORD: "FAST"
+  • Adjective: "This is a fast train to Howrah." (Modifies noun 'train')
+  • Adverb:    "He ran fast to catch the bus." (Modifies verb 'ran'; NEVER 'fastly'!)
+  • Noun:      "She broke her 24-hour fast." (Abstinence from food)
+  • Verb:      "Devotees fast during religious festivals." (Action of fasting)
 
-C. ROUND:
-   - Adjective:  "A large round conference table." (Qualifying 'table')
-   - Noun:       "The doctor made the night round." (Circuit / Tour)
-   - Verb:       "The bus rounds the corner." (Transitive Action)
-   - Preposition:"The planets revolve round the sun." (Spatial Relator)
-   - Adverb:     "Come round to my office tomorrow." (Particle Adverb)
+WORD: "ROUND"
+  • Adjective:   "We sat around a round table." (Geometric shape)
+  • Noun:        "The doctor made his morning round." (Inspection circuit)
+  • Verb:        "The vehicles round the curve safely." (Action of passing)
+  • Preposition: "The earth revolves round the sun." (Spatial relator)
+  • Adverb:      "Come round to my office this evening." (Directional particle)
 
-D. BUT:
-   - Conjunction:"Tuhina tried hard, but missed the deadline." (Coordinating)
-   - Preposition:"All attended the meeting but Swadeep." (Meaning 'except')
-   - Adverb:     "Life is but an empty dream." (Meaning 'only / merely')
-   - Relative:   "There is no one but wishes him well." (Negative Relative)
+WORD: "BEFORE"
+  • Preposition: "He submitted the report before 5 PM." (+ Nominal Object)
+  • Adverb:      "I have never visited Barrackpore before." (Modifies verb; stands alone)
+  • Conjunction: "Look before you leap." (+ Subordinate clause with subject & verb)
 
-3. EXAM TRAPS FOR BENGALI-MEDIUM STUDENTS
+WORD: "BUT"
+  • Conjunction: "He worked hard, but he failed." (FANBOYS contrast)
+  • Preposition: "All but Debangshu arrived." (Means 'except')
+  • Adverb:      "He is but a beginner." (Means 'only' / 'merely')
+
+WORD: "WELL"
+  • Noun:        "The village well has dried up." (Water source)
+  • Adverb:      "Swadeep solved the algorithm well." (Modifies action 'solved')
+  • Adjective:   "The patient is now completely well." (Subject complement: healthy)
+  • Interjection:"Well! That was an unexpected outcome." (Emotive discourse marker)
+
+3. BENGALI LEARNER BRIDGE & TRAPS (বাংলা মাধ্যমের সতর্কতা)
 --------------------------------------------------------------------------------
-* Trap 1: Assuming all words ending in '-ly' are adverbs.
-  - "He speaks friendly" ❌ -> "He speaks in a friendly manner" ✔️
-  - ('friendly', 'lovely', 'lonely', 'cowardly' are ADJECTIVES!)
+[X] TRAP 1: Assuming words ending in '-ly' are always adverbs.
+    - 'Friendly', 'lonely', 'lovely', 'brotherly', 'manly', 'cowardly' are ADJECTIVES!
+    - "He behaved friendly" [INCORRECT] -> "He behaved in a friendly manner" [CORRECT].
 
-* Trap 2: Inventing nonexistent forms like "fastly".
-  - "He drove fastly" ❌ -> "He drove fast" ✔️
+[X] TRAP 2: Using 'fastly'.
+    - "Fastly" DOES NOT EXIST in standard English. 'Fast' is both adjective and adverb.
 
-================================================================================
-CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+[✓] METHOD OF IDENTIFICATION:
+    1. Look at the word's neighbours (articles, prepositions, helping verbs).
+    2. Ask: Does it name? (Noun) Does it act? (Verb) Does it describe? (Adj) 
+       Does it specify manner/time/place? (Adv) Does it connect? (Prep / Conj).
+
+4. ESSENTIAL REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Can demonstrate 'water', 'fast', 'round', 'before', 'but', and 'well' in 3+ roles.
+[✓] Know how to distinguish Preposition (needs object) from Subordinating Conjunction (needs clause).
+[✓] Recognize flat adverbs ('fast', 'hard', 'late') without creating artificial '-ly' words.
 ================================================================================
