@@ -1,0 +1,31 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 2: QUESTION TAGS & POLARITY RULES
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE POLARITY DYNAMICS OF QUESTION TAGS
+--------------------------------------------------------------------------------
+- Positive Statement -> Negative Tag:
+  "Swadeep is a software engineer, [isn't he]?"
+- Negative Statement -> Positive Tag:
+  "Tuhina does not skip classes, [does she]?"
+
+2. HIGH-FREQUENCY EXCEPTION REPOSITORY
+--------------------------------------------------------------------------------
+1. "I am" -> aren't I? (e.g. "I am late, aren't I?").
+2. "Let's" -> shall we? (e.g. "Let's begin the exam, shall we?").
+3. Imperatives -> will you? / won't you? (e.g. "Close the door, will you?").
+4. Semi-Negative Words (hardly, seldom, rarely, barely, scarcely, neither, few, little)
+   -> REQUIRE POSITIVE TAGS:
+   * "She seldom speaks in public, [does she]?" ✔️
+   * "There is little water in the tank, [is there]?" ✔️
+5. Indefinite Pronouns (Everyone, Somebody, Nobody) -> Plural Tag Pronoun 'THEY':
+   * "Nobody came, [did they]?" ✔️
+   * "Everyone was thrilled, [weren't they]?" ✔️
+6. Introductory 'There' -> Repeats 'there':
+   * "There is a server error, [isn't there]?" ✔️
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

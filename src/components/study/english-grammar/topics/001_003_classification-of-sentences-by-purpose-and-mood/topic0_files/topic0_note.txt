@@ -1,0 +1,72 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003: CLASSIFICATION OF SENTENCES BY PURPOSE & COMMUNICATIVE MOOD
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE FIVE COMMUNICATIVE SENTENCE CATEGORIES
+--------------------------------------------------------------------------------
+1. ASSERTIVE / DECLARATIVE (Making Statements / Facts):
+   - Affirmative: "Swadeep studies computer science."
+   - Negative:    "Tuhina does not neglect her revisions."
+   - Punctuation: Period (.)
+
+2. INTERROGATIVE (Asking Questions):
+   - Wh- Questions (Information): "Where is the coaching center located?"
+   - Yes/No Questions (Inversion): "Did you complete the assignment?"
+   - Question Tags (Confirmation): "You are coming, aren't you?"
+   - Rhetorical Questions (Effect): "Who does not desire happiness?"
+   - Punctuation: Question Mark (?)
+
+3. IMPERATIVE (Commands, Requests, Advice, Proposals):
+   - Command / Order: "Stand up immediately!"
+   - Polite Request:  "Please pass the dictionary."
+   - Advice:          "Always double-check your calculations."
+   - Proposal / Sug.: "Let us analyze the problem together."
+   - Subject: Implied second-person '[You]'.
+   - Punctuation: Period (.) or Exclamation Mark (!).
+
+4. EXCLAMATORY (Sudden Emotion / Wonder / Grief / Joy):
+   - "What a spectacular goal!"
+   - "How gracefully she recited the poem!"
+   - Punctuation: Exclamation Mark (!).
+
+5. OPTATIVE (Wishes, Prayers, Blessings, Curses):
+   - "May God bless you with prosperity!"
+   - "Long live the Republic!" (Implied 'May').
+   - Punctuation: Exclamation Mark (!) or Period (.).
+
+2. MASTER QUESTION TAG MATRIX (POLARITY SHIFT RULES)
+--------------------------------------------------------------------------------
++--------------------+----------------------+-------------------+--------------+
+| Statement Type     | Main Sentence        | Correct Tag       | Rule Logic   |
++--------------------+----------------------+-------------------+--------------+
+| Positive Statement | "He is ready."       | ", isn't he?"     | Pos -> Neg   |
+| Negative Statement | "He is not ready."   | ", is he?"        | Neg -> Pos   |
+| 'I am' Special     | "I am correct."      | ", aren't I?"     | Amn't is null|
+| 'Let's' Proposal   | "Let's begin."       | ", shall we?"     | Fixed tag    |
+| Imperative Request | "Help me."           | ", will you?"     | Request tag  |
+| Negative Imperative| "Don't move."        | ", will you?"     | Pos tag      |
+| Negative Pronouns  | "Nobody called."     | ", did they?"     | Plural they  |
+| Inanimate Pronouns | "Nothing happened."  | ", did it?"       | Singular it  |
+| Semi-Negatives     | "She seldom speaks." | ", does she?"     | Positive tag |
+| Introductory There | "There is time."     | ", isn't there?"  | Echo 'there' |
++--------------------+----------------------+-------------------+--------------+
+
+3. BENGALI LEARNER PEDAGOGICAL BRIDGES (বাংলা মাধ্যম শিক্ষার্থীদের জন্য)
+--------------------------------------------------------------------------------
+* Trap 1: Bengali Question Tag Translation
+  - Bengali colloquial: "তুমি যাবে, তাই তো?"
+  - Common Mistake: "You will go, is it?" ❌
+  - Correct English: "You will go, WON'T YOU?" ✔️
+
+* Trap 2: Indirect Question Inversion Error
+  - Incorrect: "He asked me where DID I live." ❌
+  - Correct:   "He asked me where I LIVED." ✔️
+  - Rule: Subordinate noun clauses in indirect questions follow Declarative
+    word order (Subject + Verb), never Inverted order!
+
+================================================================================
+MEMORY SLOGAN: "Positive statement -> Negative tag; Negative statement -> Positive tag!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

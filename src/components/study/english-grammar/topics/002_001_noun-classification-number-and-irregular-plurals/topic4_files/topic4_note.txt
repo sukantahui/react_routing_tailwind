@@ -1,0 +1,79 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 4: Collective Nouns: Singular vs Plural Concord (Noun of Multitude)
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS A COLLECTIVE NOUN?
+--------------------------------------------------------------------------------
+A Collective Noun is the name given to a group of persons, animals, or things spoken of as a single combined whole.
+Examples: Jury, Committee, Team, Army, Fleet, Crowd, Mob, Council, Board, Family, Audience, Parliament, Government, Class, Crew, Flock, Herd.
+
+2. THE DUAL CONCORD RULE (UNITARY WHOLE VS NOUN OF MULTITUDE)
+--------------------------------------------------------------------------------
+The most crucial grammatical mechanic governing collective nouns is that their grammatical number (Singular vs Plural) depends strictly upon the INTENDED SENSE of unity or division in the context:
+
+RULE A: UNITARY WHOLE (COLLECTIVE NOUN STRICTO SENSU)
+• When the collection of individuals acts unanimously, collectively, or as one single body:
+  - It governs a SINGULAR VERB.
+  - It takes a SINGULAR PRONOUN ('it', 'its', 'which').
+• Examples:
+  1. The jury HAS reached its unanimous verdict.
+  2. The committee HAS decided to adopt the new policy.
+  3. The team IS celebrating its victory on the field.
+  4. The family LIVES in a quiet suburban cottage.
+
+RULE B: NOUN OF MULTITUDE (INDIVIDUALS ACTING SEPARATELY)
+• When the individual members composing the collection are thought of distinctly, are divided in opinion, or are acting independently on their own:
+  - It governs a PLURAL VERB.
+  - It takes a PLURAL PRONOUN ('they', 'them', 'their', 'who').
+• Examples:
+  1. The jury WERE divided in their opinions.
+  2. The committee ARE quarrelling among themselves over funding.
+  3. The crew WERE taking their respective positions across the deck.
+  4. The orchestra WERE tuning their individual instruments before the show.
+
+3. PRONOUN-VERB HARMONY TRAP (THE CARDINAL RULE)
+--------------------------------------------------------------------------------
+NEVER MIX SINGULAR VERBS WITH PLURAL PRONOUNS, OR VICE VERSA!
+
+❌ INCORRECT (Mixed Discord): 
+   "The committee has decided to submit their report."
+   (Violation: Singular 'has' mixed with plural 'their').
+
+✔ CORRECT (Pure Singular Harmony):
+   "The committee has decided to submit its report."
+
+❌ INCORRECT (Mixed Discord):
+   "The team are taking its seats."
+   (Violation: Plural 'are' mixed with singular 'its').
+
+✔ CORRECT (Pure Plural Harmony):
+   "The team are taking their seats."
+
+4. CATALOG OF HIGH-FREQUENCY COLLECTIVE NOUN EXAMPLES
+--------------------------------------------------------------------------------
+Noun         Unitary Singular (Acts as 1)                Noun of Multitude (Members separate)
+--------------------------------------------------------------------------------
+Jury         The jury has delivered its verdict.         The jury were divided in their votes.
+Committee    The committee has approved the budget.      The committee are arguing among themselves.
+Crew         The rescue crew is well-trained.            The crew were leaping into their lifeboats.
+Audience     The audience was silent in anticipation.    The audience were clapping their hands.
+Family       The family owns a heritage home.            My family have different political views.
+Government   The government has passed the bill.         The government are divided on tax reforms.
+Board        The board of directors is convening today.  The board have cast their private ballots.
+
+5. BILINGUAL COMPARATIVE NOTES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• বাংলা ভাষায় সমষ্টিবাচক বিশেষ্যের সাথে আমরা সাধারণত একবচনের ক্রিয়া প্রয়োগ করি (যেমন: "কমিটি সিদ্ধান্ত নিয়েছে", "জুরি রায় দিয়েছে")।
+• কিন্তু ইংরেজিতে যখন কমিটির সদস্যরা পরস্পরের সাথে ঝগড়া করে বা ভিন্ন ভিন্ন মতামত দেয়, তখন ইংরেজি ব্যাকরণে তাকে 'Noun of Multitude' বলে এবং সেখানে বহুবচনের ক্রিয়া (Plural Verb) ও Pronoun ('their') বসানো বাধ্যতামূলক।
+• উদাহরণ:
+  - ঐক্যবদ্ধ সিদ্ধান্ত: The jury has given its verdict. (জুরি সর্বসম্মত রায় দিয়েছে)
+  - মতবিরোধ: The jury were divided in their opinions. (জুরি সদস্যদের মধ্যে মতভেদ দেখা দিয়েছিল)
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

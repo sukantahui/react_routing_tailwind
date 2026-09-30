@@ -1,0 +1,134 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 003.003: ADVERB TYPES, FORMATION & POSITIONING RULES (MPT)
+================================================================================
+
+1. WHAT IS AN ADVERB? (SYNTACTIC SCOPE)
+--------------------------------------------------------------------------------
+An adverb is a modifier that adds descriptive precision to:
+  1. A VERB:                 "She spoke ELOQUENTLY."
+  2. AN ADJECTIVE:           "The tea is EXTREMELY hot."
+  3. ANOTHER ADVERB:         "He ran VERY quickly."
+  4. A PREPOSITIONAL PHRASE: "The bird flew RIGHT over the roof."
+  5. A COMPLETE CLAUSE:      "FORTUNATELY, nobody was injured."
+
+
+2. THE 7 FUNCTIONAL CLASSES OF ADVERBS
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| CLASS             | DEFINING QUESTION          | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| 1. Manner         | How? In what way?          | quickly, softly, bravely,   |
+|                   |                            | beautifully, well, fast     |
++-------------------+----------------------------+-----------------------------+
+| 2. Place          | Where? In what direction?  | here, there, everywhere,    |
+|                   |                            | forward, outside, upstairs  |
++-------------------+----------------------------+-----------------------------+
+| 3. Time           | When? At what point?       | now, yesterday, soon, late, |
+|                   |                            | already, recently, today    |
++-------------------+----------------------------+-----------------------------+
+| 4. Frequency      | How often?                 | always, never, often, rarely|
+|                   |                            | seldom, usually, frequently |
++-------------------+----------------------------+-----------------------------+
+| 5. Degree/Quantity| How much? To what extent?  | very, extremely, quite, too,|
+|                   |                            | enough, almost, nearly      |
++-------------------+----------------------------+-----------------------------+
+| 6. Reason/Purpose | Why? On what grounds?      | therefore, hence, thus, why |
++-------------------+----------------------------+-----------------------------+
+| 7. Sentence/Disjunct| Speaker's perspective on | fortunately, obviously,     |
+|                   | the entire situation       | certainly, honestly         |
++-------------------+----------------------------+-----------------------------+
+
+
+3. FLAT ADVERBS VS DIVERGENT '-LY' PAIRS (EXAM TRAPS!)
+--------------------------------------------------------------------------------
+Flat adverbs maintain the identical form as their adjectives. Adding '-ly' 
+creates an entirely different word with a divergent meaning:
+
++-------------+-------------------------------+--------------------------------+
+| BASE / FLAT | MEANING & EXAMPLE             | DIVERGENT '-LY' FORM & MEANING |
++-------------+-------------------------------+--------------------------------+
+| HARD        | With great effort / energy    | HARDLY: Scarcely / Almost not  |
+|             | "He works HARD."              | "He HARDLY works." (Lazy)      |
++-------------+-------------------------------+--------------------------------+
+| LATE        | Behind schedule / after time  | LATELY: Recently / in recent   |
+|             | "He arrived LATE."            | "I haven't seen him LATELY."   |
++-------------+-------------------------------+--------------------------------+
+| NEAR        | Close in physical space       | NEARLY: Almost / closely       |
+|             | "Come NEAR."                  | "He NEARLY crashed the car."   |
++-------------+-------------------------------+--------------------------------+
+| DIRECT      | Straight without stopping     | DIRECTLY: Immediately / at once|
+|             | "Fly DIRECT to London."       | "I will call you DIRECTLY."    |
++-------------+-------------------------------+--------------------------------+
+| HIGH        | Great physical altitude       | HIGHLY: Deeply / very much     |
+|             | "The kite flew HIGH."         | "A HIGHLY praised scholar."    |
++-------------+-------------------------------+--------------------------------+
+| FAST        | High speed (Flat Adverb only) | [NO SUCH WORD AS 'FASTLY']     |
+|             | "He drives FAST."             |                                |
++-------------+-------------------------------+--------------------------------+
+
+
+4. THE THREE SENTENCE POSITIONS OF ADVERBS
+--------------------------------------------------------------------------------
+  A. FRONT POSITION (Opening sentence):
+     - Connecting adverbs & Sentence adverbs:
+       "SUDDENLY, the lights went out."
+       "FORTUNATELY, the backup generator started."
+
+  B. MID POSITION (Central predicate):
+     - Frequency, degree, and focus adverbs:
+       Rule 1: BEFORE single lexical main verbs:
+               "She ALWAYS arrives on time."
+       Rule 2: AFTER the verb 'to be' (am/is/are/was/were):
+               "He is NEVER late."
+       Rule 3: AFTER the FIRST auxiliary verb in multi-word verb phrases:
+               "She has ALWAYS been praised for her honesty."
+
+  C. END POSITION (Post-verbal):
+     - Manner, place, and definite time adverbs:
+       "He spoke softly."
+       "We met in Delhi yesterday."
+
+
+5. THE ROYAL ORDER OF ADVERBS: MPT (MANNER -> PLACE -> TIME)
+--------------------------------------------------------------------------------
+When multiple adverbial modifiers appear together at the end of a clause, 
+they follow the MPT sequence:
+
+  [1] MANNER (How)  ->  [2] PLACE (Where)  ->  [3] TIME (When)
+
+  CANONICAL MASTER EXAMPLES:
+  * "She sang BEAUTIFULLY (Manner) IN THE AUDITORIUM (Place) YESTERDAY (Time)."
+  * "The troops marched VALIANTLY (Manner) INTO THE CITY (Place) AT DAWN (Time)."
+
+
+6. THE DELICATE PLACEMENT OF 'ONLY' (7 MEANINGS)
+--------------------------------------------------------------------------------
+'Only' modifies the exact constituent immediately following it:
+  1. ONLY he told me that he loved her.       (Nobody else told me)
+  2. He ONLY told me that he loved her.       (He merely told me, didn't write)
+  3. He told ONLY me that he loved her.       (He told no other person)
+  4. He told me ONLY that he loved her.       (He stated nothing else)
+  5. He told me that ONLY he loved her.       (Nobody else loved her)
+  6. He told me that he ONLY loved her.       (He merely loved, didn't marry)
+  7. He told me that he loved ONLY her.       (He loved no other woman)
+
+
+7. CRITICAL SYNTACTIC PROHIBITIONS & IDIOMS
+--------------------------------------------------------------------------------
+  RULE 1: NEVER Separate Transitive Verb from Direct Object
+    * INCORRECT: He closed quietly the door.
+    * CORRECT:   He closed the door quietly. / He quietly closed the door.
+
+  RULE 2: Special Position of 'ENOUGH'
+    * Adverb of Degree: Follows adjective/adverb -> "tall ENOUGH", "fast ENOUGH"
+    * Determiner/Adjective: Precedes noun        -> "ENOUGH money", "ENOUGH time"
+
+  RULE 3: Standard Negative Correlative Pairs
+    * Standard: "He seldom OR never makes a mistake." (Absolute negation)
+    * Standard: "He seldom IF ever makes a mistake." (Conditional rarity)
+    * INCORRECT: He seldom or ever makes a mistake. (Fatal exam error!)
+
+================================================================================
+END OF STUDY NOTES - MODULE 003.003
+================================================================================

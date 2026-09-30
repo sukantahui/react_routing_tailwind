@@ -1,0 +1,68 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 9: Nouns Plural in Form but Singular in Meaning
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. CORE CONCEPT & S-TERMINATION INVARIANTS
+--------------------------------------------------------------------------------
+A substantial category of English nouns end in the letter '-s' (borrowed from Greek '-ics' or Old French), creating the visual illusion of plurality. However, they represent a SINGLE entity, discipline, game, or medical condition, and strictly govern a SINGULAR VERB.
+
+2. THE 4 MAIN CATEGORIES
+--------------------------------------------------------------------------------
+
+CATEGORY A: ACADEMIC DISCIPLINES & SCIENCES (-ics)
+• Mathematics: Mathematics IS the queen of sciences.
+• Physics: Quantum physics IS fascinating.
+• Politics: Politics IS a complex arena.
+• Economics: Economics DEALS with resource allocation.
+• Ethics: Ethics IS a branch of philosophy.
+• Statistics (as a science): Statistics IS taught in university.
+• Linguistics: Linguistics IS the scientific study of language.
+• Phonetics: Phonetics IS concerned with speech sounds.
+• Civics: Civics IS essential for informed citizenship.
+• Mechanics: Classical mechanics IS based on Newton's laws.
+
+* CRITICAL COMPETITIVE EXAM EXCEPTION (THE POSSESSIVE/DETERMINER RULE):
+  When these nouns are preceded by a POSSESSIVE PRONOUN ('his', 'her', 'my', 'their') or the definite article 'the', they CEASE to represent the general academic science. Instead, they denote practical calculation skills, moral conduct, or empirical figures, and govern a PLURAL VERB:
+  - Discipline: "Mathematics IS an exact science."
+  - Calculations: "His mathematics ARE shockingly poor." (His calculation abilities)
+  - Discipline: "Politics IS a demanding profession."
+  - Opinions/Affairs: "The politics of the region ARE highly volatile."
+  - Science: "Statistics IS an analytical subject."
+  - Data points: "The statistics REVEAL a 10% rise in unemployment."
+  - Philosophy: "Ethics IS studied in universities."
+  - Moral standards: "His business ethics ARE highly questionable."
+
+CATEGORY B: DISEASES ENDING IN '-s'
+• Measles: Measles IS highly infectious.
+• Mumps: Mumps CAUSES swelling of salivary glands.
+• Rickets: Rickets IS caused by Vitamin D deficiency.
+• Shingles: Shingles IS a painful nerve condition.
+• Rabies: Rabies IS a fatal viral disease.
+
+CATEGORY C: GAMES & RECREATION ENDING IN '-s'
+• Billiards: Billiards IS played with cues on a green baize table.
+• Darts: Darts IS a popular pub game in Britain.
+• Dominoes: Dominoes IS a tile-based strategy game.
+• Draughts (Checkers): Draughts IS played on a checkered board.
+• Bowls: Lawn bowls IS a precision sport.
+
+CATEGORY D: MISCELLANEOUS SINGULAR NOUNS IN '-s'
+• News: No news IS good news. (Uncountable mass noun).
+• Innings: India won by an innings and 20 runs. ('Innings' is identical in singular & plural).
+• Gallows: The gallows WAS erected outside the prison walls.
+• Summons: A court summons WAS served on the defendant. (Plural is 'summonses').
+
+3. BILINGUAL COMPARATIVE NOTES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• বাংলা ভাষায় বিষয় বা শাস্ত্রের নাম সর্বদা একবচন (যেমন: "গণিত একটি কঠিন বিষয়", "পদার্থবিদ্যা বিজ্ঞানীদের আকৃষ্ট করে")।
+• ইংরেজিতে Mathematics, Physics, News, Politics-এর শেষে 's' থাকলেও এরা একক বিষয় বা সংবাদ বোঝায়, তাই এদের পরে Singular Verb ('is', 'was', 'has') বসে।
+• তবে যদি বলা হয় "তার অঙ্কের হিসাবগুলো ভুল" (His mathematics are wrong) বা "তার রাজনৈতিক উদ্দেশ্যগুলি বিপজ্জনক" (His politics are dangerous)—তখন Possessive Determiner থাকার কারণে এরা Plural Verb গ্রহণ করে।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

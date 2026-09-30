@@ -1,0 +1,123 @@
+================================================================================
+                    ZERO-TO-EXPERT ENGLISH GRAMMAR MASTERCLASS
+       SEGMENT 9: MECHANICS, ORTHOGRAPHY, AND SYNTACTIC PRECISION
+        MODULE 009_003: SPOTTING ERRORS & SENTENCE CORRECTION LAB
+================================================================================
+Bilingual Reference Notes for Bengali Students (English Terms Preserved)
+
+--------------------------------------------------------------------------------
+1. THE 10-POINT DIAGNOSTIC SCANNER PROTOCOL (পরীক্ষার নির্ভুল স্ক্যানিং পদ্ধতি)
+--------------------------------------------------------------------------------
+When analyzing any sentence correction or error-spotting problem in competitive
+exams (SSC, Banking, WBCS, CDS, UPSC, IELTS), scan sequentially using this
+10-point checklist:
+
+STEP 1: SUBJECT-VERB CONCORD (কর্তা ও ক্রিয়ার অন্বয়)
+- Find the true grammatical head subject (ignore intervening prepositional phrases).
+  * "The quality [of these apples] IS superior." (Subject = quality, singular).
+- Proximity Rule: Either...or, Neither...nor, Not only...but also -> verb agrees with the CLOSER subject.
+- Intervening Additives: As well as, along with, together with, with, in addition to -> verb agrees strictly with the FIRST subject.
+- Indefinite Distributives: Each, every, either, neither, one of -> take SINGULAR verbs.
+
+STEP 2: TENSE SEQUENCE & TEMPORAL ANCHORS (কাল ও সময়ের ধারাবাহিকতা)
+- Past narrative must not mix present tenses without temporal shifts.
+- Dual Past Actions with 'before/after/when':
+  * Earlier past action = Past Perfect (had + V3).
+  * Later past action = Simple Past (V2).
+- Stative Verbs of cognition, emotion, perception, and possession NEVER take continuous (-ing) tenses.
+- 'Since' Conjunction Rule: [Present Perfect] + since + [Simple Past] ("5 years have passed since I saw him").
+
+STEP 3: PRONOUN CASE & ANTECEDENT HARMONY (সর্বনাম ও পূর্বপদের সামঞ্জস্য)
+- Prepositions govern OBJECTIVE case: "Between you and me" (NOT 'you and I').
+- Complement of linking 'be' verb in formal grammar: "It is I" / "If I were he".
+- Distributive Antecedents: "Each student must submit his/her work" (NOT 'their' in strict prescriptive exams).
+- Politeness Order: 2-3-1 for pleasant/neutral acts ("You, he, and I were selected"); 1-2-3 for confessions/blame ("I, you, and he made the mistake").
+
+STEP 4: MODIFIERS & THE DANGLING PARTICIPLE TRAP (অসংলগ্ন বিশেষণ পদ)
+- An introductory participial or modifier phrase must logically modify the SUBJECT immediately following the comma.
+  * [X] "Walking in the garden, a snake bit him." (The snake was walking? ERROR!)
+  * [✓] "Walking in the garden, HE was bitten by a snake." OR "While HE was walking..."
+
+STEP 5: PARALLELISM & COORDINATION (সমান্তরাল বাক্যরীতি)
+- Items in a series, comparisons, or connected by FANBOYS/correlatives must share identical grammatical forms.
+  * [X] "She likes swimming, to jog, and books."
+  * [✓] "She likes swimming, jogging, and reading."
+- Correlative Balancers: 'Not only...but also', 'Either...or', 'Neither...nor' must precede identical parts of speech.
+
+STEP 6: PREPOSITIONAL SUPERFLUITY & COLLOCATION (অনুপযুক্ত প্রিপজিশন)
+- Transitive verbs taking DIRECT objects without prepositions:
+  * discuss (NOT discuss about), describe (NOT describe about), investigate (NOT investigate into),
+  * order (NOT order for), reach (NOT reach to), resemble (NOT resemble to), attack (NOT attack on),
+  * enter (NOT enter into a room, though 'enter into an agreement' is figurative).
+- Fixed Gerund Collocations: 'With a view to', 'look forward to', 'used to', 'addicted to' + V4 (-ing).
+
+STEP 7: REDUNDANCY & PLEONASMS (দ্বিরুক্তি ও অনাবশ্যক শব্দবর্জন)
+- Eliminating tautological repetition (see full catalog in Section 2).
+
+STEP 8: CONDITIONAL CLAUSE INVARIANTS (শর্তযুক্ত বাক্যের অলঙ্ঘনীয় সূত্র)
+- Zero Conditional: If + Present, Present (Facts).
+- Type 1: If + Simple Present, will/can/may + V1. (Never use 'will' in the If-clause!).
+- Type 2: If + Simple Past (were/V2), would/could/might + V1.
+- Type 3: If + Past Perfect (had + V3), would have + V3. (Never 'would have' in the If-clause!).
+
+STEP 9: ADVERB INVERSION & NEGATIVE FRONTING (নেতিবাচক ক্রিয়াপদের বিপরীত ক্রম)
+- When negative or restrictive adverbs begin a sentence (Hardly, Scarcely, Seldom, Rarely, Barely, No sooner, Little, Under no circumstances):
+  * Structure: [Negative Adverb] + [Auxiliary Verb] + [Subject] + [Main Verb]...
+  * "No sooner HAD I ARRIVED than..."
+  * "Hardly HAD SHE SPOKEN when..."
+
+STEP 10: COMPARATIVES, SUPERLATIVES & EXCLUSION (তুলনামূলক ভুল)
+- Double comparatives are illegal: "more better" -> "better".
+- Self-exclusion with 'other' in comparative degree:
+  * "He is taller than any other boy in the class" (Must include 'other'!).
+- Latin Comparatives ending in -or (senior, junior, superior, inferior, prior, preferable):
+  * Take 'TO', NEVER 'than' ("senior to me", NOT "senior than me").
+
+--------------------------------------------------------------------------------
+2. THE TOP 15 PLEONASTIC REDUNDANCIES (পরীক্ষায় সর্বাধিক আসা দ্বিরুক্তি)
+--------------------------------------------------------------------------------
+Incorrect Redundancy             Correct Standard English      Reasoning
+--------------------------------------------------------------------------------
+1. Repeat again                  Repeat / Say again            'Re-' already means again.
+2. Return back                   Return / Go back              'Return' implies going back.
+3. Revert back                   Revert / Reply                'Revert' means return/reply.
+4. Reason because...             Reason why... / Reason is that 'Reason' already conveys cause.
+5. Cope up with                  Cope with                     'Cope' means deal successfully.
+6. Discuss about                 Discuss                       'Discuss' = talk about.
+7. Enter into the room           Enter the room                'Enter' = come into.
+8. Blend together                Blend / Mix                   'Blend' inherently combines.
+9. Mutual agreement between both Agreement / Mutual agreement  'Mutual' already implies both.
+10. Final conclusion             Conclusion                    A conclusion is inherently final.
+11. Past history                 History                       History is inherently in the past.
+12. Free gift                    Gift                          A gift is inherently free.
+13. Unexpected surprise          Surprise                      A surprise is inherently unexpected.
+14. Advance reservation          Reservation                   Reservations are always in advance.
+15. Flee away                    Flee                          'Flee' = run away.
+
+--------------------------------------------------------------------------------
+3. INDIAN ENGLISH (L1) INTERFERENCE TRAPS & CORRECTIONS
+--------------------------------------------------------------------------------
+Subcontinental / Bengali Habit    Standard Formal English       Grammatical Explanation
+--------------------------------------------------------------------------------
+"He passed out from college."    "He graduated from college."  'Pass out' = faint/lose consciousness.
+"I am having a headache."        "I have a headache."          Sensory/bodily states are stative.
+"He is my cousin brother."       "He is my cousin."            'Cousin' has no gender suffix.
+"Do the needful."                "Please take necessary action." Archaic British colonial idiom.
+"Let us prepone the meeting."    "Reschedule earlier / advance." 'Prepone' is informal Indian English.
+"Sleep is coming." (ঘুম পাচ্ছে)  "I feel sleepy / I am drowsy." Direct L1 conceptual translation.
+"Open/Close the fan."            "Turn on/off the fan."        Appliance switches require on/off.
+"Cut the phone."                 "Hang up / disconnect."       Telephony requires 'hang up'.
+"He gave a speech." (লেকচার দেওয়া) "He delivered a lecture."   High-register collocation.
+
+--------------------------------------------------------------------------------
+4. BENGALI EXPLANATORY SUMMARY (বাংলা ব্যাকরণিক নির্দেশিকা)
+--------------------------------------------------------------------------------
+- Spotting Errors হলো ইংরেজি ব্যাকরণের সমগ্র জ্ঞানের সম্মিলিত প্রয়োগ। 
+- বাংলায় "আমার ঠান্ডা লাগছে" বা "তার জ্বর আসছে" মতো বাক্য ইংরেজিতে Stative Verb দিয়ে প্রকাশ করতে হয় ("I have a cold", "He has a fever")। continuous tense (is coming / is having) ব্যবহার করা বিরাট ভুল।
+- Preposition-এর ক্ষেত্রে মনে রাখবেন: discuss, describe, investigate, resemble, order ইত্যাদি ক্রিয়ার পর কোনো preposition বসে না।
+- 'With a view to' এবং 'Look forward to'-এর 'to' একটি preposition, তাই এদের পর Verb-এর সাথে '-ing' (Gerund) যোগ করা বাধ্যতামূলক।
+- পরীক্ষায় কোনো বাক্যে 'Not only...but also' দেখলে সাথে সাথে উভয়ের পরের পদ লক্ষ্য করুন—একটি Noun হলে অন্যটিও Noun হতে হবে, একটি Verb হলে অন্যটিও Verb হতে হবে।
+
+================================================================================
+                    END OF MODULE 009_003 REFERENCE NOTE
+================================================================================

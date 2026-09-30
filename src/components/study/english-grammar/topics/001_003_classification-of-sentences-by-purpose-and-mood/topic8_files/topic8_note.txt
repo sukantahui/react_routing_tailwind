@@ -1,0 +1,38 @@
+========================================================================
+MODULE 001_003 | TOPIC 8: MODULE CAPSTONE REVISION & SELF-ASSESSMENT
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+MASTER SUMMARY OF SENTENCE CLASSIFICATION BY COMMUNICATIVE PURPOSE:
+
+1. DECLARATIVE (ASSERTIVE):
+   - Purpose: Statements of fact, belief, or opinion.
+   - Types: Affirmative ("Sun rises in the east") & Negative ("He is not here").
+   - Terminal mark: Period (.)
+
+2. INTERROGATIVE:
+   - Yes/No: Formed by Subject-Auxiliary Inversion (Aux + Sub + Verb).
+   - Wh- Questions: Wh-word + Aux + Sub + Verb.
+   - Question Tags: Statement + Tag Pronoun + Auxiliary (Polarity Inversion).
+
+3. IMPERATIVE:
+   - Purpose: Commands, requests, directions, invitations, warnings.
+   - Subject: Implied/Understood 2nd person "(You)".
+   - Verb Form: Base verb (V1) bare infinitive.
+
+4. EXCLAMATORY:
+   - Purpose: Spontaneous outpouring of intense emotion, wonder, shock.
+   - Formulas: "What a + [Adj] + [Noun] + [S] + [V]!" or "How + [Adj/Adv] + [S] + [V]!"
+   - Terminal mark: Exclamation mark (!)
+
+5. OPTATIVE:
+   - Purpose: Wishes, blessings, prayers, solemn hopes.
+   - Formulas: "May + [Sub] + [V1]!" or Elliptical ("Long live the King!").
+
+BENGALI CHEAT SHEET (বাংলা সংক্ষেপ):
+- Assertive: সাধারণ বিবৃতিমূলক বাক্য (.)
+- Interrogative: প্রশ্নবোধক বাক্য (?)
+- Imperative: আদেশ, উপদেশ বা অনুরোধমূলক বাক্য (.)
+- Exclamatory: আবেগ বা বিস্ময়সূচক বাক্য (!)
+- Optative: প্রার্থনা বা শুভকামনামূলক বাক্য (!)
+========================================================================

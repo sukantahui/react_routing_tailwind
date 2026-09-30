@@ -1,0 +1,33 @@
+========================================================================
+MODULE 001_004 | TOPIC 9: SEGMENT 1 GRAND CAPSTONE SUMMARY
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+MASTER REVISION FOR SEGMENT 1: SENTENCE ARCHITECTURE & FOUNDATIONS
+
+1. MODULE 001_001: WORDS & PARTS OF SPEECH
+   - 8 Parts of Speech classified by FUNCTION, not static dictionary label.
+   - Open Classes (Noun, Verb, Adj, Adv) vs Closed Classes (Pronoun, Prep, Conj, Interj).
+
+2. MODULE 001_002: SENTENCE ANATOMY & CLAUSE PATTERNS
+   - Subject + Predicate.
+   - Direct Object (What/Whom) vs Indirect Object (To/For whom).
+   - Subject Complements (Linking verbs) vs Object Complements (Complex-transitive verbs).
+   - 7 Sentence Patterns: SV, SVO, SVOO, SVC, SVOC, SVA, SVOA.
+
+3. MODULE 001_003: SENTENCE TYPES & COMMUNICATIVE MOODS
+   - Declarative / Assertive (.)
+   - Interrogative: Inversion, Wh- Questions, Question Tags (Polarity flip).
+   - Imperative: Implied (You), Base V1.
+   - Exclamatory: What a / How (!).
+   - Optative: May + S + V1 (!).
+
+4. MODULE 001_004: PHRASES, CLAUSES & TRANSFORMATION
+   - Phrase: No Subject-Finite Verb nexus.
+   - Clause: Subject + Finite Verb pair.
+   - Transformation Golden Rule: Form alters; Meaning & Truth Value are 100% INVARIANT.
+   - Key Formulas: 'None but', 'Too...to' -> 'So...that...cannot', 'No sooner had...than', 'Who does not...?', 'What a...' -> 'a very...'.
+
+BENGALI SUMMARY (বাংলা চূড়ান্ত সারসংক্ষেপ):
+- সেগমেন্ট ১ সম্পূর্ণ করার মাধ্যমে আপনি ইংরেজি ব্যাকরণের মৌলিক ভিত্তি (Parts of Speech, বাক্যের অংশসমূহ, বাক্যের প্রকারভেদ, এবং বাক্য রূপান্তর) আয়ত্ত করেছেন।
+========================================================================

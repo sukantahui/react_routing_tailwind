@@ -1,0 +1,80 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 8: Pluralia Tantum: Nouns Existing Only in Plural Form
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS PLURALIA TANTUM?
+--------------------------------------------------------------------------------
+"Pluralia tantum" (Latin for "plural only", singular: "plurale tantum") denotes nouns that exist solely in the plural form and have no singular counterpart, or whose singular form possesses an entirely different semantic meaning.
+
+They ALWAYS govern a PLURAL VERB and take PLURAL PRONOUNS ('they', 'them', 'their').
+
+2. THE 4 SYSTEMATIC TAXONOMIES OF PLURALIA TANTUM
+--------------------------------------------------------------------------------
+
+CATEGORY A: DUAL-PART INSTRUMENTS & TOOLS
+• Nouns consisting of two equal, inseparable functional parts joined together:
+  - Scissors: The scissors ARE sharp.
+  - Shears: Pruning shears ARE kept in the shed.
+  - Pincers: Pincers ARE used to extract nails.
+  - Tongs: Fire tongs ARE made of iron.
+  - Bellows: The blacksmith's bellows ARE working.
+  - Tweezers: Tweezers ARE sterilized.
+  - Pliers: Electrician's pliers ARE insulated.
+  - Binoculars: Binoculars ARE essential for birdwatching.
+
+  * THE "A PAIR OF" HEAD NOUN RULE:
+    When quantified by "a pair of", the true subject head noun becomes "pair" (singular), governing a singular verb:
+    - Scissors ARE on the desk.
+    - A pair of scissors IS on the desk.
+    - Two pairs of scissors ARE on the desk.
+
+CATEGORY B: DUAL-LEGGED GARMENTS & EYEWEAR
+• Articles of clothing and eyewear split into two symmetrical halves:
+  - Trousers: His trousers ARE tailored.
+  - Pants / Jeans / Shorts: Blue jeans ARE in fashion.
+  - Pyjamas: Cotton pyjamas ARE comfortable.
+  - Spectacles / Glasses: My spectacles ARE missing.
+  - Goggles: Safety goggles ARE mandatory in the laboratory.
+
+CATEGORY C: NOUNS SINGULAR IN FORM BUT INVARIABLY PLURAL IN CONCORD
+• Words without '-s' that represent aggregated human or animal groups and ALWAYS take plural verbs:
+  - Cattle: The cattle ARE grazing (NEVER *cattles).
+  - Gentry: The local gentry WERE invited.
+  - Poultry: Farm poultry ARE vaccinated.
+  - Police: The police ARE investigating the crime (NEVER *polices).
+  - People (humans): Many people WERE waiting (Note: 'peoples' with -s means distinct nations/ethnicities).
+  - Peasantry: The peasantry WERE burdened with heavy taxes.
+  - Clergy: The parish clergy WERE respected.
+  - Vermin: Vermin ARE infesting the granary.
+
+CATEGORY D: MISCELLANEOUS PLURALIA TANTUM NOUNS
+• Assets: His total assets WERE liquidated.
+• Alms: Alms WERE given to the poor.
+• Riches: Riches HAVE wings (they fly away).
+• Thanks: Heartfelt thanks WERE expressed.
+• Surroundings: The natural surroundings ARE picturesque.
+• Proceeds: The proceeds of the auction WERE donated.
+• Remains: Mortal remains WERE interred.
+• Outskirts: The city outskirts ARE developing rapidly.
+• Tidings: Glad tidings HAVE arrived.
+• Earnings: His monthly earnings ARE substantial.
+• Wages:
+  - Financial salary: His wages ARE paid every Friday.
+  - Biblical/Proverbial retribution (Romans 6:23): "The wages of sin IS death."
+
+3. BILINGUAL COMPARATIVE NOTES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• বাংলায় আমরা বলি "কাঁচিটা ধারালো" (একবচন) বা "পুলিশ আসছে" (একবচন ক্রিয়া)।
+• কিন্তু ইংরেজিতে:
+  1. Scissors, Trousers, Spectacles—এগুলো দুটো অংশ দিয়ে গঠিত, তাই ইংরেজিতে এগুলো সর্বদা Plural এবং এদের পরে Plural Verb ('are', 'were', 'have') বসে।
+  2. এদের একবচন করতে হলে 'a pair of' যোগ করতে হয় ("a pair of scissors is")।
+  3. Cattle, Police, Poultry, Gentry—এদের শেষে 's' না থাকলেও এরা জন্মগতভাবে Plural ("The police are", "The cattle are")।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

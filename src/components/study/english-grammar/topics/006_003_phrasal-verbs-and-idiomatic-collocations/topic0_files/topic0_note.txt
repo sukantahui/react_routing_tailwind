@@ -1,0 +1,115 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 006_003
+PHRASAL VERBS, PARTICLE MECHANICS & IDIOMATIC EXPRESSIONS
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. ANATOMY OF A PHRASAL VERB (MULTI-WORD VERBS)
+--------------------------------------------------------------------------------
+A Phrasal Verb is a multi-word lexical unit composed of a Base Verb combined with 
+an Adverb Particle and/or a Preposition, functioning as a single semantic predicate.
+
+Structural Formulas:
+  1. Verb + Adverb Particle             -> "The car BROKE DOWN."
+  2. Verb + Preposition                 -> "She LOOKS AFTER her parents."
+  3. Verb + Adverb Particle + Prep      -> "I cannot PUT UP WITH this noise."
+
+Compositional vs Non-Compositional Meaning:
+  • Compositional (Literal): Meaning derived from individual parts.
+    - "He LOOKED UP at the ceiling." (Looked in an upward direction)
+  • Non-Compositional (Idiomatic): Meaning is figurative and fused.
+    - "He LOOKED UP the word in the lexicon." (Searched and found)
+
+================================================================================
+2. SYNTACTIC CLASSIFICATION: SEPARABILITY & TRANSITIVITY
+--------------------------------------------------------------------------------
+A. INTRANSITIVE PHRASAL VERBS (No Direct Object):
+   - "The plane TOOK OFF smoothly."
+   - "The fire BROKE OUT at midnight."
+   - "His health BROKE DOWN under pressure."
+
+B. TRANSITIVE SEPARABLE PHRASAL VERBS:
+   The direct object can be positioned AFTER the particle OR IN BETWEEN:
+   - "Turn off the light"  OR  "Turn the light off" (Both are 100% correct).
+
+   *** THE PRONOUN SANDWICH LAW (CRITICAL EXAM TRAP) ***
+   If the Object is a PRONOUN (it, them, him, her, us, me), it MUST sit 
+   in the middle between the Verb and the Particle!
+   - CORRECT: "Turn IT off." / "Give THEM up." / "Pick HIM up."
+   - WRONG:   "Turn off it." / "Give up them." / "Pick up him."
+
+C. TRANSITIVE INSEPARABLE PHRASAL VERBS:
+   The verb and preposition CANNOT be separated under any circumstance:
+   - "He came across an old coin." (NOT: "He came an old coin across")
+   - "She looked after the patient." (NOT: "She looked the patient after")
+
+D. THREE-PART PHRASAL-PREPOSITIONAL VERBS (Always Inseparable):
+   - Put up with (Tolerate)          -> "Put up with the inconvenience."
+   - Look down on (Despise)          -> "Never look down on the poor."
+   - Look forward to (Anticipate)    -> "Looking forward to meeting you."
+   - Run out of (Exhaust supply)     -> "We have run out of printer toner."
+   - Get away with (Escape penalty)  -> "He won't get away with this fraud."
+   - Cut down on (Reduce consumption)-> "Cut down on sugar intake."
+
+================================================================================
+3. THE GRAND 8 PHRASAL VERB FAMILIES
+--------------------------------------------------------------------------------
+
+1. BREAK:
+   • Break down: Fail mechanically (engine) or collapse emotionally.
+   • Break out:  Erupt suddenly (war, fire, epidemic, riot).
+   • Break into: Force entry into a building (burglary).
+   • Break up:   Disperse a crowd / terminate a relationship / school recess.
+   • Break off:  Stop abruptly during speech or engagement.
+
+2. BRING:
+   • Bring about: Cause to happen ("Reforms brought about growth").
+   • Bring up:    Rear/educate a child OR introduce a discussion topic.
+   • Bring out:   Publish a book or reveal a hidden quality.
+   • Bring round: Restore to consciousness or convince someone.
+
+3. CALL:
+   • Call off: Cancel an event, strike, or wedding.
+   • Call on:  Visit someone formally ("I called on the Minister").
+   • Call for: Demand or necessitate ("This crisis calls for swift action").
+   • Call in:  Summon an expert ("Call in a physician immediately").
+   • Call up:  Recollect/recall a memory OR draft into military service.
+
+4. COME:
+   • Come across: Meet or find by chance ("Came across an old manuscript").
+   • Come by:     Acquire or obtain something rare or difficult.
+   • Come of:     Originate from or result from ("He comes of a noble family").
+   • Come round:  Recover consciousness or agree after disagreement.
+   • Come off:    Succeed or take place ("The deal came off smoothly").
+
+5. GET:
+   • Get over:       Recover from illness, shock, or sorrow.
+   • Get along with: Have a harmonious relationship with someone.
+   • Get through:    Succeed in an exam / establish a phone connection.
+   • Get by:         Manage to survive with minimal resources.
+   • Get away with:  Escape punishment for a misdeed.
+
+6. LOOK:
+   • Look after: Take care of / tend to someone.
+   • Look into:  Investigate a crime or issue.
+   • Look for:   Search for a missing person/item.
+   • Look up to: Admire and respect a mentor or role model.
+   • Look down on: Treat with contempt / despise.
+   • Look up:    Search for information in a reference book.
+
+7. PUT:
+   • Put off:     Postpone or delay ("Never put off your studies").
+   • Put out:     Extinguish a flame, fire, or light.
+   • Put up with: Tolerate or endure bad behavior.
+   • Put on:      Wear clothing or pretend an attitude.
+   • Put away:    Store in its proper place or save money.
+
+8. TURN:
+   • Turn down: Reject a request, offer, or application.
+   • Turn up:   Arrive or appear unexpectedly.
+   • Turn off:  Switch off an appliance / cause disinterest.
+   • Turn out:  Prove to be in the end / produce a result.
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 006_003
+================================================================================

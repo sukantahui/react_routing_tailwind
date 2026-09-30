@@ -1,0 +1,36 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 2: SIMPLE SUBJECTS VS COMPOUND SUBJECTS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. SIMPLE SUBJECT (THE CORE NOMINAL HEAD)
+--------------------------------------------------------------------------------
+- Definition: The single noun or pronoun head stripped of all determiners, 
+  adjectives, and modifying phrases.
+- Example: "The old banyan [tree] near the river collapsed." -> Simple Subject: tree.
+
+2. COMPOUND SUBJECT (CONJUNCTION-LINKED NOMINALS)
+--------------------------------------------------------------------------------
+- Definition: Two or more simple subjects joined by conjunctions sharing one verb.
+- Rule 1: Joined by 'AND' -> Typically PLURAL.
+  * "Swadeep and Debangshu [are] coding."
+- Exception: Unitary Idea / Dish -> SINGULAR.
+  * "Bread and butter [is] wholesome."
+  * "Slow and steady [wins] the race."
+
+3. THE RULE OF PROXIMITY (EITHER... OR / NEITHER... NOR)
+--------------------------------------------------------------------------------
+- Verb agrees with the subject CLOSEST to it:
+  * "Neither the teacher nor the [students were] present." (Plural closest)
+  * "Neither the students nor the [teacher was] present." (Singular closest)
+
+4. INTERVENING PARENTHETICAL TRAPS (NOT COMPOUND SUBJECTS!)
+--------------------------------------------------------------------------------
+- The following phrases DO NOT make a subject compound:
+  * as well as, along with, together with, in addition to, accompanied by.
+- Example: "The mentor, along with fifty students, [has] arrived." (Singular!)
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

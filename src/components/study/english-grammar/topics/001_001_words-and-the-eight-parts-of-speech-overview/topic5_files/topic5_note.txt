@@ -1,0 +1,42 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001 | TOPIC 5: PREPOSITIONS, CONJUNCTIONS & INTERJECTIONS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. PREPOSITIONS (THE SYNTACTIC RELATORS)
+--------------------------------------------------------------------------------
+- Function: Links nominals (Noun/Pronoun/Gerund) to other clause components.
+- Case Requirement: Pronouns after prepositions MUST be in the Objective Case:
+  * "Between you and me" ✔️ (Never "between you and I" ❌).
+- State vs Motion:
+  * In (Static location) vs Into (Dynamic interior motion).
+  * On (Static surface) vs Onto (Dynamic upward/surface motion).
+
+2. CONJUNCTIONS (THE SYNTACTIC BINDERS)
+--------------------------------------------------------------------------------
+A. Coordinating (FANBOYS):
+   - For, And, Nor, But, Or, Yet, So.
+   - Joins independent units of equal grammatical weight.
+B. Subordinating:
+   - because, although, since, unless, if, while, whereas.
+   - Subordinates a dependent clause to a main matrix clause.
+C. Correlative Pairs:
+   - either... or, neither... nor, not only... but also, both... and.
+   - Enforces strict PARALLELISM in structure.
+
+3. INTERJECTIONS (THE EMOTIVE MARKERS)
+--------------------------------------------------------------------------------
+- Function: Spontaneous emotive bursts (Joy, Grief, Wonder, Disgust).
+- Grammatically autonomous: Alas!, Hurrah!, Bravo!, Ouch!, Eureka!
+
+4. BENGALI LEARNER PEDAGOGICAL COMPARISON
+--------------------------------------------------------------------------------
+* বাংলা ভাষায় অনুসর্গ বা বিভক্তি (যেমন: 'ঘরে', 'টেবিলের ওপর') শব্দের পরে বসে;
+  ইংরেজিতে Preposition সর্বদা শব্দের পূর্বে বসে (যেমন: 'in the room', 'on the table')।
+* 'Before' / 'After' এর পর শুধু Noun থাকলে তা Preposition, কিন্তু পূর্ণাঙ্গ Clause 
+  (Subject + Verb) থাকলে তা Conjunction।
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

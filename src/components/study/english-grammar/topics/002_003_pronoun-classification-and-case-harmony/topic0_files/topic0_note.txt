@@ -1,0 +1,61 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 002_003: PRONOUN CLASSIFICATION, ANTECEDENT HARMONY & POLITENESS ORDER
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE NINE PRONOUN FAMILIES
+--------------------------------------------------------------------------------
+1. Personal Pronouns:     I, we, you, he, she, it, they (Subject/Object/Possessive).
+2. Demonstrative Pron.:   This, that, these, those (Pointing to entities).
+3. Relative Pronouns:     Who, whom, whose, which, that, what (Linking clauses).
+4. Interrogative Pron.:   Who? Whom? Whose? Which? What? (Asking questions).
+5. Reflexive Pronouns:    Myself, yourself, himself, herself, itself, ourselves.
+6. Emphatic Pronouns:     Added for dramatic emphasis ("I myself solved it").
+7. Indefinite Pronouns:   Everyone, somebody, nobody, anyone, all, some, none.
+8. Distributive Pron.:    Each, either, neither (Referring to one at a time).
+9. Reciprocal Pronouns:   Each other (two), One another (more than two).
+
+2. PERSONAL PRONOUN CASES & TRAPS
+--------------------------------------------------------------------------------
++--------------------+----------------------+----------------------------------+
+| Pronoun Case       | Role in Sentence     | Critical Exam Invariants         |
++--------------------+----------------------+----------------------------------+
+| Subjective (Nom.)  | Subject of verb      | "YOU, HE, AND I will attend"     |
+| Objective (Acc.)   | Object of verb/prep. | "Between YOU AND ME" (NOT 'and I')|
+|                    |                      | "Let HIM AND ME go"              |
+| Possessive Det.    | Modifies noun        | "My, your, his, her, our, their" |
+| Possessive Pronoun | Replaces noun phrase | "Mine, yours, his, hers, theirs" |
++--------------------+----------------------+----------------------------------+
+
+3. THE 231 POLITENESS RULE VS THE 123 CONFESSION RULE
+--------------------------------------------------------------------------------
+* 231 RULE (Positive / Neutral Contexts):
+  - Sequence: 2nd Person (You) -> 3rd Person (He/She/They) -> 1st Person (I)
+  - Formula: "You, he, and I must collaborate on the project."
+
+* 123 RULE (Admitting Mistakes, Guilt, Blame, or Plural Pronouns):
+  - Sequence: 1st Person (I) -> 2nd Person (You) -> 3rd Person (He/She/They)
+  - Formula: "I, you, and he are responsible for this calculation flaw."
+  - Plural Sequence: "We, you, and they will participate."
+
+4. RELATIVE PRONOUN INVARIANTS ('WHO' VS 'WHOM' VS 'THAT')
+--------------------------------------------------------------------------------
+* WHO vs WHOM:
+  - WHO  = Subject of the relative clause (Substitute 'He': 'Who wrote it? -> He wrote it').
+  - WHOM = Object of the relative clause (Substitute 'Him': 'Whom did you see? -> Saw him').
+
+* MANDATORY 'THAT' OVER 'WHICH'/'WHO':
+  - After Superlatives: "He is the best scholar THAT I have known."
+  - After Special Words: All, Same, Only, None, Any, Much, Little, Everything.
+  - Formula: "All THAT glitters is not gold." | "This is the ONLY pen THAT works."
+
+5. DEMONSTRATIVE COMPARISON INVARIANTS ('THAT OF' VS 'THOSE OF')
+--------------------------------------------------------------------------------
+* Singular Comparison: "The climate of Barrackpore is like THAT OF Kolkata."
+* Plural Comparison:   "The streets of Kolkata are wider than THOSE OF Naihati."
+
+================================================================================
+MEMORY SLOGAN: "Between you and me, politeness follows 2-3-1, but guilt takes 1-2-3!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

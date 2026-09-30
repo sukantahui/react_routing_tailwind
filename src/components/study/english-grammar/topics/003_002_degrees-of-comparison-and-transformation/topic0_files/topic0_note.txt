@@ -1,0 +1,129 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 003.002: DEGREES OF COMPARISON & SYNTACTIC TRANSFORMATION
+================================================================================
+
+1. THE THREE DEGREES OF COMPARISON
+--------------------------------------------------------------------------------
+Adjectives change form (or take periphrastic auxiliaries) to show different 
+levels of intensity and comparison:
+
+  1. POSITIVE DEGREE: Denotes simple quality without direct comparison.
+     - "Rahul is a TALL boy."
+     - Formula: as + Positive + as / so + Positive + as
+  2. COMPARATIVE DEGREE: Compares the quality between TWO entities.
+     - "Rahul is TALLER than Rohan."
+     - Formula: Comparative + than
+  3. SUPERLATIVE DEGREE: Denotes the highest degree among THREE OR MORE entities.
+     - "Rahul is the TALLEST boy in the class."
+     - Formula: the + Superlative
+
+
+2. MORPHOLOGICAL FORMATION & IRREGULAR SETS
+--------------------------------------------------------------------------------
+  A. Regular Formation:
+     * Monosyllabic words add '-er' / '-est':
+       - tall -> taller -> tallest
+       - brave -> braver -> bravest
+       - hot -> hotter -> hottest (consonant doubling)
+     * Polysyllabic words (2+ syllables) take 'more' / 'most':
+       - beautiful -> more beautiful -> most beautiful
+       - intelligent -> more intelligent -> most intelligent
+
+  B. Irregular Comparison Sets (CRITICAL):
++--------------------+-------------------------+-------------------------------+
+| POSITIVE           | COMPARATIVE             | SUPERLATIVE                   |
++--------------------+-------------------------+-------------------------------+
+| Good / Well        | Better                  | Best                          |
+| Bad / Ill / Evil   | Worse                   | Worst                         |
+| Little             | Less / Lesser           | Least                         |
+| Much / Many        | More                    | Most                          |
+| Late (Time)        | Later                   | Latest                        |
+| Late (Position)    | Latter                  | Last                          |
+| Old (General)      | Older                   | Oldest                        |
+| Old (Kinship)      | Elder                   | Eldest                        |
+| Far (Physical dist)| Farther                 | Farthest                      |
+| Far (Degree/Depth) | Further                 | Furthest                      |
+| In                 | Inner                   | Innermost / Inmost            |
+| Up                 | Upper                   | Uppermost / Upmost            |
+| Out                | Outer / Utter           | Outermost / Utmost            |
++--------------------+-------------------------+-------------------------------+
+
+
+3. LATIN COMPARATIVES (FOLLOWED BY 'TO', NEVER 'THAN')
+--------------------------------------------------------------------------------
+Certain adjectives borrowed from Latin ending in '-ior' (plus 'preferable') are 
+inherently comparative and take 'TO':
+  - SENIOR, JUNIOR, SUPERIOR, INFERIOR, PRIOR, ANTERIOR, POSTERIOR, PREFERABLE.
+
+  * INCORRECT: He is senior than me in the organization.
+  * CORRECT:   He is senior TO me in the organization.
+
+  * INCORRECT: Coffee is more preferable than tea.
+  * CORRECT:   Coffee is preferable TO tea. (No 'more', no 'than')
+
+
+4. ABSOLUTE / NON-GRADABLE ADJECTIVES (RESIST COMPARISON)
+--------------------------------------------------------------------------------
+Qualities that denote absolute states cannot logically take degrees:
+  - UNIQUE, PERFECT, DEAD, COMPLETE, UNIVERSAL, CHIEF, SQUARE, ROUND,
+    ETERNAL, SUPREME, ENTIRE, FATAL, EMPTY.
+
+  * INCORRECT: This is the most unique ancient artifact.
+  * CORRECT:   This is a unique ancient artifact.
+
+
+5. THE TWO MASTER TRANSFORMATION FORMULAE
+--------------------------------------------------------------------------------
+================================================================================
+TYPE 1: ABSOLUTE / ALL-ENCOMPASSING COMPARISON
+================================================================================
+  [SUPERLATIVE]:  Subject + Verb + THE + Superlative + Singular Noun...
+                  -> "Shakespeare is THE GREATEST dramatist in English."
+
+  [COMPARATIVE]:  Subject + Verb + Comparative + THAN ANY OTHER + Singular Noun...
+                  -> "Shakespeare is GREATER THAN ANY OTHER dramatist in English."
+
+  [POSITIVE]:     NO OTHER + Singular Noun + Verb + AS/SO + Positive + AS + Subject
+                  -> "NO OTHER dramatist in English is AS GREAT AS Shakespeare."
+
+================================================================================
+TYPE 2: "ONE OF THE..." / GROUP COMPARISON
+================================================================================
+  [SUPERLATIVE]:  Subject + Verb + ONE OF THE + Superlative + Plural Noun...
+                  -> "Kolkata is ONE OF THE LARGEST cities in India."
+
+  [COMPARATIVE]:  Subject + Verb + Comparative + THAN MOST OTHER + Plural Noun...
+                  -> "Kolkata is LARGER THAN MOST OTHER cities in India."
+
+  [POSITIVE]:     VERY FEW + Plural Noun + Verb (Plural) + AS + Positive + AS + Subj
+                  -> "VERY FEW cities in India ARE AS LARGE AS Kolkata."
+
+
+6. CRITICAL SPECIAL COMPARATIVE RULES
+--------------------------------------------------------------------------------
+  RULE 1: ILLOGICAL COMPARISONS (That of / Those of)
+    * INCORRECT: The streets of London are wider than Paris.
+    * CORRECT:   The streets of London are wider than THOSE OF Paris.
+    * INCORRECT: The climate of Chennai is hotter than Kolkata.
+    * CORRECT:   The climate of Chennai is hotter than THAT OF Kolkata.
+
+  RULE 2: COMPARING TWO QUALITIES OF THE SAME PERSON
+    * INCORRECT: He is braver than wise.
+    * CORRECT:   He is MORE BRAVE than wise. (Use 'more + positive' for dual traits)
+
+  RULE 3: SELECTION OF TWO ('OF THE TWO')
+    * When choosing between exactly two, the comparative takes 'THE':
+      - "Of the two sisters, Priya is THE PRETTIER." (NOT: prettiest)
+
+  RULE 4: PARALLEL / PROPORTIONAL COMPARISON
+    * "THE + Comparative ..., THE + Comparative ..."
+      - "THE MORE you study, THE BETTER your results will be."
+
+  RULE 5: SELF-EXCLUSION WITH 'ANY OTHER'
+    * In-class: "Iron is more useful than ANY OTHER metal." (Iron is a metal)
+    * Out-of-class: "Diamond is harder than ANY metal." (Diamond is not a metal)
+
+================================================================================
+END OF STUDY NOTES - MODULE 003.002
+================================================================================

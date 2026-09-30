@@ -1,0 +1,38 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 4: EXCLAMATORY SENTENCES ('WHAT A' VS 'HOW')
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE TWO STRUCTURAL TEMPLATES
+--------------------------------------------------------------------------------
+Template A: Using "WHAT (A/AN)" (For Noun Phrases):
+  Formula: WHAT + (a/an) + [Adjective] + [Noun] + [Subject + Verb] !
+  Example: "What a [magnificent cathedral] [it is]!"
+  Plural:  "What [brilliant ideas] [they have]!" (No 'a/an' with plurals).
+
+Template B: Using "HOW" (For Bare Adjectives or Adverbs):
+  Formula: HOW + [Adjective / Adverb] + [Subject + Verb] !
+  Example: "How [sweet] [the rose smells]!"
+  Example: "How [flawlessly] [she programmed the system]!"
+
+2. ASSERTIVE <-> EXCLAMATORY TRANSFORMATION FORMULAS
+--------------------------------------------------------------------------------
+Assertive:    "The view is very charming."
+Exclamatory:  "How charming the view is!"
+
+Assertive:    "It is a truly extraordinary achievement."
+Exclamatory:  "What an extraordinary achievement it is!"
+
+Assertive:    "I wish I were a bird."
+Exclamatory:  "If only I were a bird!" / "O that I were a bird!"
+
+3. PUNCTUATION LAW WITH INTERJECTIONS
+--------------------------------------------------------------------------------
+- Interjection + ! + Complete Assertive Sentence + .
+  * "Hurrah! We have won the championship."
+  * "Alas! The noble leader has passed away."
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

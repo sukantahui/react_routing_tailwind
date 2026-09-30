@@ -1,0 +1,96 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 7: Foreign Plurals from Latin and Greek
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. THE 5 SYSTEMATIC FOREIGN PLURAL PATTERNS
+--------------------------------------------------------------------------------
+
+PATTERN 1: LATIN '-us' → '-i' (Masculine 2nd Declension)
+• Singular ends in '-us' → Plural ends in '-i':
+  - Radius → Radii (/ˈreɪ.di.aɪ/)
+  - Focus → Foci (/ˈfoʊ.saɪ/) / Focuses
+  - Alumnus (male) → Alumni
+  - Alumna (female) → Alumnae
+  - Syllabus → Syllabi / Syllabuses
+  - Stimulus → Stimuli
+  - Fungus → Fungi
+  - Nucleus → Nuclei
+  - Bacillus → Bacilli
+  - Cactus → Cacti / Cactuses
+
+PATTERN 2: GREEK / LATIN '-is' → '-es' (Pronounced /iːz/)
+• Singular ends in '-is' → Plural ends in '-es':
+  - Crisis → Crises
+  - Basis → Bases
+  - Analysis → Analyses
+  - Axis → Axes
+  - Thesis → Theses
+  - Oasis → Oases
+  - Hypothesis → Hypotheses
+  - Diagnosis → Diagnoses
+  - Parenthesis → Parentheses
+  - Synopsis → Synopses
+
+PATTERN 3: GREEK '-on' & LATIN '-um' → '-a'
+• Singular ends in '-on' or '-um' → Plural ends in '-a':
+  - Phenomenon → Phenomena (NEVER *phenomenas)
+  - Criterion → Criteria (NEVER *criterias)
+  - Datum → Data
+  - Medium → Media
+  - Bacterium → Bacteria
+  - Stratum (rock layer) → Strata
+  - Curriculum → Curricula / Curriculums
+  - Memorandum → Memoranda
+  - Maximum → Maxima
+  - Minimum → Minima
+
+PATTERN 4: LATIN '-a' → '-ae' (Feminine 1st Declension)
+• Singular ends in '-a' → Plural ends in '-ae':
+  - Formula → Formulae (scientific) / Formulas (general)
+  - Vertebra → Vertebrae
+  - Larva → Larvae
+  - Nebula → Nebulae / Nebulas
+  - Antenna → Antennae (biological feelers) vs Antennas (radio aerials)
+
+PATTERN 5: LATIN '-ex' / '-ix' → '-ices'
+• Singular ends in '-ex' or '-ix' → Plural ends in '-ices':
+  - Index → Indices (mathematical exponents) vs Indexes (alphabetical book tables)
+  - Matrix → Matrices
+  - Appendix → Appendices (anatomical/book) / Appendixes
+  - Vortex → Vortices
+
+2. CRITICAL CONCORD TRAPS IN COMPETITIVE EXAMS
+--------------------------------------------------------------------------------
+1. CRITERIA / PHENOMENA:
+   - ❌ WRONG: "This criteria is very strict."
+   - ✔ RIGHT: "This criterion is very strict." OR "These criteria are very strict."
+   
+2. DATA:
+   - In formal academic/Latin grammar: "The empirical data ARE verified."
+   - In modern computing mass sense: "The data IS stored securely." (Singular mass accepted in general tech).
+
+3. ALUMNUS vs ALUMNA vs ALUMNI vs ALUMNAE:
+   - Alumnus = 1 Male graduate
+   - Alumna = 1 Female graduate
+   - Alumni = Group of male or mixed graduates
+   - Alumnae = Group of female graduates
+
+3. BILINGUAL COMPARATIVE SUMMARY (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• গ্রিক ও ল্যাটিন ভাষা থেকে ধার করা শব্দগুলো ইংরেজি ব্যাকরণে তাদের আদি রূপের মতো বহুবচন তৈরি করে।
+• সংক্ষেপে মনে রাখার সূত্র:
+  1. -us থাকলে -i হয় (Radius → Radii, Focus → Foci)।
+  2. -is থাকলে -es হয় (Crisis → Crises, Basis → Bases)।
+  3. -on/-um থাকলে -a হয় (Phenomenon → Phenomena, Datum → Data, Criterion → Criteria)।
+  4. -a থাকলে -ae হয় (Formula → Formulae, Larva → Larvae)।
+  5. -ix/-ex থাকলে -ices হয় (Matrix → Matrices, Index → Indices)।
+• কখনো *Criterias বা *Phenomenas লিখবেন না—কারণ Criteria ও Phenomena নিজেই বহুবচন।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

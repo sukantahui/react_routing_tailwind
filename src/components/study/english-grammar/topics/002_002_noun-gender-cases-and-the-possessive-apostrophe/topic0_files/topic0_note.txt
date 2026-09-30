@@ -1,0 +1,56 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 002_002: NOUN GENDER, CASES & POSSESSIVE APOSTROPHE MECHANICS
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE FOUR GENDERS OF NOUNS
+--------------------------------------------------------------------------------
+1. Masculine Gender: Denotes male beings (e.g., King, Bachelor, Duke, Stallion).
+2. Feminine Gender:  Denotes female beings (e.g., Queen, Spinster, Duchess, Mare).
+3. Common Gender:    Denotes either male or female (e.g., Student, Teacher, Doctor, Child).
+4. Neuter Gender:    Denotes inanimate entities or objects without sex (e.g., Table, Book, Computer).
+
+* PERSONIFICATION GENDER CONVENTIONS:
+  - Masculine (Strength, Fierceness, Power): The Sun, Death, Time, Winter, War.
+  - Feminine (Beauty, Grace, Gentleness): The Moon, Earth, Nature, Liberty, Spring.
+
+2. THE FOUR NOUN CASES (SYNTACTIC ROLES)
+--------------------------------------------------------------------------------
++-----------------------+-----------------------------+------------------------+
+| Case Category         | Syntactic Function          | Example                |
++-----------------------+-----------------------------+------------------------+
+| 1. Nominative Case    | Acts as grammatical Subject | "SWADEEP wrote the code"|
+| 2. Accusative Case    | Acts as Direct Object       | "He solved THE PROBLEM"|
+| 3. Dative Case        | Acts as Indirect Object     | "Gave TUHINA a book"   |
+| 4. Vocative Case      | Direct address / calling    | "STUDENTS, listen now!"|
++-----------------------+-----------------------------+------------------------+
+
+3. THE POSSESSIVE (GENITIVE) APOSTROPHE MASTER RULES
+--------------------------------------------------------------------------------
+1. Singular Nouns: Add `'s` -> "The student's notebook", "The doctor's clinic".
+2. Plural Nouns ending in '-s': Add ONLY `'` -> "The students' notebooks", "The boys' hostel".
+3. Plural Nouns NOT ending in '-s': Add `'s` -> "Children's park", "Women's rights", "Men's salon".
+4. Proper Nouns ending in '-s': Either `'s` or `'` -> "Keats's poetry" or "Keats' poetry".
+5. Compound Nouns: Attach `'s` to the LAST word -> "Sister-in-law's car", "Commander-in-chief's order".
+6. Joint Possession (Unified): Apostrophe on the LAST noun -> "Swadeep and Debangshu's company".
+7. Separate Possession (Distinct): Apostrophe on EACH noun -> "Swadeep's and Debangshu's laptops".
+
+4. INANIMATE POSSESSIVE RESTRICTIONS & EXCEPTIONS
+--------------------------------------------------------------------------------
+* General Rule: Never use `'s` on inanimate objects -> "the leg of the table" (NOT "the table's leg").
+* Valid Exceptions:
+  - Time: "a day's leave", "three weeks' vacation", "yesterday's news".
+  - Space / Distance: "a stone's throw", "an arm's length", "a boat's length".
+  - Weight: "a pound's weight", "a ton's burden".
+  - Personified: "Nature's beauty", "Duty's call", "Fortune's favor".
+
+5. 'ITS' VS 'IT'S' COMPARATIVE WARNING
+--------------------------------------------------------------------------------
+* IT'S = Contraction for "It is" or "It has" (e.g., "It's raining in Barrackpore").
+* ITS  = Possessive Pronoun with ZERO apostrophe (e.g., "The cat cleaned its fur").
+
+================================================================================
+MEMORY SLOGAN: "Plural ends in 's'? Add only the tick; otherwise add 's!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

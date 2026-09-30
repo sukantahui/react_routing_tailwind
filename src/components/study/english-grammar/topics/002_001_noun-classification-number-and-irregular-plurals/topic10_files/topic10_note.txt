@@ -1,0 +1,89 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 10: Pluralization of Compound Nouns
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. WHAT IS A COMPOUND NOUN?
+--------------------------------------------------------------------------------
+A Compound Noun is a nominal unit formed by joining two or more words (hyphenated, spaced, or fused as a single solid word).
+Examples: Son-in-law, Passer-by, Commander-in-chief, Step-son, Spoonful, Man-servant.
+
+2. THE 4 CARDINAL RULES OF COMPOUND PLURALIZATION
+--------------------------------------------------------------------------------
+
+RULE 1: THE PRINCIPAL HEAD NOUN RULE (MOST CRUCIAL)
+• In most compound nouns, attach the plural marker '-s' strictly to the PRINCIPAL NOUN HEAD (the primary semantic anchor), NOT to the modifying preposition, adverb, or qualifying phrase:
+
+  Singular                  Plural                        Head Noun
+  ----------------------------------------------------------------------
+  Son-in-law                Sons-in-law                   Son
+  Daughter-in-law           Daughters-in-law              Daughter
+  Brother-in-law            Brothers-in-law               Brother
+  Father-in-law             Fathers-in-law                Father
+  Commander-in-chief        Commanders-in-chief           Commander
+  Passer-by                 Passers-by                    Passer (NOT *passer-bies)
+  Looker-on                 Lookers-on                    Looker
+  Hanger-on                 Hangers-on                    Hanger
+  Runner-up                 Runners-up                    Runner
+  Coat-of-mail              Coats-of-mail                 Coat
+  Governor-general          Governors-general             Governor
+  Court-martial             Courts-martial                Court
+  Knight-errant             Knights-errant                Knight
+
+RULE 2: THE SECOND-ELEMENT HEAD NOUN RULE
+• When the first element is an adjective, qualifying prefix, or subordinate noun, and the second element is the true grammatical head, pluralize the SECOND element:
+
+  Singular                  Plural                        Head Noun
+  ----------------------------------------------------------------------
+  Maid-servant              Maid-servants                 Servant
+  Step-son                  Step-sons                     Son
+  Step-daughter             Step-daughters                Daughter
+  Book-case                 Book-cases                    Case
+  Arm-chair                 Arm-chairs                    Chair
+  Boy-friend                Boy-friends                   Friend
+  Class-fellow              Class-fellows                 Fellow
+  Postman                   Postmen                       Man
+
+RULE 3: THE DOUBLE-PLURAL COMPOUND RULE
+• When the compound consists of 'Man' or 'Woman' + a professional role / noun, BOTH elements mutate into the plural:
+
+  Singular                  Plural
+  ----------------------------------------------------------------------
+  Man-servant               Men-servants
+  Woman-servant             Women-servants
+  Man-doctor                Men-doctors
+  Woman-doctor              Women-doctors
+  Lord-justice              Lords-justices
+  Knight-templar            Knights-templars
+
+RULE 4: NOUNS ENDING IN '-ful' & IDIOMATIC PHRASE COMPOUNDS
+• Nouns ending in '-ful' denote single units of volumetric capacity; append '-s' to the end:
+  - Spoonful → Spoonfuls (NEVER *spoonsful)
+  - Handful → Handfuls
+  - Mouthful → Mouthfuls
+  - Pocketful → Pocketfuls
+  - Armful → Armfuls
+
+• Idiomatic sentence-like compounds with no primary noun head add '-s' to the final element:
+  - Merry-go-round → Merry-go-rounds
+  - Forget-me-not (flower) → Forget-me-nots
+  - Touch-me-not (plant) → Touch-me-nots
+  - Castaway → Castaways
+  - Good-for-nothing → Good-for-nothings
+
+3. BILINGUAL COMPARATIVE NOTES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• বাংলা ভাষায় "জামাইরা" বা "সেনাপতিরা" বলি, কিন্তু ইংরেজিতে Son-in-law বা Commander-in-chief-এর মতো শব্দে '-s' শেষ শব্দে বসে না; মূল Noun Head-এর সাথে বসে (Sons-in-law, Commanders-in-chief)।
+• মনে রাখবেন:
+  1. *Son-in-laws লেখা মারাত্মক ব্যাকরণগত ভুল।
+  2. Passer-by এর বহুবচন Passers-by (Passer-bies নয়)।
+  3. Man-servant এর বহুবচনে দুটো অংশই পরিবর্তিত হয়ে Men-servants হয়।
+  4. Spoonful এর বহুবচন Spoonfuls (Spoonsful নয়)।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

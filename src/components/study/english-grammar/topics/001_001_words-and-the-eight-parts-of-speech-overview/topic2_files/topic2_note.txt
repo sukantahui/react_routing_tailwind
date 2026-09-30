@@ -1,0 +1,50 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001 | TOPIC 2: FORM VS FUNCTION
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE GOLDEN SYNTACTIC LAW
+--------------------------------------------------------------------------------
+"Never categorize a word in isolation. Look at the work it does in the sentence."
+A single orthographic form can shift across 3 to 5 different parts of speech 
+depending on its structural environment.
+
+2. MULTI-FUNCTIONAL WORD SHOWCASE
+--------------------------------------------------------------------------------
+A. WATER:
+   - Noun:       "Drink fresh water daily." (Object Noun)
+   - Verb:       "Water the saplings in the nursery." (Action Verb)
+   - Adjective:  "Swadeep bought a water bottle." (Noun-Adjunct Modifier)
+
+B. FAST:
+   - Adjective:  "This is a fast train to Howrah." (Qualifying 'train')
+   - Adverb:     "He ran fast to board the bus." (Modifying 'ran')
+   - Noun:       "They observed a strict fast." (Object Noun)
+   - Verb:       "Devotees fast during the celebration." (Action Verb)
+
+C. ROUND:
+   - Adjective:  "A large round conference table." (Qualifying 'table')
+   - Noun:       "The doctor made the night round." (Circuit / Tour)
+   - Verb:       "The bus rounds the corner." (Transitive Action)
+   - Preposition:"The planets revolve round the sun." (Spatial Relator)
+   - Adverb:     "Come round to my office tomorrow." (Particle Adverb)
+
+D. BUT:
+   - Conjunction:"Tuhina tried hard, but missed the deadline." (Coordinating)
+   - Preposition:"All attended the meeting but Swadeep." (Meaning 'except')
+   - Adverb:     "Life is but an empty dream." (Meaning 'only / merely')
+   - Relative:   "There is no one but wishes him well." (Negative Relative)
+
+3. EXAM TRAPS FOR BENGALI-MEDIUM STUDENTS
+--------------------------------------------------------------------------------
+* Trap 1: Assuming all words ending in '-ly' are adverbs.
+  - "He speaks friendly" ❌ -> "He speaks in a friendly manner" ✔️
+  - ('friendly', 'lovely', 'lonely', 'cowardly' are ADJECTIVES!)
+
+* Trap 2: Inventing nonexistent forms like "fastly".
+  - "He drove fastly" ❌ -> "He drove fast" ✔️
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

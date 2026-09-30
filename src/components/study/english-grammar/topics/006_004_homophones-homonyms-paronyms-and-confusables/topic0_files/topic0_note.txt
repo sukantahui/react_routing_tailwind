@@ -1,0 +1,119 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 006_004
+HOMOPHONES, HOMONYMS, PARONYMS & CONFUSABLE WORD PAIRS
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. THE LEXICAL SPECTRUM OF CONFUSABLE WORDS
+--------------------------------------------------------------------------------
+Understanding the precise boundary definitions across English vocabulary:
+
+  A. HOMOPHONES (Same Sound, Different Spelling & Meaning):
+     - Sound identical when pronounced phonetically.
+     - Spelled differently and have completely independent etymologies.
+     - Examples: Affect / Effect, Principal / Principle, Site / Sight / Cite.
+
+  B. HOMOGRAPHS / HETERONYMS (Same Spelling, Different Sound & Meaning):
+     - Spelled identically.
+     - Pronunciation (and syllable stress) differs depending on Word Class.
+     - Examples: OB-ject (Noun) vs ob-JECT (Verb); PRE-sent (Noun) vs pre-SENT (Verb).
+
+  C. PARONYMS (Shared Etymological Root, Distinct Semantic/Syntactic Application):
+     - Derived from the same Latin or Greek root word.
+     - Diverged into distinct words with specific semantic domains.
+     - Examples: Historic (Famous) vs Historical (Pertaining to history); 
+       Continual (Repeated with pauses) vs Continuous (Unbroken without pauses).
+
+================================================================================
+2. HIGH-FREQUENCY HOMOPHONE PAIRS (THE GRAND MATRIX)
+--------------------------------------------------------------------------------
+1. AFFECT vs EFFECT:
+   • Affect (Verb): To influence or make an impact.
+     -> "The bad weather will AFFECT the harvest."
+   • Effect (Noun): The outcome, result, or impact.
+     -> "The medication had a rapid therapeutic EFFECT."
+   • Effect (Verb - Rare/Formal): To bring about or implement.
+     -> "The manager EFFECTED sweeping organizational changes."
+
+2. PRINCIPAL vs PRINCIPLE:
+   • Principal (Noun/Adj): Chief, head of an institution, capital sum.
+     -> "The school PRINCIPAL addressed the morning assembly."
+     -> "The PRINCIPAL reason for our success is consistency."
+   • Principle (Noun): Fundamental moral doctrine or scientific law.
+     -> "He is a man of uncompromised moral PRINCIPLES."
+
+3. COMPLIMENT vs COMPLEMENT:
+   • Compliment (Noun/Verb - with 'i'): Praise, admiration, flattery.
+     -> "He paid her a charming COMPLIMENT on her painting."
+   • Complement (Noun/Verb - with 'e'): Complete, balance, enhance together.
+     -> "The white sauce COMPLEMENTS the grilled asparagus perfectly."
+
+4. STATIONARY vs STATIONERY:
+   • Stationary (Adj - with 'ar'): Fixed, motionless, standing still.
+     -> "The car collided with a STATIONARY truck."
+   • Stationery (Noun - with 'er'): Writing materials, pens, paper, envelopes.
+     -> "Buy writing pads from the college STATIONERY shop."
+   (Mnemonic: StationERy has 'e' for Envelopes!)
+
+5. SITE vs SIGHT vs CITE:
+   • Site (Noun): Physical location or web domain. ("Construction site")
+   • Sight (Noun): Vision or a spectacle. ("A magnificent sight")
+   • Cite (Verb): To quote, mention, or reference. ("Cite three research papers")
+
+6. DESERT vs DESSERT:
+   • Desert (Noun - stress on 1st syllable): Arid, sandy wilderness.
+   • Desert (Verb - stress on 2nd syllable): To abandon or leave stranded.
+   • Dessert (Noun - double 's'): Sweet culinary dish after a meal.
+
+================================================================================
+3. PARONYMS: PRECISION IN MEANING & CONNOTATION
+--------------------------------------------------------------------------------
++--------------------+---------------------+-----------------------------------+
+| Paronym Pair       | Meaning 1           | Meaning 2                         |
++--------------------+---------------------+-----------------------------------+
+| Continuous vs      | Continuous:         | Continual:                        |
+| Continual          | Unbroken duration   | Occurring repeatedly with pauses  |
+|                    | (continuous rain)   | (continual interruptions)         |
++--------------------+---------------------+-----------------------------------+
+| Historic vs        | Historic:           | Historical:                       |
+| Historical         | Famous in history   | Pertaining to history/past records|
+|                    | (historic victory)  | (historical research)             |
++--------------------+---------------------+-----------------------------------+
+| Sensible vs        | Sensible:           | Sensitive:                        |
+| Sensitive          | Wise, practical     | Easily affected, delicate         |
+|                    | (sensible decision) | (sensitive skin/emotions)         |
++--------------------+---------------------+-----------------------------------+
+| Childlike vs       | Childlike:          | Childish:                         |
+| Childish           | Pure, innocent (+)  | Immature, silly, petulant (-)     |
+|                    | (childlike trust)   | (childish tantrums)               |
++--------------------+---------------------+-----------------------------------+
+| Disinterested vs   | Disinterested:      | Uninterested:                     |
+| Uninterested       | Impartial, unbiased | Bored, lacking interest           |
+|                    | (disinterested judge| (uninterested student)            |
++--------------------+---------------------+-----------------------------------+
+| Economic vs        | Economic:           | Economical:                       |
+| Economical         | Financial / state   | Thrifty, money-saving, efficient  |
+|                    | (economic policy)   | (economical automobile)           |
++--------------------+---------------------+-----------------------------------+
+| Judicial vs        | Judicial:           | Judicious:                        |
+| Judicious          | Legal / Court       | Wise, prudent, discerning         |
+|                    | (judicial enquiry)  | (judicious investment)            |
++--------------------+---------------------+-----------------------------------+
+
+================================================================================
+4. THE HETERONYM SYLLABLE-STRESS LAW
+--------------------------------------------------------------------------------
+When a two-syllable word functions both as a NOUN and a VERB:
+  • NOUN  -> Primary stress on the FIRST syllable.
+  • VERB  -> Primary stress on the SECOND syllable.
+
+Examples:
+  - PRE-sent (Noun: a gift)         vs   pre-SENT (Verb: to introduce/show)
+  - OB-ject (Noun: a physical item) vs   ob-JECT (Verb: to oppose)
+  - RE-cord (Noun: data archive)    vs   re-CORD (Verb: to capture audio/data)
+  - PRO-ject (Noun: an enterprise)  vs   pro-JECT (Verb: to cast forward/plan)
+  - CON-duct (Noun: behavior)       vs   con-DUCT (Verb: to lead/direct)
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 006_004
+================================================================================

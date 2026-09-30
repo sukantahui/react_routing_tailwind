@@ -1,0 +1,47 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001 | TOPIC 3: OVERVIEW OF NOUNS, PRONOUNS & VERBS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE PRIMARY NOMINAL & VERBAL TRIAD
+--------------------------------------------------------------------------------
+Every standard English clause requires a Subject entity (Noun or Pronoun) and
+an Action/State engine (Verb).
+
+2. NOUNS (THE NAMING ANCHORS)
+--------------------------------------------------------------------------------
+- 5 Major Families:
+  1. Proper Noun: Specific unique names (Kolkata, Barrackpore, Sukanta Hui).
+  2. Common Noun: General class names (city, student, teacher, laptop).
+  3. Collective Noun: Unitary groups (jury, committee, team, flock).
+  4. Material Noun: Physical matter/substances (gold, water, iron, cotton).
+  5. Abstract Noun: Qualities, states, feelings (wisdom, honesty, courage).
+- Syntactic Roles: Subject, Direct Object, Indirect Object, Subject Complement,
+  Object Complement, Object of Preposition.
+
+3. PRONOUNS (THE DEICTIC SUBSTITUTES)
+--------------------------------------------------------------------------------
+- Personal: Nominative (I, he, she), Objective (me, him, her), Possessive (mine, hers).
+- Demonstrative: this, that, these, those.
+- Relative: who, whom, whose, which, that (links subordinate clauses).
+- Indefinite: someone, everyone, nobody, none, all, few.
+- Reflexive & Emphatic: myself, himself, themselves.
+- Distributive & Reciprocal: each, neither, either, each other, one another.
+
+4. VERBS (THE DYNAMIC PREDICATE ENGINE)
+--------------------------------------------------------------------------------
+- Finite vs Non-Finite:
+  * Finite: Tensed, inflects for Person/Number ("She writes code").
+  * Non-Finite: Untensed, invariant (to write [Infinitive], writing [Gerund/Participle]).
+- Transitive, Intransitive & Linking:
+  * Transitive: Takes Direct Object ("Swadeep built an app").
+  * Intransitive: No Direct Object ("The train arrived").
+  * Linking / Copula: Connects to Subject Complement ("The soup tastes delicious").
+- Primary & Modal Auxiliaries:
+  * Primary: be, do, have (constructs aspects, negatives, passives).
+  * Modals: can, could, may, might, must, should, will, would (expresses mood/modality).
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

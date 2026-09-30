@@ -1,0 +1,92 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 008_003
+NARRATION OF IMPERATIVE, EXCLAMATORY & OPTATIVE SENTENCES
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. NARRATION OF IMPERATIVE SENTENCES (COMMANDS, REQUESTS, ADVICE)
+--------------------------------------------------------------------------------
+Imperative sentences express orders, advice, requests, warnings, or prohibitions.
+
+Conversion Formula:
+  [Speaker] + [NUANCED REPORTING VERB] + [Personal Object] + [TO + V1...]
+  - For Negative Imperatives: [NOT TO + V1...]
+
+Reporting Verbs Portfolio:
+  • Command / Order:   Ordered, Commanded, Directed
+  • Polite Request:    Requested, Begged, Implored, Entreated, Pleaded
+  • Counsel / Caution: Advised, Urged, Warned, Instructed
+  • Prohibition:       FORBADE (Never use 'not' with forbade!)
+
+Canonical Examples:
+  • Direct:   The officer said to the soldier, "Halt!"
+  • Indirect: The officer COMMANDED the soldier TO HALT.
+  • Direct:   Mother said, "Do not touch the fire."
+  • Indirect: Mother FORBADE me TO TOUCH the fire. (OR: Advised me NOT TO touch)
+
+================================================================================
+2. THE DUAL-BRANCH MECHANICS OF "LET" SENTENCES
+--------------------------------------------------------------------------------
+BRANCH 1: "LET US..." (Mutual Proposal or Suggestion)
+  • Meaning: An invitation to collaborative action.
+  • Formula: [Subject] + PROPOSED / SUGGESTED TO [Object] + THAT [We/They] + SHOULD + [V1...]
+  • Direct:   Rohan said, "Let us begin the discussion."
+  • Indirect: Rohan PROPOSED THAT THEY SHOULD BEGIN the discussion.
+
+BRANCH 2: "LET ME / LET HIM..." (Request for Permission)
+  • Meaning: Seeking authorization or freedom to act.
+  • Formula: [Subject] + REQUESTED + THAT [He/She] + MIGHT BE ALLOWED TO + [V1...]
+  • Direct:   The boy said to the teacher, "Let me go home early today."
+  • Indirect: The boy REQUESTED the teacher THAT HE MIGHT BE ALLOWED TO GO home early that day.
+              (Alternative: "The boy requested the teacher to let him go home early that day.")
+
+================================================================================
+3. NARRATION OF EXCLAMATORY SENTENCES (EMOTIONS & SURPRISE)
+--------------------------------------------------------------------------------
+Exclamatory sentences express sudden bursts of emotional intensity.
+
+Conversion Formula:
+  [Subject] + EXCLAIMED WITH [EMOTION] + THAT + [Declarative Clause (Subj + Verb...)]
+
+Interjection to Emotion Translation Matrix:
++--------------------+---------------------------------------------------------+
+| Direct Interjection| Indirect Reporting Phrase                               |
++--------------------+---------------------------------------------------------+
+| Hurrah! / Ha!      | Exclaimed with joy / delight that...                    |
+| Alas! / Oh no!     | Exclaimed with sorrow / grief that...                   |
+| What a...! / How..!| Exclaimed with wonder / astonishment that (it was very..|
+| Bravo! / Well done!| Applauded [someone] saying that...                      |
+| Fie! / Pooh! / Ugh!| Exclaimed with contempt / disgust that...               |
++--------------------+---------------------------------------------------------+
+
+Exclamatory Phrase Expansion:
+  • Direct:   "What a glorious sunset!"
+  • Indirect: He exclaimed with wonder THAT IT WAS A VERY GLORIOUS SUNSET.
+
+================================================================================
+4. NARRATION OF OPTATIVE SENTENCES (WISHES, PRAYERS, BLESSINGS, CURSES)
+--------------------------------------------------------------------------------
+Optative sentences express desires, blessings, invocations, or curses.
+
+Conversion Formula:
+  [Subject] + PRAYED / WISHED / BLESSED / CURSED + THAT + [Subject] + MIGHT + [V1...]
+
+Canonical Examples:
+  • Direct:   The hermit said, "May God forgive your transgressions!"
+  • Indirect: The hermit PRAYED THAT GOD MIGHT FORGIVE his transgressions.
+  • Direct:   The grandmother said to me, "May you achieve great success!"
+  • Indirect: The grandmother WISHED / BLESSED THAT I MIGHT ACHIEVE great success.
+  • Direct:   The crowd shouted, "Long live the King!"
+  • Indirect: The crowd PRAYED THAT THE KING MIGHT LIVE LONG.
+
+================================================================================
+5. MASTER SUMMARY OF REPORTED DISCOURSE PUNCTUATION
+--------------------------------------------------------------------------------
+  1. ALL indirect sentences (Statements, Questions, Commands, Exclamations, Prayers) 
+     MUST terminate with a single FULL STOP (.).
+  2. Question marks (?), Exclamation marks (!), and Quotation marks (" ") are 
+     PERMANENTLY REMOVED in indirect speech.
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 008_003
+================================================================================

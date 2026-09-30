@@ -1,0 +1,111 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 008_001
+FUNDAMENTALS OF REPORTED SPEECH, REPORTING VERBS & TENSE BACKSHIFT
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. DIRECT SPEECH vs INDIRECT (REPORTED) SPEECH
+--------------------------------------------------------------------------------
+• Direct Speech: Quotes the exact words of the speaker enclosed in quotation marks.
+  - Formula: [Speaker] + [Reporting Verb] , " [Reported Speech] . "
+  - Example: Sukanta Sir said, "Grammar is structural thinking."
+
+• Indirect (Reported) Speech: Reports the essence of what was spoken without exact quotes.
+  - Formula: [Speaker] + [Reporting Verb] + THAT + [Subordinate Reported Clause]
+  - Example: Sukanta Sir said THAT grammar was structural thinking.
+
+Key Reporting Verb Rule:
+  • SAY:  He said that he was ready. (No personal object needed)
+  • TELL: He TOLD ME that he was ready. (Personal object mandatory; NEVER 'told to me')
+
+================================================================================
+2. THE LAW OF TENSE BACKSHIFT (WHEN REPORTING VERB IS IN PAST TENSE)
+--------------------------------------------------------------------------------
+When the Reporting Verb is in the PAST TENSE (said, told, remarked, explained), 
+all present and simple past tenses in the reported clause shift one step backward 
+into past narrative time:
+
++----------------------------+-------------------------------------------------+
+| Direct Speech Tense        | Indirect Speech Backshifted Tense               |
++----------------------------+-------------------------------------------------+
+| Simple Present (V1)        | Simple Past (V2)                                |
+| • "I write"                | • he wrote                                      |
++----------------------------+-------------------------------------------------+
+| Present Continuous (is/am) | Past Continuous (was/were V-ing)                |
+| • "I am writing"           | • he was writing                                |
++----------------------------+-------------------------------------------------+
+| Present Perfect (have/has) | Past Perfect (had + V3)                         |
+| • "I have written"         | • he had written                                |
++----------------------------+-------------------------------------------------+
+| Present Perfect Continuous | Past Perfect Continuous (had been V-ing)        |
+| • "I have been writing"    | • he had been writing                           |
++----------------------------+-------------------------------------------------+
+| Simple Past (V2)           | Past Perfect (had + V3)                         |
+| • "I wrote"                | • he had written                                |
++----------------------------+-------------------------------------------------+
+| Past Continuous (was/were) | Past Perfect Continuous (had been V-ing)        |
+| • "I was writing"          | • he had been writing                           |
++----------------------------+-------------------------------------------------+
+| Past Perfect (had + V3)    | NO CHANGE (Remains Past Perfect)                |
+| • "I had written"          | • he had written                                |
++----------------------------+-------------------------------------------------+
+| Past Perfect Continuous    | NO CHANGE (Remains Past Perfect Continuous)     |
+| • "I had been writing"     | • he had been writing                           |
++----------------------------+-------------------------------------------------+
+
+================================================================================
+3. MODAL AUXILIARY BACKSHIFT
+--------------------------------------------------------------------------------
+  • Will  ==>  Would
+  • Shall ==>  Should (Advice) / Would (Future in the past)
+  • Can   ==>  Could
+  • May   ==>  Might
+  • Must  ==>  Had to (Situational obligation) / Must (Eternal moral rule)
+  • Would / Should / Could / Might / Ought to ==> NO CHANGE
+
+================================================================================
+4. THE 4 INVARIABLE EXCEPTIONS: ZERO TENSE BACKSHIFT
+--------------------------------------------------------------------------------
+Do NOT change the tense of the reported clause in these 4 scenarios:
+
+1. Reporting Verb is in Present or Future Tense:
+   - Direct:   The teacher SAYS, "The examination is postponed."
+   - Indirect: The teacher says that the examination IS postponed. (NOT 'was')
+
+2. Universal Scientific Truths & Geographical Laws:
+   - Direct:   "Water boils at 100 degrees Celsius."
+   - Indirect: He said that water BOILS at 100 degrees Celsius. (NOT 'boiled')
+   - Direct:   "The earth rotates on its axis."
+   - Indirect: She said that the earth ROTATES on its axis.
+
+3. Habitual Actions / Daily Routines:
+   - Direct:   He said, "I wake up at 5:00 AM every morning."
+   - Indirect: He said that he WAKES up at 5:00 AM every morning.
+
+4. Historical Events with Specific Past Dates:
+   - Direct:   The guide said, "Rabindranath won the Nobel Prize in 1913."
+   - Indirect: The guide said that Rabindranath WON the Nobel Prize in 1913.
+
+================================================================================
+5. TIME & PLACE ADVERBIAL SHIFTS
+--------------------------------------------------------------------------------
++--------------------+---------------------+-----------------------------------+
+| Direct Speech      | Indirect Speech     | Contextual Logic                  |
++--------------------+---------------------+-----------------------------------+
+| Now                | Then                | Shift from immediate present      |
+| Today              | That day            | Specific calendar reference       |
+| Tonight            | That night          | Evening reference                 |
+| Tomorrow           | The next day /      | Subsequent calendar day           |
+|                    | The following day   |                                   |
+| Yesterday          | The previous day /  | Preceding calendar day            |
+|                    | The day before      |                                   |
+| Last night         | The previous night  | Prior night                       |
+| Ago                | Before              | Temporal distance                 |
+| Here               | There               | Spatial distance from speaker     |
+| This / These       | That / Those        | Remote demonstratives             |
+| Hither / Hence     | Thither / Thence    | Archaic directional shifts        |
++--------------------+---------------------+-----------------------------------+
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 008_001
+================================================================================

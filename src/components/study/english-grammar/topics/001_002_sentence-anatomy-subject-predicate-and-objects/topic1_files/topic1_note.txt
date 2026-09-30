@@ -1,0 +1,45 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 1: COMPLETE SUBJECT VS COMPLETE PREDICATE
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE DUAL BIPARTITE ARCHITECTURE
+--------------------------------------------------------------------------------
+Every standard English clause divides into exactly TWO structural halves:
+  [ COMPLETE SUBJECT ] + [ COMPLETE PREDICATE ]
+
+2. THE COMPLETE SUBJECT (THE THEME)
+--------------------------------------------------------------------------------
+- Definition: The entire nominal phrase representing who or what performs the 
+  action or is being described.
+- Components:
+  * Simple Subject: The core noun/pronoun head alone.
+  * Modifiers: Articles, Attributive Adjectives, Prepositional Modifiers, 
+    Relative Clauses.
+- Example: "[The dedicated young software engineering student from Barrackpore]"
+
+3. THE COMPLETE PREDICATE (THE RHEME)
+--------------------------------------------------------------------------------
+- Definition: Everything asserted, questioned, or commanded about the subject.
+- Mandatory Core: At least ONE FINITE VERB GROUP.
+- Components:
+  * Simple Predicate: Finite verb group (e.g., 'has been developing').
+  * Direct & Indirect Objects: (e.g., 'an AI model').
+  * Complements & Adverbials: (e.g., 'meticulously in the laboratory').
+- Example: "[has been developing an AI model meticulously in the laboratory]."
+
+4. SPECIAL SYNTACTIC STRUCTURES
+--------------------------------------------------------------------------------
+1. Inverted Sentences:
+   - "Into the room rushed [the anxious students]."
+   - Verb precedes subject for dramatic or stylistic emphasis.
+2. Imperative Sentences:
+   - "[You (implied)] Please submit the code before 5 PM."
+3. Dummy Subject 'There':
+   - "There are [five new workstations] in the laboratory."
+   - The plural noun 'five new workstations' is the true grammatical subject!
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

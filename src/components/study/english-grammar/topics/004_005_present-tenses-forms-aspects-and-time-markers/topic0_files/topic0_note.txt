@@ -1,0 +1,101 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.003: THE PRESENT TENSE SYSTEM, ASPECTS & TIME MARKERS
+================================================================================
+
+1. TENSE VS ASPECT: THE CONCEPTUAL FOUNDATION
+--------------------------------------------------------------------------------
+  * TENSE refers to the grammatical location of an event in TIME (Present, Past, Future).
+  * ASPECT refers to how the event UNFOLDS or is viewed relative to time:
+      1. SIMPLE ASPECT:             Complete whole / habitual state.
+      2. CONTINUOUS / PROGRESSIVE:  Ongoing, temporary, in-progress.
+      3. PERFECT ASPECT:            Completed action with present consequence.
+      4. PERFECT CONTINUOUS:        Ongoing duration connecting past to present.
+
+
+2. THE 4 PRESENT TENSE STRUCTURES & FUNCTIONS
+--------------------------------------------------------------------------------
+
++------------------------------------------------------------------------------+
+| 1. SIMPLE PRESENT TENSE (Base V1 / 3rd Sing V5: -s/-es)                     |
++------------------------------------------------------------------------------+
+  [A] Habitual routines:        "He wakes up at 6 AM daily."
+  [B] Universal/scientific law: "Water freezes at 0 degrees Celsius."
+  [C] Official timetables:      "The flight departs at 9:15 PM tonight."
+  [D] Conditional & Time sub-clauses (NO WILL!):
+      - "If it RAINS tomorrow, the match will be cancelled."
+      - "As soon as he ARRIVES, we will start dinner."
+  [E] Dramatic sports commentary & Quotes:
+      - "Kohli steps out and hits a towering six!"
+      - "Keats says: 'A thing of beauty is a joy forever.'"
+
++------------------------------------------------------------------------------+
+| 2. PRESENT CONTINUOUS TENSE (am / is / are + V-ing)                         |
++------------------------------------------------------------------------------+
+  [A] Action in progress right now: "She is writing a letter at this moment."
+  [B] Temporary current situation:  "I am staying with my cousin this week."
+  [C] Annoyance / Irritation with 'ALWAYS':
+      - "He is ALWAYS leaving his dirty dishes in the sink!"
+
++------------------------------------------------------------------------------+
+| 3. PRESENT PERFECT TENSE (have / has + V3 Past Participle)                  |
++------------------------------------------------------------------------------+
+  [A] Past action with present relevance: "I have lost my passport (I don't have it now)."
+  [B] Life experience up to now:          "Have you EVER seen a snow leopard?"
+  [C] Unfinished time periods (today, this week, this year):
+      - "I have written three reports this morning." (Spoken during morning)
+  [D] Mandatory Time Markers:
+      - JUST (immediate past):      "She has JUST left."
+      - ALREADY (ahead of time):    "I have ALREADY completed it."
+      - YET (questions/negatives):  "The train has not arrived YET."
+  [E] 'GONE TO' VS 'BEEN TO':
+      - "He has GONE to Paris." = He is currently in Paris or on the way (absent).
+      - "He has BEEN to Paris." = He visited Paris in the past and returned (experience).
+
++------------------------------------------------------------------------------+
+| 4. PRESENT PERFECT CONTINUOUS TENSE (have / has + been + V-ing)             |
++------------------------------------------------------------------------------+
+  [A] Action begun in the past and continuing into the present:
+      - "We have been researching this virus FOR two years."
+  [B] Recently ceased activity with visible present evidence:
+      - "The ground is wet because it HAS BEEN RAINING."
+      - "Why are your hands dirty? -> I HAVE BEEN REPAIRING the car."
+
+
+3. THE 'SINCE' VS 'FOR' AXIS OF TIME
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| MARKER            | DEFINITION                 | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| SINCE             | Specific POINT of time     | since 2018, since Monday,   |
+|                   | (Starting origin on clock, | since 8 AM, since morning,  |
+|                   |  calendar, or life stage)  | since childhood, since birth|
++-------------------+----------------------------+-----------------------------+
+| FOR               | Measured PERIOD / DURATION | for 5 years, for 3 hours,   |
+|                   | (Total elapsed length)     | for 20 minutes, for a decade|
++-------------------+----------------------------+-----------------------------+
+
+  * CRITICAL STATIVE EXCEPTION:
+    Stative verbs cannot take -ing. When duration with 'since/for' applies to a 
+    stative verb, use PRESENT PERFECT SIMPLE, NOT Present Perfect Continuous:
+    - INCORRECT: We have been knowing each other for ten years.
+    - CORRECT:   We have KNOWN each other for ten years.
+
+
+4. THE FINISHED PAST TIME ANCHOR PROHIBITION (FATAL EXAM TRAP!)
+--------------------------------------------------------------------------------
+Once a specific, finished historical or past time anchor is stated in the sentence, 
+the PRESENT PERFECT is strictly FORBIDDEN. You MUST use SIMPLE PAST:
+
+  * INCORRECT: I have seen him yesterday.
+  * CORRECT:   I SAW him yesterday.
+
+  * INCORRECT: India has won the World Cup in 1983.
+  * CORRECT:   India WON the World Cup in 1983.
+
+  * INCORRECT: She has completed her PhD two weeks ago.
+  * CORRECT:   She COMPLETED her PhD two weeks ago.
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.003
+================================================================================

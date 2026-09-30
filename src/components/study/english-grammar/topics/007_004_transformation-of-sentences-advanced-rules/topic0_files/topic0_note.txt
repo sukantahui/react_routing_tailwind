@@ -1,0 +1,105 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 007_004
+ADVANCED SENTENCE TRANSFORMATION & STRUCTURAL INTERCHANGE
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. THE CARDINAL LAW OF TRANSFORMATION
+--------------------------------------------------------------------------------
+Transformation is the process of altering the SYNTACTIC FORM of a sentence 
+without changing its MEANING (semantic content) in any way.
+
+Formula:
+  Form A (Simple / Affirmative / Assertive) 
+    <== 100% SEMANTIC EQUIVALENCE ==> 
+  Form B (Complex / Negative / Interrogative)
+
+================================================================================
+2. BIDIRECTIONAL TRIANGLE: SIMPLE <--> COMPOUND <--> COMPLEX
+--------------------------------------------------------------------------------
++----------------+--------------------+--------------------+-------------------+
+| Relation       | SIMPLE             | COMPOUND           | COMPLEX           |
++----------------+--------------------+--------------------+-------------------+
+| Time Sequence  | On hearing the     | He heard the news, | As soon as he     |
+|                | news, he fainted.  | and he fainted.    | heard the news, he|
+|                | (1 Finite Verb)    | (and / and so)     | fainted.          |
++----------------+--------------------+--------------------+-------------------+
+| Concession /   | In spite of his    | He is poor, yet he | Although he is    |
+| Contrast       | poverty, he is     | is honest.         | poor, he is       |
+|                | honest.            | (yet / but)        | honest.           |
++----------------+--------------------+--------------------+-------------------+
+| Condition      | Without hard work, | Work hard, or you  | Unless you work   |
+|                | you will fail.     | will fail.         | hard, you will    |
+|                | (Prepositional)    | (or / otherwise)   | fail.             |
++----------------+--------------------+--------------------+-------------------+
+| Cause / Reason | Being fatigued, he | He was fatigued,   | Because he was    |
+|                | rested.            | so he rested.      | fatigued, he      |
+|                | (Participle)       | (so / therefore)   | rested.           |
++----------------+--------------------+--------------------+-------------------+
+| Purpose        | He works hard to   | He wants to support| He works hard so  |
+|                | support family.    | family; so he works| that he can support|
+|                | (Infinitive)       | hard. (Illative)   | family.           |
++----------------+--------------------+--------------------+-------------------+
+
+================================================================================
+3. REMOVING & INSERTING "TOO...TO"
+--------------------------------------------------------------------------------
+Formula:
+  • [Subject] + [Verb] + TOO + [Adj/Adv] + TO + [V1]
+    ==>
+  • [Subject] + [Verb] + SO + [Adj/Adv] + THAT + [Subject] + [CANNOT/COULD NOT] + [V1]
+
+Examples:
+  - Present: "He is TOO frail TO walk." ==> "He is SO frail THAT he CANNOT walk."
+  - Past:    "He was TOO late TO catch the bus." ==> "He was SO late THAT he COULD NOT catch the bus."
+
+================================================================================
+4. TIME TRIGGER SHIFTS: AS SOON AS <--> NO SOONER <--> HARDLY
+--------------------------------------------------------------------------------
+1. Affirmative:
+   "AS SOON AS the teacher entered the classroom, the students stood up."
+2. Negative (Inversion with Did):
+   "NO SOONER DID the teacher ENTER the classroom THAN the students stood up."
+3. Negative (Inversion with Had):
+   "NO SOONER HAD the teacher ENTERED the classroom THAN the students stood up."
+4. Inversion with Hardly / Scarcely:
+   "HARDLY HAD the teacher ENTERED the classroom WHEN the students stood up."
+
+Key Rules:
+  • "No sooner" strictly takes "THAN".
+  • "Hardly / Scarcely" strictly takes "WHEN".
+
+================================================================================
+5. INTERCHANGE OF SENTENCE PURPOSES & POLARITIES
+--------------------------------------------------------------------------------
+A. AFFIRMATIVE <--> NEGATIVE:
+   - "Man is mortal." ==> "No man is immortal." (Antonym method)
+   - "Only the brave deserve the prize." ==> "None but the brave deserve the prize."
+   - "As soon as he saw me, he smiled." ==> "No sooner did he see me than he smiled."
+
+B. ASSERTIVE <--> INTERROGATIVE (Rhetorical Questions):
+   - "Everyone knows Rabindranath." ==> "Who does not know Rabindranath?"
+   - "Their sacrifice will never be forgotten." ==> "Will their sacrifice ever be forgotten?"
+
+C. EXCLAMATORY <--> ASSERTIVE:
+   - "How lovely the rose is!" ==> "The rose is very lovely."
+   - "What a tragic disaster it was!" ==> "It was a truly tragic disaster."
+   - "O that I were a bird!" ==> "I wish that I were a bird."
+
+================================================================================
+6. INTERCHANGE OF PARTS OF SPEECH
+--------------------------------------------------------------------------------
+Transforming sentences by morphing the grammatical category of a key root word:
+
+1. Noun to Verb:
+   - "He gave an AGREEMENT to the terms." ==> "He AGREED to the terms."
+2. Adjective to Adverb:
+   - "She gave a CAREFUL response." ==> "She responded CAREFULLY."
+3. Verb to Noun:
+   - "He SUCCEEDED in the venture." ==> "He achieved SUCCESS in the venture."
+4. Adjective to Noun:
+   - "He is HONEST in all dealings." ==> "He conducts all dealings with HONESTY."
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 007_004
+================================================================================

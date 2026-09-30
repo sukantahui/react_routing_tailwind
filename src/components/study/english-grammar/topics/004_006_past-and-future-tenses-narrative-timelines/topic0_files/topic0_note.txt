@@ -1,0 +1,127 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.004: PAST & FUTURE TENSES, NARRATIVE TIMELINES & 12-TENSE MATRIX
+================================================================================
+
+1. THE PAST TENSE SYSTEM: RETROSPECTIVE & NARRATIVE ASPECTS
+--------------------------------------------------------------------------------
+
++------------------------------------------------------------------------------+
+| 1. SIMPLE PAST TENSE (V2 Past Form)                                          |
++------------------------------------------------------------------------------+
+  [A] Action completed at a definite point in the past:
+      - "India won independence in 1947."
+      - "She submitted her thesis yesterday."
+  [B] Discontinued past habit / state ('Used to' / 'Would'):
+      - "He played cricket during his college years." / "He USED TO play cricket."
+
++------------------------------------------------------------------------------+
+| 2. PAST CONTINUOUS TENSE (was / were + V-ing)                                |
++------------------------------------------------------------------------------+
+  [A] Action in progress at a specific past point:
+      - "At 8 PM yesterday, I was watching the news."
+  [B] Interrupted past action (Longer ongoing action interrupted by short event):
+      - "I WAS COOKING dinner (longer action) WHEN the doorbell rang (V2 short)."
+  [C] Parallel simultaneous past actions (Concurrently ongoing with 'WHILE'):
+      - "WHILE Priya was studying, Rahul was playing the violin."
+
++------------------------------------------------------------------------------+
+| 3. PAST PERFECT TENSE (had + V3 Past Participle) - "PAST OF THE PAST"       |
++------------------------------------------------------------------------------+
+  When two actions happened in the past, the EARLIER action is in the PAST PERFECT, 
+  and the SUBSEQUENT action is in the SIMPLE PAST:
+
+  * THE 'BEFORE' FORMULA:
+    PAST PERFECT (had + V3) + BEFORE + SIMPLE PAST (V2)
+    - "The patient HAD DIED before the doctor ARRIVED."
+    - "The train HAD LEFT before we REACHED the platform."
+
+  * THE 'AFTER' FORMULA:
+    SIMPLE PAST (V2) + AFTER + PAST PERFECT (had + V3)
+    - "The doctor ARRIVED after the patient HAD DIED."
+    - "We REACHED the platform after the train HAD LEFT."
+
+  * UNFULFILLED PAST WISHES / HOPES:
+    - "I HAD HOPED to see the Director (but I could not)."
+
++------------------------------------------------------------------------------+
+| 4. PAST PERFECT CONTINUOUS TENSE (had + been + V-ing)                       |
++------------------------------------------------------------------------------+
+  Emphasizes continuous duration of an action up to another past milestone:
+  - "They HAD BEEN WAITING for three hours before the bus arrived."
+
+
+2. THE FUTURE TENSE SYSTEM & THE 4 WAYS OF EXPRESSING FUTURE
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| STRUCTURE         | PRIMARY COMMUNICATIVE ROLE | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| 1. WILL / SHALL   | Spontaneous decision /     | - "The phone is ringing;    |
+|    + V1 (Base)    | Unplanned prediction       |    I WILL answer it."       |
++-------------------+----------------------------+-----------------------------+
+| 2. BE GOING TO    | Prior intention / Plan /   | - "I AM GOING TO buy a car."|
+|    + V1 (Base)    | Prediction with evidence   | - "Look at the dark clouds; |
+|                   |                            |    it IS GOING TO rain."    |
++-------------------+----------------------------+-----------------------------+
+| 3. PRESENT CONT.  | Fixed personal arrangement | - "I AM MEETING the client  |
+|    (am/is/are+-ing| involving other people     |    tomorrow at 11 AM."      |
++-------------------+----------------------------+-----------------------------+
+| 4. SIMPLE PRESENT | Official schedule / public | - "The train LEAVES at      |
+|    (V1 / V5)      | fixed timetable            |    6:30 PM this evening."   |
++-------------------+----------------------------+-----------------------------+
+
+  * FUTURE CONTINUOUS (will be + V-ing):
+    - Action in progress at a future moment: "This time tomorrow, I WILL BE FLYING."
+
+  * FUTURE PERFECT (will have + V3):
+    - Action completed BY a specific future deadline ('By + future marker'):
+    - "By next year, I WILL HAVE COMPLETED my degree."
+    - "By the time he arrives, we WILL HAVE PREPARED dinner."
+
+  * FUTURE PERFECT CONTINUOUS (will have been + V-ing):
+    - "By 2028, Dr. Roy WILL HAVE BEEN TEACHING for twenty years."
+
+
+3. THE GRAND 12-TENSE REFERENCE MATRIX
+--------------------------------------------------------------------------------
++--------------------+------------------------+--------------------------------+
+| TENSE & ASPECT     | FORMULA                | ACTIVE CANONICAL EXAMPLE       |
++--------------------+------------------------+--------------------------------+
+| 1. Present Simple  | S + V1 / V5 (-s/-es)   | She writes code every day.     |
+| 2. Present Cont.   | S + am/is/are + V-ing  | She is writing code right now. |
+| 3. Present Perfect | S + have/has + V3      | She has written five modules.  |
+| 4. Present Perf. C | S + have/has+been+V-ing| She has been writing since 8 AM|
++--------------------+------------------------+--------------------------------+
+| 5. Past Simple     | S + V2 (Past form)     | She wrote code yesterday.      |
+| 6. Past Continuous | S + was/were + V-ing   | She was writing code at 9 PM.  |
+| 7. Past Perfect    | S + had + V3           | She had written code before ...|
+| 8. Past Perf. Cont | S + had+been + V-ing   | She had been writing for hours.|
++--------------------+------------------------+--------------------------------+
+| 9. Future Simple   | S + will/shall + V1    | She will write code tomorrow.  |
+| 10. Future Cont.   | S + will be + V-ing    | She will be writing code then. |
+| 11. Future Perfect | S + will have + V3     | She will have written by noon. |
+| 12. Future Perf. C | S + will have+been+V-in| She will have been writing ... |
++--------------------+------------------------+--------------------------------+
+
+
+4. HIGH-FREQUENCY COMPETITIVE EXAM TENSE TRAPS
+--------------------------------------------------------------------------------
+  TRAP 1: Standalone Past Perfect without Secondary Reference
+    - INCORRECT: I had met him two days ago.
+    - CORRECT:   I MET him two days ago. (Simple Past)
+
+  TRAP 2: Reversing 'Before' / 'After' Sequence
+    - INCORRECT: The train left before we had reached the station.
+    - CORRECT:   The train HAD LEFT before we REACHED the station.
+
+  TRAP 3: False Irregular Past Inflections
+    - INCORRECT: The news was broadcasted on television.
+    - CORRECT:   The news was BROADCAST on television. (broadcast -> broadcast)
+
+  TRAP 4: Missing Future Perfect after 'By the time'
+    - INCORRECT: By next month, he will complete his training.
+    - CORRECT:   By next month, he WILL HAVE COMPLETED his training.
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.004
+================================================================================

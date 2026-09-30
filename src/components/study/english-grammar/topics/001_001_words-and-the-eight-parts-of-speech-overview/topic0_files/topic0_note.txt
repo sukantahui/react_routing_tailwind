@@ -1,0 +1,105 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001: WORDS & THE EIGHT PARTS OF SPEECH OVERVIEW
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS GRAMMAR?
+--------------------------------------------------------------------------------
+Grammar is the architectural rule system of human language that dictates how
+individual words combine into phrases, clauses, and meaningful sentences.
+Words do not possess static, permanent labels; rather, their "Part of Speech"
+is determined dynamically by their syntactic work (function) in a sentence.
+
+2. OPEN CLASSES VS CLOSED CLASSES
+--------------------------------------------------------------------------------
++--------------------+------------------------------------+--------------------+
+| Word Class Type    | Members (Parts of Speech)          | Core Property      |
++--------------------+------------------------------------+--------------------+
+| OPEN CLASSES       | Nouns, Verbs, Adjectives, Adverbs  | Readily accept new |
+|                    | (Content / Lexical Words)          | coinages & slang.  |
++--------------------+------------------------------------+--------------------+
+| CLOSED CLASSES     | Pronouns, Prepositions,            | Fixed inventory;   |
+|                    | Conjunctions, Determiners          | rarely admit new   |
+|                    | (Grammatical / Function Words)     | additions.         |
++--------------------+------------------------------------+--------------------+
+
+3. THE EIGHT PARTS OF SPEECH (TAXONOMY & FUNCTION)
+--------------------------------------------------------------------------------
+1. NOUN (Naming Word):
+   - Names a person, place, thing, substance, state, quality, or concept.
+   - Example: "Kolkata is a historic city." | "Honesty is the best policy."
+
+2. PRONOUN (Substitute Word):
+   - Replaces a noun phrase to prevent awkward repetition.
+   - Example: "Swadeep studied hard; he scored the top grade."
+
+3. VERB (Action / State / Relation Core):
+   - The indispensable engine of every English clause; indicates action or state.
+   - Example: "Tuhina solved the equation." (Action) | "She is brilliant." (State)
+
+4. ADJECTIVE (Qualifying / Modifying Word):
+   - Describes, quantifies, or limits a noun or pronoun.
+   - Example: "Abhronila solved a challenging puzzle."
+
+5. ADVERB (Modifier of Verbs, Adjectives & other Adverbs):
+   - Answers: How? When? Where? Why? To what degree?
+   - Example: "Debangshu answered remarkably well."
+
+6. PREPOSITION (Relational Word):
+   - Placed before a noun/pronoun to show relation to another word in space/time.
+   - Example: "The book is on the table." | "They met at Barrackpore station."
+
+7. CONJUNCTION (Syntactic Linker):
+   - Connects words, phrases, or clauses (FANBOYS: For, And, Nor, But, Or, Yet, So).
+   - Example: "He was tired, yet he continued reading."
+
+8. INTERJECTION (Emotive Outburst):
+   - Expresses sudden spontaneous emotion; grammatically independent.
+   - Example: "Bravo! You have mastered the first module."
+
+4. FORM VS SYNTACTIC FUNCTION: THE MULTI-ROLE MATRIX
+--------------------------------------------------------------------------------
++-------+---------------+------------------------------------------------------+
+| Word  | Part of Speech| Contextual Sentence Example                          |
++-------+---------------+------------------------------------------------------+
+| WATER | Noun          | Drink pure water daily.                              |
+|       | Verb          | Please water the plants every morning.               |
+|       | Adjective     | We bought a new water bottle.                        |
++-------+---------------+------------------------------------------------------+
+| FAST  | Adjective     | This is a fast train to Sealdah.                     |
+|       | Adverb        | He ran fast to reach the coaching center.            |
+|       | Noun          | The monk broke his 24-hour fast.                     |
+|       | Verb          | Devotees fast on religious occasions.                |
++-------+---------------+------------------------------------------------------+
+| ROUND | Adjective     | The earth has a round shape.                         |
+|       | Noun          | The security guard completed his night round.        |
+|       | Verb          | The racing cars round the tricky bend smoothly.      |
+|       | Preposition   | The earth revolves round the sun.                    |
+|       | Adverb        | Come round to our office this evening.               |
++-------+---------------+------------------------------------------------------+
+| BUT   | Conjunction   | He worked hard, but he failed.                       |
+|       | Preposition   | All but John were present in the hall.               |
+|       | Adverb        | It is but a small error (meaning: only).             |
++-------+---------------+------------------------------------------------------+
+
+5. BENGALI LEARNER PEDAGOGICAL BRIDGES (বাংলা মাধ্যম শিক্ষার্থীদের জন্য)
+--------------------------------------------------------------------------------
+* Trap 1: Zero Copula Absence
+  - Bengali: "সে একজন ডাক্তার" (প্রকাশ্য ক্রিয়া নেই)
+  - English: "He IS a doctor" (Mandatory Finite Linking Verb)
+  - Error to avoid: Never write "He a doctor".
+
+* Trap 2: Word Order Disparity
+  - Bengali: Subject + Object + Verb (SOV) -> "আমি চা খাই"
+  - English: Subject + Verb + Object (SVO) -> "I drink tea"
+
+* Trap 3: The '-ly' Suffix Misconception
+  - Noun + '-ly' = ADJECTIVE (Friendly, Lovely, Brotherly, Costly, Deadly)
+  - Adjective + '-ly' = ADVERB (Quickly, Slowly, Quietly, Beautifully)
+  - "He behaved in a friendly manner" (NOT "He behaved friendly").
+
+================================================================================
+MEMORY SLOGAN: "Label the word by its duty in the sentence, never by its spelling!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

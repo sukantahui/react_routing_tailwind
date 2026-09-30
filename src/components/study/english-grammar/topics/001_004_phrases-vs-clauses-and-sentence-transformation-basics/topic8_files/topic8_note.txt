@@ -1,0 +1,30 @@
+========================================================================
+MODULE 001_004 | TOPIC 8: CLASSROOM DIALOGUE & WORKED DRILLS
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+CRITICAL STEP-BY-STEP WORKED TRANSFORMATION DRILLS:
+
+DRILL 1: THE DUMMY OPERATOR IN NEGATIVE INVERSION
+- Statement: "No sooner did the inspector entered..." ❌ ERROR!
+- Rule: 'Did' takes base verb (V1) 'enter'.
+- Correction: "No sooner did the inspector enter than..." ✅
+
+DRILL 2: DOUBLE NEGATIVE TRAPS WITH 'TOO'
+- Statement: "He is too wise not to see through the deception."
+- Breakdown: 'too... not to' = positive capacity.
+- Transformed: "He is so wise that he will certainly see through the deception." ✅
+
+DRILL 3: HARDLY / SCARCELY VS NO SOONER
+- "Hardly had the meeting started WHEN the power failed." (Pairs with WHEN)
+- "No sooner had the meeting started THAN the power failed." (Pairs with THAN)
+* NEVER MIX 'Hardly... than' or 'No sooner... when'.
+
+DRILL 4: INTERROGATIVE RHETORICAL EQUIVALENCE
+- Assertive: "Knowledge is true power."
+- Interrogative: "Is knowledge not true power?"
+
+BENGALI SUMMARY (বাংলা সংক্ষেপ):
+- 'Did'-এর পরে সবসময় Verb-এর Present/Base Form (V1) বসে।
+- 'No sooner'-এর সাথে সর্বদা 'than' এবং 'Hardly/Scarcely'-র সাথে 'when' বসে।
+========================================================================

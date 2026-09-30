@@ -1,0 +1,28 @@
+========================================================================
+MODULE 001_004 | TOPIC 4: TRANSFORMATION BASICS & THE GOLDEN RULE
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. THE GOLDEN INVARIANT:
+   "Transformation of a sentence means changing its grammatical form without altering its sense or meaning in the slightest degree."
+   - P. C. Wren & H. Martin
+
+2. TRANSFORMATION VS CONVERSION (DON'T CONFUSE THEM):
+   - Conversion: Changes meaning (Affirmative: "I agree" -> Negative: "I do not agree"). [Meaning Lost]
+   - Transformation: Retains meaning (Affirmative: "I agree" -> Negative: "I do not disagree"). [Meaning Preserved]
+
+3. CORE TRANSFORMATION MECHANISMS:
+   a. Antonym Pairing: Subject + Verb + not + [Antonym]
+      ("He is honest" --> "He is not dishonest")
+   b. Double Negation / Litotes:
+      ("She loves music" --> "She is not without love for music" / "She never fails to enjoy music")
+   c. Polarity Flip in Rhetorical Interrogatives:
+      ("No one can defeat him" --> "Who can defeat him?")
+   d. Correlative Re-packaging:
+      ("As soon as..." --> "No sooner had... than...")
+      ("Too... to..." --> "So... that... cannot...")
+
+4. BENGALI SUMMARY (বাংলা সংক্ষেপ):
+   - ব্যাকরণে রূপান্তর (Transformation)-এর অর্থ হল বাক্যের বহিরাবরণ পরিবর্তন করা, কিন্তু অন্তরের অর্থকে অপরিবর্তিত রাখা।
+   - পরীক্ষায় 'Do as Directed'-এ অর্থ পরিবর্তন হলে শূন্য নম্বর দেওয়া হয়।
+========================================================================

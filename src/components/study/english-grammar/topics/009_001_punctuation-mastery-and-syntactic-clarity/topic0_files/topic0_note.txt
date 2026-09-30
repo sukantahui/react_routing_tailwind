@@ -1,0 +1,96 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 009_001
+PUNCTUATION MASTERY, COMMA SPLICES & SYNTACTIC CLARITY
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. PUNCTUATION: THE ARCHITECTURAL ROAD SIGNS OF THOUGHT
+--------------------------------------------------------------------------------
+Punctuation marks govern the syntactic grouping, rhythm, and legal clarity of 
+English prose. Misplaced punctuation has caused multi-million dollar legal disputes 
+and profound semantic absurdities.
+
+The Core Toolkit:
+  • Period / Full Stop (.)
+  • Comma (,) & Oxford Comma
+  • Semicolon (;)
+  • Colon (:)
+  • Em Dash (—) & En Dash (–) & Hyphen (-)
+  • Parentheses ( ) & Brackets [ ]
+  • Apostrophe (')
+  • Quotation Marks (" " / ' ')
+
+================================================================================
+2. THE COMMA SPLICE & THE 4 STANDARD REPAIR MECHANISMS
+--------------------------------------------------------------------------------
+A Comma Splice occurs when two independent clauses are joined with only a comma:
+  - FAULTY (COMMA SPLICE): "The weather was stormy, the ship did not sail."
+
+THE 4 WAYS TO REPAIR A COMMA SPLICE:
+  1. THE PERIOD REPAIR (Two separate sentences):
+     "The weather was stormy. The ship did not sail."
+  2. THE SEMICOLON REPAIR (Closely linked thoughts):
+     "The weather was stormy; the ship did not sail."
+  3. THE COMMA + FANBOYS REPAIR (Coordinating conjunction):
+     "The weather was stormy, SO the ship did not sail."
+  4. THE SUBORDINATION REPAIR (Complex sentence):
+     "BECAUSE the weather was stormy, the ship did not sail."
+
+================================================================================
+3. THE 6 CARDINAL COMMA RULES
+--------------------------------------------------------------------------------
+1. SERIAL / OXFORD COMMA:
+   - Before 'and/or' in a list of 3+ items: "apples, bananas, and oranges."
+2. INTRODUCTORY CLAUSE / PHRASE:
+   - "When the bell rang, the students departed." / "In the morning, we left."
+3. FANBOYS JOINING INDEPENDENT CLAUSES:
+   - "She wrote the code, and he designed the database."
+4. NON-ESSENTIAL PARENTHETICAL APPOSITIVES:
+   - "Dr. Sen, my biology professor, published a new paper."
+5. DIRECT ADDRESS (VOCATIVE COMMA):
+   - "Let's eat, grandma!" (Saves grandma from being eaten!)
+6. DIRECT DIALOGUE QUOTATIONS:
+   - He said, "Punctuation matters."
+
+================================================================================
+4. SEMICOLON (;) vs COLON (:) vs DASH (—)
+--------------------------------------------------------------------------------
+A. THE SEMICOLON (;):
+   • Connects two independent clauses that are closely related in thought.
+     - "I love reading; it broadens my horizons."
+   • Used with Conjunctive Adverbs:
+     - "The experiment failed; however, we learned valuable data."
+   • Used in complex lists with internal commas:
+     - "Delegates came from Kolkata, India; London, UK; and Paris, France."
+
+B. THE COLON (:):
+   • Must follow an INDEPENDENT CLAUSE to introduce a list, explanation, or quote.
+     - CORRECT: "She bought three essential items: pens, paper, and ink."
+     - WRONG:   "She bought: pens, paper, and ink." (Never put colon after a verb!)
+
+C. DASHES vs HYPHENS:
+   • Em Dash (—): Dramatic interruption or strong aside. ("He had one goal—victory.")
+   • En Dash (–): Spans or ranges of numbers/dates. ("May 15–May 20", "pages 45–50")
+   • Hyphen (-): Compound adjectives before nouns. ("a well-known author")
+
+================================================================================
+5. THE APOSTROPHE: POSSESSION vs CONTRACTION
+--------------------------------------------------------------------------------
+• Possession:
+  - Singular Noun: "The teacher's desk"
+  - Plural ending in -s: "The teachers' lounge"
+  - Plural NOT ending in -s: "The children's playground", "Men's department"
+  - Joint Ownership: "Rohan and Soham's car" (One car owned together)
+  - Separate Ownership: "Rohan's and Soham's cars" (Two distinct cars)
+
+• The Grocer's Apostrophe Fallacy:
+  - WRONG: "Fresh Mango's for Sale"
+  - RIGHT: "Fresh Mangoes for Sale" (Never use apostrophe for simple plural!)
+
+• It's vs Its:
+  - IT'S = It is / It has (Contraction).
+  - ITS  = Possessive Pronoun (like his / her). Never takes an apostrophe!
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 009_001
+================================================================================

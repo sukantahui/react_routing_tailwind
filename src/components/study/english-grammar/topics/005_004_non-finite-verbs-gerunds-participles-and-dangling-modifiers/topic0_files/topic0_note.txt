@@ -1,0 +1,114 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 005.004: NON-FINITE VERBS: GERUNDS, PARTICIPLES & DANGLING MODIFIERS
+================================================================================
+
+1. WHAT IS A GERUND? (THE VERBAL NOUN)
+--------------------------------------------------------------------------------
+A Gerund is a non-finite verb form ending in '-ing' that functions syntactically 
+as a NOUN while retaining verbal characteristics (can take an object or adverbial).
+
++-------------------+----------------------------+-----------------------------+
+| GERUNDIAL ROLE    | EXPLANATION                | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| 1. Subject        | Acts as sentence subject   | - "SWIMMING is good exercise"|
+|                   |                            | - "READING expands the mind"|
++-------------------+----------------------------+-----------------------------+
+| 2. Direct Object  | Object of transitive verb  | - "She enjoys PAINTING."    |
+|                   |                            | - "He avoided MEETING me."  |
++-------------------+----------------------------+-----------------------------+
+| 3. Subj. Compl.   | Follows linking verb       | - "My passion is TEACHING." |
++-------------------+----------------------------+-----------------------------+
+| 4. Prep. Object   | Follows a preposition      | - "Fond of SINGING."        |
+|                   |                            | - "Prevented from ENTERING."|
++-------------------+----------------------------+-----------------------------+
+
+
+2. THE POSSESSIVE CASE RULE BEFORE GERUNDS (CRITICAL EXAM LAW!)
+--------------------------------------------------------------------------------
+Because a Gerund is a NOUN, any noun or pronoun modifying it MUST be in the 
+POSSESSIVE (GENITIVE) CASE:
+
+  * Pronouns: Use MY, YOUR, HIS, HER, ITS, OUR, THEIR (NOT: me, you, him, them)
+  * Nouns:    Use Apostrophe + S (Rahul's, the teacher's)
+
+  * INCORRECT: I insisted on HIM coming with us.
+  * CORRECT:   I insisted on HIS coming with us.
+
+  * INCORRECT: She disapproved of RAHUL smoking.
+  * CORRECT:   She disapproved of RAHUL'S smoking.
+
+
+3. GERUND VS PRESENT PARTICIPLE: THE DEFINITIVE DIAGNOSTIC TEST
+--------------------------------------------------------------------------------
+Both end in '-ing', but their grammatical identities are completely distinct:
+
+  [A] GERUND = VERB + NOUN
+      - Diagnostic: Can be replaced by a noun or the pronoun "IT".
+      - "SWIMMING is refreshing." -> ("IT is refreshing" -> Valid! = Gerund)
+
+  [B] PRESENT PARTICIPLE = VERB + ADJECTIVE
+      - Diagnostic: Describes ongoing action or qualifies a noun.
+      - "I saw a SWIMMING duck." -> ("a duck that was swimming" = Participle)
+
+
+4. VERBS WITH DIVERGENT MEANINGS (GERUND VS INFINITIVE)
+--------------------------------------------------------------------------------
++----------+---------------------------------+---------------------------------+
+| VERB     | VERB + GERUND (-ING)            | VERB + TO-INFINITIVE            |
++----------+---------------------------------+---------------------------------+
+| STOP     | Quit the habit / activity       | Pause in order to do something  |
+|          | "He STOPPED SMOKING." (Gave up) | "He STOPPED TO SMOKE." (Paused) |
++----------+---------------------------------+---------------------------------+
+| REMEMBER | Recall a past completed memory  | Remember a duty and perform it  |
+|          | "I REMEMBER LOCKING the door."  | "REMEMBER TO LOCK the door."    |
++----------+---------------------------------+---------------------------------+
+| FORGET   | Forget having done a past action| Forget to perform a future duty |
+|          | "I FORGOT PAYING the bill."     | "I FORGOT TO PAY the bill."     |
++----------+---------------------------------+---------------------------------+
+| REGRET   | Feel sorrow over a past action  | Apologize before bad news       |
+|          | "I REGRET TELLING him."         | "I REGRET TO INFORM you..."     |
++----------+---------------------------------+---------------------------------+
+
+
+5. PHRASAL PREPOSITIONS ENDING IN 'TO' (+ GERUND!)
+--------------------------------------------------------------------------------
+In the following idioms, 'to' is a PREPOSITION (not an infinitive marker) and 
+MUST take a Gerund:
+  - LOOK FORWARD TO + Gerund:    "Looking forward to MEETING you."
+  - WITH A VIEW TO + Gerund:     "With a view to EXPANDING our business."
+  - ACCUSTOMED / USED TO + Gerund: "Accustomed to WORKING late."
+  - ADDICTED TO + Gerund:        "Addicted to GAMBLING."
+  - AVERSE TO + Gerund:          "Averse to TAKING risks."
+
+
+6. DANGLING (UNATTACHED) PARTICIPLES & HOW TO REPAIR THEM
+--------------------------------------------------------------------------------
+A participial phrase at the start of a sentence must describe the SUBJECT of the 
+main clause. If it attaches to the wrong subject, it creates a DANGLING ERROR:
+
+  * THE CLASSIC DANGLING ERROR:
+    ✗ "Walking in the garden, a snake bit him."
+    (Implies that the snake was walking in the garden!)
+
+  * METHOD 1 REPAIR (Convert to Adverbial Clause):
+    ✓ "WHILE HE WAS WALKING in the garden, a snake bit him."
+
+  * METHOD 2 REPAIR (Align Passive Main Subject):
+    ✓ "Walking in the garden, HE WAS BITTEN by a snake."
+
+  * THE WEATHER DANGLING ERROR:
+    ✗ "Being a rainy day, I did not go to school." (Implies 'I was a rainy day'!)
+    ✓ "IT BEING a rainy day, I did not go to school." (Nominative Absolute)
+
+
+7. THE NOMINATIVE ABSOLUTE
+--------------------------------------------------------------------------------
+An independent noun/pronoun phrase coupled with a participle, grammatically 
+free from the main predicate:
+  - "The sun HAVING SET, the travelers halted for the night."
+  - "God WILLING, we will triumph."
+
+================================================================================
+END OF STUDY NOTES - MODULE 005.004
+================================================================================

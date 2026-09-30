@@ -1,0 +1,101 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 007_003
+SYNTHESIS OF SENTENCES: COMBINING SIMPLE, COMPOUND & COMPLEX STRUCTURES
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. WHAT IS SYNTHESIS OF SENTENCES?
+--------------------------------------------------------------------------------
+Synthesis is the grammatical art of combining two or more separate simple sentences 
+into ONE single, coherent sentence without altering the original meaning.
+
+Three Target Architectural Models:
+  1. Synthesis into ONE SIMPLE SENTENCE (Strictly ONE Finite Verb)
+  2. Synthesis into ONE COMPOUND SENTENCE (Two or more Co-ordinate Clauses)
+  3. Synthesis into ONE COMPLEX SENTENCE (One Principal + Subordinate Clauses)
+
+================================================================================
+2. SYNTHESIS INTO ONE SIMPLE SENTENCE: THE 6 MASTER METHODS
+--------------------------------------------------------------------------------
+*** CARDINAL LAW: The resulting sentence must contain EXACTLY ONE FINITE VERB! ***
+
+METHOD 1: USING PARTICIPLES (Present, Past, Perfect Participle)
+  • Same Subject, Sequential Actions:
+    - Input: "He heard the alarm. He jumped out of bed."
+    - Output: "HEARING the alarm, he jumped out of bed." (Present Participle)
+    - Input: "The surgeon finished the operation. He met the patient's family."
+    - Output: "HAVING FINISHED the operation, the surgeon met the family." (Perfect Participle)
+
+METHOD 2: USING NOUNS OR PHRASES IN APPOSITION
+  • Renaming the subject with an explanatory nominal phrase:
+    - Input: "Rabindranath Tagore was a Nobel laureate. He composed the national anthem."
+    - Output: "Rabindranath Tagore, A NOBEL LAUREATE, composed the national anthem."
+
+METHOD 3: USING PREPOSITION WITH NOUN OR GERUND
+  • Converting clauses into prepositional modifiers:
+    - Input: "He heard the catastrophic news. He fainted."
+    - Output: "ON HEARING the catastrophic news, he fainted."
+    - Input: "He is poor. He is remarkably honest."
+    - Output: "IN SPITE OF his poverty, he is remarkably honest."
+
+METHOD 4: USING THE NOMINATIVE ABSOLUTE
+  • Used when the two sentences have DIFFERENT SUBJECTS and a cause-effect relationship:
+    Formula: [Subject 1] + [Being / Having + V3] , [Subject 2 + Verb...]
+    - Input: "The sun set. The villagers returned to their homes."
+    - Output: "THE SUN HAVING SET, the villagers returned to their homes."
+    - Input: "The weather was stormy. The ship did not sail."
+    - Output: "THE WEATHER BEING STORMY, the ship did not sail."
+
+METHOD 5: USING INFINITIVES (to + V1)
+  • Compressing a purpose or outcome clause:
+    - Input: "He works hard day and night. He wants to support his aged parents."
+    - Output: "He works hard day and night TO SUPPORT his aged parents."
+    - Input: "He is very proud. He will not apologize."
+    - Output: "He is TOO PROUD TO APOLOGIZE."
+
+METHOD 6: USING ADVERBS OR ADVERBIAL PHRASES
+  • Condensing an entire secondary sentence into a single modifier:
+    - Input: "The warrior died on the battlefield. His death was heroic."
+    - Output: "The warrior died HEROICALLY on the battlefield."
+    - Input: "He is an honest leader. There is no doubt about it."
+    - Output: "He is UNDOUBTEDLY an honest leader."
+
+================================================================================
+3. SYNTHESIS INTO ONE COMPOUND SENTENCE
+--------------------------------------------------------------------------------
+Joined by Coordinating Conjunctions:
+
+1. Cumulative / Copulative (Addition): and, both...and, not only...but also
+   - "He was an orator, AND he was a statesman."
+2. Adversative (Contrast): but, yet, still, whereas, while
+   - "He worked tirelessly, YET he failed to achieve his goal."
+3. Disjunctive / Alternative (Choice): or, either...or, neither...nor, otherwise
+   - "Work consistently, OR you will forfeit the opportunity."
+4. Illative (Inference / Result): therefore, so, for, consequently
+   - "He breached the contract; THEREFORE, he was penalized."
+
+================================================================================
+4. SYNTHESIS INTO ONE COMPLEX SENTENCE
+--------------------------------------------------------------------------------
+Joined by Subordinating Connectives:
+
+1. Using Noun Clauses (that, what, why, whether):
+   - "I am certain THAT he will succeed."
+2. Using Adjective (Relative) Clauses (who, which, that, where, whose):
+   - "The student WHO scored first rank received a scholarship."
+3. Using Adverbial Clauses (because, although, if, unless, as soon as, so that):
+   - "ALTHOUGH he was fatigued, he continued the rescue mission."
+
+================================================================================
+5. COMMON TRAPS IN ICSE / ISC / COMPETITIVE EXAMS
+--------------------------------------------------------------------------------
+Trap 1: "Join without using and, but, or so":
+  - DO NOT create a compound sentence! Use Participles, Infinitives, Prepositions + Gerunds, or Nominative Absolute.
+
+Trap 2: Dangling Modifier with Participles:
+  - WRONG: "Walking in the garden, a snake bit him." (Means the snake was walking!)
+  - RIGHT: "While he was walking in the garden, a snake bit him." OR "Walking in the garden, he was bitten by a snake."
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 007_003
+================================================================================

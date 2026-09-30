@@ -261,6 +261,10 @@ const ROUTES = {
   MACHINE_LEARNING_ROADMAP: '/machine-learning/roadmap',
   MACHINE_LEARNING_MODULE: '/machine-learning/module/:slug',
   MACHINE_LEARNING_TOPIC: '/machine-learning/topic/:moduleSlug/:topicIndex',
+
+  ENGLISH_GRAMMAR_ROADMAP: '/english-grammar/roadmap',
+  ENGLISH_GRAMMAR_MODULE: '/english-grammar/module/:slug',
+  ENGLISH_GRAMMAR_TOPIC: '/english-grammar/topic/:moduleSlug/:topicIndex',
 };
 
 // --------------------------------------------------------------
@@ -575,6 +579,15 @@ const STUDY_TRACKS = [
     loadRoadmap: () => import('../components/study/machine-learning/machine_learning_roadmap.json'),
     getTopics: () => import.meta.glob('../components/study/machine-learning/topics/*/Topic*.jsx'),
     topicBasePath: '../components/study/machine-learning/topics',
+  },
+  {
+    key: 'english-grammar',
+    roadmapRoute: ROUTES.ENGLISH_GRAMMAR_ROADMAP,
+    moduleRoute: ROUTES.ENGLISH_GRAMMAR_MODULE,
+    topicRoute: ROUTES.ENGLISH_GRAMMAR_TOPIC,
+    loadRoadmap: () => import('../components/study/english-grammar/english-grammar-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/english-grammar/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/english-grammar/topics',
   },
 ];
 

@@ -1,0 +1,55 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_004: PHRASES VS CLAUSES & SENTENCE TRANSFORMATION BASICS
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. PHRASES VS CLAUSES: THE STRUCTURAL SPECTRUM
+--------------------------------------------------------------------------------
++--------------------+------------------------------------+--------------------+
+| Structural Unit    | Defining Characteristics           | Example            |
++--------------------+------------------------------------+--------------------+
+| PHRASE             | Group of words without a Subject-  | "in a clever       |
+|                    | Finite Verb combination.           | manner"            |
++--------------------+------------------------------------+--------------------+
+| DEPENDENT CLAUSE   | Contains Subject + Finite Verb but | "because she was   |
+| (Subordinate)      | cannot stand alone as a sentence.  | diligent"          |
++--------------------+------------------------------------+--------------------+
+| INDEPENDENT CLAUSE | Contains Subject + Finite Verb and | "She solved the    |
+| (Principal)        | expresses a complete thought.      | algorithm."        |
++--------------------+------------------------------------+--------------------+
+
+2. COMMON PHRASE FAMILIES
+--------------------------------------------------------------------------------
+1. Noun Phrase:        "The diligent student from Barrackpore"
+2. Adjective Phrase:   "A leader of great wisdom and integrity"
+3. Adverb Phrase:      "He answered with immense confidence"
+4. Prepositional Phr.: "On the study table in the library"
+5. Participial Phrase: "Having completed the code review"
+6. Infinitive Phrase:  "To master advanced English syntax"
+
+3. MASTER TRANSFORMATION CATALOG (DO AS DIRECTED RULES)
+--------------------------------------------------------------------------------
+1. AFFIRMATIVE <-> NEGATIVE (Without meaning shift):
+   - By Antonym:        "Man is mortal" <-> "Man is not immortal"
+   - By 'No sooner':    "As soon as the bell rang, they entered" <->
+                        "No sooner had the bell rung than they entered"
+   - By 'None but':     "Only Swadeep can solve it" <-> "None but Swadeep..."
+   - By 'There is no':  "Every rose has a thorn" <-> "There is no rose..."
+   - By 'Too... to':    "She is too weak to walk" <->
+                        "She is so weak that she cannot walk"
+
+2. ASSERTIVE <-> INTERROGATIVE:
+   - Universal positive:"Everyone loves flowers" <-> "Who does not love flowers?"
+   - Universal negative:"Nobody can deny truth" <-> "Who can deny truth?"
+   - Rhetorical shift:  "Can an elephant fly?" <-> "An elephant cannot fly."
+
+3. EXCLAMATORY <-> ASSERTIVE:
+   - "What a glorious sunset!" <-> "It is a very glorious sunset."
+   - "How fast the time flies!" <-> "The time flies very fast."
+   - "O that I had wings!" <-> "I wish that I had wings."
+
+================================================================================
+MEMORY SLOGAN: "Transform the shell, never the soul of the sentence!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

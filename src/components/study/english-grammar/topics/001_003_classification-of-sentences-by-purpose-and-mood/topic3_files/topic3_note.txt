@@ -1,0 +1,31 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 3: IMPERATIVE SENTENCES & COMMUNICATIVE MOODS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE IMPERATIVE SPECTRUM
+--------------------------------------------------------------------------------
+Imperative sentences execute 5 distinct communicative duties:
+  1. Command / Order:    "Stop talking and start coding immediately."
+  2. Polite Request:     "Please pass the algorithm documentation."
+  3. Professional Advice:"Review your codebase before committing."
+  4. Invitation:         "Join us for the technical workshop tomorrow."
+  5. Warning/Instruction:"Do not touch the exposed high-voltage wiring."
+
+2. SYNTACTIC ARCHITECTURE
+--------------------------------------------------------------------------------
+- Implied Subject: [ You ] (Elliptical / understood).
+- Verb Form: Base Form (V1 - uninflected).
+- Negative Imperative: "Don't / Do not" + Base Verb (e.g. "Don't panic.").
+- Emphatic Imperative: "Do" + Base Verb (e.g. "Do come to the session.").
+- Cohort Imperative: "Let's" (Let us) + Base Verb (e.g. "Let's innovate.").
+
+3. PASSIVE VOICE FORMULA FOR IMPERATIVES
+--------------------------------------------------------------------------------
+Active:  "Execute the script."
+Passive: "Let [the script] be [executed]." (Formula: Let + Object + be + V3).
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

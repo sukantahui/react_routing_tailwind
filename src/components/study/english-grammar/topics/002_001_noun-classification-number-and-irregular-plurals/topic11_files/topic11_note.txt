@@ -1,0 +1,66 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 11: Classroom Dialogue & Module Diagnostic Practice Lab
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. MODULE 002_001 SYNTHESIS & GRAND INVARIANTS REVIEW
+--------------------------------------------------------------------------------
+This module has deconstructed the entire morphological and syntactic landscape of English Nouns and Number:
+
+1. THE FIVE TRADITIONAL CLASSES:
+   - Proper Nouns: Specific capitalized entities (Kolkata, Shakespeare).
+   - Common Nouns: Generic class members (city, author, student).
+   - Collective Nouns: Group units acting as one (jury has) or divided (jury were).
+   - Material Nouns: Uncountable substances/elements (gold, iron, water).
+   - Abstract Nouns: Intangible qualities, states, or concepts (honesty, liberty).
+
+2. THE MASS NOUN TRAP ZONE:
+   - Information, Furniture, Advice, Scenery, Luggage, Hair, Machinery, Stationery, Crockery, Mischief, Bread, Work, Poetry, Equipment.
+   - Triple Invariant: Never add '-s', never use direct 'a/an', always use singular verbs.
+   - Partitive Quantification: 'a piece of information', 'two loaves of bread'.
+
+3. REGULAR & IRREGULAR PLURAL FORMATION:
+   - Sibilants (-s, -sh, -ch, -x, -z) take '-es'; hard /k/ takes '-s' (monarchs, stomachs).
+   - Consonant + 'y' mutates to '-ies' (cities); Vowel + 'y' takes '-s' (boys, storeys).
+   - -o endings take '-es' (heroes, potatoes) except loanwords/music terms (photos, pianos).
+   - -f/-fe endings mutate to '-ves' (knives, leaves) except invariants (chiefs, roofs, safes).
+   - Vowel Ablaut: foot/feet, tooth/teeth, mouse/mice, man/men, goose/geese.
+   - Old English -en: ox/oxen, child/children, brother/brethren.
+   - Zero-plurals: sheep, deer, aircraft, species, series.
+
+4. CLASSICAL LOANWORDS:
+   - Latin -us → -i (radii, alumni, stimuli, foci).
+   - Greek/Latin -is → -es (crises, analyses, theses, bases, oases).
+   - Greek -on / Latin -um → -a (phenomena, criteria, data, media, strata).
+   - Latin -a → -ae (formulae, vertebrae, larvae).
+   - Latin -ex/-ix → -ices (matrices, indices).
+
+5. PLURALIA TANTUM & COMPOUND HEAD NOUNS:
+   - Dual instruments & garments (scissors, trousers, spectacles) govern plural verbs; 'a pair of...' governs singular verbs.
+   - Unmarked plurals without '-s': cattle, police, poultry, gentry, peasantry, vermin.
+   - Plural form with singular meaning: mathematics, physics, news, measles, billiards, innings. (Possessive shift: 'his mathematics are weak').
+   - Compounds: Pluralize the principal head noun (sons-in-law, passers-by, commanders-in-chief, spoonfuls, men-servants).
+
+2. CLASSROOM WORKSHOP SCRIPT: SUKANTA SIR & BARRACKPORE STUDENTS
+--------------------------------------------------------------------------------
+[Setting: Coder & AccoTax Classroom, Barrackpore. Master mentor Sukanta Hui with students Abhronila, Swadeep, Debangshu, and Anirban.]
+
+ABHRONILA: "Sir, in our school exam, many students wrote 'The sceneries of Darjeeling are charming' and lost marks. Why can't we say 'sceneries'?"
+SUKANTA SIR: "'Scenery' is an abstract aggregate noun representing the complete landscape as a panoramic whole. In English syntax, it cannot be segmented into countable units. Therefore, it is strictly uncountable: 'The scenery of Darjeeling is charming.' If you wish to count, say 'The charming views / landscapes of Darjeeling'."
+
+SWADEEP: "Sir, what about 'The police is coming'? In Bengali we say 'পুলিশ আসছে' (একবচন)."
+SUKANTA SIR: "That is a classic L1 translation trap! In English, 'police' is an invariable plural noun representing the entire law enforcement body. It ALWAYS takes a plural verb: 'The police are coming' and 'The police have arrested the suspect.' To refer to a single officer, you must say 'a police officer' or 'a policeman'."
+
+DEBANGSHU: "Sir, why is it 'passers-by' and not 'passer-bies'?"
+SUKANTA SIR: "Remember the Golden Rule of Compound Nouns: The plural '-s' attaches strictly to the Principal Head Noun! In 'Passer-by', 'passer' is the noun (the person walking past), while 'by' is merely a preposition. You pluralize the human being, not the preposition! Hence: 'Passers-by'."
+
+ANIRBAN: "Sir, what is the exact difference between 'brothers' and 'brethren'?"
+SUKANTA SIR: "'Brothers' refers to biological sons of the same parents. 'Brethren' is an archaic double-plural used exclusively for members of a religious brotherhood, professional society, or fraternal lodge: 'The brethren of the Masonic lodge met regularly'."
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

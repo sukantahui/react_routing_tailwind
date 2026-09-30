@@ -1,0 +1,108 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 5: Formation of Regular Plurals (-s, -es, -ies, -ves Rules & Exceptions)
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. THE 5 CORE RULES OF REGULAR PLURALIZATION
+--------------------------------------------------------------------------------
+
+RULE 1: THE GENERAL S-RULE
+• Most nouns form their plural by simply appending '-s' to the singular base:
+  - Book → Books
+  - Pen → Pens
+  - Desk → Desks
+  - Student → Students
+
+RULE 2: THE SIBILANT SOUND RULE (-es Suffix)
+• Nouns ending in sibilant (hissing) sounds: '-s', '-ss', '-sh', '-ch' (soft /tʃ/), '-x', '-z' add '-es':
+  - Bus → Buses
+  - Glass → Glasses
+  - Brush → Brushes
+  - Watch → Watches
+  - Box → Boxes
+  - Quiz → Quizzes (final 'z' doubles)
+• CRITICAL EXCEPTION (Phonetic /k/ sound):
+  When final '-ch' is pronounced as a hard /k/ (not soft /tʃ/), append ONLY '-s':
+  - Monarch → Monarchs (NOT *monarches)
+  - Stomach → Stomachs (NOT *stomaches)
+  - Patriarch → Patriarchs
+  - Epoch → Epochs
+
+RULE 3: THE Y-TERMINATION MECHANIC (-ies vs -s)
+• Pattern A: Consonant + 'y' → Drop 'y' and add '-ies':
+  - Baby → Babies
+  - City → Cities
+  - Lady → Ladies
+  - Story (tale) → Stories
+  - Fly → Flies
+• Pattern B: Vowel (a, e, i, o, u) + 'y' → Keep 'y' and add '-s':
+  - Boy → Boys
+  - Key → Keys
+  - Monkey → Monkeys
+  - Toy → Toys
+  - Storey (floor of building) → Storeys
+  - Day → Days
+
+RULE 4: THE O-TERMINATION MECHANIC (-es vs -s)
+• Pattern A: Consonant + 'o' (General) → Add '-es':
+  - Hero → Heroes
+  - Potato → Potatoes
+  - Mango → Mangoes
+  - Tomato → Tomatoes
+  - Echo → Echoes
+  - Volcano → Volcanoes / Volcanos
+• Pattern B: Abbreviations, Foreign Loanwords, or Musical terms → Add ONLY '-s':
+  - Photo (photograph) → Photos
+  - Piano → Pianos
+  - Kilo (kilogram) → Kilos
+  - Radio → Radios (Vowel + o)
+  - Studio → Studios (Vowel + o)
+  - Solo → Solos
+  - Dynamo → Dynamos
+  - Auto → Autos
+
+RULE 5: THE F / FE TERMINATION MECHANIC (-ves vs -s)
+• Pattern A: Nouns ending in '-f' or '-fe' mutate into '-ves':
+  - Calf → Calves
+  - Half → Halves
+  - Knife → Knives
+  - Leaf → Leaves
+  - Life → Lives
+  - Loaf → Loaves
+  - Self → Selves
+  - Sheaf → Sheaves
+  - Shelf → Shelves
+  - Thief → Thieves
+  - Wife → Wives
+  - Wolf → Wolves
+• Pattern B: Invariable '-f' / '-fe' words taking ONLY '-s':
+  - Chief → Chiefs
+  - Cliff → Cliffs
+  - Roof → Roofs
+  - Belief → Beliefs
+  - Grief → Griefs
+  - Gulf → Gulfs
+  - Safe (strongbox) → Safes
+  - Proof → Proofs
+• Pattern C: Dual Permissible Forms (Both '-s' and '-ves' accepted):
+  - Dwarf → Dwarfs / Dwarves
+  - Scarf → Scarfs / Scarves
+  - Wharf → Wharfs / Wharves
+  - Hoof → Hoofs / Hooves
+
+2. BILINGUAL COMPARATIVE NOTES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• বাংলায় আমরা বহুবচন করতে "গুলি", "গুলো", "গণ", "বৃন্দ" যোগ করি।
+• ইংরেজিতে প্রধানত '-s', '-es', '-ies', বা '-ves' যোগ করতে হয়।
+• মনে রাখবেন:
+  1. Consonant + 'y' থাকলে 'y' উঠে '-ies' হয় (City → Cities); কিন্তু Vowel + 'y' থাকলে কেবল '-s' বসে (Boy → Boys)।
+  2. Monarch এবং Stomach-এ '-ch'-এর উচ্চারণ "ক"-এর মতো, তাই '-es' হবে না, কেবল '-s' হবে (Monarchs, Stomachs)।
+  3. Safe (সিন্দুক)-এর বহুবচন Safes, কিন্তু Save কোনো Noun-এর Plural নয়, এটি একটি Verb।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

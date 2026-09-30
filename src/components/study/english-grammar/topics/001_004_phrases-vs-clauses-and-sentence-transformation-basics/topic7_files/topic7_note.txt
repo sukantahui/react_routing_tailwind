@@ -1,0 +1,36 @@
+========================================================================
+MODULE 001_004 | TOPIC 7: EXCLAMATORY TO ASSERTIVE TRANSFORMATION
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. STRUCTURAL CONVERSION PRINCIPLES:
+   - Exclamatory sentences express emotional intensity via fronted "What a..." or "How...".
+   - When converting to Assertive, this emotional intensity is translated into adverbs of degree (very, extremely, indeed, truly) or adjective nouns (a great, a wonderful).
+
+2. KEY CONVERSION FORMULAS:
+   a. "What a + [Adj] + [Noun] + [S] + [V]!"
+      --> [S] + [V] + a very + [Adj] + [Noun].
+      Example: "What a terrible disaster it was!"
+               --> "It was a very terrible disaster."
+
+   b. "How + [Adj/Adv] + [S] + [V]!"
+      --> [S] + [V] + very + [Adj/Adv].
+      Example: "How fast the sprinter runs!"
+               --> "The sprinter runs very fast."
+
+   c. Wishes & Subjunctives: "O that / If only / Would that I were...!"
+      --> "I earnestly wish / desire that I were..."
+      Example: "O that I had the wings of a dove!"
+               --> "I wish that I had the wings of a dove."
+
+   d. Interjections (Hurrah, Alas, Fie, Bravo):
+      - Hurrah! --> "It is a matter of great joy that..."
+      - Alas!   --> "It is a matter of profound sorrow that..."
+      - Fie!    --> "It is a matter of shame that..."
+      - Bravo!  --> "It is a matter of praise that..."
+
+3. BENGALI SUMMARY (বাংলা সংক্ষেপ):
+   - Exclamatory থেকে Assertive করার সময় 'What a / How'-এর স্থানে 'very', 'great', বা 'extremely' বসে।
+   - আবেগসূচক অব্যয় (Alas, Hurrah) থাকলে 'It is a matter of sorrow/joy that...' ব্যবহার করুন।
+   - বিরামচিহ্ন: (!) উঠে গিয়ে (.) বসবে।
+========================================================================

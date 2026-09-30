@@ -1,0 +1,34 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 5: DITRANSITIVE POSITIONING & DATIVE EXCEPTIONS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE 'TO' VS 'FOR' PREPOSITIONAL RULE
+--------------------------------------------------------------------------------
+A. Verbs taking 'TO' (Transmission / Delivery / Communication):
+   - give, send, lend, pass, pay, promise, show, teach, tell, write, read.
+   - Example: "He lent [his laptop] TO [Swadeep]."
+
+B. Verbs taking 'FOR' (Beneficiary / Creation / Acquisition):
+   - buy, cook, bake, build, choose, find, fetch, order, prepare, make.
+   - Example: "He bought [a laptop] FOR [his brother]."
+
+2. THE 'EXPLAIN / SUGGEST' NON-DATIVE INVARIANT
+--------------------------------------------------------------------------------
+- High-level Latinate communication verbs NEVER permit the SVOO pattern!
+- Verbs: explain, suggest, describe, announce, confess, introduce, admit, repeat.
+  * Wrong: "He explained me the question." ❌
+  * Right: "He explained the question to me." ✔️
+  * Wrong: "She suggested me a new plan." ❌
+  * Right: "She suggested a new plan to me." ✔️
+
+3. PRONOUN OBJECT ORDER RULE
+--------------------------------------------------------------------------------
+When both objects are pronouns, English mandates:
+  [Verb] + [Direct Object Pronoun] + TO/FOR + [Indirect Object Pronoun]
+  * "Give IT to ME." (Never "Give me it" in formal standard prose).
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

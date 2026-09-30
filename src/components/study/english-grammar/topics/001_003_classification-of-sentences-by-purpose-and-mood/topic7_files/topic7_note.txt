@@ -1,0 +1,40 @@
+========================================================================
+MODULE 001_003 | TOPIC 7: INTERACTIVE TRANSFORMATION WORKBENCH
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. THE GOLDEN INVARIANT OF TRANSFORMATION:
+   - Form changes; Meaning, Truth Value, and Propositional Essence REMAIN CONSTANT.
+   - Never flip polarity without adding an opposing semantic modifier (antonym/negative operator).
+
+2. KEY PATTERNS & TRANSFORMATION FORMULAS:
+   a. Affirmative to Negative:
+      - Always + Positive  -->  Never + Antonym
+        (e.g., "She is always honest" --> "She is never dishonest")
+      - Only / Alone (Person) --> None but
+        (e.g., "Only God can save us" --> "None but God can save us")
+      - Too... to  -->  So... that + cannot / could not
+        (e.g., "He is too old to run" --> "He is so old that he cannot run")
+
+   b. Assertive to Interrogative (Rhetorical Questions):
+      - Positive Statement --> Negative Question
+        ("He is a true patriot" --> "Is he not a true patriot?")
+      - Negative Statement --> Positive Question
+        ("Nobody can touch the sky" --> "Who can touch the sky?")
+      - Universal Subject ("Everyone / All") --> "Who does not...?"
+        ("Everyone wants peace" --> "Who does not want peace?")
+
+   c. Exclamatory to Assertive:
+      - "What a + [Adj] + [Noun]!" --> "It is a very [Adj] [Noun]."
+      - "How + [Adj] + [Sub] + [Verb]!" --> "[Sub] + [Verb] + very/extremely [Adj]."
+      - "O that / If only I were a child again!" --> "I strongly wish that I were a child again."
+
+   d. Optative to Assertive:
+      - "May God bless you!" --> "I pray that God may bless you."
+      - "Long live the King!" --> "We wish that the King may live long."
+
+3. BENGALI SUMMARY (সারসংক্ষেপ):
+   বাক্য রূপান্তরের প্রধান নীতি হল: কাঠামোর পরিবর্তন ঘটলেও মূল অর্থের কোনো পরিবর্তন হবে না।
+   - Positive বাক্যকে Negative করতে বিপরীত শব্দ (Antonym) ব্যবহার করুন।
+   - জোর দেওয়ার জন্য বা অলংকারিক প্রশ্নে রূপান্তরের ক্ষেত্রে Polarity পরিবর্তন আবশ্যক।
+========================================================================

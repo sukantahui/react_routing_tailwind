@@ -1,0 +1,39 @@
+========================================================================
+MODULE 001_004 | TOPIC 1: THE 5 MAJOR PHRASE TYPES
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. DEFINITION OF A PHRASE:
+   - A cluster of two or more words functioning as a single syntactic unit.
+   - Crucial Invariant: A phrase NEVER contains a Subject + Finite Verb pair.
+
+2. THE 5 STRUCTURAL & FUNCTIONAL PHRASE TYPES:
+   a. Noun Phrase (NP):
+      - Head: Noun or Pronoun
+      - Modifiers: Determiners, Pre-adjectives, Post-prepositional phrases
+      - Role: Subject, Direct Object, Indirect Object, Complement
+      - Example: [The courageous young student from Barrackpore] scored top marks.
+
+   b. Verb Phrase (VP):
+      - Consists of Lexical Main Verb + Auxiliaries / Modals
+      - Example: She [has been studying] since dawn.
+
+   c. Prepositional Phrase (PP):
+      - Structure: Preposition + Object of Preposition (Noun Phrase)
+      - Dual Function:
+        * Adjectival PP (modifies Noun): The book [on the table] is mine.
+        * Adverbial PP (modifies Verb): He ran [into the auditorium].
+
+   d. Adjective Phrase (AdjP):
+      - Modifies a Noun or Pronoun
+      - Example: A man [of immense integrity and honour] led the movement.
+
+   e. Adverb Phrase (AdvP):
+      - Modifies a Verb, Adjective, or another Adverb
+      - Example: She spoke [in an exceptionally polite manner] / [very softly].
+
+3. BENGALI NOTES (বাংলা সংক্ষেপ):
+   - Noun Phrase: বিশেষ্যধর্মী শব্দগুচ্ছ (Subject বা Object হিসেবে ব্যবহৃত)।
+   - Prepositional Phrase: Preposition দিয়ে শুরু শব্দগুচ্ছ; এটি বিশেষ্যকে বিশেষিত করলে Adjective Phrase এবং ক্রিয়াকে বিশেষিত করলে Adverb Phrase হয়।
+   - কোনো Phrase-এ কখনোই Finite Verb থাকে না।
+========================================================================

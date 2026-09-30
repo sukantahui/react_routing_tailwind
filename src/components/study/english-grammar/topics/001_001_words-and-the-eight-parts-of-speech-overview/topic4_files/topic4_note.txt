@@ -1,0 +1,43 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001 | TOPIC 4: OVERVIEW OF ADJECTIVES & ADVERBS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE MODIFYING DUO: ADJECTIVES VS ADVERBS
+--------------------------------------------------------------------------------
+- ADJECTIVE: Modifies Nouns & Pronouns.
+  * Attributive: "A brilliant researcher." (Precedes noun)
+  * Predicative: "The researcher is brilliant." (Follows linking verb)
+  * Predicative-Only Invariants: afraid, asleep, awake, aware, alive, glad.
+
+- ADVERB: Modifies Verbs, Adjectives, and other Adverbs.
+  * Modifying Verb: "Swadeep coded flawlessly."
+  * Modifying Adjective: "An exceptionally bright idea."
+  * Modifying Adverb: "He spoke very eloquently."
+
+2. THE ROYAL ADVERB SEQUENCE (M-P-T RULE)
+--------------------------------------------------------------------------------
+Formula: Manner (How) -> Place (Where) -> Time (When)
+- Example: "Tuhina performed brilliantly [M] at the auditorium [P] yesterday [T]."
+
+3. CRITICAL BENGALI LEARNER EXAM TRAPS
+--------------------------------------------------------------------------------
+* Trap 1: Noun + '-ly' vs Adjective + '-ly'
+  - Noun + '-ly' = ADJECTIVE (Friendly, Lovely, Cowardly, Scholarly).
+  - Adjective + '-ly' = ADVERB (Quickly, Gracefully, Beautifully).
+  - Wrong: "He talked friendly." ❌
+  - Right: "He talked in a friendly manner." ✔️
+
+* Trap 2: Sensory Verbs & Complements
+  - Wrong: "The rose smells sweetly." ❌
+  - Right: "The rose smells sweet." ✔️ (Subject Complement Adjective!)
+
+* Trap 3: Confusable Adverb Pairs
+  - Hard (with effort) vs Hardly (almost not at all)
+  - Late (after time) vs Lately (recently)
+  - Fairly (+ pleasant) vs Rather (+ unpleasant / excess)
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

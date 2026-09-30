@@ -1,0 +1,59 @@
+================================================================================
+MODULE 002.001 - TOPIC 1: THE 5 TRADITIONAL CLASSES OF NOUNS
+================================================================================
+Curriculum Track: English Grammar Master Roadmap (Coder & AccoTax)
+Author & Mentor: Sukanta Hui (Barrackpore, Kolkata)
+
+================================================================================
+1. THE 5 TRADITIONAL NOUN CATEGORIES
+================================================================================
+A Noun is a naming word representing a person, place, thing, substance, 
+collection, or abstract concept.
+
+--------------------------------------------------------------------------------
+1. PROPER NOUN (সংজ্ঞাবাচক বিশেষ্য):
+   - Names a specific, unique individual, place, monument, or entity.
+   - Orthographic Rule: ALWAYS capitalized regardless of sentence position.
+   - Examples: Sukanta Hui, Barrackpore, The Himalayas, Sunday, July, Microsoft.
+   - Shift: When used metaphorically with an article, it functions as a common noun:
+     "He is the Newton of our modern physics laboratory."
+
+2. COMMON NOUN (জাতিবাচক বিশেষ্য):
+   - Names any member of a general class of persons, places, or things.
+   - Can be singular or plural (boy/boys, city/cities, book/books).
+   - Examples: teacher, engineer, river, mountain, laptop, university.
+
+3. COLLECTIVE NOUN (সমষ্টিবাচক বিশেষ্য):
+   - Names a collection, assembly, or group of persons or things considered as a unit.
+   - Examples:
+     * A flock of birds / sheep
+     * A herd of cattle / elephants
+     * A fleet of ships / warships
+     * A swarm of bees / locusts
+     * A pride of lions
+     * Committee, Jury, Orchestra, Parliament, Team, Crew.
+
+4. MATERIAL NOUN (বস্তুবাচক বা উপাদানবাচক বিশেষ্য):
+   - Names the raw substance, uncounted matter, or physical material from which 
+     manufactured articles are made.
+   - Uncountable in raw state: Gold, silver, iron, copper, cotton, wood, milk, cement.
+   - Contrast: "Wood" (Material) vs "Table / Chair" (Common Noun).
+
+5. ABSTRACT NOUN (গুণবাচক বা ভাববাচক বিশেষ্য):
+   - Names a quality, state, action, emotion, or branch of learning that cannot 
+     be experienced through the 5 physical senses (touch, taste, smell, sight, hearing).
+   - Derived from:
+     * Adjectives: Brave -> Bravery; Honest -> Honesty; Kind -> Kindness.
+     * Verbs: Obey -> Obedience; Grow -> Growth; Choose -> Choice.
+     * Common Nouns: Child -> Childhood; Friend -> Friendship; Leader -> Leadership.
+   - Examples: Freedom, justice, wisdom, patience, integrity, geometry, music.
+
+================================================================================
+2. PEDAGOGICAL SUMMARY & BENGALI BRIDGES
+================================================================================
+- Proper Noun (নির্দিষ্ট নাম): সর্বদা Capital Letter দিয়ে শুরু হবে।
+- Common Noun (সাধারণ জাতিবাচক): এক জাতীয় সকলকে বোঝায় (যেমন: 'Boy', 'River')।
+- Collective Noun (সমষ্টিবাচক): একজাতীয় ব্যক্তি বা প্রাণীর দলকে এককভাবে বোঝায় ('Jury', 'Fleet')।
+- Material Noun (উপাদানবাচক): যে মূল উপাদান দিয়ে জিনিস তৈরি হয় ('Gold', 'Wood')।
+- Abstract Noun (গুণ বা ভাববাচক): যা ধরা বা ছোঁয়া যায় না, কেবল অনুভব করা যায় ('Honesty', 'Freedom')।
+================================================================================

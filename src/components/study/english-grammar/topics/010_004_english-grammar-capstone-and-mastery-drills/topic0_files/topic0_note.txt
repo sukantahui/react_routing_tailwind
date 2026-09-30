@@ -1,0 +1,117 @@
+================================================================================
+                    ZERO-TO-EXPERT ENGLISH GRAMMAR MASTERCLASS
+          SEGMENT 10: ADVANCED STYLISTICS, RHETORIC & CAPSTONE
+      MODULE 010_004: ENGLISH GRAMMAR CAPSTONE, MASTERY DRILLS & VIVA VOCE
+================================================================================
+Bilingual Master Reference Notes for Bengali Students (English Terms Preserved)
+Educator & Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+
+--------------------------------------------------------------------------------
+1. THE 10-SEGMENT CURRICULUM SYNTHESIS MATRIX (১০টি স্তম্ভের মহাসমন্বয়)
+--------------------------------------------------------------------------------
+
+SEGMENT 1: SENTENCE ARCHITECTURE & THE 8 PARTS OF SPEECH
+- The Subject-Verb-Object (SVO) architecture vs Bengali Subject-Object-Verb (SOV).
+- Classification of sentences by Purpose & Mood (Declarative, Interrogative, Imperative, Exclamatory, Optative).
+- The 5 core Phrase types vs Clauses (Independent vs Subordinate).
+
+SEGMENT 2: THE NOMINAL DOMAIN (NOUNS, PRONOUNS, DETERMINERS & ARTICLES)
+- Countable vs Uncountable Mass Nouns (Information, Advice, Furniture, Luggage).
+- Foreign Loanword Plurals (Crisis -> Crises, Criterion -> Criteria, Datum -> Data).
+- The Possessive Apostrophe (Joint ownership vs Separate ownership).
+- Pronoun Case Harmony & The 2-3-1 Politeness Order (1-2-3 for confessions).
+
+SEGMENT 3: THE MODIFYING SPHERE (ADJECTIVES, ADVERBS, COMPARISON & INVERSION)
+- Royal Order of Adjectives: OSASCOMP (Opinion, Size, Age, Shape, Color, Origin, Material, Purpose).
+- Royal Order of Adverbs: MPT (Manner, Place, Time).
+- Latin Comparatives ending in -or (senior, junior, superior) taking 'to' instead of 'than'.
+- Adverb Inversion & Negative Fronting (Hardly, Scarcely, Seldom, Under no circumstances).
+
+SEGMENT 4: THE DYNAMIC CORE (VERBS, 25 CONCORD RULES & 12 TENSES)
+- Stative Verbs of cognition, emotion, perception, and possession resisting continuous (-ing) tenses.
+- The 25 Invariant Rules of Subject-Verb Agreement (Proximity Rule, Intervening Additives, Distributives).
+- The 12-Tense Timeline & Temporal Anchor Matrix.
+
+SEGMENT 5: ADVANCED VERB MECHANICS (VOICE, MODALS, NON-FINITES & CONDITIONALS)
+- Active to Passive Transformation across all moods, ditransitives, and quasi-passives.
+- Causative Verbs (make, have, let taking Bare Infinitives; get taking To-Infinitive).
+- Non-Finite Triad: To-Infinitives, Gerunds (with Possessive Pronouns), and Participles.
+- Dangling Modifier Traps & Unreal Subjunctive Conditionals (Type 0 to Type 3).
+
+SEGMENT 6: RELATIONAL & IDIOMATIC CONNECTORS (PREPOSITIONS & COLLOCATIONS)
+- Prepositions of Time (at, on, in), Place, Direction, and Agency.
+- Fixed Collocation Master Catalog (absorbed in, abstain from, adhere to, look forward to).
+- Phrasal Verb Particle Mechanics & Confusable Word Pairs.
+
+SEGMENT 7: SYNTACTIC SYNTHESIS & ADVANCED TRANSFORMATION
+- Coordination with FANBOYS and Correlative Parallelism (not only...but also).
+- Noun Clauses, Relative (Adjective) Clauses, and Adverbial Clauses.
+- Synthesis of Simple, Compound, and Complex sentences without altering semantic truth.
+
+SEGMENT 8: REPORTED SPEECH & DISCOURSE NARRATION
+- Tense Backshift rules and the Universal Truth / Scientific Fact Invariance.
+- Reporting Assertive, Interrogative (Wh- vs If/Whether), Imperative, and Exclamatory sentences.
+- Nuanced Reporting Verbs (remonstrated, conceded, implored, reprimanded).
+
+SEGMENT 9: MECHANICS, ORTHOGRAPHY & SYNTACTIC PRECISION
+- The 14 Punctuation Marks, Comma Splice cures, and Semicolon mechanics.
+- Master Orthographic Rules: 1-1-1 Doubling, Silent-E, Y-to-I, and "I before E" exceptions.
+- 10-Point Diagnostic Error-Spotting Scanner & Pleonastic Redundancy Pruning.
+- Slaying Zombie Nouns (Nominalization) and Defensive Contract Drafting.
+
+SEGMENT 10: RHETORIC, VOCABULARY POWER & DISCOURSE COHESION
+- Classical Latin and Greek Root Etymology and Prefix Assimilation.
+- Plain English Principles, Flesch Reading Ease Index, and Tone Modulation.
+- The MEAL Paragraph Framework (Main Idea, Evidence, Analysis, Link).
+- Theme-Rheme (Given -> New) Information Architecture and Cohesion vs Coherence.
+
+--------------------------------------------------------------------------------
+2. THE 10 INVARIANT COMMANDMENTS OF ENGLISH GRAMMAR FOR BENGALI LEARNERS
+--------------------------------------------------------------------------------
+1.  NEVER drop the linking 'be' verb in zero-copula Bengali thoughts ("He IS honest", NOT *He honest).
+2.  NEVER use continuous (-ing) tenses with Stative Verbs of feeling, thinking, or possession (*I am knowing -> I know).
+3.  NEVER put a preposition after direct transitive verbs (*discuss about -> discuss, *reach to -> reach).
+4.  NEVER omit 'other' when comparing a subject to members of its own class (*taller than any boy -> taller than any other boy).
+5.  ALWAYS balance correlative conjunctions (not only...but also) before identical parts of speech.
+6.  ALWAYS place the true human doer immediately after an introductory participial modifier (curing dangling modifiers).
+7.  ALWAYS use the possessive pronoun before a gerund ("insist on MY going", NOT *me going).
+8.  ALWAYS keep the base bare infinitive after causative 'make' ("made him cry", NOT *made him to cry).
+9.  NEVER use 'would have' inside the conditional If-clause ("If he had worked hard...", NOT *If he would have...).
+10. ALWAYS prioritize active, vigorous verbs over sluggish zombie nominalizations ("investigate", NOT *conduct an investigation).
+
+--------------------------------------------------------------------------------
+3. MASTER VIVA VOCE ORAL DEFENSE PROTOCOL (মৌখিক পরীক্ষার প্রশ্নোত্তর)
+--------------------------------------------------------------------------------
+Q1: Why is "Between you and I" ungrammatical?
+A1: Prepositions govern the objective case; therefore, the preposition 'between' requires the objective pronoun 'me' ("Between you and me").
+
+Q2: What is the difference between "He has gone to London" and "He has been to London"?
+A2: "Has gone" means he is currently in London or on his way there (completed outward journey). "Has been" means he visited London and has already returned (completed round-trip).
+
+Q3: When do collective nouns take a plural verb?
+A3: When the individual members of the collective group act separately, discordantly, or in disagreement ("The jury WERE divided in their opinions").
+
+Q4: Why does "Scarcely had I entered" require inversion?
+A4: Fronting a negative or restrictive adverbial puts rhetorical focus on the negation, requiring the auxiliary verb to precede the subject (Subject-Auxiliary Inversion).
+
+Q5: What is the MEAL paragraph framework?
+A5: It is an academic paragraph blueprint comprising Main Idea (Topic Sentence), Evidence (Data/Quotes), Analysis (Critical Interpretation), and Link (Synthesis/Bridge).
+
+--------------------------------------------------------------------------------
+4. SUKANTA HUI'S PEDAGOGICAL BLESSING FOR BARRACKPORE STUDENTS
+--------------------------------------------------------------------------------
+"ইংরেজি কোনো ভীতি বা বংশগত প্রতিভার বিষয় নয়; এটি বিশুদ্ধ যুক্তি, শৃঙ্খলা ও স্থাপত্যের বিজ্ঞান।
+আমার প্রিয় ছাত্র-ছাত্রী—স্বদীপ, তুহিনা, অভ্রনীলা, দেবাংশু এবং বাংলার সকল শিক্ষার্থীদের উদ্দেশ্যে বলছি:
+তোমরা যারা বাংলা মাধ্যম থেকে এসে ইংরেজিতে দুর্বলতা অনুভব করতে, আজ এই ১০টি স্তম্ভের ৪১টি মডিউল
+সম্পূর্ণ করার পর তোমরা আর কোনো সাধারণ শিক্ষার্থী নও। তোমরা এখন ইংরেজি ব্যাকরণের অলঙ্ঘনীয় নিয়ম
+এবং তার পেছনের বৈজ্ঞানিক যুক্তি পুরোপুরি আয়ত্ত করে ফেলেছ।
+
+পরীক্ষার খাতায় হোক, কর্মক্ষেত্রে হোক, কিংবা আন্তর্জাতিক গবেষণার মঞ্চে—
+আত্মবিশ্বাসের সাথে নির্ভুল, শক্তিশালী ও মার্জিত ইংরেজি রচনা করো।
+তোমাদের ভবিষ্যৎ সাফল্য ও প্রাতিষ্ঠানিক উৎকর্ষ কামনা করি।"
+
+— Sukanta Hui
+Educator & Senior Mentor | Coder & AccoTax | Barrackpore, West Bengal, India
+================================================================================
+                    END OF ZERO-TO-EXPERT MASTER GRAMMAR NOTE
+================================================================================

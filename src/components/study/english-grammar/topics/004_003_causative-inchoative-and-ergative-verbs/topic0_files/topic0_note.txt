@@ -1,0 +1,112 @@
+========================================================================
+MODULE 004_003: CAUSATIVE, INCHOATIVE & ERGATIVE VERBS MASTER GUIDE
+========================================================================
+Curriculum Track: English Grammar Master Roadmap (Coder & AccoTax)
+Author & Mentor: Sukanta Hui (Barrackpore, Kolkata)
+Target Examinations: ICSE/ISC, CBSE, WB Board, SSC CGL, Banking, WBCS, IELTS, TOEFL
+
+========================================================================
+1. THE ANATOMY OF CAUSATIVE VERBS (প্রযোজক ক্রিয়া)
+========================================================================
+A Causative Verb denotes that the grammatical subject does not execute the action directly, but instead causes, compels, authorizes, facilitates, or persuades another agent to perform it.
+
+While Bengali forms causatives morphologically by adding verbal suffixes (করা -> করানো, দেখা -> দেখানো, পড়া -> পড়ানো, খাওয়া -> খাওয়ানো), English utilizes analytical periphrastic auxiliaries (Make, Have, Let, Get, Help).
+
+========================================================================
+2. THE MASTER CAUSATIVE MATRIX & SYNTACTIC FORMULAS
+========================================================================
+---------------------------------------------------------------------------------------------------------
+Verb   Semantic Nuance       Active Voice Formula               Passive Voice Formula
+---------------------------------------------------------------------------------------------------------
+MAKE   Force / Compulsion    Subj + MAKE + Person + V1 (Bare)   Person + BE MADE + TO + V1 (Mandatory 'to'!)
+HAVE   Delegation / Service  Subj + HAVE + Person + V1 (Bare)   Subj + HAVE + Thing + V3 (Passive Causative)
+LET    Permission / Allow    Subj + LET + Person + V1 (Bare)    Person + BE ALLOWED TO + V1
+GET    Persuasion / Convince Subj + GET + Person + TO + V1      Subj + GET + Thing + V3 (Passive Causative)
+HELP   Assistance / Aid      Subj + HELP + Person + (to) + V1   Person + BE HELPED + TO + V1
+---------------------------------------------------------------------------------------------------------
+
+========================================================================
+3. STEP-BY-STEP CAUSATIVE MECHANICS & EXAMPLES
+========================================================================
+A. CAUSATIVE "MAKE" (Force, Obligation, Authority):
+   - Active: "The principal made the errant student apologize." [Bare infinitive: apologize]
+   - Passive: "The errant student was made TO apologize by the principal." [CRITICAL: 'to' is mandatory!]
+   - Involuntary Reaction: "Her hilarious joke made everyone laugh." [Bare infinitive]
+
+B. CAUSATIVE "HAVE" (Hiring, Delegating, Professional Commissioning):
+   - Active: "I had the electrician inspect the circuit breaker." [Bare infinitive]
+   - Passive Causative: "I had the circuit breaker inspected by the electrician." [Thing + V3]
+
+C. CAUSATIVE "GET" (Persuading, Convincing, Overcoming Reluctance):
+   - Active: "She got her brother to wash the family car." [Mandatory to-infinitive!]
+   - Passive Causative: "She got the car washed." [Thing + V3]
+
+D. CAUSATIVE "LET" (Permitting, Giving Leave):
+   - Active: "The invigilator let the candidates use scientific calculators." [Bare infinitive]
+   - Passive Transformation: "Candidates were allowed to use scientific calculators." ['Let' is replaced by 'be allowed to']
+
+E. CAUSATIVE "HELP" (Assisting):
+   - Dual Compatibility: "He helped me solve the equation." (Bare) OR "He helped me to solve the equation." (To-infinitive) — both are 100% correct.
+
+F. FULL-LEXICAL CAUSATIVES (Force, Compel, Require, Cause, Enable, Order):
+   - These verbs strictly require 'Object + To-Infinitive' in active voice:
+     * "The law forces motorists to wear helmets."
+     * "The heavy monsoon caused the dam to overflow."
+     * "Cloud computing enables developers to deploy globally."
+
+========================================================================
+4. ERGATIVE (LABILE / MIDDLE VOICE) VERBS
+========================================================================
+An Ergative Verb is a verb that can be used transitively (with an agent causing the action) and intransitively (where the affected patient acts as the grammatical subject) without any morphological change or passive auxiliary.
+
+------------------------------------------------------------------------
+Verb       Transitive (Agent-Driven)            Intransitive / Ergative (Middle Voice)
+------------------------------------------------------------------------
+Open       The guard opened the heavy gate.     The heavy gate opened quietly.
+Break      The vandal broke the glass window.   The glass window broke into pieces.
+Melt       The scorching sun melted the ice.    The ice melted under the heat.
+Boil       The cook boiled the water in a pot.  The water boiled at 100°C.
+Ring       The peon rang the brass bell.        The brass bell rang loudly.
+Start      The engineer started the engine.     The engine started smoothly.
+Drop       The player dropped the cricket ball. The price of oil dropped sharply.
+Close      She closed the library door.         The library door closed automatically.
+------------------------------------------------------------------------
+
+SEMANTIC MIDDLE VOICE (QUASI-PASSIVE):
+- Verbs active in form but passive in meaning:
+  * "This smooth cotton fabric washes easily." (= can be washed easily)
+  * "His latest novel reads well." (= is enjoyable to read)
+  * "Ripe Alphonso mangoes sell fast." (= are sold quickly)
+  * "Sugar tastes sweet." (= when it is tasted)
+
+========================================================================
+5. INCHOATIVE VERBS (VERBS OF BECOMING & STATE TRANSITION)
+========================================================================
+Inchoative Verbs express the beginning of an action, entering a new condition, or gradual change of state. They function as copular / linking verbs taking predicate adjectives.
+
+CORE INCHOATIVE VERBS & THEIR COLLOCATIONS:
+1. BECOME: "He became famous overnight." (General change)
+2. GROW: "The sky grew dark." / "He grew weary." (Gradual change with time)
+3. TURN: "The leaves turned red in autumn." / "The milk turned sour." (Change in appearance/taste)
+4. GET: "It is getting late." / "He got angry." (Informal / rapid transition)
+5. GO: "The meat went bad." / "He went bald / went blind." (Negative deterioration)
+6. COME: "My dream came true." / "The knot came loose." (Realization / positive state)
+7. FALL: "The child fell asleep." / "He fell ill." / "They fell silent." (Involuntary shift)
+
+========================================================================
+6. BENGALI PEDAGOGICAL SUMMARY & COMPARATIVE BRIDGES (বাংলা সারসংক্ষেপ):
+========================================================================
+১. প্রযোজক ক্রিয়া (Causative Verbs) ধারণা:
+   - বাংলায় 'করা' থেকে 'করানো', 'দেখা' থেকে 'দেখানো' ইত্যাদিতে রূপান্তর হয়।
+   - ইংরেজিতে এটি গঠন করতে 'Make', 'Have', 'Get', 'Let' ব্যবহার করা হয়।
+
+২. অত্যন্ত গুরুত্বপূর্ণ পরীক্ষার নিয়ম (Exam Invariants):
+   - Make (Active): "He made me write" (Bare Verb, 'to' নেই)।
+   - Make (Passive): "I was made TO write" (Passive-এ 'to' বসবেই!)।
+   - Get (Active): "I got him TO write" (ব্যক্তি থাকলে 'to' বসবে)।
+   - Have / Get + বস্তু + V3: "I had my car repaired" / "I got my hair cut" (অন্যকে দিয়ে কাজ করিয়ে নেওয়া)।
+
+৩. Ergative Verb (উভমুখী ক্রিয়া):
+   - যখন কোনো ক্রিয়া রূপ না বদলে Transitive ও Intransitive উভয়ভাবেই বসে:
+     "The peon rang the bell" (সকর্মক) বনাম "The bell rang" (অকর্মক)।
+========================================================================

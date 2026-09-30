@@ -1,0 +1,28 @@
+========================================================================
+MODULE 001_004 | TOPIC 2: WHAT IS A CLAUSE
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. THE CLAUSE DEFINITION:
+   - A clause is a syntactic unit consisting of a Subject and a Finite Verb (Predication Core).
+   - Formula: Clause = [Subject] + [Finite Verb (+ Objects / Complements / Adverbials)]
+
+2. FINITE VERB VS NON-FINITE VERB (THE CRUCIAL TEST):
+   - Finite Verb: Changes form according to Tense, Person, and Number (e.g. goes, went, was writing).
+   - Non-Finite Verb: Does NOT show tense or person (Infinitives: to write; Gerunds/Participles: writing, written).
+   * RULE: A clause MUST have at least ONE Finite Verb.
+
+3. COMPARATIVE TABLE: PHRASE VS CLAUSE
+   ------------------------------------------------------------------------
+   Feature             Phrase                     Clause
+   ------------------------------------------------------------------------
+   Subject-Verb pair   NO                         YES (Mandatory)
+   Finite Verb         NO                         YES
+   Complete Thought    No (fragments of meaning)  Yes (if Independent)
+   Example             "in the morning"           "when morning arrived"
+   ------------------------------------------------------------------------
+
+4. BENGALI SUMMARY (বাংলা সংক্ষেপ):
+   - Clause (বাক্যাংশ/উপবাক্য) হল এমন শব্দসমষ্টি যার মধ্যে নিজস্ব Subject এবং সমাপিকা ক্রিয়া (Finite Verb) থাকে।
+   - Non-finite verb (to + verb, verb+ing) কখনো একা Clause গঠন করতে পারে না।
+========================================================================

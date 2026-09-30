@@ -1,0 +1,159 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.002: SUBJECT-VERB AGREEMENT (THE 25 INVARIANT RULES OF CONCORD)
+================================================================================
+
+1. THE FUNDAMENTAL LAW OF SYNTACTIC CONCORD
+--------------------------------------------------------------------------------
+A finite verb must agree with its true grammatical subject in NUMBER and PERSON:
+  - Singular Subject -> SINGULAR VERB (takes '-s/-es' in present: writes, is, has)
+  - Plural Subject   -> PLURAL VERB   (base form in present: write, are, have)
+
+*(CRITICAL PRINCIPLE: Nouns add '-s' to become PLURAL; Verbs add '-s' to become SINGULAR!)*
+
+
+2. THE 25 INVARIANT RULES OF CONCORD (MASTER CATALOG)
+--------------------------------------------------------------------------------
+
+[RULE 1: COMPOUND SUBJECTS WITH 'AND']
+  Two or more distinct subjects joined by 'and' take a PLURAL verb:
+  - "Rahul and Rohan ARE playing chess."
+
+[RULE 2: SINGLE UNIFIED IDEA WITH 'AND']
+  When two nouns joined by 'and' represent a single item, meal, or concept:
+  - "Bread and butter IS his staple food."
+  - "Slow and steady WINS the race."
+  - "The horse and carriage IS at the gate."
+
+[RULE 3: 'EACH' / 'EVERY' BEFORE COMPOUND SUBJECTS]
+  When singular nouns joined by 'and' are preceded by 'each' or 'every':
+  - "Each boy and each girl WAS awarded a medal."
+  - "Every man, woman, and child WAS vaccinated."
+
+[RULE 4: INTERVENING PARENTHETICAL PHRASES (FIRST SUBJECT LAW)]
+  When subjects are joined by: 'along with', 'together with', 'as well as', 
+  'in addition to', 'accompanied by', 'like', 'unlike', 'besides', 'with':
+  -> The verb agrees strictly with the FIRST SUBJECT!
+  - "The captain, along with his sailors, WAS rescued." (Captain = Singular)
+  - "The teachers, as well as the principal, WERE present." (Teachers = Plural)
+
+[RULE 5: INTERVENING PREPOSITIONAL PHRASE TRAP]
+  Prepositional phrases between subject and verb NEVER alter concord:
+  - "The quality of these mangoes IS superior." (Subject = quality)
+  - "The doors of this ancient temple WERE carved by artisans." (Subject = doors)
+
+[RULE 6: THE RULE OF PROXIMITY (NEAREST SUBJECT LAW)]
+  When subjects are joined by: 'Either... or', 'Neither... nor', 'Or', 'Nor', 
+  'Not only... but also':
+  -> The verb agrees with the NEAREST SUBJECT!
+  - "Neither the teacher nor the students WERE present."
+  - "Neither the students nor the teacher WAS present."
+
+[RULE 7: COLLECTIVE NOUNS - UNIFIED ENTITY]
+  When the collective noun acts unanimously as a single body -> SINGULAR VERB:
+  - "The jury HAS reached a unanimous decision."
+  - "The committee MEETS every Wednesday."
+
+[RULE 8: COLLECTIVE NOUNS - NOUN OF MULTITUDE]
+  When the members act individually or have conflicting opinions -> PLURAL VERB:
+  - "The jury WERE divided in their opinions."
+  - "The committee ARE arguing among themselves."
+
+[RULE 9: INDEFINITE PRONOUNS (ALWAYS SINGULAR)]
+  Everyone, somebody, nobody, anyone, everything, something, nothing, anything, 
+  each, either, neither, one:
+  - "Everyone HAS submitted the assignment."
+  - "Neither of the two books IS available."
+
+[RULE 10: INDEFINITE PRONOUNS (ALWAYS PLURAL)]
+  Both, few, a few, several, many:
+  - "Both of the candidates ARE qualified."
+  - "Several issues WERE discussed."
+
+[RULE 11: SANAM VARIABLE PRONOUNS (SOME, ANY, NONE, ALL, MORE/MOST)]
+  The verb agrees with the noun inside the prepositional 'of' phrase:
+  - "All of the MILK IS spoiled." (Milk = Uncountable -> Singular)
+  - "All of the STUDENTS ARE present." (Students = Countable Plural -> Plural)
+  - "Some of the CAKE WAS eaten."
+  - "Some of the COOKIES WERE eaten."
+
+[RULE 12: PLURAL IN FORM, SINGULAR IN MEANING]
+  Names of academic disciplines, diseases, sports, and 'news':
+  Mathematics, Physics, Economics, Politics, Ethics, Measles, Rickets, News, Innings:
+  - "Mathematics IS a challenging subject."
+  - "No news IS good news."
+
+[RULE 13: DISCIPLINE AS PRACTICAL CALCULATIONS (POSSESSIVE PRECEDING)]
+  When preceded by 'his/her/their/my' and meaning calculation data:
+  - "His mathematics ARE remarkably weak." (Calculations = Plural)
+
+[RULE 14: NOUNS ALWAYS PLURAL IN FORM AND MEANING]
+  Scissors, trousers, binoculars, spectacles, cattle, police, gentry, people:
+  - "The police ARE investigating the crime."
+  - "The scissors ARE sharp."
+
+[RULE 15: 'A PAIR OF' MODIFIER]
+  When tools/clothing are preceded by 'a pair of', the subject is 'pair':
+  - "A pair of scissors IS lying on the table."
+
+[RULE 16: LUMP-SUM UNITS OF MONEY, TIME, DISTANCE, WEIGHT]
+  Treated as a single whole quantity -> SINGULAR VERB:
+  - "Ten kilometers IS a long distance."
+  - "Fifty thousand rupees IS a generous grant."
+  - "Five years IS a long duration."
+
+[RULE 17: DISBURSED / FRACTIONAL MONEY UNITS]
+  When units are distributed separately to different recipients -> PLURAL VERB:
+  - "Fifty thousand rupees WERE distributed among the five victims."
+
+[RULE 18: 'A NUMBER OF' VS 'THE NUMBER OF']
+  - "A number of students ARE participating." ('A number of' = Many -> Plural)
+  - "The number of students IS fifty." ('The number' = Specific total -> Singular)
+
+[RULE 19: 'ONE OF THE + PLURAL NOUN + RELATIVE PRONOUN']
+  The relative pronoun refers to the plural antecedent -> PLURAL VERB:
+  - "Swadeep is one of the students who WERE selected."
+
+[RULE 20: 'THE ONLY ONE OF THE + PLURAL NOUN + RELATIVE PRONOUN']
+  'The only one' shifts the grammatical focus to the singular -> SINGULAR VERB:
+  - "Swadeep is the ONLY one of the students who WAS selected."
+
+[RULE 21: 'MORE THAN ONE' VS 'MORE THAN TWO']
+  - "More than one student WAS absent." (Syntactic singular agreement)
+  - "More than two students WERE absent." (Plural)
+
+[RULE 22: 'MANY A' + SINGULAR NOUN]
+  - "Many a man HAS attempted and failed." (Takes singular noun and verb)
+
+[RULE 23: FRACTIONS AND PERCENTAGES]
+  Verb agrees with the noun following 'of':
+  - "Two-thirds of the CITY WAS submerged."
+  - "Two-thirds of the BUILDINGS WERE submerged."
+
+[RULE 24: POSTPONED SUBJECTS WITH 'THERE' AND 'HERE']
+  - "There IS a book on the desk." (Subject = a book)
+  - "There ARE five books on the desk." (Subject = five books)
+
+[RULE 25: GERUND AND INFINITIVE SUBJECTS]
+  A singular gerund or infinitive phrase takes a SINGULAR verb:
+  - "Swimming in the morning IS invigorating."
+  - "To master 25 concord rules REQUIRES dedication."
+
+
+3. HIGH-FREQUENCY COMPETITIVE EXAM CONCORD TRAPS
+--------------------------------------------------------------------------------
+  TRAP 1: False Agreement with Intervening Plural Noun
+    - INCORRECT: The bouquet of roses smell sweet.
+    - CORRECT:   The bouquet of roses SMELLS sweet. (Subject = bouquet)
+
+  TRAP 2: 'A number of' taking singular
+    - INCORRECT: A number of students is absent today.
+    - CORRECT:   A number of students ARE absent today.
+
+  TRAP 3: 'One of those who' taking singular
+    - INCORRECT: He is one of those men who is always ready to help.
+    - CORRECT:   He is one of those men who ARE always ready to help.
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.002
+================================================================================

@@ -1,0 +1,79 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002: SENTENCE ANATOMY — SUBJECT, PREDICATE & OBJECTS
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. SENTENCE ARCHITECTURE: THE DUAL CORE
+--------------------------------------------------------------------------------
+Every standard English sentence consists of two fundamental components:
+  1. SUBJECT: The person, entity, or concept that performs the action or is
+     described. (Who or What the sentence is about).
+  2. PREDICATE: Everything that is affirmed, denied, or asserted about the
+     subject. Must contain at least one Finite Verb.
+
++-----------------------+------------------------------------------------------+
+| Sentence Component    | Structure / Scope                                    |
++-----------------------+------------------------------------------------------+
+| Simple Subject        | The core noun/pronoun head alone (e.g., 'tree').     |
+| Complete Subject      | Simple subject + all determiners, adjectives,        |
+|                       | prepositional modifiers.                             |
++-----------------------+------------------------------------------------------+
+| Simple Predicate      | The finite verb group alone (e.g., 'has collapsed'). |
+| Complete Predicate    | Finite verb + objects + complements + adverbials.    |
++-----------------------+------------------------------------------------------+
+
+2. THE SEVEN FUNDAMENTAL SENTENCE PATTERNS
+--------------------------------------------------------------------------------
+1. SV   (Subject + Intransitive Verb)
+   - Example: "The express train arrived."
+2. SVO  (Subject + Transitive Verb + Direct Object)
+   - Example: "Swadeep developed a web application."
+3. SVOO (Subject + Ditransitive Verb + Indirect Object + Direct Object)
+   - Example: "Sukanta Sir taught Tuhina English Grammar."
+   - Prepositional Variant: "Sukanta Sir taught English Grammar to Tuhina."
+4. SVC  (Subject + Linking/Copular Verb + Subject Complement)
+   - Example: "Abhronila is an exceptional researcher." (Noun Complement)
+   - Example: "The mangoes taste sweet." (Adjective Complement)
+5. SVOC (Subject + Complex-Transitive Verb + Direct Object + Object Complement)
+   - Example: "The committee elected Debangshu President."
+   - Example: "The jury found the defendant innocent."
+6. SVA  (Subject + Intransitive Verb + Obligatory Adverbial)
+   - Example: "The coaching center is located in Barrackpore."
+7. SVOA (Subject + Transitive Verb + Direct Object + Obligatory Adverbial)
+   - Example: "He placed the reference books on the study table."
+
+3. DIRECT OBJECT VS SUBJECT COMPLEMENT: THE EQUALITY TEST
+--------------------------------------------------------------------------------
++-------------------+--------------------+--------------------+----------------+
+| Test Criterion    | Direct Object      | Subject Complement | Object Comp.   |
++-------------------+--------------------+--------------------+----------------+
+| Verb Type         | Transitive Action  | Linking / Copula   | Complex-Trans. |
+| Entity Relation   | Subject != Object  | Subject == Compl.  | Object == Comp.|
+| Example           | "He kicked the     | "He is a doctor."  | "They named him|
+|                   | ball." (He != Ball)| (He == Doctor)     | John." (Him==J)|
+| Passive Voice     | Possible (Ball was | Impossible (No     | Possible       |
+|                   | kicked by him)     | passive for SVC)   |                |
++-------------------+--------------------+--------------------+----------------+
+
+4. BENGALI LEARNER PEDAGOGICAL BRIDGES (বাংলা মাধ্যম শিক্ষার্থীদের জন্য)
+--------------------------------------------------------------------------------
+* Trap 1: Subject Complement Confused with Adverb
+  - Incorrect: "The flower smells sweetly" ❌
+  - Correct:   "The flower smells sweet" ✔️
+  - Rule: Sensory Linking Verbs (smell, taste, look, feel, sound) take Subject
+    Complement Adjectives, never adverbs of manner!
+
+* Trap 2: Dummy Subject 'There' Concord
+  - "There IS five students in the room" ❌ (Wrong!)
+  - "There ARE five students in the room" ✔️ (Correct! Subject is 'five students').
+
+* Trap 3: Bengali Ditransitive Word Order
+  - Bengali: "আমি তাকে বইটি দিলাম" (IO + DO)
+  - English SVOO: "I gave him (IO) the book (DO)."
+  - English SVO + Prep: "I gave the book (DO) to him (Prep Object)."
+
+================================================================================
+MEMORY SLOGAN: "Find the Verb, ask Who/What for Subject, and Whom/What for Object!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

@@ -1,0 +1,33 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001 | TOPIC 7: INTERACTIVE PARSING WORKBENCH
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE 5-STEP TOKEN PARSING PROTOCOL
+--------------------------------------------------------------------------------
+Step 1: Locate the Finite Verb Group (The structural core).
+Step 2: Ask "Who/What + Verb?" to extract the Subject Nominal.
+Step 3: Check if the verb is Transitive (What/Whom?), Linking (Complement), or
+        Intransitive (Complete in itself).
+Step 4: Identify Modifiers (Adjectives qualifying nouns, Adverbs modifying verbs/adj).
+Step 5: Identify Connectives (Prepositions governing objects, Conjunctions linking clauses).
+
+2. MASTER SENTENCE DECONSTRUCTION DEMO
+--------------------------------------------------------------------------------
+Sentence: "The exceptionally brilliant scholar solved the difficult problem with ease."
+
+1. The          -> Definite Article / Determiner (Closed Class)
+2. exceptionally-> Adverb of Degree (Open Class - modifying 'brilliant')
+3. brilliant    -> Attributive Adjective (Open Class - modifying 'scholar')
+4. scholar      -> Singular Countable Noun (Open Class - Simple Subject)
+5. solved       -> Transitive Finite Verb in Past Tense (Open Class - Predicate)
+6. the          -> Definite Article / Determiner (Closed Class)
+7. difficult    -> Attributive Adjective (Open Class - modifying 'problem')
+8. problem      -> Singular Countable Noun (Open Class - Direct Object)
+9. with         -> Preposition (Closed Class - governs 'ease')
+10. ease        -> Abstract Noun (Open Class - Object of Preposition)
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

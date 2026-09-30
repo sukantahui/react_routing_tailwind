@@ -1,0 +1,39 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 3: SIMPLE PREDICATE VS COMPLETE PREDICATE
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. SIMPLE PREDICATE (THE FINITE VERB GROUP)
+--------------------------------------------------------------------------------
+- Definition: Strictly the lexical verb plus all its modal and auxiliary 
+  operators (without objects, complements, or modifiers).
+- Examples:
+  * "The researcher [arrived]." -> Simple Predicate: arrived.
+  * "The researcher [has been working]." -> Simple Predicate: has been working.
+  * "The researcher [could have been analyzing]." -> Simple Predicate: could have been analyzing.
+
+2. COMPLETE PREDICATE (THE FULL ASSERTION)
+--------------------------------------------------------------------------------
+- Definition: The finite verb group + Direct Object + Indirect Object + 
+  Subject/Object Complement + Prepositional & Adverbial Modifiers.
+- Example:
+  "The researcher [has been analyzing the dataset meticulously in the laboratory]."
+  * Complete Predicate = "has been analyzing the dataset meticulously in the laboratory"
+
+3. COMPOUND PREDICATES
+--------------------------------------------------------------------------------
+- Definition: Two or more verbs sharing the EXACT SAME subject without repeating 
+  the subject pronoun.
+- Example: "Swadeep [designed the algorithm, wrote the code, and tested the output]."
+  (Single Subject 'Swadeep' -> Three compound verbs).
+
+4. BENGALI LEARNER PEDAGOGICAL NOTES
+--------------------------------------------------------------------------------
+* বাংলায় ক্রিয়াপদ সাধারণত বাক্যের শেষে বসে (যেমন: "তিনি কাজটি করেছেন")। 
+  ইংরেজিতে Finite Verb Subject-এর ঠিক পরেই বসে (যেমন: "He has done the work")।
+* বাক্যে Finite Verb শনাক্ত করার পরই Subject ও Predicate-এর বিভাজন সম্পূর্ণ হয়।
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

@@ -1,0 +1,34 @@
+========================================================================
+MODULE 001_004 | TOPIC 6: ASSERTIVE TO INTERROGATIVE TRANSFORMATION
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. THE RHETORICAL POLARITY INVERSION:
+   - Affirmative Assertion (+)  -->  Negative Question (-)
+     "Honesty is the best policy." --> "Is honesty not the best policy?"
+   - Negative Assertion (-)     -->  Affirmative Question (+)
+     "No one can defeat fate."    --> "Who can defeat fate?"
+
+2. UNIVERSAL SUBJECT RULES:
+   a. "Everyone / Everybody / All":
+      - Formula: "Who does not / did not + V1...?"
+      - Example: "Everyone knows the name of Rabindranath."
+                 --> "Who does not know the name of Rabindranath?"
+
+   b. "Nobody / No one / None":
+      - Formula: "Who + V1/V2...?" OR "Can anyone...?"
+      - Example: "None can escape death."
+                 --> "Who can escape death?" / "Can anyone escape death?"
+
+   c. "Never" ↔ "Ever / When":
+      - Example: "We can never forget his sacrifice."
+                 --> "Can we ever forget his sacrifice?" / "When can we forget...?"
+
+   d. "It is useless to / There is no point in":
+      - Example: "It is useless to lament now."
+                 --> "Why lament now?"
+
+3. BENGALI SUMMARY (বাংলা সংক্ষেপ):
+   - সাধারণ বাক্য থেকে প্রশ্নে রূপান্তরের সময় ভাব ঠিক রাখতে Polarity উল্টে দিতে হয় (+ থেকে -, এবং - থেকে +)।
+   - 'Everyone' থাকলে 'Who does not...?' এবং 'Nobody' থাকলে 'Who...?' দিয়ে প্রশ্ন তৈরি করতে হয়।
+========================================================================

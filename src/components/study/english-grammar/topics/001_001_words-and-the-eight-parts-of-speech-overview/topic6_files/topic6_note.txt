@@ -1,0 +1,34 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_001 | TOPIC 6: CLASSROOM DIALOGUE & MENTOR LAB
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE BARRACKPORE MENTORING WORKSHOP TRANSCRIPT
+--------------------------------------------------------------------------------
+Key questions posed by students and resolved by Sukanta Sir:
+
+Q1 (Swadeep): "Why is 'He ran fastly' rejected in grammar checks?"
+- Mentor: 'Fast' is an invariant flat adverb. English morphology never generated 
+  'fastly'. 'Fast' acts as both Adjective ("a fast train") and Adverb ("he ran fast").
+
+Q2 (Tuhina): "If words ending in '-ly' are adverbs, why is 'lovely' an adjective?"
+- Mentor: Check the root!
+  * Noun + '-ly' = ADJECTIVE (Friend + ly = Friendly, Love + ly = Lovely).
+  * Adjective + '-ly' = ADVERB (Quick + ly = Quickly, Clear + ly = Clearly).
+
+Q3 (Debangshu): "How do I know whether 'before' is a preposition or conjunction?"
+- Mentor: Inspect the following structure!
+  * Followed by Noun Phrase: Preposition ("He arrived before [sunset]").
+  * Followed by Clause (S+V): Conjunction ("He arrived before [the train left]").
+
+2. HIGH-FREQUENCY EXAM CONFUSABLES SUMMARY
+--------------------------------------------------------------------------------
+1. Hard (with intense effort) vs Hardly (almost not at all - Negative).
+2. Late (not on time) vs Lately (recently).
+3. Near (close in distance) vs Nearly (almost).
+4. Direct (straight, without stopping) vs Directly (immediately / without delay).
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

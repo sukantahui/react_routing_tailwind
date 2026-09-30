@@ -1,0 +1,82 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 6: Irregular Plural Mutations (Vowel Ablaut, -en Suffix & Zero Plurals)
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. HISTORICAL VOWEL MUTATION PLURALS (ABLAUT / UMLAUT)
+--------------------------------------------------------------------------------
+In Old English, a select group of core Germanic nouns formed their plurals not by suffixation, but by changing the root vowel:
+
+• Man → Men
+• Woman → Women (Pronounced: /ˈwɪm.ɪn/)
+• Foot → Feet
+• Tooth → Teeth
+• Goose → Geese
+• Mouse → Mice
+• Louse → Lice
+
+Note on Compound Nouns with '-man':
+- Postman → Postmen
+- Fisherman → Fishermen
+- Statesman → Statesmen
+- EXCEPTION (Not a compound of 'man', but national proper noun):
+  - German → Germans (NOT *Germen)
+  - Norman → Normans
+  - Mussulman → Mussulmans
+  - Brahman → Brahmans
+
+2. GERMANIC '-en' SUFFIX PLURALS (OLD ENGLISH SURVIVALS)
+--------------------------------------------------------------------------------
+• Ox → Oxen (NOT *oxes)
+• Child → Children (Double plural: root vowel shift + '-r-' + '-en')
+• Brother → 
+  - Brothers (Sons of the same father/mother: biological siblings)
+  - Brethren (Members of a religious society, guild, or philosophical community)
+
+3. INVARIABLE ZERO-PLURALS (SAME FORM IN SINGULAR & PLURAL)
+--------------------------------------------------------------------------------
+Certain nouns retain the EXACT same spelling and pronunciation whether singular or plural:
+
+A. ANIMALS & FISH:
+• Sheep → Sheep ("One sheep was lost", "Fifty sheep were grazing")
+• Deer → Deer ("A majestic deer", "A herd of five deer")
+• Swine → Swine
+• Salmon → Salmon
+• Trout → Trout
+• Cod → Cod
+
+B. TECHNOLOGICAL & MODERN NOUNS:
+• Aircraft → Aircraft (NEVER *aircrafts)
+• Spacecraft → Spacecraft
+• Hovercraft → Hovercraft
+
+C. LATIN INVARIABLE SPECIES / SERIES:
+• Species → Species ("A rare species", "Multiple endangered species")
+• Series → Series ("A TV series", "Three test series")
+• Corps → Corps (Pronounced: singular /kɔː/, plural /kɔːz/)
+
+4. SPECIAL DUAL NOUNS: FISH VS FISHES / CLOTH VS CLOTHES
+--------------------------------------------------------------------------------
+1. FISH vs FISHES:
+   - FISH: Used when referring to multiple fish considered as a collective quantity or of the same species ("He caught six fish").
+   - FISHES: Used specifically in zoology/biology to refer to multiple DIFFERENT SPECIES of fish ("The diverse fishes of the Bay of Bengal").
+
+2. CLOTH vs CLOTHS vs CLOTHES:
+   - Cloth: The fabric/material (Uncountable).
+   - Cloths: Pieces of fabric/rags used for wiping (Countable: "cleaning cloths").
+   - Clothes: Garments worn on the human body (Pluralia Tantum: "stylish clothes").
+
+5. BILINGUAL LEARNING BRIDGES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+• German শব্দের সাথে 'man' থাকলেও এটি কোনো যৌগিক শব্দ নয়, তাই এর বহুবচন Germans (Germen নয়)।
+• Sheep ও Deer-এর সাথে কখনোই 's' যুক্ত করবেন না। একবচনে "a sheep is", বহুবচনে "many sheep are"।
+• Children শব্দের ভেতরে 's' নেই, কিন্তু এটি নিজেই বহুবচন, তাই কখনো *childrens বলবেন না।
+• Brothers হলো আপন ভাইদের জন্য, আর Brethren হলো সমমনা সহকর্মী বা ধর্মীয় ভ্রাতৃমণ্ডলীর জন্য।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

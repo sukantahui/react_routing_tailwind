@@ -1,0 +1,129 @@
+========================================================================
+MODULE 004_002: REGULAR VS IRREGULAR VERBS, 5 PRINCIPAL FORMS & CONFUSABLES
+========================================================================
+Curriculum Track: English Grammar Master Roadmap (Coder & AccoTax)
+Author & Mentor: Sukanta Hui (Barrackpore, Kolkata)
+Target Examinations: ICSE/ISC, CBSE, WB Board, SSC CGL, Banking, WBCS, IELTS, TOEFL
+
+========================================================================
+1. WEAK (REGULAR) VS STRONG (IRREGULAR) VERBAL MORPHOLOGY
+========================================================================
+A. WEAK / REGULAR VERBS:
+   - Form their Past Tense (V2) and Past Participle (V3) by appending the dental suffix '-ed', '-d', or '-t' to the base form without internal vowel mutation.
+   - Examples: Walk -> Walked -> Walked, Decide -> Decided -> Decided, Burn -> Burnt -> Burnt.
+   - PHONETIC PRONUNCIATION OF '-ed':
+     1. Voiceless Endings (/p/, /k/, /s/, /ʃ/, /tʃ/, /f/) -> Pronounced as /t/ (e.g. stopped /stɒpt/, laughed /lɑːft/, washed /wɒʃt/).
+     2. Voiced Endings (vowels, /b/, /g/, /v/, /z/, /m/, /n/, /l/, /r/) -> Pronounced as /d/ (e.g. played /pleɪd/, robbed /rɒbd/, cleaned /kliːnd/).
+     3. Dental Stops (/t/, /d/) -> Pronounced as separate syllable /ɪd/ (e.g. wanted /ˈwɒntɪd/, decided /dɪˈsaɪdɪd/, mended /ˈmendɪd/).
+
+B. STRONG / IRREGULAR VERBS:
+   - Form their Past (V2) and Past Participle (V3) through internal vowel mutation (Indo-European Ablaut) without dental suffixes.
+   - Examples: Sing -> Sang -> Sung, Drive -> Drove -> Driven, Break -> Broke -> Broken.
+
+========================================================================
+2. THE MASTER 5 PRINCIPAL VERB FORMS (V1 TO V5)
+========================================================================
+Every English verb functions across 5 principal forms:
+- V1: Base / Infinitive Form (go, write, see)
+- V2: Simple Past Form (went, wrote, saw)
+- V3: Past Participle Form (gone, written, seen) [Used with have/has/had and passives]
+- V4: Present Participle / Gerund Form (going, writing, seeing) [V1 + ing]
+- V5: 3rd Person Singular Simple Present Form (goes, writes, sees) [V1 + s/es]
+
+========================================================================
+3. THE INVARIABLE 3-FORM IDENTICAL VERBS CATALOG (V1 = V2 = V3)
+========================================================================
+CRITICAL RULE: These verbs NEVER take '-ed' in standard English:
+------------------------------------------------------------------------
+Base (V1)    Simple Past (V2)   Past Participle (V3)   Meaning (বাংলা অর্থ)
+------------------------------------------------------------------------
+Burst        burst              burst                  ফেটে যাওয়া / হঠাৎ বের হওয়া
+Broadcast    broadcast          broadcast              সম্প্রচার করা
+Cast         cast               cast                   নিক্ষেপ করা / ভোট দেওয়া
+Cost         cost               cost                   মূল্য হওয়া / খরচ হওয়া
+Cut          cut                cut                    কাটা
+Hit          hit                hit                    আঘাত করা
+Hurt         hurt               hurt                   আঘাত পাওয়া / কষ্ট দেওয়া
+Let          let                let                    অনুমতি দেওয়া
+Put          put                put                    রাখা
+Read*        read (/red/)       read (/red/)           পড়া (উচ্চারণ পরিবর্তন হয়)
+Set          set                set                    স্থাপন করা / অস্ত যাওয়া
+Shed         shed               shed                   ঝরানো (অশ্রু/রক্ত/পাতা)
+Shut         shut               shut                   বন্ধ করা
+Slit         slit               slit                   চিড়ে ফেলা / ফালি করা
+Split        split              split                  বিভক্ত করা / ভাগ করা
+Spread       spread             spread                 ছড়িয়ে দেওয়া
+Telecast     telecast           telecast               টেলিভিশনে সম্প্রচার করা
+Thrust       thrust             thrust                 জোরে ধাক্কা দেওয়া / গুঁজে দেওয়া
+------------------------------------------------------------------------
+
+========================================================================
+4. HIGH-FREQUENCY CONFUSABLE VERB PAIRS (EXAM TRAP MATRIX)
+========================================================================
+-----------------------------------------------------------------------------------------------
+Base (V1)    Past (V2)     Participle (V3)   Type           Meaning & Exemplar Sentence
+-----------------------------------------------------------------------------------------------
+Lie          lay           lain              INTRANSITIVE   To recline/rest: "He lay on the grass yesterday."
+Lay          laid          laid              TRANSITIVE     To place/put: "Please lay the book on the table."
+Lie          lied          lied              INTRANSITIVE   To tell an untruth: "He lied under oath."
+
+Rise         rose          risen             INTRANSITIVE   To ascend/go up: "The sun rose at 6 AM."
+Raise        raised        raised            TRANSITIVE     To elevate/lift: "He raised his hand to speak."
+
+Fall         fell          fallen            INTRANSITIVE   To drop down: "Leaves fell from the tree."
+Fell         felled        felled            TRANSITIVE     To cut down: "The woodsman felled the cedar tree."
+
+Hang         hanged        hanged            TRANSITIVE     To execute by rope: "The murderer was hanged at dawn."
+Hang         hung          hung              TRANS/INTRANS  To suspend an item: "She hung the portrait on the wall."
+
+Find         found         found             TRANSITIVE     To discover: "I found my misplaced keys."
+Found        founded       founded           TRANSITIVE     To establish: "Rabindranath founded Visva-Bharati."
+
+Wind         wound         wound             TRANS/INTRANS  To turn/coil: "The clockwork mechanism was wound."
+Wound        wounded       wounded           TRANSITIVE     To injure/harm: "The bullet wounded the soldier."
+
+Bind         bound         bound             TRANSITIVE     To tie/fasten: "The ancient books were bound in leather."
+Bound        bounded       bounded           INTRANSITIVE   To leap/spring: "The gazelle bounded across the plains."
+
+Grind        ground        ground            TRANSITIVE     To crush to powder: "Fresh coffee beans were ground."
+Ground       grounded      grounded          TRANSITIVE     To base/restrict: "The airline grounded all flights."
+
+Fly          flew          flown             TRANS/INTRANS  To travel in air: "The eagle flew high above."
+Flow         flowed        flowed            INTRANSITIVE   To move as liquid: "The Hooghly flowed calmly."
+Flee         fled          fled              TRANS/INTRANS  To run from danger: "The refugees fled the warzone."
+
+Bear         bore          born              PASSIVE ONLY   To be given birth: "He was born in 1995."
+Bear         bore          borne             ACTIVE/PASSIVE To carry/endure: "She has borne heavy responsibilities."
+
+Bid          bid           bid               TRANSITIVE     To offer price at auction: "He bid $10,000 for the painting."
+Bid          bade          bidden            TRANSITIVE     To command/greet: "The host bade the guests farewell."
+-----------------------------------------------------------------------------------------------
+
+========================================================================
+5. VERBAL PARTICIPLES VS ATTRIBUTIVE ADJECTIVE VARIANTS
+========================================================================
+Certain strong verbs possess divergent forms when acting as verbal participles (after have/be) versus attributive adjectives (before nouns):
+- Verbal Participle (V3): drunk ("He has drunk the milk.")
+  Attributive Adjective: drunken ("A drunken brawl erupted.")
+- Verbal Participle (V3): struck ("The ship was struck by lightning.")
+  Attributive Adjective: stricken ("A poverty-stricken neighborhood.")
+- Verbal Participle (V3): sunk ("The submarine has sunk.")
+  Attributive Adjective: sunken ("Sunken treasure was recovered.")
+- Verbal Participle (V3): melted ("The butter has melted.")
+  Attributive Adjective: molten ("Molten lava poured down the mountain.")
+- Verbal Participle (V3): shaved ("He has shaved his beard.")
+  Attributive Adjective: shaven ("A clean-shaven young officer.")
+
+========================================================================
+6. BENGALI PEDAGOGICAL SUMMARY & BRIDGES (বাংলা সারসংক্ষেপ):
+========================================================================
+১. Transitivity Test (সকর্মক বনাম অকর্মক ক্রিয়ার পরীক্ষা):
+   - যখন কর্তা নিজে অবস্থান পরিবর্তন করে বা বিশ্রাম নেয় (No Object), তখন Intransitive Verb বসে: Lie (lay, lain), Rise (rose, risen), Fall (fell, fallen)।
+   - যখন কর্তা কোনো বাহ্যিক বস্তুর ওপর ক্রিয়া সম্পাদন করে (Object উপস্থিত), তখন Transitive Verb বসে: Lay (laid, laid), Raise (raised, raised), Fell (felled, felled)।
+
+২. মারাত্মক ভুলগুলো এড়িয়ে চলুন:
+   - "He laid in bed all morning" [ভুল] -> "He lay in bed all morning" [সঠিক]।
+   - "The prisoner was hung" [ভুল] -> "The prisoner was hanged" [সঠিক - ফাঁসি দেওয়া]।
+   - "The river has overflown" [ভুল] -> "The river has overflowed" [সঠিক - flow থেকে আসে]।
+   - "He has casted his vote" [ভুল] -> "He has cast his vote" [সঠিক - cast invariable]।
+========================================================================

@@ -1,0 +1,132 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 003.004: ADVERB INVERSION, NEGATIVE FRONTING & CORRELATIVE TRIGGERS
+================================================================================
+
+1. WHAT IS GRAMMATICAL INVERSION?
+--------------------------------------------------------------------------------
+Standard declarative English follows the SUBJECT + VERB order.
+INVERSION reverses this order so that an AUXILIARY VERB precedes the SUBJECT:
+
+  Standard Order:   Subject + Auxiliary + Main Verb
+                    "I have NEVER seen such courage."
+
+  Inverted Order:   Fronted Negative Word + AUXILIARY + SUBJECT + MAIN VERB
+                    "NEVER HAVE I seen such courage."
+
+Why use Inversion?
+  1. Dramatic rhetorical emphasis in formal or literary English.
+  2. Syntactic necessity after negative, restrictive, or locative fronting.
+
+
+2. THE THREE MASTER TEMPLATES OF TIME INVERSION (MEMORIZE!)
+--------------------------------------------------------------------------------
++------------------------------------------------------------------------------+
+| TEMPLATE 1: 'NO SOONER ... THAN' (PAST PERFECT OR SIMPLE PAST)              |
++------------------------------------------------------------------------------+
+  Formula A (Past Perfect):
+    NO SOONER + HAD + Subject + V3 (Past Participle) + THAN + Subject + V2
+    - "No sooner HAD THE BELL RUNG THAN the students rushed out."
+
+  Formula B (Simple Past with Did):
+    NO SOONER + DID + Subject + V1 (Base Form) + THAN + Subject + V2
+    - "No sooner DID THE BELL RING THAN the students rushed out."
+
+  *(CRITICAL TRAP: 'No sooner' MUST pair with 'THAN', never 'when' or 'then'!)*
+
++------------------------------------------------------------------------------+
+| TEMPLATE 2: 'HARDLY / SCARCELY / BARELY ... WHEN'                            |
++------------------------------------------------------------------------------+
+  Formula:
+    HARDLY / SCARCELY / BARELY + HAD + Subject + V3 + WHEN / BEFORE + S + V2
+    - "Hardly HAD WE REACHED the platform WHEN the train departed."
+    - "Scarcely HAD HE CLOSED his eyes WHEN the alarm rang."
+
+  *(CRITICAL TRAP: 'Hardly'/'Scarcely' pairs strictly with 'WHEN', never 'than'!)*
+
++------------------------------------------------------------------------------+
+| TEMPLATE 3: 'NOT ONLY ... BUT ALSO' (FIRST CLAUSE INVERSION)                |
++------------------------------------------------------------------------------+
+  Formula:
+    NOT ONLY + AUXILIARY + Subject + Main Verb..., BUT (Subject) ALSO...
+    - "Not only DID HE WIN the gold medal, BUT HE ALSO broke the record."
+
+
+3. FRONTED NEGATIVE & RESTRICTIVE TRIGGERS CATALOG
+--------------------------------------------------------------------------------
+When any of the following expressions open a sentence, Subject-Auxiliary 
+Inversion is 100% MANDATORY:
+
+  * NEVER:                  "Never have I witnessed such injustice."
+  * SELDOM:                 "Seldom do we see such extraordinary talent."
+  * RARELY:                 "Rarely does he make a careless mistake."
+  * LITTLE:                 "Little did they realize the impending danger."
+  * NOWHERE:                "Nowhere will you find a more dedicated team."
+  * AT NO TIME:             "At no time did the suspect admit his guilt."
+  * UNDER NO CIRCUMSTANCES: "Under no circumstances should you leave."
+  * ON NO ACCOUNT:          "On no account must this file be deleted."
+  * IN NO WAY:              "In no way can his behavior be justified."
+
+
+4. INVERSION WITH 'ONLY + ADVERBIAL / CLAUSE'
+--------------------------------------------------------------------------------
+When 'Only' modifies a time or condition clause at the beginning of a sentence, 
+inversion occurs in the MAIN CLAUSE, NOT the subordinate clause:
+
+  * "Only after the doctor arrived DID THE PATIENT RELAX."
+    (Subordinate: 'the doctor arrived' [Normal] | Main: 'did the patient relax' [Inverted])
+
+  * "Only when the sun set DID WE BEGIN the journey."
+  * "Only by practicing daily WILL YOU MASTER advanced syntax."
+
+
+5. CONDITIONAL INVERSION (DROPPING 'IF')
+--------------------------------------------------------------------------------
+In formal, legal, and academic writing, 'if' can be eliminated by fronting the auxiliary:
+
+  * First Conditional (Should):
+    "If you should need help..." -> "SHOULD YOU NEED help, please call me."
+
+  * Second Conditional (Were):
+    "If I were in your position..." -> "WERE I in your position, I would accept."
+
+  * Third Conditional (Had):
+    "If he had practiced more..." -> "HAD HE PRACTICED more, he would have won."
+
+
+6. LOCATIVE / DIRECTIONAL FULL VERB INVERSION
+--------------------------------------------------------------------------------
+When spatial/directional prepositions are fronted, the ENTIRE main lexical verb 
+moves before the subject (no dummy auxiliary 'do/did' is needed):
+
+  * "Down CAME THE RAIN."
+  * "Into the classroom WALKED THE PRINCIPAL."
+  * "Round the corner STOOD A POLICEMAN."
+
+  EXCEPTION FOR PRONOUNS:
+  If the subject is a personal pronoun, normal word order is retained:
+  * "Down IT CAME." (NOT: Down came it)
+  * "Away THEY RAN." (NOT: Away ran they)
+
+
+7. HIGH-FREQUENCY COMPETITIVE EXAM ERROR TRAPS
+--------------------------------------------------------------------------------
+  TRAP 1: Mispairing Correlatives
+    - INCORRECT: No sooner had he arrived when the lights went off.
+    - CORRECT:   No sooner had he arrived THAN the lights went off.
+
+  TRAP 2: Using 'Then' instead of 'Than'
+    - INCORRECT: No sooner did the bell ring then we left.
+    - CORRECT:   No sooner did the bell ring THAN we left.
+
+  TRAP 3: Forgetting Inversion after Fronted Negatives
+    - INCORRECT: Seldom I have seen such enthusiasm.
+    - CORRECT:   Seldom HAVE I seen such enthusiasm.
+
+  TRAP 4: Using Past Form (V2) after 'Did'
+    - INCORRECT: No sooner did he arrived than...
+    - CORRECT:   No sooner did he ARRIVE than...
+
+================================================================================
+END OF STUDY NOTES - MODULE 003.004
+================================================================================

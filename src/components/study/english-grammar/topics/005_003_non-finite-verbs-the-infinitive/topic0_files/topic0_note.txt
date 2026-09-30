@@ -1,0 +1,113 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 005.003: NON-FINITE VERBS: THE INFINITIVE (TO- & BARE INFINITIVES)
+================================================================================
+
+1. FINITE VS NON-FINITE VERBS
+--------------------------------------------------------------------------------
+  * FINITE VERBS: Bound by TENSE, NUMBER, and PERSON. They form the core predicate.
+    - "He GOES to school." / "They WENT to school."
+
+  * NON-FINITE VERBS: Infinite, unbounded by tense, number, or person.
+    They function as Nouns, Adjectives, or Adverbs across 3 families:
+      1. INFINITIVES: To-Infinitive ('to speak') & Bare Infinitive ('speak')
+      2. GERUNDS:     Verbal Nouns ending in '-ing' ('Speaking well is an art')
+      3. PARTICIPLES: Verbal Adjectives ('a speaking doll', 'spoken words')
+
+
+2. THE MULTI-FUNCTIONAL TO-INFINITIVE
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| SYNTACTIC ROLE    | EXPLANATION                | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| 1. Noun Subject   | Acts as sentence subject   | - "TO ERR is human."        |
+|                   |                            | - "TO FORGIVE is divine."   |
++-------------------+----------------------------+-----------------------------+
+| 2. Noun Object    | Direct object of verb      | - "He decided TO RESIGN."   |
+|                   |                            | - "She hopes TO WIN."       |
++-------------------+----------------------------+-----------------------------+
+| 3. Subject Compl. | Explains the subject       | - "His ambition is TO LEAD."|
++-------------------+----------------------------+-----------------------------+
+| 4. Adjective Mod. | Modifies a preceding noun  | - "I have no time TO WASTE."|
+|                   |                            | - "Water TO DRINK."         |
++-------------------+----------------------------+-----------------------------+
+| 5. Adverb Modifier| Explains Purpose / Reason  | - "He came TO LEARN."       |
+|                   | Modifies an Adjective      | - "The water is fit TO DRINK|
++-------------------+----------------------------+-----------------------------+
+
+
+3. THE BARE INFINITIVE INVARIANT CATALOG (MEMORIZE!)
+--------------------------------------------------------------------------------
+The Bare Infinitive is the base verb form WITHOUT 'to'. It is triggered by:
+
+  [A] MODAL AUXILIARIES (except 'ought to' and 'used to'):
+      - "He can SWIM." / "You must GO." / "She will RETURN."
+
+  [B] CAUSATIVE VERBS IN ACTIVE VOICE ('MAKE', 'LET', 'BID', 'HAVE'):
+      - "She made the boy WEEP." (NOT: to weep)
+      - "Let him GO." (NOT: to go)
+      - "I had my assistant TYPE the report."
+
+  [C] SENSORY VERBS ('SEE', 'HEAR', 'WATCH', 'FEEL', 'NOTICE'):
+      - "I saw him CROSS the road." (Witnessed entire action)
+      - "I heard her SING."
+
+  [D] IDIOMATIC CONNECTIVES:
+      - HAD BETTER:   "You had better LEAVE now." (NOT: to leave)
+      - WOULD RATHER: "I would rather STARVE than beg."
+      - DO NOTHING BUT: "He did nothing but CRY all afternoon."
+
+
+4. THE CAUSATIVE ACTIVE VS PASSIVE TRAP (CRITICAL EXAM INVARIANT!)
+--------------------------------------------------------------------------------
++------------------------------------------------------------------------------+
+| ACTIVE CAUSATIVE (Bare Infinitive):                                         |
+|   "The magistrate made the prisoner CONFESS." (No 'to'!)                     |
+|                                                                              |
+| PASSIVE CAUSATIVE (Full To-Infinitive):                                      |
+|   "The prisoner was made TO CONFESS by the magistrate." (Must have 'TO'!)    |
++------------------------------------------------------------------------------+
+*(EXCEPTION: 'LET' retains bare infinitive even in passive: "He was let go")*
+
+
+5. COMPLEX INFINITIVE PARADIGMS
+--------------------------------------------------------------------------------
++--------------------------+-----------------------+---------------------------+
+| INFINITIVE FORM          | MORPHOLOGY            | CANONICAL EXAMPLE         |
++--------------------------+-----------------------+---------------------------+
+| 1. Simple Active         | to + V1               | to write                  |
+| 2. Continuous Active     | to be + V-ing         | "He seems TO BE WRITING." |
+| 3. Perfect Active        | to have + V3          | "He claims TO HAVE SEEN." |
+| 4. Simple Passive        | to be + V3            | "There is work TO BE DONE"|
+| 5. Perfect Passive       | to have been + V3     | "Glad TO HAVE BEEN HELPED"|
++--------------------------+-----------------------+---------------------------+
+
+
+6. SYNTHESIS WITH 'TOO... TO' AND 'ENOUGH TO'
+--------------------------------------------------------------------------------
+  * 'TOO... TO' (Negative Implication = So... that cannot):
+    - "He is VERY weak. He CANNOT walk."
+    -> "He is TOO weak TO walk."
+
+  * 'ENOUGH TO' (Positive Capability = So... that can):
+    - "She is VERY intelligent. She CAN solve this."
+    -> "She is intelligent ENOUGH TO solve this." (Adjective + enough)
+
+
+7. HIGH-FREQUENCY COMPETITIVE EXAM INFINITIVE TRAPS
+--------------------------------------------------------------------------------
+  TRAP 1: Using 'To' with Causative 'Make' in Active Voice
+    - INCORRECT: She made me to laugh.
+    - CORRECT:   She made me LAUGH.
+
+  TRAP 2: Omitting 'To' with Causative 'Make' in Passive Voice
+    - INCORRECT: He was made write the test.
+    - CORRECT:   He was made TO WRITE the test.
+
+  TRAP 3: Adding 'To' after 'Had better'
+    - INCORRECT: You had better to start early.
+    - CORRECT:   You had better START early.
+
+================================================================================
+END OF STUDY NOTES - MODULE 005.003
+================================================================================

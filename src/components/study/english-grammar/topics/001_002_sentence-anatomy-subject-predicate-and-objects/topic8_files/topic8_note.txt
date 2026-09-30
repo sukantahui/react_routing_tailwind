@@ -1,0 +1,31 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 8: THE 7 FUNDAMENTAL SENTENCE PATTERNS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE SEVEN FUNDAMENTAL CLAUSE PATTERNS
+--------------------------------------------------------------------------------
+1. SV   (Subject + Intransitive Verb)
+   - "The train arrived."
+2. SVO  (Subject + Transitive Verb + Direct Object)
+   - "Swadeep developed a web app."
+3. SVOO (Subject + Ditransitive Verb + Indirect Object + Direct Object)
+   - "Sukanta Sir taught Tuhina English Grammar."
+4. SVC  (Subject + Linking Verb + Subject Complement)
+   - "Abhronila is a brilliant researcher."
+5. SVOC (Subject + Complex-Transitive Verb + Direct Object + Object Complement)
+   - "The committee elected Debangshu team leader."
+6. SVA  (Subject + Intransitive Verb + Obligatory Adverbial)
+   - "The coaching center is located in Barrackpore."
+7. SVOA (Subject + Transitive Verb + Direct Object + Obligatory Adverbial)
+   - "He placed the reference books on the study table."
+
+2. SYNTACTIC SUMMARY
+--------------------------------------------------------------------------------
+Every grammatical declarative clause in standard English maps to one of these
+7 mathematical blueprints!
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

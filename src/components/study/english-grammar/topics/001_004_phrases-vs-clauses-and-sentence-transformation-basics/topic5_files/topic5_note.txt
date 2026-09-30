@@ -1,0 +1,33 @@
+========================================================================
+MODULE 001_004 | TOPIC 5: AFFIRMATIVE TO NEGATIVE TRANSFORMATION
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+MASTER FORMULAS FOR AFFIRMATIVE ↔ NEGATIVE CONVERSION:
+
+1. NOT + ANTONYM:
+   - "He is diligent" --> "He is not lazy / indolent."
+   - "I am hopeful" --> "I am not without hope / doubtful."
+
+2. ONLY / ALONE:
+   - For Persons: "Only Swadeep" --> "None but Swadeep"
+   - For Inanimate Objects: "Only books" --> "Nothing but books"
+   - For Age / Numbers: "He is only ten" --> "He is not more than ten"
+
+3. EVERY / ALL:
+   - "Every mother loves her child" --> "There is no mother but loves her child / without love for her child."
+
+4. AS SOON AS ↔ NO SOONER... THAN:
+   - "As soon as the bell rang..." --> "No sooner had the bell rung than..."
+   * CRITICAL: Use 'than' (NOT 'then' or 'when').
+
+5. TOO... TO ↔ SO... THAT... CANNOT/COULD NOT:
+   - "He is too weak to walk" --> "He is so weak that he cannot walk."
+   - "She was too proud to beg" --> "She was so proud that she could not beg."
+
+6. MUST / HAVE TO ↔ CANNOT BUT:
+   - "We must obey" --> "We cannot but obey / We cannot help obeying."
+
+BENGALI SUMMARY (বাংলা সংক্ষেপ):
+- Affirmative থেকে Negative করার সময় অর্থ বজায় রাখতে উপরের ৬টি সূত্র কণ্ঠস্থ রাখুন।
+========================================================================

@@ -1,0 +1,31 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 6: CLASSROOM PRACTICE LAB & TONE DYNAMICS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. SPECIAL QUESTION TAG INVARIANTS DISSECTED
+--------------------------------------------------------------------------------
+1. Pronoun 'THEY' vs 'IT':
+   - Personal Indefinites (Everyone, Somebody, Nobody) -> THEY.
+     * "Nobody came, did [they]?"
+   - Non-Personal Indefinites (Everything, Something, Nothing) -> IT.
+     * "Nothing happened, did [it]?"
+     * "Everything is fine, isn't [it]?"
+
+2. 'LET US' VS 'LET HIM / LET THEM':
+   - "Let us (Let's) examine the code, [shall we]?" (Joint Proposal)
+   - "Let him leave the room, [will you]?" (Permission / Order to listener)
+
+3. IMPATIENT IMPERATIVES:
+   - "Shut up, [can't you]?" (Expressing annoyance)
+   - "Have a seat, [won't you]?" (Polite invitation)
+
+2. TONE & INTONATION RULES
+--------------------------------------------------------------------------------
+- Rising Pitch (↗): Genuine Question / Verification needed.
+- Falling Pitch (↘): Confirmation / Speaker is confident of the truth.
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

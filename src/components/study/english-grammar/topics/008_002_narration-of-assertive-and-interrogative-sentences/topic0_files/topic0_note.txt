@@ -1,0 +1,99 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 008_002
+NARRATION OF ASSERTIVE & INTERROGATIVE SENTENCES (WH- & YES/NO)
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. NARRATION OF ASSERTIVE (DECLARATIVE) SENTENCES
+--------------------------------------------------------------------------------
+Assertive sentences make statements of fact, opinion, or belief.
+
+Conversion Mechanics:
+  1. Reporting Verb:
+     - 'said' (without object)  ==> 'said'
+     - 'said to + object'       ==> 'told + object' (NEVER 'told to')
+  2. Connective:
+     - Remove comma & quotation marks; insert 'THAT'.
+  3. Tense & Deictic Shifts:
+     - Apply standard Tense Backshift, Pronoun, and Time/Place shifts.
+
+Canonical Examples:
+  • Direct:   Rohan said to me, "I have completed your assignment today."
+  • Indirect: Rohan TOLD ME THAT he HAD COMPLETED my assignment THAT DAY.
+
+================================================================================
+2. NARRATION OF INTERROGATIVE SENTENCES: THE CARDINAL LAW
+--------------------------------------------------------------------------------
+*** THE CARDINAL LAW OF REPORTED QUESTIONS ***
+An Indirect Question is NOT a question; it is a declarative statement REPORTING 
+that a question occurred. Therefore:
+  1. The Question Inversion (Auxiliary + Subject) MUST transform into 
+     DECLARATIVE ORDER (Subject + Verb).
+  2. The Question Mark (?) is replaced with a FULL STOP (.).
+  3. Auxiliary verbs 'do / does / did' are removed in affirmative questions.
+
+Reporting Verbs for Questions:
+  • Asked, Inquired of, Wondered, Demanded, Wanted to know.
+
+================================================================================
+3. TYPE A: WH- QUESTIONS (WHAT, WHERE, WHEN, WHY, WHO, HOW)
+--------------------------------------------------------------------------------
+Rule 1: The Wh- word itself acts as the connecting link!
+Rule 2: NEVER insert 'that' before a Wh- word. (Illegal Double Connective)
+
+Architecture:
+  • Direct:   The teacher said to the boy, "Why ARE YOU making a noise?"
+  • Indirect: The teacher asked the boy WHY HE WAS making a noise.
+              (Notice: 'are you' [Aux + Subj] -> 'he was' [Subj + Verb])
+
+  • Direct:   He said, "Where DO YOU LIVE?"
+  • Indirect: He asked where I LIVED. (Auxiliary 'do' dropped; 'live' -> 'lived')
+
+  • Direct:   She said to him, "What IS YOUR NAME?"
+  • Indirect: She asked him what his name WAS. ('was' placed after 'his name')
+
+================================================================================
+4. TYPE B: YES / NO QUESTIONS
+--------------------------------------------------------------------------------
+Rule 1: Use 'IF' or 'WHETHER' as the connecting link.
+Rule 2: NEVER insert 'that' before 'if' or 'whether'.
+
+Architecture:
+  • Direct:   He said to me, "Are you confident of success?"
+  • Indirect: He asked me IF / WHETHER I was confident of success.
+
+  • Direct:   The stranger said, "DID YOU SEE the accident?"
+  • Indirect: The stranger asked IF I HAD SEEN the accident. (Past Simple -> Past Perfect)
+
+WHEN TO PREFER "WHETHER" OVER "IF":
+  1. When followed by 'OR NOT':
+     - "He asked WHETHER she was coming OR NOT."
+  2. When expressing a choice between two balanced alternatives:
+     - "She asked WHETHER I preferred tea OR coffee."
+  3. Before a to-infinitive:
+     - "She wondered WHETHER TO ACCEPT the offer."
+  4. After a preposition:
+     - "We discussed the question OF WHETHER we should invest."
+
+================================================================================
+5. COMMON TRAPS & FATAL MISTAKES IN EXAMS
+--------------------------------------------------------------------------------
++---------------------------------------+---------------------------------------+
+| FATAL MISTAKE (ZERO MARKS)            | CORRECT STANDARD FORM                 |
++---------------------------------------+---------------------------------------+
+| He asked me that why I was late.      | He asked me why I was late.           |
+| (Illegal 'that')                      | (Wh- word alone connects)             |
++---------------------------------------+---------------------------------------+
+| He asked me where was I going?        | He asked me where I was going.        |
+| (Failed to remove question inversion) | (Declarative order: Subj + Verb + .)  |
++---------------------------------------+---------------------------------------+
+| He told to me that he was ready.      | He told me that he was ready.         |
+| ('told to' error)                     | (Told takes direct personal object)   |
++---------------------------------------+---------------------------------------+
+| She asked if did I know him.          | She asked if I knew him.              |
+| (Retained auxiliary 'did')            | (Drop 'did', backshift verb to V2)    |
++---------------------------------------+---------------------------------------+
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 008_002
+================================================================================

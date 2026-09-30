@@ -1,0 +1,96 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 007_001
+CONJUNCTIONS, COORDINATION & CORRELATIVE PARALLELISM
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. WHAT IS A CONJUNCTION? (SYNTACTIC BRIDGES)
+--------------------------------------------------------------------------------
+A Conjunction is a functional part of speech that connects words, phrases, or 
+clauses, establishing logical, temporal, causal, or coordinate relationships.
+
+Three Major Classes of Conjunctions:
+  1. COORDINATING CONJUNCTIONS (FANBOYS)
+  2. SUBORDINATING CONJUNCTIONS
+  3. CORRELATIVE CONJUNCTIONS (Paired Connectors)
+
+================================================================================
+2. COORDINATING CONJUNCTIONS: THE "FANBOYS" FAMILY
+--------------------------------------------------------------------------------
+Join grammatically equal elements (Noun with Noun, Phrase with Phrase, Independent Clause with Independent Clause).
+
+  • F - For      (Cause / Reason: "He stayed calm, FOR he knew the truth.")
+  • A - And      (Addition: "She sang, AND he played the piano.")
+  • N - Nor      (Negative Addition: "He doesn't smoke, NOR does he drink.")
+  • B - But      (Contrast: "She worked hard, BUT she failed.")
+  • O - Or       (Alternative / Choice: "Study diligently, OR you will fail.")
+  • Y - Yet      (Unexpected Concession: "He is wealthy, YET he is humble.")
+  • S - So       (Result / Consequence: "It rained heavily, SO we stayed home.")
+
+Punctuation Law for FANBOYS:
+  [Independent Clause 1] + [ , ] + [FANBOYS Conjunction] + [Independent Clause 2]
+  - Example: "The storm arrived, and the lights failed." (Comma MANDATORY)
+  - If joining single verbs or compound predicates (no new subject), DO NOT USE COMMA:
+    "The storm arrived and destroyed the trees." (No comma!)
+
+================================================================================
+3. SUBORDINATING CONJUNCTIONS (CLAUSE ANCHORS)
+--------------------------------------------------------------------------------
+Connect an Independent (Principal) Clause with a Dependent (Subordinate) Clause.
+
++----------------+------------------------------+------------------------------+
+| Category       | Common Connectives           | Example                      |
++----------------+------------------------------+------------------------------+
+| Time           | when, while, before, after,  | As soon as the bell rang,    |
+|                | as soon as, until, since     | they left the hall.          |
+| Cause / Reason | because, as, since           | Since you are tired, rest.   |
+| Purpose        | so that, in order that, LEST | Walk fast lest you miss it.  |
+| Condition      | if, unless, provided that    | Unless you work, no reward.  |
+| Concession     | although, though, whereas    | Although poor, he is honest. |
+| Manner / Comp  | as if, as though, as         | He acts as if he were king.  |
++----------------+------------------------------+------------------------------+
+
+THE LAW OF "LEST":
+  • "Lest" inherently means "so that... not" (পাছে ঘটে / যাতে না ঘটে).
+  • Formula: [Main Clause] + LEST + [Subject] + SHOULD + [V1]
+  • Rule 1: Never use 'not' with lest. (Double negative error)
+  • Rule 2: Always use 'should' or bare subjunctive, never 'will/may'.
+
+================================================================================
+4. CORRELATIVE CONJUNCTIONS & THE LAW OF PARALLELISM
+--------------------------------------------------------------------------------
+Paired conjunctions that work as a team to link balanced grammatical units.
+
+Standard Pairs:
+  • Not only ... but also
+  • Either ... or
+  • Neither ... nor
+  • Both ... and (NEVER 'both... as well as')
+  • Whether ... or
+  • Scarcely / Hardly ... when (NEVER 'than')
+  • No sooner ... than (NEVER 'when' or 'then')
+
+THE PARALLELISM BALANCE SCALE LAW:
+Whatever syntactic unit follows Connector 1 MUST be the exact same syntactic unit 
+following Connector 2!
+
+  WRONG: "He [NOT ONLY] lost his wallet [Noun Phrase] [BUT ALSO] his passport."
+         (Here 'lost' is placed before 'not only', leaving unbalanced verbs).
+  RIGHT: "He lost [NOT ONLY] his wallet [Noun Phrase] [BUT ALSO] his passport [Noun Phrase]."
+
+  WRONG: "She [EITHER] can choose French or German."
+  RIGHT: "She can choose [EITHER] French [Noun] [OR] German [Noun]."
+
+================================================================================
+5. CONJUNCTIVE ADVERBS & SEMICOLON PUNCTUATION
+--------------------------------------------------------------------------------
+Conjunctive Adverbs (However, Therefore, Moreover, Furthermore, Nevertheless, Consequently) 
+are NOT conjunctions; they are transition adverbs.
+
+When linking two independent clauses, use a SEMICOLON before and a COMMA after:
+  Formula: [Independent Clause 1] ; [Conjunctive Adverb] , [Independent Clause 2]
+  - Example: "He studied diligently; however, he found the paper challenging."
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 007_001
+================================================================================

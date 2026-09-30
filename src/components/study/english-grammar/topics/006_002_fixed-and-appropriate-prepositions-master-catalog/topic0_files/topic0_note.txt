@@ -1,0 +1,125 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 006_002
+APPROPRIATE & FIXED PREPOSITIONS: THE MASTER COLLOCATION CATALOG
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. THE NATURE OF FIXED / DEPENDENT PREPOSITIONS
+--------------------------------------------------------------------------------
+A Dependent (Fixed/Appropriate) Preposition is an idiomatic binding between a 
+Head Word (Verb, Adjective, or Noun) and a specific Preposition governed not by 
+spatial physics, but by historic lexicogrammatical convention.
+
+Core Formula:
+  [Head Word] + [MANDATORY PREPOSITION] + [Object / Gerund]
+  - Example: "He insists [Verb] ON [Fixed Preposition] punctuality."
+
+================================================================================
+2. CONTEXT-DEPENDENT PREPOSITION SHIFTS (CRITICAL EXAM TRAPS)
+--------------------------------------------------------------------------------
+A. AGREE:
+   - Agree WITH a person           -> "I agree with Sukanta Sir."
+   - Agree TO a proposal / plan    -> "The committee agreed to the new roadmap."
+   - Agree ON a matter / topic     -> "We finally agreed on a common date."
+
+B. DIE:
+   - Die OF a disease / hunger     -> "He died of malaria / cancer / thirst."
+   - Die FROM an external cause    -> "He died from overwork / loss of blood / wound."
+   - Die BY violence / poison      -> "He died by suicide / poison."
+   - Die FOR a noble cause         -> "Martyrs die for their country."
+
+C. DEAL:
+   - Deal IN a commodity / trade   -> "He deals in handloom textiles."
+   - Deal WITH a person / subject  -> "How will you deal with this customer?"
+
+D. DIFFER:
+   - Differ WITH a person          -> "I differ with you on political ideology."
+   - Differ FROM something         -> "Bengali grammar differs from English syntax."
+
+E. BLIND:
+   - Blind IN (or OF) an eye       -> "He is blind in his left eye." (Physical)
+   - Blind TO faults / reality     -> "Parents should not be blind to their children's faults." (Metaphorical)
+
+F. PART:
+   - Part WITH a possession        -> "He refuses to part with his old books."
+   - Part FROM a person            -> "Tears flowed when she parted from her mother."
+
+G. CHARGED vs ACCUSED:
+   - Charged WITH a crime          -> "Charged with grand theft."
+   - Accused OF a crime            -> "Accused of financial fraud."
+
+================================================================================
+3. MASTER CATALOG: VERBS WITH FIXED PREPOSITIONS
+--------------------------------------------------------------------------------
++-------------------+---------------+------------------------------------------+
+| Verb + Prep       | Meaning       | Canonical Example                        |
++-------------------+---------------+------------------------------------------+
+| Abide BY          | Comply with   | You must abide by the institution's laws.|
+| Accuse OF         | Charge        | He was accused of embezzlement.          |
+| Apologize TO/FOR  | Express regret| Apologize TO the teacher FOR your delay. |
+| Abstain FROM      | Refrain       | Abstain from consuming junk food.        |
+| Congratulate ON   | Commend       | I congratulate you on your top rank.     |
+| Depend / Rely ON  | Trust upon    | Never rely on unverified rumors.         |
+| Insist ON         | Demand firmly | She insisted on paying the bill.         |
+| Prevent FROM      | Stop / Block  | Fog prevented the flight from landing.   |
+| Prohibit FROM     | Forbid        | Prohibited from entering the lab.        |
+| Refrain FROM      | Avoid doing   | Please refrain from smoking here.        |
+| Succeed IN        | Achieve       | He succeeded in passing the examination. |
+| Succumb TO        | Yield / Die   | The patient succumbed to his injuries.   |
+| Yield TO          | Surrender     | Never yield to corrupt pressure.         |
++-------------------+---------------+------------------------------------------+
+
+================================================================================
+4. MASTER CATALOG: ADJECTIVES WITH FIXED PREPOSITIONS
+--------------------------------------------------------------------------------
++-------------------+---------------+------------------------------------------+
+| Adjective + Prep  | Meaning       | Canonical Example                        |
++-------------------+---------------+------------------------------------------+
+| Accustomed TO     | Used to       | He is accustomed to humid climate.       |
+| Afraid / Aware OF | Fearful/Known | She is aware of the potential risks.     |
+| Capable OF        | Having ability| Capable of solving complex algorithms.   |
+| Devoid OF         | Lacking       | A heart devoid of human compassion.      |
+| Eligible FOR      | Qualified     | You are eligible for this scholarship.   |
+| Famous / Known FOR| Renowned      | Kolkata is famous for sweet delicacies.  |
+| Fond OF           | Liking        | The child is extremely fond of puppies.  |
+| Good AT           | Skilled in    | She is exceptionally good at chess.      |
+| Proficient IN     | Mastery in    | He is proficient in data science.        |
+| Injurious TO      | Harmful       | Tobacco is injurious to health.          |
+| Jealous / Envious OF Resentful    | He was jealous of his friend's victory.  |
+| Senior / Prior TO | Superior/Before| Senior to me by four years.              |
++-------------------+---------------+------------------------------------------+
+
+================================================================================
+5. MASTER CATALOG: NOUNS WITH FIXED PREPOSITIONS
+--------------------------------------------------------------------------------
++-------------------+---------------+------------------------------------------+
+| Noun + Prep       | Meaning       | Canonical Example                        |
++-------------------+---------------+------------------------------------------+
+| Access TO         | Entry/Reach   | Students have full access to the lab.    |
+| Appetite FOR      | Desire for    | He has a voracious appetite for reading. |
+| Compliance WITH   | Obeying       | In strict compliance with guidelines.    |
+| Exception TO      | Deviation     | There is no exception to this law.       |
+| Key TO            | Solution      | Diligence is the ultimate key to success.|
+| Passion FOR       | Deep zeal     | She has a passion for classical dance.   |
+| Remedy FOR        | Cure / Relief | Is there any proven remedy for malaria?  |
+| Victim OF         | Sufferer      | A tragic victim of unfortunate greed.    |
++-------------------+---------------+------------------------------------------+
+
+================================================================================
+6. LATIN COMPARATIVES RULE: NEVER USE "THAN"
+--------------------------------------------------------------------------------
+All 7 Latin comparative adjectives ending in "-ior" take "TO" instead of "than":
+  • Senior TO
+  • Junior TO
+  • Superior TO
+  • Inferior TO
+  • Prior TO
+  • Anterior TO
+  • Posterior TO
+
+  WRONG: "He is senior than me."
+  RIGHT: "He is senior to me."
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 006_002
+================================================================================

@@ -1,0 +1,128 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 005.001: ACTIVE & PASSIVE VOICE: COMPLETE MECHANICS & ADVANCED STRUCTURES
+================================================================================
+
+1. WHAT IS VOICE & WHY USE PASSIVE?
+--------------------------------------------------------------------------------
+Voice represents the relationship between the verb and its nominal arguments:
+  * ACTIVE VOICE:  The Subject is the AGENT (performer) of the action.
+                   - "Alexander Fleming discovered penicillin."
+  * PASSIVE VOICE: The Subject is the PATIENT / RECEIVER of the action.
+                   - "Penicillin was discovered by Alexander Fleming."
+
+WHY USE PASSIVE VOICE?
+  1. The agent is unknown:      "My car was stolen last night."
+  2. The agent is obvious:      "The burglar was arrested (by the police)."
+  3. The action/result is main: "The new bridge was inaugurated today."
+  4. Objective scientific tone: "The mixture was heated to 100°C."
+
+
+2. THE UNIVERSAL PASSIVE TRANSFORMATION FORMULA
+--------------------------------------------------------------------------------
++------------------------------------------------------------------------------+
+| ACTIVE:   [SUBJECT]        + [ACTIVE VERB]       + [DIRECT OBJECT]          |
+|              |                                            |                  |
+|              v                                            v                  |
+| PASSIVE:  [NEW SUBJECT]    + [FORM OF 'BE' + V3] + BY + [AGENT]             |
++------------------------------------------------------------------------------+
+
+
+3. THE 8 PASSIVE-COMPATIBLE TENSES MATRIX
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| TENSE             | ACTIVE FORMULA & EXAMPLE   | PASSIVE FORMULA & EXAMPLE   |
++-------------------+----------------------------+-----------------------------+
+| 1. Simple Present | S + V1/V5 (writes)         | am/is/are + V3              |
+|                   | "She writes a letter."     | "A letter is written."      |
++-------------------+----------------------------+-----------------------------+
+| 2. Present Cont.  | S + am/is/are + V-ing      | am/is/are + BEING + V3      |
+|                   | "She is writing a letter." | "A letter is being written."|
++-------------------+----------------------------+-----------------------------+
+| 3. Present Perfect| S + have/has + V3          | have/has + BEEN + V3        |
+|                   | "She has written a letter."| "A letter has been written."|
++-------------------+----------------------------+-----------------------------+
+| 4. Simple Past    | S + V2 (wrote)             | was/were + V3               |
+|                   | "She wrote a letter."      | "A letter was written."     |
++-------------------+----------------------------+-----------------------------+
+| 5. Past Continuous| S + was/were + V-ing       | was/were + BEING + V3       |
+|                   | "She was writing a letter."| "A letter was being written"|
++-------------------+----------------------------+-----------------------------+
+| 6. Past Perfect   | S + had + V3               | had + BEEN + V3             |
+|                   | "She had written a letter."| "A letter had been written."|
++-------------------+----------------------------+-----------------------------+
+| 7. Simple Future  | S + will/shall + V1        | will/shall + BE + V3        |
+|                   | "She will write a letter." | "A letter will be written." |
++-------------------+----------------------------+-----------------------------+
+| 8. Future Perfect | S + will have + V3         | will have + BEEN + V3       |
+|                   | "She will have written..." | "A letter will have been..."|
++-------------------+----------------------------+-----------------------------+
+
+*(NOTE: Future Continuous and the 3 Perfect Continuous tenses lack natural passives)*
+
+
+4. ADVANCED PASSIVE STRUCTURES & SPECIAL VARIETIES
+--------------------------------------------------------------------------------
+
+[A] DITRANSITIVE VERBS (TWO OBJECTS: DO + IO)
+  - Active:  "The teacher taught US (IO) GRAMMAR (DO)."
+  - Passive 1 (Personal Object Preferred): "WE WERE TAUGHT grammar by the teacher."
+  - Passive 2 (Direct Object):             "GRAMMAR WAS TAUGHT TO US by the teacher."
+
+[B] INTERROGATIVE SENTENCES
+  - "Who wrote this book?"  -> "BY WHOM WAS this book written?"
+  - "Whom did you meet?"    -> "WHO WAS MET by you?"
+  - "Did he send the email?"-> "WAS the email sent by him?"
+
+[C] IMPERATIVE SENTENCES
+  - Command/Order:  "Open the gate."   -> "LET the gate BE OPENED."
+  - Moral Advice:   "Help the needy."  -> "The needy SHOULD BE HELPED."
+  - Polite Request: "Please help me."  -> "You ARE REQUESTED TO help me."
+
+[D] PREPOSITIONAL & PHRASAL VERBS (RETAIN PREPOSITION!)
+  - Active:  "They laughed AT the poor beggar."
+  - Passive: "The poor beggar was laughed AT by them." (Never drop 'at'!)
+
+[E] MODAL AUXILIARIES
+  - Active:  "You must preserve ancient monuments."
+  - Passive: "Ancient monuments MUST BE PRESERVED."
+  - Past Modal: "You should have completed it" -> "It SHOULD HAVE BEEN COMPLETED."
+
+[F] QUASI-PASSIVE / MIDDLE VOICE
+  - Active in form, passive in meaning:
+  - "Honey tastes sweet." -> "Honey IS SWEET WHEN IT IS TASTED."
+  - "This house is building." -> "This house IS BEING BUILT."
+
+[G] IMPERSONAL PASSIVE / REPORTING STRUCTURES
+  - Active:  "People say that he is a visionary."
+  - Passive 1: "IT IS SAID THAT he is a visionary."
+  - Passive 2: "HE IS SAID TO BE a visionary."
+
+[H] PREPOSITIONS OTHER THAN 'BY'
+  - Know -> TO:         "He is known TO me." (NOT: by me)
+  - Surprise/Shock -> AT: "I was surprised AT his conduct."
+  - Fill/Cover -> WITH: "The glass was filled WITH water."
+  - Contain/Embody -> IN: "The box was contained IN the vault."
+
+[I] CAUSATIVE 'MAKE' IN PASSIVE (ACQUIRES 'TO'!)
+  - Active:  "The teacher made him WRITE." (Bare infinitive)
+  - Passive: "He was made TO WRITE by the teacher." (Full to-infinitive!)
+
+
+5. HIGH-FREQUENCY COMPETITIVE EXAM VOICE TRAPS
+--------------------------------------------------------------------------------
+  TRAP 1: Dropping Fixed Prepositions
+    - INCORRECT: The matter was looked by the inspector.
+    - CORRECT:   The matter was looked INTO by the inspector.
+
+  TRAP 2: Using 'By' with 'Known'
+    - INCORRECT: He is known by everyone.
+    - CORRECT:   He is known TO everyone.
+
+  TRAP 3: Attempting to Passivize Intransitives
+    - INCORRECT: A journey was gone by him.
+    - CORRECT:   He went on a journey. (Intransitive cannot be made passive!)
+
+================================================================================
+END OF STUDY NOTES - MODULE 005.001
+================================================================================

@@ -1,0 +1,114 @@
+================================================================================
+                    ZERO-TO-EXPERT ENGLISH GRAMMAR MASTERCLASS
+          SEGMENT 10: ADVANCED STYLISTICS, RHETORIC & CAPSTONE
+         MODULE 010_001: VOCABULARY EXPANSION, ETYMOLOGY & WORD POWER
+================================================================================
+Bilingual Reference Notes for Bengali Students (English Terms Preserved)
+
+--------------------------------------------------------------------------------
+1. THE MORPHOLOGICAL ENGINE (PREFIX + ROOT + SUFFIX ARCHITECTURE)
+--------------------------------------------------------------------------------
+Over 60% of English words (and over 90% of academic/scientific vocabulary) are
+derived from Classical Latin and Greek roots. 
+
+Word Decoding Formula:
+[PREFIX: Direction / Negation] + [ROOT: Core Meaning] + [SUFFIX: Part of Speech]
+Example:
+- IN- (not) + TANG- (touch) + -IBLE (able to be) = INTANGIBLE (Adjective: unable to be touched).
+- CIRCUM- (around) + LOCUT- (speak) + -ION (noun) = CIRCUMLOCUTION (Noun: speaking in circles).
+
+--------------------------------------------------------------------------------
+2. THE 40 MASTER LATIN & GREEK ROOTS MATRIX
+--------------------------------------------------------------------------------
+
+ROOT            ORIGIN  MEANING              ENGLISH DERIVATIVES
+--------------------------------------------------------------------------------
+1.  CHRON       Greek   Time                 Chronology, Anachronism, Synchronize, Chronic
+2.  LOQU/LOCUT  Latin   Speak / Talk         Eloquent, Circumlocution, Loquacious, Soliloquy
+3.  SPECT/SPEC  Latin   Look / See           Circumspect, Retrospect, Spectator, Perspective
+4.  DUC/DUCT    Latin   Lead / Pull          Induce, Deduce, Conduct, Seduce, Ductile
+5.  TRACT       Latin   Drag / Pull          Retract, Distract, Protracted, Attract, Traction
+6.  VERT/VERS   Latin   Turn                 Introvert, Extrovert, Subvert, Aversion, Versatile
+7.  PATH        Greek   Feeling / Suffering  Apathy, Empathy, Sympathy, Antipathy, Pathological
+8.  ANTHROP     Greek   Human                Misanthrope, Philanthropy, Anthropology
+9.  PHIL        Greek   Love / Devotion      Bibliophile, Philosophy, Philanthropic
+10. MIS/MISO    Greek   Hate / Dislike       Misanthrope, Misogyny, Misandry, Misoneism
+11. BENE/BON    Latin   Good / Well          Benefactor, Benevolent, Beneficent, Bonus
+12. MAL         Latin   Bad / Ill / Evil     Malfeasance, Malevolent, Malice, Malign
+13. CRED        Latin   Believe / Trust      Credulous, Incredible, Credence, Incredulous
+14. GNOS        Greek   Knowledge            Agnostic, Diagnosis, Prognosis, Gnostic
+15. COGN/SCI    Latin   Know / Learn         Cognizant, Incognito, Science, Conscientious
+16. VOC/VOK     Latin   Call / Voice         Equivocal, Provoke, Evoke, Vociferous, Advocate
+17. MIT/MISS    Latin   Send                 Transmit, Remiss, Emission, Intermittent
+18. CORP        Latin   Body                 Corpulent, Incorporate, Corpse, Corpuscle
+19. MORT/MOR    Latin   Death                Moribund, Mortal, Mortify, Post-mortem
+20. LUC/LUM     Latin   Light / Clear        Lucid, Elucidate, Luminary, Translucent
+21. AUTO        Greek   Self                 Autocrat, Autonomous, Autodidact, Automatic
+22. CRAT/ARCH   Greek   Rule / Power         Autocrat, Plutocracy, Anarchy, Oligarchy
+23. DEMO        Greek   People               Democracy, Demagogue, Pandemic, Epidemic
+24. GEN         Greek   Birth / Kind / Origin Genesis, Congenital, Generate, Heterogeneous
+25. HETERO      Greek   Different / Other    Heterogeneous, Heterodox, Heterosexual
+26. HOMO        Greek   Same                 Homogeneous, Homonym, Homophone
+27. NEO         Greek   New                  Neophyte, Neologism, Neonatal
+28. PAN         Greek   All / Entire         Panacea, Pandemic, Panorama, Pantheon
+29. OMNI        Latin   All / Every          Omniscient, Omnipotent, Omnipresent, Omnivorous
+30. PLAC        Latin   Please / Calm        Placate, Implacable, Complacent, Placebo
+31. PUGN        Latin   Fight / Fist         Pugnacious, Repugnant, Impugn
+32. SCRIB/SCRIPT Latin  Write                Inscribe, Proscribe, Prescribe, Transcribe
+33. TANG/TACT   Latin   Touch                Tactile, Tangible, Contagious, Intact
+34. VOR         Latin   Eat / Devour         Voracious, Carnivorous, Herbivorous, Devour
+35. BELL        Latin   War                  Belligerent, Bellicose, Antebellum, Rebel
+36. CAP/CEPT    Latin   Take / Seize         Incipient, Captivate, Susceptible, Precept
+37. CED/CESS    Latin   Go / Yield           Precede, Recede, Concede, Incessant, Access
+38. FER         Latin   Bear / Carry         Confer, Defer, Proliferate, Vociferous
+39. JECT        Latin   Throw / Cast         Abject, Conjecture, Trajectory, Dejected
+40. TEN/TIN/TAIN Latin  Hold / Keep          Tenacious, Retentive, Abstain, Pertain
+
+--------------------------------------------------------------------------------
+3. PREFIX ASSIMILATION & PHONOLOGICAL MUTATION RULES
+--------------------------------------------------------------------------------
+To make articulation effortless, prefixes change their final consonant to match
+the base root's initial sound:
+
+A. The 'IN-' (Not / In) Assimilation Matrix:
+   - Before 'p', 'm', 'b' -> becomes 'IM-': impossible, immortal, imbalance.
+   - Before 'l'           -> becomes 'IL-': illegal, illiterate, illogical.
+   - Before 'r'           -> becomes 'IR-': irregular, irrelevant, irresponsible.
+   - Before other letters -> remains 'IN-': invisible, incorrect, inactive.
+
+B. The 'CON-' (With / Together) Assimilation Matrix:
+   - Before 'p', 'm', 'b' -> becomes 'COM-': compassion, commute, combine.
+   - Before 'l'           -> becomes 'COL-': collaborate, colleague.
+   - Before 'r'           -> becomes 'COR-': correspond, corroborate.
+
+C. The 'SUB-' (Under) Assimilation Matrix:
+   - Before 'f' -> 'SUF-': suffocate, suffer.
+   - Before 'p' -> 'SUP-': suppress, support.
+   - Before 'c' -> 'SUC-': succumb, succeed.
+
+--------------------------------------------------------------------------------
+4. DENOTATION VS. CONNOTATION (THE EMOTIONAL SPECTRUM)
+--------------------------------------------------------------------------------
+Denotation is the strict dictionary definition; Connotation is the emotional/cultural nuance:
+
+Positive Connotation            Neutral Denotation              Negative Connotation
+--------------------------------------------------------------------------------
+• Slim / Slender                Thin                            Skinny / Emaciated
+• Thrifty / Frugal              Economical with money           Miserly / Stingy
+• Inquisitive / Curious         Interested in learning          Nosy / Prying
+• Statesman                     Elected official                Politician / Demagogue
+• Confident / Assertive         Self-assured                    Arrogant / Domineering
+• Meticulous / Thorough         Detailed                        Pedantic / Nitpicking
+• Courageous / Brave            Facing danger                   Foolhardy / Reckless
+
+--------------------------------------------------------------------------------
+5. BENGALI EXPLANATORY SUMMARY (বাংলা ব্যাকরণিক বিশ্লেষণ ও ধাতু-তত্ত্ব)
+--------------------------------------------------------------------------------
+- বাংলায় যেমন সংস্কৃত উপসর্গ ও কৃৎ-প্রত্যয় (যেমন: অনু-, প্রতি-, সু-, দুর্-) দিয়ে হাজার হাজার শব্দ গঠন করা হয়, তেমনি ইংরেজিতে গ্রিক ও ল্যাটিন ধাতুমূল (Roots) ও উপসর্গ (Prefixes) জানা থাকলে যে কোনো অপরিচিত শব্দের অর্থ নিমেষেই অনুমান করা যায়।
+- উদাহরণস্বরূপ: 'CHRON' অর্থ সময়। তাই 'Chronology' = সময়ক্রম, 'Synchronize' = একই সময়ে মেলানো, 'Anachronism' = কালগত অসংগতি।
+- Connotation বনাম Denotation বোঝা অত্যন্ত জরুরি: দুটি শব্দের আভিধানিক অর্থ একই হতে পারে, কিন্তু ভাবার্থ আলাদা হতে পারে। যেমন: 'Thrifty' ইতিবাচক (যিনি বুদ্ধিমানের মতো খরচ করেন), কিন্তু 'Miserly' নেতিবাচক (যিনি কৃপণ)।
+- পরীক্ষায় সবচেয়ে বেশি আসে Prefix Assimilation (কেন in+legal -> illegal হয়) এবং Confusable Word Pairs (যেমন: Ingenious [প্রতিভাধর] বনাম Ingenuous [সহজ-সরল])।
+
+================================================================================
+                    END OF MODULE 010_001 REFERENCE NOTE
+================================================================================

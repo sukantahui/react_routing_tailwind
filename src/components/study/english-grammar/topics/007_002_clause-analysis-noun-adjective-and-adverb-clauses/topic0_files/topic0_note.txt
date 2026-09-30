@@ -1,0 +1,103 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 007_002
+CLAUSE ANALYSIS: NOUN, ADJECTIVE (RELATIVE) & ADVERBIAL CLAUSES
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. WHAT IS A CLAUSE? (PRINCIPAL vs SUBORDINATE)
+--------------------------------------------------------------------------------
+A Clause is a syntactic unit containing a Subject and a Finite Verb Predicate.
+
+  • Principal (Independent) Clause: Can stand alone as a complete sentence.
+  • Subordinate (Dependent) Clause: Cannot stand alone; depends on a Principal 
+    clause for complete meaning.
+
+Three Major Functional Classes of Subordinate Clauses:
+  1. NOUN CLAUSE      (Performs the job of a Noun)
+  2. ADJECTIVE CLAUSE (Modifies an Antecedent Noun / Pronoun)
+  3. ADVERBIAL CLAUSE (Modifies a Verb, Adjective, or another Adverb)
+
+================================================================================
+2. NOUN CLAUSES: THE 5 SYNTACTIC ROLES
+--------------------------------------------------------------------------------
+A Noun Clause answers "WHAT?" or "WHO?" in relation to the main sentence elements.
+
+1. SUBJECT OF A VERB:
+   - "THAT he is innocent is known to all."
+   - "WHAT you just said makes complete sense."
+
+2. OBJECT OF A TRANSITIVE VERB:
+   - "I know THAT honesty is the best policy."
+   - "She explained WHY she was absent."
+
+3. OBJECT OF A PREPOSITION:
+   - "Pay strict attention TO [what the professor demonstrates]."
+   - "There is no meaning IN [what he claims]."
+
+4. SUBJECT COMPLEMENT (After Linking Verbs like 'is', 'was', 'seems'):
+   - "The reality is THAT we have run out of funds."
+   - "My fear was THAT the ship might sink."
+
+5. IN APPOSITION TO A NOUN (Explains the internal content of a Noun):
+   - "The news THAT the king died shocked the nation."
+   - "The rumour THAT the bank failed is completely baseless."
+
+================================================================================
+3. ADJECTIVE (RELATIVE) CLAUSES: DEFINING vs NON-DEFINING
+--------------------------------------------------------------------------------
+An Adjective Clause modifies a preceding Noun/Pronoun (called the "Antecedent").
+
++------------------------+--------------------------+--------------------------+
+| Feature                | Defining (Restrictive)   | Non-Defining (Parenthetical)
++------------------------+--------------------------+--------------------------+
+| Function               | Essential to identify    | Extra, non-essential     |
+|                        | WHICH specific item      | descriptive information  |
+| Punctuation            | NO COMMAS                | ENCLOSED IN COMMAS ( , ) |
+| Pronouns for Things    | THAT or WHICH            | WHICH ONLY (Never That!) |
+| Pronoun Omission       | YES (if object of clause)| NEVER                    |
+| Canonical Example      | "The car THAT I bought is| "My Ferrari, WHICH is red|
+|                        | exceptionally fast."     | , is parked outside."    |
++------------------------+--------------------------+--------------------------+
+
+Relative Pronoun Omission (Contact Clauses):
+  - "The book WHICH I read yesterday." -> "The book I read yesterday." (Object pronoun omitted).
+  - Note: You can NEVER omit a Subject relative pronoun: "The man WHO called me" (Wrong to say: "The man called me").
+
+================================================================================
+4. ADVERBIAL CLAUSES: THE 9 FUNCTIONAL CLASSES
+--------------------------------------------------------------------------------
+Adverbial clauses modify verbs, adjectives, or adverbs in the principal clause.
+
+1. TIME (When?): when, while, before, after, as soon as, since, until.
+   - "As soon as the train arrived, passengers rushed."
+2. PLACE (Where?): where, wherever, whence, whither.
+   - "Fools rush in WHERE angels fear to tread."
+3. CAUSE / REASON (Why?): because, since, as, for.
+   - "He was promoted BECAUSE he solved the crisis."
+4. PURPOSE (With what aim?): so that, in order that, lest (should).
+   - "Study diligently SO THAT you may achieve mastery."
+5. RESULT / CONSEQUENCE (With what effect?): so... that, such... that.
+   - "He was SO exhausted THAT he collapsed onto the couch."
+6. CONDITION (On what terms?): if, unless, provided that, in case.
+   - "UNLESS you work systematically, success is impossible."
+7. CONCESSION / CONTRAST (In spite of what?): although, though, even though.
+   - "ALTHOUGH he was fatigued, he continued the march."
+8. COMPARISON / DEGREE (To what extent?): than, as... as, so... as.
+   - "She is more insightful THAN her contemporaries are."
+9. MANNER (In what way?): as, as if, as though.
+   - "He spoke AS IF he owned the corporation."
+
+================================================================================
+5. STEP-BY-STEP CLAUSE PARSING ALGORITHM
+--------------------------------------------------------------------------------
+Step 1: Identify all Finite Verbs in the sentence. (N verbs = N clauses).
+Step 2: Identify the Subordinating Connectives (that, who, which, although, because).
+Step 3: Isolate the Principal Clause (the clause that makes complete sense alone).
+Step 4: Analyze each Subordinate Clause:
+        - If it answers "What?" -> Noun Clause (Check 5 roles).
+        - If it modifies a preceding Noun -> Adjective Clause (Check defining vs non-defining).
+        - If it explains time, reason, condition, manner -> Adverbial Clause (Check 9 types).
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 007_002
+================================================================================

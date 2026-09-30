@@ -1,0 +1,40 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 7: OBJECT COMPLEMENTS & COMPLEX-TRANSITIVE VERBS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS AN OBJECT COMPLEMENT?
+--------------------------------------------------------------------------------
+- Definition: A noun, pronoun, or adjective that immediately follows a Direct 
+  Object to describe, qualify, or rename it.
+- Fundamental Equation: [ DIRECT OBJECT == OBJECT COMPLEMENT ]
+- Example: "They elected [Swadeep (DO)] [Captain (OC)]." (Swadeep == Captain).
+
+2. COMPLEX-TRANSITIVE VERBS
+--------------------------------------------------------------------------------
+- Common Verbs taking SVOC:
+  * Naming/Electing: appoint, elect, nominate, name, call, crown, declare.
+  * Judging/Perceiving: find, consider, think, believe, judge.
+  * Causing State: make, paint, keep, render, drive (mad).
+
+3. SVOO VS SVOC: THE DEFINITIVE COMPARISON
+--------------------------------------------------------------------------------
++-------------------+-----------------------------+-----------------------------+
+| Feature           | SVOO (Ditransitive)         | SVOC (Complex-Transitive)   |
++-------------------+-----------------------------+-----------------------------+
+| Entity Formula    | IO != DO (Two entities)     | DO == OC (One entity)       |
+| Example           | "He gave [him] [a prize]."  | "He called [him] [a hero]." |
+| Reality           | 'him' is NOT 'a prize'      | 'him' IS 'a hero'           |
+| Passive Forms     | TWO possible passives       | ONE possible passive        |
++-------------------+-----------------------------+-----------------------------+
+
+4. PASSIVE VOICE TRANSFORMATION IN SVOC
+--------------------------------------------------------------------------------
+Active:  "The committee elected [Debangshu] [President]." (SVOC)
+Passive: "[Debangshu] was elected [President] by the committee." (SVC in passive!)
+- Notice: The Object Complement becomes a Subject Complement in the passive!
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

@@ -1,0 +1,41 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 4: DIRECT OBJECTS VS INDIRECT OBJECTS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. DIRECT OBJECT (DO - THE ACCUSATIVE)
+--------------------------------------------------------------------------------
+- Question Test: Verb + WHAT? / Verb + WHOM?
+- Definition: The noun or pronoun that directly receives the action of the verb.
+- Example: "Swadeep developed [a web application]." (Developed WHAT? -> an app).
+
+2. INDIRECT OBJECT (IO - THE DATIVE)
+--------------------------------------------------------------------------------
+- Question Test: Verb + TO WHOM? / FOR WHOM?
+- Definition: The person or beneficiary who receives the Direct Object entity.
+- Example: "Sukanta Sir taught [Tuhina] [English Grammar]."
+  * Tuhina = Indirect Object (Person / Beneficiary).
+  * English Grammar = Direct Object (Entity transferred).
+
+3. DATIVE SHIFT FORMULAS
+--------------------------------------------------------------------------------
+Formula A (Pure SVOO):
+  Subject + Verb + [Indirect Object] + [Direct Object]
+  "I gave [him] [the key]." (No preposition needed!)
+
+Formula B (SVO + Prepositional Phrase):
+  Subject + Verb + [Direct Object] + TO/FOR + [Object]
+  "I gave [the key] to [him]."
+
+4. CRITICAL BENGALI EXAM TRAP
+--------------------------------------------------------------------------------
+* Bengali Order: "আমি তাকে বইটি দিলাম" (IO + DO).
+* English Error: Inserting 'to' before the person in SVOO:
+  - "I gave to him the book" ❌ (Incorrect!)
+  - "I gave him the book" ✔️ (Pure SVOO)
+  - "I gave the book to him" ✔️ (SVO + Prep Phrase)
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

@@ -1,0 +1,95 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 008_004
+PASSAGE NARRATION, CONTINUOUS DIALOGUES & NUANCED REPORTING VERBS
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. WHAT IS PASSAGE NARRATION?
+--------------------------------------------------------------------------------
+Passage Narration is the advanced skill of converting an entire multi-speaker 
+dramatic or conversational passage into a single, cohesive, continuous reported 
+narrative paragraph.
+
+Key Objectives:
+  1. Eliminate disjointed speech tags ("he said", "she said").
+  2. Deploy high-register Nuanced Reporting Verbs (admitted, refused, warned, apologized).
+  3. Expand elliptical (incomplete) dialogue replies into full grammatical clauses.
+  4. Integrate vocatives, greetings, and farewells naturally into narrative flow.
+
+================================================================================
+2. HANDLING SPECIAL CONVERSATIONAL ELEMENTS
+--------------------------------------------------------------------------------
+A. VOCATIVES (TERMS OF ADDRESS):
+   • "Sir / Madam"         ==> Respectfully / Addressing him as Sir
+   • "Mother / Father"     ==> Affectionately addressing her mother / Told his mother
+   • "Friends / Comrades"  ==> Addressing them as friends
+
+B. INCOMPLETE / ELLIPTICAL ANSWERS:
+   • Direct:   "Are you hungry?" "Yes."
+   • Indirect: He asked if I was hungry, to which I replied in the affirmative (that I was).
+   • Direct:   "Did you steal the money?" "No."
+   • Indirect: He inquired if I had stolen the money, and I replied in the negative.
+
+C. GREETINGS & FAREWELLS:
+   • "Good morning / evening" ==> Wished [him] a good morning / evening
+   • "Good bye / Farewell"    ==> Bade [him] goodbye / farewell
+   • "Thank you"              ==> Thanked [him] for...
+   • "Congratulations"        ==> Congratulated [him] on...
+   • "Happy Birthday / Puja"  ==> Wished [him] a Happy Birthday / Puja
+
+================================================================================
+3. THE NUANCED REPORTING VERBS ARSENAL
+--------------------------------------------------------------------------------
+Replace repetitive "said / told" with precise semantic reporting verbs:
+
++--------------------+-------------------------+-------------------------------+
+| Reporting Verb     | Semantic Domain         | Canonical Example             |
++--------------------+-------------------------+-------------------------------+
+| Acknowledged       | Recognizing a truth     | Acknowledged his limitations. |
+| Admitted           | Conceding a mistake     | Admitted that he was wrong.   |
+| Apologized         | Expressing regret       | Apologized for the delay.     |
+| Confessed          | Admitting a crime/sin   | Confessed that he stole it.   |
+| Congratulated      | Commending success      | Congratulated on the trophy.  |
+| Denied             | Repudiating accusation  | Denied having broken the vase.|
+| Insisted           | Emphatic demand         | Insisted on paying the fee.   |
+| Objected           | Opposing a proposal     | Objected to the unfair rule.  |
+| Promised           | Binding commitment      | Promised to return by noon.   |
+| Refused            | Declining to act        | Refused to sign the document. |
+| Reminded           | Prompting memory        | Reminded him to take his keys.|
+| Threatened         | Menacing ultimatum      | Threatened to report the theft|
+| Urged              | Strong exhortation      | Urged them to remain united.  |
+| Warned             | Cautioning of danger    | Warned not to enter the woods.|
+| Welcomed           | Greeting hospitably     | Welcomed the delegates.       |
++--------------------+-------------------------+-------------------------------+
+
+================================================================================
+4. PASSAGE NARRATION WORKED BLUEPRINT
+--------------------------------------------------------------------------------
+ORIGINAL DIALOGUE:
+  "Where are you going, my boy?" said the old hermit.
+  "I am going to the capital to seek employment, Sir," replied the youth.
+  "Do not go there. The city is full of wicked temptations," warned the hermit.
+  "Thank you for your advice, but I must try my fortune," said the youth.
+
+REPORTED CONTINUOUS NARRATIVE:
+  The old hermit affectionately asked the youth where he was going. The youth 
+  respectfully replied that he was going to the capital to seek employment. The 
+  hermit then warned him not to go there, explaining that the city was full of 
+  wicked temptations. The youth thanked him for his advice, but politely added 
+  that he had to try his fortune.
+
+================================================================================
+5. REVERSE NARRATION (INDIRECT TO DIRECT SPEECH)
+--------------------------------------------------------------------------------
+Step 1: Identify the Reporting Verb and recreate the speaker tag (e.g. 'He said to me,').
+Step 2: Add opening quotation marks (").
+Step 3: Reverse the Tense Backshift (Past Perfect -> Simple Past or Present Perfect; 
+        Simple Past -> Simple Present; Would -> Will).
+Step 4: Restore 1st & 2nd Person Pronouns (I, you, we, my, your).
+Step 5: Restore Immediate Deictic Time/Place Words (that day -> today; there -> here).
+Step 6: If an indirect question, restore Question Inversion and terminate with '?'.
+Step 7: Close quotation marks (").
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 008_004
+================================================================================

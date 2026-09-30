@@ -1,0 +1,40 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 1: INTERROGATIVE SENTENCES & INVERSION
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. YES/NO QUESTIONS (SUBJECT-AUXILIARY INVERSION)
+--------------------------------------------------------------------------------
+- Formula: [ AUXILIARY VERB ] + [ SUBJECT ] + [ MAIN VERB ] ... ?
+- Examples:
+  * "He is working." -> "Is he working?"
+  * "They have solved it." -> "Have they solved it?"
+  * "Swadeep codes in Python." -> "Does Swadeep code in Python?" (Dummy 'Does')
+  * "They attended yesterday." -> "Did they attend yesterday?" (Dummy 'Did')
+
+2. WH- INFORMATION QUESTIONS
+--------------------------------------------------------------------------------
+A. Wh- Word as OBJECT:
+   - Formula: [ Wh- Word ] + [ Auxiliary ] + [ Subject ] + [ Main Verb ] ?
+   - Example: "What did you buy?" / "Where does she live?" / "Why were they late?"
+
+B. Wh- Word as SUBJECT (NO INVERSION!):
+   - Formula: [ Wh- Subject ] + [ Finite Verb ] + [ Object ] ?
+   - Example: "Who wrote this code?" (Never "Who did write this code?").
+
+3. EMBEDDED / INDIRECT QUESTIONS (NO INVERSION!)
+--------------------------------------------------------------------------------
+- In noun clauses following verbs like wonder, ask, know:
+  * Wrong: "I do not know where does he live." ❌
+  * Right: "I do not know where he lives." ✔️
+
+4. BENGALI LEARNER PEDAGOGICAL TRAP
+--------------------------------------------------------------------------------
+* Bengali: "তুমি কেন সেখানে গেলে?" (পদক্রম পরিবর্তন হয় না).
+* English Error: "Why you went there?" ❌
+* English Correction: "Why did you go there?" ✔️ (Inversion Mandatory!)
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

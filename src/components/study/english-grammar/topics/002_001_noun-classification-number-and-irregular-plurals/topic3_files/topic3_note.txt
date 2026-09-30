@@ -1,0 +1,129 @@
+================================================================================
+CODER & ACCOTAX GRAMMAR STUDY NOTE
+SUBJECT: English Grammar & Functional Composition
+TRACK: English Grammar: From Foundations to Advanced Functional & Stylistic Mastery
+MODULE 002_001: Noun Classification, Number Invariants & Irregular Plurals
+TOPIC 3: Uncountable Noun Traps in Competitive Exams
+AUTHOR: Sukanta Hui (Founder, Coder & AccoTax, Barrackpore)
+================================================================================
+
+1. CORE CONCEPT & THE UNCOUNTABLE INVARIANT RULE
+--------------------------------------------------------------------------------
+In English morphology and syntax, uncountable (mass/abstract) nouns represent substances, concepts, or aggregated collections that cannot be divided into distinct, countable individual units. 
+
+THE TRIPLE INVARIANT RULE:
+1. NO PLURAL SUFFIX: They NEVER take '-s' or '-es' (e.g., *informations, *furnitures, *sceneries are strictly forbidden).
+2. NO INDEFINITE ARTICLE: They NEVER take 'a' or 'an' directly (*an advice, *a luggage are incorrect).
+3. SINGULAR VERB AGREEMENT: They ALWAYS govern a singular verb in standard syntax ("The information IS verified").
+
+2. THE "TOP 20" UNCOUNTABLE TRAP NOUNS TESTED IN COMPETITIVE EXAMS
+--------------------------------------------------------------------------------
+1. INFORMATION: Never 'informations'. Use 'a piece of information' or 'pieces of information'.
+   Incorrect: He gave me valuable informations.
+   Correct:   He gave me valuable information (or: two pieces of valuable information).
+
+2. FURNITURE: Never 'furnitures'. Aggregated term for household fixtures.
+   Incorrect: All the furnitures of our office are modern.
+   Correct:   All the furniture in our office is modern.
+
+3. ADVICE: Never 'advices'. (Note: 'advices' in archaic commercial language meant 'formal notices', but in standard English, counsel is strictly uncountable).
+   Incorrect: Please give me an advice.
+   Correct:   Please give me a piece of advice / some advice.
+
+4. SCENERY: Never 'sceneries'.
+   Incorrect: The sceneries of Darjeeling are charming.
+   Correct:   The scenery of Darjeeling is charming.
+
+5. LUGGAGE / BAGGAGE: Never 'luggages' or 'baggages'.
+   Incorrect: He carried many luggages to the railway platform.
+   Correct:   He carried much luggage (or: four pieces of luggage).
+
+6. HAIR: Entire head of hair is uncountable. (Countable only for individual detached strands: "three white hairs").
+   Incorrect: Her hairs are jet black.
+   Correct:   Her hair is jet black.
+
+7. MACHINERY: Never 'machineries'. (Countable equivalent is 'machines').
+   Incorrect: The heavy machineries were imported from Japan.
+   Correct:   The heavy machinery was imported from Japan (or: The heavy machines were...).
+
+8. STATIONERY / CROCKERY / CUTLERY: Aggregated collections.
+   Incorrect: The stationery shop sells various stationeries.
+   Correct:   The stationery shop sells various stationery items.
+
+9. MISCHIEF: Abstract misbehavior. Never 'mischiefs'.
+   Incorrect: The child committed many mischiefs.
+   Correct:   The child committed much mischief (or: many acts of mischief).
+
+10. BREAD: Mass food item. Never 'two breads'.
+    Incorrect: I bought two breads for breakfast.
+    Correct:   I bought two loaves / slices of bread.
+
+11. WORK: Task/employment is uncountable. (Note: 'works' = factory or literary masterpieces: "The works of Shakespeare").
+    Incorrect: I have an urgent work today.
+    Correct:   I have an urgent piece of work (or: urgent work) today.
+
+12. POETRY: Genre is uncountable. (Countable equivalent is 'poems').
+    Incorrect: Wordsworth wrote many beautiful poetries.
+    Correct:   Wordsworth wrote many beautiful poems (or: much beautiful poetry).
+
+13. EQUIPMENT: Aggregated tools/apparatus. Never 'equipments'.
+    Incorrect: Modern equipments are installed in our Barrackpore laboratory.
+    Correct:   Modern equipment is installed in our Barrackpore laboratory.
+
+14. JEWELLERY / JEWELRY: Aggregated ornament collection. (Countable: 'jewels').
+    Incorrect: Her jewelleries were stolen.
+    Correct:   Her jewellery was stolen.
+
+15. TRAFFIC: Aggregated vehicles on the road. Never 'traffics'.
+    Incorrect: The road has heavy traffics during peak hours.
+    Correct:   The road has heavy traffic during peak hours.
+
+16. DAMAGE: Monetary loss/harm is uncountable. (Note: 'damages' with '-s' is a legal term meaning financial compensation).
+    Incorrect: The cyclone caused severe damages to the crop.
+    Correct:   The cyclone caused severe damage to the crop.
+
+17. APPARATUS: Collective experimental tools. Singular/mass form.
+    Incorrect: Clean all chemical apparatuses.
+    Correct:   Clean all chemical apparatus.
+
+18. REFUSE / RUBBISH / GARBAGE / LITTER: Waste materials. Always uncountable.
+    Incorrect: Don't throw rubbishs on the pavement.
+    Correct:   Don't throw rubbish on the pavement.
+
+19. ALPHABET: The complete set of 26 letters is 'the alphabet'. Never 'alphabets' when meaning individual letters.
+    Incorrect: A child learns 26 alphabets.
+    Correct:   A child learns 26 letters of the English alphabet.
+
+20. EVIDENCE: Legal / factual proof. Strictly uncountable.
+    Incorrect: The police found many evidences against him.
+    Correct:   The police found much evidence (or: many pieces of evidence).
+
+3. PARTITIVE CLASSIFIERS: HOW TO QUANTIFY UNCOUNTABLE NOUNS LEGALLY
+--------------------------------------------------------------------------------
+To express a single unit or multiple distinct quantities of an uncountable noun, English uses "Partitive Expressions" (Classifier + of + Uncountable Noun):
+
+• A piece / item of information
+• A piece / item / article of furniture
+• A word / piece of advice
+• A piece / item of luggage
+• A loaf / slice / crust of bread
+• An act / piece of mischief
+• A stroke of luck / lightning
+• A sheet / ream / scrap of paper
+• A strand / lock of hair
+• A block / cube of ice
+• A grain of rice / sand / salt
+• A fit / burst of anger / laughter
+
+4. BILINGUAL LEARNING BRIDGES (ENGLISH ↔ বাংলা)
+--------------------------------------------------------------------------------
+বাংলায় আমরা প্রায়শই বলি:
+• "আমাকে অনেকগুলো উপদেশ দিলেন" → কিন্তু ইংরেজিতে "many advices" হবে না, বলতে হবে "much advice" অথবা "many pieces of advice"।
+• "কাশ্মীরের দৃশ্যগুলি সুন্দর" → ইংরেজিতে "The sceneries are" হবে না, বলতে হবে "The scenery of Kashmir is breathtaking"।
+• "আমার অনেক কাজ আছে" → "I have many works" ভুল, সঠিক হলো "I have a lot of work" বা "I have many tasks to do"।
+• "তার সব চুল পেকে গেছে" → "His hairs are grey" ভুল, সঠিক হলো "His hair has turned grey"।
+• "আমি দুটো রুটি খাব" → "two breads" ভুল, বলতে হবে "two slices / loaves of bread"।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX GRAMMAR ROADMAP
+================================================================================

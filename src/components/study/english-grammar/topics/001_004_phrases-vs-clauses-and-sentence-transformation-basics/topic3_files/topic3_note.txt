@@ -1,0 +1,29 @@
+========================================================================
+MODULE 001_004 | TOPIC 3: INDEPENDENT VS SUBORDINATE CLAUSES
+========================================================================
+Teacher & Author: Sukanta Hui (Coder & AccoTax, Barrackpore)
+
+1. INDEPENDENT (MAIN / PRINCIPAL) CLAUSE:
+   - Contains a Subject and a Finite Verb.
+   - Expresses a complete, stand-alone thought.
+   - Can form a complete simple sentence by itself.
+   - Example: [The train departed on time.]
+
+2. SUBORDINATE (DEPENDENT) CLAUSE:
+   - Contains a Subject and a Finite Verb.
+   - Introduced by a Subordinating Conjunction (because, although, when, since, if, unless, while) or Relative Pronoun (who, which, that).
+   - CANNOT stand alone; depends on the Main Clause for complete meaning.
+   - Example: [Although the weather was stormy], the train departed on time.
+
+3. THE 3 SUBORDINATE CLAUSE FAMILIES:
+   a. Noun Clause: Acts as Subject/Object ("I know [that he is honest]").
+   b. Adjective (Relative) Clause: Modifies a Noun ("The boy [who won] is my friend").
+   c. Adverb Clause: Modifies Verb/Adjective ("Wait here [until I return]").
+
+4. COORDINATE CLAUSES (FANBOYS):
+   - Two independent clauses joined by For, And, Nor, But, Or, Yet, So form a COMPOUND Sentence.
+
+5. BENGALI SUMMARY (বাংলা সংক্ষেপ):
+   - Principal Clause: স্বাধীন উপবাক্য, যা কোনো সাহায্য ছাড়া একা সম্পূর্ণ অর্থ প্রকাশ করতে পারে।
+   - Subordinate Clause: পরাধীন উপবাক্য, যা সম্পূর্ণ অর্থের জন্য Principal Clause-এর উপর নির্ভরশীল।
+========================================================================

@@ -1,0 +1,56 @@
+================================================================================
+MODULE 002.001 - TOPIC 2: COUNTABLE VS UNCOUNTABLE (MASS) NOUNS
+================================================================================
+Curriculum Track: English Grammar Master Roadmap (Coder & AccoTax)
+Author & Mentor: Sukanta Hui (Barrackpore, Kolkata)
+
+================================================================================
+1. COUNTABLE VS UNCOUNTABLE SYNTACTIC INVARIANTS
+================================================================================
+--------------------------------------------------------------------------------
+FEATURE               COUNTABLE NOUNS                 UNCOUNTABLE (MASS) NOUNS
+--------------------------------------------------------------------------------
+Definition            Discrete individual units       Continuous mass/substance/concept
+Pluralization         Takes regular -s/-es (cars, books) NEVER takes plural '-s'
+Articles              Takes 'a' / 'an' (a book, an apple) CANNOT take 'a/an' directly
+Quantifiers           Many, Few, A few, Several       Much, Little, A little, A lot of
+Partitive Units       Direct counting: "three chairs" Requires unit: "three pieces of furniture"
+Verbal Concord        Singular OR Plural verb         ALWAYS takes a SINGULAR verb
+--------------------------------------------------------------------------------
+
+================================================================================
+2. PARTITIVE CLASSIFIERS (HOW TO COUNT THE UNCOUNTABLE)
+================================================================================
+To express quantity for uncountable nouns, use specific partitive classifiers:
+- Information / Advice -> A piece of advice / two pieces of information
+- Furniture / Equipment -> An item of furniture / pieces of equipment
+- Bread -> A loaf of bread / two slices of bread
+- Paper -> A sheet of paper / a ream of paper
+- Soap -> A bar of soap / three cakes of soap
+- Chocolate -> A bar of chocolate / a square of chocolate
+- Luggage / Baggage -> A piece of luggage
+- Rice / Sand -> A grain of rice / grains of sand
+
+================================================================================
+3. DUAL COUNTABLE & UNCOUNTABLE NOUNS (MEANING SHIFTS)
+================================================================================
++---------+-----------------------------------+--------------------------------+
+| NOUN    | UNCOUNTABLE SENSE (Mass Material) | COUNTABLE SENSE (Discrete Item)|
++---------+-----------------------------------+--------------------------------+
+| Paper   | "We need more paper for printer." | "I read two morning papers."   |
+| Glass   | "The window is made of glass."    | "He drank a glass of water."   |
+| Hair    | "She has beautiful black hair."   | "There are two hairs on coat." |
+| Iron    | "Iron is an industrial metal."    | "I bought an electric iron."   |
+| Light   | "Sunlight gives us light."        | "Turn off all the lights."     |
+| Room    | "Is there room in the car?"(space)| "The house has five rooms."    |
++---------+-----------------------------------+--------------------------------+
+
+================================================================================
+4. BENGALI PEDAGOGICAL SUMMARY (বাংলা সংক্ষেপ)
+================================================================================
+১. Countable Noun: যা আলাদাভাবে গোনা যায় (Book, Student, Apple)। এর একবচনে 'a/an' বসে এবং বহুবচনে 's/es' যুক্ত হয়।
+২. Uncountable Noun: যা আলাদাভাবে গোনা যায় না (Water, Information, Furniture)।
+   - এর সাথে কখনোই 's' বা 'es' যুক্ত করবেন না (যেমন: Informations, Furnitures ভুল)।
+   - এর আগে সরাসরি 'a/an' বসে না ('an advice' ভুল -> 'a piece of advice' শুদ্ধ)।
+   - এটি সর্বদা Singular Verb গ্রহণ করে ('The news IS true')।
+================================================================================

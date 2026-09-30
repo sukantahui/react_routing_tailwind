@@ -1,0 +1,208 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.001: VERB TAXONOMY, TRANSITIVITY, STATIVE VS DYNAMIC & THE 26 AUXILIARIES
+================================================================================
+Curriculum Track: English Grammar Master Roadmap (Coder & AccoTax)
+Author & Mentor: Sukanta Hui (Barrackpore, Kolkata)
+Target Examinations: ICSE/ISC, CBSE, WB Board, SSC CGL, Banking, WBCS, IELTS, TOEFL
+
+================================================================================
+1. THE NATURE & TAXONOMY OF THE VERB
+================================================================================
+A verb is the indispensable operational nucleus of an English clause, expressing 
+an ACTION, an OCCURRENCE / EVENT, or a STATE OF BEING.
+
++------------------------------------------------------------------------------+
+| THE MASTER VERB TREE                                                         |
++------------------------------------------------------------------------------+
+                                  VERBS
+                                    |
+          +-------------------------+-------------------------+
+          |                                                   |
+     MAIN (LEXICAL)                                       AUXILIARY (HELPING)
+          |                                                   |
+     +----+----+                                         +----+----+
+     |         |                                         |         |
+  DYNAMIC   STATIVE                                   PRIMARY    MODAL / SEMI-MODAL
+ (Actions)  (States)                                (Be,Do,Have) (Can,May,Must,Dare)
+     |                                               (14 Forms)    (9 Pure + 3 Semi)
+  +--+-------------+
+  |                |
+TRANSITIVE    INTRANSITIVE / LINKING
+(Monotransitive, (Complete predication,
+ Ditransitive,    Copular sensory verbs,
+ Complex-Trans)   Ergative / Inchoative)
+
+
+================================================================================
+2. THE MASTER 26 AUXILIARY VERBS CATALOG (26 ANOMALOUS FINITES & HELPING VERBS)
+================================================================================
+Auxiliary verbs help lexical verbs form tenses, continuous/perfect aspects, passive 
+voice, negations, interrogative inversions, emphatic statements, and modalities.
+
+Traditional and modern grammars catalog exactly 26 standard auxiliary forms:
+- 14 Primary Auxiliaries (Forms of BE, DO, HAVE)
+- 9 Pure Modal Auxiliaries (Shall, Should, Will, Would, Can, Could, May, Might, Must)
+- 3 Semi-Modals / Marginal Auxiliaries (Ought to, Used to, Need/Dare)
+
+---------------------------------------------------------------------------------------------------------
+#   Auxiliary  Category       Negative Form   Primary Function               Exemplar Sentence
+---------------------------------------------------------------------------------------------------------
+1   be         Primary (Be)   (be not)        Base/Imperative/Subjunctive    "Be quiet." / "She will be ready."
+2   am         Primary (Be)   am not/aren't I? 1st Person Present Continuous  "I am preparing for competitive exams."
+3   is         Primary (Be)   isn't           3rd Person Sing Present        "He is lecturing on English syntax."
+4   are        Primary (Be)   aren't          Plural/2nd Person Present      "We are analyzing the 26 auxiliaries."
+5   was        Primary (Be)   wasn't          Singular Past Continuous/Pass. "The manuscript was transcribed by him."
+6   were       Primary (Be)   weren't         Plural Past Continuous/Subj.   "If I were you, I would accept."
+7   been       Primary (Be)   (hasn't been)   V3 Auxiliary (Perfect/Passive) "She has been teaching since 2012."
+8   being      Primary (Be)   (isn't being)   V4 Continuous Passive Aux.     "The new bridge is being constructed."
+
+9   have       Primary (Have) haven't         Present Perfect / Causative    "I have solved every diagnostic drill."
+10  has        Primary (Have) hasn't          3rd Person Sing Pres. Perfect  "She has mastered irregular verbs."
+11  had        Primary (Have) hadn't          Past Perfect / Conditional     "The train had departed before we arrived."
+
+12  do         Primary (Do)   don't           Dummy Aux / Negation / Emphasis"I do understand your perspective."
+13  does       Primary (Do)   doesn't         3rd Person Sing Neg / Question "Does this formula apply here?"
+14  did        Primary (Do)   didn't          Past Negation & Question       "Did they complete the laboratory work?"
+
+15  shall      Pure Modal     shan't          Future Determination / Offer   "Shall we commence the proceedings?"
+16  should     Pure Modal     shouldn't       Moral Duty / Advisability      "You should practice error spotting daily."
+17  will       Pure Modal     won't           Future Certainty / Willingness "I will achieve distinction in English."
+18  would      Pure Modal     wouldn't        Past Habit / Polite Request    "Would you kindly explain this rule?"
+19  can        Pure Modal     can't           Present Ability / Permission   "She can speak five languages fluently."
+20  could      Pure Modal     couldn't        Past Ability / Polite Request  "Could you lend me your reference book?"
+21  may        Pure Modal     mayn't          Formal Permission / Possibility"May you achieve glorious success!"
+22  might      Pure Modal     mightn't        Remote / Tentative Possibility "It might rain in the evening."
+23  must       Pure Modal     mustn't         Strong Necessity / Deduction   "Candidates must carry valid hall tickets."
+
+24  ought (to) Semi-Modal     oughtn't (to)   Moral Obligation / Social Duty "We ought to respect our elders."
+25  used (to)  Semi-Modal     usedn't / didn't use to Discontinued Past Habit"He used to bathe in the river daily."
+26  need/dare  Semi-Modal     needn't/daren't Semi-modal negation without 'do'"You needn't worry." / "How dare you!"
+---------------------------------------------------------------------------------------------------------
+
+BENGALI SUMMARY (বাংলা অর্থ ও তাৎপর্য):
+- Primary Auxiliaries (Be, Have, Do): কাল (Tense), ঘটমানতা (Continuous), পুরাঘটিত অবস্থা (Perfect) ও কর্মবাচ্য (Passive) গঠনে প্রধান ভূমিকা পালন করে।
+- Modal Auxiliaries (Shall, Will, Can, May, Must ইত্যাদি): বক্তার মনোভাব, বাধ্যবাধকতা, সামর্থ্য, সম্ভাবনা ও অনুমতি প্রকাশ করে।
+- Semi-Modals (Ought to, Used to, Need, Dare): আংশিক Modal ও আংশিক Main Verb-এর মতো আচরণ করে।
+
+
+================================================================================
+3. TRANSITIVITY CLASSIFICATIONS
+================================================================================
+  [A] MONOTRANSITIVE (Subject + Verb + Direct Object):
+      - "She wrote A NOVEL." (Direct Object answers 'What?' or 'Whom?')
+
+  [B] DITRANSITIVE (Subject + Verb + Indirect Object + Direct Object):
+      - "The teacher gave US (IO) A DIFFICULT TASK (DO)."
+      - Alternate Prepositional Pattern: "The teacher gave a difficult task TO us."
+
+  [C] COMPLEX-TRANSITIVE / FACTITIVE (Subject + Verb + Object + Object Complement):
+      - "The citizens elected HIM (Obj) MAYOR (Obj Complement)."
+      - "They painted the fence (Obj) WHITE (Obj Complement)."
+
+  [D] INTRANSITIVE OF COMPLETE PREDICATION (No Object Needed):
+      - "The birds sing." / "The baby slept peacefully."
+
+  [E] LINKING / COPULAR VERBS (Subject + Copula + Subject Complement):
+      - Be, seem, appear, become, remain, look, sound, smell, taste, feel.
+      - "The soup smells DELICIOUS (Adjective Complement)."
+
+  [F] ERGATIVE / INCHOATIVE VERBS (Transitive <-> Intransitive Dual Action):
+      - Transitive:   "The boy BROKE the window." (External agent)
+      - Intransitive: "The window BROKE." (Subject undergoes the change)
+      - Examples: open, close, melt, boil, freeze, start, drop, sink.
+
+
+================================================================================
+4. THE STATIVE VS DYNAMIC DOMAIN (CRITICAL EXAM LAW!)
+================================================================================
+  * DYNAMIC VERBS describe voluntary physical or mental activities that have a 
+    beginning, duration, and end. They freely accept Progressive (-ing) tenses.
+    - "He is running." / "She is coding." / "They are discussing."
+
+  * STATIVE VERBS describe static continuous conditions, states of mind, 
+    emotions, relationships, or sensory impressions. In standard English, they 
+    RESIST progressive (-ing) continuous aspects!
+
++------------------------------------------------------------------------------+
+| THE 4 BUCKETS OF PURE STATIVE VERBS (DO NOT USE IN CONTINUOUS TENSES!)       |
++------------------------------------------------------------------------------+
+  1. COGNITION & THOUGHT:
+     - Know, believe, understand, recognize, remember, forget, doubt, mean, realize.
+     * INCORRECT: I am knowing the answer.
+     * CORRECT:   I KNOW the answer.
+
+  2. EMOTION & FEELING:
+     - Love, hate, prefer, adore, detest, despise, wish, want, care.
+     * INCORRECT: She is loving chocolate.
+     * CORRECT:   She LOVES chocolate.
+
+  3. POSSESSION & RELATION:
+     - Have (ownership), belong to, own, possess, comprise, contain, resemble, cost.
+     * INCORRECT: This property is belonging to Mr. Sharma.
+     * CORRECT:   This property BELONGS TO Mr. Sharma.
+     * INCORRECT: I am having a bike.
+     * CORRECT:   I HAVE a bike.
+
+  4. SENSATION & PERCEPTION:
+     - See (involuntary), hear, smell, taste, feel, notice, sound.
+     * INCORRECT: The medicine is tasting bitter.
+     * CORRECT:   The medicine TASTES bitter.
+
+
+================================================================================
+5. VERBS WITH DUAL STATIVE & DYNAMIC MEANINGS
+================================================================================
++-------+----------------------------------+-----------------------------------+
+| VERB  | STATIVE SENSE (Simple Aspect)    | DYNAMIC SENSE (Continuous -ing)   |
++-------+----------------------------------+-----------------------------------+
+| THINK | Opinion / Belief                 | Active mental deliberation        |
+|       | "I THINK you are correct."       | "I AM THINKING about the problem."|
++-------+----------------------------------+-----------------------------------+
+| HAVE  | Ownership / Possession           | Eating / Drinking / Experiencing  |
+|       | "I HAVE two computers."          | "I AM HAVING lunch with Rahul."   |
++-------+----------------------------------+-----------------------------------+
+| SEE   | Involuntary visual sight         | Meeting / Consulting / Dating     |
+|       | "I SEE a ship on the horizon."   | "I AM SEEING the specialist today"|
++-------+----------------------------------+-----------------------------------+
+| TASTE | Inherent static flavor           | Active voluntary culinary test    |
+|       | "The coffee TASTES rich."        | "The chef IS TASTING the gravy."  |
++-------+----------------------------------+-----------------------------------+
+| SMELL | Inherent aromatic quality        | Active voluntary inhaling         |
+|       | "The rose SMELLS fragrant."      | "She IS SMELLING the flowers."    |
++-------+----------------------------------+-----------------------------------+
+
+
+================================================================================
+6. THE 5 PRINCIPAL VERB FORMS
+================================================================================
+Every English verb operates across 5 primary morphological paradigms:
+  - V1 (Base / Infinitive):           write, play, go
+  - V2 (Simple Past):                 wrote, played, went
+  - V3 (Past Participle):             written, played, gone
+  - V4 (Present Participle / Gerund): writing, playing, going
+  - V5 (3rd Person Singular Present): writes, plays, goes
+
+
+================================================================================
+7. HIGH-FREQUENCY COMPETITIVE EXAM TRAPS
+================================================================================
+  TRAP 1: Stative Progressive Violation
+    - INCORRECT: I am understanding what you mean.
+    - CORRECT:   I understand what you mean.
+
+  TRAP 2: Inappropriate Sensory Adverbs
+    - INCORRECT: The velvet blanket feels smoothly.
+    - CORRECT:   The velvet blanket feels SMOOTH. (Linking verb + Adjective)
+
+  TRAP 3: Conflating Lay and Lie
+    - INCORRECT: She lay the baby on the cot. (Past of 'lay' is 'laid')
+    - CORRECT:   She LAID the baby on the cot.
+
+  TRAP 4: Passivizing Unpassivizable Intransitives
+    - INCORRECT: The accident was occurred at noon.
+    - CORRECT:   The accident occurred at noon.
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.001
+================================================================================

@@ -1,0 +1,146 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 003.001: ADJECTIVE CLASSIFICATION, POSITIONING & ROYAL ORDER (OSASCOMP)
+================================================================================
+
+1. WHAT IS AN ADJECTIVE? (FUNCTIONAL DEFINITION)
+--------------------------------------------------------------------------------
+An adjective modifies, describes, qualifies, or restricts the meaning of a 
+noun or pronoun by providing information regarding its quality, size, age, color, 
+origin, material, quantity, or specific identity.
+
+Adjectives operate primarily in TWO syntactic positions:
+  1. ATTRIBUTIVE POSITION: Directly before the noun it qualifies.
+     - "She bought an ELEGANT dress."
+     - "The COURAGEOUS firefighter entered the building."
+  2. PREDICATIVE POSITION: Following a linking/copular verb (be, seem, look, feel), 
+     acting as a Subject Complement.
+     - "The dress was ELEGANT."
+     - "The firefighter seemed COURAGEOUS."
+
+
+2. TAXONOMY OF ADJECTIVES (8 CORE CLASSES)
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| CLASS             | DEFINING QUESTION/FUNCTION | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| 1. Quality        | What kind?                 | brave, honest, brilliant,   |
+|    (Descriptive)  | (Inherent attributes)      | heavy, magnificent          |
++-------------------+----------------------------+-----------------------------+
+| 2. Quantity       | How much?                  | much, little, some, enough, |
+|                   | (Uncountable mass)         | any, whole, half, all       |
++-------------------+----------------------------+-----------------------------+
+| 3. Number         | How many? / In what order? |                             |
+|    - Cardinal     | Exact countable tally      | one, two, ten, fifty        |
+|    - Ordinal      | Exact sequential rank      | first, second, next, last   |
+|    - Indefinite   | Non-specific count         | many, several, few, sundry  |
+|    - Distributive | Individualized members     | each, every, either, neither|
++-------------------+----------------------------+-----------------------------+
+| 4. Demonstrative  | Which one?                 | this, that, these, those,   |
+|                   | (Pointing in space/time)   | such, yonder                |
++-------------------+----------------------------+-----------------------------+
+| 5. Interrogative  | Questioning nominal identity| which, what, whose (before N)|
++-------------------+----------------------------+-----------------------------+
+| 6. Possessive     | Whose?                     | my, your, his, her, its,    |
+|                   | (Determiner form)          | our, their                  |
++-------------------+----------------------------+-----------------------------+
+| 7. Proper         | Derived from Proper Noun   | Indian, Shakespearean,      |
+|                   | (Always capitalized)       | Victorian, Parisian         |
++-------------------+----------------------------+-----------------------------+
+| 8. Emphasizing    | Rhetorical intensifier     | own ("my own eyes"),        |
+|                   |                            | very ("the very man")       |
++-------------------+----------------------------+-----------------------------+
+
+
+3. STRICTLY PREDICATIVE ADJECTIVES ("A-" PREFIX INVARIANTS)
+--------------------------------------------------------------------------------
+Certain adjectives can NEVER precede a noun in attributive position. They can 
+only follow linking verbs:
+  - AFRAID, ASLEEP, ALIVE, ALIKE, ASHAMED, AWARE, ALONE, AFLAME, AFLOAT.
+
+  * INCORRECT: The asleep boy looked peaceful.
+  * CORRECT:   The sleeping boy looked peaceful. (Attributive requires participle)
+  * CORRECT:   The boy was asleep. (Predicative is valid)
+
+  * INCORRECT: An afraid soldier surrendered.
+  * CORRECT:   A frightened soldier surrendered.
+  * CORRECT:   The soldier was afraid.
+
+
+4. PARTICIPIAL ADJECTIVES: -ING VS -ED
+--------------------------------------------------------------------------------
++-------------------+-----------------------------+-----------------------------+
+| ASPECT            | PRESENT PARTICIPLE (-ING)   | PAST PARTICIPLE (-ED)       |
++-------------------+-----------------------------+-----------------------------+
+| Semantic Role     | Active / Source of Feeling  | Passive / Receiver of Feeling|
+| Meaning           | "Causing the emotion"       | "Experiencing the emotion"  |
+| Examples          | - a boring lecture          | - a bored student           |
+|                   | - an exciting football match| - an excited crowd          |
+|                   | - a terrifying nightmare    | - a terrified child         |
+|                   | - an exhausting journey     | - an exhausted traveler     |
++-------------------+-----------------------------+-----------------------------+
+
+
+5. THE ROYAL ORDER OF MULTIPLE ADJECTIVES (OSASCOMP)
+--------------------------------------------------------------------------------
+When stacking two or more descriptive adjectives before a single noun, follow 
+the rigid cross-linguistic hierarchy:
+
+  [1] OPINION      -> lovely, beautiful, terrible, delicious, elegant
+  [2] SIZE         -> large, tiny, gigantic, huge, small
+  [3] AGE          -> old, ancient, young, antique, modern
+  [4] SHAPE        -> round, square, oval, cylindrical, rectangular
+  [5] COLOR        -> red, jet-black, emerald-green, azure
+  [6] ORIGIN       -> Indian, Italian, French, Victorian, lunar
+  [7] MATERIAL     -> wooden, silk, porcelain, metallic, leather
+  [8] PURPOSE      -> dining (table), sleeping (bag), sports (car)
+  [ + HEAD NOUN ]
+
+MASTER EXAMPLES:
+  - "A lovely (1) small (2) antique (3) round (4) brown (5) Italian (6) wooden (7) dining (8) table."
+  - "An expensive (1) modern (3) German (6) sports (8) car."
+  - "A charming (1) old (3) square (4) stone (7) cottage."
+
+
+6. COMPOUND ADJECTIVES & HYPHENATION MECHANICS
+--------------------------------------------------------------------------------
+When two or more words combine to modify a succeeding noun, they must be 
+hyphenated, and measurement units MUST remain singular.
+
+  * Formula: NUMBER + SINGULAR NOUN + NOUN
+    - "a ten-year-old boy"     (NOT: a ten-years-old boy)
+    - "a five-star hotel"      (NOT: a five-stars hotel)
+    - "a two-hour exam"        (NOT: a two-hours exam)
+    - "a twenty-mile journey"  (NOT: a twenty-miles journey)
+
+  * Position Rule:
+    - Preceding Noun (Hyphenated): "He is a well-known author."
+    - Following Verb (No Hyphen):   "The author is well known."
+
+
+7. SENSORY LINKING VERBS + ADJECTIVES (NOT ADVERBS!)
+--------------------------------------------------------------------------------
+Verbs of perception (look, sound, smell, taste, feel) act as copulas and require 
+predicate ADJECTIVES to describe the subject:
+  * CORRECT:   "The freshly baked cake smells DELICIOUS." (NOT: deliciously)
+  * CORRECT:   "The velvet fabric feels SMOOTH." (NOT: smoothly)
+  * CORRECT:   "Her explanation sounds LOGICAL." (NOT: logically)
+
+
+8. HIGH-FREQUENCY COMPETITIVE EXAM TRAPS
+--------------------------------------------------------------------------------
+  TRAP 1: Misplaced Predicative-only Adjectives
+    - INCORRECT: We observed the alive fish in the pond.
+    - CORRECT:   We observed the living fish in the pond. / The fish was alive.
+
+  TRAP 2: Pluralizing Adjectival Measurement Units
+    - INCORRECT: He presented a five-hundred-rupees note.
+    - CORRECT:   He presented a five-hundred-rupee note.
+
+  TRAP 3: Violating OSASCOMP Hierarchy
+    - INCORRECT: She wore a leather black stylish coat.
+    - CORRECT:   She wore a stylish black leather coat. (Opinion -> Color -> Material)
+
+================================================================================
+END OF STUDY NOTES - MODULE 003.001
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_003 | TOPIC 5: OPTATIVE SENTENCES (PRAYERS & WISHES)
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS AN OPTATIVE SENTENCE?
+--------------------------------------------------------------------------------
+- Definition: A sentence that articulates an earnest prayer, pious wish, 
+  blessing, or solemn invocation.
+- Structural Formula:
+  [ MAY ] + [ SUBJECT ] + [ BASE VERB (V1) ] ... [ ! / . ]
+- Examples:
+  * "May you achieve the highest distinction in your academic career!"
+  * "May God grant you health, wisdom, and peace!"
+
+2. ELLIPTICAL OPTATIVE FORMULAS (WITHOUT SURFACE 'MAY')
+--------------------------------------------------------------------------------
+In traditional and literary prose, 'May' is often understood:
+  * "Long live the Republic!" (=[May] the Republic live long).
+  * "God save the nation!"    (=[May] God save the nation).
+
+3. REPORTED SPEECH (NARRATION) RULE FOR OPTATIVES
+--------------------------------------------------------------------------------
+Direct:   The mentor said to Swadeep, "May you prosper in life!"
+Indirect: The mentor PRAYED / WISHED that Swadeep MIGHT prosper in life.
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

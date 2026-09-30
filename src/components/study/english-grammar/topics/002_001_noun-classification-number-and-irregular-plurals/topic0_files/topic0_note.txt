@@ -1,0 +1,77 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 002_001: NOUN CLASSIFICATION, NUMBER INVARIANTS & IRREGULAR PLURALS
+Author & Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. THE FIVE TRADITIONAL NOUN FAMILIES
+--------------------------------------------------------------------------------
+1. PROPER NOUN: Specific individual name; always capitalized (e.g., Barrackpore, Swadeep).
+2. COMMON NOUN: General name for a class of persons, places, or things (e.g., student, city).
+3. COLLECTIVE NOUN: Name of a group considered as a single unit (e.g., jury, committee, flock).
+4. MATERIAL NOUN: Name of a raw matter/substance (e.g., gold, water, cotton, iron).
+5. ABSTRACT NOUN: Name of an intangible quality, state, action, or idea (e.g., honesty, freedom).
+
+2. COUNTABLE VS UNCOUNTABLE (MASS) NOUNS
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| Feature           | Countable Nouns            | Uncountable (Mass) Nouns    |
++-------------------+----------------------------+-----------------------------+
+| Plural Form       | Takes '-s' / '-es' (books) | NEVER takes '-s' (*furnitures ❌)|
+| Indefinite Article| Takes 'a' / 'an' (a book)  | NEVER 'a/an' directly (*an advice ❌)|
+| Quantifier Used   | 'Many', 'Few', 'Number of' | 'Much', 'Little', 'Amount of'|
++-------------------+----------------------------+-----------------------------+
+
+* UNCOUNTABLE NOUN MASTER TRAPS (Never add '-s' or 'a/an'):
+  - Information, Furniture, Advice, Scenery, Luggage, Baggage, Machinery,
+    Poetry, Hair (head of hair), Stationery, Jewelry, Bread, Work (labor).
+  - To count them, use partitive counters:
+    "a piece of advice", "two items of furniture", "articles of luggage".
+
+3. IRREGULAR & FOREIGN PLURAL FORMATION FAMILIES
+--------------------------------------------------------------------------------
++-----------------------+-----------------------------+------------------------+
+| Foreign / Shift Rule  | Singular Form               | Plural Form            |
++-----------------------+-----------------------------+------------------------+
+| Vowel Mutation        | Foot, Tooth, Goose, Mouse   | Feet, Teeth, Geese,    |
+| (Ablaut/Umlaut)       | Man, Woman, Child           | Mice, Men, Women,      |
+|                       |                             | Children               |
++-----------------------+-----------------------------+------------------------+
+| Latin '-us' -> '-i'   | Radius, Focus, Alumnus,     | Radii, Foci, Alumni,   |
+|                       | Syllabus, Cactus            | Syllabi, Cacti         |
++-----------------------+-----------------------------+------------------------+
+| Latin/Greek '-is'     | Crisis, Basis, Thesis,      | Crises, Bases, Theses, |
+| -> '-es' (/i:z/)      | Analysis, Oasis, Hypothesis | Analyses, Oases        |
++-----------------------+-----------------------------+------------------------+
+| Greek '-on' -> '-a'   | Phenomenon, Criterion       | Phenomena, Criteria    |
++-----------------------+-----------------------------+------------------------+
+| Latin '-um' -> '-a'   | Datum, Medium, Stratum,     | Data, Media, Strata,   |
+|                       | Memorandum, Bacterium       | Memoranda, Bacteria    |
++-----------------------+-----------------------------+------------------------+
+| Latin '-a' -> '-ae'   | Formula, Larva, Antenna     | Formulae, Larvae       |
++-----------------------+-----------------------------+------------------------+
+| Compound Nouns        | Passer-by, Son-in-law,      | Passers-by,            |
+| (Head Pluralization)  | Commander-in-chief          | Sons-in-law,           |
+|                       |                             | Commanders-in-chief    |
++-----------------------+-----------------------------+------------------------+
+
+4. PLURALIA TANTUM & SPECIAL NUMBER BEHAVIORS
+--------------------------------------------------------------------------------
+1. ALWAYS PLURAL (Pluralia Tantum - Takes Plural Verb):
+   - Tools/Garments with 2 parts: Scissors, Trousers, Spectacles, Pliers, Jeans.
+   - Collectives without '-s': Cattle, Police, Gentry, Poultry, Folk, People.
+   - Example: "The police ARE investigating." | "The cattle ARE grazing."
+
+2. PLURAL IN FORM BUT SINGULAR IN MEANING (Takes Singular Verb):
+   - Academic Subjects: Mathematics, Physics, Economics, Politics, Ethics.
+   - Diseases: Measles, Mumps, Rickets.
+   - Miscellaneous: News, Innings, Billiards, Darts.
+   - Example: "Mathematics IS challenging." | "No news IS good news."
+
+3. IDENTICAL SINGULAR & PLURAL FORMS:
+   - Sheep, Deer, Species, Series, Offspring, Aircraft, Salmon.
+
+================================================================================
+MEMORY SLOGAN: "Pluralize the Head of Compound Nouns, and Guard Uncountable Nouns!"
+CODER & ACCOTAX | BARRACKPORE | SUKANTA HUI
+================================================================================

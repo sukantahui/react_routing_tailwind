@@ -1,0 +1,255 @@
+================================================================================
+                    ZERO-TO-EXPERT ENGLISH GRAMMAR MASTERCLASS
+       SEGMENT 9: MECHANICS, ORTHOGRAPHY, AND SYNTACTIC PRECISION
+        MODULE 009_002: CAPITALIZATION RULES AND SPELLING MECHANICS
+================================================================================
+Bilingual Reference Notes for Bengali Students (English Terms Preserved)
+
+--------------------------------------------------------------------------------
+1. CAPITALIZATION ARCHITECTURE (UNIVERSAL RULES & EXCEPTIONS)
+--------------------------------------------------------------------------------
+Capitalization (বড় হাতের অক্ষর ব্যবহারের নিয়ম) signals semantic hierarchy,
+proper identification, and syntactic boundaries.
+
+A. Universal Rules:
+   1. Sentence Openers: Always capitalize the first word of every sentence.
+      - "Punctuation creates cadence; capitalization anchors identity."
+   2. The Pronoun 'I' and Interjection 'O':
+      - Always capitalized regardless of position: "May I help you, O King?"
+   3. Proper Nouns and Proper Adjectives:
+      - Specific individuals: Rabindranath Tagore, William Shakespeare.
+      - Nationalities and Languages: Bengali, English, French, Japanese.
+      - Days, Months, and Holidays: Monday, August, Durga Puja, Christmas.
+        *EXCEPTION*: Seasons are LOWERCASE unless personified!
+        - "We love autumn." / "I met winter's icy grasp."
+
+B. Tricky Capitalization Traps:
+   1. Geographic Regions vs. Compass Directions:
+      - Capitalize compass terms when referring to a SPECIFIC REGION or CULTURAL ENTITY:
+        - "The tensions between the North and the South."
+        - "She moved to the Middle East."
+        - "Western philosophy vs. Eastern spirituality."
+      - Lowercase compass terms when indicating pure DIRECTION or GENERAL LOCATION:
+        - "Drive north for two miles."
+        - "The wind is blowing from the east."
+        - "southern Bengal" (general area) vs. "South Bengal State Transport" (proper entity).
+
+   2. Kinship / Family Titles:
+      - CAPITALIZE when used as a direct proper name or address, or directly preceding a name:
+        - "Did Mother call you?" (Substitute 'Mother' with a proper name like 'Sita': "Did Sita call you?").
+        - "I went shopping with Aunt Reeta."
+      - LOWERCASE when preceded by a possessive pronoun (my, your, his, her, their, our) or article:
+        - "My mother called yesterday."
+        - "She is a loving aunt."
+
+   3. Academic Subjects vs. Languages:
+      - Capitalize only languages or specific numbered courses:
+        - "I am studying English, French, and biology." (English/French = languages; biology = general subject).
+        - "He enrolled in History 101 and Chemistry II."
+
+   4. Titles of Offices and Dignitaries:
+      - Capitalize when immediately preceding the person's name:
+        - "Prime Minister Narendra Modi", "President Droupadi Murmu", "Professor Sen".
+      - Lowercase when used alone or descriptively:
+        - "The prime minister addressed the nation."
+        - "The president signed the decree."
+        *Exception*: Stylistic reverence in legal/formal state charters ("the President").
+
+--------------------------------------------------------------------------------
+2. TITLE CAPITALIZATION STANDARDS (HEADLINE STYLE)
+--------------------------------------------------------------------------------
+Standard Rules (Chicago Manual of Style / APA / MLA):
+   1. Always capitalize the FIRST and LAST words of the title/subtitle.
+   2. Capitalize all MAJOR words:
+      - Nouns, Pronouns, Verbs (including 'Is', 'Be', 'Was'), Adjectives, Adverbs, Subordinating Conjunctions.
+   3. Lowercase MINOR words (unless they start/end the title):
+      - Articles: a, an, the
+      - Coordinating Conjunctions: and, but, or, nor, for, so, yet (FANBOYS)
+      - Prepositions under 5 letters: in, on, at, to, for, with, from, of, by, into
+      - The word 'to' in infinitives: "How to Master English"
+   
+   Examples:
+   - "The Old Man and the Sea" (not 'And The Sea')
+   - "War and Peace"
+   - "Much Ado About Nothing"
+   - "Waiting for Godot"
+   - "How to Win Friends and Influence People"
+
+--------------------------------------------------------------------------------
+3. THE 6 MASTER ORTHOGRAPHIC SPELLING RULES
+--------------------------------------------------------------------------------
+
+RULE 1: THE 1-1-1 DOUBLING RULE
+-------------------------------
+When adding a vowel suffix (-ed, -ing, -er, -est, -able):
+- A monosyllabic word (1 syllable) with 1 single vowel followed by 1 single consonant doubles the final consonant!
+  * run + ing   -> running (1 syllable, 1 vowel 'u', 1 consonant 'n')
+  * hop + ed    -> hopped   (vs. hope + ed -> hoped)
+  * fat + est   -> fattest
+  * plan + ed   -> planned
+
+Multi-syllable Extension (Stress Rule):
+- If the word has 2+ syllables, double the final consonant ONLY if the stress is on the LAST syllable:
+  * pre-FER + ing  -> preferring (stress on 'FER')
+  * oc-CUR + ed    -> occurred   (stress on 'CUR')
+  * be-GIN + er    -> beginner   (stress on 'GIN')
+- If the stress is on the FIRST syllable, DO NOT double (in American English):
+  * VI-sit + ed    -> visited    (stress on 'VI')
+  * BEN-e-fit + ed -> benefited  (stress on 'BEN')
+  * HAP-pen + ing  -> happening  (stress on 'HAP')
+
+RULE 2: SILENT 'E' (DROP OR KEEP?)
+-----------------------------------
+- DROP the silent 'e' when adding a suffix beginning with a VOWEL (-ing, -ed, -able, -ous, -ary):
+  * write + ing -> writing (NOT writeing)
+  * hope + ing  -> hoping
+  * fame + ous  -> famous
+  * value + able -> valuable
+
+- KEEP the silent 'e' when adding a suffix beginning with a CONSONANT (-ment, -ful, -ly, -ness):
+  * hope + ful   -> hopeful
+  * manage + ment -> management
+  * safe + ty    -> safety
+  * late + ly    -> lately
+  * EXCEPTIONS: truly (true+ly), argument (argue+ment), judgment (in US: judgement/judgment), ninth (nine+th).
+
+- CRITICAL SOFT 'C' & 'G' EXCEPTION:
+  Keep the 'e' before -able or -ous to preserve the soft sound (/s/ or /dʒ/):
+  * courage + ous -> courageous (NOT couragous!)
+  * notice + able -> noticeable (NOT noticable!)
+  * change + able -> changeable (NOT changable!)
+  * peace + able  -> peaceable
+
+RULE 3: 'Y' TO 'I' MUTATION RULE
+---------------------------------
+- When a consonant precedes 'y', change 'y' to 'i' before any suffix (EXCEPT -ing):
+  * study + es  -> studies
+  * happy + ly  -> happily
+  * beauty + ful -> beautiful
+  * carry + ed  -> carried
+  * BUT: carry + ing -> carrying (avoid double 'i': 'carriing' is illegal).
+
+- When a vowel precedes 'y', KEEP the 'y':
+  * play + ed   -> played (vowel 'a' + 'y')
+  * boy + s     -> boys   (vowel 'o' + 'y')
+  * delay + ed  -> delayed
+  * EXCEPTIONS: say -> said, pay -> paid, lay -> laid.
+
+RULE 4: "I BEFORE E EXCEPT AFTER C" (AND ITS TRUE RULES)
+---------------------------------------------------------
+The Classic Rhyme:
+"I before E, except after C, or when sounding like 'A' as in neighbor and weigh."
+
+- Normal 'ie' (sound of long /ee/):
+  * achieve, believe, chief, piece, relief, yield, thief.
+
+- After 'c' (produces /see/ sound):
+  * receive, ceiling, deceive, receipt, conceive, perceive.
+
+- Sound of 'ay' /eɪ/:
+  * neighbor, weigh, freight, veil, beige, reign.
+
+- THE CRITICAL 8 EXAM EXCEPTIONS (Must Memorize!):
+  1. weird      (NOT wierd)
+  2. seize      (NOT sieze)
+  3. leisure    (NOT liesure)
+  4. forfeit    (NOT forfiet)
+  5. sovereign  (NOT soveriegn)
+  6. species    (NOT speceis)
+  7. caffeine   (NOT caffiene)
+  8. foreign    (NOT foriegn)
+
+RULE 5: SUFFIX SELECTIONS (-ABLE vs -IBLE, -ANCE vs -ENCE)
+----------------------------------------------------------
+A. -ABLE vs -IBLE:
+   - -able is attached to complete base words:
+     * depend -> dependable, accept -> acceptable, read -> readable.
+   - -ible is attached to root stems that cannot stand alone as words:
+     * aud + ible -> audible, cred + ible -> credible, vis + ible -> visible.
+     * Common full-word exceptions: digestible, flexible, accessible, irresistible.
+
+B. -CEED vs -CEDE vs -SEDE:
+   - ONLY ONE word ends in -SEDE: supersede.
+   - ONLY THREE words end in -CEED: exceed, proceed, succeed.
+   - ALL OTHER words end in -CEDE: precede, concede, accede, recede, intercede.
+
+RULE 6: PLURALIZATION OF BORROWED & LATIN/GREEK WORDS
+------------------------------------------------------
+- Words ending in -sis become -ses:
+  * crisis -> crises, analysis -> analyses, hypothesis -> hypotheses, thesis -> theses.
+- Words ending in -on/-um become -a:
+  * criterion -> criteria, phenomenon -> phenomena, datum -> data, stratum -> strata.
+- Words ending in -us become -i:
+  * stimulus -> stimuli, cactus -> cacti, radius -> radii, alumnus -> alumni.
+- Words ending in -o (Italian/Spanish origin):
+  * Living things/Vegetables often add -es: tomato -> tomatoes, potato -> potatoes, hero -> heroes.
+  * Music/Technical/Shortened terms add -s: piano -> pianos, photo -> photos, kilo -> kilos, solo -> solos.
+
+--------------------------------------------------------------------------------
+4. BRITISH (UK) VS. AMERICAN (US) SPELLING MATRIX
+--------------------------------------------------------------------------------
+Understanding dialect divergence is mandatory for competitive and professional writing.
+
+Pattern                 British English (UK)            American English (US)
+--------------------------------------------------------------------------------
+-our vs -or             colour, flavour, honour,        color, flavor, honor,
+                        labour, neighbour, rumour       labor, neighbor, rumor
+
+-re vs -er              centre, theatre, metre,         center, theater, meter,
+                        fibre, calibre, litre           fiber, caliber, liter
+
+-ise / -yse vs -ize     realise, organise, analyse,     realize, organize, analyze,
+                        paralyse, recognise             paralyze, recognize
+
+-ce vs -se (Noun/Verb)  Licence (N) / License (V)       License (both N and V)
+                        Practice (N) / Practise (V)     Practice (both N and V)
+                        Defence, offence, pretence      Defense, offense, pretense
+
+Double 'l' in unaccented travelled, travelling,          traveled, traveling,
+syllables               cancelled, quarrelling,         canceled, quarreling,
+                        jeweller, marvellous            jeweler, marvelous
+
+-ogue vs -og            catalogue, dialogue, analogue   catalog, dialog, analog
+
+-ae- / -oe- vs -e-      paediatric, anaesthetic,        pediatric, anesthetic,
+(Greek roots)           foetus, amoeba                  fetus, ameba
+
+--------------------------------------------------------------------------------
+5. TOP 20 HIGH-FREQUENCY SPELLING MISTAKES BY BENGALI STUDENTS
+--------------------------------------------------------------------------------
+Bengali phonetic transliteration often drops double letters or confuses vowels:
+
+1.  EMBARRASS     -> Two 'r's, two 's's (em-bar-rass). NOT: embarass.
+2.  ACCOMMODATE   -> Two 'c's, two 'm's (ac-com-mo-date). NOT: accomodate.
+3.  DEFINITELY    -> Contains 'finite' (de-finite-ly). NOT: definately.
+4.  SEPARATE      -> Has 'a rat' in the middle (sep-a-rate). NOT: seperate.
+5.  RECEIVE       -> 'e' before 'i' after 'c'. NOT: recieve.
+6.  PRIVILEGE     -> No 'd' in privilege (priv-i-lege). NOT: priviledge.
+7.  OCCURRENCE    -> Two 'c's, two 'r's, ends in -ence. NOT: occurance.
+8.  MAINTENANCE   -> Root 'maintain' turns to 'main-ten-ance'. NOT: maintainance.
+9.  BUREAUCRACY   -> French root 'bureau' + 'cracy' (bu-reau-cra-cy). NOT: beurocracy.
+10. MILLENNIUM    -> Two 'l's, two 'n's (mil-len-ni-um). NOT: milennium.
+11. NECESSARY     -> 1 collar ('c'), 2 socks ('s's). NOT: neccessary.
+12. CONSCIENTIOUS -> Contains 'science' root (con-sci-en-tious). NOT: consiencious.
+13. HARASS        -> One 'r', two 's's (ha-rass). NOT: harrass.
+14. DISAPPOINT    -> One 's', two 'p's (dis-ap-point). NOT: dissappoint.
+15. GAUGE         -> 'a' before 'u' (g-a-u-g-e). NOT: guage.
+16. MISCHIEVOUS   -> Three syllables only (mis-chie-vous). NOT: mischievious.
+17. HIERARCHY     -> 'i' before 'e' (hier-ar-chy). NOT: heirarchy.
+18. VACUUM        -> One 'c', two 'u's (vac-u-um). NOT: vaccum.
+19. RYTHM -> RHYTHM -> R-H-Y-T-H-M (Rhythm Helps Your Two Hips Move). NOT: rythm.
+20. PRONUNCIATION -> No 'o' in the middle (pro-nun-ci-a-tion). NOT: pronounciation.
+
+--------------------------------------------------------------------------------
+6. BENGALI EXPLANATORY SUMMARY (বাংলা ব্যাকরণিক বিশ্লেষণ)
+--------------------------------------------------------------------------------
+- Capitalization এর ক্ষেত্রে সবচেয়ে বড় ভুল হয় Compass Directions (দিশা) বনাম Regions (অঞ্চল)। 
+  সাধারণ দিক নির্দেশ করলে ছোট হাতের (e.g., travel east), কিন্তু নির্দিষ্ট অঞ্চল বোঝালে বড় হাতের (e.g., the Middle East, the Western world)।
+- আত্মীয়দের সম্পর্কের ক্ষেত্রে (Mother, Father, Uncle): যদি তার আগে my, your, his, her ইত্যাদি possessive pronoun থাকে, তবে ছোট হাতের (e.g., my mother)। কিন্তু নাম হিসেবে সম্বোধন বা ব্যবহার করলে বড় হাতের (e.g., I asked Mother for help)।
+- Spelling এর ক্ষেত্রে 1-1-1 Doubling Rule খুব গুরুত্বপূর্ণ: ১টি syllable + ১টি vowel + ১টি consonant থাকলে suffix যোগের সময় শেষ consonant ডাবল হয় (run -> running, hop -> hopped)। কিন্তু ২য় syllable এ stress না থাকলে ডাবল হয় না (visit -> visited)।
+- "I before E except after C" নিয়মের ৮টি ব্যতিক্রম (weird, seize, leisure, forfeit, sovereign, species, caffeine, foreign) প্রতিটি সরকারি ও প্রতিযোগিতামূলক পরীক্ষায় বারবার আসে।
+- British ও American বানানের পার্থক্য লক্ষ্য করুন: -our/-or (colour/color), -re/-er (theatre/theater), -ise/-ize (realise/realize), এবং দ্বৈত 'l' (travelling/traveling)। পরীক্ষায় যেকোনো একটি শৈলী সুনির্দিষ্টভাবে মেনে চলা উচিত।
+
+================================================================================
+                    END OF MODULE 009_002 REFERENCE NOTE
+================================================================================

@@ -1,0 +1,99 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 005.005: THE SUBJUNCTIVE MOOD & CONDITIONAL SENTENCES
+================================================================================
+
+1. WHAT IS THE SUBJUNCTIVE MOOD?
+--------------------------------------------------------------------------------
+While the Indicative Mood deals with factual reality and the Imperative Mood 
+issues direct commands, the SUBJUNCTIVE MOOD expresses non-factual conditions:
+demands, recommendations, urgency, counterfactual wishes, and hypothetical unreality.
+
++------------------------------------------------------------------------------+
+| 1. THE MANDATIVE SUBJUNCTIVE (DEMAND / URGENCY)                             |
++------------------------------------------------------------------------------+
+  Triggered by verbs (demand, insist, recommend, propose, suggest, request) 
+  or adjectives (vital, essential, crucial, imperative, necessary, important):
+  -> The verb in the 'that'-clause MUST be in the BARE BASE ROOT FORM (no '-s'!).
+
+  * "The committee demanded that the president RESIGN immediately." (NOT: resigns)
+  * "It is essential that she BE present at the hearing." (NOT: is/was)
+  * "The doctor recommended that Rahul STOP smoking." (NOT: stops)
+
++------------------------------------------------------------------------------+
+| 2. THE WERE-SUBJUNCTIVE (IRREALIS / COUNTERFACTUAL)                         |
++------------------------------------------------------------------------------+
+  Used for imaginary, hypothetical, or contrary-to-fact situations:
+  -> Use 'WERE' for ALL persons (I, He, She, It):
+
+  * "If I WERE you, I would accept the offer." (NOT: was)
+  * "He talks as if he WERE the CEO of the company."
+  * "I wish I WERE a millionaire."
+
++------------------------------------------------------------------------------+
+| 3. THE FORMULAIC / OPTATIVE SUBJUNCTIVE                                      |
++------------------------------------------------------------------------------+
+  Traditional fixed expressions and prayers:
+  * "God SAVE the King!" / "Long LIVE the Republic!"
+  * "Heaven FORBID!" / "Be that as it may..."
+
+
+2. THE 4 CANONICAL CONDITIONAL TYPES
+--------------------------------------------------------------------------------
++---------------+------------------------+-------------------------------------+
+| TYPE          | CONDITIONAL CLAUSE     | MAIN RESULT CLAUSE & EXAMPLE        |
++---------------+------------------------+-------------------------------------+
+| 0. Zero       | If + Simple Present    | Simple Present                      |
+|    (Universal)| "If you heat ice..."   | "... it MELTS."                     |
++---------------+------------------------+-------------------------------------+
+| 1. First      | If + Simple Present    | will / can / may + Base Verb        |
+|    (Real Fut.)| "If it RAINS..."       | "... the match WILL BE CANCELLED."  |
++---------------+------------------------+-------------------------------------+
+| 2. Second     | If + Simple Past / Were| would / could / might + Base Verb   |
+|    (Hypoth.)  | "If I WON the lottery" | "... I WOULD BUY a yacht."          |
++---------------+------------------------+-------------------------------------+
+| 3. Third      | If + had + V3          | would / could / might have + V3     |
+|    (Past Unr.)| "If I HAD STUDIED..."  | "... I WOULD HAVE PASSED the exam." |
++---------------+------------------------+-------------------------------------+
+
+
+3. MIXED CONDITIONALS (PAST ACTION -> PRESENT RESULT)
+--------------------------------------------------------------------------------
+Connects an unalterable past event (Third Conditional) with an ongoing present 
+consequence (Second Conditional):
+
+  * Formula: IF + HAD + V3 (Past Condition) ..., WOULD + BASE VERB (Present Result)
+    - "If I HAD TAKEN that flight yesterday, I WOULD BE in London today."
+    - "If he HAD WORKED harder in youth, he WOULD NOT BE poor now."
+
+
+4. CONDITIONAL INVERSION (DROPPING 'IF')
+--------------------------------------------------------------------------------
+In formal, literary, and competitive exam English, 'if' is dropped by fronting 
+the auxiliary:
+
+  * FIRST CONDITIONAL (with 'Should'):
+    "If you should need help..." -> "SHOULD YOU NEED help, please contact us."
+
+  * SECOND CONDITIONAL (with 'Were'):
+    "If I were in your position..." -> "WERE I in your position, I would resign."
+
+  * THIRD CONDITIONAL (with 'Had'):
+    "If he had known the truth..." -> "HAD HE KNOWN the truth, he would have acted."
+
+
+5. HIGH-FREQUENCY CONDITIONAL IDIOMS & EXAM TRAPS
+--------------------------------------------------------------------------------
+  RULE 1: 'IT IS HIGH TIME' + SIMPLE PAST
+    - "It is high time we STARTED studying." (NOT: start / have started)
+
+  RULE 2: 'UNLESS' (= IF NOT)
+    - "Unless you WORK hard, you will fail." (Never write 'Unless you do not work')
+
+  RULE 3: NO 'WILL' IN THE 'IF' CLAUSE
+    - INCORRECT: If you will come tomorrow, we will discuss.
+    - CORRECT:   If you COME tomorrow, we will discuss.
+
+================================================================================
+END OF STUDY NOTES - MODULE 005.005
+================================================================================

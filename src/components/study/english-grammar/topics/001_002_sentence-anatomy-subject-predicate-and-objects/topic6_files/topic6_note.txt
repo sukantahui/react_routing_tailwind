@@ -1,0 +1,43 @@
+================================================================================
+ENGLISH GRAMMAR MASTER TRACK - CODER & ACCOTAX, BARRACKPORE
+MODULE 001_002 | TOPIC 6: SUBJECT COMPLEMENTS & LINKING VERBS
+Author & Master Mentor: Sukanta Hui | Barrackpore, West Bengal, India
+================================================================================
+
+1. LINKING (COPULAR) VERBS
+--------------------------------------------------------------------------------
+- Definition: Verbs that do NOT express action, but connect the Subject to a 
+  word/phrase that renames or describes it.
+- Key Linking Verbs:
+  * Pure State: be (is/am/are/was/were), seem, appear, remain.
+  * Inchoative (Change of State): become, turn, grow, get.
+  * Sensory Perception: look, sound, taste, smell, feel.
+
+2. THE TWO FORMS OF SUBJECT COMPLEMENTS
+--------------------------------------------------------------------------------
+A. Predicate Noun (Predicate Nominative):
+   - Renames or classifies the subject ($Subject = Noun$).
+   - Example: "Swadeep is [a software architect]." (Swadeep = architect).
+B. Predicate Adjective:
+   - Describes a quality or state of the subject ($Subject = Adjective$).
+   - Example: "The mangoes taste [sweet]." (Mangoes = sweet).
+
+3. THE MASTER EQUALITY TEST (DO VS SC)
+--------------------------------------------------------------------------------
++--------------------+-------------------------+-------------------------+
+| Criterion          | Direct Object (SVO)     | Subject Complement (SVC)|
++--------------------+-------------------------+-------------------------+
+| Mathematical Proof | Subject != Object       | Subject == Complement   |
+| Action Transfer    | Yes (Kinetic Action)    | No (Static State)       |
+| Example            | "He kicked the ball."   | "He is a doctor."       |
+| Passive Voice      | Possible ("The ball...")| IMPOSSIBLE              |
++--------------------+-------------------------+-------------------------+
+
+4. CRITICAL SENSORY VERB ERROR
+--------------------------------------------------------------------------------
+* Wrong: "The flower smells sweetly." ❌
+* Right: "The flower smells sweet." ✔️ (Subject Complement Adjective!)
+
+================================================================================
+CODER & ACCOTAX | BARRACKPORE | 25(10/A) SHIBTALA ROAD, N.C. PUKUR
+================================================================================

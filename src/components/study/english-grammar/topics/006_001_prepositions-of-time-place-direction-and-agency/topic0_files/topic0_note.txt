@@ -1,0 +1,133 @@
+================================================================================
+ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 006_001
+PREPOSITIONS OF TIME, PLACE, DIRECTION & SPATIAL RELATIONSHIPS
+Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+================================================================================
+
+1. WHAT IS A PREPOSITION? (SYNTACTIC ARCHITECTURE)
+--------------------------------------------------------------------------------
+A Preposition is a closed-class functional word positioned before a Noun, Pronoun, 
+or Noun Phrase (the "Object of the Preposition") to establish relational links:
+  - Temporal Relations (When an event occurs)
+  - Spatial Relations (Where an entity resides)
+  - Directional / Motion Relations (Whither or whence movement flows)
+  - Logical & Agentive Relations (Who performs, what tool is used, what material)
+
+Formula:
+  [Head Element: Verb / Noun / Adjective] + [Preposition] + [Object of Preposition]
+  Example: "She walked [Verb] INTO [Preposition] the auditorium [Noun Object]."
+
+================================================================================
+2. THE TIME PYRAMID: AT -> ON -> IN
+--------------------------------------------------------------------------------
+                 /\
+                /  \        AT: Precise points & clock times
+               / AT \       • at 5:30 PM, at noon, at midnight, at dawn, at dusk
+              /------\
+             /   ON   \     ON: Days and specific calendar dates
+            /          \    • on Monday, on 15th August, on New Year's Day
+           /------------\
+          /      IN      \  IN: Long periods, months, years, seasons, centuries
+         /                \ • in July, in 2026, in summer, in the 21st century
+        --------------------
+
+Special Time Collocation Matrix:
++-------------------+--------------------+--------------------+
+| AT                | ON                 | IN                 |
++-------------------+--------------------+--------------------+
+| at 10 o'clock     | on Sunday          | in April           |
+| at midnight       | on Friday evening  | in 1947            |
+| at dawn / dusk    | on Christmas Day   | in the morning     |
+| at lunch time     | on my birthday     | in the afternoon   |
+| at the weekend*   | on July 4th        | in the evening     |
+| at present        | on that day        | in the Middle Ages |
++-------------------+--------------------+--------------------+
+*Note: British English favours "at the weekend"; American English favours "on the weekend".
+
+================================================================================
+3. TIME DISTINCTIONS: HIGH-YIELD EXAM TRAPS
+--------------------------------------------------------------------------------
+A. FOR vs SINCE vs DURING:
+   - FOR + Duration / Period of time (for 3 hours, for 5 years, for centuries)
+   - SINCE + Specific Starting Point (since Monday, since 2010, since 8 AM)
+   - DURING + Known Event / Period Noun (during the concert, during World War II)
+
+B. BY vs UNTIL (TILL):
+   - BY = "No later than a deadline" (Single completion point).
+     Example: "Submit the assignment BY Friday 5 PM."
+   - UNTIL = "Continuing non-stop up to a boundary point" (Durative state).
+     Example: "We will stay in the library UNTIL 8 PM."
+
+C. IN vs WITHIN:
+   - IN + Period = "At the end / after the lapse of that duration".
+     Example: "The train arrives IN 20 minutes" (= after 20 minutes).
+   - WITHIN + Period = "Before the expiration of that duration".
+     Example: "You must solve the paper WITHIN 3 hours" (= before 3 hours elapse).
+
+================================================================================
+4. PREPOSITIONS OF PLACE & SPATIAL HIERARCHY
+--------------------------------------------------------------------------------
+1. AT (Point / Specific Location / Address):
+   - at the bus stop, at the entrance, at 221B Baker Street, at the corner.
+2. ON (2D Surface / Line / Floor):
+   - on the table, on the wall, on the ceiling, on the 3rd floor, on MG Road.
+3. IN (3D Enclosed Space / City / Region / Country):
+   - in the box, in the room, in Kolkata, in India, in the forest.
+
+Hierarchical Rule:
+  "Small Locality AT, Large City/State IN"
+  Correct: "He resides AT Barrackpore IN North 24 Parganas."
+
+Vertical & Contact Matrix:
++----------------+--------------------------+---------------------------------+
+| Preposition    | Physical Contact         | Orientation / Semantics         |
++----------------+--------------------------+---------------------------------+
+| ON             | YES                      | Resting on top of a surface     |
+| OVER           | NO (usually) / Direct    | Directly above or spanning over |
+| ABOVE          | NO                       | Higher altitude / level         |
+| UNDER          | NO / Direct              | Directly below                  |
+| BELOW          | NO                       | Lower level / grade / altitude  |
++----------------+--------------------------+---------------------------------+
+
+================================================================================
+5. DYNAMIC DIRECTION & MOTION PREPOSITIONS
+--------------------------------------------------------------------------------
+A. IN vs INTO:
+   - IN: Static presence inside. ("He is swimming in the pool.")
+   - INTO: Dynamic entrance from outside to inside. ("He dived into the pool.")
+
+B. ON vs ONTO:
+   - ON: Static presence on a surface. ("The cat sat on the rug.")
+   - ONTO: Dynamic leaping/landing on a surface. ("The cat jumped onto the roof.")
+
+C. THROUGH vs ACROSS:
+   - THROUGH: Traversing a 3D enclosed medium (forest, tunnel, crowd, pipe).
+   - ACROSS: Crossing a 2D surface or flat plane (road, field, bridge, river).
+
+D. ALONG vs PAST:
+   - ALONG: Parallel to the linear path of a river, road, or wall.
+   - PAST: Moving beyond a specific point of interest.
+
+================================================================================
+6. DISTRIBUTION, AGENCY & MATERIAL TRANSFORMATIONS
+--------------------------------------------------------------------------------
+A. BETWEEN vs AMONG:
+   - BETWEEN: Used for TWO entities, OR for MORE THAN TWO when distinct, 
+     individual, named reciprocal entities are specified (e.g. Treaties).
+     Example: "Negotiations BETWEEN India, Bhutan, and Nepal."
+   - AMONG: Used for indefinite, uncounted groups or crowds (3 or more).
+     Example: "Distribute the sweets AMONG the villagers."
+
+B. AGENCY (BY) vs INSTRUMENTALITY (WITH):
+   - BY + Living Agent / Doer: "The portrait was painted BY Sukanta Sir."
+   - WITH + Instrument / Tool / Weapon: "He cut the ribbon WITH a pair of scissors."
+
+C. MADE OF vs MADE FROM:
+   - MADE OF: Physical substance remains unchanged in chemical nature.
+     Example: "The ring is MADE OF 24-carat gold."
+   - MADE FROM: Chemical transformation converts the raw material into a new product.
+     Example: "Cheese is MADE FROM milk." / "Paper is MADE FROM wood pulp."
+
+================================================================================
+END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 006_001
+================================================================================
