@@ -155,7 +155,7 @@ export default function Topic8() {
                 <span>2. The Master Test: Ask What Job It Does</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                Does it name something? -> Noun. Does it do an action? -> Verb. Does it describe a noun? -> Adjective. Does it connect? -> Conjunction.
+                Does it name something? → Noun. Does it do an action? → Verb. Does it describe a noun? → Adjective. Does it connect? → Conjunction.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
                 👉 Context is King in English Syntax.
@@ -258,7 +258,7 @@ export default function Topic8() {
                 <span>2. The Master Test: Ask What Job It Does</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                Does it name something? -> Noun. Does it do an action? -> Verb. Does it describe a noun? -> Adjective. Does it connect? -> Conjunction.
+                Does it name something? → Noun. Does it do an action? → Verb. Does it describe a noun? → Adjective. Does it connect? → Conjunction.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
                 👉 Context is King in English Syntax.

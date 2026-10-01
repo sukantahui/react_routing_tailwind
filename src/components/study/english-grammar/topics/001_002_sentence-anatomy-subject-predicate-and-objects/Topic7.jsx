@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import FAQTemplate from '../../template/FAQTemplate';
-import Teacher from '../../Teacher';
-import PlainTextPrint from '../../PlainTextPrint';
-import { topic7Questions } from './topic7_files/topic7_questions';
+import FAQTemplate from '../../../common/FAQTemplate';
+import Teacher from '../../../common/TeacherSukantaHui';
+import topic7Questions from './topic7_files/topic7_questions';
 
 const Topic7 = () => {
   const [activeTab, setActiveTab] = useState('simple');
@@ -23,7 +22,7 @@ const Topic7 = () => {
         { label: "Adverbial of Manner", token: "diligently", color: "border-amber-500 bg-amber-950/40 text-amber-300", desc: "How she studied (Can delete or move to start)" },
         { label: "Adverbial of Place", token: "in the quiet library", color: "border-rose-500 bg-rose-950/40 text-rose-300", desc: "Where she studied (Prepositional adjunct)" }
       ],
-      queryTest: "Ask: 'HOW did she study?' -> diligently. 'WHERE did she study?' -> in the library.",
+      queryTest: "Ask: 'HOW did she study?' → diligently. 'WHERE did she study?' → in the library.",
       proofTest: "Omission & Mobility: 'Diligently, Abhronila studied her notes' (Sentence remains 100% grammatically intact!).",
       bnNote: "Adverbials বাক্য থেকে মুছে ফেললেও বা স্থান পরিবর্তন করলেও বাক্যের ব্যাকরণগত মৌলিক কাঠামো নষ্ট হয় না।"
     },
@@ -38,7 +37,7 @@ const Topic7 = () => {
         { label: "Subject Complement", token: "extremely calm", color: "border-emerald-500 bg-emerald-950/40 text-emerald-300", desc: "Predicate Adjective completing Tuhina's state (Tuhina = calm)" },
         { label: "Adverbial of Time", token: "during the competitive exam", color: "border-amber-500 bg-amber-950/40 text-amber-300", desc: "When the calm state held true" }
       ],
-      queryTest: "Can we delete 'extremely calm'? -> *'Tuhina remained during the exam' is incomplete gibberish!",
+      queryTest: "Can we delete 'extremely calm'? → *'Tuhina remained during the exam' is incomplete gibberish!",
       proofTest: "Copular Equation: Tuhina == extremely calm. It completes the subject, not an action target.",
       bnNote: "Subject Complement কখনোই বাদ দেওয়া যায় না। এটি কর্তার অবস্থা সম্পূর্ণ করে।"
     }

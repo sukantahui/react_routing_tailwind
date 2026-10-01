@@ -505,7 +505,7 @@ export default function Topic0() {
             faqList={[
               {
                 question: "What does the MPT rule stand for in English grammar?",
-                answer: "MPT stands for Manner (how), Place (where), and Time (when). When multiple adverbs follow a verb in the end position, they naturally arrange in the sequence: Manner -> Place -> Time (e.g. 'She sang beautifully in the auditorium yesterday')."
+                answer: "MPT stands for Manner (how), Place (where), and Time (when). When multiple adverbs follow a verb in the end position, they naturally arrange in the sequence: Manner -> Place → Time (e.g. 'She sang beautifully in the auditorium yesterday')."
               },
               {
                 question: "Why is 'He works hardly' grammatically incorrect when describing a hard worker?",

@@ -47,32 +47,112 @@ export default function Topic0() {
 
   const triangleData = {
     contrast: {
-      title: "Concession & Contrast (In spite of / But / Although)",
-      simple: "In spite of his severe poverty, he is remarkably honest.",
-      compound: "He is severely poor, yet he is remarkably honest.",
-      complex: "Although he is severely poor, he is remarkably honest.",
-      bnNote: "'In spite of' (Simple) -> 'yet / but' (Compound) -> 'Although' (Complex)."
+      title: "Concession & Contrast (In spite of / Yet / Although)",
+      simple: {
+        phrase: "In spite of his severe poverty,",
+        phraseRole: "Prepositional Phrase (Non-Finite)",
+        clause: "he is remarkably honest.",
+        clauseRole: "Principal Clause (Single Finite: 'is')",
+        full: "In spite of his severe poverty, he is remarkably honest."
+      },
+      compound: {
+        clause1: "He is severely poor,",
+        clause1Role: "Independent Clause 1",
+        connector: "yet",
+        connectorRole: "Coordinating Conjunction",
+        clause2: "he is remarkably honest.",
+        clause2Role: "Independent Clause 2",
+        full: "He is severely poor, yet he is remarkably honest."
+      },
+      complex: {
+        subClause: "Although he is severely poor,",
+        subRole: "Subordinate Clause of Concession",
+        mainClause: "he is remarkably honest.",
+        mainRole: "Principal Clause",
+        full: "Although he is severely poor, he is remarkably honest."
+      },
+      bnNote: "'In spite of' (Simple) → 'yet / but' (Compound) → 'Although' (Complex)। অর্থ অপরিবর্তিত থাকে।"
     },
     condition: {
       title: "Condition & Alternative (Without / Or / Unless)",
-      simple: "Without thorough preparation, you cannot pass the exam.",
-      compound: "Prepare thoroughly, or you will not pass the exam.",
-      complex: "Unless you prepare thoroughly, you cannot pass the exam.",
-      bnNote: "'Without' (Simple) -> 'or / otherwise' (Compound) -> 'Unless / If not' (Complex)."
+      simple: {
+        phrase: "Without thorough preparation,",
+        phraseRole: "Prepositional Phrase (Non-Finite)",
+        clause: "you cannot pass the exam.",
+        clauseRole: "Principal Clause (Single Finite: 'cannot pass')",
+        full: "Without thorough preparation, you cannot pass the exam."
+      },
+      compound: {
+        clause1: "Prepare thoroughly,",
+        clause1Role: "Imperative Independent Clause 1",
+        connector: "or",
+        connectorRole: "Coordinating Conjunction (Condition)",
+        clause2: "you will not pass the exam.",
+        clause2Role: "Independent Clause 2 (Consequence)",
+        full: "Prepare thoroughly, or you will not pass the exam."
+      },
+      complex: {
+        subClause: "Unless you prepare thoroughly,",
+        subRole: "Subordinate Clause of Condition ('if not')",
+        mainClause: "you cannot pass the exam.",
+        mainRole: "Principal Clause",
+        full: "Unless you prepare thoroughly, you cannot pass the exam."
+      },
+      bnNote: "'Without + Noun/Gerund' (Simple) → 'or / otherwise' (Compound) → 'Unless / If not' (Complex)।"
     },
     sequence: {
       title: "Time Sequence (On hearing / And / As soon as)",
-      simple: "On hearing the tragic announcement, she broke into tears.",
-      compound: "She heard the tragic announcement, and she broke into tears.",
-      complex: "As soon as she heard the tragic announcement, she broke into tears.",
-      bnNote: "'On + Gerund' (Simple) -> 'and' (Compound) -> 'As soon as' (Complex)."
+      simple: {
+        phrase: "On hearing the tragic announcement,",
+        phraseRole: "Preposition + Gerund Phrase (Non-Finite)",
+        clause: "she broke into tears.",
+        clauseRole: "Principal Clause (Single Finite: 'broke')",
+        full: "On hearing the tragic announcement, she broke into tears."
+      },
+      compound: {
+        clause1: "She heard the tragic announcement,",
+        clause1Role: "Independent Clause 1",
+        connector: "and",
+        connectorRole: "Coordinating Conjunction (Sequence)",
+        clause2: "she broke into tears.",
+        clause2Role: "Independent Clause 2",
+        full: "She heard the tragic announcement, and she broke into tears."
+      },
+      complex: {
+        subClause: "As soon as she heard the tragic announcement,",
+        subRole: "Subordinate Adverbial Clause of Time",
+        mainClause: "she broke into tears.",
+        mainRole: "Principal Clause",
+        full: "As soon as she heard the tragic announcement, she broke into tears."
+      },
+      bnNote: "'On + Gerund' (Simple) → 'and' (Compound) → 'As soon as' (Complex)।"
     },
     purpose: {
       title: "Purpose & Aim (To / So / So that)",
-      simple: "He practices rigorous meditation to attain inner tranquility.",
-      compound: "He wants to attain inner tranquility, so he practices meditation.",
-      complex: "He practices meditation so that he can attain inner tranquility.",
-      bnNote: "'Infinitive to' (Simple) -> 'so / therefore' (Compound) -> 'so that' (Complex)."
+      simple: {
+        clause: "He practices rigorous meditation",
+        clauseRole: "Principal Clause (Single Finite: 'practices')",
+        phrase: "to attain inner tranquility.",
+        phraseRole: "Infinitive Phrase of Purpose (to + V1)",
+        full: "He practices rigorous meditation to attain inner tranquility."
+      },
+      compound: {
+        clause1: "He wants to attain inner tranquility,",
+        clause1Role: "Independent Clause 1",
+        connector: "so",
+        connectorRole: "Coordinating Conjunction (Result)",
+        clause2: "he practices meditation.",
+        clause2Role: "Independent Clause 2",
+        full: "He wants to attain inner tranquility, so he practices meditation."
+      },
+      complex: {
+        mainClause: "He practices meditation",
+        mainRole: "Principal Clause",
+        subClause: "so that he can attain inner tranquility.",
+        subRole: "Subordinate Adverbial Clause of Purpose",
+        full: "He practices meditation so that he can attain inner tranquility."
+      },
+      bnNote: "'Infinitive to' (Simple) → 'so / therefore' (Compound) → 'so that + modal' (Complex)।"
     }
   };
 
@@ -80,26 +160,76 @@ export default function Topic0() {
     as_soon_as: {
       title: "1. Affirmative Form ('As soon as')",
       sentence: "As soon as the judge entered the courtroom, everyone stood up.",
-      analysis: "Subordinate temporal clause introduced by 'As soon as'.",
-      bnNote: "'যেইমাত্র... সেইমাত্র' বোঝাতে সাধারণ অ্যাফারমেটিভ রূপ।"
+      breakdown: {
+        trigger: "As soon as",
+        triggerRole: "Subordinating Conjunction",
+        clause1: "the judge entered the courtroom,",
+        clause1Role: "Temporal Subordinate Clause (V2: entered)",
+        clause2: "everyone stood up.",
+        clause2Role: "Principal Clause (V2: stood)"
+      },
+      analysis: "Subordinate temporal clause introduced by 'As soon as' with standard past tense agreement (entered -> stood).",
+      bnNote: "'যেইমাত্র... সেইমাত্র' বোঝাতে সাধারণ অ্যাফারমেটিভ রূপ (উভয় অংশে Past Indefinite V2)।"
     },
     no_sooner_did: {
       title: "2. Negative Inversion with 'Did' ('No sooner did... than')",
       sentence: "No sooner did the judge enter the courtroom than everyone stood up.",
-      analysis: "'No sooner did' triggers bare infinitive V1 ('enter') + correlative 'than'.",
-      bnNote: "'No sooner did + Subject + V1... than' (Did থাকলে মূল ভার্বের Base form বসে)।"
+      breakdown: {
+        trigger: "No sooner did",
+        triggerRole: "Negative Auxiliary Trigger",
+        subj: "the judge",
+        subjRole: "Subject",
+        verb: "enter",
+        verbRole: "★ V1 Base Form (governed by did)",
+        rest: "the courtroom",
+        restRole: "Object",
+        correl: "than",
+        correlRole: "★ Correlative Link",
+        clause2: "everyone stood up.",
+        clause2Role: "Principal Clause (V2)"
+      },
+      analysis: "'No sooner did' forces subject-auxiliary inversion and requires bare infinitive V1 ('enter') + correlative 'than'.",
+      bnNote: "'No sooner did + Subject + V1 (enter)... than' (Did থাকলে মূল ভার্বের Base form V1 বসে)।"
     },
     no_sooner_had: {
       title: "3. Negative Inversion with 'Had' ('No sooner had... than')",
       sentence: "No sooner had the judge entered the courtroom than everyone stood up.",
-      analysis: "'No sooner had' triggers past participle V3 ('entered') + correlative 'than'.",
-      bnNote: "'No sooner had + Subject + V3... than' (Had থাকলে Past Participle বসে)।"
+      breakdown: {
+        trigger: "No sooner had",
+        triggerRole: "Negative Auxiliary Trigger",
+        subj: "the judge",
+        subjRole: "Subject",
+        verb: "entered",
+        verbRole: "★ V3 Past Participle (governed by had)",
+        rest: "the courtroom",
+        restRole: "Object",
+        correl: "than",
+        correlRole: "★ Correlative Link",
+        clause2: "everyone stood up.",
+        clause2Role: "Principal Clause (V2)"
+      },
+      analysis: "'No sooner had' forces inversion and requires past participle V3 ('entered') + correlative 'than'.",
+      bnNote: "'No sooner had + Subject + V3 (entered)... than' (Had থাকলে Past Participle V3 বসে)।"
     },
     hardly_when: {
       title: "4. Negative Inversion with 'Hardly / Scarcely... when'",
       sentence: "Hardly had the judge entered the courtroom when everyone stood up.",
-      analysis: "'Hardly/Scarcely had' strictly pairs with 'when' (never 'than').",
-      bnNote: "'Hardly/Scarcely'-র সাথে সর্বদা 'when' বসে (than নয়)।"
+      breakdown: {
+        trigger: "Hardly had",
+        triggerRole: "Negative Auxiliary Trigger",
+        subj: "the judge",
+        subjRole: "Subject",
+        verb: "entered",
+        verbRole: "★ V3 Past Participle",
+        rest: "the courtroom",
+        restRole: "Object",
+        correl: "when",
+        correlRole: "★ Correlative Link (NEVER 'than')",
+        clause2: "everyone stood up.",
+        clause2Role: "Principal Clause (V2)"
+      },
+      analysis: "'Hardly/Scarcely had' strictly pairs with correlative 'when' (never 'than').",
+      bnNote: "'Hardly/Scarcely had'-র সাথে সর্বদা 'when' বসে; 'than' বসানো মারাত্মক ভুল।"
     }
   };
 
@@ -208,42 +338,80 @@ export default function Topic0() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
                   {/* Simple */}
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2.5">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-extrabold text-amber-400 uppercase">SIMPLE FORM</span>
                       <span className="text-[10px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded font-mono">
                         1 Finite Verb
                       </span>
                     </div>
-                    <p className="text-xs font-mono text-slate-200 bg-slate-950 p-2.5 rounded border border-slate-800/80">
-                      "{triangleData[selectedTriangleCase].simple}"
-                    </p>
+
+                    <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-xs">
+                      {triangleData[selectedTriangleCase].simple.phrase && (
+                        <div className="p-1.5 rounded bg-amber-950/60 text-amber-200 border border-amber-600/50">
+                          <span className="font-bold">[{triangleData[selectedTriangleCase].simple.phrase}]</span>
+                          <span className="block text-[9px] text-amber-400 font-sans uppercase">
+                            ★ {triangleData[selectedTriangleCase].simple.phraseRole}
+                          </span>
+                        </div>
+                      )}
+                      <div className="p-1.5 rounded bg-emerald-950/40 text-emerald-200 border border-emerald-700/50">
+                        <span className="font-bold">"{triangleData[selectedTriangleCase].simple.clause}"</span>
+                        <span className="block text-[9px] text-emerald-400 font-sans uppercase">
+                          ★ {triangleData[selectedTriangleCase].simple.clauseRole}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Compound */}
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2.5">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-extrabold text-sky-400 uppercase">COMPOUND FORM</span>
                       <span className="text-[10px] bg-sky-500/10 text-sky-300 px-2 py-0.5 rounded font-mono">
                         Coordinating Link
                       </span>
                     </div>
-                    <p className="text-xs font-mono text-slate-200 bg-slate-950 p-2.5 rounded border border-slate-800/80">
-                      "{triangleData[selectedTriangleCase].compound}"
-                    </p>
+
+                    <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-xs">
+                      <div className="p-1.5 rounded bg-slate-900 text-slate-200 border border-slate-700">
+                        "{triangleData[selectedTriangleCase].compound.clause1}"
+                      </div>
+                      <div className="p-1.5 rounded bg-sky-950/80 text-sky-200 border border-sky-500 font-bold flex items-center justify-between">
+                        <span>[{triangleData[selectedTriangleCase].compound.connector}]</span>
+                        <span className="text-[9px] text-sky-300 font-sans uppercase">
+                          ★ {triangleData[selectedTriangleCase].compound.connectorRole}
+                        </span>
+                      </div>
+                      <div className="p-1.5 rounded bg-slate-900 text-slate-200 border border-slate-700">
+                        "{triangleData[selectedTriangleCase].compound.clause2}"
+                      </div>
+                    </div>
                   </div>
 
                   {/* Complex */}
-                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
+                  <div className="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-extrabold text-emerald-400 uppercase">COMPLEX FORM</span>
-                      <span className="text-[10px] bg-emerald-500/10 text-emerald-300 px-2 py-0.5 rounded font-mono">
+                      <span className="text-xs font-extrabold text-purple-400 uppercase">COMPLEX FORM</span>
+                      <span className="text-[10px] bg-purple-500/10 text-purple-300 px-2 py-0.5 rounded font-mono">
                         Subordinate Link
                       </span>
                     </div>
-                    <p className="text-xs font-mono text-slate-200 bg-slate-950 p-2.5 rounded border border-slate-800/80">
-                      "{triangleData[selectedTriangleCase].complex}"
-                    </p>
+
+                    <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-xs">
+                      <div className="p-1.5 rounded bg-purple-950/70 text-purple-200 border border-purple-500/60">
+                        <span className="font-bold">[{triangleData[selectedTriangleCase].complex.subClause}]</span>
+                        <span className="block text-[9px] text-purple-300 font-sans uppercase">
+                          ★ {triangleData[selectedTriangleCase].complex.subRole}
+                        </span>
+                      </div>
+                      <div className="p-1.5 rounded bg-slate-900 text-emerald-200 border border-emerald-800/60">
+                        <span className="font-bold">"{triangleData[selectedTriangleCase].complex.mainClause}"</span>
+                        <span className="block text-[9px] text-emerald-400 font-sans uppercase">
+                          ★ {triangleData[selectedTriangleCase].complex.mainRole}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -286,8 +454,75 @@ export default function Topic0() {
                   </span>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-sm font-mono text-rose-200">
-                  "{timeTriggers[selectedTimeCase].sentence}"
+                {/* Segmented Time Trigger Decomposition */}
+                <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                  <div className="flex items-center flex-wrap gap-2 text-xs sm:text-sm font-mono">
+                    {timeTriggers[selectedTimeCase].breakdown.trigger && (
+                      <span className="px-3 py-1.5 rounded-lg bg-rose-950/80 text-rose-200 border-2 border-rose-500 shadow-md flex flex-col sm:flex-row sm:items-center gap-1.5">
+                        <span className="font-bold text-rose-100 font-mono">[{timeTriggers[selectedTimeCase].breakdown.trigger}]</span>
+                        <span className="text-[10px] uppercase font-sans text-rose-300 font-bold bg-rose-900/90 px-1.5 py-0.5 rounded border border-rose-400">
+                          {timeTriggers[selectedTimeCase].breakdown.triggerRole}
+                        </span>
+                      </span>
+                    )}
+
+                    {timeTriggers[selectedTimeCase].breakdown.subj && (
+                      <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                        <span className="font-bold text-white font-mono">"{timeTriggers[selectedTimeCase].breakdown.subj}"</span>
+                        <span className="text-[10px] uppercase font-sans text-slate-400 font-semibold sm:border-l sm:border-slate-700 sm:pl-1.5">
+                          {timeTriggers[selectedTimeCase].breakdown.subjRole}
+                        </span>
+                      </span>
+                    )}
+
+                    {timeTriggers[selectedTimeCase].breakdown.verb && (
+                      <span className="px-3 py-1.5 rounded-lg bg-amber-950/80 text-amber-200 border-2 border-amber-500 shadow-md flex flex-col sm:flex-row sm:items-center gap-1.5">
+                        <span className="font-bold text-amber-100 font-mono">[{timeTriggers[selectedTimeCase].breakdown.verb}]</span>
+                        <span className="text-[10px] uppercase font-sans text-amber-300 font-bold bg-amber-900/90 px-1.5 py-0.5 rounded border border-amber-400">
+                          {timeTriggers[selectedTimeCase].breakdown.verbRole}
+                        </span>
+                      </span>
+                    )}
+
+                    {timeTriggers[selectedTimeCase].breakdown.rest && (
+                      <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700 shadow-sm">
+                        "{timeTriggers[selectedTimeCase].breakdown.rest}"
+                      </span>
+                    )}
+
+                    {timeTriggers[selectedTimeCase].breakdown.correl && (
+                      <span className="px-3 py-1.5 rounded-lg bg-sky-950/80 text-sky-200 border-2 border-sky-500 shadow-md flex flex-col sm:flex-row sm:items-center gap-1.5">
+                        <span className="font-bold text-sky-100 font-mono">[{timeTriggers[selectedTimeCase].breakdown.correl}]</span>
+                        <span className="text-[10px] uppercase font-sans text-sky-300 font-bold bg-sky-900/90 px-1.5 py-0.5 rounded border border-sky-400">
+                          {timeTriggers[selectedTimeCase].breakdown.correlRole}
+                        </span>
+                      </span>
+                    )}
+
+                    {timeTriggers[selectedTimeCase].breakdown.clause1 && (
+                      <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                        <span className="font-bold text-white font-mono">"{timeTriggers[selectedTimeCase].breakdown.clause1}"</span>
+                        <span className="text-[10px] uppercase font-sans text-slate-400 font-semibold sm:border-l sm:border-slate-700 sm:pl-1.5">
+                          {timeTriggers[selectedTimeCase].breakdown.clause1Role}
+                        </span>
+                      </span>
+                    )}
+
+                    {timeTriggers[selectedTimeCase].breakdown.clause2 && (
+                      <span className="px-3 py-1.5 rounded-lg bg-emerald-950/70 text-emerald-200 border border-emerald-600 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                        <span className="font-bold text-emerald-100 font-mono">"{timeTriggers[selectedTimeCase].breakdown.clause2}"</span>
+                        <span className="text-[10px] uppercase font-sans text-emerald-300 font-semibold sm:border-l sm:border-emerald-700 sm:pl-1.5">
+                          {timeTriggers[selectedTimeCase].breakdown.clause2Role}
+                        </span>
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="text-xs text-slate-400 space-y-0.5 pt-2 border-t border-slate-800/80">
+                    <p className="text-slate-300 font-sans">
+                      <strong className="text-slate-400">Complete Sentence:</strong> "{timeTriggers[selectedTimeCase].sentence}"
+                    </p>
+                  </div>
                 </div>
 
                 <div className="text-xs text-slate-300">

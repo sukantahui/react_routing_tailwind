@@ -140,7 +140,7 @@ const FAQS = [
   },
   {
     question: 'What is the 1-1-1 doubling rule in English spelling?',
-    answer: 'For a one-syllable word ending in 1 vowel + 1 consonant (e.g., run, hop), double the final consonant before adding a vowel suffix (running, hopped). For multi-syllable words, double only if the stress is on the final syllable (pre-FER -> preferring vs. VI-sit -> visited).'
+    answer: 'For a one-syllable word ending in 1 vowel + 1 consonant (e.g., run, hop), double the final consonant before adding a vowel suffix (running, hopped). For multi-syllable words, double only if the stress is on the final syllable (pre-FER -> preferring vs. VI-sit → visited).'
   },
   {
     question: 'What are the main exceptions to "I before E except after C"?',

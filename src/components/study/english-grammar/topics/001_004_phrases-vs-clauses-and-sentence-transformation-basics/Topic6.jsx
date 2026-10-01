@@ -174,26 +174,26 @@ export default function Topic6() {
             <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
               <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
                 <Target className="w-4 h-4" />
-                <span>1. Positive Statement -> Negative Question</span>
+                <span>1. Positive Statement → Negative Question</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Everyone loves freedom" -> Ask: "Who does NOT love freedom?" (Answer: Nobody! So everyone loves it).
+                "Everyone loves freedom" → Ask: "Who does NOT love freedom?" (Answer: Nobody! So everyone loves it).
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 Statement (+) ===> Rhetorical Question (-).
+                👉 Statement (+) =→ Rhetorical Question (-).
               </div>
             </div>
 
             <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                 <Heart className="w-4 h-4" />
-                <span>2. Negative Statement -> Positive Question</span>
+                <span>2. Negative Statement → Positive Question</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Nobody can touch the sun" -> Ask: "Who CAN touch the sun?" (Answer: Nobody!).
+                "Nobody can touch the sun" → Ask: "Who CAN touch the sun?" (Answer: Nobody!).
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 Statement (-) ===> Rhetorical Question (+).
+                👉 Statement (-) =→ Rhetorical Question (+).
               </div>
             </div>
           </div>
@@ -208,20 +208,20 @@ export default function Topic6() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-blue-400 block font-mono">Everyone -> Who not</span>
-                <p className="text-xs text-slate-300">"Everyone knows him" -> "Who doesn't know him?"</p>
+                <span className="text-xs font-bold text-blue-400 block font-mono">Everyone → Who not</span>
+                <p className="text-xs text-slate-300">"Everyone knows him" → "Who doesn't know him?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-emerald-400 block font-mono">Nobody -> Who can</span>
-                <p className="text-xs text-slate-300">"Nobody can do this" -> "Who can do this?"</p>
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Nobody → Who can</span>
+                <p className="text-xs text-slate-300">"Nobody can do this" → "Who can do this?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-amber-400 block font-mono">Never -> When / Ever</span>
-                <p className="text-xs text-slate-300">"Glory never fades" -> "When can glory fade?"</p>
+                <span className="text-xs font-bold text-amber-400 block font-mono">Never → When / Ever</span>
+                <p className="text-xs text-slate-300">"Glory never fades" → "When can glory fade?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">No use -> What is use</span>
-                <p className="text-xs text-slate-300">"No use crying" -> "What is the use of crying?"</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">No use → What is use</span>
+                <p className="text-xs text-slate-300">"No use crying" → "What is the use of crying?"</p>
               </div>
             </div>
           </div>
@@ -277,26 +277,26 @@ export default function Topic6() {
             <div className="p-5 rounded-2xl bg-blue-950/30 border border-blue-500/30 space-y-3">
               <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
                 <Target className="w-4 h-4" />
-                <span>1. Positive Statement -> Negative Question</span>
+                <span>1. Positive Statement → Negative Question</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Everyone loves freedom" -> Ask: "Who does NOT love freedom?" (Answer: Nobody! So everyone loves it).
+                "Everyone loves freedom" → Ask: "Who does NOT love freedom?" (Answer: Nobody! So everyone loves it).
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 Statement (+) ===> Rhetorical Question (-).
+                👉 Statement (+) =→ Rhetorical Question (-).
               </div>
             </div>
 
             <div className="p-5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 space-y-3">
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                 <Heart className="w-4 h-4" />
-                <span>2. Negative Statement -> Positive Question</span>
+                <span>2. Negative Statement → Positive Question</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Nobody can touch the sun" -> Ask: "Who CAN touch the sun?" (Answer: Nobody!).
+                "Nobody can touch the sun" → Ask: "Who CAN touch the sun?" (Answer: Nobody!).
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 Statement (-) ===> Rhetorical Question (+).
+                👉 Statement (-) =→ Rhetorical Question (+).
               </div>
             </div>
           </div>
@@ -311,20 +311,20 @@ export default function Topic6() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-blue-400 block font-mono">Everyone -> Who not</span>
-                <p className="text-xs text-slate-300">"Everyone knows him" -> "Who doesn't know him?"</p>
+                <span className="text-xs font-bold text-blue-400 block font-mono">Everyone → Who not</span>
+                <p className="text-xs text-slate-300">"Everyone knows him" → "Who doesn't know him?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-emerald-400 block font-mono">Nobody -> Who can</span>
-                <p className="text-xs text-slate-300">"Nobody can do this" -> "Who can do this?"</p>
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Nobody → Who can</span>
+                <p className="text-xs text-slate-300">"Nobody can do this" → "Who can do this?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-amber-400 block font-mono">Never -> When / Ever</span>
-                <p className="text-xs text-slate-300">"Glory never fades" -> "When can glory fade?"</p>
+                <span className="text-xs font-bold text-amber-400 block font-mono">Never → When / Ever</span>
+                <p className="text-xs text-slate-300">"Glory never fades" → "When can glory fade?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">No use -> What is use</span>
-                <p className="text-xs text-slate-300">"No use crying" -> "What is the use of crying?"</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">No use → What is use</span>
+                <p className="text-xs text-slate-300">"No use crying" → "What is the use of crying?"</p>
               </div>
             </div>
           </div>

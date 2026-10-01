@@ -48,31 +48,55 @@ export default function Topic0() {
       letter: "F",
       name: "FOR",
       role: "Cause / Explanation (synonymous with 'because')",
-      example: "He was determined to succeed, for he had promised his parents.",
+      clause1: "He was determined to succeed,",
+      clause1Role: "Independent Clause 1 (Result)",
+      connector: "for",
+      connectorRole: "Coordinating Conjunction (Cause)",
+      clause2: "he had promised his parents.",
+      clause2Role: "Independent Clause 2 (Reason)",
+      full: "He was determined to succeed, for he had promised his parents.",
       commaRule: "Comma precedes 'for' when linking two independent clauses.",
-      bnNote: "কারণ বা ব্যাখ্যা প্রকাশ করে (যেহেতু/কারণ)।"
+      bnNote: "কারণ বা ব্যাখ্যা প্রকাশ করে (যেহেতু/কারণ)। 'for' কনজাংশনটি দুটি স্বাধীন ক্লজকে যুক্ত করে কারণ নির্দেশ করছে।"
     },
     and: {
       letter: "A",
       name: "AND",
       role: "Addition of similar or sequential ideas",
-      example: "She designed the blueprint, and the team built the prototype.",
+      clause1: "She designed the blueprint,",
+      clause1Role: "Independent Clause 1",
+      connector: "and",
+      connectorRole: "Coordinating Conjunction (Addition)",
+      clause2: "the team built the prototype.",
+      clause2Role: "Independent Clause 2",
+      full: "She designed the blueprint, and the team built the prototype.",
       commaRule: "Comma precedes 'and' when joining two full independent clauses.",
-      bnNote: "দুটি সমধর্মী বাক্য বা ভাবকে যুক্ত করতে ব্যবহৃত হয়।"
+      bnNote: "দুটি সমধর্মী স্বাধীন বাক্যকে যুক্ত করে ধারাবাহিকতা প্রকাশ করে।"
     },
     nor: {
       letter: "N",
       name: "NOR",
       role: "Negative addition (triggers subject-auxiliary inversion)",
-      example: "He does not accept defeat, nor does he surrender to despair.",
+      clause1: "He does not accept defeat,",
+      clause1Role: "Independent Clause 1 (Negative)",
+      connector: "nor",
+      connectorRole: "Coordinating Conjunction (Inversion Trigger)",
+      clause2: "does he surrender to despair.",
+      clause2Role: "Auxiliary (does) + Subj (he) + Verb (surrender)",
+      full: "He does not accept defeat, nor does he surrender to despair.",
       commaRule: "Comma precedes 'nor' + inverted auxiliary verb.",
-      bnNote: "নেতিবাচক ধারণার সাথে অপর একটি নেতিবাচক বাক্য যোগ করে (Inversion ঘটে)।"
+      bnNote: "নেতিবাচক ধারণার সাথে অপর একটি নেতিবাচক বাক্য যোগ করে (Inversion ঘটে: does + he + surrender)।"
     },
     but: {
       letter: "B",
       name: "BUT",
       role: "Direct contrast or unexpected qualification",
-      example: "The problem was formidable, but the mathematicians solved it.",
+      clause1: "The problem was formidable,",
+      clause1Role: "Independent Clause 1",
+      connector: "but",
+      connectorRole: "Coordinating Conjunction (Contrast)",
+      clause2: "the mathematicians solved it.",
+      clause2Role: "Independent Clause 2",
+      full: "The problem was formidable, but the mathematicians solved it.",
       commaRule: "Comma precedes 'but' when linking independent clauses.",
       bnNote: "সরাসরি বৈপরীত্য বা প্রতিকূল ভাব প্রকাশ করে।"
     },
@@ -80,7 +104,13 @@ export default function Topic0() {
       letter: "O",
       name: "OR",
       role: "Alternative, choice, or condition",
-      example: "You must submit the thesis today, or you will forfeit the grant.",
+      clause1: "You must submit the thesis today,",
+      clause1Role: "Independent Clause 1 (Requirement)",
+      connector: "or",
+      connectorRole: "Coordinating Conjunction (Alternative/Condition)",
+      clause2: "you will forfeit the grant.",
+      clause2Role: "Independent Clause 2 (Consequence)",
+      full: "You must submit the thesis today, or you will forfeit the grant.",
       commaRule: "Comma precedes 'or' when connecting independent clauses.",
       bnNote: "বিকল্প পছন্দ বা শর্ত নির্দেশ করে।"
     },
@@ -88,7 +118,13 @@ export default function Topic0() {
       letter: "Y",
       name: "YET",
       role: "Adversative concession (similar to 'nevertheless')",
-      example: "He is unimaginably wealthy, yet he lives in austere simplicity.",
+      clause1: "He is unimaginably wealthy,",
+      clause1Role: "Independent Clause 1",
+      connector: "yet",
+      connectorRole: "Coordinating Conjunction (Concession)",
+      clause2: "he lives in austere simplicity.",
+      clause2Role: "Independent Clause 2",
+      full: "He is unimaginably wealthy, yet he lives in austere simplicity.",
       commaRule: "Comma precedes 'yet' in compound sentences.",
       bnNote: "সত্ত্বেও বা প্রতিকূল ফলাফল নির্দেশ করে।"
     },
@@ -96,9 +132,15 @@ export default function Topic0() {
       letter: "S",
       name: "SO",
       role: "Result, consequence, or logical conclusion",
-      example: "The deadline was imminent, so we worked throughout the night.",
+      clause1: "The deadline was imminent,",
+      clause1Role: "Independent Clause 1 (Cause)",
+      connector: "so",
+      connectorRole: "Coordinating Conjunction (Result)",
+      clause2: "we worked throughout the night.",
+      clause2Role: "Independent Clause 2 (Effect)",
+      full: "The deadline was imminent, so we worked throughout the night.",
       commaRule: "Comma precedes 'so' when introducing a result clause.",
-      bnNote: "ফলাফল বা পরিণতি প্রকাশ করে।"
+      bnNote: "ফলাফল বা যৌক্তিক পরিণতি প্রকাশ করে।"
     }
   };
 
@@ -106,28 +148,108 @@ export default function Topic0() {
     not_only: {
       title: "Not Only ... But Also",
       wrong: "He not only lost his wallet but also his passport.",
+      wrongBreakdown: {
+        prefix: "He",
+        prefixRole: "Subject",
+        conn1: "not only",
+        elem1: "lost his wallet",
+        elem1Role: "Verb Phrase ⚠️",
+        conn2: "but also",
+        elem2: "his passport.",
+        elem2Role: "Noun Phrase ⚠️"
+      },
       right: "He lost not only his wallet but also his passport.",
+      rightBreakdown: {
+        prefix: "He lost",
+        prefixRole: "Subject + Verb",
+        conn1: "not only",
+        elem1: "his wallet",
+        elem1Role: "Noun Phrase A ✓",
+        conn2: "but also",
+        elem2: "his passport.",
+        elem2Role: "Noun Phrase B ✓"
+      },
       reason: "In the correct sentence, both 'his wallet' and 'his passport' are Noun Phrases balanced symmetrically after the connectors.",
-      bn: "উভয় প্রান্তে হুবহু একই Part of Speech (Noun Phrase) বসেছে।"
+      bn: "উভয় প্রান্তে হুবহু একই Part of Speech (Noun Phrase) বসেছে।"
     },
     either_or: {
       title: "Either ... Or",
       wrong: "You either can choose physics or chemistry.",
+      wrongBreakdown: {
+        prefix: "You",
+        prefixRole: "Subject",
+        conn1: "either",
+        elem1: "can choose physics",
+        elem1Role: "Verb Phrase ⚠️",
+        conn2: "or",
+        elem2: "chemistry.",
+        elem2Role: "Noun ⚠️"
+      },
       right: "You can choose either physics or chemistry.",
+      rightBreakdown: {
+        prefix: "You can choose",
+        prefixRole: "Subject + Modal + Verb",
+        conn1: "either",
+        elem1: "physics",
+        elem1Role: "Noun A ✓",
+        conn2: "or",
+        elem2: "chemistry.",
+        elem2Role: "Noun B ✓"
+      },
       reason: "Placing 'either' before the noun 'physics' and 'or' before 'chemistry' creates balanced nominal coordination.",
       bn: "Noun-এর ঠিক আগে 'either' এবং অপর Noun-এর আগে 'or' রাখা বাধ্যতামূলক।"
     },
     both_and: {
       title: "Both ... And (Never 'As well as')",
       wrong: "He is both a brilliant scholar as well as a gifted athlete.",
+      wrongBreakdown: {
+        prefix: "He is",
+        prefixRole: "Subject + Verb",
+        conn1: "both",
+        elem1: "a brilliant scholar",
+        elem1Role: "Noun Phrase",
+        conn2: "as well as ❌",
+        elem2: "a gifted athlete.",
+        elem2Role: "Correlative Error ⚠️"
+      },
       right: "He is both a brilliant scholar and a gifted athlete.",
+      rightBreakdown: {
+        prefix: "He is",
+        prefixRole: "Subject + Verb",
+        conn1: "both",
+        elem1: "a brilliant scholar",
+        elem1Role: "Noun Phrase A ✓",
+        conn2: "and",
+        elem2: "a gifted athlete.",
+        elem2Role: "Noun Phrase B ✓"
+      },
       reason: "'Both' strictly pairs with 'and'. Pairing 'both' with 'as well as' is a severe correlative violation.",
       bn: "'Both'-এর সাথে সর্বদা 'and' বসে; 'as well as' সম্পূর্ণ ভুল।"
     },
     scarcely_when: {
       title: "Scarcely / Hardly ... When",
       wrong: "Scarcely had he reached the platform than the train departed.",
+      wrongBreakdown: {
+        prefix: "",
+        prefixRole: "",
+        conn1: "Scarcely had",
+        elem1: "he reached the platform",
+        elem1Role: "Inverted Clause",
+        conn2: "than ❌",
+        elem2: "the train departed.",
+        elem2Role: "Correlative Error ('than' is for No sooner) ⚠️"
+      },
       right: "Scarcely had he reached the platform when the train departed.",
+      rightBreakdown: {
+        prefix: "",
+        prefixRole: "",
+        conn1: "Scarcely had",
+        elem1: "he reached the platform",
+        elem1Role: "Inverted Clause A ✓",
+        conn2: "when",
+        elem2: "the train departed.",
+        elem2Role: "Past Indefinite Clause B ✓"
+      },
       reason: "'Scarcely' and 'Hardly' strictly pair with 'when'. 'No sooner' strictly pairs with 'than'.",
       bn: "'Scarcely/Hardly'-র সাথে সর্বদা 'when' বসে; 'than' বসে শুধু 'No sooner'-এ।"
     }
@@ -214,19 +336,58 @@ export default function Topic0() {
               </span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="text-xs sm:text-sm text-slate-300">
                 <strong>Semantic Function:</strong> {fanboysData[activeFanboys].role}
               </div>
-              <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-800 text-xs sm:text-sm font-mono text-sky-200">
-                "{fanboysData[activeFanboys].example}"
+
+              {/* Segmented FANBOYS Visual Pill Breakdown */}
+              <div className="space-y-2">
+                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center justify-between">
+                  <span>Syntactic Decomposition:</span>
+                  <span className="text-[10px] font-mono text-sky-300 bg-sky-950 px-2 py-0.5 rounded border border-sky-800">
+                    Sky Box = Coordinating Conjunction
+                  </span>
+                </span>
+
+                <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                  <div className="flex items-center flex-wrap gap-2 text-xs sm:text-sm font-mono">
+                    <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700/60 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-white font-mono">"{fanboysData[activeFanboys].clause1}"</span>
+                      <span className="text-[10px] uppercase font-sans text-slate-400 font-semibold sm:border-l sm:border-slate-700 sm:pl-1.5">
+                        {fanboysData[activeFanboys].clause1Role}
+                      </span>
+                    </span>
+
+                    <span className="px-3 py-1.5 rounded-lg bg-sky-950/80 text-sky-200 border-2 border-sky-500 shadow-md shadow-sky-900/30 flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-extrabold text-sky-100 font-mono text-base">[{fanboysData[activeFanboys].connector}]</span>
+                      <span className="text-[10px] uppercase font-sans text-sky-300 font-bold bg-sky-900/90 px-1.5 py-0.5 rounded border border-sky-400">
+                        ★ {fanboysData[activeFanboys].connectorRole}
+                      </span>
+                    </span>
+
+                    <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700/60 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-white font-mono">"{fanboysData[activeFanboys].clause2}"</span>
+                      <span className="text-[10px] uppercase font-sans text-slate-400 font-semibold sm:border-l sm:border-slate-700 sm:pl-1.5">
+                        {fanboysData[activeFanboys].clause2Role}
+                      </span>
+                    </span>
+                  </div>
+
+                  <div className="text-xs text-slate-400 space-y-0.5 pt-2 border-t border-slate-800/80">
+                    <p className="text-slate-300 font-sans">
+                      <strong className="text-slate-400">Complete Compound Sentence:</strong> "{fanboysData[activeFanboys].full}"
+                    </p>
+                  </div>
+                </div>
               </div>
+
               <div className="text-xs text-amber-400/90 font-medium">
                 📌 <strong>Punctuation Law:</strong> {fanboysData[activeFanboys].commaRule}
               </div>
               {showBengali && (
                 <div className="p-3 bg-emerald-950/30 rounded-lg text-xs text-emerald-200 border border-emerald-800/40">
-                  <strong>বাংলা অর্থ:</strong> {fanboysData[activeFanboys].bnNote}
+                  <strong>বাংলা বিশ্লেষণ:</strong> {fanboysData[activeFanboys].bnNote}
                 </div>
               )}
             </div>
@@ -265,33 +426,87 @@ export default function Topic0() {
           </div>
 
           <div className="bg-slate-950/80 rounded-xl border border-slate-800 p-6 space-y-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Faulty Architecture */}
-              <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-2">
+              <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">
                     Unbalanced (Parallelism Violation)
                   </span>
                   <span className="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded font-bold">
-                    WRONG
+                    WRONG ❌
                   </span>
                 </div>
-                <div className="text-xs sm:text-sm font-mono text-rose-200 bg-slate-950 p-2.5 rounded border border-rose-900/40 line-through">
+
+                <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
+                  {parallelCases[selectedParallelCase].wrongBreakdown.prefix && (
+                    <span className="px-2 py-1 rounded bg-slate-900 text-slate-300 border border-slate-800">
+                      "{parallelCases[selectedParallelCase].wrongBreakdown.prefix}"
+                    </span>
+                  )}
+                  <span className="px-2 py-1 rounded bg-rose-950/80 text-rose-300 border border-rose-600 font-bold">
+                    [{parallelCases[selectedParallelCase].wrongBreakdown.conn1}]
+                  </span>
+                  <span className="px-2 py-1 rounded bg-slate-900 text-rose-200 border border-rose-800/80 line-through">
+                    "{parallelCases[selectedParallelCase].wrongBreakdown.elem1}"
+                    <span className="block text-[9px] text-rose-400 font-sans not-italic">
+                      {parallelCases[selectedParallelCase].wrongBreakdown.elem1Role}
+                    </span>
+                  </span>
+                  <span className="px-2 py-1 rounded bg-rose-950/80 text-rose-300 border border-rose-600 font-bold">
+                    [{parallelCases[selectedParallelCase].wrongBreakdown.conn2}]
+                  </span>
+                  <span className="px-2 py-1 rounded bg-slate-900 text-rose-200 border border-rose-800/80 line-through">
+                    "{parallelCases[selectedParallelCase].wrongBreakdown.elem2}"
+                    <span className="block text-[9px] text-rose-400 font-sans not-italic">
+                      {parallelCases[selectedParallelCase].wrongBreakdown.elem2Role}
+                    </span>
+                  </span>
+                </div>
+
+                <div className="text-xs font-mono text-rose-200 bg-slate-950 p-2.5 rounded border border-rose-900/40 line-through">
                   "{parallelCases[selectedParallelCase].wrong}"
                 </div>
               </div>
 
               {/* Balanced Architecture */}
-              <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-2">
+              <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
                     Symmetrical (Flawless Parallelism)
                   </span>
                   <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">
-                    CORRECT
+                    CORRECT ✓
                   </span>
                 </div>
-                <div className="text-xs sm:text-sm font-mono text-emerald-200 bg-slate-950 p-2.5 rounded border border-emerald-900/40">
+
+                <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
+                  {parallelCases[selectedParallelCase].rightBreakdown.prefix && (
+                    <span className="px-2 py-1 rounded bg-slate-900 text-slate-200 border border-slate-800">
+                      "{parallelCases[selectedParallelCase].rightBreakdown.prefix}"
+                    </span>
+                  )}
+                  <span className="px-2 py-1 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500 font-bold">
+                    [{parallelCases[selectedParallelCase].rightBreakdown.conn1}]
+                  </span>
+                  <span className="px-2 py-1 rounded bg-emerald-900/40 text-emerald-200 border border-emerald-600 font-semibold">
+                    "{parallelCases[selectedParallelCase].rightBreakdown.elem1}"
+                    <span className="block text-[9px] text-emerald-300 font-sans">
+                      {parallelCases[selectedParallelCase].rightBreakdown.elem1Role}
+                    </span>
+                  </span>
+                  <span className="px-2 py-1 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500 font-bold">
+                    [{parallelCases[selectedParallelCase].rightBreakdown.conn2}]
+                  </span>
+                  <span className="px-2 py-1 rounded bg-emerald-900/40 text-emerald-200 border border-emerald-600 font-semibold">
+                    "{parallelCases[selectedParallelCase].rightBreakdown.elem2}"
+                    <span className="block text-[9px] text-emerald-300 font-sans">
+                      {parallelCases[selectedParallelCase].rightBreakdown.elem2Role}
+                    </span>
+                  </span>
+                </div>
+
+                <div className="text-xs font-mono text-emerald-200 bg-slate-950 p-2.5 rounded border border-emerald-900/40 font-semibold">
                   "{parallelCases[selectedParallelCase].right}"
                 </div>
               </div>

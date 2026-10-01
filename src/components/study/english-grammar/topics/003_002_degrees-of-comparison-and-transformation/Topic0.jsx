@@ -40,7 +40,7 @@ export default function Topic0() {
       positiveBn: "ইংরেজি সাহিত্যের অন্য কোনো নাট্যকার শেক্সপিয়ারের মতো এত মহান নন।",
       comparativeBn: "শেক্সপিয়ার ইংরেজি সাহিত্যের অন্য যেকোনো নাট্যকারের চেয়ে অধিক মহান।",
       superlativeBn: "শেক্সপিয়ার ইংরেজি সাহিত্যের সর্বশ্রেষ্ঠ নাট্যকার।",
-      ruleTag: "Formula: 'No other... as' <-> 'than any other' <-> 'the + superlative'"
+      ruleTag: "Formula: 'No other... as' <-> 'than any other' ↔ 'the + superlative'"
     },
     type2: {
       title: "Type 2: Group / 'One of the...' Superlative (Among the top tier)",
@@ -51,7 +51,7 @@ export default function Topic0() {
       positiveBn: "ভারতের খুব কম শহরই কলকাতার মতো এত বড়।",
       comparativeBn: "কলকাতা ভারতের অধিকাংশ শহরের চেয়ে বড়।",
       superlativeBn: "কলকাতা ভারতের অন্যতম বৃহত্তম শহর।",
-      ruleTag: "Formula: 'Very few... as' <-> 'than most other' <-> 'one of the + superlative'"
+      ruleTag: "Formula: 'Very few... as' ↔ 'than most other' ↔ 'one of the + superlative'"
     }
   };
 

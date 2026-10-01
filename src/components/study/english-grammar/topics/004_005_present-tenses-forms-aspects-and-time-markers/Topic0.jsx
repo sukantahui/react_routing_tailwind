@@ -121,7 +121,7 @@ export default function Topic0() {
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-sky-500/10 text-sky-300 border border-sky-500/30">
                 <Clock className="w-3.5 h-3.5" />
-                Module 004.003 • Dynamic Core
+                Segment 5 • Module 004.005 • Present Tenses
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
                 The Present Tense System & Aspect
@@ -147,6 +147,51 @@ export default function Topic0() {
             </div>
           )}
         </header>
+
+        {/* ========================================================================= */}
+        {/* SYNTACTIC CROSS-REFERENCE MATRIX                                          */}
+        {/* ========================================================================= */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-indigo-950/30 border border-indigo-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-indigo-500/20 text-indigo-300">
+              <Compass className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-white">Grammar Nexus: Related Chapter Cross-References</h3>
+              <p className="text-xs text-slate-300">Jump directly to interconnected syntax foundations</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <a
+              href="/english-grammar/topic/004_004_subject-verb-agreement-the-twenty-five-rules-of-concord/0"
+              className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-sky-300 border border-sky-500/30 text-xs font-medium transition flex items-center gap-1.5"
+            >
+              <span>3rd Person Concord (-s/-es)</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
+            <a
+              href="/english-grammar/topic/004_001_verb-classification-and-characteristics/0"
+              className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/30 text-xs font-medium transition flex items-center gap-1.5"
+            >
+              <span>Stative vs Dynamic Verbs</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
+            <a
+              href="/english-grammar/topic/006_001_prepositions-of-time-place-direction-and-agency/0"
+              className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-emerald-300 border border-emerald-500/30 text-xs font-medium transition flex items-center gap-1.5"
+            >
+              <span>Since/For Prepositions</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
+            <a
+              href="/english-grammar/topic/007_002_clause-analysis-noun-adjective-and-adverb-clauses/0"
+              className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-purple-300 border border-purple-500/30 text-xs font-medium transition flex items-center gap-1.5"
+            >
+              <span>Subordinate Clauses</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
 
         {/* ========================================================================= */}
         {/* 2. SECTION 1: 4-ASPECT PRESENT TIMELINE STUDIO                            */}
@@ -191,7 +236,37 @@ export default function Topic0() {
             </div>
 
             <p className="text-sm text-slate-300">
-              {aspectData[activeAspect].concept}
+              {activeAspect === "simple" ? (
+                <>
+                  Habits, universal truths, planned timetables, and subordinate{" "}
+                  <a
+                    href="/english-grammar/topic/007_002_clause-analysis-noun-adjective-and-adverb-clauses/0"
+                    className="text-sky-400 hover:text-sky-300 underline underline-offset-4 font-semibold"
+                  >
+                    time/condition clauses
+                  </a>{" "}
+                  governed by{" "}
+                  <a
+                    href="/english-grammar/topic/004_004_subject-verb-agreement-the-twenty-five-rules-of-concord/0"
+                    className="text-sky-400 hover:text-sky-300 underline underline-offset-4 font-semibold"
+                  >
+                    Subject-Verb Concord
+                  </a>.
+                </>
+              ) : activeAspect === "continuous" ? (
+                <>
+                  Actions happening at the moment of speaking, temporary situations, or annoyance with 'always'. (Note:{" "}
+                  <a
+                    href="/english-grammar/topic/004_001_verb-classification-and-characteristics/0"
+                    className="text-amber-400 hover:text-amber-300 underline underline-offset-4 font-semibold"
+                  >
+                    Stative verbs
+                  </a>{" "}
+                  like <em>know, belong, understand</em> cannot take continuous form).
+                </>
+              ) : (
+                aspectData[activeAspect].concept
+              )}
             </p>
 
             <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
@@ -212,14 +287,23 @@ export default function Topic0() {
         {/* 3. SECTION 2: SINCE VS FOR INTERACTIVE PRECISION SORTER                   */}
         {/* ========================================================================= */}
         <section className="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 sm:p-8 space-y-6 shadow-xl">
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <Calendar className="w-6 h-6 text-amber-400" />
-            <div>
-              <h2 className="text-xl font-bold text-white">2. The 'Since' vs 'For' Axis Sorter</h2>
-              <p className="text-xs sm:text-sm text-slate-400">
-                Since = Specific Point in Time | For = Measured Duration / Period
-              </p>
+          <div className="flex items-center justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+            <div className="flex items-center gap-3">
+              <Calendar className="w-6 h-6 text-amber-400" />
+              <div>
+                <h2 className="text-xl font-bold text-white">2. The 'Since' vs 'For' Axis Sorter</h2>
+                <p className="text-xs sm:text-sm text-slate-400">
+                  Since = Specific Point in Time | For = Measured Duration / Period
+                </p>
+              </div>
             </div>
+            <a
+              href="/english-grammar/topic/006_001_prepositions-of-time-place-direction-and-agency/0"
+              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-medium transition flex items-center gap-1.5"
+            >
+              <span>Study Prepositions of Time Chapter</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -412,10 +496,10 @@ export default function Topic0() {
           </a>
 
           <a
-            href="/english-grammar/topic/004_006_past-and-future-tenses-narrative-timelines/0"
+            href="/english-grammar/topic/004_006_past-tenses-narrative-timelines-and-aspects/0"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-950 transition"
           >
-            <span>Next: Module 004_006 (Past & Future Tenses)</span>
+            <span>Next: Module 004_006 (Past Tense System)</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

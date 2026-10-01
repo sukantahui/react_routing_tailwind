@@ -422,7 +422,7 @@ export default function Topic0() {
             faqList={[
               {
                 q: "What happens to auxiliary verbs 'do / does / did' in reported questions?",
-                a: "In affirmative indirect questions, 'do / does' are omitted and the verb takes the simple past tense (e.g. 'Where do you live?' -> 'He asked where I lived'). 'Did' is omitted and the verb shifts to the past perfect ('Where did you go?' -> 'He asked where I had gone')."
+                a: "In affirmative indirect questions, 'do / does' are omitted and the verb takes the simple past tense (e.g. 'Where do you live?' -> 'He asked where I lived'). 'Did' is omitted and the verb shifts to the past perfect ('Where did you go?' → 'He asked where I had gone')."
               },
               {
                 q: "Can 'whether' be used in simple Yes/No questions?",

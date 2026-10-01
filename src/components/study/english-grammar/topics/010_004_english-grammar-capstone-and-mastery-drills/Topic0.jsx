@@ -109,8 +109,8 @@ const VIVA_QUESTIONS = [
 const COMMANDMENTS = [
   'Never drop the linking "be" verb in zero-copula Bengali thoughts ("He is honest", NOT *He honest).',
   'Never use continuous (-ing) tenses with Stative Verbs of cognition, emotion, or possession (*I am knowing -> I know).',
-  'Never place a preposition after direct transitive verbs (*discuss about -> discuss, *reach to -> reach).',
-  'Never omit "other" when comparing a subject to its own class (*taller than any boy -> taller than any other boy).',
+  'Never place a preposition after direct transitive verbs (*discuss about → discuss, *reach to → reach).',
+  'Never omit "other" when comparing a subject to its own class (*taller than any boy → taller than any other boy).',
   'Always balance correlative conjunctions (not only...but also) before identical grammatical parts of speech.',
   'Always place the true human agent immediately after an introductory participial modifier (curing dangling modifiers).',
   'Always use possessive pronouns before a gerund ("insist on my going", NOT *me going).',

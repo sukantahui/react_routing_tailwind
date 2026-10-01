@@ -135,7 +135,7 @@ export default function Topic3() {
                 <span>1. Start Directly with the Base Verb (V1)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                No subject needed! The second-person subject '(You)' is implied: "[You] Open the door" -> "Open the door."
+                No subject needed! The second-person subject '(You)' is implied: "[You] Open the door" → "Open the door."
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
                 👉 Base Verb (V1) + Object / Complement.
@@ -238,7 +238,7 @@ export default function Topic3() {
                 <span>1. Start Directly with the Base Verb (V1)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                No subject needed! The second-person subject '(You)' is implied: "[You] Open the door" -> "Open the door."
+                No subject needed! The second-person subject '(You)' is implied: "[You] Open the door" → "Open the door."
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
                 👉 Base Verb (V1) + Object / Complement.

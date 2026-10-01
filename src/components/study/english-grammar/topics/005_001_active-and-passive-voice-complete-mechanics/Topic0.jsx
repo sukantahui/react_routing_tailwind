@@ -45,21 +45,21 @@ export default function Topic0() {
           title: "Present Continuous",
           active: "She is writing a letter.",
           passive: "A letter is being written by her.",
-          formula: "Active: is/am/are + V-ing -> Passive: is/am/are + BEING + V3",
+          formula: "Active: is/am/are + V-ing → Passive: is/am/are + BEING + V3",
           explanationBn: "Continuous-এ সর্বদা 'BEING + V3' যুক্ত হয়।"
         },
         {
           title: "Present Perfect",
           active: "She has written a letter.",
           passive: "A letter has been written by her.",
-          formula: "Active: have/has + V3 -> Passive: have/has + BEEN + V3",
+          formula: "Active: have/has + V3 → Passive: have/has + BEEN + V3",
           explanationBn: "Perfect Tense-এ সর্বদা 'BEEN + V3' যুক্ত হয়।"
         },
         {
           title: "Simple Past",
           active: "She wrote a letter yesterday.",
           passive: "A letter was written by her yesterday.",
-          formula: "Active: V2 (wrote) -> Passive: was/were + V3",
+          formula: "Active: V2 (wrote) → Passive: was/were + V3",
           explanationBn: "Simple Past-এ Passive রূপ: was/were + V3।"
         }
       ]
@@ -71,14 +71,14 @@ export default function Topic0() {
           title: "Personal / Indirect Object as Subject (Preferred)",
           active: "The teacher taught us English grammar.",
           passive: "We were taught English grammar by the teacher.",
-          formula: "Indirect Object ('us') -> New Subject ('We') + was/were + V3 + Direct Object",
+          formula: "Indirect Object ('us') → New Subject ('We') + was/were + V3 + Direct Object",
           explanationBn: "ব্যক্তিবাচক Indirect Object 'us'-কে Subject ('We') করে রূপান্তর বেশি স্বাভাবিক।"
         },
         {
           title: "Direct Object as Subject",
           active: "The teacher taught us English grammar.",
           passive: "English grammar was taught to us by the teacher.",
-          formula: "Direct Object ('grammar') -> New Subject + was/were + V3 + TO + Indirect Object",
+          formula: "Direct Object ('grammar') → New Subject + was/were + V3 + TO + Indirect Object",
           explanationBn: "Direct Object-কে Subject করলে Indirect Object-এর পূর্বে 'to' বসে।"
         }
       ]
@@ -87,17 +87,17 @@ export default function Topic0() {
       name: "3. Interrogatives (Who / Whom)",
       items: [
         {
-          title: "Who -> By Whom",
+          title: "Who → By Whom",
           active: "Who wrote the Mahabharata?",
           passive: "By whom was the Mahabharata written?",
-          formula: "Who -> By whom + Auxiliary + Subject + V3?",
+          formula: "Who → By whom + Auxiliary + Subject + V3?",
           explanationBn: "'Who' পরিবর্তিত হয়ে 'By whom' দিয়ে প্রশ্নবোধক রূপ তৈরি করে।"
         },
         {
-          title: "Whom -> Who",
+          title: "Whom → Who",
           active: "Whom did you invite to the seminar?",
           passive: "Who was invited by you to the seminar?",
-          formula: "Whom (Object) -> Who (Subject) + was/were + V3?",
+          formula: "Whom (Object) → Who (Subject) + was/were + V3?",
           explanationBn: "Object 'Whom' পরিবর্তিত হয়ে Subject 'Who'-তে পরিণত হয়।"
         }
       ]
@@ -480,11 +480,11 @@ export default function Topic0() {
         {/* Navigation Footers */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-3xl bg-slate-900 border border-slate-800">
           <a
-            href="/english-grammar/topic/004_006_past-and-future-tenses-narrative-timelines/0"
+            href="/english-grammar/topic/004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony/0"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 transition"
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
-            <span>Previous: Module 004_006 (Past & Future Tenses)</span>
+            <span>Previous: Module 004_008 (Tense Synergy & Sequence of Tenses)</span>
           </a>
 
           <a

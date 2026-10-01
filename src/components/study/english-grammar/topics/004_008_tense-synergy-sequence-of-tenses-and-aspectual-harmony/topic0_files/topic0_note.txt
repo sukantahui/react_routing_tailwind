@@ -1,0 +1,136 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.008: TENSE SYNERGY, SEQUENCE OF TENSES & ASPECTUAL HARMONY
+================================================================================
+
+1. THE GRAND 12-TENSE CROSS-MATRIX
+--------------------------------------------------------------------------------
+English structures time into 3 broad temporal zones (Present, Past, Future) 
+intersected by 4 aspectual viewpoints (Simple, Continuous, Perfect, Perfect Continuous), 
+producing the foundational 12-tense matrix:
+
++--------------------+--------------------------------+--------------------------------+--------------------------------+
+| ASPECT             | PRESENT                        | PAST                           | FUTURE                         |
++--------------------+--------------------------------+--------------------------------+--------------------------------+
+| 1. SIMPLE          | S + V1 / V5 (-s/-es)           | S + V2 (Past Form)             | S + will/shall + V1            |
+|                    | "She codes daily."             | "She coded yesterday."         | "She will code tomorrow."      |
++--------------------+--------------------------------+--------------------------------+--------------------------------+
+| 2. CONTINUOUS      | S + am/is/are + V-ing          | S + was/were + V-ing           | S + will be + V-ing            |
+|                    | "She is coding right now."     | "She was coding at 9 PM."      | "She will be coding at 9 PM."  |
++--------------------+--------------------------------+--------------------------------+--------------------------------+
+| 3. PERFECT         | S + have/has + V3              | S + had + V3                   | S + will have + V3             |
+|                    | "She has coded five modules."  | "She had coded before lunch."  | "She will have coded by Friday"|
++--------------------+--------------------------------+--------------------------------+--------------------------------+
+| 4. PERFECT CONT.   | S + have/has + been + V-ing    | S + had + been + V-ing         | S + will have been + V-ing     |
+|                    | "She has been coding since 8." | "She had been coding for hrs." | "She will have been coding..." |
++--------------------+--------------------------------+--------------------------------+--------------------------------+
+
+
+2. THE UNIVERSAL RULES OF SEQUENCE OF TENSES
+--------------------------------------------------------------------------------
+The Sequence of Tenses governs the relationship between the verb in the 
+PRINCIPAL (Main) clause and the verb in the SUBORDINATE (Dependent) clause.
+
++------------------------------------------------------------------------------+
+| RULE 1: THE PAST TENSE DOMINANCE INVARIANT                                   |
++------------------------------------------------------------------------------+
+  When the verb in the Principal Clause is in the PAST Tense, the verb in 
+  the Subordinate Clause MUST also be in a PAST Tense.
+  * Direct -> Indirect Examples:
+      - "He says: 'I am unwell.'"    -> He says that he is unwell. (Present in main)
+      - "He said: 'I am unwell.'"    -> He said that he WAS unwell. (Past in main)
+      - "She thought that he WOULD come." (NOT 'will come')
+      - "I knew that he HAD PASSED the examination." (NOT 'has passed')
+
++------------------------------------------------------------------------------+
+| EXCEPTION 1 TO RULE 1: UNIVERSAL TRUTHS & SCIENTIFIC LAWS                    |
++------------------------------------------------------------------------------+
+  A past principal clause DOES NOT change the tense of a subordinate clause 
+  if the subordinate clause states a UNIVERSAL TRUTH, SCIENTIFIC FACT, 
+  MATHEMATICAL LAW, or HABITUAL FACT:
+  * EXAMPLES:
+      - "The teacher taught us that the earth REVOLVES round the sun." (NOT revolved)
+      - "Newton discovered that gravity ATTRACTS all matter." (NOT attracted)
+      - "He proved that honesty IS the best policy." (NOT was)
+
++------------------------------------------------------------------------------+
+| EXCEPTION 2 TO RULE 1: CLAUSES OF COMPARISON (THAN / AS...AS)                |
++------------------------------------------------------------------------------+
+  When the subordinate clause is introduced by 'than' or 'as...as' expressing 
+  comparison, it may take ANY tense required by the intended meaning:
+  * EXAMPLES:
+      - "He loved you better than he LOVES me now." (Past in main, Present in sub)
+      - "He respected you more than he WILL EVER RESPECT him."
+
++------------------------------------------------------------------------------+
+| RULE 2: PRESENT OR FUTURE PRINCIPAL CLAUSE FREEDOM                           |
++------------------------------------------------------------------------------+
+  When the verb in the Principal Clause is in the PRESENT or FUTURE Tense, 
+  the verb in the Subordinate Clause can be in ANY Tense (Present, Past, Future) 
+  depending on the sense:
+  * EXAMPLES:
+      - "He says that he IS happy." (Present)
+      - "He says that he WAS happy yesterday." (Past)
+      - "He says that he WILL BE happy tomorrow." (Future)
+
++------------------------------------------------------------------------------+
+| RULE 3: PURPOSE CLAUSES (SO THAT / IN ORDER THAT)                            |
++------------------------------------------------------------------------------+
+  * If Principal Clause is in PRESENT/FUTURE -> Subordinate uses MAY + V1:
+      - "We eat so that we MAY live."
+  * If Principal Clause is in PAST           -> Subordinate uses MIGHT + V1:
+      - "He worked hard so that he MIGHT qualify the test."
+
+
+3. TIME VS TENSE DISCORD (A KEY LINGUISTIC DISTINCTION)
+--------------------------------------------------------------------------------
+TENSE is a grammatical category of verb inflections. TIME is a universal, 
+non-linguistic reality. The two do NOT have a 1-to-1 match in English:
+
+  * PRESENT TENSE expressing FUTURE TIME:
+      - "The college reopens tomorrow." (Simple Present -> Future Time)
+      - "I am visiting Mumbai next week." (Present Continuous -> Future Time)
+
+  * PRESENT TENSE expressing PAST TIME (Historic / Narrative Present):
+      - "Babur now leads his troops into the valley of Panipat."
+      - "In Hamlet, Shakespeare depicts the tragedy of hesitation."
+
+  * PAST TENSE expressing PRESENT / UNREAL HYPOTHETICAL TIME:
+      - "If I WERE you, I would accept the job." (Past Subjunctive -> Present Unreality)
+      - "It is high time we STARTED studying." (Past Simple -> Immediate Present urgency)
+
+
+4. CONDITIONAL SENTENCE TENSE CONCORD MATRIX
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| TYPE              | IF-CLAUSE TENSE            | MAIN-CLAUSE TENSE           |
++-------------------+----------------------------+-----------------------------+
+| ZERO CONDITIONAL  | Simple Present (V1/V5)     | Simple Present (V1/V5)      |
+| (General Truth)   | "If you heat ice..."       | "...it melts."              |
++-------------------+----------------------------+-----------------------------+
+| 1ST CONDITIONAL   | Simple Present (V1/V5)     | Simple Future (will + V1)   |
+| (Real Future)     | "If you study hard..."     | "...you will succeed."      |
++-------------------+----------------------------+-----------------------------+
+| 2ND CONDITIONAL   | Simple Past (V2 / were)    | Conditional (would + V1)    |
+| (Unreal Present)  | "If I had a million dollars"| "...I would travel."        |
++-------------------+----------------------------+-----------------------------+
+| 3RD CONDITIONAL   | Past Perfect (had + V3)    | Perfect Cond (would have+V3)|
+| (Unreal Past)     | "If he had trained..."     | "...he would have won."     |
++-------------------+----------------------------+-----------------------------+
+
+
+5. BENGALI GUIDANCE & PRACTICAL INVARIANTS (বাংলা বিশ্লেষণ)
+--------------------------------------------------------------------------------
+  * Sequence of Tenses-এর মূল নিয়ম:
+    মূল ক্লজ (Principal clause) যদি Past Tense-এ থাকে, তবে আশ্রিত ক্লজটিও (Subordinate clause) 
+    Past Tense-এ রূপান্তরিত হতে বাধ্য।
+    - ভুল: He told me that he is going.
+    - সঠিক: He told me that he WAS going.
+
+  * চিরন্তন সত্যের ব্যতিক্রম:
+    অতীতের কথা হলেও চিরন্তন সত্য বা বৈজ্ঞানিক তথ্যে Present Tense অপরিবর্তিত থাকে:
+    - "Teacher said that light travels faster than sound."
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.008
+================================================================================

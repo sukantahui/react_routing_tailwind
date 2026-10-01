@@ -1,102 +1,252 @@
 ================================================================================
-ENGLISH GRAMMAR COMPREHENSIVE STUDY NOTE: MODULE 007_002
-CLAUSE ANALYSIS: NOUN, ADJECTIVE (RELATIVE) & ADVERBIAL CLAUSES
-Author: Sukanta Hui • Zero-to-Expert English Grammar Mastery Curriculum
+ENGLISH GRAMMAR MASTERCLASS COMPREHENSIVE STUDY NOTE: MODULE 007_002
+CLAUSE ARCHITECTURE: NOUN, ADJECTIVE (RELATIVE) & ADVERBIAL CLAUSES
+Author: Sukanta Hui • Founder, Coder & AccoTax • Barrackpore, West Bengal
+Bilingual Reference & Diagnostic Parsing Manual (English ↔ বাংলা)
 ================================================================================
 
-1. WHAT IS A CLAUSE? (PRINCIPAL vs SUBORDINATE)
+1. WHAT IS A CLAUSE? (SENTENCE vs CLAUSE vs PHRASE)
 --------------------------------------------------------------------------------
-A Clause is a syntactic unit containing a Subject and a Finite Verb Predicate.
+• Phrase (শব্দগুচ্ছ): A group of words without a finite verb that acts as a 
+  single part of speech (e.g., "in the morning", "with great courage").
+• Clause (বাক্যাংশ / উপবাক্য): A group of words containing its OWN SUBJECT and 
+  its OWN FINITE VERB that forms part of a larger sentence.
+• Sentence (পূর্ণাঙ্গ বাক্য): A complete syntactic unit expressing a full thought.
 
-  • Principal (Independent) Clause: Can stand alone as a complete sentence.
-  • Subordinate (Dependent) Clause: Cannot stand alone; depends on a Principal 
-    clause for complete meaning.
+WHAT IS A FINITE VERB? (সমাপিকা ক্রিয়া কী?):
+--------------------------------------------------------------------------------
+A Finite Verb is a verb that is limited/governed by:
+  1. The Tense of the sentence (Present / Past / Future).
+  2. The Person (1st, 2nd, 3rd) and Number (Singular, Plural) of its Subject.
+Examples: "He [writes] code" (Present), "They [wrote] code" (Past).
+It can anchor and complete a clause independently.
 
-Three Major Functional Classes of Subordinate Clauses:
-  1. NOUN CLAUSE      (Performs the job of a Noun)
-  2. ADJECTIVE CLAUSE (Modifies an Antecedent Noun / Pronoun)
-  3. ADVERBIAL CLAUSE (Modifies a Verb, Adjective, or another Adverb)
+VERB NOTATION REFERENCE (V1 to V5):
+  • V1: Base Form / Present Plural (e.g., know, write, bring)
+  • V2: Simple Past Form (e.g., knew, wrote, brought)
+  • V3: Past Participle Form (e.g., known, written, brought)
+  • V4: Present Participle / -ing Form (e.g., knowing, writing, bringing)
+  • V5: Third-Person Singular Simple Present Form (Base + -s/-es/-ies: knows, writes, brings)
+[Detailed Reference: Module 004_001: Verb Classification & Module 004_002: Conjugation Mechanics]
+
+In contrast, Non-Finite Verbs (Infinitives like 'to write', Gerunds like 'writing', 
+Participles like 'written') do NOT change with tense/person and CANNOT form a clause alone.
+[Detailed Reference: Module 005_003: Non-Finite Verbs]
+
+THE GOLDEN RULE OF CLAUSE COUNTING:
+  Number of Clauses = Number of Finite Verbs
+  [১টি Finite Verb = ১টি Clause; যতগুলি Finite Verb থাকবে, বাক্যে ঠিক ততগুলি Clause থাকবে।]
+
+THREE MAIN CATEGORIES OF CLAUSES:
+  1. Principal / Main / Independent Clause (প্রধান খণ্ডবাক্য):
+     - Makes complete sense by itself and can stand alone as an independent sentence.
+     - Example: "He bought a laptop [Principal Clause] because he needed it for coding."
+
+  2. Subordinate / Dependent Clause (আশ্রিত / অধীনস্ত খণ্ডবাক্য):
+     - Contains a subject and a finite verb, but depends on the Principal clause 
+       to complete its meaning. Introduced by a Subordinating Conjunction or Relative word.
+     - Example: "...because he needed it for coding."
+
+  3. Coordinate Clause (সমমর্যাদাসম্পন্ন খণ্ডবাক্য):
+     - Two or more independent clauses joined by Coordinating Conjunctions (FANBOYS: 
+       For, And, Nor, But, Or, Yet, So).
+     - Example: "[He studied hard], and [he topped the examination]."
 
 ================================================================================
-2. NOUN CLAUSES: THE 5 SYNTACTIC ROLES
---------------------------------------------------------------------------------
-A Noun Clause answers "WHAT?" or "WHO?" in relation to the main sentence elements.
+2. SUBORDINATE CLAUSES: THE THREE FUNCTIONAL FAMILIES
+================================================================================
+Subordinate clauses are classified entirely by the job they perform in the sentence:
 
-1. SUBJECT OF A VERB:
-   - "THAT he is innocent is known to all."
-   - "WHAT you just said makes complete sense."
-
-2. OBJECT OF A TRANSITIVE VERB:
-   - "I know THAT honesty is the best policy."
-   - "She explained WHY she was absent."
-
-3. OBJECT OF A PREPOSITION:
-   - "Pay strict attention TO [what the professor demonstrates]."
-   - "There is no meaning IN [what he claims]."
-
-4. SUBJECT COMPLEMENT (After Linking Verbs like 'is', 'was', 'seems'):
-   - "The reality is THAT we have run out of funds."
-   - "My fear was THAT the ship might sink."
-
-5. IN APPOSITION TO A NOUN (Explains the internal content of a Noun):
-   - "The news THAT the king died shocked the nation."
-   - "The rumour THAT the bank failed is completely baseless."
+  +-----------------------+-----------------------------+-----------------------+
+  | Clause Type           | Syntactic Function          | Diagnostic Question   |
+  +-----------------------+-----------------------------+-----------------------+
+  | 1. NOUN CLAUSE        | Performs the role of a Noun | What? Who? Whom?      |
+  | 2. ADJECTIVE CLAUSE   | Modifies an Antecedent Noun | Which? What kind of?  |
+  | 3. ADVERBIAL CLAUSE   | Modifies Verb/Adj/Adverb    | When? Where? Why? How?|
+  +-----------------------+-----------------------------+-----------------------+
 
 ================================================================================
-3. ADJECTIVE (RELATIVE) CLAUSES: DEFINING vs NON-DEFINING
---------------------------------------------------------------------------------
-An Adjective Clause modifies a preceding Noun/Pronoun (called the "Antecedent").
+3. NOUN CLAUSES: IN-DEPTH 5+ SYNTACTIC ROLES & THE "WHAT / IT" TEST
+================================================================================
+A Noun Clause acts as a nominal argument. 
 
-+------------------------+--------------------------+--------------------------+
-| Feature                | Defining (Restrictive)   | Non-Defining (Parenthetical)
-+------------------------+--------------------------+--------------------------+
-| Function               | Essential to identify    | Extra, non-essential     |
-|                        | WHICH specific item      | descriptive information  |
-| Punctuation            | NO COMMAS                | ENCLOSED IN COMMAS ( , ) |
-| Pronouns for Things    | THAT or WHICH            | WHICH ONLY (Never That!) |
-| Pronoun Omission       | YES (if object of clause)| NEVER                    |
-| Canonical Example      | "The car THAT I bought is| "My Ferrari, WHICH is red|
-|                        | exceptionally fast."     | , is parked outside."    |
-+------------------------+--------------------------+--------------------------+
+DIAGNOSTIC TEST ("The 'IT / SOMETHING' Test"):
+If you can substitute the entire subordinate clause with "IT" or "SOMETHING" 
+and the sentence remains grammatically coherent, it is a NOUN CLAUSE.
+  - "I know [that honesty is best]." -> "I know [SOMETHING]." (Valid -> Noun Clause)
+  - "The boy [who came yesterday] is sick." -> "The boy [SOMETHING] is sick." (Invalid -> Adjective Clause)
 
-Relative Pronoun Omission (Contact Clauses):
-  - "The book WHICH I read yesterday." -> "The book I read yesterday." (Object pronoun omitted).
-  - Note: You can NEVER omit a Subject relative pronoun: "The man WHO called me" (Wrong to say: "The man called me").
+THE 5 CORE SYNTACTIC ROLES OF NOUN CLAUSES:
+
+1. SUBJECT OF A FINITE VERB (ভার্বের কর্তা হিসেবে):
+   - Example 1: "[That he is an honest officer] IS known to the entire city."
+     * Analysis: The whole bracketed clause is the subject of the linking verb 'is'.
+     * বাংলা: তিনি যে একজন সৎ অফিসার তা পুরো শহরের জানা।
+   - Example 2: "[What Swadeep explained] MADE complete sense to the mentor."
+     * বাংলা: স্বদীপ যা ব্যাখ্যা করেছিল তা মেন্টরের কাছে পুরোপুরি অর্থপূর্ণ মনে হয়েছিল।
+   - Example 3: "[How the burglar entered the locked vault] REMAINS an unsolved mystery."
+     * বাংলা: চোরটি কীভাবে তালাবদ্ধ ভল্টে ঢুকেছিল তা এখনও এক অমীমাংসিত রহস্য।
+   - Example 4: "[Whether she will accept the promotion] IS still uncertain."
+     * বাংলা: তিনি পদোন্নতি গ্রহণ করবেন কিনা তা এখনও অনিশ্চিত।
+
+2. OBJECT OF A TRANSITIVE VERB (সকর্মক ক্রিয়ার কর্ম হিসেবে):
+   - Example 1: "Sukanta Sir taught [that practice makes a student perfect]."
+     * Question: Taught what? -> Answer: [that practice makes a student perfect].
+     * বাংলা: সুকান্ত স্যার শিখিয়েছিলেন যে নিয়মিত অনুশীলনই ছাত্রকে নিখুঁত করে।
+   - Example 2: "I do not know [where he has parked his car]."
+     * বাংলা: আমি জানি না সে কোথায় তার গাড়িটি পার্ক করেছে।
+   - Example 3: "She asked [if I could assist her with React routing]."
+     * বাংলা: তিনি জিজ্ঞাসা করলেন আমি তাঁকে রিঅ্যাক্ট রাউটিংয়ে সাহায্য করতে পারব কিনা।
+   - Example 4: "We discovered [who had leaked the question paper]."
+     * বাংলা: আমরা আবিষ্কার করলাম কে প্রশ্নপত্র ফাঁস করেছিল।
+
+3. OBJECT OF A PREPOSITION (Preposition-এর অবজেক্ট হিসেবে):
+   - Example 1: "Pay careful attention TO [what your mentor demonstrates]."
+     * Analysis: The clause is governed by the preposition 'to'.
+     * বাংলা: তোমার মেন্টর যা প্রদর্শন করেন তার প্রতি গভীর মনোযোগ দাও।
+   - Example 2: "There is no substance IN [what the opposition claims]."
+     * বাংলা: বিরোধীরা যা দাবি করছে তার মধ্যে কোনো সারবত্তা নেই।
+   - Example 3: "Her success depends ON [how consistently she practices]."
+     * বাংলা: তার সাফল্য নির্ভর করে সে কতটা ধারাবাহিকভাবে অনুশীলন করে তার ওপর।
+   - Example 4: "He was punished FOR [what he had confessed in writing]."
+     * বাংলা: সে লিখিতভাবে যা স্বীকার করেছিল তার জন্য তাকে শাস্তি দেওয়া হয়েছিল।
+
+4. SUBJECT COMPLEMENT (Linking Verb-এর পর বসে Subject-এর অর্থ পূর্ণ করে):
+   - Example 1: "The harsh reality is [that we lack sufficient computing hardware]."
+     * Analysis: Follows the linking verb 'is' to complete the identity of 'reality'.
+     * বাংলা: কঠিন বাস্তবতা হলো আমাদের পর্যাপ্ত কম্পিউটিং হার্ডওয়্যারের অভাব রয়েছে।
+   - Example 2: "My greatest fear was [that the storm might destroy the crops]."
+     * বাংলা: আমার সবচেয়ে বড় ভয় ছিল এই যে ঝড়টি হয়তো ফসল নষ্ট করে দেবে।
+   - Example 3: "Life is [what we make of our opportunities]."
+     * বাংলা: জীবন হলো আমরা আমাদের সুযোগগুলিকে যেভাবে রূপ দিই।
+   - Example 4: "His explanation appears [that he was misled by rumors]."
+     * বাংলা: তাঁর ব্যাখ্যাটি এমন মনে হয় যে তাঁকে গুজবের মাধ্যমে বিভ্রান্ত করা হয়েছিল।
+
+5. IN APPOSITION TO A PRECEDING NOUN (Noun-এর পাশে বসে তার অভ্যন্তরীণ বিষয়বস্তু প্রকাশ করে):
+   - Example 1: "The news [that the scientist won the Nobel Prize] delighted everyone."
+     * Analysis: The clause explains the exact internal content of the noun 'news'.
+     * বাংলা: বিজ্ঞানী যে নোবেল পুরস্কার জিতেছেন সেই খবরটি সকলকে আনন্দিত করেছিল।
+   - Example 2: "The rumor [that the commercial bank has failed] is completely baseless."
+     * বাংলা: বাণিজ্যিক ব্যাংকটি দেউলিয়া হয়ে গেছে বলে যে গুজব তা সম্পূর্ণ ভিত্তিহীন।
+   - Example 3: "The belief [that hard work always yields results] sustains his efforts."
+     * বাংলা: কঠোর পরিশ্রম সর্বদা ফল দেয়—এই বিশ্বাসটি তাঁর প্রচেষ্টাকে বাঁচিয়ে রাখে।
+   - Example 4: "We cannot ignore the fact [that pollution is rising exponentially]."
+     * বাংলা: দূষণ যে জ্যামিতিক হারে বাড়ছে এই সত্যকে আমরা উপেক্ষা করতে পারি না।
 
 ================================================================================
-4. ADVERBIAL CLAUSES: THE 9 FUNCTIONAL CLASSES
---------------------------------------------------------------------------------
-Adverbial clauses modify verbs, adjectives, or adverbs in the principal clause.
+4. ADJECTIVE (RELATIVE) CLAUSES: DEFINING vs NON-DEFINING & PRONOUN LAWS
+================================================================================
+An Adjective Clause modifies an immediately preceding Noun or Pronoun called 
+its ANTECEDENT (পূর্ববর্তী বিশেষ্য/সর্বনাম).
 
-1. TIME (When?): when, while, before, after, as soon as, since, until.
-   - "As soon as the train arrived, passengers rushed."
-2. PLACE (Where?): where, wherever, whence, whither.
-   - "Fools rush in WHERE angels fear to tread."
-3. CAUSE / REASON (Why?): because, since, as, for.
-   - "He was promoted BECAUSE he solved the crisis."
-4. PURPOSE (With what aim?): so that, in order that, lest (should).
-   - "Study diligently SO THAT you may achieve mastery."
-5. RESULT / CONSEQUENCE (With what effect?): so... that, such... that.
-   - "He was SO exhausted THAT he collapsed onto the couch."
-6. CONDITION (On what terms?): if, unless, provided that, in case.
-   - "UNLESS you work systematically, success is impossible."
-7. CONCESSION / CONTRAST (In spite of what?): although, though, even though.
-   - "ALTHOUGH he was fatigued, he continued the march."
-8. COMPARISON / DEGREE (To what extent?): than, as... as, so... as.
-   - "She is more insightful THAN her contemporaries are."
-9. MANNER (In what way?): as, as if, as though.
-   - "He spoke AS IF he owned the corporation."
+CONNECTIVES USED:
+• Relative Pronouns: who, whom, whose (for persons); which (for things/animals); 
+  that (for persons/things); as, but (negative relative).
+• Relative Adverbs: where (place), when (time), why (reason), how (manner).
+
+CRUCIAL COMPARISON: DEFINING vs NON-DEFINING RELATIVE CLAUSES
+
++------------------------+---------------------------------+---------------------------------+
+| Dimension              | Defining (Restrictive) Clause   | Non-Defining (Parenthetical)    |
++------------------------+---------------------------------+---------------------------------+
+| 1. Purpose             | Essential to identify which     | Extra supplementary information |
+|                        | specific entity is meant.       | (can be dropped without loss).  |
+| 2. Punctuation         | STRICTLY NO COMMAS.             | MUST BE ENCLOSED IN COMMAS (,). |
+| 3. Use of 'THAT'       | Allowed and very common.        | STRICTLY FORBIDDEN!             |
+| 4. Pronoun Omission    | Pronoun can be omitted if       | Pronoun can NEVER be omitted.   |
+|    (Contact Clause)    | it acts as object of clause.    |                                 |
+| 5. Core Example        | "The doctor who treated Swadeep | "Dr. Sen, who lives in Kolkata, |
+|                        | is a cardiologist."             | is a renowned cardiologist."    |
+| 6. Bengali Meaning     | (নির্দিষ্ট ডাক্তারকে চেনাচ্ছে)   | (ডা. সেন একজনই, বাড়তি তথ্য)    |
++------------------------+---------------------------------+---------------------------------+
+
+SEMANTIC IMPACT OF COMMAS (EXAM FAVORITE TRAP):
+• Sentence A: "My brother who lives in London is a software engineer."
+  -> Meaning: I have multiple brothers; the specific one living in London is the engineer.
+• Sentence B: "My brother, who lives in London, is a software engineer."
+  -> Meaning: I have only one brother; by the way, he lives in London.
+
+OMISSION OF RELATIVE PRONOUN (CONTACT CLAUSES):
+• Allowed when Relative Pronoun is the OBJECT of the relative clause:
+  - Full: "The programming book [that I bought yesterday] is brilliant."
+  - Contact: "The programming book [I bought yesterday] is brilliant." (✓ CORRECT)
+• FORBIDDEN when Relative Pronoun is the SUBJECT of the relative clause:
+  - Full: "The student [who wrote this code] received full marks."
+  - Contact: "The student [wrote this code] received full marks." (✗ WRONG! Ungrammatical!)
+
+HOW TO DIFFERENTIATE NOUN CLAUSE IN APPOSITION vs ADJECTIVE CLAUSE (THE 'WHICH' TEST):
+1. "The statement [that the witness gave] was recorded."
+   -> Test: Can 'that' be replaced with 'which'? Yes -> "The statement [which the witness gave]..."
+   -> VERDICT: ADJECTIVE CLAUSE (The witness gave the statement).
+2. "The statement [that the accused was innocent] was accepted."
+   -> Test: Can 'that' be replaced with 'which'? No! 'that' is pure conjunction.
+   -> VERDICT: NOUN CLAUSE IN APPOSITION (Explains the fact inside the statement).
 
 ================================================================================
-5. STEP-BY-STEP CLAUSE PARSING ALGORITHM
---------------------------------------------------------------------------------
-Step 1: Identify all Finite Verbs in the sentence. (N verbs = N clauses).
-Step 2: Identify the Subordinating Connectives (that, who, which, although, because).
-Step 3: Isolate the Principal Clause (the clause that makes complete sense alone).
-Step 4: Analyze each Subordinate Clause:
-        - If it answers "What?" -> Noun Clause (Check 5 roles).
-        - If it modifies a preceding Noun -> Adjective Clause (Check defining vs non-defining).
-        - If it explains time, reason, condition, manner -> Adverbial Clause (Check 9 types).
+5. ADVERBIAL CLAUSES: THE EXHAUSTIVE 9-CLASS TAXONOMY
+================================================================================
+An Adverbial Clause modifies a Verb, Adjective, or Adverb in the Principal Clause.
+
+1. ADVERBIAL CLAUSE OF TIME (সময়সূচক ক্লজ - Answers 'When?'):
+   • Trigger Conjunctions: when, whenever, while, before, after, since, until, 
+     as soon as, no sooner... than, hardly... when.
+   • Example: "As soon as the teacher entered the classroom, the students stood up."
+   • বাংলা: শিক্ষক শ্রেণীকক্ষে প্রবেশ করা মাত্রই ছাত্রছাত্রীরা উঠে দাঁড়াল।
+   • Rule: Never use 'will' in subordinate time clauses: "I will call you when I [arrive] (NOT 'will arrive')."
+
+2. ADVERBIAL CLAUSE OF PLACE (স্থানসূচক ক্লজ - Answers 'Where?'):
+   • Trigger Conjunctions: where, wherever, whither (to where), whence (from where).
+   • Example: "You may sit wherever you feel most comfortable."
+   • বাংলা: তোমার যেখানে সবচেয়ে আরামদায়ক মনে হয় তুমি সেখানে বসতে পারো।
+
+3. ADVERBIAL CLAUSE OF CAUSE / REASON (কারণসূচক ক্লজ - Answers 'Why?'):
+   • Trigger Conjunctions: because, as, since, seeing that, for, in as much as.
+   • Example: "Since it was raining heavily, the football match was postponed."
+   • বাংলা: যেহেতু প্রবল বৃষ্টি হচ্ছিল, তাই ফুটবল ম্যাচটি স্থগিত করা হয়েছিল।
+
+4. ADVERBIAL CLAUSE OF PURPOSE (উদ্দেশ্যসূচক ক্লজ - Answers 'With what aim?'):
+   • Trigger Conjunctions: so that, in order that, that, lest (+ should + V1).
+   • Example 1: "Swadeep studies systematically so that he may crack the exam."
+   • Example 2: "Walk cautiously lest you should stumble on the rocky path."
+   • বাংলা: সাবধানে হাঁটো যাতে পাথুরে পথে তুমি হোঁচট না খাও ('lest'-এর পর সর্বদা should বসে, not বসে না)।
+
+5. ADVERBIAL CLAUSE OF RESULT / CONSEQUENCE (ফলাফলসূচক ক্লজ - Answers 'With what effect?'):
+   • Trigger Conjunctions: so... that, such... that.
+   • Example: "The coding problem was so intricate that nobody could solve it in time."
+   • বাংলা: কোডিং সমস্যাটি এতটাই জটিল ছিল যে কেউ সময়মতো তা সমাধান করতে পারেনি।
+
+6. ADVERBIAL CLAUSE OF CONDITION (শর্তমূলক ক্লজ - Answers 'On what condition?'):
+   • Trigger Conjunctions: if, unless (if not), provided that, in case, as long as.
+   • Example: "Unless you practice writing daily, fluency cannot be attained."
+   • বাংলা: তুমি যদি প্রতিদিন লেখার অনুশীলন না করো, তবে সাবলীলতা অর্জন করা অসম্ভব।
+
+7. ADVERBIAL CLAUSE OF CONCESSION / CONTRAST (স্বীকারোক্তিমূলক বা বৈসাদৃশ্য ক্লজ - Answers 'In spite of what?'):
+   • Trigger Conjunctions: although, though, even though, even if, while, whereas.
+   • Example: "Although he faced immense financial hurdles, he completed his master's degree."
+   • বাংলা: যদিও তিনি প্রচণ্ড আর্থিক বাধার সম্মুখীন হয়েছিলেন, তবুও তিনি তাঁর মাস্টার্স ডিগ্রি সম্পন্ন করেন।
+
+8. ADVERBIAL CLAUSE OF COMPARISON / DEGREE (তুলনামূলক ক্লজ - Answers 'To what extent?'):
+   • Trigger Conjunctions: than, as... as, so... as, the... the.
+   • Example 1: "She codes much faster than her peers do."
+   • Example 2: "The higher you climb the mountain, the cooler the air becomes."
+   • বাংলা: তুমি পাহাড়ের যত উঁচুতে উঠবে, বাতাস ততটাই শীতল হবে।
+
+9. ADVERBIAL CLAUSE OF MANNER (রীতিসূচক বা প্রণালীসূচক ক্লজ - Answers 'In what way?'):
+   • Trigger Conjunctions: as, as if, as though (subjunctive were).
+   • Example: "He commanded the team as if he were the supreme general."
+   • বাংলা: সে দলটিকে এমনভাবে আদেশ দিচ্ছিল যেন সে সর্বাধিনায়ক।
+
+================================================================================
+6. UNIVERSAL 4-STEP ALGORITHM TO PARSE ANY COMPLEX SENTENCE
+================================================================================
+Step 1: Locate and count all FINITE VERBS.
+        If there are 3 finite verbs, there must be exactly 3 clauses.
+Step 2: Identify all CLAUSE CONNECTIVES (Conjunctions / Relative words).
+Step 3: Isolate the PRINCIPAL CLAUSE (the one that can stand alone).
+Step 4: Identify the function of each SUBORDINATE CLAUSE:
+        - Does it answer "What?" -> NOUN CLAUSE (Find role: Subj, Obj, Prep-Obj, Comp, Apposition).
+        - Does it modify an antecedent noun? -> ADJECTIVE CLAUSE (Check Defining vs Non-Defining).
+        - Does it answer When/Where/Why/How/Condition? -> ADVERBIAL CLAUSE (Categorize into 9 types).
 
 ================================================================================
 END OF STUDY NOTE • ENGLISH GRAMMAR ACCELERATOR • MODULE 007_002

@@ -44,7 +44,7 @@
     "academicYear": "2026",
     "credits": "4 (Functional & Applied)",
     "weeklyContactHours": "4L",
-    "totalAllottedHours": 95,
+    "totalAllottedHours": 100,
     "prerequisites": [
       "Basic reading and writing familiarity in English",
       "Willingness to practice sentence analysis and daily diagnostic drills",
@@ -87,19 +87,28 @@
     },
     {
       "code": "CO4",
-      "title": "Verb Dynamics, Subject-Verb Concord & 12 Tenses",
-      "description": "Enforce 25 subject-verb agreement invariants, distinguish stative vs dynamic verbs, and master the complete 12-tense timeline and aspectual systems.",
+      "title": "Verb Dynamics, Classification, Causatives & Concord",
+      "description": "Enforce 25 subject-verb agreement invariants, distinguish stative vs dynamic verbs, and master causative, inchoative, and ergative verb mechanics.",
       "mappedModules": [
         "004_001_verb-classification-and-characteristics",
         "004_002_regular-vs-irregular-verbs-and-conjugation-mechanics",
         "004_003_causative-inchoative-and-ergative-verbs",
-        "004_004_subject-verb-agreement-the-twenty-five-rules-of-concord",
-        "004_005_present-tenses-forms-aspects-and-time-markers",
-        "004_006_past-and-future-tenses-narrative-timelines"
+        "004_004_subject-verb-agreement-the-twenty-five-rules-of-concord"
       ]
     },
     {
       "code": "CO5",
+      "title": "12 Tenses, Aspectual Systems, Future Expressions & Sequence Harmony",
+      "description": "Master the complete 12-tense timeline matrix, present/past/future aspectual mechanics, 'by the time' deadline formulas, and universal sequence of tenses harmony.",
+      "mappedModules": [
+        "004_005_present-tenses-forms-aspects-and-time-markers",
+        "004_006_past-tenses-narrative-timelines-and-aspects",
+        "004_007_future-expressions-modal-aspects-and-timelines",
+        "004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony"
+      ]
+    },
+    {
+      "code": "CO6",
       "title": "Voice, Modals, Non-Finites & Subjunctive Mood",
       "description": "Convert complex sentences across active and passive voice, utilize modal nuances, master infinitives/gerunds/participles, and construct conditional sentences.",
       "mappedModules": [
@@ -111,7 +120,7 @@
       ]
     },
     {
-      "code": "CO6",
+      "code": "CO7",
       "title": "Prepositions, Phrasal Verbs & Collocations",
       "description": "Master spatial/temporal prepositions, dependent preposition catalogs, transitive/intransitive phrasal verbs, and eliminate confusable homophones.",
       "mappedModules": [
@@ -122,7 +131,7 @@
       ]
     },
     {
-      "code": "CO7",
+      "code": "CO8",
       "title": "Clauses, Sentence Synthesis & Transformation",
       "description": "Analyze noun/adjective/adverb clauses, combine independent sentences via synthesis techniques, and transform structures without altering semantic meaning.",
       "mappedModules": [
@@ -133,7 +142,7 @@
       ]
     },
     {
-      "code": "CO8",
+      "code": "CO9",
       "title": "Reported Speech, Punctuation & Error Diagnostics",
       "description": "Transform dialogue into indirect narration, apply immaculate punctuation mechanics, diagnose subtle grammatical errors, and write with professional style.",
       "mappedModules": [
@@ -1189,11 +1198,11 @@
       ]
     },
     {
-      "segmentId": "dynamic-core-verbs-concord-and-tenses",
-      "title": "Segment 4 – The Dynamic Core: Verbs, Concord & The 12 Tenses (Intermediate)",
+      "segmentId": "verbal-backbone-and-concord",
+      "title": "Segment 4 – The Verbal Backbone: Verbs, Conjugation, Causatives & Concord (Intermediate)",
       "level": "Intermediate",
-      "summary": "Master the complete dynamic engine of English grammar: verb taxonomy (finite, non-finite, transitive, intransitive, copular, stative/dynamic), regular vs irregular verb mutations & confusable verb pairs, causative & ergative verbs, the 25 invariant rules of Subject-Verb Concord, and the complete 12-tense timeline and aspectual systems.",
-      "allocatedHours": 14,
+      "summary": "Master verb classification (finite, non-finite, auxiliary, lexical, stative vs dynamic), regular vs irregular conjugation patterns, causative and ergative mechanics, and the 25 invariant rules of Subject-Verb Concord.",
+      "allocatedHours": 8,
       "modules": [
         {
           "moduleId": "verb-classification-and-characteristics",
@@ -1517,16 +1526,25 @@
           "badge": "Concord Grandmaster Badge",
           "previousModule": "004_003_causative-inchoative-and-ergative-verbs",
           "nextModule": "004_005_present-tenses-forms-aspects-and-time-markers"
-        },
+        }
+      ]
+    },
+    {
+      "segmentId": "english-tenses-and-aspectual-systems",
+      "title": "Segment 5 – Masterclass on English Tenses & Aspectual Systems (Intermediate)",
+      "level": "Intermediate",
+      "summary": "An exhaustive, dedicated masterclass covering all 12 English tenses, aspectual mechanics (Simple, Continuous, Perfect, Perfect Continuous), time markers, narrative sequencing, future modalities, and sequence of tenses harmony.",
+      "allocatedHours": 12,
+      "modules": [
         {
           "moduleId": "present-tenses-forms-aspects-and-time-markers",
           "slug": "004_005_present-tenses-forms-aspects-and-time-markers",
-          "title": "The Present Tense System: Simple, Continuous, Perfect & Perfect Continuous",
+          "title": "The Present Tense System & Aspectual Mechanics",
           "level": "Intermediate",
           "difficulty": "Medium",
           "difficultyIndex": 2,
           "estimatedHours": 2.5,
-          "summary": "Master the 4 present tense aspects: Simple Present (habitual, universal, timetabled future), Present Continuous (progressive, temporary, annoyance with 'always'), Present Perfect (life experiences, resultative, 'just/already/yet'), and Present Perfect Continuous (duration, 'since' vs 'for').",
+          "summary": "Master the 4 present tense aspects: Simple Present (habits, universal laws, stative vs dynamic verbs, scheduled future), Present Continuous (temporary actions, trends, irritation with always), Present Perfect (consequence, experience, just/already/yet, has gone vs has been), and Present Perfect Continuous (duration with since vs for).",
           "tags": [
             "tenses",
             "present-tense",
@@ -1534,31 +1552,31 @@
             "present-continuous",
             "present-perfect",
             "present-perfect-continuous",
-            "aspect",
-            "time-markers",
-            "since-vs-for"
+            "stative-verbs",
+            "since-vs-for",
+            "aspect"
           ],
           "topics": [
-            "Tense (Time of Action) vs Aspect (How the action unfolds: Simple, Continuous, Perfect, Perfect Continuous)",
-            "Simple Present Tense: Habitual routines, Universal scientific facts, Dramatic commentary, Planned timetables, and Subordinate clauses of time/condition ('If it rains...')",
-            "Present Continuous Tense: Action in progress at time of speaking, Temporary situations, Trends, and Habitual irritation with 'always' ('He is always losing his keys')",
-            "Present Perfect Tense: Completed actions with present consequence, Life experiences ('Have you ever...?'), Unfinished time periods (today, this week), and Key Time Markers ('Just', 'Already', 'Yet', 'Ever', 'Never', 'Lately', 'So far')",
-            "Present Perfect Continuous Tense: Action begun in the past and continuing up to the present moment, or recently stopped with visible evidence",
-            "The Crucial Distinction: 'Since' (Specific point of time: 2015, Monday, morning) vs 'For' (Duration/period: 5 years, 3 hours)",
-            "Present Perfect vs Simple Past Contrast: Definite finished time marker rule (e.g. 'I have seen him yesterday' [Wrong] -> 'I saw him yesterday' [Correct])",
-            "Visual Timeline Diagrams for All 4 Present Tenses",
-            "Classroom Dialogue & Time Marker Diagnostics Lab"
+            "Tense (Grammatical Time) vs Aspect (Unfolding: Simple, Continuous, Perfect, Perfect Continuous)",
+            "Simple Present Tense: Habitual routines, Universal scientific facts, Dramatic commentary, and Scheduled future",
+            "Stative Verbs vs Dynamic Verbs: Why perceptual/emotional verbs resist continuous forms",
+            "Present Continuous Tense: Action at speech time, Temporary situations, Trends, and Irritation with 'always'",
+            "Present Perfect Tense: Present consequence, Life experience, and Mandatory markers ('just', 'already', 'yet', 'ever', 'never')",
+            "'Has Gone To' (Absent) vs 'Has Been To' (Visited and Returned)",
+            "Present Perfect Continuous Tense & The 'Since' (Point) vs 'For' (Period) Axis of Time",
+            "The Finished Past Time Anchor Prohibition (Why 'I have seen him yesterday' is fatal)",
+            "Classroom Dialogue & Interactive Aspect Diagnostics Workbench"
           ],
           "learningOutcomes": [
-            "Select the correct present tense aspect based on contextual time markers and speaker perspective",
-            "Apply 'since' and 'for' with 100% accuracy in perfect continuous constructions",
-            "Eliminate erroneous present perfect usage with specific past time indicators"
+            "Select the accurate present aspect based on context, duration, and speaker viewpoint",
+            "Distinguish stative from dynamic verbs and avoid illegal progressive formulations",
+            "Apply 'since' and 'for' with 100% precision in duration contexts"
           ],
           "prerequisites": [
             "004_004_subject-verb-agreement-the-twenty-five-rules-of-concord"
           ],
           "miniProjects": [
-            "Present Tense Timeline Visualizer & Diagnostic Sentence Matcher"
+            "Present Aspect Diagnostic Workbench: Mapping 15 scenarios to correct present aspects"
           ],
           "exercises": {
             "mcq": 25,
@@ -1566,83 +1584,75 @@
             "projects": 1
           },
           "assessment": {
-            "type": "Present Tense System & Aspect Examination",
+            "type": "Present Tense System Mastery Exam",
             "passScore": 75
           },
           "useCases": [
-            "IELTS/TOEFL speaking and writing fluency",
-            "Chronological accuracy in journalism and resume profiles"
+            "Conversational and formal fluency in academic and professional communication",
+            "Error-spotting questions in competitive and board examinations"
           ],
           "careerSkills": [
             "Temporal aspect precision",
-            "Chronological sequencing",
-            "Grammar error spotting"
+            "Linguistic clarity",
+            "Grammar diagnostics"
           ],
           "commonMistakes": [
-            "Saying 'I am living in Barrackpore since 5 years' (Wrong; must be 'I have been living in Barrackpore for 5 years')",
-            "Using present perfect with past time adverbs (e.g. 'He has arrived yesterday' [Wrong; must be 'He arrived yesterday'])"
+            "Using present continuous with stative verbs (e.g. 'I am knowing him')",
+            "Using present perfect with specific past time adverbs ('I have met him yesterday')"
           ],
           "references": [
-            "Raymond Murphy - English Grammar in Use - Units 1-16: Present and Present Perfect",
-            "Michael Swan - Practical English Usage - Section on Present Tenses"
+            "Raymond Murphy - English Grammar in Use - Units 1-16",
+            "Michael Swan - Practical English Usage - Present Tenses"
           ],
           "teachingTips": [
-            "Draw a horizontal timeline: Point in time -> 'Since'; Bracketed duration -> 'For'."
+            "Point in time (starting origin) -> Since; Measured elapsed duration -> For."
           ],
           "preReading": [
             "Module 004_004 concepts"
           ],
-          "badge": "Present Aspect Authority",
+          "badge": "Present Aspect Authority Badge",
           "previousModule": "004_004_subject-verb-agreement-the-twenty-five-rules-of-concord",
-          "nextModule": "004_006_past-and-future-tenses-narrative-timelines"
+          "nextModule": "004_006_past-tenses-narrative-timelines-and-aspects"
         },
         {
-          "moduleId": "past-and-future-tenses-narrative-timelines",
-          "slug": "004_006_past-and-future-tenses-narrative-timelines",
-          "title": "Past & Future Tenses: Narrative Timelines, Sequence of Tenses & 12-Tense Matrix",
+          "moduleId": "past-tenses-narrative-timelines-and-aspects",
+          "slug": "004_006_past-tenses-narrative-timelines-and-aspects",
+          "title": "The Past Tense System & Narrative Timelines",
           "level": "Intermediate",
           "difficulty": "Medium-Hard",
           "difficultyIndex": 3,
           "estimatedHours": 2.5,
-          "summary": "Master the 4 past tenses (Simple Past, Past Continuous, Past Perfect 'Past of the Past', Past Perfect Continuous), the 4 future structures (Will/Shall, Going to, Future Continuous, Future Perfect, Future Perfect Continuous), the Law of Sequence of Tenses, and the complete 12-Tense Grand Reference Matrix.",
+          "summary": "Master the 4 past tenses (Simple Past, Past Continuous, Past Perfect 'Past of the Past', Past Perfect Continuous), double past action sequencing with Before/After/By the time, negative inversions (Hardly...when, No sooner...than), and past habits (Used to vs Would).",
           "tags": [
             "past-tense",
-            "future-tense",
             "simple-past",
             "past-continuous",
             "past-perfect",
             "past-perfect-continuous",
-            "future-perfect",
-            "going-to",
-            "sequence-of-tenses",
-            "twelve-tenses-matrix"
+            "past-of-the-past",
+            "used-to-vs-would",
+            "inversion"
           ],
           "topics": [
-            "Simple Past Tense: Completed actions at a definite past moment, Narrative sequences, Past habits (Used to / Would)",
-            "Past Continuous Tense: Ongoing past action interrupted by a shorter action ('I was studying when Swadeep arrived'), Parallel past actions with 'while'",
-            "Past Perfect Tense: The 'Past of the Past' — Sequencing two past actions (Earlier past action in Past Perfect, Later past action in Simple Past)",
-            "Time Connectives with Past Perfect: 'Before', 'After', 'By the time', 'Hardly... when', 'No sooner... than'",
-            "Past Perfect Continuous Tense: Ongoing past activity continuing up to another past reference point",
-            "Future Time Expressions: Will/Shall (Instant decisions, predictions), 'Be going to' (Prior intentions, present evidence)",
-            "Present Continuous for Fixed Future Arrangements vs Simple Present for Official Timetables",
-            "Future Continuous Tense (Action in progress at a future moment)",
-            "Future Perfect Tense: Action completed prior to a future deadline ('By next June, I will have completed my degree')",
-            "Future Perfect Continuous Tense (Duration leading up to a future point)",
-            "The Law of Sequence of Tenses: Past Matrix Verb Rules & Invariant Exceptions (Universal truths, Habitual facts, Comparisons with 'than')",
-            "The Master 12-Tense Conjugation Matrix across All Aspects and Voices",
-            "Classroom Dialogue & Multi-Tense Narrative Workshop"
+            "Simple Past Tense (V2): Completed historical actions, narrative chains, and Did + V1 interrogative/negative rules",
+            "Past Continuous Tense: Ongoing background activity and Interrupted actions with 'When' vs Parallel actions with 'While'",
+            "Past Perfect Tense (The Pluperfect / 'Past of the Past'): Formula for Earlier Action (had + V3) vs Later Action (V2)",
+            "Chronological Time Connectives: 'Before' formula, 'After' formula, and 'By the time' formula",
+            "High-Frequency Inversions: 'Hardly/Scarcely had + S + V3... when' and 'No sooner had + S + V3... than'",
+            "Past Perfect Continuous Tense: Ongoing activity over a duration up to a past milestone",
+            "Expressing Past Habits: 'Used to' (Past States + Actions) vs 'Would' (Dynamic Actions ONLY)",
+            "Classroom Dialogue with Sukanta Sir & Past Invariant Diagnostics Lab"
           ],
           "learningOutcomes": [
-            "Sequence multiple past events chronologically using Simple Past and Past Perfect with zero ambiguity",
-            "Select appropriate future forms distinguishing spontaneous decisions, intentions, and scheduled events",
-            "Apply the Law of Sequence of Tenses in complex multi-clause sentences",
-            "Construct sentences across all 12 tenses with flawless morphological and aspectual accuracy"
+            "Sequence complex past events chronologically using Simple Past and Past Perfect with zero ambiguity",
+            "Apply 'Hardly...when' and 'No sooner...than' with accurate auxiliary inversion",
+            "Differentiate between 'Used to' and 'Would' for past habits and past states"
           ],
           "prerequisites": [
             "004_005_present-tenses-forms-aspects-and-time-markers"
           ],
           "miniProjects": [
-            "Historical Narrative Timeline Builder: Sequencing 10 interrelated past and future events"
+            "Chronological Narrative Reconstructor: Ordering multi-event historical passages using correct past aspects"
           ],
           "exercises": {
             "mcq": 25,
@@ -1650,42 +1660,195 @@
             "projects": 1
           },
           "assessment": {
-            "type": "Past, Future & Grand 12-Tense Matrix Master Exam",
+            "type": "Past Tense & Narrative Chronology Exam",
             "passScore": 75
           },
           "useCases": [
-            "Narrative writing, storytelling, historical reporting, and project milestone roadmaps",
-            "ICSE/ISC and competitive exam tense filling and error detection"
+            "Narrative prose, historical reporting, and incident root cause analysis",
+            "Sentence transformation and error correction in SSC CGL, Banking, and Board exams"
           ],
           "careerSkills": [
             "Narrative sequencing",
-            "Chronological timeline management",
-            "Grammar examination mastery"
+            "Chronological precision",
+            "Inversion mechanics"
           ],
           "commonMistakes": [
-            "Using Past Perfect when only one isolated past action is mentioned ('I had gone to school yesterday' -> 'I went to school yesterday')",
-            "Using future tense inside a conditional or time clause ('If it will rain, we will cancel' [Wrong; must be 'If it rains, we will cancel'])",
-            "Violating sequence of tenses (e.g. 'He said that he will come' [Wrong; must be 'would come'])"
+            "Using Past Perfect when there is only one isolated past action",
+            "Writing 'Did you saw him?' instead of 'Did you see him?' (Did + V1)",
+            "Pairing 'No sooner' with 'when' or 'then' instead of 'than'"
           ],
           "references": [
-            "Raymond Murphy - English Grammar in Use - Units 17-25: Past and Future",
-            "Wren & Martin High School English Grammar - Chapter 24: The Tenses & Chapter 26: The Sequence of Tenses"
+            "Wren & Martin High School English Grammar - Chapter 24: The Tenses",
+            "Raymond Murphy - English Grammar in Use - Units 5-15: Past and Past Perfect"
           ],
           "teachingTips": [
-            "Use the train metaphor: The train HAD LEFT (1st past action) before I REACHED the station (2nd past action)."
+            "Use the two-action timeline: Earlier action = had + V3; Later action = V2."
           ],
           "preReading": [
             "Module 004_005 concepts"
           ],
-          "badge": "12-Tense Grandmaster Badge",
+          "badge": "Past Chronology Master Badge",
           "previousModule": "004_005_present-tenses-forms-aspects-and-time-markers",
+          "nextModule": "004_007_future-expressions-modal-aspects-and-timelines"
+        },
+        {
+          "moduleId": "future-expressions-modal-aspects-and-timelines",
+          "slug": "004_007_future-expressions-modal-aspects-and-timelines",
+          "title": "Future Expressions, Modal Aspects & Prospective Timelines",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "estimatedHours": 2.5,
+          "summary": "Master the 5 ways to express future in English: Will/Shall (spontaneous decisions, predictions), 'Be going to' (prior plans, visible evidence), Present Continuous (personal arrangements), Simple Present (timetables), and 'Be about to / Be to' (impending events, official duties), plus Future Continuous, Future Perfect deadlines, and the Subordinate Clause prohibition on 'will'.",
+          "tags": [
+            "future-tense",
+            "future-expressions",
+            "will-vs-going-to",
+            "future-continuous",
+            "future-perfect",
+            "by-the-time",
+            "time-clause-rules"
+          ],
+          "topics": [
+            "Why English has no single future tense inflection: The 5 pragmatic future structures",
+            "Simple Future (will/shall + V1): Spontaneous decisions, promises, and speculative predictions",
+            "'Be going to + V1': Pre-meditated intentions and predictions based on present physical evidence",
+            "Present Continuous for Future: Fixed personal arrangements with confirmed dates and venues",
+            "Simple Present for Future: Official public transport timetables and calendar events",
+            "'Be about to + V1' (Immediate impending future) and 'Be to + V1' (Official protocols/duties)",
+            "Future Continuous Tense: Actions in progress at a future moment & polite inquiries",
+            "Future Perfect Tense ('will have + V3'): Completion before a future deadline ('By + time' / 'By the time + Present Simple')",
+            "Future Perfect Continuous Tense: Measuring ongoing duration up to a future benchmark",
+            "The Subordinate Clause Prohibition Rule: Never use 'will' in If / When / As soon as / Until clauses",
+            "Classroom Dialogue with Sukanta Sir & Future Modality Simulator"
+          ],
+          "learningOutcomes": [
+            "Choose the appropriate future construction based on spontaneous decision vs prior plan vs timetable",
+            "Apply the Future Perfect tense with 'by' and 'by the time' formulas",
+            "Eliminate 'will' from subordinate clauses of time and condition with 100% accuracy"
+          ],
+          "prerequisites": [
+            "004_006_past-tenses-narrative-timelines-and-aspects"
+          ],
+          "miniProjects": [
+            "Project Milestone & Timeline Planner: Formulating deadlines using Future Perfect and Continuous structures"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Future Modality & Prospective Timelines Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Project management scheduling, professional email invitations, and formal proposals",
+            "Exam questions on conditional sentences and future time clauses"
+          ],
+          "careerSkills": [
+            "Prospective planning",
+            "Modal accuracy",
+            "Syntactic condition handling"
+          ],
+          "commonMistakes": [
+            "Using 'will' after 'if', 'when', 'as soon as', or 'until'",
+            "Confusing spontaneous 'will' with evidenced 'is going to'"
+          ],
+          "references": [
+            "Raymond Murphy - English Grammar in Use - Units 19-25: Future",
+            "Michael Swan - Practical English Usage - Future Forms"
+          ],
+          "teachingTips": [
+            "Visible sensory evidence (dark clouds) -> 'is going to'; Gut feeling -> 'will'."
+          ],
+          "preReading": [
+            "Module 004_006 concepts"
+          ],
+          "badge": "Future Timelines Strategist Badge",
+          "previousModule": "004_006_past-tenses-narrative-timelines-and-aspects",
+          "nextModule": "004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony"
+        },
+        {
+          "moduleId": "tense-synergy-sequence-of-tenses-and-aspectual-harmony",
+          "slug": "004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony",
+          "title": "Tense Synergy, Sequence of Tenses & Aspectual Harmony",
+          "level": "Intermediate-Advanced",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 3,
+          "estimatedHours": 2.5,
+          "summary": "Master the comprehensive 12-Tense Cross-Matrix, the universal laws of Sequence of Tenses (Past dominance, Universal truth exceptions, Comparison clauses, Purpose clauses with may/might), Time vs Tense Discord, Narrative/Historical Present, and Conditional Sentence Concord (Zero, 1st, 2nd, 3rd, and Mixed).",
+          "tags": [
+            "sequence-of-tenses",
+            "twelve-tenses-matrix",
+            "tense-synergy",
+            "universal-truth-exception",
+            "conditionals-concord",
+            "time-vs-tense-discord"
+          ],
+          "topics": [
+            "The Grand 12-Tense Aspectual Cross-Matrix across Present, Past, and Future",
+            "The Universal Law of Sequence of Tenses: Past Principal Verb Dominance",
+            "Exception 1: Universal Truths, Scientific Laws, and Habitual Facts ('The earth revolves...')",
+            "Exception 2: Clauses of Comparison introduced by 'than' or 'as'",
+            "Exception 3: Purpose Clauses with 'so that' (Present -> may; Past -> might)",
+            "Time vs Tense Discord: Why grammatical tense form does not equal real-world time",
+            "The Historical / Narrative Present in literary criticism and vivid storytelling",
+            "Conditional Sentence Concord Matrix: Zero, 1st, 2nd, 3rd, and Mixed Conditionals",
+            "Classroom Dialogue with Sukanta Sir & Master Multi-Tense Diagnostic Lab"
+          ],
+          "learningOutcomes": [
+            "Validate and enforce sequence of tenses across multi-clause complex sentences",
+            "Identify and apply universal truth exceptions to tense backshifting",
+            "Construct all 4 conditional forms and mixed conditionals with exact tense concord"
+          ],
+          "prerequisites": [
+            "004_007_future-expressions-modal-aspects-and-timelines"
+          ],
+          "miniProjects": [
+            "Complex Clause Tense Harmonizer: Diagnosing and fixing sequence flaws in 20 multi-clause passages"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Sequence of Tenses & Aspectual Harmony Grand Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Complex academic essays, legal drafting, and advanced competitive English sections",
+            "Indirect speech narration and reported discourse"
+          ],
+          "careerSkills": [
+            "Multi-clause syntactic harmony",
+            "Grammar mastery",
+            "Analytical editing"
+          ],
+          "commonMistakes": [
+            "Backshifting universal truths into past tense in reported speech",
+            "Using 'would' in the if-clause of conditional sentences"
+          ],
+          "references": [
+            "Wren & Martin High School English Grammar - Chapter 26: The Sequence of Tenses",
+            "John Eastwood - Oxford Guide to English Grammar - Tense Harmony"
+          ],
+          "teachingTips": [
+            "Test every subordinate clause against its principal clause: Is the main clause past? If yes, check for universal truth exception."
+          ],
+          "preReading": [
+            "Module 004_007 concepts"
+          ],
+          "badge": "Tense Synergy Grandmaster Badge",
+          "previousModule": "004_007_future-expressions-modal-aspects-and-timelines",
           "nextModule": "005_001_active-and-passive-voice-complete-mechanics"
         }
       ]
     },
     {
       "segmentId": "voice-mood-modals-and-non-finites",
-      "title": "Segment 5 – Voice, Mood, Modals & Non-Finite Verbs (Intermediate-Advanced)",
+      "title": "Segment 6 – Voice, Mood, Modals & Non-Finite Verbs (Intermediate-Advanced)",
       "level": "Intermediate-Advanced",
       "summary": "Master advanced verbal mechanics: complete Active and Passive voice transformation across all tenses, modals and quasi-passives, modal auxiliaries, non-finite verbs (infinitives, gerunds, participles, dangling modifiers), conditionals, and the subjunctive mood.",
       "allocatedHours": 12,
@@ -1729,7 +1892,7 @@
             "Use passive voice judiciously in scientific reports, journalism, and executive summaries"
           ],
           "prerequisites": [
-            "004_006_past-and-future-tenses-narrative-timelines"
+            "004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony"
           ],
           "miniProjects": [
             "Voice Studio: 30-Sentence multi-category active-passive transformation engine"
@@ -1764,10 +1927,10 @@
             "Teach the 'Be + V3' universal rule: The form of 'Be' matches the original active verb's tense, followed always by V3."
           ],
           "preReading": [
-            "004_006_past-and-future-tenses-narrative-timelines"
+            "004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony concepts"
           ],
           "badge": "Voice Transformation Master",
-          "previousModule": "004_006_past-and-future-tenses-narrative-timelines",
+          "previousModule": "004_008_tense-synergy-sequence-of-tenses-and-aspectual-harmony",
           "nextModule": "005_002_modal-auxiliaries-and-semi-modals"
         },
         {
@@ -2094,7 +2257,7 @@
     },
     {
       "segmentId": "relational-and-idiomatic-foundations",
-      "title": "Segment 6 – Relational & Idiomatic Foundations: Prepositions & Phrasal Verbs (Intermediate-Advanced)",
+      "title": "Segment 7 – Relational & Idiomatic Foundations: Prepositions & Phrasal Verbs (Intermediate-Advanced)",
       "level": "Intermediate-Advanced",
       "summary": "Master prepositions and multi-word verbs: spatial, temporal, and directional prepositions, the master catalog of fixed and appropriate prepositions, separable and inseparable phrasal verbs, high-frequency idioms, and confusable homophones.",
       "allocatedHours": 10,
@@ -2417,7 +2580,7 @@
     },
     {
       "segmentId": "clauses-synthesis-and-transformation",
-      "title": "Segment 7 – Structural Synthesis: Clauses, Conjunctions & Sentence Transformation (Advanced)",
+      "title": "Segment 8 – Structural Synthesis: Clauses, Conjunctions & Sentence Transformation (Advanced)",
       "level": "Advanced",
       "summary": "Master the structural architecture of complex sentences: Coordinating (FANBOYS), Subordinating, and Correlative conjunctions, clause analysis (Noun, Adjective/Relative, Adverbial), synthesis of simple sentences into compound and complex sentences, and advanced transformation.",
       "allocatedHours": 10,
@@ -2736,7 +2899,7 @@
     },
     {
       "segmentId": "reported-discourse-direct-and-indirect-speech",
-      "title": "Segment 8 – Reported Discourse: Direct & Indirect Speech / Narration (Advanced)",
+      "title": "Segment 9 – Reported Discourse: Direct & Indirect Speech / Narration (Advanced)",
       "level": "Advanced",
       "summary": "Master reported discourse and narration: Direct vs Indirect speech mechanics, reporting verbs, the backshift of tenses and its universal truth exceptions, pronoun and adverbial shifts, narration of Assertive, Interrogative, Imperative, Exclamatory, and Optative sentences, and continuous passage dialogue conversion.",
       "allocatedHours": 8,
@@ -3049,7 +3212,7 @@
     },
     {
       "segmentId": "mechanics-punctuation-and-error-diagnostics",
-      "title": "Segment 9 – Mechanics, Punctuation & Error Diagnostics (Advanced-Expert)",
+      "title": "Segment 10 – Mechanics, Punctuation & Error Diagnostics (Advanced-Expert)",
       "level": "Advanced-Expert",
       "summary": "Master the formal mechanics of English: punctuation marks (comma splices, semicolons, colons, em/en dashes, apostrophes, quotation conventions), capitalization and spelling invariants (British vs American), systematic error spotting lab across all grammatical domains, and stylistic flaw remediation.",
       "allocatedHours": 9,
@@ -3372,7 +3535,7 @@
     },
     {
       "segmentId": "functional-stylistic-and-professional-composition",
-      "title": "Segment 10 – Functional, Stylistic & Professional Composition (Ultra Expert)",
+      "title": "Segment 11 – Functional, Stylistic & Professional Composition (Ultra Expert)",
       "level": "Ultra Expert",
       "summary": "Attain professional mastery: Etymology and morphological root words, Plain English principles, paragraph architecture and discourse coherence, and the comprehensive English Grammar Capstone Assessment & Viva Voce.",
       "allocatedHours": 8,

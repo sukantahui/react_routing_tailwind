@@ -35,23 +35,23 @@ export default function Topic4() {
       title: "Transformation vs Conversion",
       formula: "Form Changes | Meaning = 100% Invariant",
       conversion: "He is solvent. -> He is not solvent. ❌ (Conversion - Meaning destroyed)",
-      transformation: "He is solvent. -> He is not insolvent. ✅ (Transformation - Meaning preserved)",
+      transformation: "He is solvent. → He is not insolvent. ✅ (Transformation - Meaning preserved)",
       rule: "Never negate a predicate without pairing it with an opposing semantic antonym or litotic structure.",
       ruleBn: "বাক্য রূপান্তরের প্রধান শর্ত হল অর্থের সম্পূর্ণ সংরক্ষণ। কেবল 'not' বসালে অর্থ বদলে যায়, কিন্তু 'not + antonym' বসালে অর্থ অক্ষুণ্ণ থাকে।"
     },
     {
       title: "Tense Integrity Rule",
       formula: "Source Tense = Transformed Tense",
-      conversion: "She worked hard. -> She does not neglect work. ❌ (Tense shifted from Past to Present)",
-      transformation: "She worked hard. -> She did not neglect work. ✅ (Past tense maintained)",
+      conversion: "She worked hard. → She does not neglect work. ❌ (Tense shifted from Past to Present)",
+      transformation: "She worked hard. → She did not neglect work. ✅ (Past tense maintained)",
       rule: "The grammatical tense of the finite matrix verb must be preserved unless explicitly instructed otherwise.",
       ruleBn: "মূল বাক্যের Tense কোনো অবস্থাতেই রূপান্তরের সময় পরিবর্তন করা যাবে না।"
     },
     {
       title: "Double Negative & Litotes",
       formula: "Not without / Never fails to + Base Concept",
-      conversion: "He remembered his promise. -> He did not forget his promise. ✅",
-      transformation: "She loves classical music. -> She is not without love for classical music. ✅",
+      conversion: "He remembered his promise. → He did not forget his promise. ✅",
+      transformation: "She loves classical music. → She is not without love for classical music. ✅",
       rule: "Double negation softens or elevates the tone while reinforcing certainty in academic prose.",
       ruleBn: "Litotes বা দ্বৈত নেতিবাচক গঠন বাক্যে আভিজাত্য ও জোরালো স্বীকৃতি প্রদান করে।"
     }
@@ -175,7 +175,7 @@ export default function Topic4() {
                 Conversion changes meaning (making a true fact false). Transformation keeps the exact truth alive in a new grammatical skin.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 "He is rich" -> "He is NOT poor" (100% Meaning Preserved).
+                👉 "He is rich" → "He is NOT poor" (100% Meaning Preserved).
               </div>
             </div>
 
@@ -212,11 +212,11 @@ export default function Topic4() {
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-amber-400 block font-mono">Degree Interchange</span>
-                <p className="text-xs text-slate-300">Superlative <-> Comparative <-> Positive</p>
+                <p className="text-xs text-slate-300">Superlative ↔ Comparative ↔ Positive</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-purple-400 block font-mono">Structure Shift</span>
-                <p className="text-xs text-slate-300">Simple <-> Compound <-> Complex</p>
+                <p className="text-xs text-slate-300">Simple ↔ Compound ↔ Complex</p>
               </div>
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function Topic4() {
               Everyday Exemplar in Context
             </span>
             <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
-              ""Iron is the most useful metal" <===> "No other metal is as useful as iron"."
+              "Iron is the most useful metal" ↔ "No other metal is as useful as iron".
             </div>
           </div>
 
@@ -278,7 +278,7 @@ export default function Topic4() {
                 Conversion changes meaning (making a true fact false). Transformation keeps the exact truth alive in a new grammatical skin.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 "He is rich" -> "He is NOT poor" (100% Meaning Preserved).
+                👉 "He is rich" → "He is NOT poor" (100% Meaning Preserved).
               </div>
             </div>
 
@@ -315,11 +315,11 @@ export default function Topic4() {
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-amber-400 block font-mono">Degree Interchange</span>
-                <p className="text-xs text-slate-300">Superlative <-> Comparative <-> Positive</p>
+                <p className="text-xs text-slate-300">Superlative ↔ Comparative ↔ Positive</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-purple-400 block font-mono">Structure Shift</span>
-                <p className="text-xs text-slate-300">Simple <-> Compound <-> Complex</p>
+                <p className="text-xs text-slate-300">Simple ↔ Compound ↔ Complex</p>
               </div>
             </div>
           </div>
@@ -330,7 +330,7 @@ export default function Topic4() {
               Everyday Exemplar in Context
             </span>
             <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
-              ""Iron is the most useful metal" <===> "No other metal is as useful as iron"."
+              "Iron is the most useful metal" ↔ "No other metal is as useful as iron".
             </div>
           </div>
 

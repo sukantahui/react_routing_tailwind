@@ -414,7 +414,7 @@ export default function Topic0() {
                 {
                   step: '04',
                   title: 'Activate the Action',
-                  desc: 'Convert the discovered action into a strong, dynamic active verb (e.g. "perform an evaluation" -> "evaluate").',
+                  desc: 'Convert the discovered action into a strong, dynamic active verb (e.g. "perform an evaluation" → "evaluate").',
                   badge: 'Verb Activation'
                 },
                 {

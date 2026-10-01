@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import FAQTemplate from '../../template/FAQTemplate';
-import Teacher from '../../Teacher';
-import PlainTextPrint from '../../PlainTextPrint';
-import { topic8Questions } from './topic8_files/topic8_questions';
+import FAQTemplate from '../../../common/FAQTemplate';
+import Teacher from '../../../common/TeacherSukantaHui';
+import topic8Questions from './topic8_files/topic8_questions';
 
 const Topic8 = () => {
   const [activeTab, setActiveTab] = useState('simple');
@@ -30,7 +29,7 @@ const Topic8 = () => {
         { label: "Transitive Verb", text: "mastered", role: "Action transferred to target" },
         { label: "Direct Object", text: "Python programming", role: "Receives mastery (Mastered what?)" }
       ],
-      query: "Mastered WHAT? -> Python programming. Passive: Python programming was mastered.",
+      query: "Mastered WHAT? → Python programming. Passive: Python programming was mastered.",
       bn: "কর্তা + সকর্মক ক্রিয়া + প্রত্যক্ষ কর্ম।"
     },
     {

@@ -86,7 +86,7 @@ export default function Topic0() {
       indirectTense: "Modals (Would / Could / Might)",
       directEg: "He said, 'I will / can / may assist you tomorrow.'",
       indirectEg: "He said that he would / could / might assist me the following day.",
-      bnNote: "Will -> Would, Can -> Could, May -> Might হয়।"
+      bnNote: "Will → Would, Can → Could, May → Might হয়।"
     }
   };
 

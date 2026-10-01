@@ -36,14 +36,14 @@ export default function Topic5() {
       title: "Only / Alone ↔ None But / Nothing But",
       affirmative: "Only meritorious students shall receive this fellowship.",
       negative: "None but meritorious students shall receive this fellowship.",
-      formula: "Only (Person) --> None but | Only (Thing) --> Nothing but",
+      formula: "Only (Person) --> None but | Only (Thing) -→ Nothing but",
       formulaBn: "ব্যক্তির ক্ষেত্রে 'Only'-এর বদলে 'None but' এবং বস্তুর ক্ষেত্রে 'Nothing but' বসে।"
     },
     {
       title: "Too... to ↔ So... that... cannot / could not",
       affirmative: "The mathematical theorem is too intricate for beginners to grasp.",
       negative: "The mathematical theorem is so intricate that beginners cannot grasp it.",
-      formula: "too + Adj + to + V1 --> so + Adj + that + S + cannot/could not + V1",
+      formula: "too + Adj + to + V1 -→ so + Adj + that + S + cannot/could not + V1",
       formulaBn: "'Too... to' পরিবর্তিত হয়ে 'so... that + cannot/could not' গঠন ধারণ করে।"
     },
     {
@@ -57,14 +57,14 @@ export default function Topic5() {
       title: "Every ↔ There is no... without / but",
       affirmative: "Every cloud has a silver lining.",
       negative: "There is no cloud without a silver lining.",
-      formula: "Every + Noun --> There is no + Noun + without...",
+      formula: "Every + Noun -→ There is no + Noun + without...",
       formulaBn: "'Every'-যুক্ত বাক্যকে 'There is no... without' দিয়ে রূপান্তর করা হয়।"
     },
     {
       title: "Must ↔ Cannot but / Cannot help",
       affirmative: "We must adapt to technological innovation.",
       negative: "We cannot but adapt to technological innovation.",
-      formula: "must + V1 --> cannot but + V1 (or cannot help + V-ing)",
+      formula: "must + V1 -→ cannot but + V1 (or cannot help + V-ing)",
       formulaBn: "'Must'-এর বদলে 'cannot but + V1' বসে।"
     }
   ];
@@ -184,7 +184,7 @@ export default function Topic5() {
                 <span>1. Use Opposites (Antonyms) with 'Not'</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "He is honest" -> "He is NOT dishonest". "I will remember" -> "I will NEVER forget".
+                "He is honest" → "He is NOT dishonest". "I will remember" → "I will NEVER forget".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
                 👉 Not + Opposite Word = Original Meaning.
@@ -197,10 +197,10 @@ export default function Topic5() {
                 <span>2. Special Word Rules (Only, As soon as, Too...to)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                'Only person' -> 'None but'; 'Only thing' -> 'Nothing but'; 'As soon as' -> 'No sooner did...than'; 'Too weak to walk' -> 'So weak that he cannot walk'.
+                'Only person' → 'None but'; 'Only thing' → 'Nothing but'; 'As soon as' → 'No sooner did...than'; 'Too weak to walk' → 'So weak that he cannot walk'.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 "Only Swadeep" -> "None but Swadeep".
+                👉 "Only Swadeep" → "None but Swadeep".
               </div>
             </div>
           </div>
@@ -216,19 +216,19 @@ export default function Topic5() {
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-blue-400 block font-mono">Antonym + Not</span>
-                <p className="text-xs text-slate-300">"mortal" -> "not immortal"</p>
+                <p className="text-xs text-slate-300">"mortal" → "not immortal"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-emerald-400 block font-mono">None but (Person)</span>
-                <p className="text-xs text-slate-300">"Only Swadeep" -> "None but Swadeep"</p>
+                <p className="text-xs text-slate-300">"Only Swadeep" → "None but Swadeep"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-amber-400 block font-mono">No sooner...than</span>
-                <p className="text-xs text-slate-300">"As soon as" -> "No sooner did...than"</p>
+                <p className="text-xs text-slate-300">"As soon as" → "No sooner did...than"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">Too...to -> So...that</span>
-                <p className="text-xs text-slate-300">"too tired to code" -> "so tired that..."</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">Too...to → So...that</span>
+                <p className="text-xs text-slate-300">"too tired to code" → "so tired that..."</p>
               </div>
             </div>
           </div>
@@ -251,7 +251,7 @@ export default function Topic5() {
                 <span>সহজ ভাষায় হ্যাঁ থেকে না বোধক রূপান্তর:</span>
               </div>
               <p className="leading-relaxed text-slate-200">
-                অর্থ ঠিক রেখে Negative করার প্রধান উপায়: 'not' বসিয়ে মূল শব্দের বিপরীত শব্দ (Antonym) বসানো (যেমন: He is present -> He is not absent)। 'Only'-এর জায়গায় ব্যক্তি হলে 'None but' এবং বস্তু হলে 'Nothing but' বসে।
+                অর্থ ঠিক রেখে Negative করার প্রধান উপায়: 'not' বসিয়ে মূল শব্দের বিপরীত শব্দ (Antonym) বসানো (যেমন: He is present → He is not absent)। 'Only'-এর জায়গায় ব্যক্তি হলে 'None but' এবং বস্তু হলে 'Nothing but' বসে।
               </p>
             </div>
           )}
@@ -287,7 +287,7 @@ export default function Topic5() {
                 <span>1. Use Opposites (Antonyms) with 'Not'</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "He is honest" -> "He is NOT dishonest". "I will remember" -> "I will NEVER forget".
+                "He is honest" → "He is NOT dishonest". "I will remember" → "I will NEVER forget".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
                 👉 Not + Opposite Word = Original Meaning.
@@ -300,10 +300,10 @@ export default function Topic5() {
                 <span>2. Special Word Rules (Only, As soon as, Too...to)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                'Only person' -> 'None but'; 'Only thing' -> 'Nothing but'; 'As soon as' -> 'No sooner did...than'; 'Too weak to walk' -> 'So weak that he cannot walk'.
+                'Only person' → 'None but'; 'Only thing' → 'Nothing but'; 'As soon as' → 'No sooner did...than'; 'Too weak to walk' → 'So weak that he cannot walk'.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 "Only Swadeep" -> "None but Swadeep".
+                👉 "Only Swadeep" → "None but Swadeep".
               </div>
             </div>
           </div>
@@ -319,19 +319,19 @@ export default function Topic5() {
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-blue-400 block font-mono">Antonym + Not</span>
-                <p className="text-xs text-slate-300">"mortal" -> "not immortal"</p>
+                <p className="text-xs text-slate-300">"mortal" → "not immortal"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-emerald-400 block font-mono">None but (Person)</span>
-                <p className="text-xs text-slate-300">"Only Swadeep" -> "None but Swadeep"</p>
+                <p className="text-xs text-slate-300">"Only Swadeep" → "None but Swadeep"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-amber-400 block font-mono">No sooner...than</span>
-                <p className="text-xs text-slate-300">"As soon as" -> "No sooner did...than"</p>
+                <p className="text-xs text-slate-300">"As soon as" → "No sooner did...than"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">Too...to -> So...that</span>
-                <p className="text-xs text-slate-300">"too tired to code" -> "so tired that..."</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">Too...to → So...that</span>
+                <p className="text-xs text-slate-300">"too tired to code" → "so tired that..."</p>
               </div>
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function Topic5() {
                 <span>সহজ ভাষায় হ্যাঁ থেকে না বোধক রূপান্তর:</span>
               </div>
               <p className="leading-relaxed text-slate-200">
-                অর্থ ঠিক রেখে Negative করার প্রধান উপায়: 'not' বসিয়ে মূল শব্দের বিপরীত শব্দ (Antonym) বসানো (যেমন: He is present -> He is not absent)। 'Only'-এর জায়গায় ব্যক্তি হলে 'None but' এবং বস্তু হলে 'Nothing but' বসে।
+                অর্থ ঠিক রেখে Negative করার প্রধান উপায়: 'not' বসিয়ে মূল শব্দের বিপরীত শব্দ (Antonym) বসানো (যেমন: He is present → He is not absent)। 'Only'-এর জায়গায় ব্যক্তি হলে 'None but' এবং বস্তু হলে 'Nothing but' বসে।
               </p>
             </div>
           )}

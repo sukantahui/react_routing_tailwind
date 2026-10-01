@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import FAQTemplate from '../../template/FAQTemplate';
-import Teacher from '../../Teacher';
-import PlainTextPrint from '../../PlainTextPrint';
-import { topic9Questions } from './topic9_files/topic9_questions';
+import FAQTemplate from '../../../common/FAQTemplate';
+import Teacher from '../../../common/TeacherSukantaHui';
+import topic9Questions from './topic9_files/topic9_questions';
 
 const Topic9 = () => {
   const [activeTab, setActiveTab] = useState('simple');

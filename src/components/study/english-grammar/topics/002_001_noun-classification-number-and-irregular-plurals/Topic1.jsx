@@ -95,8 +95,8 @@ export default function Topic1() {
   };
 
   const derivationCatalog = [
-    { type: "From Adjectives", list: ["Brave -> Bravery", "Honest -> Honesty", "Cruel -> Cruelty", "Wise -> Wisdom", "Strong -> Strength"] },
-    { type: "From Verbs", list: ["Obey -> Obedience", "Grow -> Growth", "Live -> Life", "Choose -> Choice", "Decide -> Decision"] },
+    { type: "From Adjectives", list: ["Brave → Bravery", "Honest → Honesty", "Cruel → Cruelty", "Wise → Wisdom", "Strong → Strength"] },
+    { type: "From Verbs", list: ["Obey → Obedience", "Grow → Growth", "Live → Life", "Choose → Choice", "Decide → Decision"] },
     { type: "From Common Nouns", list: ["Child -> Childhood", "Friend -> Friendship", "King -> Kingship", "Leader -> Leadership", "Hero -> Heroism"] }
   ];
 

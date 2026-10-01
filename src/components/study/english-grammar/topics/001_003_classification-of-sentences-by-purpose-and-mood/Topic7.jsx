@@ -46,15 +46,15 @@ export default function Topic7() {
       transformed: "The choir performed very wonderfully tonight.",
       rule: "Exclamatory clause introduced by 'How + Adverb' converts into an assertive clause with 'very + adverb'.",
       ruleBn: "'How + Adverb' যুক্ত বিস্ময়সূচক বাক্যকে 'very + adverb' সহ সাধারণ বর্ণনামূলক বাক্যে পরিবর্তন করা হয়।",
-      formula: "How + Adj/Adv + S + V! --> S + V + very + Adj/Adv."
+      formula: "How + Adj/Adv + S + V! -→ S + V + very + Adj/Adv."
     },
     {
       category: "Affirmative ↔ Negative",
       original: "Knowledge is always invaluable.",
       transformed: "Knowledge is never worthless.",
-      rule: "Convert 'always' to 'never' and replace the core adjective with its antonym ('invaluable' -> 'worthless') without altering meaning.",
+      rule: "Convert 'always' to 'never' and replace the core adjective with its antonym ('invaluable' → 'worthless') without altering meaning.",
       ruleBn: "অর্থ অক্ষুণ্ণ রাখতে 'always'-এর স্থলে 'never' এবং মূল শব্দের বিপরীত শব্দ (Antonym) বসাতে হয়।",
-      formula: "Always + Positive --> Never + Antonym"
+      formula: "Always + Positive -→ Never + Antonym"
     },
     {
       category: "Optative ↔ Assertive",
@@ -62,7 +62,7 @@ export default function Topic7() {
       transformed: "I pray that the truth may triumph.",
       rule: "Optative invocation starting with 'May' transforms into an assertive matrix statement with 'I pray / wish that...'.",
       ruleBn: "'May' দিয়ে শুরু হওয়া প্রার্থনাসূচক বাক্যকে 'I pray that...' বা 'We wish that...' দিয়ে Assertive-এ রূপান্তর করা হয়।",
-      formula: "May + S + V! --> I pray that + S + may + V."
+      formula: "May + S + V! -→ I pray that + S + may + V."
     },
     {
       category: "Imperative ↔ Assertive",
@@ -70,7 +70,7 @@ export default function Topic7() {
       transformed: "You ought to / must obey the traffic regulations immediately.",
       rule: "Direct command converts into an assertive obligation sentence using modal auxiliary 'must' or 'ought to'.",
       ruleBn: "প্রত্যক্ষ আদেশকে 'You must' বা 'You ought to' যুক্ত বর্ণনামূলক বাক্যে রূপান্তর করা হয়।",
-      formula: "V1 + Object --> You must/should + V1 + Object."
+      formula: "V1 + Object -→ You must/should + V1 + Object."
     }
   ];
 
@@ -189,10 +189,10 @@ export default function Topic7() {
                 <span>1. Statement to Negative (Use Opposite + Not)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Man is mortal" -> "Man is NOT immortal". Meaning remains 100% unchanged!
+                "Man is mortal" → "Man is NOT immortal". Meaning remains 100% unchanged!
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 Affirmative <===> Negative Equivalence.
+                👉 Affirmative ↔ Negative Equivalence.
               </div>
             </div>
 
@@ -202,10 +202,10 @@ export default function Topic7() {
                 <span>2. Statement to Question (Rhetorical Emphasis)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Everyone loves freedom" -> "Who does NOT love freedom?".
+                "Everyone loves freedom" → "Who does NOT love freedom?".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 Assertive <===> Interrogative Rhetorical.
+                👉 Assertive ↔ Interrogative Rhetorical.
               </div>
             </div>
           </div>
@@ -220,20 +220,20 @@ export default function Topic7() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-blue-400 block font-mono">Affirmative -> Negative</span>
-                <p className="text-xs text-slate-300">"He is honest" -> "He is not dishonest"</p>
+                <span className="text-xs font-bold text-blue-400 block font-mono">Affirmative → Negative</span>
+                <p className="text-xs text-slate-300">"He is honest" → "He is not dishonest"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-emerald-400 block font-mono">Assertive -> Question</span>
-                <p className="text-xs text-slate-300">"Nobody can fly" -> "Who can fly?"</p>
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Assertive → Question</span>
+                <p className="text-xs text-slate-300">"Nobody can fly" → "Who can fly?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-amber-400 block font-mono">Exclamatory -> Assertive</span>
-                <p className="text-xs text-slate-300">"What a storm!" -> "It was a great storm"</p>
+                <span className="text-xs font-bold text-amber-400 block font-mono">Exclamatory → Assertive</span>
+                <p className="text-xs text-slate-300">"What a storm!" → "It was a great storm"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">Optative -> Assertive</span>
-                <p className="text-xs text-slate-300">"May you prosper" -> "I pray you may..."</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">Optative → Assertive</span>
+                <p className="text-xs text-slate-300">"May you prosper" → "I pray you may..."</p>
               </div>
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function Topic7() {
                 <span>সহজ ভাষায় বাক্য রূপান্তর:</span>
               </div>
               <p className="leading-relaxed text-slate-200">
-                Transformation হলো বাক্যের বাহ্যিক রূপ বা পোশাক বদলানো, কিন্তু অন্তর্নিহিত অর্থ সম্পূর্ণ অপরিবর্তিত রাখা। যেমন: 'সে সৎ' -> 'সে অসৎ নয়'।
+                Transformation হলো বাক্যের বাহ্যিক রূপ বা পোশাক বদলানো, কিন্তু অন্তর্নিহিত অর্থ সম্পূর্ণ অপরিবর্তিত রাখা। যেমন: 'সে সৎ' → 'সে অসৎ নয়'।
               </p>
             </div>
           )}
@@ -292,10 +292,10 @@ export default function Topic7() {
                 <span>1. Statement to Negative (Use Opposite + Not)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Man is mortal" -> "Man is NOT immortal". Meaning remains 100% unchanged!
+                "Man is mortal" → "Man is NOT immortal". Meaning remains 100% unchanged!
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 Affirmative <===> Negative Equivalence.
+                👉 Affirmative ↔ Negative Equivalence.
               </div>
             </div>
 
@@ -305,10 +305,10 @@ export default function Topic7() {
                 <span>2. Statement to Question (Rhetorical Emphasis)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Everyone loves freedom" -> "Who does NOT love freedom?".
+                "Everyone loves freedom" → "Who does NOT love freedom?".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 Assertive <===> Interrogative Rhetorical.
+                👉 Assertive ↔ Interrogative Rhetorical.
               </div>
             </div>
           </div>
@@ -323,20 +323,20 @@ export default function Topic7() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-blue-400 block font-mono">Affirmative -> Negative</span>
-                <p className="text-xs text-slate-300">"He is honest" -> "He is not dishonest"</p>
+                <span className="text-xs font-bold text-blue-400 block font-mono">Affirmative → Negative</span>
+                <p className="text-xs text-slate-300">"He is honest" → "He is not dishonest"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-emerald-400 block font-mono">Assertive -> Question</span>
-                <p className="text-xs text-slate-300">"Nobody can fly" -> "Who can fly?"</p>
+                <span className="text-xs font-bold text-emerald-400 block font-mono">Assertive → Question</span>
+                <p className="text-xs text-slate-300">"Nobody can fly" → "Who can fly?"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-amber-400 block font-mono">Exclamatory -> Assertive</span>
-                <p className="text-xs text-slate-300">"What a storm!" -> "It was a great storm"</p>
+                <span className="text-xs font-bold text-amber-400 block font-mono">Exclamatory → Assertive</span>
+                <p className="text-xs text-slate-300">"What a storm!" → "It was a great storm"</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">Optative -> Assertive</span>
-                <p className="text-xs text-slate-300">"May you prosper" -> "I pray you may..."</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">Optative → Assertive</span>
+                <p className="text-xs text-slate-300">"May you prosper" → "I pray you may..."</p>
               </div>
             </div>
           </div>
@@ -359,7 +359,7 @@ export default function Topic7() {
                 <span>সহজ ভাষায় বাক্য রূপান্তর:</span>
               </div>
               <p className="leading-relaxed text-slate-200">
-                Transformation হলো বাক্যের বাহ্যিক রূপ বা পোশাক বদলানো, কিন্তু অন্তর্নিহিত অর্থ সম্পূর্ণ অপরিবর্তিত রাখা। যেমন: 'সে সৎ' -> 'সে অসৎ নয়'।
+                Transformation হলো বাক্যের বাহ্যিক রূপ বা পোশাক বদলানো, কিন্তু অন্তর্নিহিত অর্থ সম্পূর্ণ অপরিবর্তিত রাখা। যেমন: 'সে সৎ' → 'সে অসৎ নয়'।
               </p>
             </div>
           )}

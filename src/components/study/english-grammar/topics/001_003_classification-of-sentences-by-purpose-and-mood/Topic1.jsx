@@ -135,7 +135,7 @@ export default function Topic1() {
                 <span>1. Yes/No Questions (Flip the Helper)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Swadeep is coding" -> Flip 'is': "[Is] Swadeep coding?". "They study" -> Add dummy 'do': "[Do] they study?".
+                "Swadeep is coding" → Flip 'is': "[Is] Swadeep coding?". "They study" → Add dummy 'do': "[Do] they study?".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
                 👉 Helper Verb + Subject + Main Verb ... ?
@@ -202,7 +202,7 @@ export default function Topic1() {
                 <span>সহজ ভাষায় প্রশ্ন তৈরির নিয়ম:</span>
               </div>
               <p className="leading-relaxed text-slate-200">
-                ইংরেজিতে প্রশ্ন করতে হলে Auxiliary Verb-কে Subject-এর আগে আনতে হয় (Subject-Auxiliary Inversion)। যেমন: 'You are going' -> 'Are you going?'; 'Why did you go?' (কখনো 'Why you went?' নয়)।
+                ইংরেজিতে প্রশ্ন করতে হলে Auxiliary Verb-কে Subject-এর আগে আনতে হয় (Subject-Auxiliary Inversion)। যেমন: 'You are going' → 'Are you going?'; 'Why did you go?' (কখনো 'Why you went?' নয়)।
               </p>
             </div>
           )}
@@ -238,7 +238,7 @@ export default function Topic1() {
                 <span>1. Yes/No Questions (Flip the Helper)</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "Swadeep is coding" -> Flip 'is': "[Is] Swadeep coding?". "They study" -> Add dummy 'do': "[Do] they study?".
+                "Swadeep is coding" → Flip 'is': "[Is] Swadeep coding?". "They study" → Add dummy 'do': "[Do] they study?".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
                 👉 Helper Verb + Subject + Main Verb ... ?
@@ -305,7 +305,7 @@ export default function Topic1() {
                 <span>সহজ ভাষায় প্রশ্ন তৈরির নিয়ম:</span>
               </div>
               <p className="leading-relaxed text-slate-200">
-                ইংরেজিতে প্রশ্ন করতে হলে Auxiliary Verb-কে Subject-এর আগে আনতে হয় (Subject-Auxiliary Inversion)। যেমন: 'You are going' -> 'Are you going?'; 'Why did you go?' (কখনো 'Why you went?' নয়)।
+                ইংরেজিতে প্রশ্ন করতে হলে Auxiliary Verb-কে Subject-এর আগে আনতে হয় (Subject-Auxiliary Inversion)। যেমন: 'You are going' → 'Are you going?'; 'Why did you go?' (কখনো 'Why you went?' নয়)।
               </p>
             </div>
           )}

@@ -59,7 +59,7 @@ export default function Topic8() {
     {
       student: "Ankita",
       task: "Universal Rhetorical Interrogative Transformation",
-      badAttempt: "Everyone wishes to be happy. -> Does everyone wish to be happy? ❌",
+      badAttempt: "Everyone wishes to be happy. → Does everyone wish to be happy? ❌",
       solution: "Who does not wish to be happy? ✅",
       breakdown: "A yes/no question alters the pragmatic intent. 'Everyone' demands the negative rhetorical formula 'Who does not...?'.",
       breakdownBn: "'Everyone' থাকলে শুধু সাধারণ প্রশ্ন নয়, বরং 'Who does not...?' অলংকারিক প্রশ্ন করতে হয়।"

@@ -1,0 +1,125 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.007: FUTURE EXPRESSIONS, MODAL ASPECTS & PROSPECTIVE TIMELINES
+================================================================================
+
+1. THE MULTI-FACETED FUTURE IN ENGLISH
+--------------------------------------------------------------------------------
+Unlike Latin or French, English has no single inflectional future verb tense. 
+Instead, future time is expressed through 5 nuanced syntactic structures depending 
+on intentionality, evidence, official scheduling, and immediacy.
+
++------------------------------------------------------------------------------+
+| 1. THE 5 CORE WAYS TO EXPRESS FUTURE TIME                                    |
++------------------------------------------------------------------------------+
+  [A] SIMPLE FUTURE (will / shall + V1):
+      - Spontaneous decisions made AT the moment of speaking:
+        "The phone is ringing. I WILL answer it."
+      - Unplanned offers, promises, and threats:
+        "I will help you with your React project tomorrow."
+      - Predictions based on personal opinion, belief, or hope:
+        "I think India WILL win the championship."
+
+  [B] 'BE GOING TO + V1':
+      - Pre-meditated intentions/plans formed BEFORE the moment of speaking:
+        "Swadeep is GOING TO purchase a new laptop next Saturday."
+      - Predictions based on VISIBLE PRESENT EVIDENCE (sensory certainty):
+        "Look at those heavy black clouds! It IS GOING TO rain."
+        "Watch out! That ladder IS GOING TO collapse."
+
+  [C] PRESENT CONTINUOUS (am / is / are + V-ing):
+      - Definite personal arrangements where time, date, and other parties are fixed:
+        "We ARE MEETING the director tomorrow at 11:30 AM."
+        "She IS FLYING to London next Tuesday (tickets already booked)."
+
+  [D] SIMPLE PRESENT (V1 / V5 -s/-es):
+      - Fixed official timetables, public transportation, and institutional schedules:
+        "The Rajdhani Express LEAVES at 4:45 PM tomorrow."
+        "The semester examination COMMENCES on 15th November."
+
+  [E] 'BE ABOUT TO + V1' & 'BE TO + V1':
+      - Immediate impending future:
+        "Hurry up! The train IS ABOUT TO depart."
+      - Formal duties, official arrangements, and commands:
+        "The Prime Minister IS TO inaugurate the bridge tomorrow."
+
+
++------------------------------------------------------------------------------+
+| 2. FUTURE CONTINUOUS TENSE (will / shall be + V-ing)                         |
++------------------------------------------------------------------------------+
+  * FORMULA: Subject + will be + Present Participle (V-ing)
+  * USAGE:
+      [A] Action in progress at a specific designated future time:
+          - "At 8:00 PM tonight, I will be attending a live webinar."
+      [B] Routine events expected in the ordinary course of things:
+          - "I will be seeing Mr. Bose at the office tomorrow anyway."
+      [C] Polite inquiries about someone's future plans:
+          - "Will you be using your vehicle this evening?"
+
+
++------------------------------------------------------------------------------+
+| 3. FUTURE PERFECT TENSE (will / shall have + V3)                             |
++------------------------------------------------------------------------------+
+  * THE CONCEPT OF FUTURE COMPLETION BEFORE A DEADLINE:
+    Used to indicate an action that will be fully finished BEFORE a specific 
+    point of time or another event in the future.
+
+  * MANDATORY CANONICAL FORMULAS:
+      Formula 1 (with 'BY + Future Time'):
+        BY + [Specific Future Time], Subject + will have + V3
+        - "BY next Friday, Swadeep WILL HAVE COMPLETED his dissertation."
+        - "BY 5:00 PM, they WILL HAVE PACKED all the luggage."
+
+      Formula 2 (with 'BY THE TIME + Present Simple'):
+        BY THE TIME + [Subordinate Clause: Present Simple (V1/V5)], [Main Clause: will have + V3]
+        - "BY THE TIME you REACH home, mother WILL HAVE PREPARED dinner."
+        - "BY THE TIME the police ARRIVE, the thief WILL HAVE ESCAPED."
+      
+      * FATAL TRAP: Never use 'will' after 'By the time'!
+        - INCORRECT: By the time you will reach home...
+        - CORRECT:   By the time you REACH home...
+
+
++------------------------------------------------------------------------------+
+| 4. FUTURE PERFECT CONTINUOUS (will have been + V-ing)                        |
++------------------------------------------------------------------------------+
+  * FORMULA: Subject + will have been + V-ing + [for + duration] + [by + future marker]
+  * USAGE:
+      Measures the duration of an ongoing activity up to a specific milestone in the future:
+      - "By next August, Debangshu WILL HAVE BEEN CODING in JavaScript FOR five years."
+
+
+2. THE SUBORDINATE TIME & CONDITION PROHIBITION RULE (COMPETITIVE EXAM CRUCIAL)
+--------------------------------------------------------------------------------
+In English syntax, when a sentence refers to future time, the SUBORDINATE clause 
+introduced by conjunctions of TIME (when, as soon as, before, after, until, while) 
+or CONDITION (if, unless, provided that, in case) MUST use SIMPLE PRESENT, NOT Future:
+
+  * RULE: [If / When / As soon as + SIMPLE PRESENT] + [Main Clause: WILL + V1]
+  * EXAMPLES:
+      - INCORRECT: If it WILL rain tomorrow, we will cancel the picnic.
+      - CORRECT:   If it RAINS tomorrow, we will cancel the picnic.
+
+      - INCORRECT: As soon as he WILL arrive, we will start the meeting.
+      - CORRECT:   As soon as he ARRIVES, we will start the meeting.
+
+      - INCORRECT: Unless you WILL work hard, you will not pass.
+      - CORRECT:   Unless you WORK hard, you will not pass.
+
+
+3. BENGALI GUIDANCE & COMPARATIVE ANALYSIS (বাংলা বিশ্লেষণ)
+--------------------------------------------------------------------------------
+  * বাংলা ভাষায় ভবিষ্যতের সব ক্ষেত্রেই 'ব / বে / বেন' (যাব, খাবে) ব্যবহৃত হয়, কিন্তু
+    ইংরেজিতে পরিস্থিতি অনুযায়ী ৫টি রূপ রয়েছে:
+    - পূর্ব পরিকল্পনা ছাড়া তাত্ক্ষণিক সিদ্ধান্ত: 'I will help you.'
+    - পূর্ব পরিকল্পিত ইচ্ছা / দৃশ্যমান প্রমাণ: 'I am going to start / It is going to rain.'
+    - নির্ধারিত ব্যবস্থা (Arrangement): 'We are having an exam tomorrow.'
+    - অফিসিয়াল সময়সূচি (Timetable): 'The train leaves at 9 AM.'
+
+  * শর্তযুক্ত ও সময়মূলক ক্লজে 'will' নিষিদ্ধ:
+    - ভুল: If you will come, I will go.
+    - সঠিক: If you COME, I will go.
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.007
+================================================================================

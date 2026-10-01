@@ -43,21 +43,21 @@ export default function Topic7() {
       title: "How... (Adjective / Adverb)",
       exclamatory: "How eloquently the debater presented her arguments!",
       assertive: "The debater presented her arguments very eloquently.",
-      formula: "How + Adv/Adj + S + V --> S + V + very + Adv/Adj.",
+      formula: "How + Adv/Adj + S + V -→ S + V + very + Adv/Adj.",
       formulaBn: "'How eloquently' পরিবর্তিত হয়ে 'very eloquently' হয়।"
     },
     {
       title: "Unreal Subjunctive Wishes (O that / If only)",
       exclamatory: "O that I were a youth once again!",
       assertive: "I earnestly wish that I were a youth once again.",
-      formula: "O that / If only + S + were --> I earnestly wish that + S + were...",
+      formula: "O that / If only + S + were -→ I earnestly wish that + S + were...",
       formulaBn: "'O that I were' অবাস্তব ইচ্ছা প্রকাশ করে, যা 'I earnestly wish that...' দিয়ে রূপান্তরিত হয়।"
     },
     {
       title: "Emotive Interjection ('Alas!')",
       exclamatory: "Alas! The noble philanthropist is no more.",
       assertive: "It is a matter of profound sorrow that the noble philanthropist is no more.",
-      formula: "Alas! --> It is a matter of profound sorrow that...",
+      formula: "Alas! -→ It is a matter of profound sorrow that...",
       formulaBn: "'Alas!' উঠে গিয়ে 'It is a matter of profound sorrow that...' বসে।"
     }
   ];
@@ -200,10 +200,10 @@ export default function Topic7() {
                 <span>1. 'How' becomes 'VERY / EXTREMELY'</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "How sweet the rose is!" -> Tone down the excitement: "The rose is VERY sweet.".
+                "How sweet the rose is!" → Tone down the excitement: "The rose is VERY sweet.".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 How + Adjective ===> Subject + Verb + VERY + Adjective.
+                👉 How + Adjective =→ Subject + Verb + VERY + Adjective.
               </div>
             </div>
 
@@ -213,10 +213,10 @@ export default function Topic7() {
                 <span>2. 'What a' becomes 'A VERY / A GREAT'</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "What a fool he was!" -> "He was a GREAT fool.". "What a pity!" -> "It is a GREAT pity.".
+                "What a fool he was!" → "He was a GREAT fool.". "What a pity!" → "It is a GREAT pity.".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 What a + Noun ===> It is a GREAT / VERY + Noun.
+                👉 What a + Noun =→ It is a GREAT / VERY + Noun.
               </div>
             </div>
           </div>
@@ -231,20 +231,20 @@ export default function Topic7() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-emerald-400 block font-mono">How -> Very</span>
-                <p className="text-xs text-slate-300">"How fast he runs!" -> "He runs very fast."</p>
+                <span className="text-xs font-bold text-emerald-400 block font-mono">How → Very</span>
+                <p className="text-xs text-slate-300">"How fast he runs!" → "He runs very fast."</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-blue-400 block font-mono">What a -> Great</span>
-                <p className="text-xs text-slate-300">"What a victory!" -> "It was a great victory."</p>
+                <span className="text-xs font-bold text-blue-400 block font-mono">What a → Great</span>
+                <p className="text-xs text-slate-300">"What a victory!" → "It was a great victory."</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-rose-400 block font-mono">Alas! -> Sorrow</span>
-                <p className="text-xs text-slate-300">"Alas!" -> "It is a matter of sorrow that..."</p>
+                <span className="text-xs font-bold text-rose-400 block font-mono">Alas! → Sorrow</span>
+                <p className="text-xs text-slate-300">"Alas!" → "It is a matter of sorrow that..."</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">If only -> Wish</span>
-                <p className="text-xs text-slate-300">"If only I were young!" -> "I wish I were young."</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">If only → Wish</span>
+                <p className="text-xs text-slate-300">"If only I were young!" → "I wish I were young."</p>
               </div>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default function Topic7() {
               Everyday Exemplar in Context
             </span>
             <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
-              "What a magnificent demonstration Swadeep presented! <===> Swadeep presented a truly magnificent demonstration."
+              "What a magnificent demonstration Swadeep presented! ↔ Swadeep presented a truly magnificent demonstration."
             </div>
           </div>
 
@@ -280,10 +280,10 @@ export default function Topic7() {
                 <span>1. 'How' becomes 'VERY / EXTREMELY'</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "How sweet the rose is!" -> Tone down the excitement: "The rose is VERY sweet.".
+                "How sweet the rose is!" → Tone down the excitement: "The rose is VERY sweet.".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 How + Adjective ===> Subject + Verb + VERY + Adjective.
+                👉 How + Adjective =→ Subject + Verb + VERY + Adjective.
               </div>
             </div>
 
@@ -293,10 +293,10 @@ export default function Topic7() {
                 <span>2. 'What a' becomes 'A VERY / A GREAT'</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                "What a fool he was!" -> "He was a GREAT fool.". "What a pity!" -> "It is a GREAT pity.".
+                "What a fool he was!" → "He was a GREAT fool.". "What a pity!" → "It is a GREAT pity.".
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
-                👉 What a + Noun ===> It is a GREAT / VERY + Noun.
+                👉 What a + Noun =→ It is a GREAT / VERY + Noun.
               </div>
             </div>
           </div>
@@ -311,20 +311,20 @@ export default function Topic7() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-emerald-400 block font-mono">How -> Very</span>
-                <p className="text-xs text-slate-300">"How fast he runs!" -> "He runs very fast."</p>
+                <span className="text-xs font-bold text-emerald-400 block font-mono">How → Very</span>
+                <p className="text-xs text-slate-300">"How fast he runs!" → "He runs very fast."</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-blue-400 block font-mono">What a -> Great</span>
-                <p className="text-xs text-slate-300">"What a victory!" -> "It was a great victory."</p>
+                <span className="text-xs font-bold text-blue-400 block font-mono">What a → Great</span>
+                <p className="text-xs text-slate-300">"What a victory!" → "It was a great victory."</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-rose-400 block font-mono">Alas! -> Sorrow</span>
-                <p className="text-xs text-slate-300">"Alas!" -> "It is a matter of sorrow that..."</p>
+                <span className="text-xs font-bold text-rose-400 block font-mono">Alas! → Sorrow</span>
+                <p className="text-xs text-slate-300">"Alas!" → "It is a matter of sorrow that..."</p>
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-                <span className="text-xs font-bold text-purple-400 block font-mono">If only -> Wish</span>
-                <p className="text-xs text-slate-300">"If only I were young!" -> "I wish I were young."</p>
+                <span className="text-xs font-bold text-purple-400 block font-mono">If only → Wish</span>
+                <p className="text-xs text-slate-300">"If only I were young!" → "I wish I were young."</p>
               </div>
             </div>
           </div>
@@ -335,7 +335,7 @@ export default function Topic7() {
               Everyday Exemplar in Context
             </span>
             <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
-              "What a magnificent demonstration Swadeep presented! <===> Swadeep presented a truly magnificent demonstration."
+              "What a magnificent demonstration Swadeep presented! ↔ Swadeep presented a truly magnificent demonstration."
             </div>
           </div>
 

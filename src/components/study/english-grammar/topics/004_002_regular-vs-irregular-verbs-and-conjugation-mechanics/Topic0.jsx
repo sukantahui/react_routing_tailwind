@@ -210,7 +210,7 @@ export default function Topic0() {
         }
       ],
       rule: "'Found' as a base verb is regular (founded, founded) and means establishing an institution.",
-      ruleBn: "খুঁজে পাওয়া অর্থে 'find -> found -> found'; কোনো প্রতিষ্ঠান স্থাপন করা অর্থে মূল Verb 'found -> founded -> founded'।"
+      ruleBn: "খুঁজে পাওয়া অর্থে 'find → found → found'; কোনো প্রতিষ্ঠান স্থাপন করা অর্থে মূল Verb 'found → founded → founded'।"
     }
   ];
 
@@ -607,7 +607,7 @@ export default function Topic0() {
               },
               {
                 question: "Why is 'broadcasted' or 'telecasted' considered incorrect in formal English?",
-                answer: "Compounds formed with the root 'cast' follow the invariable 3-form pattern (cast -> cast -> cast). In standard formal English, the past forms remain 'broadcast' and 'telecast' without adding '-ed'."
+                answer: "Compounds formed with the root 'cast' follow the invariable 3-form pattern (cast -> cast → cast). In standard formal English, the past forms remain 'broadcast' and 'telecast' without adding '-ed'."
               },
               {
                 question: "What is the difference between 'drunk' and 'drunken'?",

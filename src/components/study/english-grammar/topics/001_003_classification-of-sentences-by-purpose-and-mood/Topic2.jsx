@@ -169,7 +169,7 @@ export default function Topic2() {
                 Positive Statement takes a NEGATIVE Tag ("He is ready, [isn't he?]"). Negative Statement takes a POSITIVE Tag ("He isn't ready, [is he?]").
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-blue-200">
-                👉 Positive <===> Negative Polarity.
+                👉 Positive ↔ Negative Polarity.
               </div>
             </div>
 
@@ -179,7 +179,7 @@ export default function Topic2() {
                 <span>2. The 3 Most Famous Exceptions</span>
               </div>
               <p className="text-slate-200 text-xs leading-relaxed">
-                'I am' -> 'aren't I?'; 'Let's' -> 'shall we?'; 'Don't do that' -> 'will you?'.
+                'I am' → 'aren't I?'; 'Let's' → 'shall we?'; 'Don't do that' → 'will you?'.
               </p>
               <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono text-emerald-200">
                 👉 "I am right, aren't I?" | "Let's begin, shall we?"
@@ -210,7 +210,7 @@ export default function Topic2() {
               </div>
               <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-1.5">
                 <span className="text-xs font-bold text-rose-400 block font-mono">Silent Negatives</span>
-                <p className="text-xs text-slate-300">hardly, seldom, nobody -> Positive Tag</p>
+                <p className="text-xs text-slate-300">hardly, seldom, nobody → Positive Tag</p>
               </div>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function Topic2() {
               Everyday Exemplar in Context
             </span>
             <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-sm text-center text-emerald-300">
-              "Swadeep rarely misses a class, does he? (Rarely is negative -> Positive tag)."
+              "Swadeep rarely misses a class, does he? (Rarely is negative → Positive tag)."
             </div>
           </div>
 

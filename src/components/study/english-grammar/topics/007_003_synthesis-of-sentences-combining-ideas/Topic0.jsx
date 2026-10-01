@@ -47,50 +47,96 @@ export default function Topic0() {
     participle: {
       name: "1. Participles",
       tag: "Same Subject / Sequential Action",
-      input: ["He heard a loud explosion.", "He rushed outside immediately."],
+      input: ["He heard a loud explosion. [Finite Verb: heard]", "He rushed outside immediately. [Finite Verb: rushed]"],
       output: "Hearing a loud explosion, he rushed outside immediately.",
+      breakdown: {
+        nonFinite: "Hearing a loud explosion,",
+        nonFiniteRole: "Present Participle Phrase (Non-Finite)",
+        finitePart: "he rushed outside immediately.",
+        finiteRole: "Principal Clause (Single Finite Verb: 'rushed')"
+      },
+      finiteBudget: "Input: 2 Finite Verbs ('heard', 'rushed') → 'heard' converted to Participle ('Hearing') → EXACTLY 1 Finite Verb ('rushed').",
       mechanism: "Converts finite verb 1 into present participle phrase 'Hearing...', leaving exactly 1 finite verb ('rushed').",
-      bnNote: "একই Subject দুটি কাজ পর পর করলে ১ম Verb-টিকে Participle (V-ing)-এ রূপান্তর করা হয়।"
+      bnNote: "একই Subject দুটি কাজ পর পর করলে ১ম Verb-টিকে Participle (Hearing)-এ রূপান্তর করে সমাপিকা ক্রিয়া মাত্র ১টিতে নামিয়ে আনা হয়।"
     },
     apposition: {
       name: "2. Noun in Apposition",
       tag: "Renaming or Describing Subject",
-      input: ["Rabindranath Tagore was a Nobel laureate.", "He founded Visva-Bharati."],
+      input: ["Rabindranath Tagore was a Nobel laureate. [Finite: was]", "He founded Visva-Bharati. [Finite: founded]"],
       output: "Rabindranath Tagore, a Nobel laureate, founded Visva-Bharati.",
+      breakdown: {
+        subject: "Rabindranath Tagore,",
+        subjectRole: "Subject Noun",
+        appositive: "a Nobel laureate,",
+        appositiveRole: "Noun in Apposition (Non-Finite Identifier)",
+        finitePart: "founded Visva-Bharati.",
+        finiteRole: "Principal Predicate (Single Finite Verb: 'founded')"
+      },
+      finiteBudget: "Input: 2 Finite Verbs ('was', 'founded') → Copula 'was' eliminated → EXACTLY 1 Finite Verb ('founded').",
       mechanism: "Replaces the copular verb clause with an appositive noun phrase modifying Tagore.",
-      bnNote: "Noun-এর পাশে পরিচয়জ্ঞাপক Phrase কমার মধ্যে বসিয়ে 'was' ভার্বটিকে বর্জন করা হয়।"
+      bnNote: "Noun-এর পাশে পরিচয়জ্ঞাপক Phrase কমার মধ্যে বসিয়ে 'was' ভার্বটিকে বর্জন করা হয়।"
     },
     prep_gerund: {
       name: "3. Preposition + Gerund",
       tag: "Immediate Sequence / Concession",
-      input: ["He received the appointment letter.", "He celebrated with his family."],
+      input: ["He received the appointment letter. [Finite: received]", "He celebrated with his family. [Finite: celebrated]"],
       output: "On receiving the appointment letter, he celebrated with his family.",
+      breakdown: {
+        nonFinite: "On receiving the appointment letter,",
+        nonFiniteRole: "Preposition + Gerund Phrase (Non-Finite)",
+        finitePart: "he celebrated with his family.",
+        finiteRole: "Principal Clause (Single Finite Verb: 'celebrated')"
+      },
+      finiteBudget: "Input: 2 Finite Verbs ('received', 'celebrated') → 'received' converted to Gerund ('receiving') → 1 Finite Verb ('celebrated').",
       mechanism: "Uses preposition 'On' + gerund 'receiving' to establish temporal sequence without a second finite verb.",
-      bnNote: "'On / After / In spite of' + Gerund (V-ing) ব্যবহার করে Simple Sentence গঠন।"
+      bnNote: "'On / After / In spite of' + Gerund (receiving) ব্যবহার করে ২য় ভার্বটিকে অসমাপিকায় রূপান্তর করা হয়।"
     },
     nominative_absolute: {
       name: "4. Nominative Absolute",
       tag: "Different Subjects + Cause-Effect",
-      input: ["The sun set.", "The farmers returned to their village."],
+      input: ["The sun set. [Subject 1: The sun, Finite: set]", "The farmers returned to their village. [Subject 2: The farmers, Finite: returned]"],
       output: "The sun having set, the farmers returned to their village.",
+      breakdown: {
+        nonFinite: "The sun having set,",
+        nonFiniteRole: "Nominative Absolute (Subject 1 + Perfect Participle)",
+        finitePart: "the farmers returned to their village.",
+        finiteRole: "Principal Clause (Subject 2 + Finite Verb: 'returned')"
+      },
+      finiteBudget: "Subjects are different ('The sun' ≠ 'The farmers') → 'The sun having set' stands as an absolute modifier without forming a separate clause.",
       mechanism: "Because subjects are different ('The sun' vs 'The farmers'), 'The sun having set' stands as an absolute participle phrase.",
-      bnNote: "উভয় বাক্যের Subject আলাদা হলে ১ম Subject + having + V3 (Nominative Absolute) বসে।"
+      bnNote: "উভয় বাক্যের Subject আলাদা হলে ১ম Subject + having + V3 (Nominative Absolute) বসে; এটি কিন্তু কোনো Clause নয়।"
     },
     infinitive: {
       name: "5. Infinitives (to + V1)",
       tag: "Expressing Purpose or Outcome",
-      input: ["He went to Oxford University.", "He wanted to study astrophysics."],
+      input: ["He went to Oxford University. [Finite: went]", "He wanted to study astrophysics. [Finite: wanted]"],
       output: "He went to Oxford University to study astrophysics.",
+      breakdown: {
+        finitePart: "He went to Oxford University",
+        finiteRole: "Principal Clause (Single Finite Verb: 'went')",
+        nonFinite: "to study astrophysics.",
+        nonFiniteRole: "Infinitive Phrase of Purpose (to + V1: Non-Finite)"
+      },
+      finiteBudget: "Input: 2 Finite Verbs ('went', 'wanted') → 'wanted' eliminated and replaced by purposeful infinitive 'to study' → 1 Finite Verb.",
       mechanism: "Compresses the secondary clause into a purposeful infinitive phrase ('to study').",
-      bnNote: "উদ্দেশ্য প্রকাশ করতে Infinitive ('to + V1') ব্যবহার করা হয়।"
+      bnNote: "উদ্দেশ্য প্রকাশ করতে ২য় বাক্যের 'wanted' তুলে দিয়ে Infinitive ('to + V1: to study') ব্যবহার করা হয়।"
     },
     adverb: {
       name: "6. Adverb / Adverbial Phrase",
       tag: "Modifying Action Concisely",
-      input: ["The gladiator died in the arena.", "His death was heroic."],
+      input: ["The gladiator died in the arena. [Finite: died]", "His death was heroic. [Finite: was]"],
       output: "The gladiator died heroically in the arena.",
+      breakdown: {
+        finitePart: "The gladiator died",
+        finiteRole: "Subject + Single Finite Verb ('died')",
+        nonFinite: "heroically",
+        nonFiniteRole: "Manner Adverb (replaces 2nd sentence)",
+        suffix: "in the arena.",
+        suffixRole: "Adverbial Phrase of Place"
+      },
+      finiteBudget: "Input: 2 Sentences with 2 Finite Verbs ('died', 'was') → 'was heroic' condensed into single adverb 'heroically' → 1 Finite Verb.",
       mechanism: "Converts the predicate adjective 'heroic' into the single manner adverb 'heroically'.",
-      bnNote: "একটি পূর্ণাঙ্গ বাক্যকে একটিমাত্র Adverb (যেমন: heroically, undoubtedly)-এ রূপান্তর।"
+      bnNote: "একটি পূর্ণাঙ্গ বাক্য 'His death was heroic'-কে একটিমাত্র Adverb 'heroically'-তে রূপান্তর করে Finite Verb বিলুপ্ত করা হয়েছে।"
     }
   };
 
@@ -187,11 +233,73 @@ export default function Topic0() {
               </div>
             </div>
 
-            {/* Synthesized Output */}
-            <div className="space-y-2">
-              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Synthesized Simple Sentence:</span>
-              <div className="p-4 bg-emerald-950/30 rounded-xl border border-emerald-500/40 text-sm font-mono text-emerald-200">
-                "{simpleMethods[activeMethod].output}"
+            {/* Synthesized Output with Segmented Pill Breakdown */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                  Synthesized Simple Sentence (Segmented Architecture):
+                </span>
+                <span className="text-[10px] font-mono text-amber-300 bg-amber-950 px-2.5 py-0.5 rounded border border-amber-800">
+                  Golden Law: Exactly 1 Finite Verb
+                </span>
+              </div>
+
+              <div className="p-4 bg-slate-900 rounded-xl border border-slate-800 space-y-3">
+                <div className="flex items-center flex-wrap gap-2 text-xs sm:text-sm font-mono">
+                  {simpleMethods[activeMethod].breakdown.subject && (
+                    <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700/60 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-white font-mono">"{simpleMethods[activeMethod].breakdown.subject}"</span>
+                      <span className="text-[10px] uppercase font-sans text-slate-400 font-semibold sm:border-l sm:border-slate-700 sm:pl-1.5">
+                        {simpleMethods[activeMethod].breakdown.subjectRole}
+                      </span>
+                    </span>
+                  )}
+
+                  {simpleMethods[activeMethod].breakdown.appositive && (
+                    <span className="px-3 py-1.5 rounded-lg bg-amber-950/80 text-amber-200 border-2 border-amber-500 shadow-md shadow-amber-900/30 flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-amber-100 font-mono">[{simpleMethods[activeMethod].breakdown.appositive}]</span>
+                      <span className="text-[10px] uppercase font-sans text-amber-300 font-bold bg-amber-900/90 px-1.5 py-0.5 rounded border border-amber-400">
+                        ★ {simpleMethods[activeMethod].breakdown.appositiveRole}
+                      </span>
+                    </span>
+                  )}
+
+                  {simpleMethods[activeMethod].breakdown.nonFinite && (
+                    <span className="px-3 py-1.5 rounded-lg bg-amber-950/80 text-amber-200 border-2 border-amber-500 shadow-md shadow-amber-900/30 flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-amber-100 font-mono">[{simpleMethods[activeMethod].breakdown.nonFinite}]</span>
+                      <span className="text-[10px] uppercase font-sans text-amber-300 font-bold bg-amber-900/90 px-1.5 py-0.5 rounded border border-amber-400">
+                        ★ {simpleMethods[activeMethod].breakdown.nonFiniteRole}
+                      </span>
+                    </span>
+                  )}
+
+                  {simpleMethods[activeMethod].breakdown.finitePart && (
+                    <span className="px-3 py-1.5 rounded-lg bg-emerald-950/80 text-emerald-200 border-2 border-emerald-500 shadow-md shadow-emerald-900/30 flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-emerald-100 font-mono">"{simpleMethods[activeMethod].breakdown.finitePart}"</span>
+                      <span className="text-[10px] uppercase font-sans text-emerald-300 font-bold bg-emerald-900/90 px-1.5 py-0.5 rounded border border-emerald-400">
+                        ★ {simpleMethods[activeMethod].breakdown.finiteRole}
+                      </span>
+                    </span>
+                  )}
+
+                  {simpleMethods[activeMethod].breakdown.suffix && (
+                    <span className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-700/60 shadow-sm flex flex-col sm:flex-row sm:items-center gap-1.5">
+                      <span className="font-bold text-white font-mono">"{simpleMethods[activeMethod].breakdown.suffix}"</span>
+                      <span className="text-[10px] uppercase font-sans text-slate-400 font-semibold sm:border-l sm:border-slate-700 sm:pl-1.5">
+                        {simpleMethods[activeMethod].breakdown.suffixRole}
+                      </span>
+                    </span>
+                  )}
+                </div>
+
+                <div className="text-xs text-slate-400 space-y-0.5 pt-2 border-t border-slate-800/80">
+                  <p className="text-slate-300 font-sans">
+                    <strong className="text-slate-400">Full Combined Sentence:</strong> "{simpleMethods[activeMethod].output}"
+                  </p>
+                  <p className="text-amber-400/90 font-mono text-[11px] pt-1">
+                    ⚡ <strong>Finite Verb Budget Audit:</strong> {simpleMethods[activeMethod].finiteBudget}
+                  </p>
+                </div>
               </div>
             </div>
 

@@ -113,7 +113,7 @@ export default function Topic0() {
       rules: [
         {
           title: "Rule 11: SANAM Variable Pronouns (Some, Any, None, All, Most)",
-          formula: "All/Some/None + of + Uncountable -> SINGULAR | of + Countable Plural -> PLURAL",
+          formula: "All/Some/None + of + Uncountable -> SINGULAR | of + Countable Plural → PLURAL",
           example: "All the milk IS spoiled. / All the students ARE present.",
           incorrect: "All the milk are spoiled.",
           explanationBn: "'All of'-এর পর Uncountable Noun থাকলে Singular (is); Plural Noun থাকলে Plural (are) বসে।"

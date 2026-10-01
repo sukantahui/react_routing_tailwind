@@ -1,0 +1,124 @@
+================================================================================
+ENGLISH GRAMMAR MASTER SERIES: ZERO TO EXPERT
+MODULE 004.006: THE PAST TENSE SYSTEM, NARRATIVE TIMELINES & ASPECTUAL SEQUENCING
+================================================================================
+
+1. THE PAST TENSE ARCHITECTURE & 4 ASPECTS
+--------------------------------------------------------------------------------
+Past tense locates an event or state completely PRIOR to the moment of speaking.
+English provides four aspectual lenses to convey duration, completion, and relative chronology.
+
++------------------------------------------------------------------------------+
+| 1. SIMPLE PAST TENSE (Subject + V2 Past Form)                                |
++------------------------------------------------------------------------------+
+  * FORMULA:
+      Affirmative:   Subject + V2 (Past Form of Verb)
+      Negative:      Subject + did not (didn't) + V1 (Base Form) [FATAL TRAP: NEVER V2 after did!]
+      Interrogative: Did + Subject + V1 (Base Form)?
+  * CORE USAGE:
+      [A] Completed actions anchored in finished past time:
+          - "Alexander invaded India in 326 BC."
+          - "She visited London last summer."
+      [B] Series of chronological events in narrative prose:
+          - "He entered the room, switched on the light, and opened the safe."
+      [C] Definite Past Time Markers (Mandatory Trigger for Simple Past):
+          yesterday, ago (two days ago), last night / last week / last year, 
+          in 1947, on Monday, the other day, just now.
+  * FATAL TRAP:
+      - INCORRECT: Did you went to school yesterday?
+      - CORRECT:   Did you GO to school yesterday? (Did + V1)
+
++------------------------------------------------------------------------------+
+| 2. PAST CONTINUOUS TENSE (Subject + was / were + V-ing)                      |
++------------------------------------------------------------------------------+
+  * FORMULA:
+      Singular (I, He, She, It, Singular Noun): was + V-ing
+      Plural (We, You, They, Plural Noun):       were + V-ing
+  * CORE USAGE:
+      [A] Action in progress at a precise point in the past:
+          - "At 9:00 PM yesterday, Debangshu was coding a React component."
+      [B] Interrupted Action (Background progress interrupted by sudden event):
+          Formula: [Past Continuous with WHILE/AS] + [Simple Past with WHEN]
+          - "While Swadeep was reading the grammar guide, the electricity went out."
+          - "I was sleeping when the phone rang."
+      [C] Parallel Simultaneous Past Actions:
+          - "While the teacher was writing on the board, the students were taking notes."
+
++------------------------------------------------------------------------------+
+| 3. PAST PERFECT TENSE (Subject + had + V3 Past Participle)                   |
++------------------------------------------------------------------------------+
+  * THE CONCEPT OF "PAST OF THE PAST" (PLUPERFECT):
+    When two separate actions happened in the past, the EARLIER (older) action 
+    MUST be in Past Perfect (had + V3), and the SUBSEQUENT (later) action MUST 
+    be in Simple Past (V2).
+  
+  * CANONICAL SEQUENCE FORMULAS:
+      Formula 1 (with BEFORE):
+        [Earlier Action: Past Perfect (had + V3)] + BEFORE + [Later Action: Simple Past (V2)]
+        - "The train HAD LEFT before we REACHED the station."
+        - "The patient HAD DIED before the doctor ARRIVED."
+      
+      Formula 2 (with AFTER):
+        [Later Action: Simple Past (V2)] + AFTER + [Earlier Action: Past Perfect (had + V3)]
+        - "We REACHED the station after the train HAD LEFT."
+        - "The doctor ARRIVED after the patient HAD DIED."
+
+      Formula 3 (with BY THE TIME):
+        BY THE TIME + [Later Action: Simple Past (V2)], [Earlier Action: Past Perfect (had + V3)]
+        - "By the time the fire brigade arrived, the villagers HAD EXTINGUISHED the fire."
+
+  * NEGATIVE INVERSION STRUCTURES (HIGH-FREQUENCY COMPETITIVE EXAM RULES):
+      Rule A: HARDLY / SCARCELY ... WHEN
+        Hardly/Scarcely + had + Subject + V3 + ... + WHEN + Subject + V2
+        - "Hardly HAD he ENTERED the hall WHEN the alarm RANG."
+      Rule B: NO SOONER ... THAN
+        No sooner + had + Subject + V3 + ... + THAN + Subject + V2
+        - "No sooner HAD the bell RUNG THAN the students LEFT the classroom."
+
++------------------------------------------------------------------------------+
+| 4. PAST PERFECT CONTINUOUS (Subject + had + been + V-ing)                    |
++------------------------------------------------------------------------------+
+  * FORMULA:
+      Subject + had been + Present Participle (V-ing) + [for / since + duration]
+  * CORE USAGE:
+      [A] Ongoing activity that continued over a duration UP TO another past event:
+          - "They HAD BEEN WALKING for four hours when they finally reached the base camp."
+          - "She felt exhausted because she HAD BEEN STUDYING all night."
+  * STATIVE VERB RESTRICTION:
+      Stative verbs (know, believe, understand, belong) cannot take progressive forms.
+      - INCORRECT: He had been knowing her for five years before they married.
+      - CORRECT:   He HAD KNOWN her for five years before they married. (Past Perfect Simple)
+
+
+2. EXPRESSING PAST HABITS: 'USED TO' VS 'WOULD' VS 'SIMPLE PAST'
+--------------------------------------------------------------------------------
++-------------------+----------------------------+-----------------------------+
+| STRUCTURE         | APPLICABLE ACTIONS         | CANONICAL EXAMPLES          |
++-------------------+----------------------------+-----------------------------+
+| USED TO + V1      | BOTH Past States (Stative) | - "I used to live in Delhi."|
+|                   | AND Repeated Past Actions  | - "He used to smoke daily." |
++-------------------+----------------------------+-----------------------------+
+| WOULD + V1        | ONLY Repeated Action Verbs | - "In childhood, we WOULD   |
+|                   | (STRICTLY NO STATIVE VERBS)|    play cricket every evening."|
+|                   |                            | - INCORRECT: He would live..|
++-------------------+----------------------------+-----------------------------+
+| SIMPLE PAST (V2)  | Past Facts, Habits, Single | - "He worked hard in 2020." |
+|                   | Events, or General Truths  |                             |
++-------------------+----------------------------+-----------------------------+
+
+
+3. BENGALI GUIDANCE & COMMON TRANSLATION MISCONCEPTIONS (বাংলা বিশ্লেষণ)
+--------------------------------------------------------------------------------
+  * অতীতে দুটি কাজের তুলনা:
+    অতীতে দুটি কাজ সম্পন্ন হলে যে কাজটি অপেক্ষাকৃত আগে ঘটেছিল তার জন্য 'had + V3' 
+    (Past Perfect) এবং যে কাজটি পরে ঘটেছিল তার জন্য 'V2' (Simple Past) বসে।
+    - "ডাক্তার আসিবার পূর্বে রোগীটি মারা গেল" -> The patient HAD DIED before the doctor CAME.
+    - "ডাক্তার আসিবার পর রোগীটি মারা গেল"   -> The patient DIED after the doctor HAD COME.
+
+  * 'Did'-এর পর সর্বদা Base Verb (V1) বসে, ভুলেও V2 ব্যবহার করবেন না:
+    - ভুল: Did you met him?
+    - সঠিক: Did you MEET him?
+
+================================================================================
+END OF STUDY NOTES - MODULE 004.006
+================================================================================
