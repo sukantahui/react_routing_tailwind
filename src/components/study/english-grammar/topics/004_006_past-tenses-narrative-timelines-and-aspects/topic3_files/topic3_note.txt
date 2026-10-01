@@ -1,0 +1,49 @@
+================================================================================
+MODULE 004_006: THE PAST TENSE SYSTEM & NARRATIVE TIMELINES
+TOPIC 3: CHRONOLOGICAL TIME CONNECTIVES ('BEFORE', 'AFTER', 'BY THE TIME')
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE THREE CORE CHRONOLOGICAL FORMULAS
+--------------------------------------------------------------------------------
+In English narrative prose and competitive examinations, three primary subordinating time connectives establish chronological sequencing between two past actions:
+
+(A) THE 'BEFORE' FORMULA:
+    Formula: [Earlier Action: Past Perfect] + BEFORE + [Later Action: Simple Past]
+    • The clause PRECEDING 'before' takes 'had + V3'.
+    • The clause FOLLOWING 'before' takes 'V2'.
+    • Example: The train HAD DEPARTED before we REACHED the station.
+    • Example: The patient HAD PASSED AWAY before the specialist ARRIVED.
+
+(B) THE 'AFTER' FORMULA:
+    Formula: [Later Action: Simple Past] + AFTER + [Earlier Action: Past Perfect]
+    • The clause PRECEDING 'after' takes 'V2'.
+    • The clause FOLLOWING 'after' takes 'had + V3'.
+    • Example: We REACHED the cinema hall after the movie HAD COMMENCED.
+    • Example: The doctor ARRIVED after the patient HAD DIED.
+
+(C) THE 'BY THE TIME' FORMULA (PAST DEADLINE):
+    Formula: BY THE TIME + [Later Action: Simple Past (V2)], [Earlier Action: Past Perfect (had + V3)]
+    • 'By the time' clause ALWAYS takes Simple Past (V2).
+    • The main clause ALWAYS takes Past Perfect (had + V3).
+    • Example: By the time the fire engines ARRIVED, the neighbors HAD EXTINGUISHED the fire.
+    • Example: By the time Swadeep SUBMITTED his project, the evaluation committee HAD CONCLUDED the session.
+
+2. MNEMONIC RULE FOR BARRACKPORE STUDENTS
+--------------------------------------------------------------------------------
+• "Before-এর পূর্বে Had + V3" (Before sits AFTER the Past Perfect).
+• "After-এর পরে Had + V3" (After sits BEFORE the Past Perfect).
+• "By the time-এর ক্লজে V2, মেইন ক্লজে Had + V3".
+
+3. RAPID CONSECUTIVE SEQUENCE (AS SOON AS / NO GAP)
+--------------------------------------------------------------------------------
+When two actions occur immediately one after another in natural sequence without any perceptible time gap, BOTH clauses take the Simple Past:
+✓ As soon as the teacher ENTERED the room, the students STOOD up.
+✓ When he HEARD the explosion, he HIT the floor.
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• 'Before' (পূর্বে): যে কাজটি আগে হয়েছে তা Before-এর পূর্বে (Had + V3) বসে এবং যে কাজটি পরে হয়েছে তা Before-এর পরে (V2) বসে।
+• 'After' (পরে): যে কাজটি পরে হয়েছে তা After-এর পূর্বে (V2) বসে এবং যে কাজটি আগে হয়েছে তা After-এর পরে (Had + V3) বসে।
+• 'By the time': "যখন সময়মতো পৌঁছাল..." এই ক্লজটিতে Simple Past (V2) এবং তার আগেই সম্পন্ন হয়ে যাওয়া মূল ক্লজটিতে Past Perfect (Had + V3) বসে।
+================================================================================

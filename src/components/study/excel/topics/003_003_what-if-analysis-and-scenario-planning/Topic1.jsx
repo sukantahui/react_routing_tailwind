@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1402"
+            sheetName="Ex11_Goal_Seek_BreakEven"
             title={"Goal Seek: Finding the exact input required to hit a targeted financial outcome - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

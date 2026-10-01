@@ -631,10 +631,10 @@ export default function Topic0() {
           </a>
 
           <a
-            href="/english-grammar/topic/004_007_future-expressions-modal-aspects-and-timelines/0"
+            href="/english-grammar/topic/004_006_past-tenses-narrative-timelines-and-aspects/1"
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-950 transition"
           >
-            <span>Next: Module 004_007 (Future Expressions)</span>
+            <span>Next: Topic 1 (Past Continuous Tense)</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

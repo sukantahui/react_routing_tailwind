@@ -286,7 +286,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1404"
+            sheetName="Ex9_Two_Var_Price_Volume"
             title={"Two-Variable Data Tables: Cross-matrix sensitivity analysis (e.g., price vs volume vs profit) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

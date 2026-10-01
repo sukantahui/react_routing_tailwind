@@ -286,7 +286,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1401"
+            sheetName="Overview"
             title={"Introduction to What-If Analysis and Sensitivity Modeling in Decision Making - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

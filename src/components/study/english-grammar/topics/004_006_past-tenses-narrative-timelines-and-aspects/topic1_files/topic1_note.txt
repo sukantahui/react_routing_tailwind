@@ -1,0 +1,54 @@
+================================================================================
+MODULE 004_006: THE PAST TENSE SYSTEM & NARRATIVE TIMELINES
+TOPIC 1: PAST CONTINUOUS TENSE (BACKGROUND, INTERRUPTED 'WHEN' VS PARALLEL 'WHILE')
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FORMULA & SYNTACTIC ARCHITECTURE
+--------------------------------------------------------------------------------
+• Affirmative: Subject + was / were + V-ing (Present Participle)
+  - I / He / She / It / Singular Subject + was + V-ing
+    Example: Abhronila was analyzing the manuscript.
+  - We / You / They / Plural Subject + were + V-ing
+    Example: The students were discussing tense mechanics.
+
+• Negative: Subject + was / were + not + V-ing
+  - Example: He was not paying attention to the instructions.
+
+• Interrogative: Was / Were + Subject + V-ing ...?
+  - Example: Were they conducting the laboratory experiment yesterday afternoon?
+
+2. THE 3 PRIMARY SYNTACTIC FUNCTIONS
+--------------------------------------------------------------------------------
+(A) Action in Progress at an Exact Milestone in the Past:
+    - Verifiable ongoing action happening at a specific past point in time.
+    - Time Markers: at 8:00 PM yesterday, at that moment, all evening, throughout the storm.
+    - Example: At 9:30 PM last night, Swadeep was calibrating the server database.
+
+(B) Interrupted Action (Background Action + Sudden Intrusion with 'WHEN'):
+    - A longer ongoing action (in Past Continuous) was disrupted or interrupted by a short, sudden action (in Simple Past).
+    - Formula: [Longer Background Action: Past Continuous] + WHEN + [Short Interrupter: Simple Past (V2)]
+    - Example: Tuhina was writing her English essay when the power went out.
+    - Example: When the phone rang, I was having dinner.
+
+(C) Parallel / Simultaneous Ongoing Actions with 'WHILE' or 'AS':
+    - Two or more ongoing continuous actions happening at the same time in the past without one interrupting the other.
+    - Formula: WHILE / AS + [Past Continuous], [Past Continuous]
+    - Example: While Swadeep was writing code, Debopam was designing the UI mockups.
+    - Example: The birds were chirping while the sun was rising over the Ganges.
+
+3. STATIVE VERB INVARIANT IN THE PAST
+--------------------------------------------------------------------------------
+Stative verbs (know, believe, understand, belong, feel, remember) CANNOT be used in the Past Continuous. They must take the Simple Past (V2):
+✗ Fatal Error: I was understanding the entire derivation yesterday.
+✓ Pure Grammar: I understood the entire derivation yesterday.
+
+✗ Fatal Error: This heritage mansion was belonging to the Tagore family.
+✓ Pure Grammar: This heritage mansion belonged to the Tagore family.
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• অতীতকালে কোনো নির্দিষ্ট সময়ে কোনো কাজ চলছিল বোঝাতে 'Past Continuous' (was/were + V-ing) ব্যবহৃত হয় (সাধু ভাষায় "করিতেছিলাম", চলিত ভাষায় "করছিলাম")।
+• দুটি কাজ অতীতে একসাথে ঘটলে 'While' যুক্ত ক্লজে দুটিই Continuous হয় (e.g. যখন আমি পড়ছিলাম, মা রান্না করছিলেন = While I was studying, mother was cooking)।
+• কিন্তু একটি চলমান কাজ চলাকালীন হঠাৎ আরেকটি কাজ ঘটলে চলমানটিতে Past Continuous এবং হঠাৎ ঘটা কাজটিতে Simple Past (V2) বসে (e.g. আমি যখন হাঁটছিলাম, তখন ফোন বাজল = I was walking when the phone rang)।
+================================================================================

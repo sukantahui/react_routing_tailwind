@@ -1,0 +1,69 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 3: PRESENT CONTINUOUS TENSE (SPEECH-TIME, TEMPORARY, TRENDS & IRRITATION)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. STRUCTURAL MECHANICS & FORMULAS
+--------------------------------------------------------------------------------
+• Affirmative: Subject + am / is / are + V-ing (Present Participle)
+  - I + am + working
+  - He / She / It / Singular Noun + is + working
+  - We / You / They / Plural Noun + are + working
+
+• Negative: Subject + am / is / are + not + V-ing
+  - Example: Abhronila is not attending the lecture today.
+
+• Interrogative: Am / Is / Are + Subject + V-ing ...?
+  - Example: Are they developing the new algorithmic module?
+
+2. THE 5 CORE SEMANTIC FUNCTIONS
+--------------------------------------------------------------------------------
+(A) Action Happening at the Exact Moment of Speaking:
+    - Verifiable real-time activity in progress right now.
+    - Time Markers: now, right now, at present, at the moment, currently, Look!, Listen!, Hush!
+    - Example: Listen! Someone is playing the violin in the next room.
+
+(B) Temporary Situations (Ongoing Around Now):
+    - The action is in progress in the broader timeframe, though not necessarily happening at the exact second of speaking.
+    - Time Markers: these days, this week, this semester, currently, nowadays.
+    - Example: Tuhina is preparing for the competitive civil services examination this year.
+    - Example: I am reading an intriguing biography of Oppenheimer this week.
+
+(C) Changing, Developing Situations & Macro Trends:
+    - Dynamic evolution, growth, deterioration, or societal progression.
+    - Frequent Verbs: get, become, change, increase, rise, fall, grow, improve, deteriorate.
+    - Example: The computational power of AI models is increasing exponentially.
+    - Example: Your English pronunciation is improving day by day.
+
+(D) Definite Planned Personal Future Arrangements:
+    - Personal commitments where time and place have already been fixed.
+    - Time Markers: tonight, tomorrow evening, next Friday, this weekend.
+    - Example: We are hosting a grammar seminar at Barrackpore next Sunday.
+    - Example: My brother is arriving from London tomorrow at 10:00 AM.
+
+(E) Habitual Irritation & Annoyance with 'ALWAYS' / 'CONSTANTLY':
+    - Expresses emotional exasperation, impatience, or criticism toward an unreasonable habit.
+    - Formula: Subject + is/are + ALWAYS / CONSTANTLY / CONTINUALLY + V-ing.
+    - Neutral Simple Present: "He always loses his keys." (Objective statement of fact).
+    - Annoyed Present Continuous: "He is always losing his keys!" (Speaker expresses intense frustration!).
+    - Example: Why are you constantly checking your phone during class?
+
+3. ORTHOGRAPHIC RULES FOR FORMING '-ING'
+--------------------------------------------------------------------------------
+1. Verbs ending in silent '-e': Drop '-e' and add '-ing'.
+   - write -> writing, make -> making, come -> coming. (Exception: see -> seeing, agree -> agreeing).
+2. One-syllable verbs ending in Consonant-Vowel-Consonant (CVC): Double the final consonant.
+   - run -> running, sit -> sitting, stop -> stopping, swim -> swimming.
+3. Two-syllable verbs with stress on the SECOND syllable: Double the final consonant.
+   - be'gin -> beginning, re'fer -> referring, oc'cur -> occurring.
+   - (If stress is on first syllable, do NOT double: 'visit -> visiting, 'open -> opening).
+4. Verbs ending in '-ie': Change '-ie' to '-y' and add '-ing'.
+   - die -> dying, lie -> lying, tie -> tying.
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• বর্তমান মুহূর্তে কোনো কাজ চলছে বোঝাতে সাধু ভাষায় "করিতেছে" বা চলিত বাংলায় "করছে" (Present Continuous)।
+• তবে বাংলায় "সে সর্বদা অভিযোগ করছে" বিরক্তি প্রকাশ করে; ইংরেজিতেও 'always' + Continuous ব্যবহার করে বিরক্তি বা ক্ষোভ বোঝানো হয় (e.g. He is always complaining!).
+• ব্যক্তিগত ভবিষ্যৎ পরিকল্পনা যা ঠিক হয়ে গেছে, তার জন্য Present Continuous চমৎকার (e.g. আমি কাল দিল্লি যাচ্ছি = I am leaving for Delhi tomorrow)।
+================================================================================

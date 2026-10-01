@@ -1,0 +1,70 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 6: PRESENT PERFECT CONTINUOUS & THE 'SINCE' VS 'FOR' AXIS OF TIME
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FORMULA & SYNTACTIC ARCHITECTURE
+--------------------------------------------------------------------------------
+• Affirmative: Subject + have / has + been + V-ing (Present Participle)
+  - I / We / You / They / Plural Subject + have been + V-ing
+    Example: They have been conducting clinical trials for eighteen months.
+  - He / She / It / Singular Subject + has been + V-ing
+    Example: Abhronila has been researching computational phonetics since 2021.
+
+• Negative: Subject + have / has + not + been + V-ing
+  - Example: It has not been raining heavily since morning.
+
+• Interrogative: Have / Has + Subject + been + V-ing ...?
+  - Example: How long have you been studying English grammar?
+
+2. THE TWO PRIMARY SEMANTIC USES
+--------------------------------------------------------------------------------
+(A) Unbroken Continuation up to the Present:
+    - An action started at a point in the past, continued across time, and is STILL HAPPENING at this very moment.
+    - Example: Tuhina has been reading this grammar treatise for three hours (and she is still reading it now).
+
+(B) Action Recently Finished with Obvious Physical Evidence:
+    - The action stopped just a short moment ago, but its physical or visible results are clearly perceptible right now.
+    - Example: "Why are your clothes covered in mud?" -> "I have been playing football."
+    - Example: "You are breathing heavily!" -> "Yes, I have been running up the stairs."
+
+3. THE 'SINCE' (POINT) VS 'FOR' (PERIOD) INVARIANT AXIS
+--------------------------------------------------------------------------------
+• SINCE = Starting Point of Time (Origin):
+  - Denotes the exact temporal milestone or anchor when the action commenced.
+  - Accompanies specific points:
+    - Years: since 1947, since 2018
+    - Clock times: since 8:30 AM, since midnight
+    - Days & Months: since Monday, since July
+    - Life Stages & Events: since childhood, since birth, since his arrival
+    - Time Adverbs: since yesterday, since last week
+    - Past Subordinate Clauses: since he graduated from college (Subordinate clause takes Simple Past V2!).
+
+• FOR = Period / Measured Duration (Elapsed Time):
+  - Denotes the quantity, span, or measurement of elapsed time.
+  - Accompanies duration units:
+    - Hours: for three hours, for 45 minutes
+    - Days: for ten days, for a fortnight
+    - Months & Years: for six months, for two decades, for five years
+    - Indefinite Durations: for a long time, for ages, for centuries, for many weeks
+
+4. THE STATIVE VERB FALLBACK INVARIANT
+--------------------------------------------------------------------------------
+When expressing an action or state continuing over a duration (with 'since' or 'for'), if the verb is STATIVE (cognition, perception, possession, emotion), it CANNOT take Present Perfect Continuous. It must fall back to the PRESENT PERFECT (have/has + V3)!
+
+✗ Fatal Error: I have been knowing him since 2015.
+✓ Pure Grammar: I have known him since 2015.
+
+✗ Fatal Error: We have been having this heritage bungalow for three generations.
+✓ Pure Grammar: We have had this heritage bungalow for three generations.
+
+✗ Fatal Error: This ancient monument has been existing since the 16th century.
+✓ Pure Grammar: This ancient monument has existed since the 16th century.
+
+5. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• 'Since' (হতে/থেকে): নির্দিষ্ট কোনো বিন্দু বা শুরুর সময় বোঝালে 'Since' বসে (যেমন: সকাল থেকে = since morning, ২০১৭ সাল থেকে = since 2017)।
+• 'For' (ধরে/যাবৎ): মোট সময়ের পরিমাপ বা ব্যাপ্তি বোঝালে 'For' বসে (যেমন: তিন ঘণ্টা ধরে = for three hours, পাঁচ বছর যাবৎ = for five years)।
+• Stative Verb-এর ক্ষেত্রে 'Since' বা 'For' থাকলেও Continuous (-ing) হবে না; সরাসরি Present Perfect (have/has + V3) ব্যবহার করতে হবে (e.g. আমি তাকে ১০ বছর ধরে চিনি = I have known him for 10 years)।
+================================================================================

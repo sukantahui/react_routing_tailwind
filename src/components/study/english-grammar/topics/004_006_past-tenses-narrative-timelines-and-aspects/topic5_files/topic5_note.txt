@@ -1,0 +1,54 @@
+================================================================================
+MODULE 004_006: THE PAST TENSE SYSTEM & NARRATIVE TIMELINES
+TOPIC 5: PAST PERFECT CONTINUOUS TENSE (DURATION UP TO A PAST MILESTONE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FORMULA & SYNTACTIC ARCHITECTURE
+--------------------------------------------------------------------------------
+• Affirmative: Subject + had + been + V-ing (Present Participle)
+  - Example: They had been working on the algorithm for three weeks before discovering the flaw.
+
+• Negative: Subject + had + not + been + V-ing
+  - Example: She had not been feeling well for several days before consulting the physician.
+
+• Interrogative: Had + Subject + been + V-ing ...?
+  - Example: How long had you been studying at Barrackpore before you cleared the examination?
+
+2. THE CORE FUNCTIONS
+--------------------------------------------------------------------------------
+(A) Ongoing Duration Leading Up to a Past Point/Milestone:
+    - An action started prior to a past reference point, continued continuously across an elapsed duration (using 'for' or 'since'), and led right up to that past moment.
+    - Example: Swadeep HAD BEEN CODING for six consecutive hours when his laptop battery died.
+
+(B) Past Physical Evidence of a Recent Continuous Activity:
+    - An activity ceased just before a past moment, leaving observable physical or emotional evidence in the past.
+    - Example: The streets WERE muddy because it HAD BEEN RAINING throughout the morning.
+    - Example: Abhronila was completely out of breath because she HAD BEEN SPRINTING.
+
+3. THE 3-WAY COMPARISON (PAST CONTINUOUS VS PAST PERFECT VS PAST PERFECT CONTINUOUS)
+--------------------------------------------------------------------------------
+1. Past Continuous (Action in progress at a past point; no duration):
+   "I was painting the canvas when the doorbell rang."
+
+2. Past Perfect (Completed result before a past point):
+   "I had painted the entire canvas before the guests arrived."
+
+3. Past Perfect Continuous (Duration and process leading up to a past point):
+   "I had been painting the canvas for four hours when my arms gave out."
+
+4. STATIVE VERB FALLBACK IN THE PAST
+--------------------------------------------------------------------------------
+When duration is specified up to a past milestone, stative verbs (cognition, possession, state) CANNOT take Past Perfect Continuous. They fall back to Past Perfect (had + V3):
+✗ Fatal Error: They had been knowing each other for a decade before they partnered.
+✓ Pure Grammar: They had known each other for a decade before they partnered.
+
+✗ Fatal Error: He had been owning the mansion since 1980 before he sold it.
+✓ Pure Grammar: He had owned the mansion since 1980 before he sold it.
+
+5. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• অতীতের কোনো নির্দিষ্ট ঘটনার পূর্বে কোনো কাজ একটানা কতক্ষণ ধরে চলছিল (for/since) তা প্রকাশ করতে 'Past Perfect Continuous' (had been + V-ing) ব্যবহৃত হয়।
+• যেমন: "বাবা আসার আগে সে দু'ঘণ্টা ধরে পড়ছিল" = He had been reading for two hours before father came.
+• কিন্তু Verb-টি যদি Stative হয়, তবে Continuous না হয়ে Past Perfect (had + V3) হবে (e.g. They had known each other for years; কখনোই had been knowing নয়)।
+================================================================================

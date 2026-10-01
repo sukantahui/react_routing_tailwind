@@ -1,0 +1,48 @@
+MODULE 004.006 - TOPIC 6 NOTE: EXPRESSING PAST HABITS ('USED TO' VS 'WOULD')
+================================================================================
+
+1. CORE OVERVIEW & ESSENTIAL GRAMMAR
+When describing repeated routines, nostalgic past practices, or past conditions that are no longer true in the present, English provides two primary constructions: 'Used to' and 'Would'. Understanding the semantic boundary between dynamic actions and stative conditions is essential for standard English and competitive examinations.
+
+2. 'USED TO' + BASE VERB (V1)
+- Scope: Both Dynamic Actions and Stative Conditions / Locations / Possessions.
+- Meaning: A habitual action or continuous state existed in the past but has ceased in the present.
+- Formula: Subject + used to + Base Verb (V1)
+  Examples:
+  * Dynamic: "Swadeep used to cycle to the coaching centre every morning." (Action discontinued)
+  * Stative: "There used to be an ancient banyan tree outside the school gate." (State/Existence discontinued)
+  * Stative: "Ananya used to be terrified of stage public speaking." (Discontinued state)
+  * Stative: "Priyabrata used to live in Shyamnagar before relocating to Kolkata." (Past location)
+
+- Negative Form: Subject + did not (didn't) use to + V1 (Note spelling: 'use', not 'used').
+  * Example: "We didn't use to drink tea in our childhood."
+- Interrogative Form: Did + Subject + use to + V1?
+  * Example: "Did you use to play football during recess?"
+
+3. 'WOULD' + BASE VERB (V1)
+- Scope: Dynamic Repeated Actions ONLY in nostalgic or narrative context.
+- Meaning: Characteristic or repeated past actions performed customarily.
+- Mandatory Rule: 'Would' MUST have an established past time anchor (e.g., 'When I was in school...', 'During winter holidays...').
+- Invariant Restriction: 'Would' CANNOT be used with Stative Verbs (verbs of being, emotion, possession, cognition, location).
+  * Valid: "Every Sunday afternoon, Grandmother would bake fresh coconut cookies." (Dynamic action)
+  * Valid: "When we were children, Sukanta Sir would explain astronomy models under the open night sky." (Dynamic action)
+  * INVALID: "He would live in Barrackpore." ❌ (Live is stative/location -> must use 'used to live')
+  * INVALID: "She would have long curly hair." ❌ (Have is stative/possession -> must use 'used to have')
+  * INVALID: "I would know all the chemical formulas." ❌ (Know is stative/cognition -> must use 'used to know')
+
+4. THREE CONFUSABLE STRUCTURES COMPARED:
+1) Used to + V1:
+   - Meaning: Discontinued past habit or past state.
+   - Example: "He used to wake up at 5 AM." (Past habit, doesn't do it now)
+2) Be used to + V-ing / Noun:
+   - Meaning: To be accustomed to / familiar with something.
+   - Example: "He is used to waking up at 5 AM." (Current comfort level / routine)
+3) Get used to + V-ing / Noun:
+   - Meaning: The process of becoming accustomed to something new.
+   - Example: "He is getting used to waking up early for his new shift." (Transition process)
+
+5. BENGALI GRAMMATICAL ANCHOR (বাংলা অর্থ ও প্রয়োগ):
+বাংলা ভাষায় অতীতের নিয়মিত অভ্যাস ("করতাম", "যেতাম", "থাকতাম") বোঝাতে 'Used to' এবং 'Would' ব্যবহৃত হয়।
+- অবস্থা (State) বা অবস্থান (Location/Existence) বোঝালে শুধুমাত্র 'Used to' বসবে (যেমন: "এখানে একটি খেলার মাঠ ছিল" -> "There used to be a playground here")।
+- নিয়মিত গতিশীল কাজ (Dynamic repeated action) হলে 'Used to' অথবা 'Would' উভয়ই বসতে পারে (যেমন: "আমরা বিকেলে সাঁতার কাটতাম" -> "We used to swim / We would swim in the afternoon")।
+- 'didn't use to' এবং 'did you use to'-তে 'use' বানানে 'd' থাকে না।

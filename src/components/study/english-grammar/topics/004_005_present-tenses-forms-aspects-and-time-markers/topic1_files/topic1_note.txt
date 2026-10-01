@@ -1,0 +1,74 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 1: SIMPLE PRESENT TENSE (HABITS, SCIENTIFIC LAWS, COMMENTARY & TIMETABLES)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE FORMULA & CONJUGATION
+--------------------------------------------------------------------------------
+• Affirmative: 
+  - I / We / You / They / Plural Subject + Base Verb (V1)
+    Example: They study English literature every evening.
+  - He / She / It / Singular Subject + V1 + -s / -es / -ies (V5)
+    Example: Abhronila analyzes complex sentence structures meticulously.
+
+• Negative:
+  - Subject + do not (don't) / does not (doesn't) + Base Verb (V1)
+    *RULE: After 'does/doesn't', the main verb ALWAYS returns to base form (V1). Never attach -s/-es to the verb!*
+    ✗ She does not knows the answer. (Fatal Error)
+    ✓ She does not know the answer. (Correct)
+
+• Interrogative:
+  - Do / Does + Subject + Base Verb (V1) + ...?
+    Example: Does the train depart at 7:00 PM?
+  - Wh-word + do / does + Subject + V1 ...?
+    Example: Why do you prefer grammar diagnostics?
+
+2. THE 5 MAJOR SYNTACTIC FUNCTIONS
+--------------------------------------------------------------------------------
+(A) Habitual, Repeated, and Routine Actions:
+    - Expresses actions performed regularly, custom, or disposition.
+    - Typical Frequency Adverbs: always, usually, often, frequently, generally, sometimes, occasionally, seldom, rarely, hardly ever, never, every day/month/year, twice a week.
+    - Example: Tuhina wakes up at 5:30 AM every morning and reads grammar reference books.
+
+(B) Universal Truths, Scientific Laws & Permanent Facts:
+    - Physical and natural constants that do not change with time.
+    - Example: Water boils at 100°C under standard atmospheric pressure.
+    - Example: The Earth revolves around the Sun.
+    - Example: Light travels faster than sound.
+
+(C) Scheduled Official Timetables & Fixed Public Itineraries:
+    - Official future events fixed by calendar, railway, airline, or organizational schedule.
+    - Example: The ICSE Board examination begins on Monday next.
+    - Example: Our flight departs at 06:45 AM tomorrow.
+
+(D) Dramatic Commentary, Live Broadcasts & Exclamatory Sentences:
+    - Real-time sporting commentary or stage directions.
+    - Example: Kohli drives the ball through extra cover and it races to the boundary!
+    - Exclamatory sentences beginning with 'Here' or 'There':
+      ✓ Here comes the chief guest! (Subject-Verb Inversion)
+      ✓ There goes the bell!
+
+(E) Subordinate Clauses of Time and Condition (The Future Prohibition Rule):
+    - In conditional clauses (introduced by 'if', 'unless', 'provided that') and time clauses (introduced by 'when', 'as soon as', 'before', 'after', 'until', 'till'), Future Tense ('will/shall') is strictly prohibited. The Simple Present must be used even when referring to future events!
+    - ✗ If it will rain tomorrow, we will cancel the Barrackpore seminar. (Fatal error)
+    - ✓ If it rains tomorrow, we will cancel the Barrackpore seminar. (Grammatically Pure)
+    - ✓ As soon as he arrives, we will begin the test.
+
+3. 3RD PERSON SINGULAR SPELLING RULES (-S, -ES, -IES)
+--------------------------------------------------------------------------------
+1. Verbs ending in -s, -ss, -sh, -ch, -x, -z, -o: Add -es.
+   - pass -> passes, wash -> washes, teach -> teaches, fix -> fixes, go -> goes, do -> does.
+2. Verbs ending in Consonant + y: Change 'y' to 'i' and add -es.
+   - study -> studies, fly -> flies, carry -> carries.
+3. Verbs ending in Vowel + y: Just add -s.
+   - play -> plays, enjoy -> enjoys, buy -> buys.
+4. General verbs: Add -s.
+   - read -> reads, write -> writes, run -> runs.
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• অভ্যাসগত বর্তমান ও চিরন্তন সত্য প্রকাশে Simple Present ব্যবহৃত হয় (e.g. সূর্য পূর্ব দিকে ওঠে = The sun rises in the east)।
+• কোনো নির্দিষ্ট সময়সূচি (Official Schedule) যা ভবিষ্যতে ঘটবে, কিন্তু অপরিবর্তনীয়, তা Simple Present-এ লেখা হয় (e.g. ট্রেনটি কাল সকাল ৮টায় ছাড়বে = The train leaves at 8:00 AM tomorrow)।
+• 'If' বা 'When' যুক্ত বাক্যে কখনো 'will' হয় না—Simple Present ব্যবহার করতে হবে। যেমন: "যদি সে আসে, আমি যাব" = "If he comes, I will go" (কখনোই "If he will come" নয়)।
+================================================================================

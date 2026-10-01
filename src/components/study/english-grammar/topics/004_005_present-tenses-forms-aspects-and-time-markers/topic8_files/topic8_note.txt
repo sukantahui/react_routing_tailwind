@@ -1,0 +1,48 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 8: CLASSROOM DIALOGUE & INTERACTIVE ASPECT DIAGNOSTICS WORKBENCH
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE 4-ASPECT DECISION ALGORITHM
+--------------------------------------------------------------------------------
+When faced with an English sentence in the present domain, follow this 4-step decision tree:
+
+Step 1: Is there a specific finished past time anchor (yesterday, ago, last week, in 1947)?
+   -> YES: MANDATORY SIMPLE PAST (V2). Stop immediately.
+   -> NO: Proceed to Step 2.
+
+Step 2: Is the action an unvarying habit, universal law, or scheduled official timetable?
+   -> YES: SIMPLE PRESENT (V1 / V5).
+   -> NO: Proceed to Step 3.
+
+Step 3: Is the action an ongoing activity occurring right now or around now?
+   -> Is the verb Stative (know, love, understand, belong)?
+      - YES: SIMPLE PRESENT (V1/V5) or PRESENT PERFECT if duration is given.
+      - NO: PRESENT CONTINUOUS (am/is/are + V-ing).
+
+Step 4: Has the action occurred in the past with active consequences, life experience, or elapsed duration?
+   -> Does it focus on present result, experience, or recent completion (just/already/yet)?
+      - YES: PRESENT PERFECT (have/has + V3).
+   -> Does it emphasize continuous duration up to now (since/for) with physical evidence?
+      - If Dynamic verb: PRESENT PERFECT CONTINUOUS (have/has been + V-ing).
+      - If Stative verb: PRESENT PERFECT (have/has + V3).
+
+2. CLASSROOM DIALOGUE SUMMARY (SUKANTA SIR & BARRACKPORE STUDENTS)
+--------------------------------------------------------------------------------
+• Abhronila asks: "Sir, why is 'I am having two laptops' wrong if I have them right now?"
+  -> Sukanta Sir explains: "Possession is a static state, not a physical action. You own the laptops continuously without active motion. Therefore, 'have' is stative and cannot take -ing."
+
+• Swadeep asks: "Sir, what about 'The train has left at 5 PM'?"
+  -> Sukanta Sir explains: "If you specify 'at 5 PM' after 5 PM has passed, you have placed a finished clock anchor on the event. It must be 'The train left at 5 PM'."
+
+• Tuhina asks: "Sir, when can we use 'always' with Present Continuous?"
+  -> Sukanta Sir explains: "When you want to convey emotional irritation or exasperation! 'He always forgets his pen' is neutral fact; 'He is always forgetting his pen!' is an annoyed complaint."
+
+3. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• যেকোনো প্রতিযোগিতামূলক পরীক্ষা বা বোর্ড পরীক্ষায় Present Tense-এর ভুল ধরতে হলে ক্রিয়াপদের ৪টি Aspect এবং Time Marker-এর সমন্বয় বুঝতে হবে।
+• 'Yesterday' বা 'Ago' থাকলে কোনো অবস্থাতেই Present Perfect হবে না;
+• 'Since' বা 'For' থাকলে এবং Verb-টি Dynamic হলে Present Perfect Continuous হবে;
+• 'Know', 'Understand', 'Believe' থাকলে কখনো Continuous (-ing) হবে না।
+================================================================================

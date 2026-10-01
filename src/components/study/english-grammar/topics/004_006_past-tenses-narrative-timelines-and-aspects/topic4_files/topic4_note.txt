@@ -1,0 +1,49 @@
+================================================================================
+MODULE 004_006: THE PAST TENSE SYSTEM & NARRATIVE TIMELINES
+TOPIC 4: HIGH-FREQUENCY NEGATIVE INVERSIONS ('HARDLY...WHEN', 'NO SOONER...THAN')
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS NEGATIVE INVERSION?
+--------------------------------------------------------------------------------
+In formal English and competitive examination syntax, when a negative or restrictive adverb (Hardly, Scarcely, Barely, No sooner, Seldom, Never) is fronted to the beginning of a clause for dramatic emphasis, it triggers SUBJECT-AUXILIARY INVERSION (the auxiliary verb moves in front of the subject, exactly like a question):
+
+Standard Order: Subject + had + hardly + V3 ...
+Inverted Order: HARDLY + had + Subject + V3 ...
+
+2. THE TWO MANDATORY CORRELATIVE PAIRS
+--------------------------------------------------------------------------------
+(A) HARDLY / SCARCELY / BARELY ... WHEN:
+    Formula: Hardly / Scarcely / Barely + HAD + Subject + V3 + ... + WHEN + Subject + V2
+    • Correlative Conjunction: MUST BE 'WHEN' (or occasionally 'before').
+    • Fatal Exam Trap: Pairing 'Hardly' with 'than' or 'then' is strictly ungrammatical.
+    • Example: Hardly had Abhronila stepped onto the podium when the crowd erupted in applause.
+    • Example: Scarcely had the train halted when the passengers rushed toward the doors.
+
+(B) NO SOONER ... THAN:
+    Formula 1 (Past Perfect): No sooner + HAD + Subject + V3 + ... + THAN + Subject + V2
+    Formula 2 (Simple Past):  No sooner + DID + Subject + V1 + ... + THAN + Subject + V2
+    • Correlative Conjunction: MUST BE 'THAN' (derived from comparative '-er' in 'sooner').
+    • Fatal Exam Trap: Pairing 'No sooner' with 'when' or 'then' is a severe error.
+    • Example: No sooner had the bell rung than the candidates submitted their answer papers.
+    • Example: No sooner did the bell ring than the candidates submitted their answer papers.
+
+3. TRANSFORMATION TRIANGLE (AS SOON AS ↔ NO SOONER ↔ HARDLY)
+--------------------------------------------------------------------------------
+1. As Soon As (Standard):
+   "As soon as the thief saw the police patrol, he vanished into the dark alley."
+
+2. No Sooner ... Than (Comparative Inversion):
+   "No sooner HAD the thief SEEN the police patrol THAN he vanished into the dark alley."
+
+3. Hardly ... When (Restrictive Inversion):
+   "Hardly HAD the thief SEEN the police patrol WHEN he vanished into the dark alley."
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• "যেইমাত্র... অমনি..." বা "করতে না করতেই..." বোঝাতে এই কাঠামো ব্যবহৃত হয়।
+• মনে রাখার সূত্র:
+  - 'Hardly / Scarcely'-র বন্ধু হলো 'WHEN' (কখনোই 'than' নয়)।
+  - 'No sooner'-এর বন্ধু হলো 'THAN' (কখনোই 'when' বা 'then' নয়)।
+• 'Hardly' বা 'No sooner' দিয়ে বাক্য শুরু হলে Subject-এর আগেই 'Had' চলে আসবে (Had + Subject + V3)।
+================================================================================

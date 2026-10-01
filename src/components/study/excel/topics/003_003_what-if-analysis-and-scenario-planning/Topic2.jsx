@@ -628,24 +628,24 @@ export default function Topic2() {
                 Dedicated One-Variable Data Table Practice Workbook
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
-                Explore all 7 interactive sheets below or download the dedicated <code className="text-emerald-300 font-mono">data_table_one_variable_master.xlsx</code> file to practice in desktop Excel.
+                Explore all interactive What-If sensitivity sheets below or download the dedicated <code className="text-emerald-300 font-mono">003_003_what_if_analysis_and_scenario_planning_master.xlsx</code> file to practice in desktop Excel.
               </p>
             </div>
             <button
               onClick={handleDownload}
               className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-all duration-200 shadow-md shadow-emerald-950/40 hover:scale-[1.02] active:scale-[0.98] shrink-0"
-              title="Download the dedicated 10-sheet Data Table practice workbook (.xlsx)"
+              title="Download the full What-If Analysis practice workbook (.xlsx)"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download 7-Sheet Workbook (.xlsx)</span>
+              <span>Download What-If Master Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1403"
+            sheetName="Ex1_Loan_Interest_EMI"
             title="1-Variable Data Table Demonstration Master"
             rowsPerPage={14}
             showSheetSelector={true}

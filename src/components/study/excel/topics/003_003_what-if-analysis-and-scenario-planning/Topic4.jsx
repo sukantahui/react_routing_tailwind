@@ -286,7 +286,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1405"
+            sheetName="Ex8_Performance_Tuning"
             title={"Optimizing performance: Setting calculation mode to automatic except for data tables - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

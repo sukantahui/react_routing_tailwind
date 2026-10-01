@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1407"
+            sheetName="Ex10_Scenario_Manager"
             title={"Generating Scenario Summary Reports and Pivot Scenario Views - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

@@ -1,0 +1,53 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 5: 'HAS GONE TO' (ABSENT) VS 'HAS BEEN TO' (VISITED AND RETURNED)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE FUNDAMENTAL CONTRAST: WHEREABOUTS OF THE SUBJECT
+--------------------------------------------------------------------------------
+Both 'has gone to' and 'has been to' are Present Perfect constructions involving travel and displacement, but they communicate fundamentally opposite physical realities regarding the subject's current whereabouts.
+
+• HAS GONE TO (One-Way Trip / Absent / En Route):
+  - Meaning: The subject departed for the destination and is CURRENTLY THERE or ON THE WAY. They have NOT returned.
+  - Current Location of Subject: At the destination or in transit.
+  - Formula: Subject + has/have + gone to + Destination
+  - Example: "Where is Rahul?" -> "He has gone to Mumbai for a tech summit." (Rahul is currently in Mumbai).
+  - *FIRST-PERSON PARADOX*: You cannot face someone in Kolkata and say: ✗ "I have gone to London." (Fatal absurdity: If you are standing here, you cannot be currently in London!).
+
+• HAS BEEN TO (Round-Trip / Visited and Returned):
+  - Meaning: The subject visited the destination in the past, completed the journey, and HAS NOW RETURNED to the point of origin.
+  - Current Location of Subject: Back home / talking to the speaker.
+  - Formula: Subject + has/have + been to + Destination (Often with frequency: once, twice, never, ever).
+  - Example: "Rahul has been to Mumbai three times." (Rahul is right here in Barrackpore, sharing his past travel memories).
+  - First-Person: ✓ "I have been to London twice." (Valid statement of personal travel experience).
+
+• HAS BEEN IN (Dwelling / Continuous Residence):
+  - Meaning: The subject has lived or stayed continuously inside a specific geographical area over an elapsed period.
+  - Formula: Subject + has/have + been in + City/Country + (for / since + Time).
+  - Example: "Professor Roy has been in Barrackpore for twenty years." (He resides in Barrackpore now).
+
+2. COMPARATIVE MATRIX OF WHEREABOUTS
+--------------------------------------------------------------------------------
+Sentence                          | Where is the person NOW?            | Semantic Meaning
+----------------------------------+-------------------------------------+---------------------------------
+1. "Abhronila has gone to Paris." | In Paris or on an aircraft to Paris | Absent; not yet back in India
+2. "Abhronila has been to Paris." | Here in Barrackpore / Back home     | Experienced Paris, now returned
+3. "Abhronila has been in Paris." | Living/staying inside Paris         | Ongoing continuous residence
+
+3. COMMON EXAM TRAPS & DIAGNOSTIC RULES
+--------------------------------------------------------------------------------
+Rule 1: In questions inquiring about travel experience (with 'ever' or 'never'), ALWAYS use 'BEEN TO', not 'gone to':
+  ✓ Have you ever been to the Sunderbans?
+  ✗ Have you ever gone to the Sunderbans? (Illogical in standard British/Indian grammar).
+
+Rule 2: When explaining someone's immediate absence when a telephone caller asks for them, use 'GONE TO':
+  Caller: "Can I speak to Mr. Swadeep?"
+  Receptionist: "I'm sorry, he has gone to the regional headquarters for a meeting."
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• 'Has gone to': সে সেই জায়গায় গেছে এবং এখনো ফিরে আসেনি (যেমন: "সে দিল্লি গেছে" = He has gone to Delhi; সে এখন দিল্লিতে আছে)।
+• 'Has been to': সে সেই জায়গায় গিয়েছিল এবং সেখান থেকে ফিরে এসেছে (যেমন: "আমি দুবার দিল্লি ঘুরে এসেছি" = I have been to Delhi twice)।
+• তাই আপনি যদি কারও সামনে দাঁড়িয়ে কথা বলেন, কখনোই বলতে পারবেন না "I have gone to London", আপনাকে বলতে হবে "I have been to London"।
+================================================================================

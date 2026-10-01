@@ -1,0 +1,52 @@
+MODULE 004.006 - TOPIC 7 NOTE: CLASSROOM DIALOGUE & PAST INVARIANT DIAGNOSTICS CAPSTONE
+================================================================================
+
+1. EXECUTIVE SUMMARY: THE 4 PAST TENSE ASPECTS
+Aspect describes the internal temporal unfolding of an action in relation to the timeline:
+1) Simple Past (V2):
+   - Discrete, finished events at a specified past point.
+   - Narrative sequencing of sequential events (A -> B -> C).
+   - Negative / Interrogative: 'did + not + V1' / 'Did + S + V1?'.
+2) Past Continuous (was/were + V1-ing):
+   - Action in progress during a past timeframe.
+   - Background setting for a sudden interrupt (When + V2 vs While + Past Cont).
+   - Parallel ongoing events (While X was doing Y, Z was doing W).
+3) Past Perfect (had + V3):
+   - The Pluperfect / 'Past of the Past'.
+   - Establishes priority: Action 1 (Earlier) = had + V3; Action 2 (Later) = V2.
+   - Connectives: 'Before' (had + V3 before V2); 'After' (V2 after had + V3); 'By the time' (had + V3 by the time V2).
+4) Past Perfect Continuous (had been + V1-ing):
+   - Extended duration/accumulation leading up to a past cutoff milestone.
+   - Explanation of visible past physical result / evidence.
+
+2. INVERSION & CORRELATIVE PAIR INVARIANTS:
+- "No sooner HAD + S + V3 ... THAN + S + V2" (or "No sooner DID + S + V1 ... THAN")
+- "Hardly / Scarcely / Barely HAD + S + V3 ... WHEN + S + V2"
+- Strict rules: 'No sooner' takes 'THAN' (comparative); 'Hardly/Scarcely' take 'WHEN'. Never mix with 'then' or 'when'.
+
+3. PAST HABITUAL MODALS:
+- 'Used to + V1': Past habits (discontinued) + Past states / conditions (stative verbs).
+- 'Would + V1': Nostalgic repeated dynamic actions ONLY with established past context (Never stative verbs).
+- 'Didn't use to' (Base form 'use', not 'used').
+
+4. PAST ASPECT DECISION ALGORITHM:
+Step 1: Is there a finished past time anchor (yesterday, in 2020, ago)?
+        -> Must use a past tense; Present Perfect is strictly forbidden!
+Step 2: Are there two past actions?
+        -> Determine temporal sequence.
+        -> Earlier action = had + V3 (Past Perfect).
+        -> Later action = V2 (Simple Past).
+Step 3: Is there a duration ('for 3 hours', 'since 9 AM') before that past moment?
+        -> Use Past Perfect Continuous (had been + V-ing).
+        -> Exception: If the verb is stative (know, own, believe), downgrade to Past Perfect Simple (had + V3).
+Step 4: Is it a past habit?
+        -> Action verb = used to / would.
+        -> State / Condition verb = used to ONLY.
+
+5. BENGALI SUMMARY (বাংলা সারসংক্ষেপ):
+অতীতের চারটি রূপের সমন্বয়:
+- সাধারণ অতীত (Simple Past): নির্দিষ্ট সময়ে সম্পন্ন কাজ (V2)।
+- ঘটমান অতীত (Past Continuous): অতীতে কোনো একটি মুহূর্তে কাজটি চলছিল।
+- পুরাঘটিত অতীত (Past Perfect): দুটি অতীত কাজের মধ্যে যেটি আগে ঘটেছিল (had + V3)।
+- পুরাঘটিত ঘটমান অতীত (Past Perfect Continuous): অতীতের কোনো নির্দিষ্ট সময়ের পূর্ব পর্যন্ত কোনো কাজ দীর্ঘ সময় ধরে চলছিল (had been + V-ing)।
+- 'No sooner...than' এবং 'Hardly...when' বাক্যের শুরুতে বসলে Auxiliary Verb কর্তার (Subject) আগে বসে।

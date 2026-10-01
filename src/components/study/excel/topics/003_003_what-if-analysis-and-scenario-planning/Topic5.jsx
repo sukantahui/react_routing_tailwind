@@ -286,7 +286,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX1406"
+            sheetName="Ex10_Scenario_Manager"
             title={"Scenario Manager: Creating, editing, and comparing Best Case, Base Case, and Worst Case scenarios - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

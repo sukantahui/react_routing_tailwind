@@ -1,0 +1,82 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 2: STATIVE VERBS VS DYNAMIC VERBS (PROGRESSIVE FORM RESISTANCE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FUNDAMENTAL DISTINCTION: DYNAMIC VS STATIVE
+--------------------------------------------------------------------------------
+• Dynamic Verbs (Action / Event / Process):
+  - Describe physical actions, activities, or deliberate processes with a clear beginning and end.
+  - They CAN be used in both Simple and Continuous/Progressive aspects.
+  - Examples: run, write, read, build, eat, explode, develop.
+  - ✓ He writes code. | ✓ He is writing code right now.
+
+• Stative Verbs (State / Condition / Relation):
+  - Describe enduring states, mental conditions, sensory perceptions, emotional inclinations, or relations of possession.
+  - They do NOT involve physical motion or deliberate ongoing activity.
+  - STANDARD RULE: Stative verbs RESIST continuous/progressive forms (-ing).
+  - ✗ I am knowing him for a long time. (Fatal Error)
+  - ✓ I know him well. (Correct Simple Present)
+  - ✓ I have known him for years. (Correct Present Perfect)
+
+2. THE 5 MAJOR CATEGORIES OF STATIVE VERBS
+--------------------------------------------------------------------------------
+1. Verbs of Perception & Sensation:
+   - see, hear, smell, taste, feel, notice, recognize, observe.
+   - Example: I smell smoke in the corridor. (NOT: *I am smelling smoke).
+
+2. Verbs of Cognition, Thought & Belief:
+   - know, understand, believe, suppose, doubt, remember, forget, realize, recognize, mean, suspect, agree, disagree.
+   - Example: She understands the mathematical derivation completely.
+
+3. Verbs of Emotion, Feeling & Desire:
+   - love, hate, like, dislike, prefer, want, wish, adore, detest, care, desire.
+   - Example: Abhronila prefers classical music to pop.
+
+4. Verbs of Possession, Ownership & Inclusion:
+   - have, own, possess, belong to, contain, consist of, include, hold, owe.
+   - Example: This laboratory contains high-precision calibration equipment.
+
+5. Verbs of State, Being, Measure & Appearance:
+   - appear, seem, look (resemble), resemble, sound, matter, cost, weigh, equal, exist, fit.
+   - Example: That solution seems entirely feasible.
+
+3. DUAL-BEHAVIOR VERBS (STATIVE VS DYNAMIC SENSES)
+--------------------------------------------------------------------------------
+Several English verbs possess BOTH a Stative meaning (state/opinion/possession) and a Dynamic meaning (action/process/experience):
+
+• HAVE:
+  - Stative (Possession): I have two laptops. (NOT: *I am having two laptops).
+  - Dynamic (Eating/Experiencing): We are having lunch right now. / She is having a party.
+
+• THINK:
+  - Stative (Opinion/Belief): I think honesty is crucial.
+  - Dynamic (Mental processing/Deliberation): I am thinking about your proposal.
+
+• TASTE:
+  - Stative (Possessing a flavor): The curry tastes exquisite.
+  - Dynamic (Action of sampling flavor): The chef is tasting the soup to check the salt.
+
+• SMELL:
+  - Stative (Giving off a scent): The flower smells heavenly.
+  - Dynamic (Action of sniffing): Why is she smelling the milk?
+
+• SEE:
+  - Stative (Visual perception / Understanding): I see what you mean.
+  - Dynamic (Meeting / Consulting / Visiting): I am seeing my doctor this afternoon.
+
+• BE:
+  - Stative (Permanent trait/identity): Rahul is intelligent.
+  - Dynamic (Temporary deliberate behavior): Why is Rahul being so stubborn today?
+
+• WEIGH:
+  - Stative (Measurable static weight): The luggage weighs 18 kilograms.
+  - Dynamic (Action of placing on a scale): The airport officer is weighing the baggage.
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• বাংলায় আমরা অনেক সময় বলি "আমি তাকে চিনছি/জানছি" বা "আমার দুটো ভাই আছে (I am having two brothers)"। কিন্তু ইংরেজিতে Stative Verb-এর সাথে কখনোই Continuous (-ing) ব্যবহার করা যাবে না।
+• 'Know', 'Understand', 'Believe', 'Love', 'Belong' ইত্যাদি Verb সর্বদা Simple Present-এ লিখতে হয়।
+• তবে যদি Verb-টি কোনো সক্রিয় কাজ বোঝায় (যেমন শেফ স্যুপ চেখে দেখছেন = The chef is tasting the soup), তখন Continuous হতে পারে। কিন্তু খাবারের স্বাদ কেমন তা বোঝাতে 'The soup tastes good' হবে।
+================================================================================

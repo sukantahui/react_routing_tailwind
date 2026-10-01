@@ -1,0 +1,64 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 4: PRESENT PERFECT TENSE (CONSEQUENCE, EXPERIENCE & TIME MARKERS)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FORMULA & SYNTACTIC ARCHITECTURE
+--------------------------------------------------------------------------------
+• Affirmative: Subject + have / has + Past Participle (V3)
+  - I / We / You / They / Plural Subject + have + V3
+    Example: They have published their findings in Nature.
+  - He / She / It / Singular Subject + has + V3
+    Example: Abhronila has calibrated the spectroscope.
+
+• Negative: Subject + have / has + not + V3
+  - Example: We have not received the official confirmation yet.
+
+• Interrogative: Have / Has + Subject + V3 ...?
+  - Example: Have you ever visited the historical museum at Barrackpore?
+
+2. THE CENTRAL THEORETICAL PRINCIPLE: THE PRESENT-PAST BRIDGE
+--------------------------------------------------------------------------------
+The Present Perfect is fundamentally a PRESENT tense with past reference. It connects an event that took place at an unspecified past time to the CURRENT MOMENT through one of four semantic bridges:
+
+(A) Past Action with Direct Present Consequence (Resultative):
+    - The action is finished, but its direct physical or legal outcome exists NOW.
+    - Example: "I have cut my finger." -> Consequence: My finger is bleeding right now.
+    - Example: "He has lost his key." -> Consequence: He cannot open the door right now.
+    - (Contrast with Simple Past: "He lost his key yesterday, but found it this morning.")
+
+(B) Life Experiences (Indefinite Past up to the Present):
+    - What has (or has not) happened during someone's lifetime up to now.
+    - Adverbs: ever, never, before, once, twice, several times.
+    - Example: Have you ever seen a total solar eclipse?
+    - Example: Tuhina has never failed a diagnostic test.
+
+(C) Immediate Recent Past & Timely Completion:
+    - Actions completed just moments ago or earlier than anticipated.
+    - Adverbs: just, already, yet.
+    - Placement Rules:
+      • 'Just' and 'Already' sit between the auxiliary and V3: "She has ALREADY solved the problem."
+      • 'Yet' sits at the end of negative sentences and questions: "Has he arrived YET?" / "No, he hasn't arrived YET."
+
+(D) Unfinished Time Periods:
+    - When the time period mentioned is NOT yet over at the time of speaking.
+    - Markers: today, this morning (if still morning), this week, this semester, this year.
+    - Example: "I have drunk three cups of tea today." (The day is still ongoing).
+
+3. MANDATORY TIME MARKERS CATALOG
+--------------------------------------------------------------------------------
+• JUST: A very short time ago (e.g. He has just stepped out).
+• ALREADY: Sooner than expected (e.g. I have already submitted the report).
+• YET: Expected event not happened until now (e.g. The results haven't been published yet).
+• EVER: At any time in your life (questions: Have you ever...?).
+• NEVER: Not at any time in your life (e.g. I have never broken a promise).
+• SO FAR / UP TO NOW: Extent up to the present moment (e.g. We have reviewed 40 topics so far).
+• LATELY / RECENTLY: In the recent past (e.g. Have you spoken to him recently?).
+
+4. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• বাংলায় 'পুরাঘটিত বর্তমান' (Present Perfect) এমন কাজ নির্দেশ করে যা অতীতকালে শেষ হয়েছে কিন্তু তার ফলাফল এখনো বিদ্যমান (যেমন: "আমি চাবি হারিয়ে ফেলেছি" = I have lost my key—এর মানে বর্তমানে আমার কাছে চাবি নেই)।
+• কিন্তু যদি কোনো নির্দিষ্ট অতীতের সময় (যেমন: yesterday, two days ago, in 2020) উল্লেখ থাকে, তবে কোনোভাবেই Present Perfect হবে না; সেখানে Simple Past (V2) ব্যবহার করতেই হবে।
+• 'Already' ইতিবাচক বাক্যে, 'Yet' প্রশ্ন ও নেতিবাচক বাক্যের শেষে বসে।
+================================================================================

@@ -1,0 +1,49 @@
+================================================================================
+MODULE 004_005: THE PRESENT TENSE SYSTEM & ASPECTUAL MECHANICS
+TOPIC 7: THE FINISHED PAST TIME ANCHOR PROHIBITION (WHY 'YESTERDAY' + PRESENT PERFECT IS FATAL)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE GOLDEN LAW OF TENSE SEPARATION
+--------------------------------------------------------------------------------
+• The Present Perfect (have/has + V3) is a PRESENT tense with past relevance. Its temporal window extends right up to the split second of speech.
+• A Finished Past Time Anchor (yesterday, ago, last night, in 1999) places the event inside a sealed, completely closed past timeframe that has ZERO temporal overlap with the present.
+• THE IRON RULE: When a sentence specifies a finished past time anchor, the Present Perfect is STRICTLY ILLEGAL. The Simple Past (V2) is mandatory!
+
+2. CATALOG OF FORBIDDEN FINISHED PAST TIME ANCHORS
+--------------------------------------------------------------------------------
+The following time expressions CANNOT be paired with have/has + V3:
+1. 'Yesterday' / 'The day before yesterday'
+2. 'Ago' phrases: two hours ago, five days ago, three years ago
+3. 'Last' phrases: last night, last week, last Monday, last year
+4. Specific past calendar dates & years: in 1947, in 2020, on August 15th
+5. Past life-stage & time clauses: when I was a child, during the pandemic
+6. Interrogative 'WHEN': When did you arrive? (NOT: *When have you arrived?)
+
+3. CRUCIAL COMPARATIVE ERROR MATRIX
+--------------------------------------------------------------------------------
+Ungrammatical Fatal Error (Exam Trap)   | Pure Standard English Correct Form
+----------------------------------------+---------------------------------------
+✗ I have seen him yesterday.            | ✓ I saw him yesterday.
+✗ The train has arrived 10 minutes ago. | ✓ The train arrived 10 minutes ago.
+✗ India has won freedom in 1947.        | ✓ India won freedom in 1947.
+✗ When have you purchased this car?     | ✓ When did you purchase this car?
+✗ We have visited Delhi last month.     | ✓ We visited Delhi last month.
+✗ Shakespeare has written 37 plays.     | ✓ Shakespeare wrote 37 plays.
+
+4. THE UNFINISHED VS FINISHED TIME WINDOW EXCEPTION
+--------------------------------------------------------------------------------
+Certain time expressions (e.g. this morning, today, this afternoon, this year) depend on the SPEAKER'S EXACT TIME OF SPEECH:
+
+Scenario A: It is 10:00 AM (Morning is ongoing / unfinished):
+✓ "I have drunk two cups of tea this morning." (Present Perfect allowed).
+
+Scenario B: It is 05:00 PM (Morning is finished / past history):
+✓ "I drank two cups of tea this morning." (Simple Past mandatory).
+
+5. BENGALI PEDAGOGICAL INSIGHTS (বাংলায় বিশেষ ব্যাখ্যা)
+--------------------------------------------------------------------------------
+• বাংলায় আমরা অনেক সময় বলি "আমি গতকাল তাকে দেখেছি" বা "১৯৪৭ সালে ভারত স্বাধীন হয়েছে"। বাংলা ক্রিয়াপদে এই পার্থক্য ধরা না পড়লেও ইংরেজিতে 'Yesterday', 'Ago', 'In 1947' থাকলে কোনোভাবেই 'have/has + V3' লেখা যাবে না।
+• নিশ্চিত মনে রাখবেন: Yesterday, Ago, Last Night, In 1999 ইত্যাদি থাকলে চোখ বন্ধ করে Simple Past (V2) ব্যবহার করতে হবে (e.g. I saw him yesterday; কখনোই I have seen him yesterday নয়)।
+• 'When' দিয়ে অতীত সময়ের প্রশ্ন করতে সর্বদা 'When did you...' ব্যবহার করবেন, কখনো 'When have you...' নয়।
+================================================================================
