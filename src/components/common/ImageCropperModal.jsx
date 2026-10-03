@@ -235,7 +235,7 @@ export default function ImageCropperModal({
   if (!isOpen || !imageSrc) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn">
       <div className="relative w-full max-w-xl bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-7 shadow-2xl space-y-5 text-slate-100 max-h-[95vh] overflow-y-auto">
         {/* Modal Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-3.5">
@@ -576,22 +576,36 @@ export default function ImageCropperModal({
         </div>
 
         {/* Modal Action Buttons */}
-        <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800">
           <button
             type="button"
-            onClick={onClose}
-            className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition cursor-pointer"
+            onClick={() => {
+              onCropComplete(imageSrc);
+              onClose();
+            }}
+            className="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold transition cursor-pointer border border-slate-700/60"
+            title="Use the uploaded image without cropping"
           >
-            Cancel
+            Use Full Photo (No Crop)
           </button>
-          <button
-            type="button"
-            onClick={handleApplyCrop}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-slate-950 font-bold text-xs transition flex items-center gap-2 cursor-pointer shadow-lg shadow-sky-500/20"
-          >
-            <Check className="w-4 h-4 text-slate-950 stroke-[3]" />
-            <span>Apply & Crop Portion</span>
-          </button>
+
+          <div className="flex items-center gap-2.5">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition cursor-pointer"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleApplyCrop}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-slate-950 font-bold text-xs transition flex items-center gap-2 cursor-pointer shadow-lg shadow-sky-500/20"
+            >
+              <Check className="w-4 h-4 text-slate-950 stroke-[3]" />
+              <span>Apply & Crop Portion</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -692,7 +692,8 @@ export default function StudentCourseQRPage() {
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
       const width = 1000;
-      const height = 1380;
+      const hasRemark = Boolean(studentRemarks && studentRemarks.trim());
+      const height = hasRemark ? 1440 : 1380;
       canvas.width = width;
       canvas.height = height;
 
@@ -736,11 +737,12 @@ export default function StudentCourseQRPage() {
       ctx.fillText(`Ref: ${studentRef} • Official UPI: ${UPI_ID}`, width / 2, 168);
 
       // Course Info Box
+      const infoBoxHeight = hasRemark ? 250 : 210;
       ctx.fillStyle = "#1e293b";
-      ctx.fillRect(70, 230, width - 140, 220);
+      ctx.fillRect(70, 230, width - 140, infoBoxHeight);
       ctx.strokeStyle = "#334155";
       ctx.lineWidth = 2;
-      ctx.strokeRect(70, 230, width - 140, 220);
+      ctx.strokeRect(70, 230, width - 140, infoBoxHeight);
 
       ctx.textAlign = "left";
       ctx.fillStyle = "#38bdf8";
@@ -748,20 +750,26 @@ export default function StudentCourseQRPage() {
       ctx.fillText(
         studentName.trim() ? `Candidate: ${studentName.trim()}` : "Direct Course Admission",
         100,
-        275
+        272
       );
 
       ctx.fillStyle = "#e2e8f0";
-      ctx.font = "bold 22px sans-serif";
-      ctx.fillText(`Course: ${courseTitle}`, 100, 315);
+      ctx.font = "bold 21px sans-serif";
+      ctx.fillText(`Course: ${courseTitle}`, 100, 310);
 
       ctx.fillStyle = "#94a3b8";
-      ctx.font = "18px sans-serif";
-      ctx.fillText(`Total DB Rate: ₹${totalCourseFee.toLocaleString("en-IN")} • Scheme: ${paymentLabel}`, 100, 355);
+      ctx.font = "17px sans-serif";
+      ctx.fillText(`Total DB Rate: ₹${totalCourseFee.toLocaleString("en-IN")} • Scheme: ${paymentLabel}`, 100, 348);
 
       ctx.fillStyle = "#10b981";
-      ctx.font = "bold 22px sans-serif";
-      ctx.fillText(`Payable Amount Today: ₹${numericAmount.toLocaleString("en-IN")}`, 100, 400);
+      ctx.font = "bold 21px sans-serif";
+      ctx.fillText(`Payable Amount Today: ₹${numericAmount.toLocaleString("en-IN")}`, 100, 388);
+
+      if (hasRemark) {
+        ctx.fillStyle = "#facc15";
+        ctx.font = "bold 17px sans-serif";
+        ctx.fillText(`📝 Remark: ${studentRemarks.trim()}`, 100, 430);
+      }
 
       // QR Image
       const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue || UPI_ID, {
@@ -782,7 +790,7 @@ export default function StudentCourseQRPage() {
 
       // White QR Container Card
       const qrBoxX = 220;
-      const qrBoxY = 490;
+      const qrBoxY = hasRemark ? 520 : 480;
       const qrBoxSize = 560;
 
       ctx.fillStyle = "#ffffff";
@@ -797,33 +805,34 @@ export default function StudentCourseQRPage() {
       ctx.textAlign = "center";
       ctx.fillStyle = "#f8fafc";
       ctx.font = "bold 26px sans-serif";
-      ctx.fillText("SCAN WITH ANY UPI APP TO PAY DIRECTLY", width / 2, 1110);
+      ctx.fillText("SCAN WITH ANY UPI APP TO PAY DIRECTLY", width / 2, qrBoxY + qrBoxSize + 60);
 
       ctx.fillStyle = "#94a3b8";
       ctx.font = "18px sans-serif";
       ctx.fillText(
         "Google Pay • PhonePe • Paytm • BHIM • Amazon Pay • Cred",
         width / 2,
-        1150
+        qrBoxY + qrBoxSize + 100
       );
 
       // WhatsApp Footer Box
+      const footerY = qrBoxY + qrBoxSize + 140;
       ctx.fillStyle = "#064e3b";
-      ctx.fillRect(70, 1190, width - 140, 100);
+      ctx.fillRect(70, footerY, width - 140, 100);
       ctx.strokeStyle = "#10b981";
       ctx.lineWidth = 2;
-      ctx.strokeRect(70, 1190, width - 140, 100);
+      ctx.strokeRect(70, footerY, width - 140, 100);
 
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 22px sans-serif";
-      ctx.fillText("Official WhatsApp Desk: +91 94324 56083", width / 2, 1235);
+      ctx.fillText("Official WhatsApp Desk: +91 94324 56083", width / 2, footerY + 45);
 
       ctx.fillStyle = "#6ee7b7";
       ctx.font = "16px sans-serif";
       ctx.fillText(
         "Share payment screenshot on WhatsApp for instant receipt acknowledgment.",
         width / 2,
-        1265
+        footerY + 75
       );
 
       const downloadLink = document.createElement("a");
@@ -1460,7 +1469,7 @@ export default function StudentCourseQRPage() {
                 </div>
 
                 {/* Optional Student Name & Phone Inputs */}
-                <div className="pt-2 border-t border-slate-800/80">
+                <div className="pt-2 border-t border-slate-800/80 space-y-2">
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div>
                       <input
@@ -1479,6 +1488,56 @@ export default function StudentCourseQRPage() {
                         placeholder="WhatsApp (Optional)"
                         className="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-sky-500"
                       />
+                    </div>
+                  </div>
+
+                  {/* Special Remark / Note Input Area (Printed with QR Card) */}
+                  <div className="pt-1.5 border-t border-slate-800/60 space-y-1.5">
+                    <div className="flex items-center justify-between text-[11px]">
+                      <label className="text-amber-400 font-bold flex items-center gap-1">
+                        <Tag size={12} className="text-amber-400" />
+                        <span>Remark / Note (Printed with QR Card):</span>
+                      </label>
+                      {studentRemarks && (
+                        <button
+                          type="button"
+                          onClick={() => setStudentRemarks("")}
+                          className="text-slate-500 hover:text-rose-400 text-[10px] cursor-pointer"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                    <textarea
+                      rows={2}
+                      value={studentRemarks}
+                      onChange={(e) => setStudentRemarks(e.target.value)}
+                      placeholder="e.g. 1st Installment of 3 • Batch: 5 PM • Study Material Included"
+                      className="w-full px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 resize-none"
+                    />
+
+                    {/* Quick Preset Remark Chips */}
+                    <div className="flex flex-wrap gap-1">
+                      {[
+                        "1st Installment",
+                        "Full Settlement",
+                        "Registration + 1st Month",
+                        "Study Material Included",
+                        "Exam & Tuition Fee",
+                      ].map((preset) => (
+                        <button
+                          key={preset}
+                          type="button"
+                          onClick={() => setStudentRemarks(preset)}
+                          className={`text-[10px] px-2 py-0.5 rounded-lg border transition cursor-pointer ${
+                            studentRemarks === preset
+                              ? "bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold"
+                              : "bg-slate-950/80 text-slate-400 hover:text-slate-200 border-slate-800"
+                          }`}
+                        >
+                          {preset}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -1551,15 +1610,21 @@ export default function StudentCourseQRPage() {
                 </div>
 
                 {/* Course & Scheme Badge Below QR */}
-                <div className="mt-3 w-full p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-left">
+                <div className="mt-3 w-full p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-left space-y-1">
                   <div className="flex items-center justify-between text-xs font-bold text-white">
                     <span className="truncate">{courseTitle || "Course Fee"}</span>
                     <span className="text-emerald-400">₹{numericAmount.toLocaleString("en-IN")}</span>
                   </div>
-                  <div className="flex items-center justify-between text-[11px] text-slate-400 mt-0.5">
+                  <div className="flex items-center justify-between text-[11px] text-slate-400">
                     <span>Scheme: <strong className="text-emerald-300">{paymentLabel}</strong></span>
                     <span>Ref: {studentRef}</span>
                   </div>
+                  {studentRemarks.trim() && (
+                    <div className="text-[11px] text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20 flex items-start gap-1.5 mt-1">
+                      <span className="text-slate-400 font-bold flex-shrink-0">Remark:</span>
+                      <span className="font-medium break-words italic">{studentRemarks.trim()}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Copy QR Image & Save QR Card */}
@@ -1670,7 +1735,7 @@ export default function StudentCourseQRPage() {
                     type="button"
                     onClick={handlePrintSlip}
                     className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700/80 transition cursor-pointer"
-                    title="Print Admission Slip"
+                    title="Print Admission Slip with QR Code"
                   >
                     <Printer size={15} />
                   </button>
@@ -1687,6 +1752,178 @@ export default function StudentCourseQRPage() {
 
           </div>
         )}
+
+        {/* ========================================================================= */}
+        {/* HIDDEN PRINT-ONLY ADMISSION & QR SLIP                                      */}
+        {/* ========================================================================= */}
+        <div id="printable-qr-slip" className="hidden print:block font-sans text-slate-900 bg-white">
+          <style dangerouslySetInnerHTML={{ __html: `
+            @media print {
+              body * {
+                visibility: hidden !important;
+              }
+              #printable-qr-slip, #printable-qr-slip * {
+                visibility: visible !important;
+              }
+              #printable-qr-slip {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 20px !important;
+                background: #ffffff !important;
+                color: #0f172a !important;
+                display: block !important;
+              }
+              @page {
+                size: A4 portrait;
+                margin: 10mm;
+              }
+            }
+          `}} />
+
+          <div className="border-2 border-slate-900 rounded-2xl p-6 bg-white space-y-4">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b-2 border-slate-900 pb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-14 h-14 rounded-xl border border-slate-300 p-1 flex items-center justify-center bg-slate-50">
+                  <img src={cnatLogo} alt="Coder & AccoTax" className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <h1 className="text-xl font-black tracking-tight text-slate-900 uppercase">
+                    CODER &amp; ACCOTAX
+                  </h1>
+                  <p className="text-xs font-bold text-slate-700">
+                    Professional IT, Software Engineering &amp; Commerce Accounting Academy
+                  </p>
+                  <p className="text-[11px] text-slate-500">
+                    Barrackpore, Kolkata - 700122 • Mob/WhatsApp: +91 94324 56083 • Web: codernaccotax.co.in
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-right">
+                <span className="inline-block px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded-lg uppercase tracking-wider">
+                  Official Admission Advice
+                </span>
+                <p className="text-[10px] text-slate-600 font-mono font-bold mt-1">
+                  Ref: {studentRef}
+                </p>
+                <p className="text-[10px] text-slate-500">
+                  Issued: {new Date().toLocaleDateString("en-IN", { dateStyle: "medium" })}
+                </p>
+              </div>
+            </div>
+
+            {/* Main 2-Column Content: Left Details | Right QR Code */}
+            <div className="grid grid-cols-12 gap-5 items-center">
+              {/* Left: Candidate & Fee Details (7 cols) */}
+              <div className="col-span-7 space-y-2.5">
+                {/* Candidate Info */}
+                <div className="bg-slate-50 rounded-xl p-3 border border-slate-200 space-y-1 text-xs">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-semibold">Candidate Name:</span>
+                    <span className="font-bold text-slate-900">{studentName.trim() || "Direct Course Admission"}</span>
+                  </div>
+                  {studentPhone.trim() && (
+                    <div className="flex justify-between">
+                      <span className="text-slate-500 font-semibold">WhatsApp / Phone:</span>
+                      <span className="font-bold text-slate-800 font-mono">{studentPhone.trim()}</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-semibold">Course Title:</span>
+                    <span className="font-bold text-slate-900">{courseTitle}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500 font-semibold">Course Category:</span>
+                    <span className="font-semibold text-slate-700">{courseCategory}</span>
+                  </div>
+                  {batchTiming && (
+                    <div className="flex justify-between">
+                      <span className="text-slate-500 font-semibold">Batch Timing:</span>
+                      <span className="font-medium text-slate-700">{batchTiming}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Payment Summary Box */}
+                <div className="bg-slate-900 text-white rounded-xl p-3 space-y-1">
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-slate-300 font-semibold">Payment Scheme:</span>
+                    <span className="font-bold text-amber-300 uppercase">{paymentLabel}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-slate-300 font-semibold">Total Catalog Fee:</span>
+                    <span className="font-bold text-slate-200">₹{totalCourseFee.toLocaleString("en-IN")}</span>
+                  </div>
+                  <div className="pt-1.5 border-t border-slate-700 flex justify-between items-center">
+                    <span className="text-xs font-bold text-emerald-300 uppercase">Payable Amount Today:</span>
+                    <span className="text-lg font-black text-emerald-400 font-mono">
+                      ₹{numericAmount.toLocaleString("en-IN")}
+                    </span>
+                  </div>
+                </div>
+
+                {/* REMARK / SPECIAL INSTRUCTIONS CALLOUT */}
+                <div className="bg-amber-50 border border-amber-300 rounded-xl p-2.5 text-xs space-y-0.5">
+                  <span className="font-bold text-amber-900 block flex items-center gap-1">
+                    <span>📝 Remark / Special Note:</span>
+                  </span>
+                  <p className="text-amber-950 font-medium italic">
+                    {studentRemarks.trim() || "Standard Course Admission & Payment Schedule."}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: NPCI Scannable QR (5 cols) */}
+              <div className="col-span-5 flex flex-col items-center justify-center p-3.5 border-2 border-slate-300 rounded-2xl bg-white text-center">
+                <div className="w-[160px] h-[160px] flex items-center justify-center p-1.5 bg-white border border-slate-200 rounded-xl shadow-sm">
+                  <QRCode
+                    value={activeQrCodeValue || UPI_ID}
+                    size={155}
+                    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                    viewBox="0 0 256 256"
+                    level="M"
+                    fgColor="#000000"
+                    bgColor="#ffffff"
+                  />
+                </div>
+
+                <div className="mt-2 text-center space-y-0.5">
+                  <span className="text-[11px] font-black text-slate-900 block">
+                    SCAN WITH ANY UPI APP
+                  </span>
+                  <span className="text-[10px] text-slate-700 font-mono font-bold block">
+                    UPI ID: {UPI_ID}
+                  </span>
+                  <span className="text-[9px] text-slate-500 block">
+                    Google Pay • PhonePe • Paytm • BHIM • Cred
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer Instructions & Verification */}
+            <div className="pt-2.5 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
+              <div className="space-y-0.5 max-w-lg">
+                <p className="font-semibold text-slate-700">
+                  • Please share your transaction ID or payment screenshot on WhatsApp (+91 94324 56083).
+                </p>
+                <p>
+                  • An official computerized GST &amp; student ledger acknowledgment will be issued upon payment confirmation.
+                </p>
+              </div>
+              <div className="text-right">
+                <div className="w-28 border-b border-slate-400 mb-1 ml-auto" />
+                <span className="font-semibold text-slate-700">Authorized Signatory</span>
+                <p className="text-[9px] text-slate-400">Coder &amp; AccoTax Office Desk</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>

@@ -134,11 +134,19 @@ export default function CalendarDatePicker({
 
   return (
     <div className="relative" ref={wrapperRef}>
-      {/* Trigger button */}
-      <button
-        type="button"
+      {/* Trigger element */}
+      <div
+        role="button"
+        tabIndex={0}
         onClick={isOpen ? () => setIsOpen(false) : open}
-        className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border text-sm text-left transition-all duration-150 ${
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (isOpen) setIsOpen(false);
+            else open();
+          }
+        }}
+        className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border text-sm text-left transition-all duration-150 cursor-pointer select-none ${
           isOpen
             ? 'bg-slate-950 border-rose-500 ring-2 ring-rose-500/30'
             : 'bg-slate-950 border-slate-800 hover:border-slate-600'
@@ -152,14 +160,14 @@ export default function CalendarDatePicker({
           <button
             type="button"
             onClick={clearValue}
-            className="p-0.5 rounded text-slate-500 hover:text-slate-300 transition-colors"
+            className="p-0.5 rounded text-slate-500 hover:text-slate-300 transition-colors cursor-pointer"
             tabIndex={-1}
             aria-label="Clear date"
           >
             <X className="w-3.5 h-3.5" />
           </button>
         )}
-      </button>
+      </div>
 
       {/* ── Popup Calendar ──────────────────────────────────────────────── */}
       {isOpen && (

@@ -412,7 +412,8 @@ export default function StudentCourseQRModal({
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
       const width = 1000;
-      const height = 1350;
+      const hasRemark = Boolean(studentRemarks && studentRemarks.trim());
+      const height = hasRemark ? 1420 : 1350;
       canvas.width = width;
       canvas.height = height;
 
@@ -456,11 +457,12 @@ export default function StudentCourseQRModal({
       ctx.fillText(`Ref: ${studentRef} • Official UPI: ${UPI_ID}`, width / 2, 168);
 
       // Student & Course Info Box
+      const infoBoxHeight = hasRemark ? 250 : 210;
       ctx.fillStyle = "#1e293b";
-      ctx.fillRect(70, 230, width - 140, 210);
+      ctx.fillRect(70, 230, width - 140, infoBoxHeight);
       ctx.strokeStyle = "#334155";
       ctx.lineWidth = 2;
-      ctx.strokeRect(70, 230, width - 140, 210);
+      ctx.strokeRect(70, 230, width - 140, infoBoxHeight);
 
       ctx.textAlign = "left";
       ctx.fillStyle = "#38bdf8";
@@ -469,14 +471,14 @@ export default function StudentCourseQRModal({
 
       ctx.fillStyle = "#e2e8f0";
       ctx.font = "bold 22px sans-serif";
-      ctx.fillText(`Course: ${activeCourse.title}`, 100, 320);
+      ctx.fillText(`Course: ${activeCourse.title}`, 100, 315);
 
       ctx.fillStyle = "#94a3b8";
       ctx.font = "18px sans-serif";
       ctx.fillText(
         `Batch: ${batchTiming} • Mode: ${classMode || "Online / Offline"}`,
         100,
-        360
+        355
       );
 
       ctx.fillStyle = "#10b981";
@@ -484,8 +486,14 @@ export default function StudentCourseQRModal({
       ctx.fillText(
         `Payable Amount: ₹${feeSummary.payingNow.toLocaleString("en-IN")}  (Net Fee: ₹${feeSummary.netPayable.toLocaleString("en-IN")})`,
         100,
-        405
+        395
       );
+
+      if (hasRemark) {
+        ctx.fillStyle = "#facc15";
+        ctx.font = "bold 17px sans-serif";
+        ctx.fillText(`📝 Remark: ${studentRemarks.trim()}`, 100, 435);
+      }
 
       // Generate QR Data URL
       const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue || UPI_ID, {
@@ -506,7 +514,7 @@ export default function StudentCourseQRModal({
 
       // White QR Container Card
       const qrBoxX = 220;
-      const qrBoxY = 480;
+      const qrBoxY = hasRemark ? 520 : 480;
       const qrBoxSize = 560;
 
       ctx.fillStyle = "#ffffff";
@@ -521,29 +529,30 @@ export default function StudentCourseQRModal({
       ctx.textAlign = "center";
       ctx.fillStyle = "#f8fafc";
       ctx.font = "bold 26px sans-serif";
-      ctx.fillText("SCAN WITH ANY UPI APP TO PAY DIRECTLY", width / 2, 1100);
+      ctx.fillText("SCAN WITH ANY UPI APP TO PAY DIRECTLY", width / 2, qrBoxY + qrBoxSize + 60);
 
       ctx.fillStyle = "#94a3b8";
       ctx.font = "18px sans-serif";
       ctx.fillText(
         "Google Pay • PhonePe • Paytm • BHIM • Amazon Pay • Cred",
         width / 2,
-        1140
+        qrBoxY + qrBoxSize + 100
       );
 
       // WhatsApp Help Footer Box
+      const footerY = qrBoxY + qrBoxSize + 140;
       ctx.fillStyle = "#064e3b";
-      ctx.fillRect(70, 1180, width - 140, 100);
+      ctx.fillRect(70, footerY, width - 140, 100);
       ctx.strokeStyle = "#10b981";
       ctx.lineWidth = 2;
-      ctx.strokeRect(70, 1180, width - 140, 100);
+      ctx.strokeRect(70, footerY, width - 140, 100);
 
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 22px sans-serif";
       ctx.fillText(
         "Official WhatsApp Desk: +91 94324 56083",
         width / 2,
-        1225
+        footerY + 45
       );
 
       ctx.fillStyle = "#6ee7b7";
@@ -551,7 +560,7 @@ export default function StudentCourseQRModal({
       ctx.fillText(
         "Share payment screenshot or admission advice on WhatsApp for instant receipt.",
         width / 2,
-        1255
+        footerY + 75
       );
 
       // Download file

@@ -7,6 +7,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import api from "../api/api";
 import { loginService } from "../services/loginService";
+import userService from "../services/userService";
 import { BADGES } from "./typing-app/TypingLearn";
 import ImageCropperModal from "./common/ImageCropperModal";
 
@@ -47,7 +48,7 @@ export default function Profile() {
   const [avatarUrl, setAvatarUrl] = useState(() => {
     try {
       const u = JSON.parse(localStorage.getItem("user") || "{}");
-      return u?.avatar || u?.profilePicture || u?.image || localStorage.getItem("userAvatar") || "";
+      return userService.getUserAvatar(u);
     } catch {
       return "";
     }
@@ -67,6 +68,8 @@ export default function Profile() {
     mobile: "",
     department: "",
     designation: "",
+    gender_id: 1,
+    gender: "Male",
   });
   const [isEditing, setIsEditing] = useState(false);
   const [savingProfile, setSavingProfile] = useState(false);
@@ -92,26 +95,50 @@ export default function Profile() {
 
   const populateForm = (userData) => {
     const employee = userData?.employee || {};
+    const student = userData?.student || {};
+    const gId = Number(
+      userData?.gender_id ??
+      userData?.genderId ??
+      student?.gender_id ??
+      student?.genderId ??
+      employee?.gender_id ??
+      employee?.genderId ??
+      (String(userData?.gender || "").toLowerCase().includes("female") ? 2 : 1)
+    );
+    const gName = gId === 2 ? "Female" : "Male";
+
+    const isRealEmail = (val) => typeof val === "string" && val.includes("@") && val.trim().length > 3;
+
+    const resolvedEmail =
+      (isRealEmail(student?.email) ? student.email.trim() : null) ||
+      (isRealEmail(employee?.email) ? employee.email.trim() : null) ||
+      (isRealEmail(userData?.email) ? userData.email.trim() : null) ||
+      (isRealEmail(userData?.userEmail) ? userData.userEmail.trim() : null) ||
+      "";
+
     setFormData({
       name:
         userData?.name ||
+        student?.student_name ||
         userData?.employeeName ||
         employee?.employeeName ||
-        userData?.userName?.split("@")[0] ||
+        (userData?.userName && userData.userName.includes("@") ? userData.userName.split("@")[0] : userData?.userName) ||
         "User",
-      email: userData?.email || employee?.email || userData?.userName || "",
-      mobile: userData?.mobile || employee?.mobile || "",
+      email: resolvedEmail,
+      mobile: userData?.mobile || student?.whatsapp || student?.phone1 || employee?.mobile || "",
+      gender_id: gId,
+      gender: gName,
       department:
         userData?.department?.name ||
         employee?.department?.name ||
         userData?.department ||
-        "Academics",
+        (student?.id ? "Academics" : "General"),
       designation:
         userData?.designation?.name ||
         employee?.designation?.name ||
         userData?.designation ||
         userData?.role ||
-        "Member",
+        (student?.id ? "Student" : "Member"),
     });
   };
 
@@ -128,14 +155,14 @@ export default function Profile() {
           try {
             localUserObj = JSON.parse(rawUser);
             if (isMounted) {
-              setUser(localUserObj);
-              populateForm(localUserObj);
-              const initialAvatar =
-                localUserObj?.avatar ||
-                localUserObj?.profilePicture ||
-                localUserObj?.image ||
-                localStorage.getItem("userAvatar") ||
-                "";
+              const initialAvatar = userService.getUserAvatar(localUserObj);
+              const readyUser = {
+                ...localUserObj,
+                avatar: initialAvatar,
+                profilePicture: initialAvatar,
+              };
+              setUser(readyUser);
+              populateForm(readyUser);
               if (initialAvatar) setAvatarUrl(initialAvatar);
             }
           } catch (err) {
@@ -148,11 +175,11 @@ export default function Profile() {
           if (res?.data && isMounted) {
             const liveUser = res.data;
             const liveAvatar =
+              userService.getUserAvatar({ ...localUserObj, ...liveUser }) ||
+              localUserObj?.avatar ||
               liveUser?.avatar ||
               liveUser?.profilePicture ||
               liveUser?.image ||
-              localUserObj?.avatar ||
-              localStorage.getItem("userAvatar") ||
               "";
             const combinedUser = {
               ...localUserObj,
@@ -160,9 +187,10 @@ export default function Profile() {
               avatar: liveAvatar,
               profilePicture: liveAvatar,
             };
-            setUser(combinedUser);
-            populateForm(combinedUser);
-            localStorage.setItem("user", JSON.stringify(combinedUser));
+            const hydrated = await userService.hydrateUserProfile(combinedUser).catch(() => combinedUser);
+            setUser(hydrated);
+            populateForm(hydrated);
+            localStorage.setItem("user", JSON.stringify(hydrated));
             if (liveAvatar) setAvatarUrl(liveAvatar);
           }
         } catch (err) {
@@ -174,6 +202,24 @@ export default function Profile() {
         }
       }
     };
+
+    const handleAuthSync = () => {
+      if (!isMounted) return;
+      try {
+        const raw = localStorage.getItem("user");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          const av = userService.getUserAvatar(parsed);
+          setUser((prev) => ({ ...prev, ...parsed, avatar: av, profilePicture: av }));
+          setAvatarUrl(av || "");
+        }
+      } catch (e) {
+        void e;
+      }
+    };
+
+    window.addEventListener("storage", handleAuthSync);
+    window.addEventListener("authChanged", handleAuthSync);
 
     const fetchTypingStats = () => {
       try {
@@ -216,6 +262,8 @@ export default function Profile() {
 
     return () => {
       isMounted = false;
+      window.removeEventListener("storage", handleAuthSync);
+      window.removeEventListener("authChanged", handleAuthSync);
     };
   }, []);
 
@@ -231,25 +279,69 @@ export default function Profile() {
     setSavingProfile(true);
 
     try {
-      // Update local storage representation
+      const gId = Number(formData.gender_id) === 2 ? 2 : 1;
+      const gName = gId === 2 ? "Female" : "Male";
+
+      // Build updated user state
       const updatedUser = {
         ...user,
         name: formData.name,
         email: formData.email,
         mobile: formData.mobile,
-        employee: {
-          ...(user?.employee || {}),
+        gender_id: gId,
+        genderId: gId,
+        gender: gName,
+        genderName: gName,
+        gender_name: gName,
+        student: user?.student ? {
+          ...user.student,
+          student_name: formData.name,
+          studentName: formData.name,
+          whatsapp: formData.mobile,
+          gender_id: gId,
+          genderId: gId,
+          gender: gName,
+          gender_name: gName,
+        } : undefined,
+        employee: user?.employee ? {
+          ...user.employee,
           employeeName: formData.name,
           email: formData.email,
           mobile: formData.mobile,
-        },
+          gender_id: gId,
+          genderId: gId,
+          gender: gName,
+        } : undefined,
       };
 
-      // Try updating via API if endpoint exists
+      // Try updating via API
       try {
-        await api.put(`/users/${user?.userId || user?.id || ""}`, formData);
+        const apiRes = await userService.updateProfile({
+          name: formData.name,
+          email: formData.email,
+          mobile: formData.mobile,
+          gender_id: gId,
+          gender: gName,
+        });
+        if (apiRes && typeof apiRes === "object") {
+          Object.assign(updatedUser, apiRes);
+        }
       } catch (apiErr) {
         console.warn("API profile update note:", apiErr);
+        // Direct student fallback
+        if (user?.student_id || user?.student?.id) {
+          try {
+            const sId = user?.student_id || user?.student?.id;
+            await api.put(`/students/${sId}`, {
+              student_name: formData.name,
+              email: formData.email,
+              whatsapp: formData.mobile,
+              gender_id: gId,
+            });
+          } catch (stuErr) {
+            console.warn("Student update note:", stuErr);
+          }
+        }
       }
 
       localStorage.setItem("user", JSON.stringify(updatedUser));
@@ -260,10 +352,10 @@ export default function Profile() {
       window.dispatchEvent(new Event("authChanged"));
 
       Swal.fire({
-        title: "Profile Updated!",
-        text: "Your profile information has been saved successfully.",
+        title: "Profile & Gender Updated!",
+        text: `Your profile information and gender (${gName}) have been saved successfully.`,
         icon: "success",
-        timer: 1800,
+        timer: 2000,
         showConfirmButton: false,
         background: "#0f172a",
         color: "#f8fafc",
@@ -273,7 +365,7 @@ export default function Profile() {
       console.error("Save profile error:", err);
       Swal.fire({
         title: "Update Failed",
-        text: "Could not save profile changes. Please try again.",
+        text: err?.response?.data?.message || "Could not save profile changes. Please try again.",
         icon: "error",
         background: "#0f172a",
         color: "#f8fafc",
@@ -447,6 +539,8 @@ export default function Profile() {
     setPreviewAvatar(croppedDataUrl);
     setSelectedPreset("");
     setShowCropperModal(false);
+    // Immediately save and apply the cropped photo!
+    handleSaveAvatar(croppedDataUrl);
   };
 
   const handleSaveAvatar = (overrideImage) => {
@@ -454,27 +548,22 @@ export default function Profile() {
       overrideImage !== undefined ? overrideImage : (previewAvatar || selectedPreset);
     setUploadingAvatar(true);
     try {
-      const updatedUser = {
-        ...user,
-        avatar: chosenAvatar || "",
-        profilePicture: chosenAvatar || "",
-        image: chosenAvatar || "",
-      };
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-      if (chosenAvatar) {
-        localStorage.setItem("userAvatar", chosenAvatar);
-      } else {
-        localStorage.removeItem("userAvatar");
+      let baseUser = user;
+      if (!baseUser) {
+        try {
+          baseUser = JSON.parse(localStorage.getItem("user") || "{}");
+        } catch {
+          baseUser = {};
+        }
       }
+
+      const updatedUser = userService.saveUserAvatar(baseUser, chosenAvatar || "");
       setUser(updatedUser);
       setAvatarUrl(chosenAvatar || "");
       setPreviewAvatar(null);
       setSelectedPreset("");
       setRawImageToCrop(null);
       setShowAvatarModal(false);
-
-      window.dispatchEvent(new Event("storage"));
-      window.dispatchEvent(new Event("authChanged"));
 
       Swal.fire({
         toast: true,
@@ -525,29 +614,49 @@ export default function Profile() {
     return name.slice(0, 2).toUpperCase();
   };
 
+  const isRealEmail = (val) => typeof val === "string" && val.includes("@") && val.trim().length > 3;
+
+  const userIdentifier =
+    user?.student?.registration_number ||
+    user?.student?.registrationNumber ||
+    user?.student?.enrollment_number ||
+    user?.student?.enrollmentNumber ||
+    user?.registration_number ||
+    user?.registrationNumber ||
+    user?.enrollment_number ||
+    user?.enrollmentNumber ||
+    (user?.userName && !user.userName.includes("@") ? user.userName : null) ||
+    (user?.user_name && !user.user_name.includes("@") ? user.user_name : null) ||
+    "";
+
   const userName =
     user?.name ||
+    user?.student?.student_name ||
+    user?.studentName ||
     user?.employeeName ||
     user?.employee?.employeeName ||
     formData.name ||
-    "Sukanta Hui";
+    userIdentifier ||
+    "User";
 
   const userRole =
     user?.userType?.userTypeName ||
     user?.role ||
+    user?.role_name ||
+    user?.roleName ||
     user?.user_type ||
-    "Admin";
+    (user?.student_id || user?.student?.id ? "Student" : "Admin");
 
   const isAdminRole = ["admin", "developer", "owner", "manager", "staff", "faculty"].includes(
     String(userRole).toLowerCase()
-  ) || String(userRole).toLowerCase() !== "student";
+  ) && String(userRole).toLowerCase() !== "student";
 
   const userEmail =
-    user?.email ||
-    user?.employee?.email ||
-    user?.userName ||
-    formData.email ||
-    "user@example.com";
+    (isRealEmail(formData.email) ? formData.email : null) ||
+    (isRealEmail(user?.email) ? user.email : null) ||
+    (isRealEmail(user?.student?.email) ? user.student.email : null) ||
+    (isRealEmail(user?.employee?.email) ? user.employee.email : null) ||
+    "";
 
   useEffect(() => {
     document.title = isAdminRole
@@ -636,12 +745,27 @@ export default function Profile() {
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-400/40">
                   {userRole}
                 </span>
+                {userIdentifier && (
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 flex items-center gap-1">
+                    <i className="bi bi-person-vcard text-[11px]"></i>
+                    {userIdentifier}
+                  </span>
+                )}
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   Active Session
                 </span>
               </div>
-              <p className="text-slate-400 text-sm">{userEmail}</p>
+              <p className="text-slate-400 text-sm flex items-center justify-center sm:justify-start gap-2">
+                {userEmail ? (
+                  <>
+                    <i className="bi bi-envelope text-slate-500"></i>
+                    <span>{userEmail}</span>
+                  </>
+                ) : (
+                  <span className="text-slate-500 italic text-xs">No email address linked</span>
+                )}
+              </p>
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs text-slate-400 pt-1">
                 <span>
                   🏢 Department:{" "}
@@ -733,6 +857,22 @@ export default function Profile() {
 
             {isEditing ? (
               <form onSubmit={handleSaveProfile} className="space-y-4">
+                {userIdentifier && (
+                  <div className="p-3 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 rounded-xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-300">
+                        <i className="bi bi-person-badge text-base"></i>
+                      </div>
+                      <div>
+                        <p className="text-[11px] text-slate-400 font-medium">Enrollment / User Identifier</p>
+                        <p className="text-sm font-mono font-bold text-indigo-300">{userIdentifier}</p>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+                      System ID
+                    </span>
+                  </div>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">
@@ -749,8 +889,9 @@ export default function Profile() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">
-                      Email Address
+                    <label className="block text-xs font-semibold text-slate-300 mb-1 flex items-center justify-between">
+                      <span>Email Address</span>
+                      <span className="text-slate-500 text-[10px] font-normal">Optional</span>
                     </label>
                     <input
                       type="email"
@@ -758,8 +899,8 @@ export default function Profile() {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="w-full px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
-                      required
+                      placeholder="e.g. yourname@example.com"
+                      className="w-full px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500 placeholder:text-slate-600"
                     />
                   </div>
                   <div>
@@ -789,7 +930,7 @@ export default function Profile() {
                       className="w-full px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
                     />
                   </div>
-                  <div className="sm:col-span-2">
+                  <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">
                       Designation / Role
                     </label>
@@ -801,6 +942,84 @@ export default function Profile() {
                       }
                       className="w-full px-3.5 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
                     />
+                  </div>
+
+                  {/* Gender Selector */}
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
+                      <span className="flex items-center gap-1.5">
+                        <i className="bi bi-gender-ambiguous text-rose-400"></i>
+                        <span>Gender / Biological Profile</span>
+                        <span className="text-rose-400">*</span>
+                      </span>
+                      <span className="text-[10px] text-slate-400">
+                        Controls tailored academic &amp; health tools
+                      </span>
+                    </label>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, gender_id: 2, gender: "Female" })}
+                        className={`p-3 rounded-2xl border text-left transition flex items-center gap-3 cursor-pointer ${
+                          Number(formData.gender_id) === 2
+                            ? "bg-rose-500/15 border-rose-500/60 ring-2 ring-rose-500/30 text-white"
+                            : "bg-slate-800/80 border-slate-700/80 hover:bg-slate-800 text-slate-300"
+                        }`}
+                      >
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-base font-bold transition ${
+                          Number(formData.gender_id) === 2
+                            ? "bg-rose-500 text-white shadow-md shadow-rose-500/30"
+                            : "bg-slate-700 text-slate-400"
+                        }`}>
+                          ♀
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-1.5">
+                            <span className="font-bold text-sm">Female</span>
+                            {Number(formData.gender_id) === 2 && (
+                              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/40">
+                                ACTIVE
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[10px] text-slate-400 line-clamp-1">
+                            Access Menstrual Calendar &amp; health tools
+                          </p>
+                        </div>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, gender_id: 1, gender: "Male" })}
+                        className={`p-3 rounded-2xl border text-left transition flex items-center gap-3 cursor-pointer ${
+                          Number(formData.gender_id) === 1
+                            ? "bg-sky-500/15 border-sky-500/60 ring-2 ring-sky-500/30 text-white"
+                            : "bg-slate-800/80 border-slate-700/80 hover:bg-slate-800 text-slate-300"
+                        }`}
+                      >
+                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-base font-bold transition ${
+                          Number(formData.gender_id) === 1
+                            ? "bg-sky-500 text-white shadow-md shadow-sky-500/30"
+                            : "bg-slate-700 text-slate-400"
+                        }`}>
+                          ♂
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-1.5">
+                            <span className="font-bold text-sm">Male</span>
+                            {Number(formData.gender_id) === 1 && (
+                              <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/40">
+                                ACTIVE
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-[10px] text-slate-400 line-clamp-1">
+                            Standard academic &amp; compiler suite
+                          </p>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -828,8 +1047,14 @@ export default function Profile() {
                   <p className="font-semibold text-white text-base">{userName}</p>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+                  <p className="text-xs text-slate-400 mb-1">Enrollment / User ID</p>
+                  <p className="font-semibold text-indigo-300 font-mono text-base">{userIdentifier || "—"}</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
                   <p className="text-xs text-slate-400 mb-1">Email Address</p>
-                  <p className="font-semibold text-white text-base">{userEmail}</p>
+                  <p className="font-semibold text-white text-base">
+                    {userEmail || <span className="text-slate-500 italic text-sm font-normal">Not provided</span>}
+                  </p>
                 </div>
                 <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
                   <p className="text-xs text-slate-400 mb-1">Mobile Contact</p>
@@ -847,11 +1072,34 @@ export default function Profile() {
                     {formData.department}
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-                  <p className="text-xs text-slate-400 mb-1">Designation</p>
-                  <p className="font-semibold text-white text-base">
-                    {formData.designation}
-                  </p>
+                <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 sm:col-span-2 flex items-center justify-between">
+                  <div>
+                    <p className="text-xs text-slate-400 mb-1 flex items-center gap-1.5">
+                      <i className="bi bi-gender-ambiguous text-slate-400"></i>
+                      <span>Gender &amp; Tools Access</span>
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold ${
+                        Number(formData.gender_id) === 2
+                          ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+                          : "bg-sky-500/20 text-sky-300 border border-sky-500/40"
+                      }`}>
+                        <span>{Number(formData.gender_id) === 2 ? "♀ Female" : "♂ Male"}</span>
+                      </span>
+                      {Number(formData.gender_id) === 2 && (
+                        <span className="text-[11px] text-rose-300/90 font-medium">
+                          • Menstrual Cycle Calendar active
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsEditing(true)}
+                    className="text-xs text-sky-400 hover:text-sky-300 font-semibold px-2.5 py-1 rounded-lg bg-sky-500/10 border border-sky-500/20 hover:bg-sky-500/20 transition cursor-pointer"
+                  >
+                    Change Gender
+                  </button>
                 </div>
               </div>
             )}
@@ -1095,6 +1343,30 @@ export default function Profile() {
           </div>
 
           <div className="space-y-6">
+            {/* Quick Reset Modal Card */}
+            <div className="bg-gradient-to-br from-slate-900 to-amber-950/30 border border-amber-500/30 rounded-3xl p-6 shadow-xl space-y-4">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30">
+                  <i className="bi bi-shield-lock-fill text-base"></i>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white">Direct Password Reset</h3>
+                  <p className="text-[11px] text-slate-400">Self-service direct reset modal</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Need to quickly update your login credentials? Use our interactive secured password reset modal with instant password masking and confirmation matching.
+              </p>
+              <button
+                type="button"
+                onClick={() => userService.promptSelfPasswordReset(Swal)}
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <i className="bi bi-key-fill text-sm"></i>
+                <span>Open Quick Reset Dialog</span>
+              </button>
+            </div>
+
             <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
               <h3 className="text-sm font-bold text-white flex items-center gap-2">
                 <i className="bi bi-shield-check text-emerald-400"></i>
@@ -1654,6 +1926,18 @@ export default function Profile() {
                     </button>
                   )}
 
+                  {(previewAvatar || selectedPreset) && (
+                    <button
+                      type="button"
+                      disabled={uploadingAvatar}
+                      onClick={() => handleSaveAvatar()}
+                      className="px-3 py-1 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-md shadow-emerald-500/20"
+                    >
+                      <i className="bi bi-check-circle-fill"></i>
+                      <span>Apply & Save Now</span>
+                    </button>
+                  )}
+
                   {(avatarUrl || previewAvatar || selectedPreset) && (
                     <button
                       type="button"
@@ -1721,11 +2005,13 @@ export default function Profile() {
                         setSelectedPreset(preset.url);
                         setPreviewAvatar(null);
                       }}
+                      onDoubleClick={() => handleSaveAvatar(preset.url)}
                       className={`p-2 rounded-2xl border text-center transition flex flex-col items-center gap-1.5 cursor-pointer ${
                         isSelected
                           ? "bg-sky-500/20 border-sky-400 ring-2 ring-sky-500/50 scale-105 shadow-md"
                           : "bg-slate-950/60 border-slate-800 hover:border-slate-700 hover:bg-slate-800/50"
                       }`}
+                      title={isSelected ? "Selected (Click Save Picture to apply)" : `Select ${preset.label} (Double-click to apply instantly)`}
                     >
                       <div className="w-12 h-12 rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
                         <img src={preset.url} alt={preset.label} className="w-full h-full object-cover" />
@@ -1733,6 +2019,11 @@ export default function Profile() {
                       <span className="text-[10px] font-semibold text-slate-300 truncate w-full text-center">
                         {preset.label}
                       </span>
+                      {isSelected && (
+                        <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-sky-400 text-slate-950">
+                          Active
+                        </span>
+                      )}
                     </button>
                   );
                 })}

@@ -1515,7 +1515,7 @@ with open("students.bin", "rb") as f:
                 <g transform="translate(160, 165)">
                   <rect x="0" y="0" width="680" height="35" rx="6" fill="#4c0519" stroke="#be123c" strokeWidth="1" />
                   <text x="20" y="22" fill="#fecdd3" fontSize="11">
-                    🚨 CRITICAL: Calling f.seek(2) lands in the middle of '₹' -> Raises UnicodeDecodeError in text mode!
+                    🚨 CRITICAL: Calling f.seek(2) lands in the middle of '₹' &rarr; Raises UnicodeDecodeError in text mode!
                   </text>
                 </g>
               </svg>

@@ -2,13 +2,21 @@
 //this is my interceptor
 import axios from "axios";
 
-// Ensure any accidental space in baseURL is automatically normalized to underscore
-const rawBaseURL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1/cnat_api/public/api";
-const cleanBaseURL = rawBaseURL.trim().replace(/cnat\s+api/gi, "cnat_api");
+// Resolve API Base URL reliably
+const resolveBaseURL = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl && typeof envUrl === "string" && envUrl.trim() !== "") {
+    return envUrl.trim().replace(/cnat\s+api/gi, "cnat_api");
+  }
+  if (typeof window !== "undefined" && window.location.hostname.includes("codernaccotax")) {
+    return "https://codernaccotax.co.in/cnat_api/public/api";
+  }
+  return "http://127.0.0.1/cnat_api/public/api";
+};
 
 // Create axios instance
 const api = axios.create({
-  baseURL: cleanBaseURL, // ✅ auto-sanitized from .env
+  baseURL: resolveBaseURL(),
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

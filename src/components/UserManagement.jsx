@@ -572,12 +572,56 @@ const UserManagement = () => {
     Swal.fire({
       title: "Reset User Password",
       html: `
-        <div class="text-left space-y-3 text-xs text-slate-300">
-          <p>Reset password for <b class="text-white">${displayName}</b> (<span class="font-mono text-sky-400">${userObj.email || userObj.userName}</span>).</p>
+        <div class="text-left space-y-3.5 text-xs text-slate-300">
+          <p class="leading-relaxed">
+            Reset password for <b class="text-white">${displayName}</b> (<span class="font-mono text-sky-400">${userObj.email || userObj.userName}</span>).
+          </p>
+
           <div>
-            <label class="block font-semibold text-slate-200 mb-1">New Password</label>
-            <input id="swal-user-new-pass" type="text" value="${DEFAULT_STUDENT_PASSWORD}" class="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-amber-300 font-mono text-sm outline-none focus:border-sky-500" />
-            <p class="text-[10px] text-slate-400 mt-1">Default student &amp; staff credential: <span class="font-mono text-amber-300 font-bold">${DEFAULT_STUDENT_PASSWORD}</span></p>
+            <label class="block font-semibold text-slate-200 mb-1">New Password <span class="text-rose-400">*</span></label>
+            <div class="relative">
+              <input
+                id="swal-user-new-pass"
+                type="password"
+                value="${DEFAULT_STUDENT_PASSWORD}"
+                placeholder="Enter new password"
+                class="w-full pl-3 pr-10 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-amber-300 font-mono text-sm outline-none focus:border-amber-500"
+              />
+              <button
+                type="button"
+                id="swal-toggle-new-pass"
+                tabindex="-1"
+                class="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1 transition cursor-pointer"
+                title="Toggle password visibility"
+              >
+                <i id="swal-icon-new-pass" class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-200 mb-1">Confirm Password <span class="text-rose-400">*</span></label>
+            <div class="relative">
+              <input
+                id="swal-user-confirm-pass"
+                type="password"
+                value="${DEFAULT_STUDENT_PASSWORD}"
+                placeholder="Re-enter new password"
+                class="w-full pl-3 pr-10 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-amber-300 font-mono text-sm outline-none focus:border-amber-500"
+              />
+              <button
+                type="button"
+                id="swal-toggle-confirm-pass"
+                tabindex="-1"
+                class="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1 transition cursor-pointer"
+                title="Toggle confirm password visibility"
+              >
+                <i id="swal-icon-confirm-pass" class="bi bi-eye"></i>
+              </button>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-1.5 flex items-center justify-between">
+              <span>Default credential: <b class="font-mono text-amber-300 font-bold">${DEFAULT_STUDENT_PASSWORD}</b></span>
+            </p>
           </div>
         </div>
       `,
@@ -588,12 +632,52 @@ const UserManagement = () => {
       cancelButtonColor: "#334155",
       background: "#0f172a",
       color: "#f8fafc",
+      didOpen: () => {
+        const passInput = document.getElementById("swal-user-new-pass");
+        const togglePassBtn = document.getElementById("swal-toggle-new-pass");
+        const iconPass = document.getElementById("swal-icon-new-pass");
+
+        const confirmInput = document.getElementById("swal-user-confirm-pass");
+        const toggleConfirmBtn = document.getElementById("swal-toggle-confirm-pass");
+        const iconConfirm = document.getElementById("swal-icon-confirm-pass");
+
+        if (togglePassBtn && passInput && iconPass) {
+          togglePassBtn.addEventListener("click", () => {
+            const isPassword = passInput.type === "password";
+            passInput.type = isPassword ? "text" : "password";
+            iconPass.className = isPassword ? "bi bi-eye-slash" : "bi bi-eye";
+          });
+        }
+
+        if (toggleConfirmBtn && confirmInput && iconConfirm) {
+          toggleConfirmBtn.addEventListener("click", () => {
+            const isPassword = confirmInput.type === "password";
+            confirmInput.type = isPassword ? "text" : "password";
+            iconConfirm.className = isPassword ? "bi bi-eye-slash" : "bi bi-eye";
+          });
+        }
+      },
       preConfirm: async () => {
         const pass = document.getElementById("swal-user-new-pass")?.value?.trim();
-        if (!pass || pass.length < 6) {
+        const confirm = document.getElementById("swal-user-confirm-pass")?.value?.trim();
+
+        if (!pass) {
+          Swal.showValidationMessage("Please enter a new password.");
+          return false;
+        }
+        if (pass.length < 6) {
           Swal.showValidationMessage("Password must be at least 6 characters.");
           return false;
         }
+        if (!confirm) {
+          Swal.showValidationMessage("Please confirm the new password.");
+          return false;
+        }
+        if (pass !== confirm) {
+          Swal.showValidationMessage("New Password and Confirm Password do not match.");
+          return false;
+        }
+
         try {
           const res = await userService.resetPassword(userObj.id, pass);
           return { res, pass };
@@ -606,7 +690,13 @@ const UserManagement = () => {
       if (res.isConfirmed && res.value) {
         Swal.fire({
           title: "Password Reset Complete!",
-          html: `<p class="text-xs text-slate-300 mb-2">Password for <b class="text-white">${displayName}</b> has been set to:</p><p class="font-mono text-sm text-amber-300 font-bold bg-slate-950 p-2.5 rounded-xl border border-slate-700 select-all">${res.value.pass}</p>`,
+          html: `
+            <p class="text-xs text-slate-300 mb-2">Password for <b class="text-white">${displayName}</b> has been updated successfully.</p>
+            <div class="mt-3 p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+              <span class="text-xs text-slate-400">New Password:</span>
+              <span class="font-mono text-sm text-amber-300 font-bold select-all">${res.value.pass}</span>
+            </div>
+          `,
           icon: "success",
           background: "#0f172a",
           color: "#f8fafc",
@@ -641,15 +731,24 @@ const UserManagement = () => {
 
         <td className="py-3.5 px-4">
           <div className="flex items-center gap-3">
-            <div
-              className={`w-8 h-8 rounded-full font-bold text-xs flex items-center justify-center shadow-inner text-white ${
-                isStu
-                  ? "bg-gradient-to-tr from-emerald-600 to-teal-500"
-                  : "bg-gradient-to-tr from-sky-600 to-indigo-600"
-              }`}
-            >
-              {(u.name || u.userName || "U").substring(0, 2).toUpperCase()}
-            </div>
+            {(() => {
+              const rowAvatar = userService.getUserAvatar(u);
+              return (
+                <div
+                  className={`w-8 h-8 rounded-full font-bold text-xs flex items-center justify-center shadow-inner text-white overflow-hidden flex-shrink-0 ${
+                    isStu
+                      ? "bg-gradient-to-tr from-emerald-600 to-teal-500"
+                      : "bg-gradient-to-tr from-sky-600 to-indigo-600"
+                  }`}
+                >
+                  {rowAvatar ? (
+                    <img src={rowAvatar} alt={u.name || "Avatar"} className="w-full h-full object-cover" />
+                  ) : (
+                    (u.name || u.userName || "U").substring(0, 2).toUpperCase()
+                  )}
+                </div>
+              );
+            })()}
             <div>
               <div className="font-semibold text-white text-xs sm:text-sm flex items-center gap-2">
                 <span>{u.name || "N/A"}</span>

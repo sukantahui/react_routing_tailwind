@@ -2,20 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { BookA, ExternalLink, Volume2, Search, X, Cpu } from "lucide-react";
 
-/**
- * Checks if the current pathname belongs to the tutorials or study section.
- */
-export const isTutorialRoute = (pathname = "") => {
-  if (!pathname || typeof pathname !== "string") return false;
-  const p = pathname.toLowerCase();
-  return (
-    p.includes("/roadmap") ||
-    p.includes("/module/") ||
-    p.includes("/topic/") ||
-    p.startsWith("/study") ||
-    p.includes("/chapter")
-  );
-};
+import { isTutorialRoute } from "../utils/routeUtils";
+export { isTutorialRoute };
 
 /**
  * SelectionWordLookup Component

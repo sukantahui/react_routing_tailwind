@@ -6,6 +6,8 @@ import React, { useState, useRef, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import Swal from "sweetalert2";
+import userService from "../services/userService";
 import cnat from "../assets/cnat.png";
 
 const AuthNavBar = ({ setIsLoggedIn }) => {
@@ -36,6 +38,22 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   const searchInputRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
+  // Helper to safely parse user role
+  const resolveRole = (parsed) => {
+    if (!parsed) return "Administrator";
+    return (
+      parsed.role ||
+      parsed.roleName ||
+      parsed.userTypeName ||
+      parsed.userType?.userTypeName ||
+      parsed.user_type_name ||
+      parsed.user_type ||
+      (parsed.student_id || parsed.studentId || parsed.student ? "Student" : "") ||
+      (parsed.employee_id || parsed.employeeId || parsed.employee ? "Staff" : "") ||
+      "User"
+    );
+  };
+
   // Safely parse user from localStorage with reactive state
   const [user, setUser] = useState(() => {
     try {
@@ -43,12 +61,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       if (!rawUser) return { name: "Faculty Admin", email: "admin@coderaccotax.in", role: "Administrator", avatar: "" };
       if (typeof rawUser === "string" && (rawUser.startsWith("{") || rawUser.startsWith("["))) {
         const parsed = JSON.parse(rawUser);
+        const avatar = userService.getUserAvatar(parsed);
         return {
           name: parsed.name || parsed.username || parsed.fullName || "Faculty Admin",
           email: parsed.email || "admin@coderaccotax.in",
-          role: parsed.role || "Administrator",
-          avatar: parsed.avatar || parsed.profilePicture || parsed.image || localStorage.getItem("userAvatar") || "",
+          avatar: avatar,
+          profilePicture: avatar,
           ...parsed,
+          role: resolveRole(parsed),
         };
       }
       return { name: rawUser, email: "admin@coderaccotax.in", role: "Administrator", avatar: "" };
@@ -63,12 +83,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         const rawUser = localStorage.getItem("user");
         if (rawUser && (rawUser.startsWith("{") || rawUser.startsWith("["))) {
           const parsed = JSON.parse(rawUser);
+          const avatar = userService.getUserAvatar(parsed);
           setUser({
             name: parsed.name || parsed.username || parsed.fullName || "Faculty Admin",
             email: parsed.email || "admin@coderaccotax.in",
-            role: parsed.role || "Administrator",
-            avatar: parsed.avatar || parsed.profilePicture || parsed.image || localStorage.getItem("userAvatar") || "",
+            avatar: avatar,
+            profilePicture: avatar,
             ...parsed,
+            role: resolveRole(parsed),
           });
         }
       } catch (err) {
@@ -84,16 +106,63 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     };
   }, []);
 
-  const userAvatar = user?.avatar || user?.profilePicture || user?.image || "";
+  // Proactively hydrate student details (e.g. gender_id) if missing - at most once
+  const hydrationAttemptedRef = useRef(false);
+
+  useEffect(() => {
+    let active = true;
+    if (hydrationAttemptedRef.current) return;
+
+    if (
+      user &&
+      (user.student_id || user.studentId || user.role === "Student" || String(user.userName || "").toUpperCase().startsWith("CNAT-")) &&
+      (user.gender_id === undefined || user.gender_id === null)
+    ) {
+      hydrationAttemptedRef.current = true;
+      userService.hydrateUserProfile(user).then((enriched) => {
+        if (active && enriched && enriched.gender_id !== undefined) {
+          setUser((prev) => ({ ...prev, ...enriched }));
+        }
+      }).catch(() => {});
+    }
+    return () => {
+      active = false;
+    };
+  }, [user?.id, user?.userId, user?.userName, user?.student_id]);
+
+  const userAvatar = userService.getUserAvatar(user);
 
   const isDev = Boolean(import.meta.env?.DEV);
   const isAdmin = useMemo(() => {
-    const role = (user?.role || user?.userType?.userTypeName || '').toLowerCase();
-    return ['admin', 'developer', 'owner'].some((r) => role.includes(r));
+    if (!user) return false;
+    const role = (
+      user.role ||
+      user.roleName ||
+      user.userTypeName ||
+      user.userType?.userTypeName ||
+      user.user_type_name ||
+      user.user_type ||
+      ""
+    ).toLowerCase();
+    return ["admin", "developer", "owner", "superadmin", "super admin", "administrator"].some((r) =>
+      role.includes(r)
+    );
   }, [user]);
+
   const isManagerOrAdmin = useMemo(() => {
-    const role = (user?.role || user?.userType?.userTypeName || '').toLowerCase();
-    return ['admin', 'developer', 'owner', 'manager'].some((r) => role.includes(r));
+    if (!user) return false;
+    const role = (
+      user.role ||
+      user.roleName ||
+      user.userTypeName ||
+      user.userType?.userTypeName ||
+      user.user_type_name ||
+      user.user_type ||
+      ""
+    ).toLowerCase();
+    return ["admin", "developer", "owner", "manager", "superadmin", "administrator"].some((r) =>
+      role.includes(r)
+    );
   }, [user]);
 
   // Check if current user is an enrolled student
@@ -101,45 +170,75 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     if (!user) return false;
     const role = (
       user.role ||
+      user.roleName ||
+      user.userTypeName ||
       user.userType?.userTypeName ||
       user.user_type_name ||
       user.user_type ||
-      user.roleName ||
       ""
     ).trim().toLowerCase();
 
-    return role.includes("student") || Boolean(user.student_id || user.studentId || user.student);
+    return (
+      role.includes("student") ||
+      Boolean(user.student_id || user.studentId || user.student || user.student_ID) ||
+      Number(user.user_type_id || user.userTypeId) === 8 ||
+      Number(user.user_type_id || user.userTypeId) === 5 ||
+      Number(user.user_type_id || user.userTypeId) === 3 ||
+      String(user.userName || user.email || "").toUpperCase().startsWith("CNAT-")
+    );
   }, [user]);
 
-  // Check if current user is a female student
-  const isFemaleStudent = useMemo(() => {
-    if (!isStudent) return false;
+  // Check if current user is female (across student, employee, or user object)
+  const isFemale = useMemo(() => {
+    if (!user) return false;
 
     const genderId =
-      user.gender_id ??
-      user.genderId ??
-      user.gender_ID ??
-      user.student?.gender_id ??
-      user.student?.genderId ??
-      user.student?.gender_ID ??
+      user?.gender_id ??
+      user?.genderId ??
+      user?.gender_ID ??
+      user?.gender?.id ??
+      user?.gender?.gender_id ??
+      user?.gender?.genderId ??
+      user?.student?.gender_id ??
+      user?.student?.genderId ??
+      user?.student?.gender_ID ??
+      user?.student?.gender?.id ??
+      user?.student?.gender?.gender_id ??
+      user?.student?.gender?.genderId ??
+      user?.employee?.gender_id ??
+      user?.employee?.genderId ??
       null;
 
-    if (genderId !== null && genderId !== undefined) {
-      return Number(genderId) === 2 || String(genderId) === "2";
+    if (genderId !== null && genderId !== undefined && genderId !== "") {
+      const gNum = Number(genderId);
+      if (gNum === 2) return true;
+      if (gNum === 1) return false;
     }
 
     const genderStr = (
-      user.gender ||
-      user.genderName ||
-      user.gender_name ||
-      user.student?.gender ||
-      user.student?.genderName ||
-      user.student?.gender_name ||
+      (typeof user?.gender === "string" ? user.gender : user?.gender?.genderName || user?.gender?.name || "") ||
+      user?.genderName ||
+      user?.gender_name ||
+      (typeof user?.student?.gender === "string" ? user.student.gender : user?.student?.gender?.genderName || user?.student?.gender?.name || "") ||
+      user?.student?.genderName ||
+      user?.student?.gender_name ||
+      (typeof user?.employee?.gender === "string" ? user.employee.gender : user?.employee?.gender?.genderName || user?.employee?.gender?.name || "") ||
+      user?.employee?.genderName ||
       ""
     ).trim().toLowerCase();
 
-    return genderStr.includes("female") || genderStr === "f" || genderStr === "woman";
+    return genderStr.includes("female") || genderStr === "f" || genderStr === "woman" || genderStr === "girl";
   }, [user]);
+
+  // Check if user is a female student
+  const isFemaleStudent = useMemo(() => {
+    return isStudent && isFemale;
+  }, [isStudent, isFemale]);
+
+  // Check if current user can access Menstrual Cycle Calendar: Female Student OR Admin (any gender)
+  const canAccessMenstrualCalendar = useMemo(() => {
+    return isFemaleStudent || isAdmin;
+  }, [isAdmin, isFemaleStudent]);
 
   // Get user initials for avatar
   const userInitials = useMemo(() => {
@@ -430,8 +529,8 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       ],
     },
     {
-      id: "skills",
-      title: "Skills & Utilities",
+      id: "media",
+      title: "Media & Utilities",
       icon: "bi-lightning-charge-fill",
       color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
       items: [
@@ -450,12 +549,34 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           tag: "Optimizer",
         },
         {
-          to: "/tools/json-formatter",
-          label: "JSON Formatter",
-          desc: "Format, minify & validate JSON data",
-          icon: "bi-filetype-json",
-          tag: "Formatter",
+          to: "/tools/audioextract",
+          label: "Audio Extractor",
+          desc: "Extract MP3/WAV tracks from video files",
+          icon: "bi-soundwave",
+          tag: "Utility",
         },
+        {
+          to: "/qrcode",
+          label: "QR Code Generator",
+          desc: "Instant dynamic QR generator & scanner",
+          icon: "bi-qr-code-scan",
+          tag: "Utility",
+        },
+        {
+          to: "/icons",
+          label: "Developer Icons",
+          desc: "Searchable icon cheatsheet & glyphs",
+          icon: "bi-grid-1x2-fill",
+          tag: "Assets",
+        },
+      ],
+    },
+    {
+      id: "learning_health",
+      title: "Skills & Health Tools",
+      icon: "bi-heart-pulse-fill",
+      color: "from-rose-500/20 to-pink-500/10 text-rose-400 border-rose-500/30",
+      items: [
         {
           to: "/tools/type-test",
           label: "Typing Speed Test",
@@ -471,20 +592,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           tag: "Practice",
         },
         {
-          to: "/tools/audioextract",
-          label: "Audio Extractor",
-          desc: "Extract MP3/WAV tracks from video files",
-          icon: "bi-soundwave",
-          tag: "Utility",
+          to: "/tools/json-formatter",
+          label: "JSON Formatter",
+          desc: "Format, minify & validate JSON data",
+          icon: "bi-filetype-json",
+          tag: "Formatter",
         },
-        {
-          to: "/qrcode",
-          label: "QR Code Generator",
-          desc: "Instant dynamic QR generator & scanner",
-          icon: "bi-qr-code-scan",
-          tag: "Utility",
-        },
-        ...(isFemaleStudent
+        ...(canAccessMenstrualCalendar
           ? [
               {
                 to: "/menstrual-calendar",
@@ -495,17 +609,9 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
               },
             ]
           : []),
-
-        {
-          to: "/icons",
-          label: "Developer Icons",
-          desc: "Searchable icon cheatsheet & glyphs",
-          icon: "bi-grid-1x2-fill",
-          tag: "Assets",
-        },
       ],
     },
-  ], [isFemaleStudent]);
+  ], [canAccessMenstrualCalendar]);
 
 
   // Tutorials & Roadmaps Items with Categories
@@ -1313,6 +1419,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           <i className="bi bi-gear text-purple-400 text-sm"></i>
                           <span>Settings &amp; Preferences</span>
                         </NavLink>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            closeAllDropdowns();
+                            userService.promptSelfPasswordReset(Swal);
+                          }}
+                          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-amber-300 hover:text-amber-100 hover:bg-amber-500/10 transition text-left cursor-pointer"
+                        >
+                          <i className="bi bi-key-fill text-amber-400 text-sm"></i>
+                          <span>Reset / Change Password</span>
+                        </button>
                         {!isStudent && (
                           <NavLink
                             to="/admin"
@@ -1622,8 +1739,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 <div className="p-4 border-b border-slate-800/80 bg-slate-950/90">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-sky-500/20">
-                        {userInitials}
+                      <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-sky-500/20 overflow-hidden">
+                        {userAvatar ? (
+                          <img
+                            src={userAvatar}
+                            alt="Avatar"
+                            className="w-full h-full object-cover"
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
+                        ) : (
+                          userInitials
+                        )}
                         <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
                       </div>
                       <div className="min-w-0">
@@ -2075,6 +2201,18 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         <i className="bi bi-gear text-purple-400 text-sm"></i>
                         <span>Settings</span>
                       </NavLink>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          userService.promptSelfPasswordReset(Swal);
+                        }}
+                        className="col-span-2 flex items-center justify-center gap-2 p-2.5 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 text-xs font-semibold transition cursor-pointer"
+                      >
+                        <i className="bi bi-key-fill text-amber-400 text-sm"></i>
+                        <span>Reset Account Password</span>
+                      </button>
                     </div>
                   </div>
 

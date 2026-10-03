@@ -5,7 +5,7 @@ import AppRoutes from "./routes/AppRoutes-master-roadmap";
 import NavBar from "./routes/NavBar";
 import AuthNavBar from "./routes/AuthNavBar";
 import { BookA } from "lucide-react";
-import { isTutorialRoute } from "./common/SelectionWordLookup";
+import { isTutorialRoute } from "./utils/routeUtils";
 
 import "prismjs/themes/prism-tomorrow.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";

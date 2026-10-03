@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
+import userService from "../services/userService";
 
 export default function Settings() {
   // Local Preferences State
@@ -376,6 +377,32 @@ export default function Settings() {
               <span className="font-mono text-purple-400 font-bold">v3.4.17</span>
             </div>
           </div>
+        </div>
+
+        {/* Card 5: Account Security & Credentials */}
+        <div className="md:col-span-2 bg-gradient-to-r from-slate-900 via-slate-900 to-amber-950/30 border border-amber-500/30 rounded-3xl p-6 shadow-xl space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-base font-bold text-white flex items-center gap-2">
+                <i className="bi bi-shield-lock-fill text-amber-400"></i>
+                <span>Account Security &amp; Password Management</span>
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Manage and update your personal account password anytime
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => userService.promptSelfPasswordReset(Swal)}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2 cursor-pointer flex-shrink-0"
+            >
+              <i className="bi bi-key-fill text-sm"></i>
+              <span>Reset / Change My Password</span>
+            </button>
+          </div>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            All logged-in users (Students, Faculty, Staff, and Administrators) can reset their own account password directly with password masking and confirmation matching.
+          </p>
         </div>
       </div>
     </div>

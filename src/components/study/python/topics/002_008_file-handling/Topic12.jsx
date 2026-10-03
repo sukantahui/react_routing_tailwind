@@ -1120,14 +1120,14 @@ HEADER_V2.5_STUDENT_MAMATA_FEE_4500`,
                 <g transform="translate(60, 200)">
                   <rect x="0" y="0" width="375" height="40" rx="8" fill="#064e3b" stroke="#059669" strokeWidth="1" />
                   <text x="15" y="24" fill="#6ee7b7" fontSize="11">
-                    📌 data[0] -> Returns INTEGER: <strong>67</strong> (Not b'C')
+                    📌 data[0] &rarr; Returns INTEGER: <strong>67</strong> (Not b'C')
                   </text>
                 </g>
 
                 <g transform="translate(465, 200)">
                   <rect x="0" y="0" width="375" height="40" rx="8" fill="#0c4a6e" stroke="#0284c7" strokeWidth="1" />
                   <text x="15" y="24" fill="#7dd3fc" fontSize="11">
-                    ✂️ data[0:5] -> Returns BYTES slice: <strong>b'Coder'</strong>
+                    ✂️ data[0:5] &rarr; Returns BYTES slice: <strong>b'Coder'</strong>
                   </text>
                 </g>
               </svg>

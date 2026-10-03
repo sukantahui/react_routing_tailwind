@@ -18,55 +18,106 @@ import UserManualModal from './components/Manual/UserManualModal';
 import { X, CheckCircle2, AlertTriangle, Info, Lock, Heart, ArrowLeft, Home } from 'lucide-react';
 import { formatISODate } from './utils/dateUtils';
 import { loginService } from '../../services/loginService';
+import userService from '../../services/userService';
 
-/** Helper to strictly check if user is an enrolled female student */
-export function checkIsFemaleStudent(user) {
+/** Helper to strictly check if user is an admin / owner / developer */
+export function checkIsAdmin(user) {
   if (!user) return false;
 
   const role = (
     user.role ||
+    user.roleName ||
+    user.userTypeName ||
     user.userType?.userTypeName ||
     user.user_type_name ||
     user.user_type ||
-    user.roleName ||
     ""
   ).trim().toLowerCase();
 
-  const isStudent =
-    role.includes("student") ||
-    Boolean(user.student_id || user.studentId || user.student);
+  return ["admin", "developer", "owner", "superadmin", "super admin", "administrator"].some((r) =>
+    role.includes(r)
+  );
+}
 
-  if (!isStudent) return false;
+/** Helper to check if user is an enrolled student */
+export function checkIsStudent(user) {
+  if (!user) return false;
+
+  const role = (
+    user.role ||
+    user.roleName ||
+    user.userTypeName ||
+    user.userType?.userTypeName ||
+    user.user_type_name ||
+    user.user_type ||
+    ""
+  ).trim().toLowerCase();
+
+  return (
+    role.includes("student") ||
+    Boolean(user.student_id || user.studentId || user.student || user.student_ID) ||
+    Number(user.user_type_id || user.userTypeId) === 8 ||
+    Number(user.user_type_id || user.userTypeId) === 5 ||
+    Number(user.user_type_id || user.userTypeId) === 3 ||
+    String(user.userName || user.email || "").toUpperCase().startsWith("CNAT-")
+  );
+}
+
+/** Helper to check if user is female */
+export function checkIsFemale(user) {
+  if (!user) return false;
 
   const genderId =
-    user.gender_id ??
-    user.genderId ??
-    user.gender_ID ??
-    user.student?.gender_id ??
-    user.student?.genderId ??
-    user.student?.gender_ID ??
+    user?.gender_id ??
+    user?.genderId ??
+    user?.gender_ID ??
+    user?.gender?.id ??
+    user?.gender?.gender_id ??
+    user?.gender?.genderId ??
+    user?.student?.gender_id ??
+    user?.student?.genderId ??
+    user?.student?.gender_ID ??
+    user?.student?.gender?.id ??
+    user?.student?.gender?.gender_id ??
+    user?.student?.gender?.genderId ??
+    user?.employee?.gender_id ??
+    user?.employee?.genderId ??
     null;
 
-  if (genderId !== null && genderId !== undefined) {
-    if (Number(genderId) === 2 || String(genderId) === "2") return true;
-    if (Number(genderId) === 1 || String(genderId) === "1") return false;
+  if (genderId !== null && genderId !== undefined && genderId !== "") {
+    const gNum = Number(genderId);
+    if (gNum === 2) return true;
+    if (gNum === 1) return false;
   }
 
   const genderStr = (
-    user.gender ||
-    user.genderName ||
-    user.gender_name ||
-    user.student?.gender ||
-    user.student?.genderName ||
-    user.student?.gender_name ||
+    (typeof user?.gender === "string" ? user.gender : user?.gender?.genderName || user?.gender?.name || "") ||
+    user?.genderName ||
+    user?.gender_name ||
+    (typeof user?.student?.gender === "string" ? user.student.gender : user?.student?.gender?.genderName || user?.student?.gender?.name || "") ||
+    user?.student?.genderName ||
+    user?.student?.gender_name ||
+    (typeof user?.employee?.gender === "string" ? user.employee.gender : user?.employee?.gender?.genderName || user?.employee?.gender?.name || "") ||
+    user?.employee?.genderName ||
     ""
   ).trim().toLowerCase();
 
-  if (genderStr.includes("female") || genderStr === "f" || genderStr === "woman") {
-    return true;
-  }
+  return genderStr.includes("female") || genderStr === "f" || genderStr === "woman" || genderStr === "girl";
+}
 
-  return false;
+/** Helper to check if user is an enrolled female student */
+export function checkIsFemaleStudent(user) {
+  if (!user) return false;
+  return checkIsStudent(user) && checkIsFemale(user);
+}
+
+/** Helper to check if user is authorized to open the Menstrual Calendar:
+ *  - Enrolled Female Students (role is student and gender is female)
+ *  - Admins (regardless of gender)
+ */
+export function checkCanAccessMenstrualCalendar(user) {
+  if (!user) return false;
+  return checkIsFemaleStudent(user) || checkIsAdmin(user);
 }
 
 export default function MenstrualCalendarApp() {
@@ -154,15 +205,19 @@ export default function MenstrualCalendarApp() {
         }
 
         // Fetch fresh profile from API to ensure student role and gender are loaded
-        const res = await loginService.currentUser();
-        if (res?.data && isMounted) {
-          const combinedUser = { ...parsed, ...res.data };
-          setCurrentUser(combinedUser);
-          try {
-            localStorage.setItem('user', JSON.stringify(combinedUser));
-          } catch {
-            // ignore
+        let combinedUser = parsed;
+        try {
+          const res = await loginService.currentUser();
+          if (res?.data) {
+            combinedUser = { ...parsed, ...res.data };
           }
+        } catch {
+          // ignore
+        }
+
+        const hydrated = await userService.hydrateUserProfile(combinedUser).catch(() => combinedUser);
+        if (isMounted && hydrated) {
+          setCurrentUser(hydrated);
         }
       } catch (err) {
         console.warn('Could not refresh profile for menstrual calendar access:', err);
@@ -218,10 +273,10 @@ export default function MenstrualCalendarApp() {
     );
   }
 
-  // Access check: only active for female students
-  const isFemale = checkIsFemaleStudent(currentUser);
+  // Access check: active for female students and administrators (including male admins)
+  const isAuthorized = checkCanAccessMenstrualCalendar(currentUser);
 
-  if (!isVerifyingAccess && !isFemale) {
+  if (!isVerifyingAccess && !isAuthorized) {
     return (
       <div className="min-h-screen bg-[#060b14] text-slate-100 flex items-center justify-center p-6">
         <div className="text-center p-8 sm:p-10 bg-slate-900/90 border border-slate-800 rounded-3xl max-w-lg shadow-2xl backdrop-blur-xl space-y-5">
@@ -233,9 +288,9 @@ export default function MenstrualCalendarApp() {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-semibold">
               <span>🌸 Dedicated Health Portal</span>
             </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">Active for Female Students Only</h2>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Active for Female Students &amp; Administrators</h2>
             <p className="text-sm text-slate-400 leading-relaxed max-w-md mx-auto">
-              The Menstrual Cycle &amp; Health Calendar is exclusively configured for female students of Coder &amp; AccoTax to privately and securely track menstrual wellness, cycle phases, and health insights.
+              The Menstrual Cycle &amp; Health Calendar is configured for female students and administrators of Coder &amp; AccoTax to privately and securely track menstrual wellness, cycle phases, and health insights.
             </p>
           </div>
 
@@ -277,7 +332,7 @@ export default function MenstrualCalendarApp() {
         <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 p-6 rounded-3xl shadow-2xl backdrop-blur-xl">
           <div className="w-6 h-6 border-2 border-rose-500 border-t-transparent rounded-full animate-spin"></div>
           <span className="text-sm font-semibold text-slate-300">
-            Verifying Student Access &amp; Loading Health Data...
+            Verifying Access &amp; Loading Health Data...
           </span>
         </div>
       </div>

@@ -5,6 +5,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import { loginService } from "../services/loginService";
+import userService from "../services/userService";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
 import cnat from "../assets/cnat.png";
@@ -52,8 +53,23 @@ const Login = () => {
 
       if (res?.status && res?.data?.token) {
         const { token, user } = res.data;
+        const individualAvatar = userService.getUserAvatar(user);
+        let fullUser = {
+          ...user,
+          avatar: individualAvatar,
+          profilePicture: individualAvatar,
+        };
         localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify(fullUser));
+
+        // Asynchronously hydrate student details (e.g. gender_id) in background
+        userService.hydrateUserProfile(fullUser).then((hydrated) => {
+          if (hydrated) {
+            localStorage.setItem("user", JSON.stringify(hydrated));
+            window.dispatchEvent(new Event("storage"));
+            window.dispatchEvent(new Event("authChanged"));
+          }
+        }).catch(() => {});
 
         try {
           window.dispatchEvent(new Event("storage"));
