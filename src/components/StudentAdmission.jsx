@@ -33,10 +33,15 @@ import {
   Mail,
   Layers,
   Settings as SettingsIcon,
+  MessageCircle,
+  Copy,
+  KeyRound,
+  Send,
 } from "lucide-react";
 import { admissionService } from "../services/admissionService";
 import { studentService } from "../services/studentService";
 import { courseService } from "../services/courseService";
+import { userService, DEFAULT_STUDENT_PASSWORD } from "../services/userService";
 import api from "../api/api";
 import AdmissionStatusModal from "./common/AdmissionStatusModal";
 
@@ -819,6 +824,245 @@ const StudentAdmission = () => {
     printWindow.print();
   };
 
+  // Handler to send student admission details and portal login credentials
+  const handleSendStudentDetails = async (adm) => {
+    // 1. Resolve student object from array or API
+    let stu = students.find(
+      (s) => String(s.id || s.studentId) === String(adm.studentId || adm.student?.id || adm.student?.studentId)
+    ) || adm.student || {};
+
+    const studentId = stu.id || stu.studentId || adm.studentId || adm.student?.id || adm.student?.studentId;
+
+    // If missing contact details (e.g. whatsapp), fetch fresh student record
+    if ((!stu.whatsapp && !stu.phone1) && studentId) {
+      try {
+        const stuRes = await api.get(`/students/${studentId}`).catch(() => null);
+        const freshData = stuRes?.data?.student || stuRes?.data?.data || stuRes?.data || {};
+        stu = { ...stu, ...freshData };
+      } catch (e) {
+        console.warn("Could not fetch extra student details:", e);
+      }
+    }
+
+    const studentName = stu.student_name || stu.studentName || adm.student?.studentName || "Student";
+    const regNo =
+      stu.registration_number ||
+      stu.registrationNumber ||
+      stu.enrollment_number ||
+      stu.enrollmentNumber ||
+      stu.reg_no ||
+      stu.regNo ||
+      adm.student?.registrationNumber ||
+      (studentId ? `STU-${studentId}` : "STU-2026");
+
+    const courseName = adm.course?.courseName || adm.course?.course_name || adm.courseName || "Enrolled Course";
+    const courseFeeStr = adm.courseFees ? `₹${Number(adm.courseFees).toLocaleString()}` : "N/A";
+    const admDateStr = adm.admissionDate
+      ? new Date(adm.admissionDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })
+      : new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+    const initialPhone = (stu.whatsapp || stu.phone1 || stu.phone2 || "").toString().trim();
+    const portalUrl = `${window.location.origin}/login`;
+    const loginUsername = regNo;
+    const loginPassword = DEFAULT_STUDENT_PASSWORD;
+
+    // Auto-provision user account in the background if not already created
+    if (studentId) {
+      userService
+        .createStudentUser(
+          {
+            id: studentId,
+            student_name: studentName,
+            email: stu.email,
+            whatsapp: initialPhone,
+            enrollment_number: regNo,
+          },
+          DEFAULT_STUDENT_PASSWORD
+        )
+        .catch((err) => console.warn("Background user account ensure:", err));
+    }
+
+    // Compose formatted WhatsApp & Clipboard text
+    const buildMessageText = (targetPhone) => {
+      return (
+`🎓 *CODER & ACCOTAX — STUDENT ADMISSION & PORTAL LOGIN DETAILS* 🎓
+🏛️ *Campus:* Barrackpore, Kolkata | 🌐 ${window.location.origin}
+
+Dear *${studentName}*,
+Welcome to *Coder & AccoTax*! Your academic course admission has been successfully confirmed.
+
+📋 *ADMISSION DETAILS:*
+━━━━━━━━━━━━━━━━━━━━━━━
+👤 *Student Name:* ${studentName}
+🆔 *Registration / Enrollment No:* *${regNo}*
+📚 *Enrolled Course:* ${courseName}
+💰 *Agreed Course Fee:* ${courseFeeStr}
+📅 *Admission Date:* ${admDateStr}
+
+🔐 *STUDENT PORTAL LOGIN CREDENTIALS:*
+━━━━━━━━━━━━━━━━━━━━━━━
+🌐 *Portal URL:* ${portalUrl}
+👤 *Login Username / ID:* *${loginUsername}*
+🔑 *Initial Password:* *${loginPassword}*
+
+✨ *WHAT YOU CAN ACCESS ON YOUR PORTAL:*
+• Interactive Chapter Syllabus & Technology Roadmaps
+• Online MCQ Question Bank & Mock Tests
+• Fee Payment Receipts & Ledger
+• Class Attendance & Academic Progress
+• Course Completion Certificates
+
+📞 *Academic Faculty & Support:*
+Coder & AccoTax, Barrackpore
+Contact: +91 98300 00000 | Email: info@coderaccotax.in
+
+We wish you great success in your learning journey!
+— *Academic Office, Coder & AccoTax*`
+      );
+    };
+
+    // Show interactive SweetAlert2 modal
+    Swal.fire({
+      title: "Send Student & Login Details",
+      html: `
+        <div class="text-left text-xs text-slate-200 space-y-3.5 p-1">
+          <!-- Student & Course Info Card -->
+          <div class="p-3 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-start justify-between gap-3">
+            <div>
+              <div class="font-bold text-white text-sm flex items-center gap-1.5">
+                <span>🎓</span>
+                <span>${studentName}</span>
+              </div>
+              <div class="text-[11px] text-sky-400 font-semibold mt-0.5">${courseName}</div>
+              <div class="text-[10px] text-slate-400 mt-1">
+                Adm Date: <span class="text-slate-300 font-mono">${admDateStr}</span> • Fee: <span class="text-emerald-400 font-bold">${courseFeeStr}</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-sky-500/15 text-sky-300 border border-sky-500/30 whitespace-nowrap">
+              ${regNo}
+            </span>
+          </div>
+
+          <!-- Credentials Box -->
+          <div class="p-3.5 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 border border-indigo-500/30 space-y-2.5">
+            <div class="flex items-center justify-between text-[11px] font-bold text-indigo-300 uppercase tracking-wider">
+              <span class="flex items-center gap-1.5">
+                <span>🔐</span> Student Portal Credentials
+              </span>
+              <span class="text-[9px] px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-200">Active</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[10px] text-slate-400">Username / ID</div>
+                <div class="font-mono font-bold text-sky-300 truncate mt-0.5" title="${loginUsername}">${loginUsername}</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[10px] text-slate-400">Initial Password</div>
+                <div class="font-mono font-bold text-amber-300 truncate mt-0.5">${loginPassword}</div>
+              </div>
+            </div>
+
+            <div class="text-[10px] text-slate-400 flex items-center justify-between">
+              <span>Portal: <a href="${portalUrl}" target="_blank" class="text-sky-400 underline font-mono">${window.location.origin}/login</a></span>
+              <button id="swal-btn-copy-creds" type="button" class="text-indigo-300 hover:text-white underline font-semibold cursor-pointer">
+                📋 Copy Creds
+              </button>
+            </div>
+          </div>
+
+          <!-- Phone Number Input -->
+          <div class="space-y-1.5">
+            <label class="block text-[11px] font-semibold text-slate-300">
+              WhatsApp / Mobile Number (for direct dispatch):
+            </label>
+            <div class="relative">
+              <input
+                id="swal-input-phone"
+                type="tel"
+                value="${initialPhone}"
+                placeholder="e.g. 9830012345 or +919830012345"
+                class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 font-mono focus:outline-none focus:border-emerald-500 shadow-inner"
+              />
+            </div>
+            <p class="text-[10px] text-slate-400">
+              * Click below to open WhatsApp with the preloaded admission &amp; login credentials message.
+            </p>
+          </div>
+
+          <!-- Action Buttons in Modal -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            <button
+              id="swal-btn-send-wa"
+              type="button"
+              class="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            >
+              <span>💬</span>
+              <span>Send via WhatsApp</span>
+            </button>
+
+            <button
+              id="swal-btn-copy-full"
+              type="button"
+              class="w-full py-2.5 px-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 font-semibold text-xs shadow transition flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            >
+              <span>📋</span>
+              <span>Copy Full Details</span>
+            </button>
+          </div>
+        </div>
+      `,
+      showConfirmButton: false,
+      showCloseButton: true,
+      customClass: {
+        popup: "border border-slate-800 rounded-3xl shadow-2xl bg-[#0f172a] text-slate-100 max-w-lg w-full",
+      },
+      background: "#0f172a",
+      color: "#f8fafc",
+      didOpen: (popup) => {
+        popup.style.border = "1px solid #374151";
+
+        // Copy Credentials only button
+        popup.querySelector("#swal-btn-copy-creds")?.addEventListener("click", () => {
+          const credsText = `Student Portal: ${portalUrl}\nUsername: ${loginUsername}\nPassword: ${loginPassword}`;
+          navigator.clipboard.writeText(credsText);
+          Swal.showValidationMessage("Credentials copied to clipboard! ✅");
+          setTimeout(() => Swal.resetValidationMessage(), 2500);
+        });
+
+        // Copy Full Message button
+        popup.querySelector("#swal-btn-copy-full")?.addEventListener("click", () => {
+          const phoneInput = popup.querySelector("#swal-input-phone");
+          const phoneVal = phoneInput ? phoneInput.value.trim() : initialPhone;
+          const msg = buildMessageText(phoneVal);
+          navigator.clipboard.writeText(msg);
+          Swal.showValidationMessage("Full admission & login details copied to clipboard! ✅");
+          setTimeout(() => Swal.resetValidationMessage(), 2500);
+        });
+
+        // Send WhatsApp button
+        popup.querySelector("#swal-btn-send-wa")?.addEventListener("click", () => {
+          const phoneInput = popup.querySelector("#swal-input-phone");
+          let rawPhone = phoneInput ? phoneInput.value.trim() : initialPhone;
+
+          if (!rawPhone || rawPhone.length < 8) {
+            Swal.showValidationMessage("Please provide a valid 10-digit mobile / WhatsApp number ⚠️");
+            return;
+          }
+
+          let cleanPhone = rawPhone.replace(/[^0-9]/g, "");
+          if (cleanPhone.length === 10) {
+            cleanPhone = "91" + cleanPhone;
+          }
+
+          const message = buildMessageText(rawPhone);
+          const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+          window.open(waUrl, "_blank");
+          Swal.close();
+        });
+      },
+    });
+  };
+
   const SortIcon = ({ columnKey }) => {
     if (sortConfig.key !== columnKey) {
       return <ChevronUp className="w-4 h-4 opacity-30 group-hover:opacity-100" />;
@@ -1407,15 +1651,26 @@ const StudentAdmission = () => {
                           </span>
                         </td>
                         <td className="p-3.5 text-right">
-                          <button
-                            type="button"
-                            onClick={() => handleOpenStatusModal(adm)}
-                            className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm"
-                            title="Update Status / Assign Closing Date"
-                          >
-                            <SettingsIcon className="w-3.5 h-3.5" />
-                            <span>Status &amp; Closing Date</span>
-                          </button>
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleSendStudentDetails(adm)}
+                              className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm active:scale-95"
+                              title="Send Admission & Login Credentials to Student (WhatsApp / Copy)"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                              <span>Send Login Details</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleOpenStatusModal(adm)}
+                              className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm active:scale-95"
+                              title="Update Status / Assign Closing Date"
+                            >
+                              <SettingsIcon className="w-3.5 h-3.5" />
+                              <span>Status &amp; Closing Date</span>
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     );

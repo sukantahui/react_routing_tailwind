@@ -72,6 +72,16 @@ export const studentService = {
     }
   },
 
+  delete: async (studentId) => {
+    try {
+      const response = await api.delete(`/students/${studentId}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error deleting student:", error);
+      throw error;
+    }
+  },
+
   getPreviousAdmissions: async (studentId) => {
     try {
       const response = await api.get(`/students/${studentId}/previous-admissions`);

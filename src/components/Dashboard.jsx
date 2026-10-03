@@ -120,6 +120,21 @@ export default function Dashboard() {
           return;
         }
 
+        // Dashboard is not available for student login
+        const role = (
+          storedUser?.role ||
+          storedUser?.userType?.userTypeName ||
+          storedUser?.user_type_name ||
+          storedUser?.user_type ||
+          ""
+        ).trim().toLowerCase();
+        const isStudent = role.includes("student") || Boolean(storedUser?.student_id || storedUser?.studentId || storedUser?.student);
+
+        if (isStudent) {
+          navigate("/profile", { replace: true });
+          return;
+        }
+
         setUser(storedUser);
 
         // Fetch visitors and students independently with fallback

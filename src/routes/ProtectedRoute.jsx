@@ -1,7 +1,7 @@
 // src/routes/ProtectedRoute.jsx
 import { Navigate, useLocation } from "react-router-dom";
 
-export default function ProtectedRoute({ children, allowedRoles }) {
+export default function ProtectedRoute({ children, allowedRoles, disallowStudents = false }) {
   const token = localStorage.getItem("token");
   const rawUser = localStorage.getItem("user");
   const location = useLocation();
@@ -46,29 +46,54 @@ export default function ProtectedRoute({ children, allowedRoles }) {
     );
   }
 
-  // 2. Check role authorization if allowedRoles specified
-  if (allowedRoles && Array.isArray(allowedRoles) && allowedRoles.length > 0) {
-    try {
-      const user = rawUser ? JSON.parse(rawUser) : null;
-      const userRole = (user?.role || "").trim().toLowerCase();
-      const isAllowed = allowedRoles.some((r) => r.trim().toLowerCase() === userRole);
+  let user = null;
+  try {
+    user = rawUser ? (typeof rawUser === "string" ? JSON.parse(rawUser) : rawUser) : null;
+  } catch {
+    user = null;
+  }
 
-      if (!isAllowed) {
-        return (
-          <Navigate
-            to="/dashboard"
-            replace
-            state={{
-              error: `Access restricted. This section requires ${allowedRoles.join(" or ")} privileges.`,
-            }}
-          />
-        );
-      }
-    } catch {
-      return <Navigate to="/dashboard" replace />;
+  const userRole = (
+    user?.role ||
+    user?.userType?.userTypeName ||
+    user?.user_type_name ||
+    user?.user_type ||
+    user?.roleName ||
+    ""
+  ).trim().toLowerCase();
+
+  const isStudent = userRole.includes("student") || Boolean(user?.student_id || user?.studentId || user?.student);
+
+  // 2. Explicitly prevent student login if disallowStudents is set
+  if (disallowStudents && isStudent) {
+    return (
+      <Navigate
+        to="/profile"
+        replace
+        state={{
+          error: "Access restricted. Students cannot access Dashboard or Master management operations.",
+        }}
+      />
+    );
+  }
+
+  // 3. Check role authorization if allowedRoles specified
+  if (allowedRoles && Array.isArray(allowedRoles) && allowedRoles.length > 0) {
+    const isAllowed = allowedRoles.some((r) => r.trim().toLowerCase() === userRole);
+
+    if (!isAllowed) {
+      return (
+        <Navigate
+          to={isStudent ? "/profile" : "/dashboard"}
+          replace
+          state={{
+            error: `Access restricted. This section requires ${allowedRoles.join(" or ")} privileges.`,
+          }}
+        />
+      );
     }
   }
 
-  // 3. If authenticated and authorized, show the protected content
+  // 4. If authenticated and authorized, show the protected content
   return children;
 }

@@ -96,6 +96,51 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     return ['admin', 'developer', 'owner', 'manager'].some((r) => role.includes(r));
   }, [user]);
 
+  // Check if current user is an enrolled student
+  const isStudent = useMemo(() => {
+    if (!user) return false;
+    const role = (
+      user.role ||
+      user.userType?.userTypeName ||
+      user.user_type_name ||
+      user.user_type ||
+      user.roleName ||
+      ""
+    ).trim().toLowerCase();
+
+    return role.includes("student") || Boolean(user.student_id || user.studentId || user.student);
+  }, [user]);
+
+  // Check if current user is a female student
+  const isFemaleStudent = useMemo(() => {
+    if (!isStudent) return false;
+
+    const genderId =
+      user.gender_id ??
+      user.genderId ??
+      user.gender_ID ??
+      user.student?.gender_id ??
+      user.student?.genderId ??
+      user.student?.gender_ID ??
+      null;
+
+    if (genderId !== null && genderId !== undefined) {
+      return Number(genderId) === 2 || String(genderId) === "2";
+    }
+
+    const genderStr = (
+      user.gender ||
+      user.genderName ||
+      user.gender_name ||
+      user.student?.gender ||
+      user.student?.genderName ||
+      user.student?.gender_name ||
+      ""
+    ).trim().toLowerCase();
+
+    return genderStr.includes("female") || genderStr === "f" || genderStr === "woman";
+  }, [user]);
+
   // Get user initials for avatar
   const userInitials = useMemo(() => {
     if (!user?.name) return "AD";
@@ -115,11 +160,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       color: "from-sky-500/20 to-blue-500/10 text-sky-400 border-sky-500/30",
       items: [
         {
-          to: "/students/add",
+          to: "/admin/students",
           label: "Students Directory",
-          desc: "Manage enrolled student database (Step 1)",
+          desc: "Manage, search, alter & add students (Step 1)",
           icon: "bi-people-fill",
           badge: "Step 1",
+        },
+        {
+          to: "/students/add",
+          label: "Add New Student",
+          desc: "Fast student registration form",
+          icon: "bi-person-plus-fill",
         },
         {
           to: "/admission",
@@ -237,9 +288,16 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       items: [
         {
           to: "/admin",
-          label: "Admin Portal",
-          desc: "System configuration & quick actions",
+          label: "Admin Command Center",
+          desc: "Central student hub, system tools & actions",
           icon: "bi-shield-lock-fill",
+        },
+        {
+          to: "/admin/students",
+          label: "Students Directory & Hub",
+          desc: "List, search, alter & add students",
+          icon: "bi-people-fill",
+          badge: "Special Area",
         },
         {
           to: "/students/student-admission",
@@ -426,13 +484,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-qr-code-scan",
           tag: "Utility",
         },
-        {
-          to: "/menstrual-calendar",
-          label: "Menstrual Cycle Calendar",
-          desc: "Track cycles, ovulation & fertile windows",
-          icon: "bi-calendar-heart-fill",
-          tag: "Health Tool",
-        },
+        ...(isFemaleStudent
+          ? [
+              {
+                to: "/menstrual-calendar",
+                label: "Menstrual Cycle Calendar",
+                desc: "Track cycles, ovulation & fertile windows",
+                icon: "bi-calendar-heart-fill",
+                tag: "Health Tool",
+              },
+            ]
+          : []),
 
         {
           to: "/icons",
@@ -443,7 +505,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         },
       ],
     },
-  ], []);
+  ], [isFemaleStudent]);
 
 
   // Tutorials & Roadmaps Items with Categories
@@ -511,23 +573,35 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   // Flat Search Index for Command Palette / Quick Search Modal
   const globalSearchIndex = useMemo(() => {
     const list = [
-      { to: "/dashboard", label: "Dashboard Overview", group: "GENERAL", desc: "Live metrics, student stats & quick operations", icon: "bi-speedometer2" },
+      ...(!isStudent
+        ? [
+            {
+              to: "/dashboard",
+              label: "Dashboard Overview",
+              group: "GENERAL",
+              desc: "Live metrics, student stats & quick operations",
+              icon: "bi-speedometer2",
+            },
+          ]
+        : []),
       { to: "/profile", label: "My Profile & Account", group: "GENERAL", desc: "Manage profile, credentials and authentication", icon: "bi-person-circle" },
       { to: "/settings", label: "System & Theme Settings", group: "GENERAL", desc: "Configure application preferences & dark mode", icon: "bi-gear-fill" },
     ];
 
-    // Add all master items
-    masterGroups.forEach((g) => {
-      g.items.forEach((item) => {
-        list.push({
-          to: item.to,
-          label: item.label,
-          group: "MASTER",
-          desc: item.desc,
-          icon: item.icon,
+    // Add all master items only if NOT a student
+    if (!isStudent) {
+      masterGroups.forEach((g) => {
+        g.items.forEach((item) => {
+          list.push({
+            to: item.to,
+            label: item.label,
+            group: "MASTER",
+            desc: item.desc,
+            icon: item.icon,
+          });
         });
       });
-    });
+    }
 
     // Add all tool items
     toolsGroups.forEach((g) => {
@@ -554,7 +628,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     });
 
     return list;
-  }, [masterGroups, toolsGroups, tutorialsItems]);
+  }, [isStudent, masterGroups, toolsGroups, tutorialsItems]);
 
   // Results of Command Palette
   const searchResults = useMemo(() => {
@@ -684,7 +758,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
             {/* 1. BRAND & LOGO */}
             <div className="flex items-center gap-2 sm:gap-6">
               <NavLink
-                to="/dashboard"
+                to={isStudent ? "/profile" : "/dashboard"}
                 onClick={closeEverything}
                 className="flex items-center gap-2 sm:gap-3 group focus:outline-none"
               >
@@ -719,133 +793,137 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
               
               {/* Core Nav Group Capsule */}
               <div className="flex items-center gap-1 bg-slate-900/60 p-1 rounded-2xl border border-slate-800/80 backdrop-blur-md">
-                {/* DASHBOARD LINK */}
-                <NavLink
-                  to="/dashboard"
-                  onClick={closeAllDropdowns}
-                  className={({ isActive }) =>
-                    `inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
-                      isActive
-                        ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
-                    }`
-                  }
-                >
-                  <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
-                  <span>Dashboard</span>
-                </NavLink>
-
-                {/* MASTER MEGA MENU */}
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => toggleDropdown("master")}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
-                      activeDropdown === "master" || isMasterActive
-                        ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
-                        : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
-                    }`}
-                    aria-expanded={activeDropdown === "master"}
+                {/* DASHBOARD LINK (Hidden for students) */}
+                {!isStudent && (
+                  <NavLink
+                    to="/dashboard"
+                    onClick={closeAllDropdowns}
+                    className={({ isActive }) =>
+                      `inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 ${
+                        isActive
+                          ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                          : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                      }`
+                    }
                   >
-                    <i className="bi bi-layers-half text-sky-400 text-sm"></i>
-                    <span>Master</span>
-                    <i
-                      className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
-                        activeDropdown === "master" ? "rotate-180 text-sky-400" : ""
-                      }`}
-                    ></i>
-                  </button>
+                    <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
+                    <span>Dashboard</span>
+                  </NavLink>
+                )}
 
-                  {/* Master Mega Dropdown Panel */}
-                  <AnimatePresence>
-                    {activeDropdown === "master" && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                        transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute left-1/2 -translate-x-1/3 top-full mt-2 w-[720px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
-                      >
-                        {/* Top Header */}
-                        <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3 px-1">
-                          <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-sky-400 shadow-sm shadow-sky-400/50"></span>
-                            <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                              Academic &amp; Administrative Master
+                {/* MASTER MEGA MENU (Hidden for students) */}
+                {!isStudent && (
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown("master")}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+                        activeDropdown === "master" || isMasterActive
+                          ? "text-sky-300 bg-sky-500/20 border border-sky-500/30 shadow-sm shadow-sky-500/10 font-semibold"
+                          : "text-slate-300 hover:text-white hover:bg-slate-800/80 border border-transparent"
+                      }`}
+                      aria-expanded={activeDropdown === "master"}
+                    >
+                      <i className="bi bi-layers-half text-sky-400 text-sm"></i>
+                      <span>Master</span>
+                      <i
+                        className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
+                          activeDropdown === "master" ? "rotate-180 text-sky-400" : ""
+                        }`}
+                      ></i>
+                    </button>
+
+                    {/* Master Mega Dropdown Panel */}
+                    <AnimatePresence>
+                      {activeDropdown === "master" && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                          transition={{ duration: 0.18, ease: "easeOut" }}
+                          className="absolute left-1/2 -translate-x-1/3 top-full mt-2 w-[720px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800/90 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                        >
+                          {/* Top Header */}
+                          <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3 px-1">
+                            <div className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-sky-400 shadow-sm shadow-sky-400/50"></span>
+                              <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+                                Academic &amp; Administrative Master
+                              </span>
+                            </div>
+                            <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
+                              Instant Access
                             </span>
                           </div>
-                          <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
-                            Instant Access
-                          </span>
-                        </div>
 
-                        {/* Columns Grid */}
-                        <div className="grid grid-cols-3 gap-3">
-                          {masterGroups.map((group) => (
-                            <div key={group.id} className="space-y-1.5">
-                              <div className="flex items-center gap-2 px-2 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                                <i className={`bi ${group.icon} text-sky-400`}></i>
-                                <span>{group.title}</span>
-                              </div>
+                          {/* Columns Grid */}
+                          <div className="grid grid-cols-3 gap-3">
+                            {masterGroups.map((group) => (
+                              <div key={group.id} className="space-y-1.5">
+                                <div className="flex items-center gap-2 px-2 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                                  <i className={`bi ${group.icon} text-sky-400`}></i>
+                                  <span>{group.title}</span>
+                                </div>
 
-                              <div className="space-y-1">
-                                {group.items.map((item) => (
-                                  <NavLink
-                                    key={item.to}
-                                    to={item.to}
-                                    onClick={closeAllDropdowns}
-                                    className={({ isActive }) =>
-                                      `group/item flex items-start gap-2.5 p-2 rounded-xl transition-all duration-150 ${
-                                        isActive
-                                          ? "bg-sky-500/20 text-sky-200 border border-sky-500/30"
-                                          : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
-                                      }`
-                                    }
-                                  >
-                                    <div className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 group-hover/item:border-sky-500/40 group-hover/item:text-sky-300 group-hover/item:scale-105 transition">
-                                      <i className={`bi ${item.icon} text-xs`}></i>
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                      <div className="flex items-center justify-between">
-                                        <span className="text-xs font-semibold truncate group-hover/item:text-sky-300 transition">
-                                          {item.label}
-                                        </span>
-                                        {item.badge && (
-                                          <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
-                                            {item.badge}
-                                          </span>
-                                        )}
+                                <div className="space-y-1">
+                                  {group.items.map((item) => (
+                                    <NavLink
+                                      key={item.to}
+                                      to={item.to}
+                                      onClick={closeAllDropdowns}
+                                      className={({ isActive }) =>
+                                        `group/item flex items-start gap-2.5 p-2 rounded-xl transition-all duration-150 ${
+                                          isActive
+                                            ? "bg-sky-500/20 text-sky-200 border border-sky-500/30"
+                                            : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
+                                        }`
+                                      }
+                                    >
+                                      <div className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 group-hover/item:border-sky-500/40 group-hover/item:text-sky-300 group-hover/item:scale-105 transition">
+                                        <i className={`bi ${item.icon} text-xs`}></i>
                                       </div>
-                                      <p className="text-[10px] text-slate-400 line-clamp-1 group-hover/item:text-slate-300 transition">
-                                        {item.desc}
-                                      </p>
-                                    </div>
-                                  </NavLink>
-                                ))}
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between">
+                                          <span className="text-xs font-semibold truncate group-hover/item:text-sky-300 transition">
+                                            {item.label}
+                                          </span>
+                                          {item.badge && (
+                                            <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                                              {item.badge}
+                                            </span>
+                                          )}
+                                        </div>
+                                        <p className="text-[10px] text-slate-400 line-clamp-1 group-hover/item:text-slate-300 transition">
+                                          {item.desc}
+                                        </p>
+                                      </div>
+                                    </NavLink>
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
 
-                        {/* Bottom Banner */}
-                        <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
-                          <span className="flex items-center gap-1.5">
-                            <i className="bi bi-shield-check text-emerald-400"></i>
-                            Authorized Faculty &amp; Administrative Operations
-                          </span>
-                          <NavLink
-                            to="/admin"
-                            onClick={closeAllDropdowns}
-                            className="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1 hover:underline"
-                          >
-                            <span>Full Admin View</span>
-                            <i className="bi bi-arrow-right text-[10px]"></i>
-                          </NavLink>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                          {/* Bottom Banner */}
+                          <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
+                            <span className="flex items-center gap-1.5">
+                              <i className="bi bi-shield-check text-emerald-400"></i>
+                              Authorized Faculty &amp; Administrative Operations
+                            </span>
+                            <NavLink
+                              to="/admin"
+                              onClick={closeAllDropdowns}
+                              className="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1 hover:underline"
+                            >
+                              <span>Full Admin View</span>
+                              <i className="bi bi-arrow-right text-[10px]"></i>
+                            </NavLink>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
 
                 {/* TOOLS MEGA MENU */}
                 <div className="relative">
@@ -1209,14 +1287,16 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
                       {/* Links */}
                       <div className="space-y-0.5">
-                        <NavLink
-                          to="/dashboard"
-                          onClick={closeAllDropdowns}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
-                        >
-                          <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
-                          <span>Dashboard Overview</span>
-                        </NavLink>
+                        {!isStudent && (
+                          <NavLink
+                            to="/dashboard"
+                            onClick={closeAllDropdowns}
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                          >
+                            <i className="bi bi-speedometer2 text-sky-400 text-sm"></i>
+                            <span>Dashboard Overview</span>
+                          </NavLink>
+                        )}
                         <NavLink
                           to="/profile"
                           onClick={closeAllDropdowns}
@@ -1233,14 +1313,16 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           <i className="bi bi-gear text-purple-400 text-sm"></i>
                           <span>Settings &amp; Preferences</span>
                         </NavLink>
-                        <NavLink
-                          to="/admin"
-                          onClick={closeAllDropdowns}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
-                        >
-                          <i className="bi bi-shield-lock text-amber-400 text-sm"></i>
-                          <span>Admin Control Panel</span>
-                        </NavLink>
+                        {!isStudent && (
+                          <NavLink
+                            to="/admin"
+                            onClick={closeAllDropdowns}
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                          >
+                            <i className="bi bi-shield-lock text-amber-400 text-sm"></i>
+                            <span>Admin Control Panel</span>
+                          </NavLink>
+                        )}
                         <NavLink
                           to="/bijoya"
                           onClick={closeAllDropdowns}
@@ -1321,29 +1403,33 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
         {/* Mobile Horizontal Quick Section Strip (Visible on mobile screens) */}
         <div className="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-slate-950 border-t border-slate-800/80 overflow-x-auto text-[11px] font-medium text-slate-400 no-scrollbar">
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              `flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
-                isActive ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30" : "hover:text-white hover:bg-slate-900"
-              }`
-            }
-          >
-            <i className="bi bi-speedometer2 text-sky-400"></i>
-            <span>Dashboard</span>
-          </NavLink>
+          {!isStudent && (
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap transition ${
+                  isActive ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30" : "hover:text-white hover:bg-slate-900"
+                }`
+              }
+            >
+              <i className="bi bi-speedometer2 text-sky-400"></i>
+              <span>Dashboard</span>
+            </NavLink>
+          )}
 
-          <button
-            type="button"
-            onClick={() => {
-              setMobileTab("master");
-              setMobileMenuOpen(true);
-            }}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
-          >
-            <i className="bi bi-layers-half text-sky-400"></i>
-            <span>Master</span>
-          </button>
+          {!isStudent && (
+            <button
+              type="button"
+              onClick={() => {
+                setMobileTab("master");
+                setMobileMenuOpen(true);
+              }}
+              className="flex items-center gap-1 px-2.5 py-1 rounded-lg whitespace-nowrap hover:text-white hover:bg-slate-900 transition cursor-pointer"
+            >
+              <i className="bi bi-layers-half text-sky-400"></i>
+              <span>Master</span>
+            </button>
+          )}
 
           <button
             type="button"
@@ -1576,17 +1662,19 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                     >
                       All Sections
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => setMobileTab("master")}
-                      className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
-                        mobileTab === "master"
-                          ? "bg-sky-500 text-white shadow-sm"
-                          : "text-slate-400 hover:text-white"
-                      }`}
-                    >
-                      Master
-                    </button>
+                    {!isStudent && (
+                      <button
+                        type="button"
+                        onClick={() => setMobileTab("master")}
+                        className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold whitespace-nowrap transition cursor-pointer ${
+                          mobileTab === "master"
+                            ? "bg-sky-500 text-white shadow-sm"
+                            : "text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        Master
+                      </button>
+                    )}
                     <button
                       type="button"
                       onClick={() => setMobileTab("tools")}
@@ -1666,8 +1754,8 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 {/* Scrollable Navigation Body */}
                 <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3">
                   
-                  {/* 1. DASHBOARD TILE */}
-                  {(mobileTab === "all") && (
+                  {/* 1. DASHBOARD TILE (Hidden for students) */}
+                  {!isStudent && (mobileTab === "all") && (
                     <NavLink
                       to="/dashboard"
                       onClick={() => setMobileMenuOpen(false)}
@@ -1693,7 +1781,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                   )}
 
                   {/* SPECIAL BIJOYA 2026 GUEST MANAGEMENT TILE */}
-                  {(mobileTab === "all" || mobileTab === "master") && (
+                  {(mobileTab === "all" || (!isStudent && mobileTab === "master")) && (
                     <NavLink
                       to="/bijoya"
                       onClick={() => setMobileMenuOpen(false)}
@@ -1723,8 +1811,8 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                     </NavLink>
                   )}
 
-                  {/* 2. MASTER SECTION (CARDS & GROUPS) */}
-                  {(mobileTab === "all" || mobileTab === "master") && (
+                  {/* 2. MASTER SECTION (CARDS & GROUPS) (Hidden for students) */}
+                  {!isStudent && (mobileTab === "all" || mobileTab === "master") && (
                     <div className="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-950/40">
                       <button
                         type="button"
@@ -1765,19 +1853,19 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                     to={item.to}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={({ isActive }) =>
-                                      `group flex items-start gap-2.5 p-2.5 rounded-xl transition border ${
+                                      `flex items-start gap-2.5 p-2 rounded-xl text-xs transition ${
                                         isActive
-                                          ? "bg-sky-500/20 text-sky-200 border-sky-500/30"
-                                          : "bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border-slate-800/60"
+                                          ? "bg-sky-500/20 text-sky-200 border border-sky-500/30 font-semibold"
+                                          : "text-slate-300 hover:text-white hover:bg-slate-800/80"
                                       }`
                                     }
                                   >
-                                    <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 flex-shrink-0 mt-0.5">
-                                      <i className={`bi ${item.icon} text-sm`}></i>
+                                    <div className="w-6 h-6 rounded-lg bg-slate-800 text-sky-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                      <i className={`bi ${item.icon} text-xs`}></i>
                                     </div>
-                                    <div className="flex-1 min-w-0">
+                                    <div className="min-w-0 flex-1">
                                       <div className="flex items-center justify-between">
-                                        <p className="text-xs font-semibold truncate text-white">{item.label}</p>
+                                        <p className="font-semibold truncate text-white">{item.label}</p>
                                         {item.badge && (
                                           <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
                                             {item.badge}

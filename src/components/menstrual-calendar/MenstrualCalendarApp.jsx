@@ -15,8 +15,59 @@ import RelaxationBreathingModal from './components/Relaxation/RelaxationBreathin
 import SymptomLoggerModal from './components/PeriodHistory/SymptomLoggerModal';
 import DoctorReportModal from './components/Insights/DoctorReportModal';
 import UserManualModal from './components/Manual/UserManualModal';
-import { X, CheckCircle2, AlertTriangle, Info, Lock } from 'lucide-react';
+import { X, CheckCircle2, AlertTriangle, Info, Lock, Heart, ArrowLeft, Home } from 'lucide-react';
 import { formatISODate } from './utils/dateUtils';
+import { loginService } from '../../services/loginService';
+
+/** Helper to strictly check if user is an enrolled female student */
+export function checkIsFemaleStudent(user) {
+  if (!user) return false;
+
+  const role = (
+    user.role ||
+    user.userType?.userTypeName ||
+    user.user_type_name ||
+    user.user_type ||
+    user.roleName ||
+    ""
+  ).trim().toLowerCase();
+
+  const isStudent =
+    role.includes("student") ||
+    Boolean(user.student_id || user.studentId || user.student);
+
+  if (!isStudent) return false;
+
+  const genderId =
+    user.gender_id ??
+    user.genderId ??
+    user.gender_ID ??
+    user.student?.gender_id ??
+    user.student?.genderId ??
+    user.student?.gender_ID ??
+    null;
+
+  if (genderId !== null && genderId !== undefined) {
+    if (Number(genderId) === 2 || String(genderId) === "2") return true;
+    if (Number(genderId) === 1 || String(genderId) === "1") return false;
+  }
+
+  const genderStr = (
+    user.gender ||
+    user.genderName ||
+    user.gender_name ||
+    user.student?.gender ||
+    user.student?.genderName ||
+    user.student?.gender_name ||
+    ""
+  ).trim().toLowerCase();
+
+  if (genderStr.includes("female") || genderStr === "f" || genderStr === "woman") {
+    return true;
+  }
+
+  return false;
+}
 
 export default function MenstrualCalendarApp() {
   const navigate = useNavigate();
@@ -30,6 +81,17 @@ export default function MenstrualCalendarApp() {
   const [isSymptomModalOpen, setIsSymptomModalOpen] = useState(false);
   const [isManualOpen, setIsManualOpen] = useState(false);
   const [symptomInitialDate, setSymptomInitialDate] = useState(formatISODate(new Date()));
+
+  // Current authenticated user & Female student validation state
+  const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const raw = localStorage.getItem('user');
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [isVerifyingAccess, setIsVerifyingAccess] = useState(true);
 
   // Cycle data hook
   const {
@@ -78,7 +140,44 @@ export default function MenstrualCalendarApp() {
         replace: true,
         state: { from: '/menstrual-calendar', error: 'Please log in to access the Menstrual Cycle Calendar.' },
       });
+      setIsVerifyingAccess(false);
+      return;
     }
+
+    let isMounted = true;
+    const verifyUserProfile = async () => {
+      try {
+        const raw = localStorage.getItem('user');
+        const parsed = raw ? JSON.parse(raw) : null;
+        if (parsed && isMounted) {
+          setCurrentUser(parsed);
+        }
+
+        // Fetch fresh profile from API to ensure student role and gender are loaded
+        const res = await loginService.currentUser();
+        if (res?.data && isMounted) {
+          const combinedUser = { ...parsed, ...res.data };
+          setCurrentUser(combinedUser);
+          try {
+            localStorage.setItem('user', JSON.stringify(combinedUser));
+          } catch {
+            // ignore
+          }
+        }
+      } catch (err) {
+        console.warn('Could not refresh profile for menstrual calendar access:', err);
+      } finally {
+        if (isMounted) {
+          setIsVerifyingAccess(false);
+        }
+      }
+    };
+
+    verifyUserProfile();
+
+    return () => {
+      isMounted = false;
+    };
   }, [isAuth, navigate]);
 
   // Open Symptom Logger handler
@@ -119,13 +218,66 @@ export default function MenstrualCalendarApp() {
     );
   }
 
-  if (!isLoaded) {
+  // Access check: only active for female students
+  const isFemale = checkIsFemaleStudent(currentUser);
+
+  if (!isVerifyingAccess && !isFemale) {
+    return (
+      <div className="min-h-screen bg-[#060b14] text-slate-100 flex items-center justify-center p-6">
+        <div className="text-center p-8 sm:p-10 bg-slate-900/90 border border-slate-800 rounded-3xl max-w-lg shadow-2xl backdrop-blur-xl space-y-5">
+          <div className="w-16 h-16 mx-auto rounded-3xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 shadow-lg shadow-rose-500/10">
+            <Heart size={32} className="text-rose-400 animate-pulse" />
+          </div>
+
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-semibold">
+              <span>🌸 Dedicated Health Portal</span>
+            </div>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Active for Female Students Only</h2>
+            <p className="text-sm text-slate-400 leading-relaxed max-w-md mx-auto">
+              The Menstrual Cycle &amp; Health Calendar is exclusively configured for female students of Coder &amp; AccoTax to privately and securely track menstrual wellness, cycle phases, and health insights.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/80 text-xs text-slate-400 space-y-1.5 text-left">
+            <div className="flex items-center justify-between text-slate-300 font-medium">
+              <span>Current Account:</span>
+              <span className="text-white font-semibold">{currentUser?.name || currentUser?.userName || "User"}</span>
+            </div>
+            <div className="flex items-center justify-between text-slate-400">
+              <span>Account Role:</span>
+              <span className="text-slate-200">{currentUser?.role || currentUser?.userType?.userTypeName || "Member"}</span>
+            </div>
+          </div>
+
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={() => navigate('/dashboard')}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center justify-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={16} />
+              <span>Back to Dashboard</span>
+            </button>
+            <button
+              onClick={() => navigate('/')}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-indigo-600 hover:from-rose-600 hover:to-indigo-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-rose-500/20 transition cursor-pointer"
+            >
+              <Home size={16} />
+              <span>Go to Home</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isVerifyingAccess || !isLoaded) {
     return (
       <div className="min-h-screen bg-[#060b14] text-slate-100 flex items-center justify-center p-6">
         <div className="flex items-center gap-3 bg-slate-900 border border-slate-800 p-6 rounded-3xl shadow-2xl backdrop-blur-xl">
           <div className="w-6 h-6 border-2 border-rose-500 border-t-transparent rounded-full animate-spin"></div>
           <span className="text-sm font-semibold text-slate-300">
-            Loading Menstrual Cycle &amp; Health Data...
+            Verifying Student Access &amp; Loading Health Data...
           </span>
         </div>
       </div>

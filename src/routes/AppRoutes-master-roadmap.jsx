@@ -83,6 +83,7 @@ const StudentFeeReceiptPart4 = lazy(() => import('../components/StudentFeeReceip
 const StudentWithAdmission = lazy(() => import('../components/students/StudentWithAdmission'));
 const FeePaymentsList = lazy(() => import('../components/FeePaymentsList'));
 const QuestionBankManager = lazy(() => import('../components/questions/QuestionBankManager'));
+const StudentDirectoryManager = lazy(() => import('../components/students/StudentDirectoryManager'));
 
 // Master Study View Engines
 const StudyRoadmap = lazy(() => import('../components/study/StudyRoadmap'));
@@ -594,8 +595,8 @@ const STUDY_TRACKS = [
 // --------------------------------------------------------------
 // 5. HELPER: Protected route wrapper
 // --------------------------------------------------------------
-const ProtectedRouteWrapper = ({ children, allowedRoles }) => (
-  <ProtectedRoute allowedRoles={allowedRoles}>{children}</ProtectedRoute>
+const ProtectedRouteWrapper = ({ children, allowedRoles, disallowStudents = false }) => (
+  <ProtectedRoute allowedRoles={allowedRoles} disallowStudents={disallowStudents}>{children}</ProtectedRoute>
 );
 
 // --------------------------------------------------------------
@@ -669,7 +670,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.DASHBOARD}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <Dashboard />
             </ProtectedRouteWrapper>
           }
@@ -696,7 +697,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.FEE_PAYMENTS_LIST}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <FeePaymentsList />
             </ProtectedRouteWrapper>
           }
@@ -704,7 +705,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.FEE_RECEIPTS_LIST}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <FeePaymentsList />
             </ProtectedRouteWrapper>
           }
@@ -712,7 +713,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.STUDENT_WITH_ADMISSION}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
@@ -720,7 +721,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.ADMIN_STUDENT_ADMISSION}
           element={
-            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']}>
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']} disallowStudents={true}>
               <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
@@ -728,7 +729,7 @@ export default function AppRoutes() {
         <Route
           path="/admin/add-student"
           element={
-            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']}>
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']} disallowStudents={true}>
               <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
@@ -736,7 +737,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.REGISTER_STUDENT_ADMISSION}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
@@ -747,6 +748,30 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
               <Admin />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/admin/students"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']} disallowStudents={true}>
+              <StudentDirectoryManager />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/students"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']} disallowStudents={true}>
+              <StudentDirectoryManager />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/students/directory"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner', 'Manager']} disallowStudents={true}>
+              <StudentDirectoryManager />
             </ProtectedRouteWrapper>
           }
         />
@@ -796,7 +821,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.CERTIFICATE_GENERATOR}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <CertificateGenerator />
             </ProtectedRouteWrapper>
           }
@@ -805,7 +830,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.STUDENT_CERTIFICATE_STUDIO}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentCertificateStudio />
             </ProtectedRouteWrapper>
           }
@@ -814,7 +839,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.ADMIN_CERTIFICATES_LIST}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <AdminCertificatesList />
             </ProtectedRouteWrapper>
           }
@@ -823,7 +848,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.CERTIFICATES_REGISTER}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <AdminCertificatesList />
             </ProtectedRouteWrapper>
           }
@@ -832,7 +857,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.STUDENT_ADMISSION}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentAdmission />
             </ProtectedRouteWrapper>
           }
@@ -841,7 +866,7 @@ export default function AppRoutes() {
         <Route
           path="/admin/courses"
           element={
-            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']} disallowStudents={true}>
               <AddCourse />
             </ProtectedRouteWrapper>
           }
@@ -849,7 +874,7 @@ export default function AppRoutes() {
         <Route
           path="/courses/manage"
           element={
-            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']} disallowStudents={true}>
               <AddCourse />
             </ProtectedRouteWrapper>
           }
@@ -858,7 +883,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.ADD_RESULT}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <AddResult />
             </ProtectedRouteWrapper>
           }
@@ -867,7 +892,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.FEE_RECEIPT}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentFeeReceipt />
             </ProtectedRouteWrapper>
           }
@@ -876,7 +901,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.FEE_RECEIPT_PART2}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentFeeReceiptPart2 />
             </ProtectedRouteWrapper>
           }
@@ -885,7 +910,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.FEE_RECEIPT_PART3}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentFeeReceiptPart3 />
             </ProtectedRouteWrapper>
           }
@@ -894,18 +919,25 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.FEE_RECEIPT_PART4}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <StudentFeeReceiptPart4 />
             </ProtectedRouteWrapper>
           }
         />
 
 
-        <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} />
+        <Route
+          path={ROUTES.ADD_STUDENT}
+          element={
+            <ProtectedRouteWrapper disallowStudents={true}>
+              <AddStudent />
+            </ProtectedRouteWrapper>
+          }
+        />
         <Route
           path={ROUTES.SUBJECTS}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <QuestionBankManager />
             </ProtectedRouteWrapper>
           }
@@ -913,7 +945,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.QUESTION_BANK}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <QuestionBankManager />
             </ProtectedRouteWrapper>
           }
@@ -921,7 +953,7 @@ export default function AppRoutes() {
         <Route
           path={ROUTES.ADMIN_QUESTION_BANK}
           element={
-            <ProtectedRouteWrapper>
+            <ProtectedRouteWrapper disallowStudents={true}>
               <QuestionBankManager />
             </ProtectedRouteWrapper>
           }

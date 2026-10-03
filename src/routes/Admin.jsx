@@ -8,8 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import { authService } from "../api/auth.service";
 import { toProperCase } from "./Bijoya";
+import StudentDirectoryManager from "../components/students/StudentDirectoryManager";
 
 export default function Admin() {
+    const [activeWorkspaceTab, setActiveWorkspaceTab] = useState("students"); // 'students' | 'bijoya'
     const [guests, setGuests] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [dietFilter, setDietFilter] = useState("all"); // 'all' | 'veg' | 'non-veg'
@@ -336,48 +338,47 @@ We eagerly await your gracious presence!
 
                 {/* 2. CORE INSTITUTIONAL QUICK ACTIONS (INSTANT ACCESS TILES) */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                    <Link
-                        to="/bijoya"
-                        className="group p-3 rounded-2xl bg-gradient-to-br from-amber-500/10 via-rose-500/10 to-transparent border border-amber-500/30 hover:border-amber-400/60 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
+                    <button
+                        type="button"
+                        onClick={() => setActiveWorkspaceTab("students")}
+                        className={`text-left p-3 rounded-2xl border transition hover:-translate-y-0.5 cursor-pointer ${
+                            activeWorkspaceTab === "students"
+                                ? "bg-sky-500/15 border-sky-500/50 shadow-md shadow-sky-500/10 ring-1 ring-sky-500/30"
+                                : "bg-slate-900/80 border-slate-800 hover:border-sky-500/40"
+                        }`}
                     >
-                        <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center justify-center text-base mb-2 group-hover:scale-110 transition-transform">
+                        <div className="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-300 border border-sky-500/40 flex items-center justify-center text-base mb-2">
+                            👥
+                        </div>
+                        <p className="text-xs font-bold text-white truncate">Students Hub</p>
+                        <p className="text-[10px] text-slate-400 truncate">Directory, alter &amp; add</p>
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => setActiveWorkspaceTab("bijoya")}
+                        className={`text-left p-3 rounded-2xl border transition hover:-translate-y-0.5 cursor-pointer ${
+                            activeWorkspaceTab === "bijoya"
+                                ? "bg-amber-500/15 border-amber-500/50 shadow-md shadow-amber-500/10 ring-1 ring-amber-500/30"
+                                : "bg-slate-900/80 border-slate-800 hover:border-amber-400/60"
+                        }`}
+                    >
+                        <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center justify-center text-base mb-2">
                             🌸
                         </div>
                         <p className="text-xs font-bold text-amber-200 truncate">Bijoya 2026</p>
-                        <p className="text-[10px] text-slate-400 truncate">Passes, edits & WhatsApp</p>
-                    </Link>
-
-                    <Link
-                        to="/admin/backups"
-                        className="group p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
-                    >
-                        <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm mb-2 group-hover:scale-110 transition-transform">
-                            <i className="bi bi-database-fill-down"></i>
-                        </div>
-                        <p className="text-xs font-bold text-white truncate">DB Backups</p>
-                        <p className="text-[10px] text-slate-400 truncate">Create & download dumps</p>
-                    </Link>
+                        <p className="text-[10px] text-slate-400 truncate">Passes &amp; guest list</p>
+                    </button>
 
                     <Link
                         to="/admin/users"
-                        className="group p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/50 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
-                    >
-                        <div className="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-500/30 flex items-center justify-center text-sm mb-2 group-hover:scale-110 transition-transform">
-                            <i className="bi bi-people-fill"></i>
-                        </div>
-                        <p className="text-xs font-bold text-white truncate">User Directory</p>
-                        <p className="text-[10px] text-slate-400 truncate">Roles & credentials</p>
-                    </Link>
-
-                    <Link
-                        to="/users/add"
                         className="group p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-indigo-500/50 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
                     >
                         <div className="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center justify-center text-sm mb-2 group-hover:scale-110 transition-transform">
-                            <i className="bi bi-person-plus-fill"></i>
+                            <i className="bi bi-people-fill"></i>
                         </div>
-                        <p className="text-xs font-bold text-white truncate">Add New User</p>
-                        <p className="text-[10px] text-slate-400 truncate">Onboard staff accounts</p>
+                        <p className="text-xs font-bold text-white truncate">User Directory</p>
+                        <p className="text-[10px] text-slate-400 truncate">Roles &amp; credentials</p>
                     </Link>
 
                     <Link
@@ -396,7 +397,7 @@ We eagerly await your gracious presence!
                             Student + Course + Fee
                         </p>
                         <p className="text-[10px] text-slate-400 truncate">
-                            Add student with course & payment
+                            Add student with course
                         </p>
                     </Link>
 
@@ -408,10 +409,64 @@ We eagerly await your gracious presence!
                             <i className="bi bi-receipt-cutoff"></i>
                         </div>
                         <p className="text-xs font-bold text-white truncate">Fee Payments</p>
-                        <p className="text-[10px] text-slate-400 truncate">Receipts & ledger sync</p>
+                        <p className="text-[10px] text-slate-400 truncate">Receipts &amp; ledger</p>
+                    </Link>
+
+                    <Link
+                        to="/admin/backups"
+                        className="group p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
+                    >
+                        <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm mb-2 group-hover:scale-110 transition-transform">
+                            <i className="bi bi-database-fill-down"></i>
+                        </div>
+                        <p className="text-xs font-bold text-white truncate">DB Backups</p>
+                        <p className="text-[10px] text-slate-400 truncate">Create &amp; download dumps</p>
                     </Link>
                 </div>
 
+                {/* WORKSPACE MODE TABS SELECTOR */}
+                <div className="flex items-center gap-3 p-1.5 bg-slate-950/90 rounded-2xl border border-slate-800">
+                    <button
+                        type="button"
+                        onClick={() => setActiveWorkspaceTab("students")}
+                        className={`flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 transition cursor-pointer ${
+                            activeWorkspaceTab === "students"
+                                ? "bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow-lg shadow-sky-600/30 ring-1 ring-sky-400/30"
+                                : "text-slate-400 hover:text-white hover:bg-slate-900"
+                        }`}
+                    >
+                        <span className="text-base">👥</span>
+                        <span>Students Directory &amp; Governance</span>
+                        <span className="hidden sm:inline-block text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full bg-sky-400/20 text-sky-200 border border-sky-400/30">
+                            Central Workspace
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={() => setActiveWorkspaceTab("bijoya")}
+                        className={`flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2.5 transition cursor-pointer ${
+                            activeWorkspaceTab === "bijoya"
+                                ? "bg-gradient-to-r from-amber-600 via-rose-600 to-purple-600 text-white shadow-lg shadow-amber-600/30 ring-1 ring-amber-400/30"
+                                : "text-slate-400 hover:text-white hover:bg-slate-900"
+                        }`}
+                    >
+                        <span className="text-base">🌸</span>
+                        <span>Maitri Mahotsav 2026 Registry</span>
+                        <span className="hidden sm:inline-block text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-400/30">
+                            {guests.length} Guests
+                        </span>
+                    </button>
+                </div>
+
+                {/* 3. DEDICATED STUDENT MANAGEMENT WORKSPACE */}
+                {activeWorkspaceTab === "students" && (
+                    <StudentDirectoryManager embedded={true} />
+                )}
+
+                {/* 4. BIJOYA / GUEST GOVERNANCE WORKSPACE */}
+                {activeWorkspaceTab === "bijoya" && (
+                    <div className="space-y-6">
                 {/* 3. KPI METRIC SUMMARY CARDS */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-md">
@@ -875,6 +930,8 @@ We eagerly await your gracious presence!
                                 );
                             })
                         )}
+                    </div>
+                )}
                     </div>
                 )}
 
