@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Contacts</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background: #f5f5f5;
+    }
+    h2 { text-align: center; }
+    table {
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+        border-collapse: collapse;
+        background: white;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background: #333;
+        color: white;
+    }
+    .copy-cell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    button {
+        border: none;
+        background: #1976d2;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover { background: #125aa0; }
+    button.copied { background: #2e7d32; }
+    button.hide-btn { background: #d32f2f; }
+    button.hide-btn:hover { background: #9a0007; }
+</style>
+</head>
+<body>
+<h2>WhatsApp Contacts</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>WhatsApp Number</th>
+            <th>ID</th>
+            <th>PIN</th>
+            <th>LOCATION</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><div class="copy-cell"><span>Sohini Ghosh</span><button onclick="copyText(this, 'Sohini Ghosh')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>9123752251</span><button onclick="copyText(this, '9123752251')">Copy</button></div></td>
+            <td>1061</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Souvik Mondal</span><button onclick="copyText(this, 'Souvik Mondal')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>8061011135</span><button onclick="copyText(this, '8061011135')">Copy</button></div></td>
+            <td>1063</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Soudeep Bose</span><button onclick="copyText(this, 'Soudeep Bose')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>7433429955</span><button onclick="copyText(this, '7433429955')">Copy</button></div></td>
+            <td>1069</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Ayan Senor</span><button onclick="copyText(this, 'Ayan Senor')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>9874585891</span><button onclick="copyText(this, '9874585891')">Copy</button></div></td>
+            <td>1023</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Ayan Das</span><button onclick="copyText(this, 'Ayan Das')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>8420211318</span><button onclick="copyText(this, '8420211318')">Copy</button></div></td>
+            <td>1070</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Moumni Ghosh</span><button onclick="copyText(this, 'Moumni Ghosh')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>9831291703</span><button onclick="copyText(this, '9831291703')">Copy</button></div></td>
+            <td>1071</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Nillohit Sarkar</span><button onclick="copyText(this, 'Nillohit Sarkar')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>9064367102</span><button onclick="copyText(this, '9064367102')">Copy</button></div></td>
+            <td>1072</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Debleena Dutta</span><button onclick="copyText(this, 'Debleena Dutta')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>7525943504</span><button onclick="copyText(this, '7525943504')">Copy</button></div></td>
+            <td>1073</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Shreyashi Ghosh</span><button onclick="copyText(this, 'Shreyashi Ghosh')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>8444818419</span><button onclick="copyText(this, '8444818419')">Copy</button></div></td>
+            <td>1074</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Subhadra Sadhukhan</span><button onclick="copyText(this, 'Subhadra Sadhukhan')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>759689722</span><button onclick="copyText(this, '759689722')">Copy</button></div></td>
+            <td>1075</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Nivedita Roy</span><button onclick="copyText(this, 'Nivedita Roy')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>9875451969</span><button onclick="copyText(this, '9875451969')">Copy</button></div></td>
+            <td>1076</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Ahana Chakraborty</span><button onclick="copyText(this, 'Ahana Chakraborty')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>7439509060</span><button onclick="copyText(this, '7439509060')">Copy</button></div></td>
+            <td>1078</td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span><button onclick="copyText(this, 'BARRACKPORE')">Copy</button></div></td>
+            <td><button class="hide-btn" onclick="hideRow(this)">Hide</button></td>
+        </tr>
+        <tr>
+            <td><div class="copy-cell"><span>Aishikee Nandy</span><button onclick="copyText(this, 'Aishikee Nandy')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>9062552264</span><button onclick="copyText(this, '9062552264')">Copy</button></div></td>
+            <td></td>
+            <td><div class="copy-cell"><span>4321</span><button onclick="copyText(this, '4321')">Copy</button></div></td>
+            <td><div class="copy-cell"><span>BARRACKPORE</span>To implement copy buttons for the PIN code and location details, use the **Clipboard API** (`navigator.clipboard.writeText`) alongside interactive UI components. 
+
+Below is a complete implementation using HTML, CSS, and modern JavaScript, including visual feedback (e.g., changing the button text to "Copied!") when clicked.
+
+---
+
+### Implementation Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location & PIN Copy Feature</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+
+    .card {
+      max-width: 400px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .info-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .info-group:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .info-text label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .info-text span {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #f1f5f9;
+      color: #334155;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .copy-btn:hover {
+      background-color: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .copy-btn.copied {
+      background-color: #dcfce7;
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- PIN Code Field -->
+    <div class="info-group">
+      <div class="info-text">
+        <label>PIN Code</label>
+        <span id="pin-code">700001</span>
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard('pin-code', this)">
+        📋 Copy PIN
+      </button>
+    </div>
+
+    <!-- Location Field -->
+    <div class="info-group">
+      <div class="info-text">
+        <label>Location</label>
+        <span id="location-details">Kolkata, West Bengal, India</span>
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard('location-details', this)">
+        📋 Copy Location
+      </button>
+    </div>
+  </div>
+
+  <script>
+    async function copyToClipboard(elementId, buttonElement) {
+      const textToCopy = document.getElementById(elementId).innerText;
+      
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        
+        // Visual feedback
+        const originalText = buttonElement.innerHTML;
+        buttonElement.innerHTML = '✓ Copied!';
+        buttonElement.classList.add('copied');
+        
+        // Reset button state after 2 seconds
+        setTimeout(() => {
+          buttonElement.innerHTML = originalText;
+          buttonElement.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+      }
+    }
+  </script>
+
+</body>
+</html>
