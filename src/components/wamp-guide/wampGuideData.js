@@ -639,11 +639,63 @@ FLUSH PRIVILEGES;
 EXIT;`,
   configIncPath: `C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php`,
   configIncSnippet: `/* In C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php */
+// Option A: Automatic Silent Login with new password
 $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['password'] = 'sukantahui'; // Change from '' to 'sukantahui'`,
-  configIncCookieSnippet: `/* Alternative: Enable standard secure login prompt */
-$cfg['Servers'][$i]['auth_type'] = 'cookie'; // Prompts for username & password`,
+$cfg['Servers'][$i]['password'] = 'sukantahui'; // Replace '' with 'sukantahui'
+$cfg['Servers'][$i]['AllowNoPassword'] = false;`,
+  configIncCookieSnippet: `/* In C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php */
+// Option B (Recommended): Interactive Secure Login Screen
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['user'] = '';
+$cfg['Servers'][$i]['password'] = '';
+$cfg['Servers'][$i]['AllowNoPassword'] = false;`,
+  restartWampGuide: {
+    en: [
+      {
+        step: 1,
+        title: "Edit config.inc.php",
+        desc: "Open C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php in Notepad++ or VS Code, update the password to 'sukantahui' (or change auth_type to 'cookie'), and save the file (Ctrl + S).",
+      },
+      {
+        step: 2,
+        title: "Restart All Wamp Services",
+        desc: "Left-click the green WampServer tray icon in the Windows taskbar and click 'Restart All Services'. Wait 5-10 seconds until the icon turns green again.",
+      },
+      {
+        step: 3,
+        title: "Launch phpMyAdmin in Fresh Browser Session",
+        desc: "Open http://localhost/phpmyadmin/ in your browser. If you still see the old red error page, press Ctrl + F5 for a hard refresh or open in an Incognito window.",
+      },
+      {
+        step: 4,
+        title: "Enter New Credentials (If prompted)",
+        desc: "Username: root | Password: sukantahui | Server choice: MySQL (port 3306). Click 'Log in' and enjoy your secured database!",
+      },
+    ],
+    bn: [
+      {
+        step: 1,
+        title: "config.inc.php ফাইলটি এডিট করুন",
+        desc: "Notepad++ বা VS Code দিয়ে C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php ফাইলটি খুলুন। password লাইনে 'sukantahui' লিখুন (অথবা auth_type এ 'cookie' দিন) এবং Ctrl + S চেপে সেভ করুন।",
+      },
+      {
+        step: 2,
+        title: "WAMP-এর সব সার্ভিস রিস্টার্ট দিন",
+        desc: "টাস্কবারের সবুজ WAMP ট্রে আইকনে Left-Click করুন এবং 'Restart All Services' অপশনে ক্লিক করুন। ৫-১০ সেকেন্ড অপেক্ষা করুন যতক্ষণ আইকনটি পুনরায় সবুজ না হয়।",
+      },
+      {
+        step: 3,
+        title: "ব্রাউজারে ফ্রেশ সেশনে phpMyAdmin ওপেন করুন",
+        desc: "ব্রাউজারে http://localhost/phpmyadmin/ ওপেন করুন। আগের লাল এরর আসলে কিবোর্ডে Ctrl + F5 চেপে হার্ড রিফ্রেশ করুন অথবা Incognito (গোপন) উইন্ডো খুলুন।",
+      },
+      {
+        step: 4,
+        title: "নতুন ক্রেডেনশিয়াল দিয়ে লগইন সম্পন্ন করুন",
+        desc: "ইউজারনেম: root | পাসওয়ার্ড: sukantahui | সার্ভার: MySQL সিলেক্ট করে 'Log in' বাটনে ক্লিক করুন এবং ডেটাবেস ব্যবহার শুরু করুন!",
+      },
+    ],
+  },
   phpMysqliSnippet: `<?php
 // Database Connection via MySQLi (Procedural & Object-Oriented)
 $host     = "localhost";

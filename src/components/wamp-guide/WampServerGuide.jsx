@@ -1941,46 +1941,147 @@ export default function WampServerGuide() {
               </div>
             )}
 
-            {/* TAB CONTENT 3: CONFIG.INC.PHP SYNC */}
+            {/* TAB CONTENT 3: CONFIG.INC.PHP SYNC & STARTUP FLOW */}
             {rootPassTab === "config" && (
-              <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-200 flex items-start gap-2.5">
-                  <AlertTriangle size={16} className="text-rose-400 shrink-0 mt-0.5" />
+              <div className="space-y-6">
+                <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-200 flex items-start gap-2.5 shadow-sm">
+                  <AlertTriangle size={18} className="text-rose-400 shrink-0 mt-0.5" />
                   <div className="space-y-1">
-                    <h6 className="font-bold text-rose-300">
-                      {isBn ? "অত্যন্ত গুরুত্বপূর্ণ: Error #1045 Access Denied সমাধান" : "Crucial: Avoid Error #1045 Access Denied"}
+                    <h6 className="font-bold text-rose-300 text-sm">
+                      {isBn
+                        ? "কেন পাসওয়ার্ড বদলানোর পর phpMyAdmin খুলবে না এবং কীভাবে চালু করবেন?"
+                        : "Why phpMyAdmin fails to open after password change & How to start it:"}
                     </h6>
                     <p className="leading-relaxed">
                       {isBn
-                        ? "MySQL root পাসওয়ার্ড পরিবর্তন করার পর phpMyAdmin-এ ঢুকতে গেলে 'Access denied' এরর আসতে পারে। এর কারণ phpMyAdmin-এর কনফিগারেশন ফাইলে আগের খালি পাসওয়ার্ডটি সংরক্ষিত থাকে। নিচের ফাইলটি আপডেট করলেই এটি ঠিক হয়ে যাবে:"
-                        : "After updating the MySQL root password, phpMyAdmin may show 'Access denied for user root@localhost' because phpMyAdmin's config file still has the old blank password. Update this file:"}
+                        ? "WAMP-এর ডিফল্ট সেটিংসে phpMyAdmin স্বয়ংক্রিয়ভাবে খালি পাসওয়ার্ড দিয়ে লগইন করার চেষ্টা করে। MySQL-এর পাসওয়ার্ড 'sukantahui' হয়ে যাওয়ার ফলে phpMyAdmin লাল এরর (Error #1045 Access Denied) প্রদর্শন করে। phpMyAdmin সঠিকভাবে চালু করতে নিচের ৪টি সহজ পর্যায় অনুসরণ করুন:"
+                        : "By default, phpMyAdmin is configured to attempt auto-login with an empty password. Once you set MySQL root password to 'sukantahui', phpMyAdmin will show a red Error #1045 (Access Denied). Follow these 4 steps to start phpMyAdmin cleanly:"}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2 font-mono text-xs text-sky-300">
-                  <FolderOpen size={16} className="text-sky-400 shrink-0" />
-                  <code>{mysqlRootPasswordGuide.configIncPath}</code>
+                {/* 4-Step Visual Flow Cards */}
+                <div className="space-y-3">
+                  <h5 className="font-bold text-white text-xs uppercase tracking-wider flex items-center gap-1.5">
+                    <RotateCcw size={14} className="text-sky-400" />
+                    <span>{isBn ? "phpMyAdmin পুনরায় চালু করার ৪টি সহজ ধাপ:" : "4-Step Flow to Start phpMyAdmin Cleanly:"}</span>
+                  </h5>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                    {(isBn ? mysqlRootPasswordGuide.restartWampGuide.bn : mysqlRootPasswordGuide.restartWampGuide.en).map((item) => (
+                      <div key={item.step} className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 relative overflow-hidden group hover:border-sky-500/40 transition-colors">
+                        <div className="flex items-center justify-between">
+                          <span className="w-6 h-6 rounded-full bg-sky-500/20 text-sky-400 font-mono font-bold flex items-center justify-center text-xs">
+                            {item.step}
+                          </span>
+                          <span className="text-[10px] text-slate-400 font-mono">Step {item.step}</span>
+                        </div>
+                        <h6 className="font-bold text-white text-xs leading-snug">{item.title}</h6>
+                        <p className="text-[11px] text-slate-400 leading-relaxed">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-mono text-slate-400">config.inc.php update:</span>
-                    <button
-                      type="button"
-                      onClick={() => handleCopySnippet("configInc", mysqlRootPasswordGuide.configIncSnippet)}
-                      className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-xs flex items-center gap-1.5 transition cursor-pointer"
-                    >
-                      {copiedSnippets["configInc"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
-                      <span>{copiedSnippets["configInc"] ? (isBn ? "কপি হয়েছে!" : "Copied!") : (isBn ? "কনফিগ কপি করুন" : "Copy Config")}</span>
-                    </button>
+                {/* File Path Indicator */}
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2 font-mono text-xs text-sky-300">
+                  <FolderOpen size={16} className="text-sky-400 shrink-0" />
+                  <span className="text-slate-400">Target File:</span>
+                  <code className="text-white font-bold">{mysqlRootPasswordGuide.configIncPath}</code>
+                </div>
+
+                {/* Two Configuration Approaches */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  {/* Option A: Auto-Login */}
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-white flex items-center gap-1">
+                        <span className="px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 text-[10px] font-mono">Option A</span>
+                        <span>Auto-Login with Password</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopySnippet("configAuto", mysqlRootPasswordGuide.configIncSnippet)}
+                        className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                      >
+                        {copiedSnippets["configAuto"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                        <span>{copiedSnippets["configAuto"] ? "Copied!" : "Copy Option A"}</span>
+                      </button>
+                    </div>
+                    <p className="text-[11px] text-slate-400">
+                      {isBn ? "phpMyAdmin এ সরাসরি 'sukantahui' পাসওয়ার্ড দিয়ে অটো-লগইন হবে।" : "Directly hardcodes 'sukantahui' password for silent auto-login."}
+                    </p>
+                    <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-[11px] text-sky-300 overflow-x-auto">
+                      <pre><code>{mysqlRootPasswordGuide.configIncSnippet}</code></pre>
+                    </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-sky-300 leading-relaxed overflow-x-auto shadow-inner">
-                    <pre>
-                      <code>{mysqlRootPasswordGuide.configIncSnippet}</code>
-                    </pre>
+                  {/* Option B: Interactive Cookie Login */}
+                  <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-amber-300 flex items-center gap-1">
+                        <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-mono">Option B</span>
+                        <span>Interactive Login Prompt (Recommended)</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopySnippet("configCookie", mysqlRootPasswordGuide.configIncCookieSnippet)}
+                        className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                      >
+                        {copiedSnippets["configCookie"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                        <span>{copiedSnippets["configCookie"] ? "Copied!" : "Copy Option B"}</span>
+                      </button>
+                    </div>
+                    <p className="text-[11px] text-slate-400">
+                      {isBn ? "ব্রাউজারে একটি সুন্দর লগইন পেজ আসবে যেখানে ইউজারনেম ও পাসওয়ার্ড লিখতে হবে।" : "Displays a secure browser login form asking for username & password."}
+                    </p>
+                    <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-[11px] text-amber-300 overflow-x-auto">
+                      <pre><code>{mysqlRootPasswordGuide.configIncCookieSnippet}</code></pre>
+                    </div>
                   </div>
+                </div>
+
+                {/* Interactive phpMyAdmin Login Preview Card */}
+                <div className="p-4 rounded-xl bg-gradient-to-br from-slate-950 to-slate-900 border border-emerald-500/30 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                      <CheckCircle2 size={14} />
+                      <span>{isBn ? "phpMyAdmin লগইন স্ক্রিন প্রিভিউ ও ক্রেডেনশিয়াল:" : "phpMyAdmin Login Screen Preview & Credentials:"}</span>
+                    </span>
+                    <a
+                      href="http://localhost/phpmyadmin"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-sm"
+                    >
+                      <span>http://localhost/phpmyadmin</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
+
+                  <div className="grid sm:grid-cols-3 gap-3 text-xs">
+                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                      <span className="text-slate-400 block text-[10px] uppercase">Server Choice:</span>
+                      <code className="text-sky-300 font-bold">MySQL (Port 3306)</code>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                      <span className="text-slate-400 block text-[10px] uppercase">Username:</span>
+                      <code className="text-sky-300 font-bold">root</code>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+                      <span className="text-slate-400 block text-[10px] uppercase">Password:</span>
+                      <code className="text-amber-300 font-extrabold">sukantahui</code>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-slate-400 flex items-center gap-1.5 pt-1">
+                    <Info size={13} className="text-sky-400 shrink-0" />
+                    <span>
+                      {isBn
+                        ? "টিপস: ব্রাউজারে পুরনো এরর ক্যাশ হয়ে থাকলে Ctrl + F5 চাপুন অথবা নতুন Incognito উইন্ডোতে ওপেন করুন।"
+                        : "Pro Tip: If your browser still caches the old Error 1045 page, press Ctrl + F5 or open in an Incognito / Private window."}
+                    </span>
+                  </p>
                 </div>
               </div>
             )}
