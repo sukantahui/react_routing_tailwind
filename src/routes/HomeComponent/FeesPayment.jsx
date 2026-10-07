@@ -132,7 +132,7 @@ export default function FeesPayment() {
     }
   };
 
-  // Download high-resolution PNG of QR Code
+  // Download high-resolution PNG of QR Code with Center CNAT Logo
   const handleDownloadQR = async () => {
     try {
       setIsDownloading(true);
@@ -146,8 +146,56 @@ export default function FeesPayment() {
         },
       });
 
+      // Composite onto Canvas with Center CNAT Logo
+      const canvas = document.createElement("canvas");
+      canvas.width = 800;
+      canvas.height = 800;
+      const ctx = canvas.getContext("2d");
+
+      const qrImg = new Image();
+      qrImg.src = dataUrl;
+      await new Promise((resolve) => {
+        qrImg.onload = resolve;
+        qrImg.onerror = resolve;
+      });
+      ctx.drawImage(qrImg, 0, 0, 800, 800);
+
+      // Load & Draw CNAT Logo in Center
+      const logoImg = new Image();
+      logoImg.crossOrigin = "anonymous";
+      logoImg.src = cnatLogo;
+      await new Promise((resolve) => {
+        logoImg.onload = resolve;
+        logoImg.onerror = resolve;
+      });
+
+      if (logoImg.width > 0) {
+        const center = 400;
+        const radius = 64;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(center, center, radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(center, center, radius - 4, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(
+          logoImg,
+          center - (radius - 4),
+          center - (radius - 4),
+          (radius - 4) * 2,
+          (radius - 4) * 2
+        );
+        ctx.restore();
+      }
+
       const downloadLink = document.createElement("a");
-      downloadLink.href = dataUrl;
+      downloadLink.href = canvas.toDataURL("image/png");
       downloadLink.download = `CoderAccoTax-Fees-QR-${selectedAmount || "Custom"}.png`;
       document.body.appendChild(downloadLink);
       downloadLink.click();

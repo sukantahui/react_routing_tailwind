@@ -405,7 +405,7 @@ export default function StudentCourseQRModal({
     }
   };
 
-  // Download High-Resolution Branded QR Card
+  // Download High-Resolution Branded QR Card with CNAT Logo
   const handleDownloadQRCard = async () => {
     try {
       setIsDownloading(true);
@@ -430,6 +430,15 @@ export default function StudentCourseQRModal({
       ctx.lineWidth = 4;
       ctx.strokeRect(30, 30, width - 60, height - 60);
 
+      // Preload Logo Image
+      const logoImg = new Image();
+      logoImg.crossOrigin = "anonymous";
+      logoImg.src = cnatLogo;
+      await new Promise((resolve) => {
+        logoImg.onload = resolve;
+        logoImg.onerror = resolve;
+      });
+
       // Header Banner
       ctx.fillStyle = "#0f172a";
       ctx.fillRect(34, 34, width - 68, 160);
@@ -442,19 +451,41 @@ export default function StudentCourseQRModal({
       ctx.fillStyle = lineGrad;
       ctx.fillRect(34, 190, width - 68, 6);
 
+      // Header Logo Badge
+      if (logoImg.width > 0) {
+        const headerLogoX = 75;
+        const headerLogoY = 64;
+        const headerLogoSize = 100;
+
+        ctx.save();
+        ctx.fillStyle = "#ffffff";
+        ctx.strokeStyle = "#38bdf8";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(headerLogoX + headerLogoSize / 2, headerLogoY + headerLogoSize / 2, headerLogoSize / 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(headerLogoX + headerLogoSize / 2, headerLogoY + headerLogoSize / 2, headerLogoSize / 2 - 4, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(logoImg, headerLogoX + 4, headerLogoY + 4, headerLogoSize - 8, headerLogoSize - 8);
+        ctx.restore();
+      }
+
       // Institute Name & Title
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 38px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(MERCHANT_NAME.toUpperCase(), width / 2, 95);
+      ctx.fillText(MERCHANT_NAME.toUpperCase(), width / 2 + 25, 95);
 
       ctx.fillStyle = "#38bdf8";
       ctx.font = "bold 20px sans-serif";
-      ctx.fillText("STUDENT COURSE ENROLLMENT & FEE PAYMENT QR", width / 2, 135);
+      ctx.fillText("STUDENT COURSE ENROLLMENT & FEE PAYMENT QR", width / 2 + 25, 135);
 
       ctx.fillStyle = "#94a3b8";
       ctx.font = "16px sans-serif";
-      ctx.fillText(`Ref: ${studentRef} • Official UPI: ${UPI_ID}`, width / 2, 168);
+      ctx.fillText(`Ref: ${studentRef} • Official UPI: ${UPI_ID}`, width / 2 + 25, 168);
 
       // Student & Course Info Box
       const infoBoxHeight = hasRemark ? 250 : 210;
@@ -495,11 +526,11 @@ export default function StudentCourseQRModal({
         ctx.fillText(`📝 Remark: ${studentRemarks.trim()}`, 100, 435);
       }
 
-      // Generate QR Data URL
+      // Generate QR Data URL (High error correction level for center logo overlay)
       const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue || UPI_ID, {
         width: 540,
         margin: 2,
-        errorCorrectionLevel: "M",
+        errorCorrectionLevel: "H",
         color: {
           dark: "#090d16",
           light: "#ffffff",
@@ -510,6 +541,7 @@ export default function StudentCourseQRModal({
       qrImg.src = qrDataUrl;
       await new Promise((resolve) => {
         qrImg.onload = resolve;
+        qrImg.onerror = resolve;
       });
 
       // White QR Container Card
@@ -524,6 +556,34 @@ export default function StudentCourseQRModal({
       ctx.strokeRect(qrBoxX, qrBoxY, qrBoxSize, qrBoxSize);
 
       ctx.drawImage(qrImg, qrBoxX + 10, qrBoxY + 10, qrBoxSize - 20, qrBoxSize - 20);
+
+      // Overlay CNAT Logo at Center of QR Code
+      if (logoImg.width > 0) {
+        const qrCenterX = qrBoxX + qrBoxSize / 2;
+        const qrCenterY = qrBoxY + qrBoxSize / 2;
+        const logoRadius = 48;
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(qrCenterX, qrCenterY, logoRadius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(qrCenterX, qrCenterY, logoRadius - 4, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(
+          logoImg,
+          qrCenterX - (logoRadius - 4),
+          qrCenterY - (logoRadius - 4),
+          (logoRadius - 4) * 2,
+          (logoRadius - 4) * 2
+        );
+        ctx.restore();
+      }
 
       // Bottom Instructions
       ctx.textAlign = "center";
@@ -579,20 +639,69 @@ export default function StudentCourseQRModal({
     }
   };
 
-  // Copy QR Image to Clipboard (PNG Blob)
+  // Copy QR Image to Clipboard (PNG Blob) with Center CNAT Logo
   const handleCopyQRImage = async () => {
     try {
       const qrDataUrl = await QRCodeLib.toDataURL(activeQrCodeValue || UPI_ID, {
         width: 800,
         margin: 2,
-        errorCorrectionLevel: "M",
+        errorCorrectionLevel: "H",
         color: {
           dark: "#090d16",
           light: "#ffffff",
         },
       });
 
-      const blob = await (await fetch(qrDataUrl)).blob();
+      // Composite onto Canvas with Center CNAT Logo
+      const canvas = document.createElement("canvas");
+      canvas.width = 800;
+      canvas.height = 800;
+      const ctx = canvas.getContext("2d");
+
+      const qrImg = new Image();
+      qrImg.src = qrDataUrl;
+      await new Promise((resolve) => {
+        qrImg.onload = resolve;
+        qrImg.onerror = resolve;
+      });
+      ctx.drawImage(qrImg, 0, 0, 800, 800);
+
+      // Load and Draw CNAT Logo in Center
+      const logoImg = new Image();
+      logoImg.crossOrigin = "anonymous";
+      logoImg.src = cnatLogo;
+      await new Promise((resolve) => {
+        logoImg.onload = resolve;
+        logoImg.onerror = resolve;
+      });
+
+      if (logoImg.width > 0) {
+        const center = 400;
+        const radius = 64;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(center, center, radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(center, center, radius - 4, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(
+          logoImg,
+          center - (radius - 4),
+          center - (radius - 4),
+          (radius - 4) * 2,
+          (radius - 4) * 2
+        );
+        ctx.restore();
+      }
+
+      const finalDataUrl = canvas.toDataURL("image/png");
+      const blob = await (await fetch(finalDataUrl)).blob();
 
       if (navigator?.clipboard?.write && window.ClipboardItem) {
         await navigator.clipboard.write([
@@ -603,7 +712,7 @@ export default function StudentCourseQRModal({
         setCopiedImage(true);
         setTimeout(() => setCopiedImage(false), 2500);
       } else {
-        await navigator.clipboard.writeText(qrDataUrl);
+        await navigator.clipboard.writeText(finalDataUrl);
         setCopiedImage(true);
         setTimeout(() => setCopiedImage(false), 2500);
       }
@@ -1047,7 +1156,7 @@ export default function StudentCourseQRModal({
                     size={190}
                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                     viewBox="0 0 256 256"
-                    level="M"
+                    level="H"
                     fgColor="#090d16"
                     bgColor="#ffffff"
                   />
