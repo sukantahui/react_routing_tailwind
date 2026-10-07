@@ -24,6 +24,7 @@ const BigOCalculator = lazy(() => import('../components/BigOCalculator'));
 const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
 const ImageCompressor = lazy(() => import('../components/ImageCompressor'));
 const ScreenRecorder = lazy(() => import('../components/ScreenRecorder'));
+const WampServerGuide = lazy(() => import('../components/wamp-guide/WampServerGuide'));
 const MenstrualCalendarApp = lazy(() => import('../components/menstrual-calendar/MenstrualCalendarApp'));
 
 // Dedicated SEO Course Landing Pages
@@ -146,6 +147,7 @@ const ROUTES = {
   JSON_FORMATTER: '/tools/json-formatter',
   IMAGE_COMPRESSOR: '/tools/image-compressor',
   SCREEN_RECORDER: '/tools/screen-recorder',
+  WAMP_GUIDE: '/tools/wampserver-guide',
   PLAYGROUND: '/play',
 
   PYTHON_PLAY: '/python-play',
@@ -641,6 +643,10 @@ export default function AppRoutes() {
         <Route path="/screen-recorder" element={<ScreenRecorder />} />
         <Route path="/tools/screenrecorder" element={<ScreenRecorder />} />
         <Route path="/tools/screen-recording" element={<ScreenRecorder />} />
+        <Route path={ROUTES.WAMP_GUIDE} element={<WampServerGuide />} />
+        <Route path="/tools/wamp" element={<WampServerGuide />} />
+        <Route path="/wampserver-guide" element={<WampServerGuide />} />
+        <Route path="/wamp" element={<WampServerGuide />} />
 
         {/* ---------- Dedicated SEO Course Landing Pages ---------- */}
         <Route path="/courses" element={<CoursesPage />} />

@@ -79,6 +79,13 @@ const NavBar = () => {
           tag: "IDE",
         },
         {
+          to: "/tools/wampserver-guide",
+          label: "WampServer & VC++ Guide",
+          desc: "Bilingual step-by-step WAMP 3.4.0 & VC++ installer guide",
+          icon: "bi-server",
+          tag: "Guide",
+        },
+        {
           to: "/whiteBoard",
           label: "Smart Whiteboard",
           desc: "Interactive canvas for diagrams & notes",
