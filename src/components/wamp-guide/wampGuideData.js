@@ -115,6 +115,17 @@ export const translations = {
     troubleshootSubtitle:
       "Encountered an issue? Here are the most common beginner errors and exact step-by-step solutions to fix them.",
 
+    rootPassTag: "Chapter 4: MySQL Security & Credentials",
+    rootPassTitle: "How to Change MySQL Default Root Password to 'sukantahui'",
+    rootPassSubtitle:
+      "By default, WampServer installs MySQL with username 'root' and a BLANK (empty) password. Follow this step-by-step guide to set your secure password to 'sukantahui' and synchronize phpMyAdmin so you never get Error #1045.",
+    rootPassDefaultNote: "Default WAMP Credential: Username = root | Password = (leave empty/blank)",
+    rootPassNewNote: "New Updated Credential: Username = root | Password = sukantahui",
+    rootMethod1Tab: "Method 1: MySQL Console (Recommended)",
+    rootMethod2Tab: "Method 2: phpMyAdmin GUI",
+    rootMethod3Tab: "Step 3: Sync config.inc.php",
+    rootMethod4Tab: "Step 4: PHP Connection Code",
+
     drawerTitle: "Beginner Installation Checklist",
     drawerReadiness: "Overall Readiness",
     drawerVcHeader: "Visual C++ Runtimes (10 Items)",
@@ -240,6 +251,17 @@ export const translations = {
     troubleshootTitle: 'নতুনদের জন্য "Don\'t Panic" সমাধান কেন্দ্র',
     troubleshootSubtitle:
       "কোনো ত্রুটি বা এরর দেখা দিয়েছে? নতুনদের সবচেয়ে পরিচিত সমস্যাগুলোর দ্রুত সমাধান নিচে দেওয়া হলো।",
+
+    rootPassTag: "অধ্যায় ৪: MySQL সিকিউরিটি ও পাসওয়ার্ড",
+    rootPassTitle: "MySQL-এর ডিফল্ট root পাসওয়ার্ড পরিবর্তন করে 'sukantahui' করার সহজ নিয়ম",
+    rootPassSubtitle:
+      "WampServer ইনস্টল করার পর MySQL-এর ডিফল্ট ইউজারনেম থাকে 'root' এবং পাসওয়ার্ড থাকে সম্পূর্ণ খালি (Blank)। নিচের সহজ ধাপগুলো অনুসরণ করে আপনার পাসওয়ার্ড 'sukantahui' সেট করুন এবং phpMyAdmin সিনক্রোনাইজ করুন যাতে কোনো Error #1045 না আসে।",
+    rootPassDefaultNote: "WAMP-এর ডিফল্ট লগইন: ইউজারনেম = root | পাসওয়ার্ড = (ফাঁকা রাখুন / কোনো পাসওয়ার্ড নেই)",
+    rootPassNewNote: "নতুন নির্ধারিত লগইন: ইউজারনেম = root | পাসওয়ার্ড = sukantahui",
+    rootMethod1Tab: "পদ্ধতি ১: MySQL কনসোল (সবচেয়ে দ্রুত ও নির্ভরযোগ্য)",
+    rootMethod2Tab: "পদ্ধতি ২: phpMyAdmin ওয়েব ইন্টারফেস",
+    rootMethod3Tab: "ধাপ ৩: config.inc.php সিনক্রোনাইজেশন",
+    rootMethod4Tab: "ধাপ ৪: PHP ডেটাবেস সংযোগ কোড",
 
     drawerTitle: "ইনস্টলেশন চেকলিস্ট",
     drawerReadiness: "সামগ্রিক প্রস্তুতি",
@@ -594,3 +616,71 @@ foreach ($pkg in $Packages) {
 Remove-Item $TempDir -Recurse -Force -ErrorAction SilentlyContinue
 Write-Host "\`nAll Visual C++ Redistributables successfully installed!" -ForegroundColor Green
 Write-Host "You may now proceed to run wampserver3.4.0_x64.exe as Administrator.\`n" -ForegroundColor Cyan`;
+
+export const mysqlRootPasswordGuide = {
+  defaultCreds: {
+    username: "root",
+    password: "",
+    passwordLabel: "(empty / blank)",
+    host: "localhost (127.0.0.1)",
+    portMysql: "3306",
+    portMariadb: "3307",
+  },
+  newCreds: {
+    username: "root",
+    password: "sukantahui",
+    host: "localhost",
+  },
+  sqlCommands: `ALTER USER 'root'@'localhost' IDENTIFIED BY 'sukantahui';
+FLUSH PRIVILEGES;
+EXIT;`,
+  legacySqlCommands: `SET PASSWORD FOR 'root'@'localhost' = PASSWORD('sukantahui');
+FLUSH PRIVILEGES;
+EXIT;`,
+  configIncPath: `C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php`,
+  configIncSnippet: `/* In C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php */
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = 'sukantahui'; // Change from '' to 'sukantahui'`,
+  configIncCookieSnippet: `/* Alternative: Enable standard secure login prompt */
+$cfg['Servers'][$i]['auth_type'] = 'cookie'; // Prompts for username & password`,
+  phpMysqliSnippet: `<?php
+// Database Connection via MySQLi (Procedural & Object-Oriented)
+$host     = "localhost";
+$user     = "root";
+$password = "sukantahui"; // Your updated password
+$database = "my_database";
+
+// 1. Create connection
+$conn = new mysqli($host, $user, $password, $database);
+
+// 2. Check connection
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully to MySQL database with password!";
+?>`,
+  phpPdoSnippet: `<?php
+// Database Connection via Modern PHP PDO (Recommended for Security)
+$host     = "localhost";
+$db       = "my_database";
+$user     = "root";
+$pass     = "sukantahui"; // Your updated password
+$charset  = "utf8mb4";
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+try {
+     $pdo = new PDO($dsn, $user, $pass, $options);
+     echo "PDO Database Connected securely!";
+} catch (PDOException $e) {
+     throw new PDOException($e->getMessage(), (int)$e->getCode());
+}
+?>`,
+};
+

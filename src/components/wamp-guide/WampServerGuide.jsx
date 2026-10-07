@@ -11,6 +11,7 @@ import {
   osData,
   stepsList,
   psBatchScript,
+  mysqlRootPasswordGuide,
 } from "./wampGuideData";
 import {
   Server,
@@ -48,6 +49,9 @@ import {
   HelpCircle,
   Clock,
   Car,
+  Key,
+  Lock,
+  Unlock,
 } from "lucide-react";
 
 export default function WampServerGuide() {
@@ -67,6 +71,7 @@ export default function WampServerGuide() {
   const [openAccordion, setOpenAccordion] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [rootPassTab, setRootPassTab] = useState("console"); // 'console' | 'phpmyadmin' | 'config' | 'phpcode'
 
   const toastTimerRef = useRef(null);
 
@@ -416,6 +421,56 @@ export default function WampServerGuide() {
                 <div className="text-xs sm:text-sm font-bold leading-tight">{t.btnAutomatedScript}</div>
                 <div className="text-[11px] text-cyan-400/70 font-normal">{t.btnAutomatedScriptSub}</div>
               </div>
+            </button>
+          </div>
+
+          {/* Quick Jump Bar */}
+          <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
+            <span className="text-slate-400 font-semibold text-[11px] uppercase tracking-wider">
+              {isBn ? "দ্রুত নেভিগেশন:" : "Quick Jumps:"}
+            </span>
+            <button
+              type="button"
+              onClick={() => scrollToSection("fundamentals")}
+              className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition cursor-pointer"
+            >
+              {isBn ? "অধ্যায় ১: পরিচিতি" : "#1 Fundamentals"}
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("prerequisites")}
+              className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition cursor-pointer"
+            >
+              {isBn ? "VC++ প্যাকেজসমূহ" : "#2 VC++ Packages"}
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("wizard-guide")}
+              className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition cursor-pointer"
+            >
+              {isBn ? "ইনস্টলেশন পর্যায় (১-৯)" : "#3 Wizard (1-9)"}
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("first-project")}
+              className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition cursor-pointer"
+            >
+              {isBn ? "প্রথম PHP প্রজেক্ট" : "#4 First PHP Project"}
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("mysql-root-password")}
+              className="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-white transition cursor-pointer font-bold flex items-center gap-1 shadow-sm"
+            >
+              <Key size={11} className="text-amber-400" />
+              <span>{isBn ? "MySQL root পাসওয়ার্ড ('sukantahui')" : "MySQL Root Pass ('sukantahui')"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("troubleshooting")}
+              className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition cursor-pointer"
+            >
+              {isBn ? "সমস্যা সমাধান" : "#Troubleshooting"}
             </button>
           </div>
         </div>
@@ -1623,6 +1678,377 @@ export default function WampServerGuide() {
           </div>
         </section>
 
+        {/* ================= CHAPTER 4: MYSQL ROOT PASSWORD & SECURITY ================= */}
+        <section id="mysql-root-password" className="scroll-mt-32 space-y-6">
+          <div className="border-b border-slate-800/80 pb-4">
+            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">
+              <Key size={14} />
+              <span>{t.rootPassTag}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">{t.rootPassTitle}</h2>
+            <p className="text-slate-400 text-sm mt-1">{t.rootPassSubtitle}</p>
+          </div>
+
+          {/* Credentials Status Cards (Default vs Target) */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {/* Default State Card */}
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 relative overflow-hidden">
+              <div className="flex items-center justify-between">
+                <span className="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Unlock size={13} className="text-amber-400" />
+                  {isBn ? "WAMP ডিফল্ট স্টেট" : "Default WAMP State"}
+                </span>
+                <span className="text-[11px] text-amber-400 font-mono font-semibold">
+                  {isBn ? "পাসওয়ার্ড ফাঁকা (Empty)" : "Password is Blank"}
+                </span>
+              </div>
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between py-1 border-b border-slate-800/60">
+                  <span className="text-slate-400">Username / ব্যবহারকারী:</span>
+                  <code className="text-sky-300 font-bold">root</code>
+                </div>
+                <div className="flex justify-between py-1 border-b border-slate-800/60">
+                  <span className="text-slate-400">Password / পাসওয়ার্ড:</span>
+                  <span className="text-amber-300 italic font-mono">{isBn ? "'' (ফাঁকা / খালি)" : "'' (Blank / Empty)"}</span>
+                </div>
+                <div className="flex justify-between py-1 border-b border-slate-800/60">
+                  <span className="text-slate-400">Host / হোস্ট:</span>
+                  <code className="text-slate-300">localhost (127.0.0.1)</code>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-slate-400">Default Ports:</span>
+                  <code className="text-slate-300">MySQL: 3306 | MariaDB: 3307</code>
+                </div>
+              </div>
+            </div>
+
+            {/* Target Secured State Card */}
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-amber-950/30 border border-amber-500/40 space-y-3 relative overflow-hidden shadow-xl shadow-amber-500/5">
+              <div className="flex items-center justify-between">
+                <span className="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Lock size={13} className="text-amber-400" />
+                  {isBn ? "লক্ষ্য: আপডেট পাসওয়ার্ড" : "Target Secured State"}
+                </span>
+                <span className="text-[11px] text-emerald-400 font-mono font-semibold flex items-center gap-1">
+                  <CheckCircle2 size={13} />
+                  {isBn ? "পাসওয়ার্ড সেট" : "Password Set"}
+                </span>
+              </div>
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between py-1 border-b border-amber-500/20">
+                  <span className="text-slate-300">Username / ব্যবহারকারী:</span>
+                  <code className="text-sky-300 font-bold">root</code>
+                </div>
+                <div className="flex justify-between py-1 border-b border-amber-500/20">
+                  <span className="text-slate-300">New Password / নতুন পাসওয়ার্ড:</span>
+                  <code className="text-amber-300 font-extrabold bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/40 text-sm">
+                    sukantahui
+                  </code>
+                </div>
+                <div className="flex justify-between py-1 border-b border-amber-500/20">
+                  <span className="text-slate-300">phpMyAdmin Login:</span>
+                  <span className="text-emerald-300 font-semibold">{isBn ? "ইউজার: root, পাসওয়ার্ড: sukantahui" : "User: root, Pass: sukantahui"}</span>
+                </div>
+                <div className="flex justify-between py-1">
+                  <span className="text-slate-300">PHP Projects:</span>
+                  <code className="text-emerald-300">mysqli_connect(..., "sukantahui", ...)</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Step Switcher Tabs */}
+          <div className="rounded-2xl bg-slate-900 border border-slate-800 p-5 space-y-5">
+            <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-3">
+              <button
+                type="button"
+                onClick={() => setRootPassTab("console")}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                  rootPassTab === "console"
+                    ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                    : "bg-slate-950/70 text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                <Terminal size={14} />
+                <span>{t.rootMethod1Tab}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setRootPassTab("phpmyadmin")}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                  rootPassTab === "phpmyadmin"
+                    ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                    : "bg-slate-950/70 text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                <Globe size={14} />
+                <span>{t.rootMethod2Tab}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setRootPassTab("config")}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                  rootPassTab === "config"
+                    ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                    : "bg-slate-950/70 text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                <FileCode size={14} />
+                <span>{t.rootMethod3Tab}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setRootPassTab("phpcode")}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                  rootPassTab === "phpcode"
+                    ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                    : "bg-slate-950/70 text-slate-400 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                <Code2 size={14} />
+                <span>{t.rootMethod4Tab}</span>
+              </button>
+            </div>
+
+            {/* TAB CONTENT 1: CONSOLE */}
+            {rootPassTab === "console" && (
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 flex items-start gap-2.5">
+                  <Sparkles size={16} className="text-amber-400 shrink-0 mt-0.5" />
+                  <p className="leading-relaxed">
+                    {isBn
+                      ? "পদ্ধতি ১ সবচেয়ে দ্রুত ও নিরাপদ। মাত্র ৩টি ধাপে MySQL কনসোল দিয়ে পাসওয়ার্ড সেট করুন:"
+                      : "Method 1 is the fastest and most reliable method for local environments. Follow these 3 simple steps:"}
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-3">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                    <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold flex items-center justify-center">1</span>
+                    <h5 className="font-bold text-white text-xs">{isBn ? "MySQL Console ওপেন করুন" : "Open MySQL Console"}</h5>
+                    <p className="text-[11px] text-slate-400">
+                      {isBn
+                        ? "টাস্কবারের সবুজ WAMP আইকনে লেফট-ক্লিক করুন → MySQL → MySQL Console এ ক্লিক করুন।"
+                        : "Left-click the green WAMP tray icon → MySQL → MySQL Console."}
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                    <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold flex items-center justify-center">2</span>
+                    <h5 className="font-bold text-white text-xs">{isBn ? "Enter প্রেস করুন (খালি পাসওয়ার্ড)" : "Press Enter (Blank Password)"}</h5>
+                    <p className="text-[11px] text-slate-400">
+                      {isBn
+                        ? "কালো উইন্ডোতে Enter password: এলে কোনো কিছু না লিখে সরাসরি কিবোর্ডে Enter চাপুন।"
+                        : "When prompted with 'Enter password:', press Enter directly without typing anything."}
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                    <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold flex items-center justify-center">3</span>
+                    <h5 className="font-bold text-white text-xs">{isBn ? "SQL কমান্ড রান করুন" : "Execute SQL Commands"}</h5>
+                    <p className="text-[11px] text-slate-400">
+                      {isBn
+                        ? "নিচের SQL কোডটি কপি করে কনসোলে পেস্ট করুন এবং Enter চাপুন।"
+                        : "Copy the SQL snippet below, paste into the console, and press Enter."}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Code Block with Copy */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-mono text-slate-400 flex items-center gap-1.5">
+                      <Terminal size={13} className="text-amber-400" />
+                      <span>MySQL 8.0+ / 8.4+ / MariaDB Command:</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopySnippet("sqlRootPass", mysqlRootPasswordGuide.sqlCommands)}
+                      className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold text-xs flex items-center gap-1.5 transition cursor-pointer"
+                    >
+                      {copiedSnippets["sqlRootPass"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                      <span>{copiedSnippets["sqlRootPass"] ? (isBn ? "কপি হয়েছে!" : "Copied!") : (isBn ? "SQL কোড কপি করুন" : "Copy SQL Code")}</span>
+                    </button>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 font-mono text-xs text-amber-300 leading-relaxed overflow-x-auto shadow-inner">
+                    <pre>
+                      <code>{mysqlRootPasswordGuide.sqlCommands}</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB CONTENT 2: PHPMYADMIN GUI */}
+            {rootPassTab === "phpmyadmin" && (
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-sky-500/10 border border-sky-500/30 text-xs text-sky-200 flex items-start gap-2.5">
+                  <Info size={16} className="text-sky-400 shrink-0 mt-0.5" />
+                  <p className="leading-relaxed">
+                    {isBn
+                      ? "ব্রাউজারের phpMyAdmin ইন্টারফেস থেকে গ্রাফিক্যাল উপায়ে পাসওয়ার্ড পরিবর্তন করতে নিচের ৬টি পদক্ষেপ সম্পন্ন করুন:"
+                      : "Follow these 6 steps to change the root password visually through the phpMyAdmin browser interface:"}
+                  </p>
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div className="font-bold text-sky-400 font-mono">1. Open phpMyAdmin</div>
+                    <p className="text-slate-300">
+                      {isBn ? "ব্রাউজারে http://localhost/phpmyadmin ওপেন করুন।" : "Visit http://localhost/phpmyadmin in your browser."}
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div className="font-bold text-sky-400 font-mono">2. Login as root</div>
+                    <p className="text-slate-300">
+                      {isBn ? "Username এ root দিন, Password খালি রাখুন, Go চাপুন।" : "Enter 'root' as username, leave password blank, click Go."}
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div className="font-bold text-sky-400 font-mono">3. User Accounts Tab</div>
+                    <p className="text-slate-300">
+                      {isBn ? "শীর্ষ নেভিগেশন বার থেকে 'User Accounts' ট্যাবে ক্লিক করুন।" : "Click the 'User Accounts' tab at the top navigation bar."}
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div className="font-bold text-sky-400 font-mono">4. Edit Privileges</div>
+                    <p className="text-slate-300">
+                      {isBn ? "root (localhost) এর ডানপাশে 'Edit privileges' বাটনে ক্লিক করুন।" : "Find user 'root' with host 'localhost' and click 'Edit privileges'."}
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div className="font-bold text-sky-400 font-mono">5. Change Password</div>
+                    <p className="text-slate-300">
+                      {isBn ? "পৃষ্ঠার উপরে 'Change password' ট্যাবে ক্লিক করুন।" : "Click 'Change password' tab located near the top of the privilege page."}
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                    <div className="font-bold text-sky-400 font-mono">6. Enter sukantahui & Go</div>
+                    <p className="text-slate-300">
+                      {isBn ? "উভয় পাসওয়ার্ড বক্সে sukantahui লিখুন এবং 'Go' বাটনে ক্লিক করুন।" : "Enter 'sukantahui' in both password fields and click the 'Go' button."}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB CONTENT 3: CONFIG.INC.PHP SYNC */}
+            {rootPassTab === "config" && (
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-200 flex items-start gap-2.5">
+                  <AlertTriangle size={16} className="text-rose-400 shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <h6 className="font-bold text-rose-300">
+                      {isBn ? "অত্যন্ত গুরুত্বপূর্ণ: Error #1045 Access Denied সমাধান" : "Crucial: Avoid Error #1045 Access Denied"}
+                    </h6>
+                    <p className="leading-relaxed">
+                      {isBn
+                        ? "MySQL root পাসওয়ার্ড পরিবর্তন করার পর phpMyAdmin-এ ঢুকতে গেলে 'Access denied' এরর আসতে পারে। এর কারণ phpMyAdmin-এর কনফিগারেশন ফাইলে আগের খালি পাসওয়ার্ডটি সংরক্ষিত থাকে। নিচের ফাইলটি আপডেট করলেই এটি ঠিক হয়ে যাবে:"
+                        : "After updating the MySQL root password, phpMyAdmin may show 'Access denied for user root@localhost' because phpMyAdmin's config file still has the old blank password. Update this file:"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2 font-mono text-xs text-sky-300">
+                  <FolderOpen size={16} className="text-sky-400 shrink-0" />
+                  <code>{mysqlRootPasswordGuide.configIncPath}</code>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-mono text-slate-400">config.inc.php update:</span>
+                    <button
+                      type="button"
+                      onClick={() => handleCopySnippet("configInc", mysqlRootPasswordGuide.configIncSnippet)}
+                      className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-xs flex items-center gap-1.5 transition cursor-pointer"
+                    >
+                      {copiedSnippets["configInc"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                      <span>{copiedSnippets["configInc"] ? (isBn ? "কপি হয়েছে!" : "Copied!") : (isBn ? "কনফিগ কপি করুন" : "Copy Config")}</span>
+                    </button>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-sky-300 leading-relaxed overflow-x-auto shadow-inner">
+                    <pre>
+                      <code>{mysqlRootPasswordGuide.configIncSnippet}</code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* TAB CONTENT 4: PHP CODE CONNECTIONS */}
+            {rootPassTab === "phpcode" && (
+              <div className="space-y-4">
+                <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 text-xs text-purple-200 flex items-start gap-2.5">
+                  <Code2 size={16} className="text-purple-400 shrink-0 mt-0.5" />
+                  <p className="leading-relaxed">
+                    {isBn
+                      ? "আপনার তৈরি করা PHP ফাইল থেকে নতুন 'sukantahui' পাসওয়ার্ড ব্যবহার করে ডেটাবেস সংযোগ করার দুটি স্ট্যান্ডার্ড কোড উদাহরণ:"
+                      : "Here are modern, production-ready code examples to connect your PHP projects using your new 'sukantahui' password:"}
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  {/* MySQLi Code */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-white flex items-center gap-1.5 font-mono">
+                        <span>1. MySQLi Connection</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopySnippet("phpMysqli", mysqlRootPasswordGuide.phpMysqliSnippet)}
+                        className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-purple-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                      >
+                        {copiedSnippets["phpMysqli"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                        <span>{copiedSnippets["phpMysqli"] ? "Copied!" : "Copy MySQLi"}</span>
+                      </button>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-purple-300 leading-relaxed overflow-x-auto h-72">
+                      <pre>
+                        <code>{mysqlRootPasswordGuide.phpMysqliSnippet}</code>
+                      </pre>
+                    </div>
+                  </div>
+
+                  {/* PDO Code */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-white flex items-center gap-1.5 font-mono">
+                        <span>2. Modern PDO Connection</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopySnippet("phpPdo", mysqlRootPasswordGuide.phpPdoSnippet)}
+                        className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                      >
+                        {copiedSnippets["phpPdo"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                        <span>{copiedSnippets["phpPdo"] ? "Copied!" : "Copy PDO"}</span>
+                      </button>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300 leading-relaxed overflow-x-auto h-72">
+                      <pre>
+                        <code>{mysqlRootPasswordGuide.phpPdoSnippet}</code>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+
         {/* ================= TROUBLESHOOTING MATRIX ================= */}
         <section id="troubleshooting" className="scroll-mt-32 space-y-6">
           <div className="border-b border-slate-800/80 pb-4">
@@ -1743,11 +2169,49 @@ export default function WampServerGuide() {
               )}
             </div>
 
-            {/* Accordion 4: Safe Exit */}
+            {/* Accordion 4: MySQL Error #1045 Access Denied */}
             <div className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
               <button
                 type="button"
                 onClick={() => setOpenAccordion(openAccordion === 4 ? null : 4)}
+                className="w-full p-4 text-left flex items-center justify-between gap-3 hover:bg-slate-800/60 transition-colors cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5 font-bold text-sm text-white">
+                  <AlertTriangle size={16} className="text-amber-400 shrink-0" />
+                  <span>
+                    {isBn
+                      ? "MySQL / phpMyAdmin এ #1045 Access denied for user 'root'@'localhost'"
+                      : "MySQL / phpMyAdmin shows '#1045 Access denied for user root@localhost'"}
+                  </span>
+                </div>
+                <ChevronDown
+                  size={16}
+                  className={`text-slate-400 transition-transform ${
+                    openAccordion === 4 ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {openAccordion === 4 && (
+                <div className="p-4 pt-0 text-xs text-slate-300 space-y-3 border-t border-slate-800/80 bg-slate-950/40">
+                  <p>
+                    {isBn
+                      ? "কারণ: MySQL root পাসওয়ার্ড 'sukantahui' করা হয়েছে কিন্তু phpMyAdmin-এর config.inc.php ফাইলে এখনও পাসওয়ার্ড খালি রয়ে গেছে।"
+                      : "Cause: You changed the MySQL root password to 'sukantahui', but phpMyAdmin's config.inc.php still holds an empty password."}
+                  </p>
+                  <p className="text-emerald-400 font-semibold">
+                    {isBn
+                      ? "সমাধান: C:\\wamp64\\apps\\phpmyadmin...\\config.inc.php ফাইলটি খুলে $cfg['Servers'][$i]['password'] = 'sukantahui'; লিখে সেভ করুন।"
+                      : "Fix: Open C:\\wamp64\\apps\\phpmyadmin...\\config.inc.php, set $cfg['Servers'][$i]['password'] = 'sukantahui'; and save."}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Accordion 5: Safe Exit */}
+            <div className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setOpenAccordion(openAccordion === 5 ? null : 5)}
                 className="w-full p-4 text-left flex items-center justify-between gap-3 hover:bg-slate-800/60 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-2.5 font-bold text-sm text-white">
@@ -1761,11 +2225,11 @@ export default function WampServerGuide() {
                 <ChevronDown
                   size={16}
                   className={`text-slate-400 transition-transform ${
-                    openAccordion === 4 ? "rotate-180" : ""
+                    openAccordion === 5 ? "rotate-180" : ""
                   }`}
                 />
               </button>
-              {openAccordion === 4 && (
+              {openAccordion === 5 && (
                 <div className="p-4 pt-0 text-xs text-slate-300 space-y-2 border-t border-slate-800/80 bg-slate-950/40">
                   <ol className="list-decimal pl-4 space-y-1">
                     <li>{isBn ? "WampServer ট্রে আইকনে Right-Click করুন।" : "Right-click the WampServer tray icon."}</li>
