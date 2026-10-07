@@ -52,6 +52,14 @@ import {
   Key,
   Lock,
   Unlock,
+  Eye,
+  EyeOff,
+  Zap,
+  Play,
+  ArrowRight,
+  ArrowLeft,
+  Shield,
+  Activity,
 } from "lucide-react";
 
 export default function WampServerGuide() {
@@ -73,6 +81,22 @@ export default function WampServerGuide() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [rootPassTab, setRootPassTab] = useState("console"); // 'console' | 'phpmyadmin' | 'config' | 'phpcode'
 
+  // Interactive Password Customizer (Default "sukantahui")
+  const [customPassword, setCustomPassword] = useState("sukantahui");
+  const [showCustomPassword, setShowCustomPassword] = useState(false);
+
+  // phpMyAdmin Interactive Login Simulator & Sandbox
+  const [simUser, setSimUser] = useState("root");
+  const [simPass, setSimPass] = useState("sukantahui");
+  const [simServer, setSimServer] = useState("mysql");
+  const [simLoginState, setSimLoginState] = useState(null); // null | 'success' | 'error'
+  const [mockSqlQuery, setMockSqlQuery] = useState(
+    "SELECT 'Hello MySQL from Coder & AccoTax!' AS message, USER() AS current_user, VERSION() AS mysql_ver;"
+  );
+  const [mockSqlExecuted, setMockSqlExecuted] = useState(false);
+  const [mockActiveTab, setMockActiveTab] = useState("sql"); // 'sql' | 'databases' | 'server'
+
+  const searchInputRef = useRef(null);
   const toastTimerRef = useRef(null);
 
   // --------------------------------------------------------------------------
@@ -105,6 +129,33 @@ export default function WampServerGuide() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Global Keyboard Shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Don't trigger if user is typing inside an input/textarea
+      if (
+        ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)
+      ) {
+        return;
+      }
+
+      if (e.key === "/") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+        const el = document.getElementById("prerequisites");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else if (e.key === "l" || e.key === "L") {
+        e.preventDefault();
+        setLang((prev) => (prev === "en" ? "bn" : "en"));
+      } else if (e.key === "c" || e.key === "C") {
+        e.preventDefault();
+        setIsDrawerOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const t = translations[lang] || translations.en;
@@ -221,7 +272,124 @@ export default function WampServerGuide() {
   }, [searchQuery, filterCategory]);
 
   // --------------------------------------------------------------------------
-  // 7. Copy Helpers
+  // 7. Dynamic Snippets Synchronized with Custom Password
+  // --------------------------------------------------------------------------
+  const dynamicSql = useMemo(() => {
+    return `-- ============================================================================
+-- MySQL 8.0+ / 8.4+ / MariaDB: Change Root Password Command
+-- Target User: 'root'@'localhost'
+-- Target Password: '${customPassword}'
+-- ============================================================================
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '${customPassword}';
+FLUSH PRIVILEGES;
+EXIT;`;
+  }, [customPassword]);
+
+  const dynamicConfigAuto = useMemo(() => {
+    return `// Open: C:\\wamp64\\apps\\phpmyadmin5.x.x\\config.inc.php
+// Option A: Auto-Login with Updated Root Password
+
+$cfg['Servers'][$i]['auth_type'] = 'config';
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = '${customPassword}';
+$cfg['Servers'][$i]['AllowNoPassword'] = true;`;
+  }, [customPassword]);
+
+  const dynamicMysqli = useMemo(() => {
+    return `<?php
+// Database Connection via MySQLi (Procedural & Object-Oriented)
+$host     = "localhost";
+$user     = "root";
+$password = "${customPassword}"; // Your updated password
+$database = "my_database";
+
+// 1. Create connection
+$conn = new mysqli($host, $user, $password, $database);
+
+// 2. Check connection
+if ($conn->connect_error) {
+    die("Database connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully to MySQL database with password '${customPassword}'!";
+?>`;
+  }, [customPassword]);
+
+  const dynamicPdo = useMemo(() => {
+    return `<?php
+// Database Connection via Modern PHP PDO (Recommended for Security)
+$host     = "localhost";
+$db       = "my_database";
+$user     = "root";
+$pass     = "${customPassword}"; // Your updated password
+$charset  = "utf8mb4";
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+try {
+     $pdo = new PDO($dsn, $user, $pass, $options);
+     echo "PDO Database Connected securely with password '${customPassword}'!";
+} catch (PDOException $e) {
+     throw new PDOException($e->getMessage(), (int)$e->getCode());
+}
+?>`;
+  }, [customPassword]);
+
+  // Simulator actions
+  const handleSimulateLogin = (e) => {
+    if (e) e.preventDefault();
+    if (simUser === "root" && (simPass === customPassword || (!customPassword && !simPass))) {
+      setSimLoginState("success");
+      setMockSqlExecuted(false);
+      triggerToast(
+        isBn
+          ? "সফলভাবে লগইন হয়েছে! সিমুলেটেড phpMyAdmin ড্যাশবোর্ড ওপেন হয়েছে।"
+          : "Login Successful! Simulated phpMyAdmin dashboard active."
+      );
+    } else {
+      setSimLoginState("error");
+      triggerToast(
+        isBn
+          ? "লগইন ব্যর্থ: এরর #১০৪৫ অ্যাক্সেস অস্বীকৃত!"
+          : "Login failed: Error #1045 Access Denied!"
+      );
+    }
+  };
+
+  const handleSimAutoFix = () => {
+    setSimUser("root");
+    setSimPass(customPassword);
+    setSimLoginState("success");
+    setMockSqlExecuted(false);
+    triggerToast(
+      isBn
+        ? "পাসওয়ার্ড অটো-ফিল করে সফলভাবে লগইন করা হলো!"
+        : "Auto-filled configured password & logged in!"
+    );
+  };
+
+  const handleSimLogout = () => {
+    setSimLoginState(null);
+    setMockSqlExecuted(false);
+    triggerToast(isBn ? "লগআউট সম্পন্ন হয়েছে।" : "Logged out of simulated phpMyAdmin.");
+  };
+
+  const handleRunMockSql = () => {
+    setMockSqlExecuted(true);
+    triggerToast(
+      isBn
+        ? "SQL কোয়ারি সফলভাবে রান হয়েছে (০.০০০৪ সেকেন্ড)!"
+        : "SQL query executed successfully in 0.0004 sec!"
+    );
+  };
+
+  // --------------------------------------------------------------------------
+  // 8. Copy Helpers
   // --------------------------------------------------------------------------
   const handleCopyScript = () => {
     navigator.clipboard.writeText(psBatchScript);
@@ -582,6 +750,18 @@ export default function WampServerGuide() {
               <p className="text-xs text-slate-400 leading-relaxed">{t.rule3Text}</p>
             </div>
           </div>
+
+          {/* Chapter 1 Section Navigation */}
+          <div className="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("prerequisites")}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-400 hover:to-blue-400 text-white text-xs font-bold flex items-center gap-2 transition shadow-md shadow-sky-500/20 cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: Visual C++ প্যাকেজ তালিকা" : "Next: Visual C++ Runtime Matrix"}</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </section>
 
         {/* ================= STEP 0: OS ENVIRONMENT SELECTOR ================= */}
@@ -665,6 +845,26 @@ export default function WampServerGuide() {
               ))}
             </div>
           </div>
+
+          {/* Step 0 Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("fundamentals")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: WAMP পরিচিতি" : "Previous: Fundamentals"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("prerequisites")}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-400 hover:to-purple-400 text-white text-xs font-bold flex items-center gap-2 transition shadow-md shadow-indigo-500/20 cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: VC++ প্যাকেজ ডাউনলোড" : "Next: VC++ Package Matrix"}</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </section>
 
         {/* ================= MANDATORY PREREQUISITES: VC++ MATRIX ================= */}
@@ -696,21 +896,27 @@ export default function WampServerGuide() {
                 className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
               />
               <input
+                ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
-                className="w-full pl-10 pr-10 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors"
+                className="w-full pl-10 pr-16 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors"
               />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
-                >
-                  <X size={16} />
-                </button>
-              )}
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5 pointer-events-none">
+                <kbd className="hidden sm:inline-block text-[10px] px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-400 font-mono shadow-sm">
+                  /
+                </kbd>
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery("")}
+                    className="text-slate-400 hover:text-white pointer-events-auto"
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Filter Pills */}
@@ -892,6 +1098,26 @@ export default function WampServerGuide() {
               </div>
             </div>
           </div>
+
+          {/* VC++ Matrix Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("step-0")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: উইন্ডোজ চেকার" : "Previous: OS Checker"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("script-generator")}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 text-xs font-bold flex items-center gap-2 transition shadow-md shadow-cyan-500/20 cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: ১-ক্লিক পাওয়ারশেল স্ক্রিপ্ট" : "Next: 1-Click PowerShell Script"}</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </section>
 
         {/* ================= 1-CLICK POWERSHELL SCRIPT ================= */}
@@ -983,6 +1209,26 @@ export default function WampServerGuide() {
                   : "Tip: After running this script, you can restart your computer to refresh Windows handles."}
               </span>
             </div>
+          </div>
+
+          {/* Script Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("prerequisites")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: VC++ প্যাকেজ ম্যাট্রিক্স" : "Previous: VC++ Matrix"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("wizard-guide")}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 text-xs font-bold flex items-center gap-2 transition shadow-md shadow-emerald-500/20 cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: সেটআপ উইজার্ড গাইড" : "Next: Setup Wizard (Stages 1-6)"}</span>
+              <ArrowRight size={14} />
+            </button>
           </div>
         </section>
 
@@ -1568,6 +1814,26 @@ export default function WampServerGuide() {
               </div>
             </div>
           </div>
+
+          {/* Wizard Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("script-generator")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: ১-ক্লিক VC++ স্ক্রিপ্ট" : "Previous: 1-Click VC++ Script"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("first-project")}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-400 hover:to-indigo-400 text-white text-xs font-bold flex items-center gap-2 transition shadow-md shadow-purple-500/20 cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: প্রথম PHP প্রজেক্ট তৈরি" : "Next: Create First PHP Project"}</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </section>
 
         {/* ================= CHAPTER 3: FIRST PHP PROJECT ================= */}
@@ -1594,9 +1860,29 @@ export default function WampServerGuide() {
               <p className="text-xs text-slate-400">
                 {isBn ? "আপনার সকল ওয়েবসাইট এই www ফোল্ডারে থাকবে:" : "Store your websites in the www directory:"}
               </p>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2 font-mono text-xs text-sky-300">
-                <FolderOpen size={16} className="text-sky-400 shrink-0" />
-                <code>C:\wamp64\www\</code>
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between gap-2 font-mono text-xs text-sky-300">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <FolderOpen size={16} className="text-sky-400 shrink-0" />
+                  <code className="truncate">C:\wamp64\www\</code>
+                </div>
+                <div className="flex items-center gap-1 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => handleCopySnippet("pathWww", "C:\\wamp64\\www\\")}
+                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 text-[11px] transition cursor-pointer"
+                    title="Copy Folder Path"
+                  >
+                    {copiedSnippets["pathWww"] ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleCopySnippet("winRWww", "explorer C:\\wamp64\\www")}
+                    className="px-2 py-1 rounded-lg bg-sky-500/15 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-[11px] font-sans font-semibold transition cursor-pointer"
+                    title="Copy Windows Win+R Command"
+                  >
+                    {copiedSnippets["winRWww"] ? "Copied!" : "Win + R"}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -1612,9 +1898,19 @@ export default function WampServerGuide() {
               <p className="text-xs text-slate-400">
                 {isBn ? "myproject নামে একটি ফোল্ডার তৈরি করুন:" : "Create a folder named myproject:"}
               </p>
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2 font-mono text-xs text-amber-300">
-                <FolderOpen size={16} className="text-amber-400 shrink-0" />
-                <code>C:\wamp64\www\myproject\</code>
+              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between gap-2 font-mono text-xs text-amber-300">
+                <div className="flex items-center gap-2 overflow-hidden">
+                  <FolderOpen size={16} className="text-amber-400 shrink-0" />
+                  <code className="truncate">C:\wamp64\www\myproject\</code>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopySnippet("pathMyProj", "C:\\wamp64\\www\\myproject\\")}
+                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 text-[11px] transition cursor-pointer shrink-0"
+                  title="Copy Path"
+                >
+                  {copiedSnippets["pathMyProj"] ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+                </button>
               </div>
             </div>
 
@@ -1636,7 +1932,7 @@ export default function WampServerGuide() {
                   }
                   className="text-xs text-slate-400 hover:text-white flex items-center gap-1 cursor-pointer"
                 >
-                  <Copy size={12} />
+                  {copiedSnippets["phpHello"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
                   <span>{copiedSnippets["phpHello"] ? "Copied!" : "Copy PHP"}</span>
                 </button>
               </div>
@@ -1676,6 +1972,26 @@ export default function WampServerGuide() {
               </p>
             </div>
           </div>
+
+          {/* Chapter 3 Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("wizard-guide")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: সেটআপ উইজার্ড" : "Previous: Setup Wizard"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("mysql-root-password")}
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-bold flex items-center gap-2 transition shadow-md shadow-amber-500/20 cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: MySQL root পাসওয়ার্ড ('sukantahui')" : "Next: MySQL Root Password ('sukantahui')"}</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </section>
 
         {/* ================= CHAPTER 4: MYSQL ROOT PASSWORD & SECURITY ================= */}
@@ -1687,6 +2003,122 @@ export default function WampServerGuide() {
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">{t.rootPassTitle}</h2>
             <p className="text-slate-400 text-sm mt-1">{t.rootPassSubtitle}</p>
+          </div>
+
+          {/* ================= INTERACTIVE PASSWORD CUSTOMIZER WIDGET ================= */}
+          <div className="p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-amber-950/20 to-slate-900 border border-amber-500/40 shadow-xl space-y-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-bold font-mono uppercase tracking-wider border border-amber-500/30 flex items-center gap-1">
+                    <Zap size={12} className="text-amber-400" />
+                    {isBn ? "লাইভ পাসওয়ার্ড জেনারেটর" : "Live Password Customizer"}
+                  </span>
+                  <span className="text-xs text-slate-400 hidden sm:inline">
+                    {isBn ? "যেকোনো পাসওয়ার্ড দিয়ে নিচের কোডগুলো দেখুন" : "Type any password to preview snippets live"}
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-white">
+                  {isBn
+                    ? "পাসওয়ার্ড কাস্টমাইজ করুন (ডিফল্ট প্রিসেট: 'sukantahui')"
+                    : "Customize Root Password (Default Preset: 'sukantahui')"}
+                </h3>
+              </div>
+
+              {/* Quick Presets */}
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-[11px] text-slate-400 mr-1">{isBn ? "প্রিসেট:" : "Presets:"}</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomPassword("sukantahui");
+                    setSimPass("sukantahui");
+                    triggerToast(isBn ? "প্রিসেট 'sukantahui' সেট করা হলো!" : "Preset 'sukantahui' loaded!");
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    customPassword === "sukantahui"
+                      ? "bg-amber-500 text-slate-950 shadow-sm"
+                      : "bg-slate-800 hover:bg-slate-700 text-amber-300"
+                  }`}
+                >
+                  sukantahui (Recommended)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomPassword("root123");
+                    setSimPass("root123");
+                  }}
+                  className={`px-2 py-1 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                    customPassword === "root123"
+                      ? "bg-amber-500 text-slate-950 font-bold"
+                      : "bg-slate-800 hover:bg-slate-700 text-slate-300"
+                  }`}
+                >
+                  root123
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCustomPassword("");
+                    setSimPass("");
+                  }}
+                  className={`px-2 py-1 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                    customPassword === ""
+                      ? "bg-amber-500 text-slate-950 font-bold"
+                      : "bg-slate-800 hover:bg-slate-700 text-slate-400"
+                  }`}
+                >
+                  {isBn ? "ফাঁকা (Blank)" : "Blank ('')"}
+                </button>
+              </div>
+            </div>
+
+            {/* Custom Input Field with Eye Toggle */}
+            <div className="grid sm:grid-cols-12 gap-3 items-center">
+              <div className="sm:col-span-8 relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                  <Key size={16} className="text-amber-400" />
+                </div>
+                <input
+                  type={showCustomPassword ? "text" : "password"}
+                  value={customPassword}
+                  onChange={(e) => {
+                    setCustomPassword(e.target.value);
+                    setSimPass(e.target.value);
+                  }}
+                  placeholder={isBn ? "নতুন রুট পাসওয়ার্ড লিখুন..." : "Enter root password..."}
+                  className="w-full pl-9 pr-10 py-2.5 bg-slate-950 border border-slate-700 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded-xl text-white font-mono text-sm placeholder-slate-500 outline-none transition"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowCustomPassword((prev) => !prev)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white cursor-pointer"
+                  title={showCustomPassword ? "Hide password" : "Show password"}
+                >
+                  {showCustomPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
+
+              <div className="sm:col-span-4 flex items-center gap-2">
+                <div className="p-2 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-300 w-full flex items-center justify-between">
+                  <span className="text-slate-400">{isBn ? "দৈর্ঘ্য:" : "Length:"}</span>
+                  <code className="text-amber-300 font-bold font-mono">{customPassword.length} chars</code>
+                  <span className="text-emerald-400 font-semibold text-[10px]">
+                    {customPassword.length > 0 ? "✓ Active" : "Empty"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-[11px] text-amber-200/80 flex items-center gap-1.5 pt-1">
+              <Sparkles size={13} className="text-amber-400 shrink-0" />
+              <span>
+                {isBn
+                  ? "নিচের সকল SQL কোড, phpMyAdmin কনফিগারেশন এবং PHP ডেটাবেস সংযোগ স্ক্রিপ্ট স্বয়ংক্রিয়ভাবে আপডেট হয়ে গেছে।"
+                  : "All SQL queries, phpMyAdmin configurations, and PHP connection snippets below have updated live in real time!"}
+              </span>
+            </div>
           </div>
 
           {/* Credentials Status Cards (Default vs Target) */}
@@ -1731,7 +2163,7 @@ export default function WampServerGuide() {
                 </span>
                 <span className="text-[11px] text-emerald-400 font-mono font-semibold flex items-center gap-1">
                   <CheckCircle2 size={13} />
-                  {isBn ? "পাসওয়ার্ড সেট" : "Password Set"}
+                  {isBn ? "পাসওয়ার্ড সেট" : "Configured"}
                 </span>
               </div>
               <div className="space-y-2 text-xs">
@@ -1742,16 +2174,16 @@ export default function WampServerGuide() {
                 <div className="flex justify-between py-1 border-b border-amber-500/20">
                   <span className="text-slate-300">New Password / নতুন পাসওয়ার্ড:</span>
                   <code className="text-amber-300 font-extrabold bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/40 text-sm">
-                    sukantahui
+                    {customPassword || "''(empty)"}
                   </code>
                 </div>
                 <div className="flex justify-between py-1 border-b border-amber-500/20">
                   <span className="text-slate-300">phpMyAdmin Login:</span>
-                  <span className="text-emerald-300 font-semibold">{isBn ? "ইউজার: root, পাসওয়ার্ড: sukantahui" : "User: root, Pass: sukantahui"}</span>
+                  <span className="text-emerald-300 font-semibold">User: root, Pass: {customPassword || "''(empty)"}</span>
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-slate-300">PHP Projects:</span>
-                  <code className="text-emerald-300">mysqli_connect(..., "sukantahui", ...)</code>
+                  <code className="text-emerald-300 truncate max-w-[200px]">mysqli_connect(..., "{customPassword}", ...)</code>
                 </div>
               </div>
             </div>
@@ -1851,8 +2283,8 @@ export default function WampServerGuide() {
                     <h5 className="font-bold text-white text-xs">{isBn ? "SQL কমান্ড রান করুন" : "Execute SQL Commands"}</h5>
                     <p className="text-[11px] text-slate-400">
                       {isBn
-                        ? "নিচের SQL কোডটি কপি করে কনসোলে পেস্ট করুন এবং Enter চাপুন।"
-                        : "Copy the SQL snippet below, paste into the console, and press Enter."}
+                        ? "নিচের ডায়নামিক SQL কোডটি কপি করে কনসোলে পেস্ট করুন এবং Enter চাপুন।"
+                        : "Copy the dynamic SQL snippet below, paste into the console, and press Enter."}
                     </p>
                   </div>
                 </div>
@@ -1862,11 +2294,11 @@ export default function WampServerGuide() {
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-mono text-slate-400 flex items-center gap-1.5">
                       <Terminal size={13} className="text-amber-400" />
-                      <span>MySQL 8.0+ / 8.4+ / MariaDB Command:</span>
+                      <span>MySQL 8.0+ / 8.4+ / MariaDB Command (Live for '{customPassword}'):</span>
                     </span>
                     <button
                       type="button"
-                      onClick={() => handleCopySnippet("sqlRootPass", mysqlRootPasswordGuide.sqlCommands)}
+                      onClick={() => handleCopySnippet("sqlRootPass", dynamicSql)}
                       className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 font-semibold text-xs flex items-center gap-1.5 transition cursor-pointer"
                     >
                       {copiedSnippets["sqlRootPass"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
@@ -1876,7 +2308,7 @@ export default function WampServerGuide() {
 
                   <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/30 font-mono text-xs text-amber-300 leading-relaxed overflow-x-auto shadow-inner">
                     <pre>
-                      <code>{mysqlRootPasswordGuide.sqlCommands}</code>
+                      <code>{dynamicSql}</code>
                     </pre>
                   </div>
                 </div>
@@ -1890,8 +2322,8 @@ export default function WampServerGuide() {
                   <Info size={16} className="text-sky-400 shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
                     {isBn
-                      ? "ব্রাউজারের phpMyAdmin ইন্টারফেস থেকে গ্রাফিক্যাল উপায়ে পাসওয়ার্ড পরিবর্তন করতে নিচের ৬টি পদক্ষেপ সম্পন্ন করুন:"
-                      : "Follow these 6 steps to change the root password visually through the phpMyAdmin browser interface:"}
+                      ? `ব্রাউজারের phpMyAdmin ইন্টারফেস থেকে গ্রাফিক্যাল উপায়ে পাসওয়ার্ড '${customPassword}' সেট করতে নিচের ৬টি পদক্ষেপ সম্পন্ন করুন:`
+                      : `Follow these 6 steps to change the root password to '${customPassword}' visually through phpMyAdmin:`}
                   </p>
                 </div>
 
@@ -1932,9 +2364,9 @@ export default function WampServerGuide() {
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <div className="font-bold text-sky-400 font-mono">6. Enter sukantahui & Go</div>
+                    <div className="font-bold text-sky-400 font-mono">6. Enter {customPassword || "Password"} & Go</div>
                     <p className="text-slate-300">
-                      {isBn ? "উভয় পাসওয়ার্ড বক্সে sukantahui লিখুন এবং 'Go' বাটনে ক্লিক করুন।" : "Enter 'sukantahui' in both password fields and click the 'Go' button."}
+                      {isBn ? `উভয় পাসওয়ার্ড বক্সে '${customPassword}' লিখুন এবং 'Go' বাটনে ক্লিক করুন।` : `Enter '${customPassword}' in both password fields and click 'Go'.`}
                     </p>
                   </div>
                 </div>
@@ -1954,8 +2386,8 @@ export default function WampServerGuide() {
                     </h6>
                     <p className="leading-relaxed">
                       {isBn
-                        ? "WAMP-এর ডিফল্ট সেটিংসে phpMyAdmin স্বয়ংক্রিয়ভাবে খালি পাসওয়ার্ড দিয়ে লগইন করার চেষ্টা করে। MySQL-এর পাসওয়ার্ড 'sukantahui' হয়ে যাওয়ার ফলে phpMyAdmin লাল এরর (Error #1045 Access Denied) প্রদর্শন করে। phpMyAdmin সঠিকভাবে চালু করতে নিচের ৪টি সহজ পর্যায় অনুসরণ করুন:"
-                        : "By default, phpMyAdmin is configured to attempt auto-login with an empty password. Once you set MySQL root password to 'sukantahui', phpMyAdmin will show a red Error #1045 (Access Denied). Follow these 4 steps to start phpMyAdmin cleanly:"}
+                        ? `WAMP-এর ডিফল্ট সেটিংসে phpMyAdmin স্বয়ংক্রিয়ভাবে খালি পাসওয়ার্ড দিয়ে লগইন করার চেষ্টা করে। MySQL-এর পাসওয়ার্ড '${customPassword}' হয়ে যাওয়ার ফলে phpMyAdmin লাল এরর (Error #1045 Access Denied) প্রদর্শন করে। phpMyAdmin সঠিকভাবে চালু করতে নিচের ৪টি সহজ পর্যায় অনুসরণ করুন:`
+                        : `By default, phpMyAdmin is configured to attempt auto-login with an empty password. Once you set MySQL root password to '${customPassword}', phpMyAdmin will show a red Error #1045 (Access Denied). Follow these 4 steps to start phpMyAdmin cleanly:`}
                     </p>
                   </div>
                 </div>
@@ -1983,11 +2415,31 @@ export default function WampServerGuide() {
                   </div>
                 </div>
 
-                {/* File Path Indicator */}
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2 font-mono text-xs text-sky-300">
-                  <FolderOpen size={16} className="text-sky-400 shrink-0" />
-                  <span className="text-slate-400">Target File:</span>
-                  <code className="text-white font-bold">{mysqlRootPasswordGuide.configIncPath}</code>
+                {/* File Path Indicator & Windows Run Helper */}
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2 font-mono text-sky-300 overflow-hidden">
+                    <FolderOpen size={16} className="text-sky-400 shrink-0" />
+                    <span className="text-slate-400">Target File:</span>
+                    <code className="text-white font-bold truncate">{mysqlRootPasswordGuide.configIncPath}</code>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleCopySnippet("configPath", mysqlRootPasswordGuide.configIncPath)}
+                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                    >
+                      {copiedSnippets["configPath"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+                      <span>{copiedSnippets["configPath"] ? "Copied!" : "Copy Path"}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleCopySnippet("winRNotepad", "notepad C:\\wamp64\\apps\\phpmyadmin5.2.1\\config.inc.php")}
+                      className="px-2.5 py-1 rounded-lg bg-sky-500/15 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
+                      title="Copy Win+R Notepad Command"
+                    >
+                      {copiedSnippets["winRNotepad"] ? "Copied Command!" : "Win + R Notepad"}
+                    </button>
+                  </div>
                 </div>
 
                 {/* Two Configuration Approaches */}
@@ -2001,7 +2453,7 @@ export default function WampServerGuide() {
                       </span>
                       <button
                         type="button"
-                        onClick={() => handleCopySnippet("configAuto", mysqlRootPasswordGuide.configIncSnippet)}
+                        onClick={() => handleCopySnippet("configAuto", dynamicConfigAuto)}
                         className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
                       >
                         {copiedSnippets["configAuto"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
@@ -2009,10 +2461,10 @@ export default function WampServerGuide() {
                       </button>
                     </div>
                     <p className="text-[11px] text-slate-400">
-                      {isBn ? "phpMyAdmin এ সরাসরি 'sukantahui' পাসওয়ার্ড দিয়ে অটো-লগইন হবে।" : "Directly hardcodes 'sukantahui' password for silent auto-login."}
+                      {isBn ? `phpMyAdmin এ সরাসরি '${customPassword}' পাসওয়ার্ড দিয়ে অটো-লগইন হবে।` : `Hardcodes '${customPassword}' password for silent auto-login.`}
                     </p>
                     <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-[11px] text-sky-300 overflow-x-auto">
-                      <pre><code>{mysqlRootPasswordGuide.configIncSnippet}</code></pre>
+                      <pre><code>{dynamicConfigAuto}</code></pre>
                     </div>
                   </div>
 
@@ -2041,12 +2493,12 @@ export default function WampServerGuide() {
                   </div>
                 </div>
 
-                {/* Interactive phpMyAdmin Login Preview Card */}
+                {/* phpMyAdmin Quick Launch Link Card */}
                 <div className="p-4 rounded-xl bg-gradient-to-br from-slate-950 to-slate-900 border border-emerald-500/30 space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
                       <CheckCircle2 size={14} />
-                      <span>{isBn ? "phpMyAdmin লগইন স্ক্রিন প্রিভিউ ও ক্রেডেনশিয়াল:" : "phpMyAdmin Login Screen Preview & Credentials:"}</span>
+                      <span>{isBn ? "লগইন ক্রেডেনশিয়াল সারসংক্ষেপ:" : "Active Credentials Summary:"}</span>
                     </span>
                     <a
                       href="http://localhost/phpmyadmin"
@@ -2070,18 +2522,9 @@ export default function WampServerGuide() {
                     </div>
                     <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
                       <span className="text-slate-400 block text-[10px] uppercase">Password:</span>
-                      <code className="text-amber-300 font-extrabold">sukantahui</code>
+                      <code className="text-amber-300 font-extrabold">{customPassword || "''(blank)"}</code>
                     </div>
                   </div>
-
-                  <p className="text-[11px] text-slate-400 flex items-center gap-1.5 pt-1">
-                    <Info size={13} className="text-sky-400 shrink-0" />
-                    <span>
-                      {isBn
-                        ? "টিপস: ব্রাউজারে পুরনো এরর ক্যাশ হয়ে থাকলে Ctrl + F5 চাপুন অথবা নতুন Incognito উইন্ডোতে ওপেন করুন।"
-                        : "Pro Tip: If your browser still caches the old Error 1045 page, press Ctrl + F5 or open in an Incognito / Private window."}
-                    </span>
-                  </p>
                 </div>
               </div>
             )}
@@ -2093,8 +2536,8 @@ export default function WampServerGuide() {
                   <Code2 size={16} className="text-purple-400 shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
                     {isBn
-                      ? "আপনার তৈরি করা PHP ফাইল থেকে নতুন 'sukantahui' পাসওয়ার্ড ব্যবহার করে ডেটাবেস সংযোগ করার দুটি স্ট্যান্ডার্ড কোড উদাহরণ:"
-                      : "Here are modern, production-ready code examples to connect your PHP projects using your new 'sukantahui' password:"}
+                      ? `আপনার তৈরি করা PHP ফাইল থেকে নতুন '${customPassword}' পাসওয়ার্ড ব্যবহার করে ডেটাবেস সংযোগ করার দুটি স্ট্যান্ডার্ড কোড উদাহরণ:`
+                      : `Here are modern, production-ready code examples to connect your PHP projects using your password '${customPassword}':`}
                   </p>
                 </div>
 
@@ -2107,7 +2550,7 @@ export default function WampServerGuide() {
                       </span>
                       <button
                         type="button"
-                        onClick={() => handleCopySnippet("phpMysqli", mysqlRootPasswordGuide.phpMysqliSnippet)}
+                        onClick={() => handleCopySnippet("phpMysqli", dynamicMysqli)}
                         className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-purple-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
                       >
                         {copiedSnippets["phpMysqli"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
@@ -2117,7 +2560,7 @@ export default function WampServerGuide() {
 
                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-purple-300 leading-relaxed overflow-x-auto h-72">
                       <pre>
-                        <code>{mysqlRootPasswordGuide.phpMysqliSnippet}</code>
+                        <code>{dynamicMysqli}</code>
                       </pre>
                     </div>
                   </div>
@@ -2130,7 +2573,7 @@ export default function WampServerGuide() {
                       </span>
                       <button
                         type="button"
-                        onClick={() => handleCopySnippet("phpPdo", mysqlRootPasswordGuide.phpPdoSnippet)}
+                        onClick={() => handleCopySnippet("phpPdo", dynamicPdo)}
                         className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-300 font-semibold text-[11px] flex items-center gap-1 transition cursor-pointer"
                       >
                         {copiedSnippets["phpPdo"] ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
@@ -2140,13 +2583,319 @@ export default function WampServerGuide() {
 
                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300 leading-relaxed overflow-x-auto h-72">
                       <pre>
-                        <code>{mysqlRootPasswordGuide.phpPdoSnippet}</code>
+                        <code>{dynamicPdo}</code>
                       </pre>
                     </div>
                   </div>
                 </div>
               </div>
             )}
+          </div>
+
+          {/* ================= INTERACTIVE PHPMYADMIN LOGIN SIMULATOR & MOCK SANDBOX ================= */}
+          <div className="rounded-2xl bg-slate-900 border border-slate-800 p-5 space-y-5 shadow-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+              <div className="space-y-0.5">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 uppercase tracking-wider">
+                  <Globe size={14} />
+                  <span>{isBn ? "লাইভ সিমুলেটর" : "Interactive Live Simulator"}</span>
+                </div>
+                <h3 className="text-base font-bold text-white">
+                  {isBn ? "phpMyAdmin লগইন ও ড্যাশবোর্ড সিমুলেটর" : "phpMyAdmin 5.2.x Login & Sandbox Simulator"}
+                </h3>
+              </div>
+              <span className="text-xs text-slate-400 flex items-center gap-1">
+                <ShieldCheck size={13} className="text-emerald-400" />
+                <span>{isBn ? "শিক্ষার্থীদের শেখার জন্য টেস্ট ল্যাব" : "Interactive Student Testbed"}</span>
+              </span>
+            </div>
+
+            {/* SIMULATOR: LOGGED IN STATE (MOCK DASHBOARD) */}
+            {simLoginState === "success" ? (
+              <div className="rounded-xl bg-slate-950 border border-emerald-500/40 p-4 space-y-4 shadow-inner">
+                {/* Mock phpMyAdmin Top Header Bar */}
+                <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-900/90 p-3 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black font-mono text-sm shadow-md">
+                      pMA
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white flex items-center gap-2">
+                        <span>phpMyAdmin 5.2.1</span>
+                        <span className="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono">
+                          CONNECTED
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-mono">
+                        Server: {simServer === "mysql" ? "MySQL 8.4 (Port 3306)" : "MariaDB 11.2 (Port 3307)"} | User: root@localhost
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setMockActiveTab("sql")}
+                      className={`px-3 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                        mockActiveTab === "sql" ? "bg-sky-500 text-white" : "bg-slate-800 text-slate-300 hover:text-white"
+                      }`}
+                    >
+                      SQL Runner
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMockActiveTab("databases")}
+                      className={`px-3 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                        mockActiveTab === "databases" ? "bg-sky-500 text-white" : "bg-slate-800 text-slate-300 hover:text-white"
+                      }`}
+                    >
+                      Databases (5)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleSimLogout}
+                      className="px-3 py-1 rounded-lg bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 text-xs font-bold transition cursor-pointer"
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                </div>
+
+                {/* Mock Workspace Content */}
+                {mockActiveTab === "sql" && (
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-white flex items-center gap-1.5 font-mono">
+                        <Terminal size={14} className="text-amber-400" />
+                        <span>SQL Query Sandbox (Running on localhost:3306 as root)</span>
+                      </span>
+                      <span className="text-slate-400 text-[11px] font-mono">Status: Authenticated ✓</span>
+                    </div>
+
+                    <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-sky-300">
+                      <code>{mockSqlQuery}</code>
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={handleRunMockSql}
+                        className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-md shadow-emerald-500/20 transition cursor-pointer"
+                      >
+                        <Play size={13} />
+                        <span>{isBn ? "SQL কোয়ারি রান করুন" : "Execute SQL Query"}</span>
+                      </button>
+
+                      <span className="text-[11px] text-slate-400">
+                        {mockSqlExecuted ? "✓ 1 row returned in 0.0004 sec" : "Click to execute query"}
+                      </span>
+                    </div>
+
+                    {/* Simulated Table Result */}
+                    {mockSqlExecuted && (
+                      <div className="p-3 rounded-lg bg-slate-950 border border-emerald-500/30 space-y-2 animate-in fade-in duration-200">
+                        <div className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider font-mono">
+                          Query Results (Simulated MySQL Output):
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-left font-mono text-xs border-collapse">
+                            <thead>
+                              <tr className="border-b border-slate-800 text-slate-400 text-[11px]">
+                                <th className="py-1.5 px-3">message</th>
+                                <th className="py-1.5 px-3">current_user</th>
+                                <th className="py-1.5 px-3">mysql_ver</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr className="text-slate-200 bg-slate-900/60">
+                                <td className="py-2 px-3 text-sky-300">Hello MySQL from Coder &amp; AccoTax!</td>
+                                <td className="py-2 px-3 text-amber-300">root@localhost</td>
+                                <td className="py-2 px-3 text-emerald-300">8.4.0-community</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {mockActiveTab === "databases" && (
+                  <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+                    <h5 className="font-bold text-white text-xs">{isBn ? "সক্রিয় লোকাল ডেটাবেস তালিকা:" : "Active Local Databases:"}</h5>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+                      <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-sky-300 flex items-center gap-2">
+                        <Database size={13} className="text-sky-400 shrink-0" />
+                        <span className="truncate">information_schema</span>
+                      </div>
+                      <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-sky-300 flex items-center gap-2">
+                        <Database size={13} className="text-sky-400 shrink-0" />
+                        <span className="truncate">mysql</span>
+                      </div>
+                      <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-sky-300 flex items-center gap-2">
+                        <Database size={13} className="text-sky-400 shrink-0" />
+                        <span className="truncate">performance_schema</span>
+                      </div>
+                      <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-sky-300 flex items-center gap-2">
+                        <Database size={13} className="text-sky-400 shrink-0" />
+                        <span className="truncate">sys</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              /* SIMULATOR: LOGIN FORM */
+              <div className="grid md:grid-cols-12 gap-5 items-start">
+                {/* Login Form Box */}
+                <form
+                  onSubmit={handleSimulateLogin}
+                  className="md:col-span-7 p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 shadow-xl"
+                >
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded bg-amber-500 text-slate-950 font-mono font-black text-xs flex items-center justify-center">
+                        pMA
+                      </div>
+                      <span className="font-bold text-white text-xs sm:text-sm">phpMyAdmin 5.2.1 Mock Login</span>
+                    </div>
+                    <span className="text-[11px] text-slate-400 font-mono">http://localhost/phpmyadmin</span>
+                  </div>
+
+                  {/* Error Notification Alert */}
+                  {simLoginState === "error" && (
+                    <div className="p-3.5 rounded-xl bg-rose-950/80 border border-rose-600/80 space-y-2 text-xs text-rose-200 animate-in fade-in duration-200">
+                      <div className="flex items-center gap-2 font-bold text-rose-300">
+                        <AlertTriangle size={15} />
+                        <span>#1045 - Access denied for user 'root'@'localhost' (using password: {simPass ? "YES" : "NO"})</span>
+                      </div>
+                      <p className="text-[11px] text-rose-200/90 leading-relaxed">
+                        {isBn
+                          ? `কারণ: আপনি '${simPass}' দিয়ে লগইন করার চেষ্টা করেছেন কিন্তু কাঙ্ক্ষিত পাসওয়ার্ড '${customPassword}'।`
+                          : `Cause: You tried logging in with '${simPass}', which does not match active password '${customPassword}'.`}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={handleSimAutoFix}
+                        className="px-3 py-1 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-[11px] flex items-center gap-1.5 transition cursor-pointer shadow-sm"
+                      >
+                        <Zap size={12} />
+                        <span>{isBn ? `অটো-ফিল করুন ('${customPassword}') এবং লগইন করুন` : `Auto-Fill ('${customPassword}') & Log In`}</span>
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Server Selection */}
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-300 block">Server Choice:</label>
+                    <select
+                      value={simServer}
+                      onChange={(e) => setSimServer(e.target.value)}
+                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-xs outline-none focus:border-amber-500"
+                    >
+                      <option value="mysql">MySQL (Port 3306 - Default)</option>
+                      <option value="mariadb">MariaDB (Port 3307)</option>
+                    </select>
+                  </div>
+
+                  {/* Username */}
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-300 block">Username:</label>
+                    <input
+                      type="text"
+                      value={simUser}
+                      onChange={(e) => setSimUser(e.target.value)}
+                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono text-xs outline-none focus:border-amber-500"
+                    />
+                  </div>
+
+                  {/* Password */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-semibold text-slate-300">Password:</label>
+                      <span className="text-[10px] text-slate-400">
+                        {isBn ? "প্রয়োজনীয় পাসওয়ার্ড:" : "Required:"}{" "}
+                        <code className="text-amber-300">{customPassword || "''(empty)"}</code>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      value={simPass}
+                      onChange={(e) => setSimPass(e.target.value)}
+                      placeholder={isBn ? "পাসওয়ার্ড লিখুন..." : "Enter password..."}
+                      className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono text-xs outline-none focus:border-amber-500"
+                    />
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex items-center justify-between pt-2">
+                    <button
+                      type="submit"
+                      className="px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-md shadow-amber-500/20 transition cursor-pointer"
+                    >
+                      <span>Log In / Go</span>
+                      <ArrowRight size={13} />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSimPass("");
+                        setSimLoginState(null);
+                      }}
+                      className="text-xs text-slate-400 hover:text-white cursor-pointer"
+                    >
+                      {isBn ? "পাসওয়ার্ড ক্লিয়ার করুন" : "Clear Password"}
+                    </button>
+                  </div>
+                </form>
+
+                {/* Explanatory Guide Box */}
+                <div className="md:col-span-5 p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-3 text-xs text-slate-300">
+                  <h5 className="font-bold text-white flex items-center gap-1.5">
+                    <Lightbulb size={14} className="text-amber-400" />
+                    <span>{isBn ? "কীভাবে সিমুলেটর কাজ করে?" : "How this testbed helps students:"}</span>
+                  </h5>
+                  <ul className="space-y-2 list-disc pl-4 text-[11px] text-slate-400 leading-relaxed">
+                    <li>
+                      {isBn
+                        ? "আপনি যখন পাসওয়ার্ড 'sukantahui' সেট করেন, তখন ব্রাউজারে লগইন করার সময়ও একই পাসওয়ার্ড দিতে হয়।"
+                        : "Testing credentials here lets students visualize how phpMyAdmin rejects incorrect or empty passwords with Error #1045."}
+                    </li>
+                    <li>
+                      {isBn
+                        ? "যদি খালি পাসওয়ার্ড দিয়ে 'Log In' চাপেন, তাহলে আসল Error #1045 দেখতে পাবেন।"
+                        : "Try typing a wrong password or blank to see the realistic Error #1045 banner and learn how to fix it."}
+                    </li>
+                    <li>
+                      {isBn
+                        ? "সঠিক পাসওয়ার্ড দিলে একটি সিমুলেটেড phpMyAdmin ডেটাবেস ও SQL রানার ড্যাশবোর্ড দেখতে পাবেন।"
+                        : "Entering the configured password unlocks the mock phpMyAdmin interface and simulated SQL query engine!"}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Chapter 4 Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("first-project")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: প্রথম PHP প্রজেক্ট" : "Previous: First PHP Project"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToSection("troubleshooting")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-2 transition cursor-pointer"
+            >
+              <span>{isBn ? "পরবর্তী: সমস্যা সমাধান (Troubleshooting)" : "Next: Troubleshooting Matrix"}</span>
+              <ArrowRight size={14} />
+            </button>
           </div>
         </section>
 
@@ -2340,6 +3089,26 @@ export default function WampServerGuide() {
                 </div>
               )}
             </div>
+          </div>
+
+          {/* Troubleshooting Section Navigation */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 border-t border-slate-800/80">
+            <button
+              type="button"
+              onClick={() => scrollToSection("mysql-root-password")}
+              className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowLeft size={14} />
+              <span>{isBn ? "পূর্ববর্তী: MySQL root পাসওয়ার্ড ('sukantahui')" : "Previous: MySQL Root Password ('sukantahui')"}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-300 text-xs font-bold flex items-center gap-2 transition cursor-pointer"
+            >
+              <ArrowUp size={14} />
+              <span>{isBn ? "শীর্ষে ফিরে যান" : "Back to Top"}</span>
+            </button>
           </div>
         </section>
 
