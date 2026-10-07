@@ -118,6 +118,161 @@ export const userService = {
     }
   },
 
+  // --------------------------------------------------------------------------
+  // Admin Login-As (Impersonation) Services for Students & Teachers
+  // Available ONLY when logged in with an Administrator session
+  // --------------------------------------------------------------------------
+  impersonateUser: (targetUser) => {
+    if (!targetUser || typeof targetUser !== "object") {
+      throw new Error("Invalid target user for login.");
+    }
+
+    // 1. Verify current user has admin rights (or already impersonating)
+    const rawCurrent = localStorage.getItem("user");
+    const currentToken = localStorage.getItem("token");
+    let currentUser = null;
+    try {
+      currentUser = rawCurrent ? JSON.parse(rawCurrent) : null;
+    } catch {}
+
+    const existingBackup = localStorage.getItem("admin_impersonation_backup");
+
+    // If not already in an impersonation session, save the original admin session
+    if (!existingBackup) {
+      if (!currentUser) {
+        throw new Error("No active admin session found.");
+      }
+      const adminRole = (
+        currentUser.role ||
+        currentUser.roleName ||
+        currentUser.userType?.userTypeName ||
+        currentUser.user_type ||
+        ""
+      ).toLowerCase();
+
+      const isAdmin = ["admin", "developer", "owner", "manager", "staff"].includes(adminRole);
+      if (!isAdmin) {
+        throw new Error("Only administrators can use the 'Login as User' feature.");
+      }
+
+      const backupData = {
+        token: currentToken,
+        user: currentUser,
+        impersonatingAt: Date.now(),
+      };
+      localStorage.setItem("admin_impersonation_backup", JSON.stringify(backupData));
+    }
+
+    // 2. Format the target user session
+    const targetRole =
+      targetUser.role ||
+      targetUser.roleName ||
+      targetUser.userTypeName ||
+      targetUser.userType?.userTypeName ||
+      (targetUser.student_id || targetUser.student ? "Student" : targetUser.employee_id || targetUser.employee ? "Teacher" : "Student");
+
+    const targetStudentId = targetUser.student_id || targetUser.studentId || targetUser.student?.id;
+    const targetEmployeeId = targetUser.employee_id || targetUser.employeeId || targetUser.employee?.id || targetUser.employee?.employeeId;
+
+    const gId = Number(
+      targetUser.gender_id ??
+      targetUser.genderId ??
+      targetUser.student?.gender_id ??
+      targetUser.student?.genderId ??
+      targetUser.employee?.gender_id ??
+      (String(targetUser.gender || "").toLowerCase().includes("female") ? 2 : 1)
+    );
+    const gName = gId === 2 ? "Female" : "Male";
+
+    const isRealEmail = (val) => typeof val === "string" && val.includes("@") && val.trim().length > 3;
+
+    const activeUser = {
+      ...targetUser,
+      id: targetUser.id || targetUser.userId || (targetStudentId ? `student_${targetStudentId}` : `user_${Date.now()}`),
+      userId: targetUser.id || targetUser.userId,
+      name:
+        targetUser.name ||
+        targetUser.student?.student_name ||
+        targetUser.studentName ||
+        targetUser.employee?.employeeName ||
+        targetUser.employeeName ||
+        targetUser.userName ||
+        "User",
+      userName:
+        targetUser.userName ||
+        targetUser.user_name ||
+        targetUser.registration_number ||
+        targetUser.student?.registration_number ||
+        targetUser.email ||
+        "",
+      email:
+        (isRealEmail(targetUser.email) ? targetUser.email : null) ||
+        (isRealEmail(targetUser.student?.email) ? targetUser.student.email : null) ||
+        (isRealEmail(targetUser.employee?.email) ? targetUser.employee.email : null) ||
+        "",
+      role: targetRole,
+      roleName: targetRole,
+      role_name: targetRole,
+      student_id: targetStudentId || null,
+      studentId: targetStudentId || null,
+      employee_id: targetEmployeeId || null,
+      employeeId: targetEmployeeId || null,
+      gender_id: gId,
+      genderId: gId,
+      gender: gName,
+      genderName: gName,
+      gender_name: gName,
+      isImpersonated: true,
+    };
+
+    localStorage.setItem("user", JSON.stringify(activeUser));
+    window.dispatchEvent(new Event("storage"));
+    window.dispatchEvent(new Event("authChanged"));
+
+    return { success: true, user: activeUser };
+  },
+
+  exitImpersonation: () => {
+    try {
+      const backupRaw = localStorage.getItem("admin_impersonation_backup");
+      if (!backupRaw) {
+        return { success: false, error: "No admin session backup found." };
+      }
+
+      const backup = JSON.parse(backupRaw);
+      if (backup?.user) {
+        localStorage.setItem("user", JSON.stringify(backup.user));
+      }
+      if (backup?.token) {
+        localStorage.setItem("token", backup.token);
+      }
+      localStorage.removeItem("admin_impersonation_backup");
+
+      window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new Event("authChanged"));
+
+      return { success: true, user: backup.user };
+    } catch (e) {
+      console.error("Failed to exit impersonation:", e);
+      return { success: false, error: e.message };
+    }
+  },
+
+  getImpersonationStatus: () => {
+    try {
+      const backupRaw = localStorage.getItem("admin_impersonation_backup");
+      if (!backupRaw) return { isImpersonating: false, originalAdmin: null };
+      const backup = JSON.parse(backupRaw);
+      return {
+        isImpersonating: true,
+        originalAdmin: backup?.user || null,
+        impersonatingAt: backup?.impersonatingAt || null,
+      };
+    } catch {
+      return { isImpersonating: false, originalAdmin: null };
+    }
+  },
+
   /**
    * Prompts any logged-in user with a secure, masked dialog to reset their own password.
    */

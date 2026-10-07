@@ -77,6 +77,8 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     }
   });
 
+  const [impersonationStatus, setImpersonationStatus] = useState(() => userService.getImpersonationStatus());
+
   useEffect(() => {
     const handleAuthChange = () => {
       try {
@@ -93,6 +95,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
             role: resolveRole(parsed),
           });
         }
+        setImpersonationStatus(userService.getImpersonationStatus());
       } catch (err) {
         void err;
       }
@@ -825,11 +828,44 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     };
   }, [mobileMenuOpen, searchModalOpen]);
 
+  // Handle Exit Impersonation (Return to original Admin account)
+  const handleExitImpersonation = () => {
+    closeEverything();
+    try {
+      const res = userService.exitImpersonation();
+      if (res.success) {
+        Swal.fire({
+          toast: true,
+          position: "top-end",
+          icon: "success",
+          title: "Returned to Admin Session!",
+          text: `Active account restored to ${res.user?.name || "Admin"}.`,
+          showConfirmButton: false,
+          timer: 1800,
+          background: "#0f172a",
+          color: "#f8fafc",
+        });
+        navigate("/admin/users");
+      } else {
+        Swal.fire({
+          icon: "warning",
+          title: "Could Not Return to Admin",
+          text: res.error || "No active admin session backup found.",
+          background: "#0f172a",
+          color: "#f8fafc",
+        });
+      }
+    } catch (err) {
+      console.error("Exit impersonation error:", err);
+    }
+  };
+
   // Handle Logout
   const handleLogout = () => {
     closeEverything();
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("admin_impersonation_backup");
     if (setIsLoggedIn) setIsLoggedIn(false);
     window.dispatchEvent(new Event("storage"));
     window.dispatchEvent(new Event("authChanged"));
@@ -854,6 +890,37 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
   return (
     <>
+      {/* 👑 ADMIN IMPERSONATION STICKY BANNER */}
+      {impersonationStatus.isImpersonating && (
+        <div className="w-full bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white px-3 sm:px-6 py-2 shadow-2xl border-b border-amber-400/40 sticky top-0 z-[60] flex items-center justify-between gap-3 text-xs sm:text-sm">
+          <div className="flex items-center gap-2.5 min-w-0 font-medium">
+            <span className="px-2 py-0.5 rounded-full bg-black/35 border border-white/25 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 flex-shrink-0 shadow-inner">
+              <i className="bi bi-shield-shaded text-amber-200"></i>
+              Admin Preview
+            </span>
+            <span className="truncate">
+              Logged in as <strong className="text-white underline decoration-amber-300 font-bold">{user?.name}</strong>{" "}
+              <span className="opacity-90 font-mono text-xs">({user?.role})</span>
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleExitImpersonation}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/40 hover:bg-black/70 text-amber-200 hover:text-white font-bold text-xs border border-white/30 hover:border-white shadow transition cursor-pointer flex-shrink-0"
+            title="Exit preview and return to Admin account"
+          >
+            <i className="bi bi-box-arrow-left text-amber-300"></i>
+            <span>Return to Admin</span>
+            {impersonationStatus.originalAdmin?.name && (
+              <span className="hidden md:inline opacity-80 font-normal">
+                ({impersonationStatus.originalAdmin.name})
+              </span>
+            )}
+          </button>
+        </div>
+      )}
+
       <header
         ref={navContainerRef}
         className="w-full bg-slate-950/90 backdrop-blur-2xl border-b border-slate-800/80 shadow-2xl shadow-black/50 transition-all duration-300 relative select-none"
@@ -1393,6 +1460,22 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
                       {/* Links */}
                       <div className="space-y-0.5">
+                        {impersonationStatus.isImpersonating && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              closeAllDropdowns();
+                              handleExitImpersonation();
+                            }}
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold bg-amber-500/20 text-amber-200 border border-amber-500/40 hover:bg-amber-500/30 transition cursor-pointer mb-1 shadow-sm"
+                          >
+                            <span className="flex items-center gap-2">
+                              <i className="bi bi-shield-shaded text-amber-400"></i>
+                              <span>Return to Admin</span>
+                            </span>
+                            <i className="bi bi-box-arrow-left text-xs"></i>
+                          </button>
+                        )}
                         {!isStudent && (
                           <NavLink
                             to="/dashboard"
@@ -2213,6 +2296,20 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         <i className="bi bi-key-fill text-amber-400 text-sm"></i>
                         <span>Reset Account Password</span>
                       </button>
+
+                      {impersonationStatus.isImpersonating && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            handleExitImpersonation();
+                          }}
+                          className="col-span-2 flex items-center justify-center gap-2 p-2.5 rounded-xl border border-amber-400/50 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold text-xs shadow-md transition cursor-pointer"
+                        >
+                          <i className="bi bi-shield-shaded text-sm"></i>
+                          <span>Return to Admin Account</span>
+                        </button>
+                      )}
                     </div>
                   </div>
 

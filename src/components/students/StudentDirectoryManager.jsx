@@ -35,10 +35,14 @@ import {
   CreditCard,
   KeyRound,
   ExternalLink,
+  Layers,
+  Clock,
 } from "lucide-react";
 import { studentService } from "../../services/studentService";
 import { userService, DEFAULT_STUDENT_PASSWORD } from "../../services/userService";
 import api from "../../api/api";
+import EditAdmissionModal from "../common/EditAdmissionModal";
+import AdmissionStatusModal from "../common/AdmissionStatusModal";
 
 const DISTRICT_LIST = [
   { id: 1, name: "North 24 Parganas" },
@@ -84,6 +88,74 @@ export default function StudentDirectoryManager({ embedded = false }) {
   const [editingStudent, setEditingStudent] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Student Admissions & Course Alteration States
+  const [studentAdmissionsHistory, setStudentAdmissionsHistory] = useState(null);
+  const [loadingStudentAdmissions, setLoadingStudentAdmissions] = useState(false);
+  const [selectedAdmissionForEdit, setSelectedAdmissionForEdit] = useState(null);
+  const [isEditAdmissionModalOpen, setIsEditAdmissionModalOpen] = useState(false);
+  const [selectedAdmissionForStatus, setSelectedAdmissionForStatus] = useState(null);
+  const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
+
+  // Fetch previous admissions whenever viewing student changes
+  useEffect(() => {
+    if (!viewingStudent?.id) {
+      setStudentAdmissionsHistory(null);
+      return;
+    }
+    let isMounted = true;
+    setLoadingStudentAdmissions(true);
+    studentService
+      .getPreviousAdmissions(viewingStudent.id)
+      .then((res) => {
+        if (isMounted && res?.status && res?.data) {
+          setStudentAdmissionsHistory(res.data);
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not load student admissions for dossier:", err);
+      })
+      .finally(() => {
+        if (isMounted) setLoadingStudentAdmissions(false);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, [viewingStudent?.id]);
+
+  const handleOpenEditAdmission = (adm) => {
+    const enrichedAdm = {
+      ...adm,
+      studentId: adm.studentId || viewingStudent?.id,
+      student: adm.student || viewingStudent,
+    };
+    setSelectedAdmissionForEdit(enrichedAdm);
+    setIsEditAdmissionModalOpen(true);
+  };
+
+  const handleOpenStatusModal = (adm) => {
+    setSelectedAdmissionForStatus({
+      admissionId: adm.admissionId || adm.id,
+      admissionNumber: adm.admissionNumber || adm.admissionNo,
+      studentName: viewingStudent?.student_name || viewingStudent?.studentName,
+      courseName: adm.course?.courseName || adm.course?.course_name || adm.courseName,
+      admissionDate: adm.admissionDate,
+      completionDate: adm.completionDate,
+      courseStatusId: adm.courseStatusId || adm.courseStatus?.id || 1,
+    });
+    setIsStatusModalOpen(true);
+  };
+
+  const handleAdmissionUpdateSuccess = () => {
+    if (viewingStudent?.id) {
+      studentService.getPreviousAdmissions(viewingStudent.id).then((res) => {
+        if (res?.status && res?.data) {
+          setStudentAdmissionsHistory(res.data);
+        }
+      });
+    }
+    fetchData(false);
+  };
 
   // Add / Edit Form State
   const initialFormState = {
@@ -552,6 +624,100 @@ export default function StudentDirectoryManager({ embedded = false }) {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Check if admin access is available for student login preview
+  const canAdminLoginAsStudent = useMemo(() => {
+    try {
+      const raw = localStorage.getItem("user");
+      const parsed = raw ? JSON.parse(raw) : null;
+      const role = (parsed?.role || parsed?.roleName || parsed?.userTypeName || "").toLowerCase();
+      const isAdmin = ["admin", "developer", "owner", "manager", "staff"].some((r) => role.includes(r));
+      const isImp = userService.getImpersonationStatus().isImpersonating;
+      return isAdmin || isImp;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  // Direct Login-As for Admins to view portal as this student
+  const handleLoginAsStudent = async (student) => {
+    const studentName = student.student_name || student.studentName || `Student #${student.id}`;
+    const regNo =
+      student.registration_number ||
+      student.registrationNumber ||
+      student.enrollment_number ||
+      student.enrollmentNumber ||
+      student.email ||
+      `STU-${student.id}`;
+
+    const confirm = await Swal.fire({
+      title: `Login as Student?`,
+      html: `
+        <div class="text-left text-xs text-slate-300 space-y-3 p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-bold text-white text-sm shadow-md">
+              ${(studentName || "S").substring(0, 2).toUpperCase()}
+            </div>
+            <div>
+              <div class="font-bold text-white text-sm">${studentName}</div>
+              <div class="text-slate-400 text-xs font-mono">${regNo}</div>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-lg bg-sky-950/40 border border-sky-500/20 text-sky-200">
+            <i class="bi bi-info-circle mr-1"></i> You are switching your active portal session to <b>${studentName}</b>. Your Admin account remains securely saved in backup.
+          </div>
+        </div>
+      `,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: `Yes, Login as ${studentName.split(" ")[0]}`,
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#059669",
+      cancelButtonColor: "#334155",
+      background: "#0f172a",
+      color: "#f8fafc",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    try {
+      const targetUser = {
+        id: `student_${student.id}`,
+        student_id: student.id,
+        studentId: student.id,
+        name: studentName,
+        userName: regNo,
+        email: student.email || "",
+        role: "Student",
+        student: student,
+        gender_id: student.gender_id,
+        gender: Number(student.gender_id) === 2 ? "Female" : "Male",
+      };
+
+      const result = userService.impersonateUser(targetUser);
+      if (result?.success) {
+        await Swal.fire({
+          icon: "success",
+          title: "Logged in as Student!",
+          text: `Active session switched to ${studentName}. Redirecting...`,
+          timer: 1500,
+          showConfirmButton: false,
+          background: "#0f172a",
+          color: "#f8fafc",
+        });
+        window.location.href = "/profile";
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Login As Failed",
+        text: err.message || "Could not switch to student account.",
+        background: "#0f172a",
+        color: "#f8fafc",
+        confirmButtonColor: "#ef4444",
+      });
     }
   };
 
@@ -1228,6 +1394,18 @@ We wish you great success in your learning journey!
                                 <i className="bi bi-whatsapp text-xs"></i>
                               </button>
 
+                              {/* Direct Login as Student (Admin Only) */}
+                              {canAdminLoginAsStudent && (
+                                <button
+                                  type="button"
+                                  onClick={() => handleLoginAsStudent(student)}
+                                  className="p-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 transition cursor-pointer"
+                                  title={`Login as ${student.student_name} (Student Session)`}
+                                >
+                                  <i className="bi bi-box-arrow-in-right text-xs"></i>
+                                </button>
+                              )}
+
                               {/* Admit to Course */}
                               <Link
                                 to={`/admission?studentId=${student.id}`}
@@ -1436,6 +1614,18 @@ We wish you great success in your learning journey!
                           <i className="bi bi-whatsapp text-sm"></i>
                         </button>
 
+                        {/* Direct Login as Student (Admin Only) */}
+                        {canAdminLoginAsStudent && (
+                          <button
+                            type="button"
+                            onClick={() => handleLoginAsStudent(student)}
+                            className="p-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/30 transition cursor-pointer"
+                            title={`Login as ${student.student_name} (Student Session)`}
+                          >
+                            <i className="bi bi-box-arrow-in-right text-sm"></i>
+                          </button>
+                        )}
+
                         <Link
                           to={`/admission?studentId=${student.id}`}
                           className="p-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition"
@@ -1609,6 +1799,137 @@ We wish you great success in your learning journey!
                     {viewingStudent.address || "Barrackpore"}, {viewingStudent.city || "Barrackpore"} -{" "}
                     <span className="font-mono font-bold text-amber-300">{viewingStudent.pin || "700120"}</span>
                   </p>
+                </div>
+
+                {/* Enrolled Academic Courses & Course Admissions History Card */}
+                <div className="p-4 rounded-2xl bg-slate-950/80 border border-sky-500/30 space-y-3 shadow-lg">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                    <h3 className="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <GraduationCap className="w-4 h-4 text-sky-400" />
+                      <span>Enrolled Courses &amp; Admissions ({studentAdmissionsHistory?.admissions?.length || 0})</span>
+                    </h3>
+                    <Link
+                      to={`/admission?studentId=${viewingStudent.id}`}
+                      className="text-[11px] font-bold text-sky-400 hover:text-sky-300 flex items-center gap-1 hover:underline"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>+ Admit to Another Course</span>
+                    </Link>
+                  </div>
+
+                  {loadingStudentAdmissions ? (
+                    <div className="py-6 text-center space-y-2">
+                      <RefreshCw className="w-5 h-5 animate-spin text-sky-400 mx-auto" />
+                      <p className="text-[11px] text-slate-400 font-semibold">Loading student's enrolled courses...</p>
+                    </div>
+                  ) : studentAdmissionsHistory?.hasPreviousAdmissions && studentAdmissionsHistory?.admissions?.length > 0 ? (
+                    <div className="space-y-3">
+                      {studentAdmissionsHistory.admissions.map((adm, idx) => {
+                        const course = adm.course || {};
+                        const fin = adm.financials || {};
+                        const statusId = Number(adm.courseStatus?.id || adm.courseStatusId || 1);
+                        const statusName = adm.courseStatus?.statusName || (adm.completionDate ? "Completed" : "Ongoing");
+                        const feeModeName = adm.feeMode?.feeModesName || (adm.feeModesId === 2 ? "Course Fees (Lump Sum)" : "Monthly Plan");
+
+                        return (
+                          <div
+                            key={adm.admissionId || idx}
+                            className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 transition space-y-2.5 shadow-md"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80 pb-2">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="w-7 h-7 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                                  {course.courseCode ? course.courseCode.substring(0, 3) : "CRS"}
+                                </span>
+                                <span className="font-bold text-white text-sm">
+                                  {course.courseName || "Academic Course"}
+                                </span>
+                                <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                                  [{course.courseCode}]
+                                </span>
+                                <span
+                                  className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                                    statusId === 2 || statusName === "Completed"
+                                      ? "bg-blue-500/15 text-blue-400 border-blue-500/30"
+                                      : statusId === 3 || statusName === "Incomplete"
+                                      ? "bg-rose-500/15 text-rose-400 border-rose-500/30"
+                                      : "bg-emerald-500/15 text-emerald-400 border-emerald-500/30"
+                                  }`}
+                                >
+                                  {statusName}
+                                </span>
+                              </div>
+
+                              <div className="flex items-center gap-1.5 self-end sm:self-center">
+                                <button
+                                  type="button"
+                                  onClick={() => handleOpenEditAdmission(adm)}
+                                  className="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition cursor-pointer flex items-center gap-1 shadow-sm active:scale-95"
+                                  title="Alter / Edit Course, Fees, Fee Mode, Admission Date or Status"
+                                >
+                                  <Edit3 className="w-3.5 h-3.5 text-amber-400" />
+                                  <span>Edit Admission</span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  onClick={() => handleOpenStatusModal(adm)}
+                                  className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 transition cursor-pointer flex items-center gap-1 shadow-sm active:scale-95"
+                                  title="Update Status / Assign Closing Date"
+                                >
+                                  <Clock className="w-3.5 h-3.5 text-indigo-400" />
+                                  <span>Status</span>
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Financial and Schedule details */}
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] pt-0.5">
+                              <div>
+                                <span className="text-slate-500 block text-[10px]">Agreed Fee &amp; Mode</span>
+                                <span className="font-bold text-emerald-400 font-mono">
+                                  ₹{Number(adm.courseFees || course.courseFees || 0).toLocaleString()}
+                                </span>
+                                <span className="text-[10px] text-slate-400 block truncate">({feeModeName})</span>
+                              </div>
+
+                              <div>
+                                <span className="text-slate-500 block text-[10px]">Admission Date</span>
+                                <span className="font-mono text-slate-200">
+                                  {adm.admissionDate ? new Date(adm.admissionDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) : "—"}
+                                </span>
+                              </div>
+
+                              <div>
+                                <span className="text-slate-500 block text-[10px]">Total Paid to Date</span>
+                                <span className="font-mono font-bold text-emerald-400">
+                                  ₹{Number(fin.totalPaid || 0).toLocaleString()}
+                                </span>
+                              </div>
+
+                              <div>
+                                <span className="text-slate-500 block text-[10px]">Outstanding Balance</span>
+                                <span className={`font-mono font-bold ${Number(fin.balanceDue || 0) > 0 ? "text-rose-400" : "text-emerald-400"}`}>
+                                  ₹{Number(fin.balanceDue || 0).toLocaleString()}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-center space-y-1.5">
+                      <p className="text-slate-400 text-xs">This student does not have any active or saved course admissions yet.</p>
+                      <Link
+                        to={`/admission?studentId=${viewingStudent.id}`}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs transition shadow-sm mt-1"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Admit to Course Now</span>
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -1988,6 +2309,28 @@ We wish you great success in your learning journey!
           </div>
         )}
       </AnimatePresence>
+
+      {/* Course Status & Closing Date Modal */}
+      <AdmissionStatusModal
+        isOpen={isStatusModalOpen}
+        onClose={() => {
+          setIsStatusModalOpen(false);
+          setSelectedAdmissionForStatus(null);
+        }}
+        admission={selectedAdmissionForStatus}
+        onSuccess={handleAdmissionUpdateSuccess}
+      />
+
+      {/* Edit / Alter Admission Details Modal */}
+      <EditAdmissionModal
+        isOpen={isEditAdmissionModalOpen}
+        onClose={() => {
+          setIsEditAdmissionModalOpen(false);
+          setSelectedAdmissionForEdit(null);
+        }}
+        admission={selectedAdmissionForEdit}
+        onSuccess={handleAdmissionUpdateSuccess}
+      />
     </div>
   );
 }

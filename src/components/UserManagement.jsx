@@ -706,6 +706,85 @@ const UserManagement = () => {
     });
   };
 
+  // Admin Login-As (Impersonate) for Student and Teacher accounts
+  const handleLoginAsUser = async (userObj) => {
+    const role = (userObj.role || userObj.userTypeName || "").toLowerCase();
+    const isStudent = role === "student" || Boolean(userObj.student_id || userObj.studentId || userObj.student);
+    const isTeacher = role === "teacher" || role.includes("teach") || role.includes("faculty") || role.includes("instructor");
+
+    if (!isStudent && !isTeacher) {
+      Swal.fire({
+        icon: "info",
+        title: "Login As Restricted",
+        text: "The 'Login As' feature is specifically enabled for Student and Teacher accounts.",
+        background: "#0f172a",
+        color: "#f8fafc",
+        confirmButtonColor: "#0284c7",
+      });
+      return;
+    }
+
+    const displayName = userObj.name || userObj.userName || `User #${userObj.id}`;
+    const targetType = isStudent ? "Student" : "Teacher";
+
+    const confirm = await Swal.fire({
+      title: `Login as ${targetType}?`,
+      html: `
+        <div class="text-left text-xs text-slate-300 space-y-3 p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr ${
+              isStudent ? "from-emerald-600 to-teal-500" : "from-amber-600 to-orange-500"
+            } flex items-center justify-center font-bold text-white text-sm shadow-md">
+              ${(displayName || "U").substring(0, 2).toUpperCase()}
+            </div>
+            <div>
+              <div class="font-bold text-white text-sm">${displayName}</div>
+              <div class="text-slate-400 text-xs">${userObj.email || userObj.userName || "No handle"}</div>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-lg bg-sky-950/40 border border-sky-500/20 text-sky-200">
+            <i class="bi bi-info-circle mr-1"></i> You are switching your active portal session to <b>${displayName}</b> (${targetType}). Your original Admin session will remain saved, and you can return anytime via the top banner.
+          </div>
+        </div>
+      `,
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: `Yes, Login as ${displayName.split(" ")[0]}`,
+      cancelButtonText: "Cancel",
+      confirmButtonColor: isStudent ? "#059669" : "#d97706",
+      cancelButtonColor: "#334155",
+      background: "#0f172a",
+      color: "#f8fafc",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    try {
+      const result = userService.impersonateUser(userObj);
+      if (result?.success) {
+        await Swal.fire({
+          icon: "success",
+          title: `Logged in as ${targetType}!`,
+          text: `Active session switched to ${displayName}. Redirecting...`,
+          timer: 1500,
+          showConfirmButton: false,
+          background: "#0f172a",
+          color: "#f8fafc",
+        });
+        window.location.href = isStudent ? "/profile" : "/dashboard";
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Login As Failed",
+        text: err.message || "Could not switch to target user.",
+        background: "#0f172a",
+        color: "#f8fafc",
+        confirmButtonColor: "#ef4444",
+      });
+    }
+  };
+
   // Reusable Table Header
   const renderTableHeader = () => (
     <thead className="bg-slate-950/70 border-b border-slate-800 text-[11px] uppercase font-semibold text-slate-400 tracking-wider">
@@ -725,6 +804,10 @@ const UserManagement = () => {
   // Reusable Table Row
   const renderUserRow = (u, isStudentRow = false) => {
     const isStu = isStudentRow || isStudentUser(u);
+    const roleStr = (u.role || u.userTypeName || "").toLowerCase();
+    const isTeacherUserRow = roleStr === "teacher" || roleStr.includes("teach") || roleStr.includes("faculty") || roleStr.includes("instructor");
+    const canLoginAs = isStu || isTeacherUserRow;
+
     return (
       <tr key={u.id} className="hover:bg-slate-800/30 transition-colors">
         <td className="py-3.5 px-4 font-mono text-slate-400 text-xs">#{u.id}</td>
@@ -817,15 +900,33 @@ const UserManagement = () => {
         </td>
 
         <td className="py-3.5 px-4 text-right">
-          <button
-            type="button"
-            onClick={() => handleResetUserPassword(u)}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition cursor-pointer"
-            title="Reset password for this user"
-          >
-            <i className="bi bi-key-fill text-[11px] text-amber-400"></i>
-            <span>Reset Pass</span>
-          </button>
+          <div className="inline-flex items-center gap-1.5 justify-end">
+            {canLoginAs && (
+              <button
+                type="button"
+                onClick={() => handleLoginAsUser(u)}
+                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold border transition cursor-pointer shadow-sm ${
+                  isStu
+                    ? "bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border-emerald-500/30 hover:border-emerald-500/50"
+                    : "bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border-amber-500/30 hover:border-amber-500/50"
+                }`}
+                title={`Login as ${u.name || (isStu ? "Student" : "Teacher")}`}
+              >
+                <i className="bi bi-box-arrow-in-right text-[11px]"></i>
+                <span>Login As</span>
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => handleResetUserPassword(u)}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition cursor-pointer"
+              title="Reset password for this user"
+            >
+              <i className="bi bi-key-fill text-[11px] text-amber-400"></i>
+              <span>Reset Pass</span>
+            </button>
+          </div>
         </td>
       </tr>
     );

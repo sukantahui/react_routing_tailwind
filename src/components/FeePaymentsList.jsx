@@ -34,17 +34,21 @@ import {
   AlertCircle,
   Sparkles,
   Settings as SettingsIcon,
+  Edit3,
 } from "lucide-react";
 import api from "../api/api";
 import { loginService } from "../services/loginService";
 import { studentService } from "../services/studentService";
 import { admissionService } from "../services/admissionService";
 import AdmissionStatusModal from "./common/AdmissionStatusModal";
+import EditAdmissionModal from "./common/EditAdmissionModal";
+import EditFeePaymentModal from "./common/EditFeePaymentModal";
 import CNATLogo from "../assets/cnat.png";
 import paidStamp from "../assets/images/paid-stamp.png";
 import CNATQR from "../assets/images/CNAT_QR.jpeg";
 import instructorSign from "../assets/instructor-sign.png";
 import QRCode from "qrcode";
+import { Pencil } from "lucide-react";
 
 export default function FeePaymentsList() {
   const [searchParams] = useSearchParams();
@@ -104,6 +108,83 @@ export default function FeePaymentsList() {
   const [statusModalAdmission, setStatusModalAdmission] = useState(null);
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
 
+  // Edit Admission Details Modal State
+  const [editModalAdmission, setEditModalAdmission] = useState(null);
+  const [isEditAdmissionModalOpen, setIsEditAdmissionModalOpen] = useState(false);
+
+  // Edit Fee Payment Receipt State
+  const [editingReceipt, setEditingReceipt] = useState(null);
+  const [isEditPaymentModalOpen, setIsEditPaymentModalOpen] = useState(false);
+
+  const handleOpenEditPaymentModal = (rcpt) => {
+    setEditingReceipt(rcpt);
+    setIsEditPaymentModalOpen(true);
+  };
+
+  const handleEditPaymentSuccess = (updatedReceipt) => {
+    const rcptId = updatedReceipt?.id || updatedReceipt?.receiptId;
+    setReceipts((prev) =>
+      prev.map((r) => {
+        if (String(r.id || r.receiptId) === String(rcptId)) {
+          return {
+            ...r,
+            ...updatedReceipt,
+          };
+        }
+        return r;
+      })
+    );
+
+    // If currently viewing in Voucher Modal, update selectedReceipt
+    if (
+      selectedReceipt &&
+      String(selectedReceipt.id || selectedReceipt.receiptId) === String(rcptId)
+    ) {
+      setSelectedReceipt((prev) => ({
+        ...prev,
+        ...updatedReceipt,
+      }));
+    }
+
+    // If ledger is open, reload ledger for current admission
+    if (selectedLedger && selectedLedger.admission) {
+      const admId = selectedLedger.admission.admissionId || selectedLedger.admission.id;
+      handleOpenLedgerForAdmission(admId);
+    }
+  };
+
+  const handleOpenEditAdmissionModal = (adm) => {
+    setEditModalAdmission(adm);
+    setIsEditAdmissionModalOpen(true);
+  };
+
+  const handleEditAdmissionSuccess = (updatedAdm) => {
+    const admissionId = updatedAdm?.admissionId || updatedAdm?.id;
+    if (
+      selectedLedger &&
+      String(selectedLedger.admission?.admissionId || selectedLedger.admission?.id) === String(admissionId)
+    ) {
+      handleOpenLedgerForAdmission(admissionId);
+    }
+    fetchReceipts();
+    setAdmissionsList((prev) =>
+      prev.map((a) => {
+        if (String(a.admissionId || a.id) === String(admissionId)) {
+          return {
+            ...a,
+            ...updatedAdm,
+            courseFees: updatedAdm.courseFees,
+            admissionDate: updatedAdm.admissionDate,
+            completionDate: updatedAdm.completionDate,
+            courseStatusId: updatedAdm.courseStatusId,
+            feeModesId: updatedAdm.feeModesId,
+          };
+        }
+        return a;
+      })
+    );
+  };
+
   const handleOpenStatusModal = (adm) => {
     setStatusModalAdmission({
       admissionId: adm.admissionId || adm.id,
@@ -133,8 +214,8 @@ export default function FeePaymentsList() {
     ) {
       handleOpenLedgerForAdmission(admissionId);
     }
-    // 2. If dues report is active, reload dues
-    loadDuesData();
+    // 2. Refresh receipts
+    fetchReceipts();
     // 3. Update admissionsList if loaded
     setAdmissionsList((prev) =>
       prev.map((a) => {
@@ -3628,7 +3709,7 @@ export default function FeePaymentsList() {
                           </span>
                         </td>
 
-                        {/* Action Dock: 4 Quick Actions */}
+                        {/* Action Dock: 5 Quick Actions */}
                         <td className="p-3.5 text-center whitespace-nowrap">
                           <div className="flex items-center justify-center gap-1.5">
                             {/* 1. Official Voucher Modal */}
@@ -3642,7 +3723,17 @@ export default function FeePaymentsList() {
                               <span>Voucher</span>
                             </button>
 
-                            {/* 2. Direct Print Official Voucher */}
+                            {/* 2. Edit Fee Payment Receipt */}
+                            <button
+                              type="button"
+                              onClick={() => handleOpenEditPaymentModal(r)}
+                              className="p-1.5 rounded-lg text-xs font-semibold bg-amber-500/15 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 transition cursor-pointer"
+                              title="Edit Fee Payment Receipt (Amount, Date, Mode, Period)"
+                            >
+                              <Pencil className="w-3.5 h-3.5" />
+                            </button>
+
+                            {/* 3. Direct Print Official Voucher */}
                             <button
                               type="button"
                               onClick={() => handlePrintOfficialVoucher(r)}
@@ -3652,7 +3743,7 @@ export default function FeePaymentsList() {
                               <Printer className="w-3.5 h-3.5" />
                             </button>
 
-                            {/* 3. Send WhatsApp Voucher */}
+                            {/* 4. Send WhatsApp Voucher */}
                             <button
                               type="button"
                               onClick={() => handleSendWhatsApp(r)}
@@ -3662,7 +3753,7 @@ export default function FeePaymentsList() {
                               <MessageCircle className="w-3.5 h-3.5" />
                             </button>
 
-                            {/* 4. Student Fee Ledger */}
+                            {/* 5. Student Fee Ledger */}
                             <button
                               type="button"
                               onClick={() => handleOpenLedgerForReceipt(r)}
@@ -4437,7 +4528,21 @@ export default function FeePaymentsList() {
                   Close
                 </button>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap justify-end">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (selectedReceipt) {
+                        handleOpenEditPaymentModal(selectedReceipt);
+                      }
+                    }}
+                    className="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition flex items-center gap-1.5 cursor-pointer"
+                    title="Edit this payment receipt"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                    <span>Edit Payment</span>
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => handleSaveReceiptImage(selectedReceipt)}
@@ -4907,6 +5012,7 @@ export default function FeePaymentsList() {
                           <th className="p-3 text-right">Amount Paid</th>
                           <th className="p-3 text-right">Cumulative Total</th>
                           <th className="p-3">Collector</th>
+                          <th className="p-3 text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-800/60">
@@ -4925,11 +5031,41 @@ export default function FeePaymentsList() {
                                 ₹{Number(t.runningTotal || 0).toLocaleString("en-IN")}/-
                               </td>
                               <td className="p-3 text-slate-400">{t.collectedBy}</td>
+                              <td className="p-3 text-center">
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    const foundReceipt = receipts.find(
+                                      (r) =>
+                                        String(r.id || r.receiptId || r.receiptNo || r.receipt_no) ===
+                                        String(t.receiptId || t.receiptNo)
+                                    ) || {
+                                      id: t.receiptId,
+                                      receiptId: t.receiptId,
+                                      receiptNo: t.receiptNo,
+                                      amountPaid: t.amountPaid,
+                                      paymentMode: t.paymentMode,
+                                      paymentDate: t.paymentDate,
+                                      remarks: t.remarks,
+                                      student: selectedLedger?.student,
+                                      course: selectedLedger?.course,
+                                      studentName: selectedLedger?.student?.name,
+                                      courseName: selectedLedger?.course?.name,
+                                      admissionId: selectedLedger?.admission?.admissionId || selectedLedger?.admission?.id,
+                                    };
+                                    handleOpenEditPaymentModal(foundReceipt);
+                                  }}
+                                  className="p-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 transition cursor-pointer"
+                                  title="Edit Payment Receipt"
+                                >
+                                  <Pencil className="w-3.5 h-3.5" />
+                                </button>
+                              </td>
                             </tr>
                           ))
                         ) : (
                           <tr>
-                            <td colSpan={8} className="p-6 text-center text-slate-500">
+                            <td colSpan={9} className="p-6 text-center text-slate-500">
                               No payment receipts recorded for this admission yet.
                             </td>
                           </tr>
@@ -4946,6 +5082,7 @@ export default function FeePaymentsList() {
                           <td className="p-3 text-right font-mono text-indigo-400 text-sm">
                             ₹{Number(selectedLedger.summary?.totalPaid || 0).toLocaleString("en-IN")}/-
                           </td>
+                          <td colSpan={2}></td>
                           <td></td>
                         </tr>
                       </tfoot>
@@ -5555,6 +5692,28 @@ export default function FeePaymentsList() {
                                   </button>
                                   <button
                                     type="button"
+                                    onClick={() =>
+                                      handleOpenEditAdmissionModal({
+                                        admissionId: e.admissionId,
+                                        admissionNumber: e.admissionNo,
+                                        studentId: e.studentId,
+                                        courseId: e.courseId,
+                                        courseFees: e.agreedFee,
+                                        feeModesId: e.feeModesId,
+                                        admissionDate: e.admissionDate,
+                                        completionDate: e.completionDate,
+                                        courseStatusId: e.courseStatusId,
+                                        student: { id: e.studentId, studentName: e.studentName, registrationNumber: e.enrollmentNo },
+                                        course: { id: e.courseId, courseName: e.courseName, courseCode: e.courseCode },
+                                      })
+                                    }
+                                    className="p-1 rounded-lg text-amber-400 hover:bg-amber-500/20 transition cursor-pointer"
+                                    title="Alter / Edit Course, Fees, Fee Mode, Admission Date or Status"
+                                  >
+                                    <Edit3 className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
                                     onClick={() => handlePayDue(e)}
                                     className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition cursor-pointer"
                                     title="Record Fee Payment"
@@ -5612,6 +5771,28 @@ export default function FeePaymentsList() {
         }}
         admission={statusModalAdmission}
         onSuccess={handleStatusUpdateSuccess}
+      />
+
+      {/* Edit / Alter Admission Details Modal */}
+      <EditAdmissionModal
+        isOpen={isEditAdmissionModalOpen}
+        onClose={() => {
+          setIsEditAdmissionModalOpen(false);
+          setEditModalAdmission(null);
+        }}
+        admission={editModalAdmission}
+        onSuccess={handleEditAdmissionSuccess}
+      />
+
+      {/* Edit Fee Payment Receipt Modal */}
+      <EditFeePaymentModal
+        isOpen={isEditPaymentModalOpen}
+        onClose={() => {
+          setIsEditPaymentModalOpen(false);
+          setEditingReceipt(null);
+        }}
+        receipt={editingReceipt}
+        onSuccess={handleEditPaymentSuccess}
       />
     </div>
   );

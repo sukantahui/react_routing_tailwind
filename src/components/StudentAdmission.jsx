@@ -37,6 +37,7 @@ import {
   Copy,
   KeyRound,
   Send,
+  Edit3,
 } from "lucide-react";
 import { admissionService } from "../services/admissionService";
 import { studentService } from "../services/studentService";
@@ -44,6 +45,8 @@ import { courseService } from "../services/courseService";
 import { userService, DEFAULT_STUDENT_PASSWORD } from "../services/userService";
 import api from "../api/api";
 import AdmissionStatusModal from "./common/AdmissionStatusModal";
+import EditAdmissionModal from "./common/EditAdmissionModal";
+import EditFeePaymentModal from "./common/EditFeePaymentModal";
 
 const StudentAdmission = () => {
   const navigate = useNavigate();
@@ -82,6 +85,75 @@ const StudentAdmission = () => {
 
   const [selectedAdmissionForStatus, setSelectedAdmissionForStatus] = useState(null);
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
+
+  const [selectedAdmissionForEdit, setSelectedAdmissionForEdit] = useState(null);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+  // Edit Fee Payment Receipt Modal State
+  const [selectedReceiptForEdit, setSelectedReceiptForEdit] = useState(null);
+  const [isEditPaymentModalOpen, setIsEditPaymentModalOpen] = useState(false);
+
+  const handleOpenEditPaymentModal = (rcpt, adm) => {
+    setSelectedReceiptForEdit({
+      ...rcpt,
+      studentName: studentHistory?.student?.studentName || studentHistory?.student?.student_name || "Student",
+      courseName: adm?.course?.courseName || adm?.course?.course_name || "Course",
+      admissionId: adm?.admissionId || adm?.id,
+      student: studentHistory?.student,
+      course: adm?.course,
+    });
+    setIsEditPaymentModalOpen(true);
+  };
+
+  const handlePaymentUpdateSuccess = () => {
+    if (formData.studentId) {
+      studentService.getPreviousAdmissions(formData.studentId).then((res) => {
+        if (res?.status && res?.data) {
+          setStudentHistory(res.data);
+        }
+      });
+    }
+    loadAdmissions();
+  };
+
+  const handleOpenEditModal = (adm) => {
+    setSelectedAdmissionForEdit(adm);
+    setIsEditModalOpen(true);
+  };
+
+  const handleAdmissionUpdateSuccess = (updatedAdm) => {
+    const admId = updatedAdm.admissionId || updatedAdm.id;
+    setAdmissions((prev) =>
+      prev.map((a) => {
+        if (String(a.admissionId || a.id) === String(admId)) {
+          return {
+            ...a,
+            ...updatedAdm,
+            courseFees: updatedAdm.courseFees,
+            admissionDate: updatedAdm.admissionDate,
+            completionDate: updatedAdm.completionDate,
+            courseStatusId: updatedAdm.courseStatusId,
+            feeModesId: updatedAdm.feeModesId,
+            course: updatedAdm.course || a.course,
+            student: updatedAdm.student || a.student,
+            courseStatus: updatedAdm.courseStatus || a.courseStatus,
+            feeMode: updatedAdm.feeMode || a.feeMode,
+          };
+        }
+        return a;
+      })
+    );
+
+    // Refresh student history if the currently selected student was updated
+    if (formData.studentId) {
+      studentService.getPreviousAdmissions(formData.studentId).then((res) => {
+        if (res?.status && res?.data) {
+          setStudentHistory(res.data);
+        }
+      });
+    }
+    loadAdmissions();
+  };
 
   const handleOpenStatusModal = (adm) => {
     setSelectedAdmissionForStatus({
@@ -337,6 +409,14 @@ const StudentAdmission = () => {
             studentId: String(urlStudentId),
             admissionDate: prev.admissionDate || new Date().toISOString().split("T")[0],
           }));
+        }
+
+        const urlEditAdmissionId = searchParams.get("editAdmissionId");
+        if (urlEditAdmissionId) {
+          const match = admList.find((a) => String(a.admissionId || a.id) === String(urlEditAdmissionId));
+          if (match) {
+            handleOpenEditModal(match);
+          }
         }
       } catch (error) {
         console.error("Failed to load initial data:", error);
@@ -1159,6 +1239,7 @@ We wish you great success in your learning journey!
                 }
                 selectedStudentObj={selectedStudentObj}
                 onOpenStatusModal={handleOpenStatusModal}
+                onOpenEditModal={handleOpenEditModal}
               />
             )}
 
@@ -1654,6 +1735,15 @@ We wish you great success in your learning journey!
                           <div className="flex items-center justify-end gap-2">
                             <button
                               type="button"
+                              onClick={() => handleOpenEditModal(adm)}
+                              className="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm active:scale-95"
+                              title="Alter / Edit Course, Fees, Fee Mode, Admission Date or Status"
+                            >
+                              <Edit3 className="w-3.5 h-3.5 text-amber-400" />
+                              <span>Edit Admission</span>
+                            </button>
+                            <button
+                              type="button"
                               onClick={() => handleSendStudentDetails(adm)}
                               className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm active:scale-95"
                               title="Send Admission & Login Credentials to Student (WhatsApp / Copy)"
@@ -1690,6 +1780,28 @@ We wish you great success in your learning journey!
           }}
           admission={selectedAdmissionForStatus}
           onSuccess={handleStatusUpdateSuccess}
+        />
+
+        {/* Edit / Alter Admission Details Modal */}
+        <EditAdmissionModal
+          isOpen={isEditModalOpen}
+          onClose={() => {
+            setIsEditModalOpen(false);
+            setSelectedAdmissionForEdit(null);
+          }}
+          admission={selectedAdmissionForEdit}
+          onSuccess={handleAdmissionUpdateSuccess}
+        />
+
+        {/* Edit Fee Payment Receipt Modal */}
+        <EditFeePaymentModal
+          isOpen={isEditPaymentModalOpen}
+          onClose={() => {
+            setIsEditPaymentModalOpen(false);
+            setSelectedReceiptForEdit(null);
+          }}
+          receipt={selectedReceiptForEdit}
+          onSuccess={handlePaymentUpdateSuccess}
         />
       </motion.div>
     </div>
@@ -2622,6 +2734,7 @@ function StudentAcademicHistoryCard({
   onToggleReceipts,
   selectedStudentObj,
   onOpenStatusModal,
+  onOpenEditModal,
 }) {
   const student = history?.student || (selectedStudentObj ? {
     studentName: selectedStudentObj.student_name || selectedStudentObj.studentName,
@@ -2824,6 +2937,15 @@ function StudentAcademicHistoryCard({
 
                           <button
                             type="button"
+                            onClick={() => onOpenEditModal && onOpenEditModal(adm)}
+                            className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition cursor-pointer flex items-center gap-1 shadow-sm"
+                            title="Alter Course, Fees, Fee Mode, Admission Date or Status"
+                          >
+                            <span>✏️ Edit Admission</span>
+                          </button>
+
+                          <button
+                            type="button"
                             onClick={() => onOpenStatusModal && onOpenStatusModal(adm)}
                             className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 transition cursor-pointer flex items-center gap-1 shadow-sm"
                             title="Update Status / Assign Closing Date"
@@ -2948,6 +3070,7 @@ function StudentAcademicHistoryCard({
                                   <th className="p-2.5 text-right">Amount (₹)</th>
                                   <th className="p-2.5">Coverage Period</th>
                                   <th className="p-2.5">Collected By</th>
+                                  <th className="p-2.5 text-center">Action</th>
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-slate-800/80 bg-slate-950/60">
@@ -2965,6 +3088,16 @@ function StudentAcademicHistoryCard({
                                     </td>
                                     <td className="p-2.5 text-slate-300">{rcpt.coveragePeriod || "—"}</td>
                                     <td className="p-2.5 text-slate-400">{rcpt.collectedBy || "Staff"}</td>
+                                    <td className="p-2.5 text-center">
+                                      <button
+                                        type="button"
+                                        onClick={() => handleOpenEditPaymentModal(rcpt, adm)}
+                                        className="p-1.5 rounded-lg bg-amber-500/15 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 transition cursor-pointer"
+                                        title="Edit Fee Payment Receipt"
+                                      >
+                                        <Edit3 className="w-3.5 h-3.5" />
+                                      </button>
+                                    </td>
                                   </tr>
                                 ))}
                               </tbody>
