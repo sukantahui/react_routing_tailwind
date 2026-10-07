@@ -449,11 +449,7 @@ const NavBar = () => {
 
   // Check active routes for tools, tutorials, and about
   const isToolsActive = useMemo(() => {
-<<<<<<< HEAD
     const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer", "/certificates", "/wampserver-guide", "/wamp"];
-=======
-    const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer"];
->>>>>>> e29ef0394e11a61e037c688009131e82340a992c
     return paths.some((p) => location.pathname.startsWith(p));
   }, [location.pathname]);
 
