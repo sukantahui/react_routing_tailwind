@@ -886,7 +886,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
   }, [location.pathname]);
 
   const isToolsActive = useMemo(() => {
-    const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer"];
+    const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer", "/wampserver-guide", "/wamp"];
     return paths.some((p) => location.pathname.startsWith(p));
   }, [location.pathname]);
 
