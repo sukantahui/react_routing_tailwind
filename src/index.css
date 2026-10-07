@@ -32,6 +32,11 @@ body {
   font-family: 'Noto Serif Devanagari', 'Mangal', 'Nirmala UI', 'Utsaah', serif;
 }
 
+/* Authentic Bengali Typography */
+.font-bengali {
+  font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
 
 /* Glassmorphism & Glow Utilities */
 .glass-panel {
