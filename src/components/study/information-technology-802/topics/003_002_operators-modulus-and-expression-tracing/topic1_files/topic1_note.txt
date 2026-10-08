@@ -1,0 +1,64 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 1
+INTEGER DIVISION VS FLOATING-POINT DIVISION: 12/5 (2) VS 12.0/5 (2.4)
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. INTEGER DIVISION MECHANICS (Truncation Towards Zero):
+--------------------------------------------------------------------------------
+- When BOTH operands of the division operator `/` are integer types (`byte`, `short`, `int`, `long`), Java performs "Integer Division".
+- In integer division:
+  * The fractional part (decimal remainder) is completely discarded (truncated towards zero).
+  * No rounding occurs! (e.g. `2.9` truncates to `2`, NOT `3`).
+  * Example: `12 / 5` yields `2` (the `.4` is discarded).
+  * Example: `5 / 2` yields `2` (the `.5` is discarded).
+  * Example: `1 / 2` yields `0` (the `.5` is discarded).
+  * Example: `-12 / 5` yields `-2`.
+
+2. FLOATING-POINT DIVISION MECHANICS:
+--------------------------------------------------------------------------------
+- If AT LEAST ONE operand in the division expression is a floating-point number (`float` or `double`), Java performs "Floating-Point Division".
+- The integer operand is promoted automatically to floating-point before the division takes place.
+  * Example: `12.0 / 5` -> `12.0 / 5.0` -> `2.4`
+  * Example: `12 / 5.0` -> `12.0 / 5.0` -> `2.4`
+  * Example: `12.0f / 5` -> `2.4f` (float)
+
+3. THE CLASSIC CBSE EXAM TYPE CASTING TRAP:
+--------------------------------------------------------------------------------
+Notice the massive difference between these two statements:
+
+Case A: `double ans = (double) 12 / 5;`
+- Step 1: Explicit cast `(double) 12` converts 12 to `12.0` FIRST.
+- Step 2: `12.0 / 5` performs floating-point division.
+- Result: `2.4`
+
+Case B: `double ans = (double)(12 / 5);`
+- Step 1: Parentheses `(12 / 5)` evaluate FIRST using integer division, producing integer `2`.
+- Step 2: The cast `(double)` converts integer `2` to `2.0`.
+- Result: `2.0` (The decimal `.4` was already lost inside the parentheses!)
+
+4. DIVISION BY ZERO RULES:
+--------------------------------------------------------------------------------
+| Expression       | Operands Type | Java Result                          |
+|------------------|---------------|--------------------------------------|
+| `10 / 0`         | `int / int`   | `ArithmeticException: / by zero`     |
+| `10.0 / 0`       | `double / int`| `Infinity`                           |
+| `-10.0 / 0`      | `double / int`| `-Infinity`                          |
+| `0.0 / 0.0`      | `double / dbl`| `NaN` (Not a Number)                 |
+
+5. SUMMARY TABLE:
+--------------------------------------------------------------------------------
+| Expression               | Step 1 Evaluation | Final Value | Resulting Type |
+|--------------------------|-------------------|-------------|----------------|
+| `12 / 5`                 | Integer quotient  | `2`         | `int`          |
+| `12.0 / 5`               | Promotes 5 to 5.0 | `2.4`       | `double`       |
+| `12 / 5.0`               | Promotes 12 to 12.0| `2.4`      | `double`       |
+| `(double) 12 / 5`        | 12.0 / 5          | `2.4`       | `double`       |
+| `(double)(12 / 5)`       | (double)(2)       | `2.0`       | `double`       |
+| `1 / 2`                  | Truncates 0.5     | `0`         | `int`          |
+| `1.0 / 2`                | 1.0 / 2.0         | `0.5`       | `double`       |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 1 (DIVISION MECHANICS)
+================================================================================

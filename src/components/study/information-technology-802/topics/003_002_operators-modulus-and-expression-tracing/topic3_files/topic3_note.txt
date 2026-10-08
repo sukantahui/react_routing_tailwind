@@ -1,0 +1,85 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 3
+INCREMENT AND DECREMENT OPERATORS: PREFIX (++x, --x) VS POSTFIX (x++, x--)
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT ARE INCREMENT & DECREMENT OPERATORS?
+--------------------------------------------------------------------------------
+- Unary operators that increase or decrease the value of an integer or floating-point variable by exactly 1.
+  * Increment operator: `++` (adds 1 to variable)
+  * Decrement operator: `--` (subtracts 1 from variable)
+- They can only be applied to variables (not to constants or literal expressions like `5++` which is ILLEGAL).
+
+2. PREFIX VS POSTFIX MECHANICS:
+--------------------------------------------------------------------------------
+a) Prefix Operators (`++x`, `--x`):
+   - Principle: "CHANGE FIRST, THEN USE" (Pre-increment / Pre-decrement).
+   - The value of `x` is incremented/decremented by 1 FIRST.
+   - The NEW, modified value is then returned and used in the surrounding expression.
+   - Example:
+     ```java
+     int x = 5;
+     int y = ++x; // x becomes 6 FIRST, then y gets 6
+     // Result: x = 6, y = 6
+     ```
+
+b) Postfix Operators (`x++`, `x--`):
+   - Principle: "USE FIRST, THEN CHANGE" (Post-increment / Post-decrement).
+   - The CURRENT, original value of `x` is used in the surrounding expression FIRST.
+   - AFTER the value is used, `x` is incremented/decremented by 1 in memory.
+   - Example:
+     ```java
+     int x = 5;
+     int y = x++; // y gets original 5 FIRST, then x becomes 6
+     // Result: x = 6, y = 5
+     ```
+
+3. STANDALONE STATEMENTS (Prefix = Postfix):
+--------------------------------------------------------------------------------
+- When used as an independent, standalone statement, prefix and postfix have IDENTICAL net effects:
+  * `x++;`  -> increments `x` by 1.
+  * `++x;`  -> increments `x` by 1.
+  * `x--;`  -> decrements `x` by 1.
+  * `--x;`  -> decrements `x` by 1.
+- The difference ONLY matters when the operator is embedded inside an expression, assignment, or output statement!
+
+4. TRACING CHAINED INCREMENT EXPRESSIONS (CBSE Board Exam Classic):
+--------------------------------------------------------------------------------
+Example 1:
+```java
+int a = 5;
+int b = a++ + ++a;
+```
+Step-by-step trace:
+1. `a++`: Uses current `a` (5). Then increments `a` in memory to 6.
+2. `+`: Binary addition waiting for right operand.
+3. `++a`: Increments `a` (from 6 to 7) first. Uses new value (7).
+4. Addition: `5 + 7 = 12`.
+5. Final Values: `a = 7`, `b = 12`.
+
+Example 2:
+```java
+int x = 10;
+int y = ++x + x++ + ++x;
+```
+Step-by-step trace:
+1. `++x`: x becomes 11, returns 11. (x is now 11)
+2. `x++`: returns 11, then x becomes 12. (x is now 12)
+3. `++x`: x becomes 13, returns 13. (x is now 13)
+4. Evaluation: `11 + 11 + 13 = 35`.
+5. Final Values: `x = 13`, `y = 35`.
+
+5. SUMMARY TABLE:
+--------------------------------------------------------------------------------
+| Expression | Initial `x` | Sub-Expression Value | Value of `x` in Memory Afterwards |
+|------------|-------------|----------------------|-----------------------------------|
+| `++x`      | 5           | 6                    | 6                                 |
+| `x++`      | 5           | 5                    | 6                                 |
+| `--x`      | 5           | 4                    | 4                                 |
+| `x--`      | 5           | 5                    | 4                                 |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 3 (INCREMENT & DECREMENT OPERATORS)
+================================================================================

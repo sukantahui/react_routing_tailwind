@@ -1,0 +1,77 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_001 - TOPIC 6
+COMMON COMPILER TRAPS IN JAVA VARIABLE DECLARATIONS
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. OVERVIEW OF CBSE COMPILER TRAPS:
+--------------------------------------------------------------------------------
+- In CBSE Class 12 IT (Code 802) board exams, questions often ask: "Identify errors in the following code snippet" or "Will the following code compile?".
+- Master these 8 classic traps to secure full marks in error-identification questions.
+
+2. TRAP 1: MISSING FLOAT SUFFIX (Lossy Conversion)
+--------------------------------------------------------------------------------
+- Trap Code: `float rate = 12.5;`
+- Error: `error: incompatible types: possible lossy conversion from double to float`
+- Why: In Java, any floating-point literal (`12.5`) is typed as 8-byte `double` by default. Assigning an 8-byte double to a 4-byte float without cast or suffix is illegal.
+- Fix: `float rate = 12.5f;` or `float rate = 12.5F;` or `double rate = 12.5;`
+
+3. TRAP 2: CHAR WITH DOUBLE QUOTES (Type Mismatch)
+--------------------------------------------------------------------------------
+- Trap Code: `char grade = "A";`
+- Error: `error: incompatible types: java.lang.String cannot be converted to char`
+- Why: Double quotes create a `java.lang.String` object reference. A primitive `char` requires single quotes.
+- Fix: `char grade = 'A';`
+
+4. TRAP 3: UNINITIALIZED LOCAL VARIABLE ACCESS
+--------------------------------------------------------------------------------
+- Trap Code:
+  ```java
+  public void calculate() {
+      int bonus;
+      System.out.println(bonus);
+  }
+  ```
+- Error: `error: variable bonus might not have been initialized`
+- Why: Local variables inside methods do NOT receive default values (unlike class instance fields). They must be assigned a value before being read.
+- Fix: `int bonus = 0;`
+
+5. TRAP 4: USING KEYWORDS OR RESERVED LITERALS AS IDENTIFIERS
+--------------------------------------------------------------------------------
+- Trap Code: `int class = 12;` or `double final = 85.0;` or `boolean null = false;`
+- Error: `error: not a statement` / `error: expected`
+- Why: `class`, `final`, `null`, `true`, `false`, `switch` are reserved language keywords and literals.
+- Fix: `int classGrade = 12;` or `double finalScore = 85.0;`
+
+6. TRAP 5: ILLEGAL IDENTIFIER CHARACTERS (%, -, #, @)
+--------------------------------------------------------------------------------
+- Trap Code: `double interest% = 7.5;` or `int roll-no = 101;`
+- Error: Syntax error (`%` is modulus operator, `-` is subtraction operator).
+- Why: Identifiers can ONLY contain letters, digits, `_`, and `$`.
+- Fix: `double interestPercentage = 7.5;` and `int roll_no = 101;`
+
+7. TRAP 6: INTEGER OVERFLOW IN BYTE / SHORT
+--------------------------------------------------------------------------------
+- Trap Code: `byte b = 150;`
+- Error: `error: incompatible types: possible lossy conversion from int to byte`
+- Why: Maximum range of a signed byte is +127. 150 exceeds this capacity.
+- Fix: `short b = 150;` or `int b = 150;`
+
+8. TRAP 7: CASE-SENSITIVITY MISMATCHES
+--------------------------------------------------------------------------------
+- Trap Code: `string name = "Rahul";` or `system.out.println("Hi");`
+- Error: `error: cannot find symbol`
+- Why: Java is case-sensitive. The correct class names are capitalized: `String` and `System`.
+- Fix: `String name = "Rahul";` and `System.out.println("Hi");`
+
+9. TRAP 8: MULTI-CHARACTER CHAR LITERAL
+--------------------------------------------------------------------------------
+- Trap Code: `char section = 'AB';`
+- Error: `error: unclosed character literal` / `error: not a statement`
+- Why: A `char` literal enclosed in single quotes can hold EXACTLY ONE character.
+- Fix: `String section = "AB";` or `char section = 'A';`
+
+================================================================================
+END OF REVISION NOTE - TOPIC 6 (COMPILER TRAPS & ERROR HUNTING)
+================================================================================

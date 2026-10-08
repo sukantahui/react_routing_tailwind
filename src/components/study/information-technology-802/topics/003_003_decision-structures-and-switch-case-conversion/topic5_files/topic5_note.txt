@@ -1,0 +1,88 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 5
+REAL-WORLD GUI BILLING CONVERSION: NETBEANS SWING JTEXTFIELD TO SWITCH
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. THE CLASSIC CBSE IT-802 GUI PRACTICAL & BOARD EXAM PROBLEM:
+--------------------------------------------------------------------------------
+In CBSE Class 12 IT-802 examinations, students are provided a NetBeans Java Swing GUI form featuring:
+- `jTextField1`: Where the user enters a parcel weight or slab code `w`.
+- `jButton1`: The "Calculate Bill / Pay" button with an `actionPerformed` event handler.
+- `jTextField2`: Where the calculated charge `pay` is displayed.
+
+The original code is presented as an `if-else` ladder:
+```java
+// Original Button Click Event:
+int w = Integer.parseInt(jTextField1.getText());
+double pay = 0.0;
+if (w == 5) {
+    pay = w * 20;
+} else if (w == 8) {
+    pay = w * 26;
+} else if (w == 10) {
+    pay = w * 32;
+} else {
+    pay = w * 40;
+}
+jTextField2.setText("" + pay);
+```
+
+2. STEP-BY-STEP REWRITING INTO A CLEAN `switch` STATEMENT:
+--------------------------------------------------------------------------------
+Step 1: Extract and parse the input from `jTextField1` into an `int w`:
+```java
+int w = Integer.parseInt(jTextField1.getText());
+double pay = 0.0;
+```
+
+Step 2: Replace the `if-else-if` ladder with `switch(w)`:
+```java
+switch (w) {
+    case 5:
+        pay = w * 20;
+        break;
+    case 8:
+        pay = w * 26;
+        break;
+    case 10:
+        pay = w * 32;
+        break;
+    default:
+        pay = w * 40;
+        break;
+}
+```
+
+Step 3: Update the GUI display textfield `jTextField2`:
+```java
+jTextField2.setText(Double.toString(pay));
+// or: jTextField2.setText("" + pay);
+```
+
+3. CRITICAL GUI PITFALLS & BEST PRACTICES:
+--------------------------------------------------------------------------------
+Pitfall 1: Scope of `pay`
+- Declare `double pay = 0.0;` OUTSIDE and BEFORE the switch block!
+- If declared inside `case 5:`, it goes out of scope before reaching `jTextField2.setText()`.
+
+Pitfall 2: `NumberFormatException`
+- In real-world desktop apps, if a user enters non-numeric text like "abc" or leaves the field blank, `Integer.parseInt()` throws a `NumberFormatException`.
+- Defensive coding wraps the parsing in a `try-catch` block:
+  ```java
+  try {
+      int w = Integer.parseInt(jTextField1.getText().trim());
+      // switch statement ...
+  } catch (NumberFormatException e) {
+      JOptionPane.showMessageDialog(this, "Please enter a valid numeric weight!");
+  }
+  ```
+
+Pitfall 3: String Conversion for `setText()`
+- `setText()` expects a `String`. Passing a raw number like `jTextField2.setText(pay);` causes a compilation error!
+- Use `"" + pay` or `String.valueOf(pay)`.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 5
+================================================================================

@@ -1,0 +1,70 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_001 - TOPIC 3
+VARIABLE DECLARATION RULES & VALID/INVALID IDENTIFIERS IN JAVA
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS AN IDENTIFIER IN JAVA?
+--------------------------------------------------------------------------------
+- An Identifier is a user-defined symbolic name given to a variable, method, class, package, or interface in Java source code.
+- Examples: `studentRollNo`, `calculateTotal`, `InvoiceModel`, `MAX_LIMIT`.
+
+2. MANDATORY RULES FOR VALID JAVA IDENTIFIERS:
+--------------------------------------------------------------------------------
+Rule 1: Permissible Characters
+- Identifiers can contain:
+  * Uppercase letters (`A` to `Z`)
+  * Lowercase letters (`a` to `z`)
+  * Digits (`0` to `9`)
+  * Underscore (`_`)
+  * Dollar sign (`$`)
+- NO other symbols (like `@`, `#`, `%`, `&`, `-`, `*`, `!`, `?`, etc.) are permitted.
+
+Rule 2: Starting Character
+- An identifier MUST start with a letter (`a`-`z`, `A`-`Z`), an underscore (`_`), or a dollar sign (`$`).
+- An identifier CANNOT start with a digit (`0`-`9`).
+  * Example: `total1` is VALID, but `1total` is INVALID.
+
+Rule 3: Reserved Keywords
+- Java reserved keywords (e.g., `class`, `public`, `static`, `void`, `int`, `for`, `while`, `final`, `switch`, `return`, `null`, `true`, `false`) CANNOT be used as identifiers.
+  * Example: `int class = 10;` is INVALID.
+  * Example: `int Class = 10;` is VALID (because Java is case-sensitive, though discouraged).
+
+Rule 4: Case Sensitivity
+- Java is strictly CASE-SENSITIVE.
+  * `age`, `Age`, and `AGE` are treated as three distinct, independent identifiers.
+
+Rule 5: No Whitespace
+- Identifiers CANNOT contain spaces, tabs, or newlines.
+  * Example: `int student age = 17;` is INVALID.
+  * Example: `int studentAge = 17;` or `int student_age = 17;` is VALID.
+
+Rule 6: Length
+- There is no theoretical limit to the length of an identifier in Java, but practical naming conventions should keep them concise and descriptive.
+
+3. VARIABLE DECLARATION SYNTAX & COMMON TRAPS:
+--------------------------------------------------------------------------------
+Syntax: `DataType variableName = initialValue;`
+
+Case Analysis of Classic CBSE Exam Questions:
+a) `int ab = 38;` -> VALID (Standard integer declaration).
+b) `char Section = 'D';` -> VALID (Single character enclosed in single quotes).
+c) `double percentage = 87.6%;` -> INVALID (The `%` character is the modulus operator in Java, not a valid numerical literal or identifier symbol).
+d) `int 1stRank = 1;` -> INVALID (Starts with digit `1`).
+e) `double total-marks = 450.0;` -> INVALID (Hyphen `-` is treated as subtraction operator).
+f) `String student# = "Amit";` -> INVALID (`#` is an illegal character).
+g) `char grade = "A";` -> INVALID (Double quotes represent a String literal, not char).
+h) `int $salary = 50000;` -> VALID (`$` is a valid identifier character).
+i) `int _count = 0;` -> VALID (`_` is a valid starting character).
+
+4. STANDARD JAVA NAMING CONVENTIONS (Best Practices):
+--------------------------------------------------------------------------------
+- Variables & Methods: CamelCase starting with lowercase (e.g., `studentScore`, `printReceipt()`).
+- Classes & Interfaces: PascalCase starting with uppercase (e.g., `StudentRecord`, `DatabaseHelper`).
+- Constants (`final`): UPPERCASE with underscores (e.g., `MAX_RETRY_COUNT`, `TAX_RATE`).
+- Packages: All lowercase (e.g., `com.cbse.it802.billing`).
+
+================================================================================
+END OF REVISION NOTE - TOPIC 3 (VARIABLE DECLARATIONS & IDENTIFIERS)
+================================================================================

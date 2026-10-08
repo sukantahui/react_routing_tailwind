@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_001 - TOPIC 1
+PLATFORM INDEPENDENCE & THE 'WRITE ONCE, RUN ANYWHERE' (WORA) ARCHITECTURE
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS PLATFORM INDEPENDENCE?
+--------------------------------------------------------------------------------
+- In computing, a "Platform" is the combination of an Operating System (OS) and the underlying Hardware Processor Architecture (e.g., Windows 11 on Intel x86_64, macOS on Apple Silicon ARM64, Ubuntu on AMD64).
+- "Platform Independence" (or Portability) means that a software program written and compiled on one computer platform can execute seamlessly on any other platform without modifying the source code and without recompilation.
+
+2. TRADITIONAL COMPILED LANGUAGES (C / C++) VS JAVA WORA:
+--------------------------------------------------------------------------------
+a) C / C++ Compilation Model (Platform-DEPENDENT):
+   - Source code (`main.c`) is compiled directly into native object code / machine binary (`main.exe` for Windows, `main.out` for Linux).
+   - The compiled binary contains direct CPU opcodes and OS system calls.
+   - A `.exe` compiled on Windows will NOT run on Linux or macOS. The developer must recompile the source code on every target operating system.
+
+b) Java Compilation Model (Platform-INDEPENDENT / WORA):
+   - Source code (`Main.java`) is compiled once by `javac` into intermediate Bytecode (`Main.class`).
+   - The `.class` file does not contain native CPU instructions; it contains universal JVM opcodes.
+   - The same `Main.class` file runs on Windows JVM, Linux JVM, macOS JVM, and Android devices without any changes.
+   - This architectural philosophy is famously known as "Write Once, Run Anywhere" (WORA).
+
+3. THE JAVA ECOSYSTEM TRIAD: JDK vs JRE vs JVM
+--------------------------------------------------------------------------------
+Understanding the distinction between JDK, JRE, and JVM is mandatory for CBSE Class 12 IT-802:
+
+a) JVM (Java Virtual Machine):
+   - The abstract runtime engine that executes Bytecode (.class) line-by-line or compiles hot spots via JIT.
+   - Platform-dependent.
+   - Does NOT contain development tools or compiler.
+
+b) JRE (Java Runtime Environment):
+   - Contains JVM + Java Core Class Libraries (rt.jar / java.base) + Supporting Files.
+   - Used by end-users who ONLY need to run pre-compiled Java applications.
+   - JRE = JVM + Standard Class Libraries.
+
+c) JDK (Java Development Kit):
+   - The full software development package used by programmers to write, compile, debug, and run Java programs.
+   - Contains JRE + Development Tools (`javac.exe` compiler, `javadoc.exe` document generator, `jdb.exe` debugger, `jar.exe` archiver).
+   - JDK = JRE + Development Tools (`javac`, `jar`, `javap`, etc.).
+
+4. KEY CBSE BOARD EXAM FORMULAS:
+--------------------------------------------------------------------------------
+1. JRE = JVM + Core Class Libraries
+2. JDK = JRE + Development Tools (javac, debugger, etc.)
+3. JDK = JVM + Core Class Libraries + Development Tools
+
+5. SUMMARY TABLE:
+--------------------------------------------------------------------------------
+| Component | Primary Target User | Key Components Included | Can it compile .java? |
+|-----------|---------------------|--------------------------|-----------------------|
+| JVM       | System / Runtime    | ClassLoader, Memory, JIT | NO                    |
+| JRE       | End Users / Clients | JVM + Core APIs (rt.jar) | NO                    |
+| JDK       | Software Developers | JRE + javac + Debuggers  | YES                   |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 1 (WORA & PLATFORM INDEPENDENCE)
+================================================================================

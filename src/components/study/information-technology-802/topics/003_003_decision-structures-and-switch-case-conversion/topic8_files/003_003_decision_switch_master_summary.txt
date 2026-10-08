@@ -1,0 +1,75 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+MODULE 003_003: DECISION STRUCTURES & SWITCH-CASE CONVERSION
+MASTER COMPREHENSIVE REVISION CHEATSHEET
+Author: Sukanta Hui | Senior Vocational IT Educator | Barrackpore, Kolkata
+Institute: Coder & AccoTax (https://www.codernaccotax.co.in)
+================================================================================
+
+1. CONDITIONAL BRANCHING FUNDAMENTALS
+--------------------------------------------------------------------------------
+- Simple `if`:
+  Syntax: `if (boolean_expression) { ... }`
+  Condition must evaluate strictly to boolean (0 or 1 integers not allowed).
+  Semicolon trap: `if (x > 5);` ends the if immediately as an empty statement!
+- `if-else`:
+  Mutually exclusive two-way decision. Exactly one branch executes.
+- `if-else-if` ladder:
+  Multi-way sequential decision. As soon as the first condition evaluates to true,
+  its block executes, and the remainder of the ladder is completely bypassed.
+- Dangling `else`:
+  An `else` always binds to the closest preceding unmatched `if` unless
+  enclosed in curly braces `{}`.
+
+2. THE SWITCH STATEMENT ARCHITECTURE
+--------------------------------------------------------------------------------
+Four Essential Pillars:
+1. `switch (expression)`: Evaluated only once at the start.
+2. `case CONSTANT:`: Must be compile-time constants followed by a COLON (`:`).
+3. `break;`: Halts execution and exits the switch block immediately.
+4. `default:`: Executes when no case label matches the selector expression.
+
+3. PERMISSIBLE VS FORBIDDEN SWITCH DATA TYPES
+--------------------------------------------------------------------------------
+ALLOWED:
+- Primitive Integers: `byte`, `short`, `char`, `int`
+- Wrapper Classes: `Byte`, `Short`, `Character`, `Integer` (via auto-unboxing)
+- `String` (Java 7+): Implemented via `hashCode()` + `equals()` check
+- `enum` (Java 5+): Typesafe enumerated constants
+
+FORBIDDEN (CAUSE COMPILATION ERRORS):
+- `float` & `double`: IEEE 754 precision rounding imprecision breaks exact `==`.
+- `boolean`: Only 2 states; simple `if-else` is standard.
+- `long`: 64-bit integer exceeds 32-bit jump table index in JVM bytecode.
+
+4. FALL-THROUGH MECHANICS & BREAK RULES
+--------------------------------------------------------------------------------
+- Definition: Execution continuing into subsequent cases when `break;` is omitted.
+- Golden Rule: During fall-through, Java does NOT check subsequent case labels!
+  Statements execute blindly until a `break;` or closing brace `}` is hit.
+- Intentional Use: Stacking cases to share code (e.g. vowels, weekdays, tariff tiers).
+- The Default Trap: A `default:` placed at top or middle without `break;` will
+  fall through into the next case when no matching case exists!
+
+5. 5-POINT IF-ELSE TO SWITCH CONVERSION ALGORITHM
+--------------------------------------------------------------------------------
+Step 1: Check that all branches compare the SAME variable for equality (`==`).
+Step 2: Place that variable in `switch (var)`.
+Step 3: Map `if (var == val)` and `else if (var == val)` to `case val:`.
+Step 4: CRITICAL: Add `break;` after each case to maintain mutual exclusivity!
+Step 5: Convert the final unconditional `else` to `default:`.
+
+6. NETBEANS SWING GUI BILLING INTEGRATION
+--------------------------------------------------------------------------------
+- Reading textfield input:
+  `int w = Integer.parseInt(jTextField1.getText().trim());`
+- Variable scope rule:
+  Always declare `double pay = 0.0;` BEFORE the switch block!
+- Writing result to output textfield:
+  `jTextField2.setText("" + pay);` or `Double.toString(pay);`
+- Defensive coding:
+  Wrap in `try-catch(NumberFormatException e)` to catch empty or non-numeric inputs.
+
+================================================================================
+END OF MASTER REVISION SUMMARY
+================================================================================

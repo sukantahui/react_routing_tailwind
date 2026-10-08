@@ -1,0 +1,63 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 3
+THE ROLE OF THE DEFAULT CLAUSE IN JAVA SWITCH STATEMENTS
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS THE `default` CLAUSE?
+--------------------------------------------------------------------------------
+- The `default` clause is the fallback branch of a Java `switch` statement.
+- It executes if and only if NONE of the specified `case` labels match the value of the switch expression.
+- It is the exact equivalent of the final trailing `else` in an `if-else-if` ladder:
+  ```java
+  // if-else equivalent:
+  if (x == 1) { ... }
+  else if (x == 2) { ... }
+  else { /* DEFAULT HANDLER */ }
+  ```
+
+2. KEY RULES & CHARACTERISTICS OF `default`:
+--------------------------------------------------------------------------------
+1. Completely Optional:
+   - A `switch` block is not required to have a `default` clause.
+   - If omitted and no case matches, the switch executes nothing and continues normally.
+2. Uniqueness:
+   - Only ONE `default` label is allowed per switch statement. Two `default:` labels result in a compile-time error: `duplicate default label`.
+3. Position Flexibility:
+   - The `default` label can be placed anywhere inside the switch: at the top, in the middle, or at the bottom.
+4. Evaluation Priority:
+   - Java evaluates all specific `case` labels first regardless of where `default` is placed! If a case matches, it jumps to that case directly.
+
+3. THE CRITICAL "DEFAULT WITHOUT BREAK" EXAM TRAP:
+--------------------------------------------------------------------------------
+Case A: `default` at the bottom (Standard):
+```java
+switch (code) {
+    case 1: System.out.print("One "); break;
+    default: System.out.print("Invalid "); break;
+}
+```
+If `code = 99`, it prints "Invalid ".
+
+Case B: `default` at the top WITHOUT `break`:
+```java
+switch (code) {
+    default: System.out.print("Def ");
+    case 1: System.out.print("One "); break;
+    case 2: System.out.print("Two "); break;
+}
+```
+- If `code = 1`: Jumps directly to `case 1:`, prints "One ".
+- If `code = 99`: Jumps to `default:`, prints "Def ". Because there is NO break, it falls through into `case 1:`, prints "One ", and then breaks!
+  Output: "Def One "!
+
+4. DEFENSIVE PROGRAMMING WITH `default`:
+--------------------------------------------------------------------------------
+In real-world applications (such as banking systems or billing apps in Barrackpore / Kolkata):
+- Always provide a `default` clause to catch corrupt database records, invalid user dropdown selections, or unhandled enum values.
+- Log error messages or throw an `IllegalArgumentException` in `default`.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 3
+================================================================================

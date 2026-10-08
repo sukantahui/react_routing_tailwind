@@ -1,0 +1,60 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 1
+THE SWITCH STATEMENT: MULTI-WAY SELECTION IN JAVA
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS THE `switch` STATEMENT?
+--------------------------------------------------------------------------------
+- The `switch` statement is a multi-way branch selection control structure in Java.
+- It tests an expression against multiple possible discrete constant values (called `case` labels) and transfers control directly to the block of code matching that value.
+- Instead of checking conditions sequentially from top to bottom (like an `if-else-if` ladder does with $O(N)$ comparisons), the JVM can optimize a `switch` using a jump table or bytecode lookup table (`tableswitch` / `lookupswitch`), providing direct $O(1)$ dispatch.
+
+2. BASIC SYNTAX OF `switch`:
+--------------------------------------------------------------------------------
+```java
+switch (expression) {
+    case value1:
+        // Statements executed when expression == value1
+        break;
+    case value2:
+        // Statements executed when expression == value2
+        break;
+    case value3:
+        // Statements executed when expression == value3
+        break;
+    default:
+        // Statements executed when NO case matched
+        break;
+}
+```
+
+3. HOW `switch` EXECUTES:
+--------------------------------------------------------------------------------
+1. The `expression` inside `switch(...)` is evaluated ONCE.
+2. The evaluated value is compared against each `case` label.
+3. Once an exact match is found, control jumps directly to that case.
+4. All statements following that case execute until a `break` statement is reached or the switch block ends.
+5. If no case matches and a `default` clause exists, control jumps to `default`.
+
+4. WHY USE `switch` INSTEAD OF `if-else`?
+--------------------------------------------------------------------------------
+Feature                  | if-else-if Ladder           | switch Statement
+-------------------------|-----------------------------|---------------------------
+Comparison Type          | Any condition (<, >, !=, &&)| Exact equality (==) only
+Expression Evaluation    | Re-evaluated on every branch| Evaluated only ONCE
+Readability for Menus    | Messy for 5+ options        | Extremely clean and modular
+Performance              | Linear $O(N)$ sequential    | Fast table lookup $O(1)$
+
+5. PERMISSIBLE DATA TYPES FOR `switch` EXPRESSION:
+--------------------------------------------------------------------------------
+In modern Java:
+- Primitive integer types: `byte`, `short`, `char`, `int` (and their Wrapper classes)
+- `String` (introduced in Java 7)
+- `enum` (enumerated types)
+- NOT ALLOWED: `float`, `double`, `boolean`, `long`!
+
+================================================================================
+END OF REVISION NOTE - TOPIC 1
+================================================================================

@@ -1,0 +1,57 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 6
+PERMISSIBLE SWITCH DATA TYPES IN JAVA (ALLOWED VS FORBIDDEN)
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. THE COMPLETE PERMISSIBLE DATA TYPES MATRIX:
+--------------------------------------------------------------------------------
+Data Type                  | Switch Status | Introduced In | Reason / JVM Implementation
+---------------------------|---------------|---------------|---------------------------------------------
+int / Integer              | ALLOWED       | Java 1.0      | Standard 32-bit integer, native tableswitch
+char / Character           | ALLOWED       | Java 1.0      | 16-bit unsigned integer (Unicode code point)
+short / Short              | ALLOWED       | Java 1.0      | 16-bit signed integer promoted to int
+byte / Byte                | ALLOWED       | Java 1.0      | 8-bit signed integer promoted to int
+String                     | ALLOWED       | Java 7 (1.7)  | HashCode() table + equals() verification
+enum (Enumeration)         | ALLOWED       | Java 5 (1.5)  | Ordinal values mapped to integers
+---------------------------|---------------|---------------|---------------------------------------------
+long / Long                | FORBIDDEN     | Illegal       | Exceeds 32-bit table indexing limit in JVM
+float / Float              | FORBIDDEN     | Illegal       | IEEE 754 precision rounding issues
+double / Double            | FORBIDDEN     | Illegal       | IEEE 754 precision rounding issues
+boolean / Boolean          | FORBIDDEN     | Illegal       | Only 2 states; simple if-else is preferred
+
+2. WHY ARE `float` AND `double` FORBIDDEN?
+--------------------------------------------------------------------------------
+- In floating-point arithmetic (IEEE 754 standard), binary fractional representations are not always exact.
+  For example, `0.1 + 0.2` evaluates to `0.30000000000000004` rather than exactly `0.3`.
+- Because `switch` relies strictly on EXACT binary equality (`==`), using floating-point numbers would lead to unpredictable, platform-dependent behavior where case matches fail unexpectedly.
+- Hence, the Java Language Specification intentionally disallows `float` and `double` in `switch` expressions.
+
+3. WHY IS `long` FORBIDDEN?
+--------------------------------------------------------------------------------
+- The JVM bytecode instructions that implement switch statements (`tableswitch` and `lookupswitch`) are hardcoded to operate on 32-bit signed integers.
+- A `long` is 64 bits wide, which cannot fit into the JVM's 32-bit jump table offsets.
+
+4. WHY IS `boolean` FORBIDDEN?
+--------------------------------------------------------------------------------
+- A boolean has only two possible states: `true` and `false`.
+- A simple `if-else` statement is more concise, idiomatic, and readable for two-way branching than a verbose `switch` with `case true:` and `case false:`.
+
+5. HOW STRING SWITCH WORKS UNDER THE HOOD (JAVA 7+):
+--------------------------------------------------------------------------------
+When you write:
+```java
+switch (role) {
+    case "ADMIN": ...
+    case "USER": ...
+}
+```
+The Java compiler translates this into a two-step bytecode sequence:
+1. Step 1: Computes `role.hashCode()` and jumps via an integer switch.
+2. Step 2: Calls `role.equals("ADMIN")` to prevent hash collision false positives!
+Crucial Trap: If `role == null`, `role.hashCode()` throws a `NullPointerException`!
+
+================================================================================
+END OF REVISION NOTE - TOPIC 6
+================================================================================

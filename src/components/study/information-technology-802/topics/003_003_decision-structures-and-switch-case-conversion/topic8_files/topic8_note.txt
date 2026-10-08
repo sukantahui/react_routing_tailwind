@@ -1,0 +1,23 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 8
+DOWNLOADABLE DOCUMENTS & 10-POINT EXAM READINESS CHECKLIST
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. TOP 10 CBSE IT-802 EXAM GOLDEN RULES FOR DECISION STRUCTURES:
+--------------------------------------------------------------------------------
+1. No Semicolon After If: Writing `if (x > 5);` ends the condition immediately, making the block below execute unconditionally.
+2. Equality vs Assignment: `if (a = 5)` where `a` is `int` causes a compile-time error. But `if (flag = true)` assigns `true` and compiles!
+3. Ladder Short-Circuit: In an `if-else-if` ladder, only the first matching true branch executes; all subsequent branches are skipped.
+4. Dangling Else: In nested conditionals without braces, an `else` binds to the closest preceding unmatched `if`.
+5. Constant Case Labels: Case labels must be compile-time constants (literals or final variables). Normal variables are rejected!
+6. Permissible Switch Types: Only `byte`, `short`, `char`, `int`, `String`, `enum`, and integer wrappers are allowed. `float`, `double`, `boolean`, and `long` are FORBIDDEN!
+7. Missing Break Fall-Through: If `break;` is omitted, Java executes following cases blindly without re-checking case labels!
+8. Default Placement Trap: If `default:` is at the top or in the middle without a `break;`, it will fall through into the next case when no matching case exists.
+9. GUI Textfield Parsing: Always use `Integer.parseInt(jTextField1.getText().trim())` and declare output variables before the switch to preserve scope.
+10. Conversion Rule: When rewriting an `if-else` ladder to `switch`, always append `break;` to every case to maintain mutual exclusivity.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 8
+================================================================================

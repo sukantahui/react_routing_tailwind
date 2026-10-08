@@ -1,0 +1,85 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 7
+FALL-THROUGH BEHAVIOR IN JAVA SWITCH STATEMENTS
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS FALL-THROUGH?
+--------------------------------------------------------------------------------
+- In Java's `switch` statement, when execution enters a matching `case`, it executes all following statements sequentially until a `break;` statement is encountered or the switch block closing brace `}` is reached.
+- If a `case` does NOT end with a `break;`, control automatically cascades (falls through) into the next `case` block, executing its statements UNCONDITIONALLY.
+- Crucial Rule: During fall-through, Java does NOT check the subsequent case labels! They are executed blindly regardless of whether their constant matches the test variable!
+
+2. INTENTIONAL USE OF FALL-THROUGH:
+--------------------------------------------------------------------------------
+Fall-through is not always a bug; when used intentionally, it allows multiple case labels to share identical logic:
+
+Example 1: Identifying Vowels:
+```java
+char ch = 'e';
+switch (ch) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+        System.out.println("Vowel");
+        break;
+    default:
+        System.out.println("Consonant");
+        break;
+}
+```
+
+Example 2: Days of the Week (Weekday vs Weekend):
+```java
+int day = 3;
+switch (day) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        System.out.println("Working Weekday");
+        break;
+    case 6:
+    case 7:
+        System.out.println("Weekend Holiday");
+        break;
+    default:
+        System.out.println("Invalid day index");
+        break;
+}
+```
+
+3. ACCIDENTAL FALL-THROUGH (THE #1 CBSE EXAM TRAP):
+--------------------------------------------------------------------------------
+Consider the following output prediction question:
+```java
+int k = 2;
+switch (k) {
+    case 1: System.out.print("Jan ");
+    case 2: System.out.print("Feb ");
+    case 3: System.out.print("Mar "); break;
+    case 4: System.out.print("Apr ");
+    default: System.out.print("End ");
+}
+```
+Execution Trace:
+1. `k = 2` jumps directly to `case 2:`.
+2. Prints "Feb ".
+3. No `break;` exists at the end of `case 2:`!
+4. Execution falls through blindly into `case 3:` (without checking if `k == 3`).
+5. Prints "Mar ".
+6. Hits `break;` inside `case 3:` and halts!
+Output: "Feb Mar " (NOT just "Feb "!).
+
+4. HOW TO PREVENT ACCIDENTAL FALL-THROUGH:
+--------------------------------------------------------------------------------
+1. Standard Practice: Always end every `case` and `default` with `break;` unless deliberate stacking is required.
+2. Modern Java (Java 14+): Switch expressions using arrow syntax (`case 1 -> System.out.println("One");`) eliminate fall-through completely. (Note: CBSE IT-802 tests traditional colon syntax).
+
+================================================================================
+END OF REVISION NOTE - TOPIC 7
+================================================================================

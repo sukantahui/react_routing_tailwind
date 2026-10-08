@@ -1,0 +1,56 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 0
+ARITHMETIC OPERATORS IN JAVA: +, -, *, /, %
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT ARE ARITHMETIC OPERATORS?
+--------------------------------------------------------------------------------
+- Arithmetic operators are binary operators used in mathematical calculations and numerical expressions in Java.
+- They take two operands and return a single calculated numerical result.
+- The 5 basic arithmetic operators are:
+  1. `+` (Addition): Adds two values or performs String concatenation.
+  2. `-` (Subtraction): Subtracts the second operand from the first.
+  3. `*` (Multiplication): Multiplies two operands.
+  4. `/` (Division): Divides the numerator by the denominator (integer division truncates; floating-point division preserves decimals).
+  5. `%` (Modulus): Returns the remainder of division between two operands.
+
+2. UNARY VS BINARY ARITHMETIC OPERATORS:
+--------------------------------------------------------------------------------
+- Unary Operators: Operate on a single operand.
+  * Unary plus (`+x`): Indicates positive value.
+  * Unary minus (`-x`): Negates an expression (e.g. `int a = 5; int b = -a;` -> `b = -5`).
+- Binary Operators: Operate on two operands (`a + b`, `a - b`, `a * b`, `a / b`, `a % b`).
+
+3. AUTOMATIC ARITHMETIC TYPE PROMOTION (CBSE Core Concept):
+--------------------------------------------------------------------------------
+When evaluating binary arithmetic expressions, Java automatically promotes operand types according to strict rules:
+1. Smaller integer types (`byte`, `short`, `char`) are AUTOMATICALLY PROMOTED to `int` before arithmetic operations!
+   * Example:
+     ```java
+     byte b1 = 10;
+     byte b2 = 20;
+     byte b3 = b1 + b2; // COMPILE ERROR: possible lossy conversion from int to byte
+     // Explanation: (b1 + b2) is evaluated as int, so result is int!
+     // Fix: byte b3 = (byte)(b1 + b2);
+     ```
+2. If ANY operand is `double`, the entire expression is promoted to `double`.
+3. Else if ANY operand is `float`, the entire expression is promoted to `float`.
+4. Else if ANY operand is `long`, the entire expression is promoted to `long`.
+5. Otherwise, the expression is evaluated as `int`.
+
+4. ARITHMETIC OPERATOR SUMMARY TABLE:
+--------------------------------------------------------------------------------
+| Operator | Name           | Example       | Operands Types | Result  | Description                        |
+|----------|----------------|---------------|----------------|---------|------------------------------------|
+| +        | Addition       | `15 + 4`      | `int, int`     | `19`    | Sum of two numbers                 |
+| -        | Subtraction    | `15 - 4`      | `int, int`     | `11`    | Difference between two numbers     |
+| *        | Multiplication | `15 * 4`      | `int, int`     | `60`    | Product of two numbers             |
+| /        | Division       | `15 / 4`      | `int, int`     | `3`     | Integer quotient (truncates .75)   |
+| /        | Float Division | `15.0 / 4`    | `double, int`  | `3.75`  | Floating quotient with decimals    |
+| %        | Modulus        | `15 % 4`      | `int, int`     | `3`     | Remainder of division (15 = 4*3+3) |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 0 (ARITHMETIC OPERATORS)
+================================================================================

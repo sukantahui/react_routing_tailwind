@@ -1,0 +1,50 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 2
+ANATOMY OF SWITCH: EXPRESSION, CASE LABELS, BREAK & DEFAULT
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. THE FOUR CORE PILLARS OF A JAVA SWITCH STATEMENT:
+--------------------------------------------------------------------------------
+Every standard `switch` statement in Java is composed of four fundamental elements:
+
+PILLAR 1: THE SWITCH HEADER `switch (expression)`
+- The expression enclosed in parentheses whose value is tested against case labels.
+- Valid types: `byte`, `short`, `char`, `int`, `String` (Java 7+), and `enum`.
+- Illegal types: `float`, `double`, `boolean`, `long`.
+- Evaluated exactly ONCE at the start of the switch execution.
+
+PILLAR 2: THE CASE LABELS `case CONSTANT:`
+- Marked by the keyword `case`, followed by a constant value and a colon `:`.
+- Requirements:
+  1. Must be a compile-time CONSTANT (literal or `final` variable).
+  2. The data type of the constant must be assignment-compatible with the switch expression.
+  3. No duplicate case labels are permitted in the same switch.
+  4. Cannot use relational operators (`<`, `>`, `!=`) or ranges.
+
+PILLAR 3: THE `break` STATEMENT
+- `break;` is a jump statement that immediately terminates execution within the switch body.
+- When Java encounters `break;`, control transfers directly to the first statement following the switch block closing brace `}`.
+- If `break` is omitted, execution cascades into the next case statement (called FALL-THROUGH).
+
+PILLAR 4: THE `default` CLAUSE
+- Acts as a catch-all fallback block executed when no `case` label matches the expression.
+- Characteristics:
+  1. It is completely OPTIONAL.
+  2. Only ONE `default` label is permitted per switch block.
+  3. Can be placed anywhere (top, middle, or bottom), although conventionally placed at the end.
+  4. If placed at the top or middle, it MUST have a `break;` to prevent fall-through into following cases!
+
+2. SYNTACTIC RULES CHECKLIST FOR CBSE EXAMS:
+--------------------------------------------------------------------------------
+✓ Semicolon vs Colon:
+  - `case 1:` uses a COLON (`:`), NOT a semicolon (`;`). Writing `case 1;` is a syntax error!
+✓ Curly Braces:
+  - Statements inside a `case` do NOT require individual curly braces `{}`. Execution runs until a `break;` is encountered.
+✓ Variable Scope:
+  - Variables declared inside one case are visible across other cases in the same switch unless enclosed in a local block `{ ... }`.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 2
+================================================================================

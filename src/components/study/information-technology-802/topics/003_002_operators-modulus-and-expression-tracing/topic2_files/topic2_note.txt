@@ -1,0 +1,58 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 2
+THE MODULUS OPERATOR (%): REMAINDER EVALUATION MECHANICS
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS THE MODULUS OPERATOR (%)?
+--------------------------------------------------------------------------------
+- The modulus operator `%` (also called the remainder operator) computes the remainder left over after dividing two numerical operands.
+- Formal Mathematical Definition:
+  For any integers `a` and `b`:
+  `a % b = a - (b * (a / b))`
+  Where `a / b` represents truncated integer division.
+
+2. CORE CASE 1: DIVIDEND SMALLER THAN DIVISOR (a < b)
+--------------------------------------------------------------------------------
+- When the numerator/dividend `a` is smaller than the denominator/divisor `b` (and `a > 0`), the division quotient is `0`, and the ENTIRE dividend is left as remainder!
+  * Formula: If `0 <= a < b`, then `a % b = a`.
+  * Examples:
+    - `10 % 80 = 10`  (since 10 / 80 = 0, remainder is 10)
+    - `3 % 7 = 3`     (since 3 / 7 = 0, remainder is 3)
+    - `1 % 5 = 1`
+  * This is an absolute favorite question in CBSE Class 12 IT-802 board exams!
+
+3. CORE CASE 2: SIGN RULES WITH NEGATIVE NUMBERS (CBSE Golden Rule):
+--------------------------------------------------------------------------------
+- In Java, the sign of the result of `a % b` is STRICTLY DETERMINED BY THE SIGN OF THE DIVIDEND (`a`).
+- The sign of the divisor (`b`) is completely IGNORED in the result!
+  * Example 1: `10 % 3`   -> `+1` (Dividend +10 is positive)
+  * Example 2: `10 % -3`  -> `+1` (Dividend +10 is positive -> Result is positive!)
+  * Example 3: `-10 % 3`  -> `-1` (Dividend -10 is negative -> Result is negative!)
+  * Example 4: `-10 % -3` -> `-1` (Dividend -10 is negative -> Result is negative!)
+
+Verification with Formal Formula `a - (b * (a / b))`:
+- `-10 % 3`: `-10 - (3 * (-10 / 3)) = -10 - (3 * (-3)) = -10 - (-9) = -1`
+- `10 % -3`: `10 - (-3 * (10 / -3)) = 10 - (-3 * (-3)) = 10 - (9) = +1`
+
+4. CORE CASE 3: MODULUS WITH FLOATING-POINT NUMBERS
+--------------------------------------------------------------------------------
+- Unlike C and C++, Java allows the modulus operator `%` on floating-point operands (`float` and `double`).
+  * Example: `7.5 % 2.0 = 1.5`  (since 2.0 * 3 = 6.0, remainder is 1.5)
+  * Example: `5.5 % 2.1 = 1.3`
+
+5. PRACTICAL APPLICATIONS OF THE MODULUS OPERATOR:
+--------------------------------------------------------------------------------
+1. Testing Even / Odd Numbers:
+   `if (number % 2 == 0) // Even; else Odd`
+2. Extracting the Last Digit of an Integer:
+   `int lastDigit = number % 10;` (e.g. `245 % 10 = 5`)
+3. Circular Array Indexing / Wrapping Around Clocks:
+   `int nextIndex = (currentIndex + 1) % arrayLength;`
+4. Time Conversions (Seconds to Minutes & Seconds):
+   `int remainingSecs = totalSeconds % 60;`
+
+================================================================================
+END OF REVISION NOTE - TOPIC 2 (MODULUS OPERATOR)
+================================================================================

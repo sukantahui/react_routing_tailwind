@@ -1,0 +1,76 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 5
+COMPOUND ASSIGNMENT OPERATORS: +=, -=, *=, /=, %=
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT ARE COMPOUND ASSIGNMENT OPERATORS?
+--------------------------------------------------------------------------------
+- Compound assignment operators (also known as shorthand assignment operators) combine an arithmetic or bitwise operation with assignment into a single concise token.
+- Standard Compound Operators in Java:
+  * `+=` (Addition assignment): `x += 5` $\equiv$ `x = x + 5`
+  * `-=` (Subtraction assignment): `x -= 5` $\equiv$ `x = x - 5`
+  * `*=` (Multiplication assignment): `x *= 5` $\equiv$ `x = x * 5`
+  * `/=` (Division assignment): `x /= 5` $\equiv$ `x = x / 5`
+  * `%=` (Modulus assignment): `x %= 5` $\equiv$ `x = x % 5`
+
+2. THE HIDDEN SUPERPOWER: AUTOMATIC IMPLICIT TYPE CASTING!
+--------------------------------------------------------------------------------
+This is the single most tested compound assignment concept in CBSE Class 12 IT-802:
+
+According to the Java Language Specification (JLS §15.26.2):
+A compound assignment expression of the form:
+`E1 op= E2`
+is EQUIVALENT to:
+`E1 = (T)((E1) op (E2))`
+where `T` is the data type of `E1`, except that `E1` is evaluated only once!
+
+The Classic CBSE Exam Trap:
+Consider `byte b = 10;`
+- Case 1: `b = b + 5;`
+  * Result: COMPILE-TIME ERROR!
+  * Reason: `b + 5` promotes `b` to `int`, producing an `int` result (15). Assigning `int` to `byte` causes "possible lossy conversion from int to byte".
+
+- Case 2: `b += 5;`
+  * Result: COMPILES CLEANLY AND SUCCEEDS!
+  * Reason: Java internally rewrites `b += 5` as `b = (byte)(b + 5);`, automatically inserting the narrowing type cast back to `byte`!
+
+3. EVALUATION OF COMPOUND MODULUS (x %= y):
+--------------------------------------------------------------------------------
+- Example:
+  ```java
+  int x = 10, y = 80;
+  x %= y; // x = x % y -> 10 % 80 -> 10
+  System.out.println(x); // Output: 10
+  ```
+
+4. EVALUATION OF EXPRESSIONS ON THE RIGHT-HAND SIDE OF COMPOUND ASSIGNMENT:
+--------------------------------------------------------------------------------
+In Java, the entire expression on the right-hand side of a compound operator is treated as if it were enclosed in parentheses!
+`x *= y + 2;`
+is EQUIVALENT to:
+`x = x * (y + 2);`
+It is NOT `x = x * y + 2`!
+
+Example:
+```java
+int a = 5;
+int b = 3;
+a *= b + 2; // a = 5 * (3 + 2) = 5 * 5 = 25
+// NOT 5 * 3 + 2 = 17!
+```
+
+5. SUMMARY TABLE:
+--------------------------------------------------------------------------------
+| Compound Operator | Expanded Equivalent        | With Hidden Cast Equivalent |
+|-------------------|----------------------------|-----------------------------|
+| `x += y`          | `x = x + y`                | `x = (type)(x + y)`         |
+| `x -= y`          | `x = x - y`                | `x = (type)(x - y)`         |
+| `x *= y`          | `x = x * y`                | `x = (type)(x * y)`         |
+| `x /= y`          | `x = x / y`                | `x = (type)(x / y)`         |
+| `x %= y`          | `x = x % y`                | `x = (type)(x % y)`         |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 5 (COMPOUND ASSIGNMENT OPERATORS)
+================================================================================

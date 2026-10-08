@@ -1,0 +1,120 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+MODULE 003_002: OPERATORS, MODULUS & EXPRESSION TRACING
+SOLVED CBSE MODEL SUBJECTIVE ANSWERS & MARKING SCHEME
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+QUESTION 1 (2 MARKS):
+What is the difference between integer division and floating-point division in Java? Illustrate with outputs of `12 / 5` and `12.0 / 5`.
+
+MODEL ANSWER:
+- In Java, when both operands are integers (e.g., `12 / 5`), integer division occurs. The fractional part is strictly truncated (discarded), resulting in an integer quotient of `2`.
+- When at least one operand is a floating-point literal or variable (e.g., `12.0 / 5` or `12 / 5.0`), Java promotes the operation to floating-point division, returning a double value of `2.4`.
+- Output:
+  System.out.println(12 / 5);    // Outputs: 2
+  System.out.println(12.0 / 5);  // Outputs: 2.4
+
+MARKING SCHEME:
+- 1 Mark for explaining truncation in integer division vs floating promotion.
+- 1 Mark for correct outputs (2 and 2.4).
+--------------------------------------------------------------------------------
+
+QUESTION 2 (2 MARKS):
+Evaluate the result of the following modulus expressions and state the rule governing their signs:
+(a) `-17 % 5`
+(b) `17 % -5`
+
+MODEL ANSWER:
+(a) `-17 % 5` evaluates to `-2`.
+(b) `17 % -5` evaluates to `+2`.
+- Rule: In Java, the sign of the modulus remainder strictly follows the sign of the dividend (left operand `a` in `a % b`). The sign of the divisor (right operand `b`) is completely ignored.
+
+MARKING SCHEME:
+- 1 Mark for correct values (-2 and 2).
+- 1 Mark for stating the dividend sign inheritance rule.
+--------------------------------------------------------------------------------
+
+QUESTION 3 (3 MARKS):
+Trace the step-by-step evaluation of the following Java expression where initial `x = 5`:
+`x = ((++x) * 2) + 7;`
+State the final value of `x`.
+
+MODEL ANSWER:
+- Given initial value: `x = 5`
+- Step 1 (Parenthesized prefix increment):
+  Evaluate `(++x)`: Prefix increment changes the value of `x` from 5 to 6 in memory first, and yields `6`.
+- Step 2 (Multiplication inside outer parentheses):
+  Compute `((6) * 2) = 12`.
+- Step 3 (Addition):
+  Compute `12 + 7 = 19`.
+- Step 4 (Assignment):
+  The evaluated value `19` is assigned back to variable `x`.
+- Final Value: `x = 19`.
+
+MARKING SCHEME:
+- 1 Mark for evaluating (++x) to 6.
+- 1 Mark for intermediate calculation (6 * 2 + 7 = 19).
+- 1 Mark for final assigned value x = 19.
+--------------------------------------------------------------------------------
+
+QUESTION 4 (3 MARKS):
+Consider the following two code snippets:
+Snippet A:
+byte b = 10;
+b = b + 5;
+
+Snippet B:
+byte b = 10;
+b += 5;
+
+Explain why Snippet A fails to compile, whereas Snippet B compiles successfully.
+
+MODEL ANSWER:
+- Snippet A Failure:
+  In Java, arithmetic operations on smaller integer types (`byte`, `short`, `char`) undergo automatic binary numeric promotion to `int`. Thus, `b + 5` evaluates to type `int`. Assigning an `int` back to a `byte` variable `b` causes a compile-time error: "possible lossy conversion from int to byte".
+- Snippet B Success:
+  Under Java Language Specification (JLS §15.26.2), compound assignment operators (`E1 op= E2`) automatically inject an implicit narrowing cast: `E1 = (T)(E1 op E2)`. Therefore, `b += 5;` is internally executed as `b = (byte)(b + 5);`, resolving the type mismatch cleanly.
+
+MARKING SCHEME:
+- 1.5 Marks for explaining binary numeric promotion to int in Snippet A.
+- 1.5 Marks for explaining automatic implicit narrowing cast in Snippet B.
+--------------------------------------------------------------------------------
+
+QUESTION 5 (3 MARKS):
+Distinguish between the logical AND operator `&&` and the bitwise AND operator `&` when used in boolean conditions. How does `&&` prevent runtime exceptions?
+
+MODEL ANSWER:
+1. Short-Circuit Evaluation (`&&`):
+   - The logical AND operator `&&` performs short-circuit evaluation. If the left-hand condition evaluates to `false`, the entire expression is guaranteed to be false, so the right-hand operand is completely bypassed (not evaluated).
+2. Non-Short-Circuit Evaluation (`&`):
+   - The bitwise operator `&` evaluates both the left and right operands regardless of whether the left side is true or false.
+3. Exception Prevention Example:
+   ```java
+   int divisor = 0;
+   if (divisor != 0 && 100 / divisor > 2) { ... }
+   ```
+   Because `divisor != 0` is false, `&&` halts evaluation immediately. The division `100 / divisor` is never attempted, successfully preventing a `java.lang.ArithmeticException: / by zero`. If single `&` were used, the right side would execute and crash the program.
+
+MARKING SCHEME:
+- 1 Mark for defining short-circuit in &&.
+- 1 Mark for defining eager evaluation in &.
+- 1 Mark for illustrating zero-division exception prevention.
+--------------------------------------------------------------------------------
+
+QUESTION 6 (2 MARKS):
+Evaluate the expression `20 / 4 * 2` in Java and justify why the result is NOT 2.
+
+MODEL ANSWER:
+- Evaluated Result: `10`.
+- Justification:
+  In Java's operator precedence ladder, division `/` and multiplication `*` have identical precedence. When operators of equal precedence appear together, their associativity determines the order of evaluation. Since both `/` and `*` have Left-to-Right associativity, Java computes `(20 / 4) * 2 = 5 * 2 = 10`.
+  It is NOT 2 because multiplication does NOT outrank division in Java.
+
+MARKING SCHEME:
+- 1 Mark for correct answer 10.
+- 1 Mark for explaining equal precedence and Left-to-Right associativity.
+
+================================================================================
+END OF SOLVED CBSE MODEL ANSWERS - TOPIC 9
+================================================================================

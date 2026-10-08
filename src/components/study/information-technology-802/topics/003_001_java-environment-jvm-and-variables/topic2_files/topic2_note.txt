@@ -1,0 +1,89 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_001 - TOPIC 2
+PRIMITIVE DATA TYPES IN JAVA: BYTE, SHORT, INT, LONG, FLOAT, DOUBLE, CHAR, BOOLEAN
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT ARE DATA TYPES IN JAVA?
+--------------------------------------------------------------------------------
+- Data types specify the size, type, and permissible values that a variable can hold in computer memory, as well as the operations that can be performed on it.
+- Java is a "Statically Typed" and "Strongly Typed" language. Every variable must be declared with a specific data type before it can be used, and type safety is strictly enforced at compile time.
+
+2. CLASSIFICATION OF DATA TYPES IN JAVA:
+--------------------------------------------------------------------------------
+Java data types are divided into two main categories:
+1. Primitive Data Types (8 built-in types: byte, short, int, long, float, double, char, boolean).
+2. Non-Primitive / Reference Data Types (Classes, Interfaces, Arrays, Strings).
+
+3. THE 8 PRIMITIVE DATA TYPES (MEMORY SIZES & RANGES):
+--------------------------------------------------------------------------------
+a) INTEGER TYPES (Signed Two's Complement Integers):
+   1. `byte`:
+      - Size: 1 byte (8 bits)
+      - Range: -128 to +127 (-2^7 to 2^7 - 1)
+      - Default Value: 0
+      - Use Case: Memory saving in large numeric arrays or raw binary streams.
+   
+   2. `short`:
+      - Size: 2 bytes (16 bits)
+      - Range: -32,768 to +32,767 (-2^15 to 2^15 - 1)
+      - Default Value: 0
+      - Use Case: Medium integers where memory conservation is important.
+   
+   3. `int`:
+      - Size: 4 bytes (32 bits)
+      - Range: -2,147,483,648 to +2,147,483,647 (-2^31 to 2^31 - 1)
+      - Default Value: 0
+      - Note: Default type for all whole integer literals in Java.
+   
+   4. `long`:
+      - Size: 8 bytes (64 bits)
+      - Range: -9,223,372,036,854,775,808 to +9,223,372,036,854,775,807 (-2^63 to 2^63 - 1)
+      - Default Value: 0L
+      - Suffix: Requires `L` or `l` suffix when literal exceeds int range (e.g. `long aadhaar = 987654321012L;`).
+
+b) FLOATING-POINT TYPES (IEEE 754 Standard):
+   5. `float`:
+      - Size: 4 bytes (32 bits)
+      - Precision: ~6 to 7 decimal digits
+      - Default Value: 0.0f
+      - Suffix: MUST have `f` or `F` suffix (e.g., `float rate = 8.75f;`). Without `f`, `8.75` is treated as `double`, causing a compiler error: "possible lossy conversion from double to float".
+   
+   6. `double`:
+      - Size: 8 bytes (64 bits)
+      - Precision: ~15 decimal digits
+      - Default Value: 0.0d
+      - Note: Default type for all decimal/fractional literals in Java (e.g., `double price = 999.50;`).
+
+c) CHARACTER TYPE:
+   7. `char`:
+      - Size: 2 bytes (16 bits)
+      - Character Set: Unicode Standard (0 to 65,535 or '\u0000' to '\uffff')
+      - Default Value: '\u0000' (null character, integer value 0)
+      - Syntax: Enclosed in SINGLE QUOTES (e.g. `char grade = 'A';`, `char rupeeSymbol = '₹';`).
+      - Note: In C/C++, char is 1 byte (ASCII). In Java, char is 2 bytes (Unicode) to support all world languages including Bengali, Hindi, Japanese, etc.
+
+d) BOOLEAN TYPE:
+   8. `boolean`:
+      - Size: JVM dependent (conceptually 1 bit; typically stored in 1 byte)
+      - Values: ONLY `true` or `false`
+      - Default Value: `false`
+      - Note: In Java, boolean CANNOT be converted to or from integers. `0` or `1` are NOT valid boolean values in Java (unlike C/C++ where 0 is false and 1 is true).
+
+4. CBSE EXAM QUICK REFERENCE TABLE:
+--------------------------------------------------------------------------------
+| Type    | Size    | Bits | Min Value       | Max Value      | Default Value | Suffix Required |
+|---------|---------|------|-----------------|----------------|---------------|-----------------|
+| byte    | 1 Byte  | 8    | -128            | 127            | 0             | None            |
+| short   | 2 Bytes | 16   | -32,768         | 32,767         | 0             | None            |
+| int     | 4 Bytes | 32   | -2^31           | 2^31 - 1       | 0             | None            |
+| long    | 8 Bytes | 64   | -2^63           | 2^63 - 1       | 0L            | L or l          |
+| float   | 4 Bytes | 32   | ~1.4e-45        | ~3.4e+38       | 0.0f          | F or f          |
+| double  | 8 Bytes | 64   | ~4.9e-324       | ~1.7e+308      | 0.0d          | D or d (opt)    |
+| char    | 2 Bytes | 16   | '\u0000' (0)    | '\uffff' (65535)| '\u0000'     | Single quotes ''|
+| boolean | 1 Bit*  | -    | false           | true           | false         | None            |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 2 (PRIMITIVE DATA TYPES)
+================================================================================

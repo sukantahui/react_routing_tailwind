@@ -1,0 +1,23 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 8
+DOWNLOADABLE DOCUMENTS & MASTER REVISION CHECKLIST
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. TOP 10 CBSE IT-802 EXAM GOLDEN RULES FOR JAVA OPERATORS:
+--------------------------------------------------------------------------------
+1. Integer Truncation: `12 / 5` evaluates to `2`. To obtain `2.4`, at least one operand must be a floating-point type: `12.0 / 5` or `(double)12 / 5`.
+2. Modulus Sign Inheritance: The result of `a % b` takes the sign of dividend `a` only. `10 % -3 = 1` and `-10 % 3 = -1`.
+3. Modulus When Dividend is Smaller: If `a < b`, then `a % b = a` (e.g., `10 % 80 = 10`).
+4. Prefix vs Postfix: `++x` increments before returning; `x++` returns current value and then increments.
+5. Self-Assignment Quirk: `x = x++;` does NOT change `x` because the postfix operator evaluates to the original value which is then written back into `x`.
+6. Expression Tracing: For `x = ((++x) * 2) + 7` where initial `x = 5`, compute `(++x)` to get 6, multiply by 2 to get 12, add 7 to get 19.
+7. Implicit Compound Narrowing: `byte b = 10; b += 5;` compiles safely because Java injects `(byte)(b + 5)`.
+8. Compound Parenthesization: `a *= b + 2` is equivalent to `a = a * (b + 2)`.
+9. Short-Circuit Immunity: `&&` stops on the first `false`; `||` stops on the first `true`. Side-effects on the right operand are bypassed!
+10. Associativity Exceptions: Unary (`++`, `--`, `!`), Ternary (`? :`), and Assignment (`=`, `+=`) evaluate Right-to-Left. All others evaluate Left-to-Right.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 8
+================================================================================

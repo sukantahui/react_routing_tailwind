@@ -1,0 +1,66 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 7
+OPERATOR PRECEDENCE AND ASSOCIATIVITY RULES IN JAVA
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS OPERATOR PRECEDENCE?
+--------------------------------------------------------------------------------
+- When multiple operators appear in a single expression, operator precedence determines the order in which operations are evaluated.
+- Operators with HIGHER precedence are evaluated before operators with LOWER precedence.
+- For example, in `a + b * c`, the multiplication `*` has higher precedence than addition `+`, so `b * c` is computed first.
+
+2. WHAT IS OPERATOR ASSOCIATIVITY?
+--------------------------------------------------------------------------------
+- When two operators of EQUAL precedence appear in an expression, associativity dictates the direction of evaluation:
+  1. LEFT-TO-RIGHT (L to R): Most binary operators (e.g. `+`, `-`, `*`, `/`, `%`, `<`, `>`, `==`, `&&`, `||`).
+     Example: `100 / 10 * 2` -> evaluated as `(100 / 10) * 2 = 10 * 2 = 20`.
+  2. RIGHT-TO-LEFT (R to L): 
+     - Unary operators: `++`, `--`, `+`, `-`, `!`, `~`, `(type cast)`
+     - Ternary conditional operator: `? :`
+     - Assignment operators: `=`, `+=`, `-=`, `*=`, `/=`, `%=`
+     Example: `a = b = c = 5;` -> evaluated as `a = (b = (c = 5));`
+
+3. THE JAVA OPERATOR PRECEDENCE LADDER (HIGHEST TO LOWEST):
+--------------------------------------------------------------------------------
+Level | Operator Type             | Operators                             | Associativity
+------|---------------------------|---------------------------------------|---------------
+1     | Postfix                   | expr++, expr--                        | Left to Right
+2     | Unary (Prefix & Logical)  | ++expr, --expr, +expr, -expr, !, ~    | Right to Left
+3     | Multiplicative            | *, /, %                               | Left to Right
+4     | Additive                  | +, -                                  | Left to Right
+5     | Shift                     | <<, >>, >>>                           | Left to Right
+6     | Relational                | <, >, <=, >=, instanceof              | Left to Right
+7     | Equality                  | ==, !=                                | Left to Right
+8     | Bitwise AND               | &                                     | Left to Right
+9     | Bitwise XOR               | ^                                     | Left to Right
+10    | Bitwise OR                | |                                     | Left to Right
+11    | Logical AND               | &&                                    | Left to Right
+12    | Logical OR                | ||                                    | Left to Right
+13    | Ternary Conditional       | ? :                                   | Right to Left
+14    | Assignment                | =, +=, -=, *=, /=, %=                 | Right to Left
+
+4. CRUCIAL CBSE EXAM TRAPS & RULES:
+--------------------------------------------------------------------------------
+Rule 1: Multiplication and Division have EQUAL precedence!
+- Because both have equal precedence, associativity is Left-to-Right.
+- Expression: `20 / 4 * 2`
+  Step 1: `20 / 4 = 5`
+  Step 2: `5 * 2 = 10` (NOT `20 / 8 = 2`!)
+
+Rule 2: Logical AND (`&&`) has higher precedence than Logical OR (`||`)!
+- Expression: `true || false && false`
+  Step 1: `false && false` evaluates to `false`
+  Step 2: `true || false` evaluates to `true`
+
+Rule 3: Parentheses `(...)` override all natural precedence rules!
+- Always use parentheses for clarity and exam safety.
+- Expression: `(5 + 3) * 2 = 8 * 2 = 16`.
+
+Rule 4: Right-to-Left Chained Assignments:
+- `x = y = z = 10;` assigns 10 to `z`, then `z` to `y`, then `y` to `x`.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 7 (OPERATOR PRECEDENCE & ASSOCIATIVITY)
+================================================================================

@@ -1,0 +1,68 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_002 - TOPIC 6
+RELATIONAL AND LOGICAL OPERATORS IN JAVA BOOLEAN EXPRESSIONS
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT ARE RELATIONAL OPERATORS?
+--------------------------------------------------------------------------------
+- Relational operators compare two numerical or character operands and ALWAYS return a `boolean` result (`true` or `false`).
+- In Java, the 6 relational operators are:
+  1. `==` (Equal to): Returns true if both operands are equal.
+  2. `!=` (Not equal to): Returns true if operands are not equal.
+  3. `>`  (Greater than): Returns true if left operand > right operand.
+  4. `<`  (Less than): Returns true if left operand < right operand.
+  5. `>=` (Greater than or equal to).
+  6. `<=` (Less than or equal to).
+
+Crucial CBSE Trap: `==` vs `=`
+- `=` is the ASSIGNMENT operator (e.g. `x = 5;`).
+- `==` is the EQUALITY RELATIONAL operator (e.g. `if (x == 5)`).
+
+2. WHAT ARE LOGICAL OPERATORS?
+--------------------------------------------------------------------------------
+Logical operators combine or negate boolean conditions:
+1. `&&` (Logical Short-Circuit AND):
+   - Returns `true` if and only if BOTH conditions are true.
+   - If the first condition is `false`, Java does NOT evaluate the second condition! (Short-Circuit)
+2. `||` (Logical Short-Circuit OR):
+   - Returns `true` if AT LEAST ONE condition is true.
+   - If the first condition is `true`, Java does NOT evaluate the second condition! (Short-Circuit)
+3. `!` (Logical NOT):
+   - Unary operator that inverts the truth value (`!true` $\to$ `false`; `!false` $\to$ `true`).
+
+3. SHORT-CIRCUIT (`&&`, `||`) VS BITWISE (`&`, `|`):
+--------------------------------------------------------------------------------
+Understanding short-circuit behavior is essential for CBSE Class 12 IT-802:
+
+a) Short-Circuit AND (`&&`):
+   ```java
+   int y = 0;
+   if (y != 0 && 100 / y > 2) { ... }
+   ```
+   - Step 1: `y != 0` evaluates to `false`.
+   - Step 2: Because the first operand of `&&` is `false`, Java immediately short-circuits and skips the right side (`100 / y > 2`).
+   - Result: SAFE! No ArithmeticException is thrown.
+
+b) Non-Short-Circuit Bitwise AND (`&`):
+   ```java
+   int y = 0;
+   if (y != 0 & 100 / y > 2) { ... }
+   ```
+   - Step 1: `y != 0` evaluates to `false`.
+   - Step 2: The single `&` forces Java to evaluate the right side (`100 / y`).
+   - Result: CRASH! Throws `java.lang.ArithmeticException: / by zero`.
+
+4. TRUTH TABLES:
+--------------------------------------------------------------------------------
+| A     | B     | A && B | A \|\| B | !A    |
+|-------|-------|--------|----------|-------|
+| true  | true  | true   | true     | false |
+| true  | false | false  | true     | false |
+| false | true  | false  | true     | true  |
+| false | false | false  | false    | true  |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 6 (RELATIONAL & LOGICAL OPERATORS)
+================================================================================

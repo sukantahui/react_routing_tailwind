@@ -1,0 +1,83 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_001 - TOPIC 5
+STANDARD OUTPUT STATEMENTS: System.out.print() vs System.out.println()
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS STANDARD OUTPUT IN JAVA?
+--------------------------------------------------------------------------------
+- In Java, console output is managed through the `System` class in the `java.lang` package.
+- `System.out` is a pre-instantiated standard output stream object of type `java.io.PrintStream`.
+- It connects the program to the standard terminal / console screen.
+
+2. System.out.print() vs System.out.println():
+--------------------------------------------------------------------------------
+a) `System.out.print(data);`:
+   - Prints the text/value to the console.
+   - Leaves the cursor at the END of the printed text on the SAME line.
+   - Subsequent print statements will continue printing on that exact same line.
+
+b) `System.out.println(data);`:
+   - Prints the text/value to the console.
+   - Automatically appends a newline character (`\n`), moving the cursor to the START of the NEXT line.
+   - `System.out.println();` (with no arguments) simply prints a blank empty line.
+
+3. STRING CONCATENATION WITH THE '+' OPERATOR (CBSE Exam Favorite):
+--------------------------------------------------------------------------------
+- In Java, the plus operator `+` is overloaded:
+  * Between two numbers: acts as mathematical addition (`5 + 10 = 15`).
+  * If ANY operand is a String: converts the other operand to String and concatenates them from left to right.
+
+Critical Expression Tracing Examples:
+Example 1:
+```java
+System.out.println("Result: " + 10 + 20);
+// Tracing Left-to-Right:
+// 1. "Result: " + 10 -> "Result: 10" (String)
+// 2. "Result: 10" + 20 -> "Result: 1020"
+// Output: Result: 1020
+```
+
+Example 2:
+```java
+System.out.println("Result: " + (10 + 20));
+// Parentheses have highest precedence: (10 + 20) -> 30
+// "Result: " + 30 -> "Result: 30"
+// Output: Result: 30
+```
+
+Example 3:
+```java
+System.out.println(10 + 20 + " is Total");
+// 1. 10 + 20 -> 30 (Numeric addition first!)
+// 2. 30 + " is Total" -> "30 is Total"
+// Output: 30 is Total
+```
+
+4. COMMON JAVA ESCAPE SEQUENCES:
+--------------------------------------------------------------------------------
+Escape sequences begin with a backslash `\` to represent special characters inside String literals:
+- `\n` : Newline (moves cursor to next line)
+- `\t` : Horizontal Tab (inserts standard tab spacing)
+- `\"` : Double Quote (allows quotes inside strings without closing string)
+- `\\` : Backslash (prints a single backslash)
+- `\'` : Single Quote (inside char literals)
+
+Example:
+```java
+System.out.println("Welcome to \"Barrackpore\"\nCBSE IT-802\tBatch 2026");
+// Output:
+// Welcome to "Barrackpore"
+// CBSE IT-802    Batch 2026
+```
+
+5. ANATOMY OF System.out.println():
+--------------------------------------------------------------------------------
+- `System` : Built-in class in `java.lang` package.
+- `out`    : Public static final field of `System` class of type `PrintStream`.
+- `println`: Overloaded member method of `PrintStream` class.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 5 (OUTPUT STATEMENTS & CONCATENATION)
+================================================================================

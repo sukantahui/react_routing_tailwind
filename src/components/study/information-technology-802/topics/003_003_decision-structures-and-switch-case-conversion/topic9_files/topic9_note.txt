@@ -1,0 +1,178 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+MODULE 003_003: DECISION STRUCTURES & SWITCH-CASE CONVERSION
+SOLVED CBSE MODEL SUBJECTIVE ANSWERS & MARKING SCHEME
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+QUESTION 1 (3 MARKS):
+Rewrite the following Java code snippet using a `switch` statement so that it produces the exact same output:
+```java
+int day = Integer.parseInt(jTextField1.getText());
+String type = "";
+if (day == 1 || day == 7) {
+    type = "Weekend Holiday";
+} else if (day >= 2 && day <= 6) {
+    type = "Working Weekday";
+} else {
+    type = "Invalid Day Code";
+}
+jTextField2.setText(type);
+```
+
+MODEL ANSWER:
+```java
+int day = Integer.parseInt(jTextField1.getText());
+String type = "";
+switch (day) {
+    case 1:
+    case 7:
+        type = "Weekend Holiday";
+        break;
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+        type = "Working Weekday";
+        break;
+    default:
+        type = "Invalid Day Code";
+        break;
+}
+jTextField2.setText(type);
+```
+
+MARKING SCHEME:
+- 1 Mark for correct `switch(day)` header and case stacking for weekend (1, 7).
+- 1 Mark for correct enumeration of weekday cases (2, 3, 4, 5, 6) with `break;`.
+- 1 Mark for correct `default:` clause with `break;` and updating `jTextField2`.
+--------------------------------------------------------------------------------
+
+QUESTION 2 (2 MARKS):
+State two reasons why `double` and `float` data types are NOT permitted as switch selector expressions in Java.
+
+MODEL ANSWER:
+1. Binary Representation Imprecision: Under the IEEE 754 floating-point standard, fractional numbers cannot always be represented exactly in binary (e.g. `0.1 + 0.2` evaluates to `0.30000000000000004`).
+2. Unreliable Exact Equality: The `switch` construct relies strictly on exact discrete equality (`==`). Because floating-point rounding errors make exact comparisons unpredictable and platform-dependent, the Java Language Specification explicitly forbids `float` and `double` in `switch` expressions.
+
+MARKING SCHEME:
+- 1 Mark for explaining IEEE 754 binary rounding imprecision.
+- 1 Mark for stating failure of exact binary equality (==) comparisons.
+--------------------------------------------------------------------------------
+
+QUESTION 3 (3 MARKS):
+Predict the output of the following Java snippet when:
+(a) `code = 2`
+(b) `code = 5`
+(c) `code = 99`
+
+```java
+int code = 2; // Test values: 2, 5, 99
+switch (code) {
+    default: System.out.print("Def ");
+    case 1: System.out.print("One "); break;
+    case 2: System.out.print("Two ");
+    case 3: System.out.print("Three "); break;
+    case 4: System.out.print("Four ");
+}
+```
+
+MODEL ANSWER:
+(a) When `code = 2`:
+    Output: `Two Three `
+    Explanation: Jumps directly to `case 2:`, prints "Two ". Since `case 2:` has no `break;`, it falls through into `case 3:`, prints "Three ", and stops at `break;`.
+(b) When `code = 5`:
+    Output: `Def One `
+    Explanation: `5` matches no case, so it jumps to `default:`, prints "Def ". Lacking a `break;`, it falls through into `case 1:`, prints "One ", and stops at `break;`.
+(c) When `code = 99`:
+    Output: `Def One `
+    Explanation: Jumps to `default:` and falls through into `case 1:` exactly as in (b).
+
+MARKING SCHEME:
+- 1 Mark for (a) Two Three
+- 1 Mark for (b) Def One
+- 1 Mark for (c) Def One
+--------------------------------------------------------------------------------
+
+QUESTION 4 (2 MARKS):
+What is the "dangling else" ambiguity in Java? How can a programmer eliminate it?
+
+MODEL ANSWER:
+- In nested `if` statements without curly braces `{}`, an ambiguity arises regarding which `if` an `else` branch belongs to:
+  ```java
+  if (x > 5) if (y > 10) System.out.print("A"); else System.out.print("B");
+  ```
+  In Java, an `else` always pairs with the closest preceding unmatched `if` within the same block (here, `if (y > 10)`).
+- Elimination: A programmer can eliminate all ambiguity by enclosing the inner `if` statement explicitly in curly braces `{}`:
+  ```java
+  if (x > 5) {
+      if (y > 10) System.out.print("A");
+  } else {
+      System.out.print("B"); // Now binds to outer if!
+  }
+  ```
+
+MARKING SCHEME:
+- 1 Mark for defining closest preceding unmatched if pairing rule.
+- 1 Mark for illustrating resolution using curly braces {}.
+--------------------------------------------------------------------------------
+
+QUESTION 5 (3 MARKS):
+A NetBeans GUI application calculates parcel delivery charges based on parcel weight `w` entered in `jTextField1`:
+- If `w == 5`, charge is `w * 20`
+- If `w == 8`, charge is `w * 26`
+- If `w == 10`, charge is `w * 32`
+- For all other weights, charge is `w * 40`
+Write the Java code for `jButton1ActionPerformed` using a clean `switch` statement, displaying the result in `jTextField2`.
+
+MODEL ANSWER:
+```java
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    try {
+        int w = Integer.parseInt(jTextField1.getText().trim());
+        double pay = 0.0;
+        
+        switch (w) {
+            case 5:
+                pay = w * 20;
+                break;
+            case 8:
+                pay = w * 26;
+                break;
+            case 10:
+                pay = w * 32;
+                break;
+            default:
+                pay = w * 40;
+                break;
+        }
+        jTextField2.setText("" + pay);
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid integer weight!");
+    }
+}
+```
+
+MARKING SCHEME:
+- 1 Mark for correct input extraction with `Integer.parseInt(jTextField1.getText())`.
+- 1 Mark for correct `switch` structure with cases 5, 8, 10, default, and breaks.
+- 1 Mark for setting output in `jTextField2` and try-catch error handling.
+--------------------------------------------------------------------------------
+
+QUESTION 6 (2 MARKS):
+Differentiate between the `break` statement used inside a `switch` construct versus the `break` statement used inside a `for` or `while` loop.
+
+MODEL ANSWER:
+1. `break` in `switch`:
+   - Terminates execution of the switch body and prevents fall-through into following cases. Control transfers to the first statement immediately following the switch closing brace `}`.
+2. `break` in a loop (`for`, `while`, `do-while`):
+   - Immediately aborts the loop, bypassing all remaining iterations and loop termination conditions, and resumes execution after the loop's closing brace.
+
+MARKING SCHEME:
+- 1 Mark for explaining switch termination / fall-through prevention.
+- 1 Mark for explaining loop iteration abortion.
+
+================================================================================
+END OF SOLVED CBSE MODEL ANSWERS - TOPIC 9
+================================================================================

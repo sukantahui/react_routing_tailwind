@@ -1,0 +1,122 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+MODULE 003_002: OPERATORS, MODULUS & EXPRESSION TRACING
+MASTER COMPREHENSIVE REVISION CHEATSHEET
+Author: Sukanta Hui | Senior Vocational IT Educator | Barrackpore, Kolkata
+Institute: Coder & AccoTax (https://www.codernaccotax.co.in)
+================================================================================
+
+1. ARITHMETIC OPERATORS (+, -, *, /, %)
+--------------------------------------------------------------------------------
+- Java provides 5 binary arithmetic operators:
+  + (Addition / String concatenation)
+  - (Subtraction)
+  * (Multiplication)
+  / (Division: quotient)
+  % (Modulus: remainder)
+- String Concatenation Rule:
+  Evaluated strictly Left-to-Right:
+  "Result: " + 10 + 20  --> "Result: 1020"
+  10 + 20 + " Result"  --> "30 Result"
+  "Result: " + (10 + 20) --> "Result: 30"
+
+2. INTEGER DIVISION VS FLOATING-POINT DIVISION
+--------------------------------------------------------------------------------
+- Integer / Integer:
+  Truncates decimal portion strictly (rounds towards zero).
+  `12 / 5` -> `2` (NOT 2.4!)
+  `1 / 2`  -> `0`
+- Floating-Point Division:
+  If AT LEAST ONE operand is float or double, floating-point division occurs:
+  `12.0 / 5` -> `2.4`
+  `12 / 5.0` -> `2.4`
+  `(double) 12 / 5` -> `2.4`
+- Casting Trap:
+  `(double)(12 / 5)` -> `(double)(2)` -> `2.0` (Integer division happens before cast!)
+
+3. THE MODULUS OPERATOR (%) MECHANICS
+--------------------------------------------------------------------------------
+- Formula: `r = a - (a / b) * b`
+- When Dividend < Divisor:
+  `10 % 80` -> `10`
+  `3 % 5`   -> `3`
+- Sign Rule (Sign ALWAYS matches Dividend `a`):
+  ` 10 %  3` ->  `1`
+  `-10 %  3` -> `-1`
+  ` 10 % -3` ->  `1`  (Divisor sign has NO effect on remainder sign!)
+  `-10 % -3` -> `-1`
+- Floating-point Modulus:
+  Java supports `%` on floating-point numbers: `5.5 % 2.0 = 1.5`.
+
+4. INCREMENT & DECREMENT OPERATORS (PREFIX VS POSTFIX)
+--------------------------------------------------------------------------------
+- Prefix (`++x`, `--x`): "CHANGE FIRST, THEN USE"
+  Increments variable before the value is used in the surrounding expression.
+  `int a = 5; int b = ++a;` -> `a = 6, b = 6`
+- Postfix (`x++`, `x--`): "USE FIRST, THEN CHANGE"
+  Supplies the current value first, then increments the variable afterwards.
+  `int a = 5; int b = a++;` -> `a = 6, b = 5`
+- The Self-Assignment Trap:
+  `int x = 5; x = x++;` -> `x` remains `5`!
+  (Postfix stores 5 in temp, increments x to 6, then overwrites x with temp 5).
+
+5. EVALUATING COMPLEX EXPRESSIONS (STEP-BY-STEP TRACING)
+--------------------------------------------------------------------------------
+Example: `x = ((++x) * 2) + 7;` where initial `x = 5`:
+- Step 1: Evaluate inner parenthesis `(++x)`:
+  Prefix increment turns `x` from 5 to 6. Value yielded is 6.
+- Step 2: Multiply by 2:
+  `6 * 2 = 12`.
+- Step 3: Add 7:
+  `12 + 7 = 19`.
+- Step 4: Assignment:
+  `x` is assigned `19`. Final `x = 19`.
+
+6. COMPOUND ASSIGNMENT OPERATORS (+=, -=, *=, /=, %=)
+--------------------------------------------------------------------------------
+- Rule 1: Automatic Implicit Narrowing Cast
+  `byte b = 10;`
+  `b = b + 5;`  // COMPILE ERROR: lossy conversion from int to byte
+  `b += 5;`     // COMPILES SAFELY: Java injects `b = (byte)(b + 5);`
+- Rule 2: Right-Hand Parenthesization
+  `a *= b + 2;` is equivalent to `a = a * (b + 2);`
+  If `a = 5, b = 3`: `a = 5 * (3 + 2) = 5 * 5 = 25` (NOT 17!).
+
+7. RELATIONAL & LOGICAL OPERATORS (SHORT-CIRCUIT RULES)
+--------------------------------------------------------------------------------
+- Relational operators (`==`, `!=`, `<`, `>`, `<=`, `>=`) always return `boolean`.
+- Short-Circuit AND (`&&`):
+  If left operand is `false`, the right operand is NEVER evaluated.
+  `false && (++counter > 5)` -> `counter` is NOT incremented!
+  `x != 0 && 100 / x > 2` -> Safe when `x = 0`, prevents `/ by zero` exception!
+- Short-Circuit OR (`||`):
+  If left operand is `true`, right operand is NEVER evaluated.
+  `true || (b = true)` -> `(b = true)` is NEVER executed.
+- Bitwise non-short-circuit (`&`, `|`):
+  ALWAYS evaluates both sides, risking runtime exceptions or unwanted side-effects.
+
+8. OPERATOR PRECEDENCE & ASSOCIATIVITY HIERARCHY
+--------------------------------------------------------------------------------
+Level 1 : Postfix (`x++`, `x--`)                [Left to Right]
+Level 2 : Unary (`++x`, `--x`, `+`, `-`, `!`)   [RIGHT TO LEFT]
+Level 3 : Multiplicative (`*`, `/`, `%`)        [Left to Right]
+Level 4 : Additive (`+`, `-`)                   [Left to Right]
+Level 5 : Shift (`<<`, `>>`, `>>>`)             [Left to Right]
+Level 6 : Relational (`<`, `>`, `<=`, `>=`)     [Left to Right]
+Level 7 : Equality (`==`, `!=`)                 [Left to Right]
+Level 8 : Bitwise AND (`&`)                     [Left to Right]
+Level 9 : Bitwise XOR (`^`)                     [Left to Right]
+Level 10: Bitwise OR (`|`)                      [Left to Right]
+Level 11: Logical AND (`&&`)                    [Left to Right]
+Level 12: Logical OR (`||`)                     [Left to Right]
+Level 13: Ternary (`? :`)                       [RIGHT TO LEFT]
+Level 14: Assignment (`=`, `+=`, `*=`, etc.)    [RIGHT TO LEFT]
+
+Notice:
+- `*` and `/` have EQUAL precedence: `20 / 4 * 2 = 10` (Left-to-Right).
+- `&&` binds tighter than `||`: `a || b && c` is `a || (b && c)`.
+- Parentheses `()` override all natural precedence rules.
+
+================================================================================
+END OF MASTER REVISION SUMMARY
+================================================================================

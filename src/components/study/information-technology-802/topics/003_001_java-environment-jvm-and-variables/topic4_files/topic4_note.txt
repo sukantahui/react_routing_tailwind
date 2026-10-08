@@ -1,0 +1,73 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_001 - TOPIC 4
+DECLARING CONSTANTS IN JAVA USING THE 'final' KEYWORD
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS A CONSTANT IN JAVA?
+--------------------------------------------------------------------------------
+- A Constant is a variable whose value is fixed once assigned and CANNOT be modified or reassigned throughout the execution of the program.
+- In Java, constants are declared using the `final` non-access modifier keyword.
+
+2. SYNTAX FOR DECLARING CONSTANTS:
+--------------------------------------------------------------------------------
+Syntax: `final DataType CONSTANT_NAME = initialValue;`
+
+Examples:
+- `final double PI = 3.14159;`
+- `final int MAX_ATTEMPTS = 3;`
+- `final double GST_RATE = 18.0;`
+- `final String SCHOOL_NAME = "Central Academy Barrackpore";`
+
+3. WHAT HAPPENS ON REASSIGNMENT ATTEMPT?
+--------------------------------------------------------------------------------
+Consider the code:
+```java
+final double PI = 3.14159;
+PI = 3.14; // ATTEMPT TO REASSIGN
+```
+Result:
+- The Java compiler (`javac`) will raise a Compile-Time Error:
+  `error: cannot assign a value to final variable PI`
+- Final variables are strictly read-only after their first initialization.
+
+4. NAMING CONVENTIONS FOR CONSTANTS (CBSE Best Practices):
+--------------------------------------------------------------------------------
+- Constants should be written in all UPPERCASE letters.
+- If a constant identifier consists of multiple words, separate them with an underscore (`_`).
+  * Examples: `SPEED_OF_LIGHT`, `DEFAULT_TIMEOUT_MS`, `MIN_PASSING_MARKS`.
+
+5. THE THREE USAGES OF THE 'final' KEYWORD IN JAVA (OOP Scope):
+--------------------------------------------------------------------------------
+1. `final` with a Variable: Value becomes constant (cannot be reassigned).
+2. `final` with a Method: Method cannot be overridden by subclasses in inheritance.
+3. `final` with a Class: Class cannot be subclassed/inherited (e.g. `java.lang.String` and `java.lang.Math` are final classes).
+
+6. BLANK FINAL VARIABLES:
+--------------------------------------------------------------------------------
+- A final variable declared without an initial value is called a "Blank Final Variable".
+- It MUST be initialized in every constructor (for instance fields) or before first use (for local variables).
+```java
+public class StudentCard {
+    final int rollNumber; // Blank final variable
+    
+    public StudentCard(int roll) {
+        this.rollNumber = roll; // Initialized once in constructor
+    }
+}
+```
+
+7. COMPARISON: REGULAR VARIABLE VS FINAL CONSTANT:
+--------------------------------------------------------------------------------
+| Feature                | Regular Variable                 | Constant (`final`)              |
+|------------------------|----------------------------------|---------------------------------|
+| Declaration Keyword    | None (just DataType)             | `final DataType`                |
+| Value Mutability       | Can be changed anytime           | Immutable (Fixed once set)      |
+| Reassignment Attempt   | Overwrites previous value        | Compile-time error              |
+| Standard Casing        | camelCase (`studentCount`)       | UPPER_SNAKE_CASE (`MAX_USERS`)  |
+| Memory Efficiency      | Stored in Stack/Heap             | Inlined by compiler if compile-time constant |
+
+================================================================================
+END OF REVISION NOTE - TOPIC 4 (FINAL KEYWORD & CONSTANTS)
+================================================================================

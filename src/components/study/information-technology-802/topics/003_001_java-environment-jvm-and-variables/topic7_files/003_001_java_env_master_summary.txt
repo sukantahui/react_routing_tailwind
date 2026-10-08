@@ -1,0 +1,89 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE 802)
+MASTER REVISION CHEATSHEET: MODULE 003_001
+JAVA ENVIRONMENT, JVM ARCHITECTURE, PRIMITIVE DATA TYPES & VARIABLES
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+--------------------------------------------------------------------------------
+1. JVM, BYTECODE & WORA ARCHITECTURE SUMMARY
+--------------------------------------------------------------------------------
+- Bytecode: Universal, intermediate binary instruction format (.class) compiled by `javac` from `.java` source files. Begins with magic number `0xCAFEBABE`.
+- JVM (Java Virtual Machine): Platform-dependent abstract execution engine that loads, verifies, and executes platform-independent bytecode on host CPU.
+- WORA: "Write Once, Run Anywhere" - Java source code is compiled once to Bytecode and runs on Windows, Linux, macOS, Android, etc., via each platform's JVM.
+- Core JVM Subsystems:
+  * ClassLoader Subsystem (Loads, links, initializes .class files).
+  * Bytecode Verifier (Checks memory safety, prevents illegal pointer tampering).
+  * Execution Engine:
+      - Interpreter: Interprets bytecode line-by-line.
+      - JIT (Just-In-Time) Compiler: Compiles frequently executed hot spots into native machine code.
+      - Garbage Collector (GC): Automatically reclaims unreferenced heap memory.
+
+- Key Architecture Formulas:
+  1. JRE = JVM + Core Java Class Libraries (rt.jar / java.base)
+  2. JDK = JRE + Development Tools (javac, jdb, javadoc, jar)
+  3. JDK = JVM + Core Class Libraries + Development Tools
+
+--------------------------------------------------------------------------------
+2. THE 8 PRIMITIVE DATA TYPES IN JAVA
+--------------------------------------------------------------------------------
+| Type    | Size    | Bits | Value Range / Permissible Values | Default Value | Literal Suffix |
+|---------|---------|------|----------------------------------|---------------|----------------|
+| byte    | 1 Byte  | 8    | -128 to +127 (-2^7 to 2^7 - 1)   | 0             | None           |
+| short   | 2 Bytes | 16   | -32,768 to +32,767               | 0             | None           |
+| int     | 4 Bytes | 32   | -2,147,483,648 to +2,147,483,647 | 0             | None (Default) |
+| long    | 8 Bytes | 64   | -2^63 to +2^63 - 1               | 0L            | L or l         |
+| float   | 4 Bytes | 32   | ~1.4e-45 to ~3.4e+38             | 0.0f          | F or f (Req)   |
+| double  | 8 Bytes | 64   | ~4.9e-324 to ~1.7e+308           | 0.0d          | D or d (Opt)   |
+| char    | 2 Bytes | 16   | '\u0000' to '\uffff' (0 to 65535)| '\u0000'     | Single quotes ''|
+| boolean | 1 Bit*  | -    | true or false only               | false         | None           |
+
+* Note on char: Java uses 2-byte Unicode (UTF-16) to support all world languages.
+* Note on boolean: Cannot be converted to/from integers (0 or 1 are illegal for boolean in Java).
+
+--------------------------------------------------------------------------------
+3. JAVA IDENTIFIER NAMING RULES
+--------------------------------------------------------------------------------
+1. Permissible characters: Letters (A-Z, a-z), Digits (0-9), Underscore (_), Dollar ($).
+2. Starting character: MUST start with a letter, _, or $. CANNOT start with a digit.
+3. No reserved keywords: (class, final, int, void, static, if, while, null, true, false).
+4. Strictly Case-Sensitive: `student`, `Student`, and `STUDENT` are 3 distinct identifiers.
+5. No whitespace: Spaces, tabs, and newlines are forbidden in identifiers.
+6. Naming Conventions:
+   - Variables & Methods: camelCase (`studentAge`, `calculateTotal()`)
+   - Classes & Interfaces: PascalCase (`StudentProfile`, `PaymentGateway`)
+   - Constants: UPPER_SNAKE_CASE (`MAX_ATTEMPTS`, `GST_RATE`)
+
+--------------------------------------------------------------------------------
+4. CONSTANTS & THE 'final' KEYWORD
+--------------------------------------------------------------------------------
+- Syntax: `final DataType CONSTANT_NAME = initialValue;`
+- Reassignment: Attempting to reassign a final variable generates a compile error (`cannot assign a value to final variable`).
+- 3 Usages of final:
+  1. `final variable` -> Value cannot be altered (constant).
+  2. `final method`   -> Cannot be overridden by subclasses.
+  3. `final class`    -> Cannot be inherited/extended (e.g. String, Math).
+
+--------------------------------------------------------------------------------
+5. OUTPUT STATEMENTS & STRING CONCATENATION (+)
+--------------------------------------------------------------------------------
+- `System.out.print()`   : Prints text, leaves cursor on SAME line.
+- `System.out.println()` : Prints text, inserts newline (`\n`), moves cursor to NEXT line.
+- Left-to-Right String Concatenation:
+  * `"Total: " + 10 + 20` -> `"Total: 1020"` (String + int -> String).
+  * `"Total: " + (10 + 20)` -> `"Total: 30"` (Parentheses evaluate addition first).
+  * `10 + 20 + " Total"` -> `"30 Total"` (Integers add first, then concatenate).
+- Escape Sequences: `\n` (newline), `\t` (tab), `\"` (double quote), `\\` (single backslash).
+
+--------------------------------------------------------------------------------
+6. TOP 5 CBSE COMPILER TRAPS & INSTANT FIXES
+--------------------------------------------------------------------------------
+1. `float f = 3.14;`        -> FIX: `float f = 3.14f;` (Add 'f' suffix).
+2. `char c = "A";`          -> FIX: `char c = 'A';` (Single quotes for char).
+3. `double tax% = 18.0;`    -> FIX: `double taxPercent = 18.0;` (Remove '%').
+4. `byte b = 150;`          -> FIX: `short b = 150;` (150 exceeds 127 byte limit).
+5. `string s = "Hello";`    -> FIX: `String s = "Hello";` (Capital 'S' in String).
+
+================================================================================
+END OF MASTER SUMMARY
+================================================================================

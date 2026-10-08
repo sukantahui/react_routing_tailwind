@@ -1,0 +1,83 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (CODE 802)
+STUDY REVISION NOTES: MODULE 003_003 - TOPIC 4
+CONVERTING IF-ELSE IF LADDERS TO EQUIVALENT SWITCH-CASE STATEMENTS
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, Kolkata
+================================================================================
+
+1. THE STANDARD CBSE BOARD EXAM CONVERSION PROBLEM:
+--------------------------------------------------------------------------------
+Every year, CBSE Class 12 IT-802 theory question papers contain a mandatory 2 or 3-mark question:
+"Rewrite the following code snippet using a `switch` statement so that it produces the exact same output."
+
+2. 5-STEP ALGORITHM FOR FLAWLESS CONVERSION:
+--------------------------------------------------------------------------------
+Step 1: Identify the Shared Selector Variable
+- Verify that all branches compare the SAME variable for exact equality (`==`).
+- Example: `if (code == 1) ... else if (code == 2) ...` -> Variable is `code`.
+
+Step 2: Construct the Switch Header
+- Write `switch (code) { ... }`.
+- Verify `code` is an allowed type (`int`, `char`, `short`, `byte`, `String`, `enum`).
+
+Step 3: Map Each Equality Check to a `case` Label
+- `if (code == 1)` becomes `case 1:`.
+- `else if (code == 2)` becomes `case 2:`.
+- Copy the statements from the if block into the case block.
+
+Step 4: CRITICAL STEP: Insert `break;` Statements!
+- An `if-else-if` ladder is mutually exclusive by default.
+- In `switch`, you MUST add `break;` at the end of every case block to prevent unwanted fall-through!
+- Missing `break;` is the #1 reason students lose marks in CBSE exams!
+
+Step 5: Convert the Trailing `else` to `default:`
+- `else { ... }` becomes `default: { ... break; }`.
+
+3. CODE CONVERSION EXAMPLE:
+--------------------------------------------------------------------------------
+ORIGINAL IF-ELSE LADDER:
+```java
+int stream = Integer.parseInt(jTextField1.getText());
+String name = "";
+if (stream == 1) {
+    name = "Science";
+} else if (stream == 2) {
+    name = "Commerce";
+} else if (stream == 3) {
+    name = "Humanities / Arts";
+} else {
+    name = "Vocational IT (802)";
+}
+```
+
+CONVERTED EQUIVALENT SWITCH STATEMENT:
+```java
+int stream = Integer.parseInt(jTextField1.getText());
+String name = "";
+switch (stream) {
+    case 1:
+        name = "Science";
+        break;
+    case 2:
+        name = "Commerce";
+        break;
+    case 3:
+        name = "Humanities / Arts";
+        break;
+    default:
+        name = "Vocational IT (802)";
+        break;
+}
+```
+
+4. WHEN IS CONVERSION IMPOSSIBLE? (CBSE VIVA & MCQ FAVORITE):
+--------------------------------------------------------------------------------
+An `if-else` ladder CANNOT be converted directly into a `switch` if:
+1. It tests inequalities or ranges (e.g., `if (score >= 90)`).
+2. It tests multiple different variables (e.g., `if (x == 1) ... else if (y == 2)`).
+3. The test variable is of type `float`, `double`, `boolean`, or `long`.
+4. It combines complex conditions with `&&` or `||` on multiple attributes.
+
+================================================================================
+END OF REVISION NOTE - TOPIC 4
+================================================================================
