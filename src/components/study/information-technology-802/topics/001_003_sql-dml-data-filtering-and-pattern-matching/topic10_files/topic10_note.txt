@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 10: HANDLING NULL IN QUERIES: IS NULL & IS NOT NULL (WHY '= NULL' FAILS)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 14 mins | Level: Advanced
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] NULL represents missing, unassigned, or unknown information in a relational database.
+[2] Three-Valued Logic (3VL): SQL conditions evaluate to TRUE, FALSE, or UNKNOWN.
+[3] Any equality or arithmetic comparison with NULL (e.g. Comm = NULL or Comm != NULL) yields UNKNOWN.
+[4] Since WHERE clauses only accept rows that evaluate strictly to TRUE, `WHERE Comm = NULL` returns 0 rows!
+[5] Always use the dedicated operators `IS NULL` and `IS NOT NULL` to test for missing values.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- 3-Valued Logic and NULL Demonstration
+USE CompanyDB;
+
+-- WRONG (Will return 0 rows!):
+-- SELECT * FROM Employee WHERE Commission = NULL;
+
+-- CORRECT: Using IS NULL
+SELECT EmpNo, EmpName, BasicSalary, Commission 
+FROM Employee 
+WHERE Commission IS NULL;
+
+-- CORRECT: Using IS NOT NULL
+SELECT EmpNo, EmpName, BasicSalary, Commission 
+FROM Employee 
+WHERE Commission IS NOT NULL;
+
+-- Arithmetic with NULL yields NULL:
+SELECT EmpName, BasicSalary + Commission AS TotalPay 
+FROM Employee; -- If Commission is NULL, TotalPay becomes NULL!
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Master this rule: You can NEVER use `=` with NULL. Always write `WHERE Column IS NULL` or `WHERE Column IS NOT NULL`. Writing `= NULL` is an immediate point loss in board exams! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

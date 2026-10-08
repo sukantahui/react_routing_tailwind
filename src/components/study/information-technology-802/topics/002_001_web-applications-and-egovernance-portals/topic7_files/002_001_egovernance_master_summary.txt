@@ -1,0 +1,24 @@
+================================================================================
+CBSE CLASS XII IT (802) - MODULE 002_001 MASTER E-GOVERNANCE DIRECTORY
+Educator: Sukanta Hui, Barrackpore
+================================================================================
+
+1. PORTAL REFERENCE DIRECTORY
++--------------------+-------------------------+----------------------------------------+
+| Portal Name        | Official URL            | Key Services Provided                  |
++--------------------+-------------------------+----------------------------------------+
+| National Portal    | india.gov.in            | Single-window access to all ministries |
+| Passport Seva      | passportindia.gov.in    | Fresh passport, reissue, appointment   |
+| DigiLocker         | digilocker.gov.in       | Aadhaar, Marksheets, Driving Licence   |
+| Parivahan Sewa     | parivahan.gov.in        | Sarathi (DL) & Vahan (RC) services     |
+| NVSP (Voters)      | voters.eci.gov.in       | Form 6 registration, EPIC download     |
+| IRCTC              | irctc.co.in             | Train ticket booking, Tatkal, PNR      |
+| Income Tax Portal  | incometax.gov.in        | ITR 1-4 Filing, AIS, 26AS, PAN link    |
+| UMANG Unified App  | web.umang.gov.in        | 1200+ Central & State civic services   |
++--------------------+-------------------------+----------------------------------------+
+
+2. WEB TECH COMPARISON
+* Front-End : HTML5, CSS3, JavaScript, Bootstrap, TailwindCSS, NetBeans GUI Designer.
+* Back-End  : Java (Spring/Servlets), Node.js, Python (Django), PHP, Apache Tomcat.
+* Database  : MySQL 8.0, Oracle 19c, PostgreSQL, MongoDB.
+* Browsers  : Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge, Opera.

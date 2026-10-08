@@ -1,0 +1,47 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 9: SET MEMBERSHIP & RANGE FILTERING: IN, NOT IN, BETWEEN ... AND
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 12 mins | Level: Beginner
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] The IN operator checks if a column value matches ANY item in a discrete comma-separated list.
+[2] Example: WHERE City IN ('Barrackpore', 'Kolkata', 'Delhi'); (Equivalent to City = 'Barrackpore' OR City = 'Kolkata' OR City = 'Delhi').
+[3] NOT IN selects rows whose column value is not present in the given set.
+[4] The BETWEEN ... AND operator filters within a continuous range (Numbers, Dates, or Alphabetical).
+[5] BETWEEN is INCLUSIVE: 'Marks BETWEEN 80 AND 90' includes both 80 and 90 (Marks >= 80 AND Marks <= 90).
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Set Membership and Range Query Lab
+USE SchoolDB;
+
+-- 1. Discrete Set Membership (IN / NOT IN)
+SELECT * FROM Student 
+WHERE City IN ('Barrackpore', 'Shyamnagar', 'Naihati');
+
+SELECT * FROM Student 
+WHERE Stream NOT IN ('Humanities', 'Vocational');
+
+-- 2. Inclusive Range Filtering (BETWEEN ... AND)
+SELECT RollNo, FullName, TotalMarks 
+FROM Student 
+WHERE TotalMarks BETWEEN 85.00 AND 95.00;
+
+-- 3. Date Range Filtering
+SELECT * FROM Student 
+WHERE AdmissionDate BETWEEN '2025-01-01' AND '2025-12-31';
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Never forget: `BETWEEN 50 AND 100` INCLUDES both 50 and 100! If a board question asks for values strictly greater than 50, use `> 50 AND < 100`, not BETWEEN. — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

@@ -1,0 +1,1234 @@
+{
+  "trackId": "cbse-class12-information-technology-802",
+  "trackTitle": "CBSE Class XII Information Technology (Subject Code: 802) Complete Mastery",
+  "description": "A comprehensive, exam-aligned curriculum for CBSE Class XII Information Technology (Code 802) as prescribed by CBSE and tested in top institutions (e.g. Army Public School Barrackpore). Covers Database Concepts & MySQL RDBMS (DDL, DML, Joins, Aggregates), Operating Web-Based Applications & E-Services (E-Governance, E-Commerce, 4 Stages of Web Dev), Java Programming (JVM, Operators, Control Flow, Arrays, Strings, OOP & Constructors, Multithreading, Assertions), Work-Integrated Learning (WIL), and a dedicated Special Segment for Solved Question Paper Samples & School Board Sets.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "CBSE Class XII Information Technology (Code 802) Master Tutorial Roadmap",
+    "version": "2.0.0",
+    "lastUpdated": "2026-10-08"
+  },
+  "folder": "information-technology-802",
+  "subject": "Information Technology (802)",
+  "subjectLogo": {
+    "name": "Information Technology 802",
+    "icon": "Laptop",
+    "type": "svg",
+    "path": "/logos/it-802.svg",
+    "alt": "CBSE Class XII Information Technology (802) Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "segment-1-database-concepts-mysql-rdbms",
+      "title": "Segment 1 – Database Concepts & Relational Database Management with MySQL",
+      "level": "Intermediate to Advanced",
+      "summary": "Master relational database architecture, keys, data types, DDL schema management, DML operations, WHERE filtering, single/multi-row functions, GROUP BY aggregations, and multi-table relational joins.",
+      "modules": [
+        {
+          "moduleId": "it-802-rdbms-relational-model-keys",
+          "slug": "001_001_relational-database-concepts-and-keys",
+          "title": "Relational Database Concepts, Keys & Terminology",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "rdbms",
+            "relational-model",
+            "tuple-attribute",
+            "degree-cardinality",
+            "primary-key",
+            "foreign-key",
+            "null-value"
+          ],
+          "topics": [
+            "Introduction to Database Management Systems (DBMS) and Need over File Systems",
+            "Work Areas and Domains utilizing DBMS (Telecommunication billing, Hospitality, Banking, Education, Railways)",
+            "Relational Model Terminology: Relation (Table), Tuple (Row/Record), Attribute (Column/Field)",
+            "Calculating Degree (Number of Attributes) and Cardinality (Number of Tuples) after Table Alterations",
+            "The Concept of NULL in SQL: Unknown, Unassigned, or Not Applicable Values (Why '= NULL' Fails)",
+            "Relational Keys: Primary Key, Candidate Key, Alternate Key, Composite Primary Key",
+            "Foreign Key and Referential Integrity: Parent Table vs Dependent/Child Table Relationships",
+            "Self-Referencing Foreign Keys: When a Primary Key References a Column in the Same Table",
+            "SQL Statement Termination with Semicolon (;) and MySQL Client Navigation (`USE db;`, `SHOW TABLES;`, `DESCRIBE table;`)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Define relational terminology including relations, tuples, attributes, degree, and cardinality",
+            "Calculate updated degree and cardinality when columns and rows are added or deleted",
+            "Differentiate between Candidate, Primary, Alternate, and Foreign keys",
+            "Explain the semantics of NULL values in relational databases"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Master fundamental RDBMS terminology, degree and cardinality calculations, NULL semantics, and primary/foreign key relationships.",
+          "miniProjects": [
+            "Design a Relational Schema for School Teachers and Students Database (Teacher & Student tables)",
+            "Create a Telecommunication Call Detail Record (CDR) Schema with Primary and Foreign Keys"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 5,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Schema Design Assignment + RDBMS Concepts Quiz",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Why DBMS is Used in Industry (Telecom, Hospitals, Schools)",
+            "Relations, Tuples, Attributes, Degree & Cardinality",
+            "The Meaning of NULL in SQL",
+            "Primary Keys & Foreign Keys in Action",
+            "Self-Referencing Keys & Integrity Rules"
+          ],
+          "previousModule": null,
+          "nextModule": "001_002_mysql-ddl-and-table-constraints",
+          "badge": "RDBMS Foundation Badge"
+        },
+        {
+          "moduleId": "it-802-mysql-ddl-constraints",
+          "slug": "001_002_mysql-ddl-and-table-constraints",
+          "title": "MySQL DDL Statements & Table Constraints",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "sql-ddl",
+            "create-table",
+            "alter-table",
+            "drop-table",
+            "data-types",
+            "decimal-precision",
+            "on-delete-cascade"
+          ],
+          "topics": [
+            "Classification of SQL Commands: Data Definition Language (DDL) vs Data Manipulation Language (DML)",
+            "Valid MySQL Data Types: `CHAR(n)`, `VARCHAR(n)`, `INTEGER` / `INT`, `DECIMAL(p,s)` / `NUMERIC`, `DATE`, `TIME`",
+            "Deep Dive into `DECIMAL(p, s)`: Precision (Total digits) vs Scale (Digits after decimal point) - e.g. `DECIMAL(3,2)` for IMDb ratings",
+            "Creating Tables with `CREATE TABLE` and Defining Column & Table Constraints",
+            "Column Constraints: `PRIMARY KEY`, `NOT NULL`, `UNIQUE`, `DEFAULT`, `CHECK`",
+            "Foreign Key Constraint Definition and Cascade Operations (`ON DELETE CASCADE`, `ON UPDATE CASCADE`)",
+            "Modifying Live Table Structure with `ALTER TABLE`: Adding Columns (`ALTER TABLE table ADD column datatype`)",
+            "Modifying Columns, Renaming Columns (`CHANGE`), and Dropping Columns with `ALTER TABLE`",
+            "Removing Tables: Difference between `DROP TABLE` (DDL - removes schema & data) and `DELETE FROM` (DML - removes rows, rollback possible)",
+            "Viewing and Verifying Database Schema: `DESCRIBE table_name` and `SHOW CREATE TABLE`",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Write valid CREATE TABLE statements with column constraints and foreign key actions",
+            "Calculate the maximum digits stored before and after the decimal for DECIMAL(p, s) data types",
+            "Alter live database schemas to add new columns (e.g. BloodGroup CHAR(2)) using ALTER TABLE",
+            "Contrast DDL DROP command with DML DELETE command with respect to rollback and schema destruction"
+          ],
+          "prerequisites": [
+            "001_001_relational-database-concepts-and-keys"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master SQL DDL commands: CREATE TABLE, ALTER TABLE ADD column, DECIMAL(p,s) precision, ON DELETE CASCADE, and DROP vs DELETE distinctions.",
+          "miniProjects": [
+            "Create a Movie Database Table (`MovieName`, `Release_Year`, `Type`, `imdb_rating DECIMAL(3,2)`)",
+            "Write SQL Scripts to Alter a Student Table and Add a BloodGroup Column"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 12,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "DDL Schema Coding Lab + Precision Calculation Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "DDL vs DML Command Categories",
+            "MySQL Data Types & DECIMAL(p,s) Rules",
+            "CREATE TABLE & ON DELETE CASCADE",
+            "ALTER TABLE ADD / MODIFY Commands",
+            "DROP vs DELETE Command Contrast"
+          ],
+          "previousModule": "001_001_relational-database-concepts-and-keys",
+          "nextModule": "001_003_sql-dml-data-filtering-and-pattern-matching",
+          "badge": "SQL DDL Specialist Badge"
+        },
+        {
+          "moduleId": "it-802-sql-dml-queries-filtering",
+          "slug": "001_003_sql-dml-data-filtering-and-pattern-matching",
+          "title": "SQL DML Statements, Data Filtering & Pattern Matching",
+          "level": "Intermediate",
+          "estimatedHours": 10,
+          "tags": [
+            "sql-dml",
+            "insert-into",
+            "update-set",
+            "delete-where",
+            "like-operator",
+            "distinct",
+            "order-by"
+          ],
+          "topics": [
+            "Inserting Records with `INSERT INTO table_name VALUES (...)` (Handling String, Date, and Decimal Literals)",
+            "Updating Records with `UPDATE table_name SET col = expr WHERE condition`",
+            "Arithmetic Updates: Increasing Attribute Values by Percentages (e.g. `UPDATE STOCKDATA SET Value = Value * 1.25;`)",
+            "Deleting Specific Rows with `DELETE FROM table_name WHERE condition;`",
+            "Querying Data with `SELECT` Statement: Selecting Specific Columns, Arithmetic Expressions, and Aliases",
+            "Filtering Data with the `WHERE` Clause: Relational Operators (`=`, `<>`, `!=`, `<`, `>`, `<=`, `>=`)",
+            "Logical Operators in SQL: `AND`, `OR`, `NOT` and Evaluation Precedence",
+            "Pattern Matching with the `LIKE` Operator: Wildcard `%` (Any sequence of characters) and `_` (Exact single character)",
+            "Searching for Patterns: Starting with a letter (`LIKE 'A%'`), Ending with a letter (`LIKE '%a'`), Containing a word (`LIKE '%Kumar%'`)",
+            "Set Membership and Range Filtering: `IN (...)`, `NOT IN (...)`, `BETWEEN ... AND ...`",
+            "Handling NULL in Queries: Filtering with `IS NULL` and `IS NOT NULL` (e.g. `WHERE Comm IS NULL`)",
+            "Eliminating Redundant Output Rows: The `DISTINCT` Keyword in SELECT Statements",
+            "Sorting Results: The `ORDER BY` Clause (Ascending `ASC`, Descending `DESC`, Multi-Column Sorting)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Insert movie, stock, employee, and student records into MySQL tables accurately",
+            "Execute mass and conditional arithmetic updates using the UPDATE statement",
+            "Construct complex WHERE filters using LIKE wildcards, IN sets, and IS NULL checks",
+            "Eliminate duplicate records using DISTINCT and sort data using ORDER BY DESC"
+          ],
+          "prerequisites": [
+            "001_002_mysql-ddl-and-table-constraints"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master SQL DML commands: INSERT INTO, UPDATE SET arithmetic adjustments, DELETE WHERE, LIKE pattern matching, IS NULL checks, DISTINCT, and ORDER BY.",
+          "miniProjects": [
+            "Build a Stock Trading Database (`STOCKDATA`) with 25% Value Appreciation Updates",
+            "Construct an Employee Information Filtering System with Pattern Matching and NULL Checks"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 15,
+            "coding": 18,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "SQL DML Query Lab + Query Output Prediction Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "INSERT INTO Values Syntax",
+            "UPDATE SET with Arithmetic Calculations",
+            "DELETE FROM with Precise Criteria",
+            "Pattern Matching with LIKE ('%Kumar%', 'A%')",
+            "Handling IS NULL / IS NOT NULL",
+            "DISTINCT and ORDER BY Sorting"
+          ],
+          "previousModule": "001_002_mysql-ddl-and-table-constraints",
+          "nextModule": "001_004_sql-aggregate-functions-and-group-by",
+          "badge": "SQL Query Master Badge"
+        },
+        {
+          "moduleId": "it-802-sql-aggregates-group-by",
+          "slug": "001_004_sql-aggregate-functions-and-group-by",
+          "title": "SQL Aggregate Functions & GROUP BY Queries",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "aggregate-functions",
+            "sum",
+            "avg",
+            "min-max",
+            "count",
+            "group-by",
+            "having"
+          ],
+          "topics": [
+            "Single-Row Functions vs Multi-Row (Aggregate) Functions in SQL",
+            "Mathematical Aggregate Functions: `SUM(column)`, `AVG(column)` (Ignoring NULL values)",
+            "Extreme Value Discovery: `MIN(column)` and `MAX(column)` (e.g. `SELECT MAX(FEE), MIN(FEE) FROM COACH;`)",
+            "Counting Records: `COUNT(*)` (Total rows including NULLs) vs `COUNT(column)` (Non-null values only)",
+            "Grouping Records by Categories using the `GROUP BY` Clause (e.g. `SELECT Type, SUM(Value) FROM STOCKDATA GROUP BY Type;`)",
+            "Combining `WHERE` Filtering with `GROUP BY` Aggregations (e.g. `SELECT SUM(Salary) FROM Emp WHERE Job='Analyst' AND HireDate>'2012-01-03';`)",
+            "Filtering Grouped Data using the `HAVING` Clause vs Row-Level `WHERE` Clause",
+            "Multi-Column Grouping and Multi-Level Aggregations in Business Reporting",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Compute summary statistics on database columns using SUM, AVG, MIN, MAX, and COUNT",
+            "Group records by categorical attributes using the GROUP BY clause",
+            "Predict query outputs involving aggregate functions with compound WHERE conditions",
+            "Differentiate between WHERE (row filter before aggregation) and HAVING (group filter after aggregation)"
+          ],
+          "prerequisites": [
+            "001_003_sql-dml-data-filtering-and-pattern-matching"
+          ],
+          "difficulty": "Medium to Hard",
+          "difficultyIndex": 3,
+          "summary": "Master SQL aggregate functions (SUM, AVG, MIN, MAX, COUNT), GROUP BY categorical summarization, and query output prediction on EMP and STOCKDATA tables.",
+          "miniProjects": [
+            "Generate Stock Portfolio Summary Reports (Buy vs Sell Totals) using GROUP BY",
+            "Build an Employee Payroll Summary Report with Date and Role Filters"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 14,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Aggregation & GROUP BY Problem Set",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "What Aggregate Functions Do",
+            "SUM, AVG, MIN, MAX Syntax & Execution",
+            "COUNT(*) vs COUNT(col)",
+            "GROUP BY Syntax & Mechanics",
+            "Combining WHERE with Aggregate Computations",
+            "HAVING vs WHERE Rules"
+          ],
+          "previousModule": "001_003_sql-dml-data-filtering-and-pattern-matching",
+          "nextModule": "001_005_multi-table-relational-queries-and-joins",
+          "badge": "SQL Aggregations Badge"
+        },
+        {
+          "moduleId": "it-802-multi-table-queries-joins",
+          "slug": "001_005_multi-table-relational-queries-and-joins",
+          "title": "Multi-Table Relational Queries & Table Joins",
+          "level": "Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "table-joins",
+            "equi-join",
+            "inner-join",
+            "cartesian-product",
+            "student-parents-join",
+            "multi-table-queries"
+          ],
+          "topics": [
+            "Need for Multi-Table Relational Queries & Cartesian Product (Cross Join)",
+            "Equi-Join Fundamentals: Linking Tables via Common Foreign Key Columns",
+            "Implicit Join Syntax using `FROM Table1 T1, Table2 T2 WHERE T1.key = T2.key`",
+            "Explicit Join Syntax using `INNER JOIN ... ON ...`",
+            "Real-World Multi-Table Case Study: Querying `STUDENT` and `PARENTS` Tables on `ParentID`",
+            "Filtering Joined Records: Selecting Students by BirthYear (`BirthYear < 2019`) and Class (`Class <> 'II'`) with Parent Names",
+            "Combining Joins with Sorting: Displaying Students in Specific Classes in Descending Order of Roll Number",
+            "Solving Board Exam Multi-Table Query Problems with Complete Precision",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Write multi-table SQL queries joining tables on primary and foreign keys",
+            "Retrieve combined records from STUDENT and PARENTS tables based on complex filtering criteria",
+            "Apply table aliases to disambiguate identical column names in joined relations",
+            "Solve CBSE Class XII board exam multi-table query questions accurately"
+          ],
+          "prerequisites": [
+            "001_004_sql-aggregate-functions-and-group-by"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 3,
+          "summary": "Master multi-table relational queries and Equi-Joins connecting tables (e.g. STUDENT and PARENTS) with complex criteria and sorting.",
+          "miniProjects": [
+            "Build a Student-Parent Academic Directory Query Engine",
+            "Construct a Multi-Table Hospital Patient-Doctor Appointment Query System"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 15,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Multi-Table SQL Board Exam Challenge",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "Why Multi-Table Joins are Needed",
+            "Cartesian Product vs Equi-Join",
+            "The STUDENT and PARENTS Schema Walkthrough",
+            "Filtering Joined Records with WHERE",
+            "Combining Joins with ORDER BY Sorting",
+            "CBSE Board Exam Multi-Table Query Drills"
+          ],
+          "previousModule": "001_004_sql-aggregate-functions-and-group-by",
+          "nextModule": null,
+          "badge": "Relational Join Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-2-operating-web-based-applications",
+      "title": "Segment 2 – Operating Web-Based Applications & E-Services",
+      "level": "Intermediate",
+      "summary": "Learn web application architecture, front-end vs back-end tools, e-Governance portals, e-Commerce shopping carts, online transaction safety, and the 4 stages of web development.",
+      "modules": [
+        {
+          "moduleId": "it-802-web-apps-egovernance",
+          "slug": "002_001_web-applications-and-egovernance-portals",
+          "title": "Web Applications Architecture & E-Governance Portals",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "web-applications",
+            "front-end-back-end",
+            "e-governance",
+            "national-portal",
+            "web-browsers"
+          ],
+          "topics": [
+            "Desktop Applications vs Web-Based Applications: Key Operational Differences",
+            "Front-End Tools (HTML, CSS, JavaScript, NetBeans GUI) vs Back-End Tools (Java, MySQL, Oracle, Node.js)",
+            "Web Browsers vs Web Servers vs Application Software (Identifying Browsers: Opera, Chrome, Firefox)",
+            "Concept and Objectives of E-Governance: Enhancing Transparency, Accountability, and Citizen Empowerment",
+            "The National Portal of India (`india.gov.in`) and Key Public Services",
+            "Popular E-Governance Portals: Property Tax Filing, Passport Seva, DigiLocker, Parivahan, Voter ID (NVSP), Railway Ticket Booking (IRCTC)",
+            "Social, Economic, and Administrative Benefits of E-Governance for Citizens",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Differentiate between front-end and back-end tools utilized in web application development",
+            "Explain the concept, goals, and benefits of e-Governance in India",
+            "Identify official Indian e-Governance portals and their specific civic services",
+            "Recognize web browsers among diverse application software categories"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Master web application architecture, front-end/back-end tools, e-Governance concepts, and Indian public portals like india.gov.in and IRCTC.",
+          "miniProjects": [
+            "Create a Directory of 10 Essential Indian E-Governance Portals with Service Maps",
+            "Design an Infographic Comparing Front-End and Back-End Web Technologies"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "coding": 0,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "E-Governance Case Study + Objective Quiz",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Web Apps vs Desktop Apps",
+            "Front-End vs Back-End Software Tools",
+            "E-Governance Definition & Transparency Impact",
+            "The National Portal of India (india.gov.in)",
+            "Civic Portals (Passport, Parivahan, IRCTC)"
+          ],
+          "previousModule": null,
+          "nextModule": "002_002_ecommerce-ebusiness-and-online-safety",
+          "badge": "E-Governance Specialist Badge"
+        },
+        {
+          "moduleId": "it-802-ecommerce-ebusiness-safety",
+          "slug": "002_002_ecommerce-ebusiness-and-online-safety",
+          "title": "E-Commerce, E-Business & Online Transaction Safety",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "e-commerce",
+            "e-business",
+            "shopping-cart",
+            "online-transactions",
+            "cyber-risks",
+            "https-ssl"
+          ],
+          "topics": [
+            "Concept of E-Commerce & Online Shopping: Customer Advantages (24x7 convenience, wide variety, price comparisons, doorstep delivery)",
+            "Popular E-Commerce Portals (Snapdeal, Nykaa, Infibeam, Amazon) vs E-Learning Portals (Coursera, edX)",
+            "The Concept and Functionality of a Virtual Shopping Cart in E-Commerce Websites",
+            "E-Business Benefits, Opportunities, Risks and Barriers",
+            "Major E-Business Risks: Violation of Customer Privacy, Traffic Spikes Causing Peak-Hour Server Downtime, Hackers Penetrating Company Security",
+            "Online Transaction Safety: Key Precautions while Performing Digital Transactions",
+            "Security Guidelines: Verifying HTTPS / SSL Padlock, Avoiding Public Wi-Fi for Payments, Utilizing 2FA / OTP, Never Sharing CVV or Passwords",
+            "Webinars & E-Learning: Real-Time Interactive Online Lectures for Question Clearance",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Describe the workflow of online shopping portals and the role of shopping carts",
+            "Identify risks and barriers in e-business including privacy breaches and server crashes",
+            "Enumerate critical security precautions required during digital financial transactions",
+            "Distinguish e-commerce shopping websites from e-learning and webinar platforms"
+          ],
+          "prerequisites": [
+            "002_001_web-applications-and-egovernance-portals"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 1,
+          "summary": "Master e-commerce portals, shopping cart mechanics, e-business operational risks, online transaction security precautions, and webinars.",
+          "miniProjects": [
+            "Design a Safe Online Shopping Protocol & User Checklist for Consumers",
+            "Analyze E-Commerce Website Traffic Spike Management Strategies"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 0,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Online Security Case Study + Theory Exam",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "E-Commerce & Customer Advantages",
+            "Shopping Cart Architecture",
+            "E-Business Risks (Privacy, Spikes, Hackers)",
+            "Online Payment Precautions & HTTPS",
+            "Webinars & Real-Time E-Learning"
+          ],
+          "previousModule": "002_001_web-applications-and-egovernance-portals",
+          "nextModule": "002_003_four-stages-of-web-application-development",
+          "badge": "E-Commerce Analyst Badge"
+        },
+        {
+          "moduleId": "it-802-four-stages-web-dev",
+          "slug": "002_003_four-stages-of-web-application-development",
+          "title": "The Four Stages of Web Application Development",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "web-development-lifecycle",
+            "requirement-definition",
+            "design-phase",
+            "implementation-phase",
+            "testing-phase"
+          ],
+          "topics": [
+            "Overview of the Web Application Development Lifecycle",
+            "Stage 1: Requirement Definition / Analysis Phase (Compiling detailed feature descriptions, scope, constraints, and limitations - e.g. Online Billing System)",
+            "Stage 2: Design Phase (Architectural blueprints, UI/UX mockups, database ER schemas, flowcharts, navigation trees)",
+            "Stage 3: Implementation / Coding Phase (Writing front-end HTML/CSS/JS/Swing code and back-end database scripts)",
+            "Stage 4: Testing & Quality Assurance Phase (Functional testing, bug discovery, security audits, usability validation)",
+            "Deployment, Maintenance, and User Feedback Integration",
+            "Identifying Development Phases from Real-World Scenarios and Case Studies",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "List and explain the four sequential stages of web application development",
+            "Identify the exact project phase from descriptive real-world scenario prompts",
+            "Outline key deliverables produced in the Requirement Definition and Design phases",
+            "Describe the role of testing and quality assurance before final deployment"
+          ],
+          "prerequisites": [
+            "002_002_ecommerce-ebusiness-and-online-safety"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 1,
+          "summary": "Master the 4 stages of web application development: Requirement Definition, Design, Implementation (Coding), and Testing.",
+          "miniProjects": [
+            "Draft a Complete Software Requirements Specification (SRS) for an Online Billing System",
+            "Create a Phase-Wise Project Plan for an Educational Portal"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "coding": 0,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Lifecycle Phase Identification Quiz + Project Plan Assignment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Why Structured Development is Essential",
+            "Stage 1: Requirement Definition Phase",
+            "Stage 2: Design Phase",
+            "Stage 3: Implementation Phase",
+            "Stage 4: Testing Phase",
+            "Case Study Scenario Drills"
+          ],
+          "previousModule": "002_002_ecommerce-ebusiness-and-online-safety",
+          "nextModule": null,
+          "badge": "Web Lifecycle Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-3-java-fundamentals-and-control-flow",
+      "title": "Segment 3 – Java Programming: Language Fundamentals & Control Flow",
+      "level": "Intermediate",
+      "summary": "Master the Java runtime environment, JVM role, variable declarations, arithmetic/modulus operators, expression tracing, if-else to switch-case conversion, and loop mechanics.",
+      "modules": [
+        {
+          "moduleId": "it-802-jvm-variables-types",
+          "slug": "003_001_java-environment-jvm-and-variables",
+          "title": "Java Environment, JVM & Variable Declarations",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "jvm",
+            "bytecode",
+            "primitive-data-types",
+            "variable-declaration-rules",
+            "final-keyword",
+            "constants"
+          ],
+          "topics": [
+            "The Purpose and Role of the Java Virtual Machine (JVM) in Executing Bytecode",
+            "Platform Independence and The 'Write Once, Run Anywhere' (WORA) Architecture",
+            "Primitive Data Types in Java: `byte`, `short`, `int`, `long`, `float`, `double`, `char`, `boolean`",
+            "Variable Declaration Rules & Valid/Invalid Identifiers in Java (e.g. why `char Section='D';` vs `int ab=38;` vs `double percentage=87.6%;` is invalid)",
+            "Declaring Constants in Java using the `final` Keyword (e.g. `final double PI = 3.14159;`)",
+            "Standard Output Statements: `System.out.print()` vs `System.out.println()`",
+            "Common Compiler Traps in Java Variable Declarations",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose of the JVM and Bytecode in Java's architecture",
+            "Identify valid and invalid Java variable declarations and data types",
+            "Declare named constants using the `final` keyword",
+            "Choose appropriate primitive data types based on memory and numerical constraints"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Master the Java Virtual Machine (JVM), primitive types, variable naming rules, and the final keyword for constants.",
+          "miniProjects": [
+            "Build a Java Console Program Demonstrating All Primitive Types and Constants",
+            "Create an Interactive Identifier Syntax Validator"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 1
+          },
+          "assessment": {
+            "type": "Java Syntax Verification + Variable Rules Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Purpose of JVM Demystified",
+            "Primitive Data Types in Java",
+            "Variable Declaration Rules & Syntax Pitfalls",
+            "The `final` Keyword for Constants",
+            "Output Statements in Action"
+          ],
+          "previousModule": null,
+          "nextModule": "003_002_operators-modulus-and-expression-tracing",
+          "badge": "Java Syntax Master Badge"
+        },
+        {
+          "moduleId": "it-802-operators-expression-tracing",
+          "slug": "003_002_operators-modulus-and-expression-tracing",
+          "title": "Operators, Modulus & Expression Tracing",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "operators",
+            "integer-division",
+            "modulus-operator",
+            "prefix-postfix",
+            "expression-evaluation"
+          ],
+          "topics": [
+            "Arithmetic Operators in Java: `+`, `-`, `*`, `/`, `%`",
+            "Integer Division vs Floating-Point Division: Predicting Outputs of `12/5` (2) vs `12.0/5` (2.4)",
+            "The Modulus Operator (`%`): Remainder Evaluation Mechanics (e.g. `x=10, y=80; x%=y;` yields `x = 10`)",
+            "Increment and Decrement Operators: Prefix (`++x`, `--x`) vs Postfix (`x++`, `x--`) Mechanics",
+            "Evaluating Complex Expressions: Step-by-Step Tracing of `x = ((++x) * 2) + 7` when initial `x = 5` (Result: 19)",
+            "Compound Assignment Operators: `+=`, `-=`, `*=`, `/=`, `%=`",
+            "Relational and Logical Operators in Java Boolean Expressions",
+            "Operator Precedence and Associativity Rules",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Predict exact numerical outputs of integer division versus floating-point division",
+            "Evaluate modulus arithmetic expressions under varying operand magnitudes",
+            "Trace prefix and postfix increment expressions without error",
+            "Apply operator precedence rules in complex multi-operator evaluations"
+          ],
+          "prerequisites": [
+            "003_001_java-environment-jvm-and-variables"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master integer/floating-point division, modulus arithmetic, prefix/postfix increment tracing, and operator precedence.",
+          "miniProjects": [
+            "Build an Arithmetic & Modulus Expression Tracing Lab Utility",
+            "Design an Interactive Step-by-Step Operator Evaluation Visualizer"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 15,
+            "coding": 12,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Expression Tracing & Output Prediction Exam",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Integer Division (12/5) vs Floating Division (12.0/5)",
+            "Modulus Operator (%) Mechanics",
+            "Prefix (++x) vs Postfix (x++) Mechanics",
+            "Step-by-Step Tracing of Complex Expressions",
+            "Operator Precedence Hierarchy"
+          ],
+          "previousModule": "003_001_java-environment-jvm-and-variables",
+          "nextModule": "003_003_decision-structures-and-switch-case-conversion",
+          "badge": "Expression Tracing Guru Badge"
+        },
+        {
+          "moduleId": "it-802-decision-switch-case",
+          "slug": "003_003_decision-structures-and-switch-case-conversion",
+          "title": "Decision Structures & If-Else to Switch-Case Conversion",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "if-else-ladder",
+            "switch-case",
+            "code-conversion",
+            "gui-textfields",
+            "default-clause"
+          ],
+          "topics": [
+            "Conditional Branching in Java: Simple `if`, `if-else`, and `if-else-if` Ladders",
+            "The `switch` Statement: Executing Code Blocks Matching One Value out of Many Possible Values",
+            "Anatomy of Switch: `switch(var)`, `case` Constant Labels, `break` Statements, and `default` Clause",
+            "The Role of the `default` Clause: Executing when No Case Matches the Test Variable",
+            "Converting `if-else if-else` Ladders to Equivalent `switch` Statements without Altering Output",
+            "Real-World GUI Conversion Problem: Converting Billing Slabs from `jTextField1.getText()` (e.g. `w==5 -> pay=w*20; w==8 -> pay=w*26; ...`) into Clean `switch` Case",
+            "Permissible Switch Data Types: `int`, `char`, `short`, `byte`, `String`, `enum`",
+            "Fall-Through Behavior in Switch and When to Utilize `break`",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Implement multi-way decision logic using if-else-if ladders and switch statements",
+            "Convert complex if-else if ladders into equivalent switch-case constructs seamlessly",
+            "Integrate GUI textfield integer parsing (`Integer.parseInt(...)`) with switch decision blocks",
+            "Utilize the `default` clause to handle unmatched test cases defensively"
+          ],
+          "prerequisites": [
+            "003_002_operators-modulus-and-expression-tracing"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master conditional branching, the switch statement, the default clause, and converting if-else-if ladders to switch-case constructs in Java.",
+          "miniProjects": [
+            "Build an Interactive NetBeans GUI Billing Calculator converting if-else to switch",
+            "Design a Menu-Driven Grade and Tariff Computation Utility"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 12,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Code Conversion Assignment (If-Else to Switch) + Lab Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Decision Branching Fundamentals",
+            "The switch Statement & default Clause",
+            "Step-by-Step Conversion: If-Else to Switch",
+            "Parsing GUI Inputs (Integer.parseInt(jTextField.getText()))",
+            "Preventing Accidental Fall-Through with break"
+          ],
+          "previousModule": "003_002_operators-modulus-and-expression-tracing",
+          "nextModule": "003_004_iterative-loops-and-output-prediction",
+          "badge": "Logic Conversion Master Badge"
+        },
+        {
+          "moduleId": "it-802-loops-output-prediction",
+          "slug": "003_004_iterative-loops-and-output-prediction",
+          "title": "Iterative Loops & Output Prediction",
+          "level": "Intermediate",
+          "estimatedHours": 10,
+          "tags": [
+            "loops",
+            "while-loop",
+            "do-while-loop",
+            "exit-controlled-loop",
+            "loop-output-prediction"
+          ],
+          "topics": [
+            "Concept of Iteration in Java: Entry-Controlled Loops vs Exit-Controlled Loops",
+            "Why `do-while` is Called an Exit-Controlled Loop (Condition Evaluated After Loop Body Execution, Guaranteed 1 Execution)",
+            "The `while` Loop: Syntax, Execution Flow, and Indefinite Iteration",
+            "Writing Java Programs to Print Numbers from N to 1 using a `while` Loop (User Input via Scanner)",
+            "Step-by-Step Output Prediction of Do-While Loops (e.g. `num=5; do { System.out.println(num+2); --num; } while(num>=2);` produces `7, 6, 5, 4`)",
+            "Loop Control Jump Statements: `break` and `continue`",
+            "Preventing Infinite Loops and Tracing Decrementing Loop Variables",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Differentiate between entry-controlled (while) and exit-controlled (do-while) loops",
+            "Write Java programs to solve numerical problems using while loops (e.g. N down to 1)",
+            "Predict exact console outputs of do-while loop code snippets with decrementing variables",
+            "Trace variable state updates across successive loop iterations"
+          ],
+          "prerequisites": [
+            "003_003_decision-structures-and-switch-case-conversion"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master entry-controlled while loops, exit-controlled do-while loops, writing N-to-1 reverse counting programs, and predicting loop outputs.",
+          "miniProjects": [
+            "Write a Java Application to Print Series from N down to 1 with User Input",
+            "Build an Interactive Loop Output Prediction and Tracing Workbench"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 14,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Loop Tracing & Program Writing Exam",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Entry-Controlled vs Exit-Controlled Loops",
+            "Why do-while Executes At Least Once",
+            "Writing Reverse Number Loops (N to 1)",
+            "Predicting Loop Tracing Outputs Step-by-Step",
+            "Loop Debugging Strategies"
+          ],
+          "previousModule": "003_003_decision-structures-and-switch-case-conversion",
+          "nextModule": null,
+          "badge": "Loop Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-4-oop-arrays-strings-threads",
+      "title": "Segment 4 – Java Programming: OOP, Arrays, Strings, Threads & Exceptions",
+      "level": "Intermediate to Advanced",
+      "summary": "Master Object-Oriented Programming, Constructors, 1D/2D Arrays, Arrays class utilities (sort, binarySearch), String methods (concat, replace, indexOf, length), Multithreading, and Assertions.",
+      "modules": [
+        {
+          "moduleId": "it-802-oop-constructors",
+          "slug": "004_001_oop-principles-and-constructors",
+          "title": "OOP Principles, Class Design & Constructors",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "oop",
+            "classes-objects",
+            "constructors",
+            "constructor-definition",
+            "automatic-invocation"
+          ],
+          "topics": [
+            "Core Principles of Object-Oriented Programming (OOP): Abstraction, Encapsulation, Inheritance, Polymorphism",
+            "Defining Classes and Instantiating Objects using the `new` Operator",
+            "What is a Constructor in Java? (A Member Method Having the Same Name as the Class, No Return Type)",
+            "Automatic Invocation of Constructors when an Object of a Class is Created",
+            "Types of Constructors: Default (No-Argument) Constructor vs Parameterized Constructors",
+            "Constructor Overloading: Multiple Initialization Strategies in Class Design",
+            "Differences between Methods and Constructors in Java",
+            "Encapsulation in Action: Private Fields and Public Getters/Setters",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Define the characteristics of constructors in Java class design",
+            "Explain when and how constructors are invoked automatically upon object creation",
+            "Differentiate constructors from standard member methods",
+            "Implement parameterized and overloaded constructors in Java classes"
+          ],
+          "prerequisites": [
+            "003_004_iterative-loops-and-output-prediction"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Java OOP class design and Constructors (same name as class, no return type, automatically invoked upon object instantiation).",
+          "miniProjects": [
+            "Design a Student Class with Overloaded Constructors and Encapsulation",
+            "Build an Item Inventory Class with Default and Parameterized Constructors"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "OOP Class Design Assignment + Constructor Quiz",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "OOP Paradigm Overview",
+            "Classes as Blueprints & Objects as Instances",
+            "What is a Constructor (Name, No Return Type)",
+            "Automatic Invocation with 'new'",
+            "Constructors vs Standard Methods"
+          ],
+          "previousModule": null,
+          "nextModule": "004_002_arrays-and-java-util-arrays-utilities",
+          "badge": "Constructor Architect Badge"
+        },
+        {
+          "moduleId": "it-802-arrays-utilities-binarysearch",
+          "slug": "004_002_arrays-and-java-util-arrays-utilities",
+          "title": "Arrays & java.util.Arrays Utilities (Sort & Binary Search)",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "arrays",
+            "array-declaration",
+            "array-indexing",
+            "arrays-sort",
+            "binary-search",
+            "java-util-arrays"
+          ],
+          "topics": [
+            "Concept of 1D Arrays in Java & Contiguous Memory Allocation",
+            "Declaring and Initializing Arrays with Literal Values (e.g. `double[] Marks = {93.0, 87.5, 97.5, 65.0, 70.0};`)",
+            "Accessing Array Elements via 0-based Indexing & Arithmetic Operations on Array Elements (e.g. `array[5] - array[0]` output calculation)",
+            "Array Bounds Checking & `ArrayIndexOutOfBoundsException` Prevention",
+            "The `java.util.Arrays` Utility Class: Essential Static Methods",
+            "Sorting Arrays using `Arrays.sort(array)` in Ascending Order",
+            "Binary Search using `Arrays.binarySearch(array, key)`: Import Requirements (`import java.util.Arrays;`) and Return Values",
+            "Prerequisite for Binary Search: Why Arrays Must be Sorted Before Calling `binarySearch()`",
+            "Code Completion Drills for Java Array Operations (Statement-1: import, Statement-2: binarySearch invocation)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Declare, instantiate, and populate 1D arrays with double and integer literal lists",
+            "Perform element index lookups and arithmetic evaluations on array elements",
+            "Utilize Arrays.sort() to arrange integer and string arrays in ascending order",
+            "Execute Arrays.binarySearch() with proper import statements and gap-filling code completion"
+          ],
+          "prerequisites": [
+            "004_001_oop-principles-and-constructors"
+          ],
+          "difficulty": "Medium to Hard",
+          "difficultyIndex": 3,
+          "summary": "Master 1D array literal declaration, element indexing arithmetic, Arrays.sort(), and Arrays.binarySearch() gap-filling problems.",
+          "miniProjects": [
+            "Build a Student Marks Statistics Engine using Array Operations",
+            "Create a Language Lookup Program using `Arrays.sort` and `Arrays.binarySearch`"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 15,
+            "coding": 14,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Array Coding Lab + Binary Search Code Completion Exam",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "1D Array Declaration & Memory Layout",
+            "Array Indexing & Element Arithmetic",
+            "The java.util.Arrays Utility Package",
+            "Arrays.sort() for Ascending Sorting",
+            "Arrays.binarySearch() Step-by-Step",
+            "Board Exam Gap-Filling Drills"
+          ],
+          "previousModule": "004_001_oop-principles-and-constructors",
+          "nextModule": "004_003_string-class-methods-and-text-manipulation",
+          "badge": "Array Engineering Badge"
+        },
+        {
+          "moduleId": "it-802-string-methods-manipulation",
+          "slug": "004_003_string-class-methods-and-text-manipulation",
+          "title": "String Class Methods & Text Manipulation",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "string-class",
+            "string-methods",
+            "concat",
+            "replace",
+            "indexof",
+            "length"
+          ],
+          "topics": [
+            "Strings in Java: The `java.lang.String` Class and Object Immutability",
+            "String Concatenation: Joining Strings using `str.concat(\" for me\")` and the `+` Operator",
+            "String Replacement: Replacing Substrings/Words using `str.replace(\"Wrong\", \"Correct\")`",
+            "Finding Character / Substring Positions: The `str.indexOf('s')` Method (0-based first occurrence)",
+            "Finding String Length: The `str.length()` Method (Counting Total Characters)",
+            "Case Conversion: `str.toUpperCase()` and `str.toLowerCase()`",
+            "Substring Extraction: `str.substring(start)` and `str.substring(start, end)`",
+            "String Comparison: `str.equals()` vs `str.equalsIgnoreCase()` vs `==` Operator",
+            "Solving Board Exam String Operation Questions with Precision (4-part Java statements for given string)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Explain the immutability of String objects in Java",
+            "Apply concat(), replace(), indexOf(), and length() methods to manipulate strings",
+            "Write exact Java statements to perform text transformations on given string variables",
+            "Differentiate between character index (0-based) and string length (1-based total count)"
+          ],
+          "prerequisites": [
+            "004_002_arrays-and-java-util-arrays-utilities"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master core String methods: concat(), replace(), indexOf(), length(), substring(), and board exam string transformation problems.",
+          "miniProjects": [
+            "Build a Java Text Transformation & Verification Utility",
+            "Create an Interactive String Method Playground"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 12,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "String Manipulation Coding Lab + Statement Writing Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "String Immutability Concept",
+            "concat() and String Joining",
+            "replace() for Word Substitutions",
+            "indexOf() for Character Positioning",
+            "length() vs Array length Property",
+            "Board Exam 4-Part String Statement Solutions"
+          ],
+          "previousModule": "004_002_arrays-and-java-util-arrays-utilities",
+          "nextModule": "004_004_multithreading-assertions-and-exception-handling",
+          "badge": "String Master Badge"
+        },
+        {
+          "moduleId": "it-802-threads-assertions-exceptions",
+          "slug": "004_004_multithreading-assertions-and-exception-handling",
+          "title": "Multithreading, Assertions & Exception Handling",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "multithreading",
+            "thread-class",
+            "runnable-interface",
+            "assertions",
+            "exception-handling"
+          ],
+          "topics": [
+            "Introduction to Multithreading in Java: Concurrent Program Execution and Thread Lifecycle",
+            "The Two Ways of Creating Threads in Java: 1. Extending the `Thread` Class, 2. Implementing the `Runnable` Interface",
+            "Overriding the `run()` Method and Invoking Threads using `start()`",
+            "Java Assertions: Purpose of the `assert` Keyword in Debugging and Testing Invariants",
+            "Why Assertion Feature is Disabled by Default in Java Runtime (To Preserve Production Performance)",
+            "Enabling Assertions using the `-ea` / `-enableassertions` JVM Command-Line Flag",
+            "Java Exception Handling Overview: `try`, `catch`, `finally` Blocks",
+            "Common Runtime Exceptions in CBSE IT 802: `NullPointerException`, `ArrayIndexOutOfBoundsException`, `NumberFormatException`",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Identify and contrast the two distinct mechanisms for thread creation in Java",
+            "Explain why Java assertions are disabled by default and how to enable them at runtime",
+            "Construct multi-threaded Java applications using Thread class and Runnable interface",
+            "Implement defensive exception handling around user inputs and array lookups"
+          ],
+          "prerequisites": [
+            "004_003_string-class-methods-and-text-manipulation"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 3,
+          "summary": "Master the two ways of creating threads (Thread class vs Runnable interface), Java assertions (why disabled by default, -ea flag), and exception handling.",
+          "miniProjects": [
+            "Create a Multi-Threaded Number & Message Display Application",
+            "Build a Java Assertion & Validation Demo Suite"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Threading & Assertion Problem Set + Quiz",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Multithreading Need & Architecture",
+            "Two Ways to Create Threads (Thread vs Runnable)",
+            "Java Assertions & Purpose",
+            "Why Assertions are Disabled by Default (-ea)",
+            "Exception Handling Best Practices"
+          ],
+          "previousModule": "004_003_string-class-methods-and-text-manipulation",
+          "nextModule": null,
+          "badge": "Advanced Java Architecture Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-5-work-integrated-learning",
+      "title": "Segment 5 – Work-Integrated Learning (WIL) & Project Management",
+      "level": "Intermediate to Advanced",
+      "summary": "Master Work-Integrated Learning (WIL) fundamentals, project characteristics, real-world IT capstone systems, and project life cycle stages.",
+      "modules": [
+        {
+          "moduleId": "it-802-wil-project-management",
+          "slug": "005_001_work-integrated-learning-and-project-characteristics",
+          "title": "Work-Integrated Learning (WIL) & Project Characteristics",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "work-integrated-learning",
+            "wil",
+            "project-characteristics",
+            "project-boundaries",
+            "finite-resources"
+          ],
+          "topics": [
+            "What is Work-Integrated Learning (WIL)? (Educational Approach Combining Academic Studies with Real-World Workplace Experience)",
+            "Objectives and Industry Benefits of WIL in IT Vocational Education",
+            "Definition of a Project: A Temporary Endeavor Undertaken to Create a Unique Product, Service, or Result",
+            "Core Characteristics of a Project: Definite Beginning and End, Defined Scope and Extent, Finite Resources, Distinct Boundaries",
+            "What is NOT a Characteristic of a Project (e.g. projects always have boundaries, projects are not perpetual)",
+            "Project Life Cycle Phases: Conception, Requirement Definition, Design, Implementation, Testing, Deployment",
+            "Role of Project Management in School IT Applications & Capstone Projects",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Define Work-Integrated Learning (WIL) and articulate its vocational significance",
+            "Enumerate the essential characteristics of a software project",
+            "Identify invalid project characteristics in objective board exam questions",
+            "Trace the progression of phases across a standard IT project life cycle"
+          ],
+          "prerequisites": [
+            "002_003_four-stages-of-web-application-development"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 1,
+          "summary": "Master Work-Integrated Learning (WIL) definitions, project characteristics (start/end dates, defined extent, finite resources, boundaries), and life cycle phases.",
+          "miniProjects": [
+            "Draft a Work-Integrated Learning (WIL) Internship Charter",
+            "Create a Project Scope & Resource Matrix for an IT Solution"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "coding": 0,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "WIL & Project Management Theory Assignment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "What is Work-Integrated Learning (WIL)?",
+            "Project Definition & Core Attributes",
+            "Key Characteristics of Projects",
+            "Identifying Non-Characteristics",
+            "Project Life Cycle Integration"
+          ],
+          "previousModule": null,
+          "nextModule": null,
+          "badge": "Project Management Pioneer Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-6-question-paper-samples",
+      "title": "Segment 6 – Question Paper Samples & Solved Board Examination Sets",
+      "level": "Board Examination Scope",
+      "summary": "Authentic solved question papers and school mock examination sets for CBSE Class XII Information Technology (Subject Code: 802), including Army Public School Barrackpore Half Yearly Solved Paper, CBSE Board Specimen Papers, and Pre-Board Mock Exams with step-by-step solutions, marking criteria, and printable test formats.",
+      "allocatedHours": 25,
+      "visibility": "admin-teacher",
+      "allowedRoles": ["Admin", "Teacher", "Developer", "Owner", "Manager", "Faculty", "Instructor"],
+      "requiresAuth": true,
+      "modules": [
+        {
+          "moduleId": "it-802-sample-question-papers",
+          "slug": "006_001_cbse-class-12-it-802-sample-question-papers",
+          "title": "CBSE Class XII IT (802) Solved Question Papers & School Mock Sets",
+          "level": "Board Examination Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 18,
+          "estimatedHours": 25,
+          "visibility": "admin-teacher",
+          "allowedRoles": ["Admin", "Teacher", "Developer", "Owner", "Manager", "Faculty", "Instructor"],
+          "requiresAuth": true,
+          "summary": "Full solved examination papers for CBSE Class XII Information Technology (802) covering Army Public School Barrackpore Half Yearly Examination (Set-C), Official CBSE Sample Question Papers, and Pre-Board Mock Papers with marking schemes, step-by-step solutions, interactive answer toggles, and printable question papers.",
+          "tags": [
+            "sample-question-papers",
+            "aps-barrackpore",
+            "cbse-class-12",
+            "it-802",
+            "board-exam",
+            "solved-papers",
+            "section-a-objective",
+            "section-b-subjective"
+          ],
+          "topics": [
+            "Army Public School Barrackpore – Class XII IT (802) Half Yearly Examination (Solved Paper 2026-2027 Set-C)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2026 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2025 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2024 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2023 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2022 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2021 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2020 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2019 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2018 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2017 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2016 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2015 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2014 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2013 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2012 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2011 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2010 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2009 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2008 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2007 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2006 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2005 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2004 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2003 (Solved)",
+            "CBSE Class XII Information Technology (802) Board Examination Paper 2002 (Solved)"
+          ],
+          "learningOutcomes": [
+            "Attempt 25 years of authentic CBSE Class XII IT (802) board examination papers within the official 3-hour duration",
+            "Master Section A compulsory 30 marks (MCQs, outputs, mathematical expressions, DBMS concepts)",
+            "Write high-scoring Section B 30-mark subjective programs, SQL queries, and table join solutions",
+            "Assess readiness and score 95%+ in CBSE Class XII IT (802) board examinations"
+          ],
+          "prerequisites": [
+            "001_005_multi-table-relational-queries-and-joins",
+            "004_004_multithreading-assertions-and-exception-handling",
+            "005_001_work-integrated-learning-and-project-characteristics"
+          ],
+          "miniProjects": [
+            "Complete 25-Year Full-Length CBSE Board Examination Portfolio with Marksheet Analytics"
+          ],
+          "exercises": {
+            "mcq": 750,
+            "coding": 350,
+            "projects": 26
+          },
+          "assessment": {
+            "type": "Full 60-Mark CBSE Class XII IT (802) Examination Evaluation",
+            "passScore": 85
+          },
+          "teachingFlow": [
+            "Exam Structure & Section-Wise Weightage",
+            "Section A Objective Drills (30 Marks)",
+            "Section B Short Answers & Conversions (12 Marks)",
+            "Section B SQL Queries & Joins (18 Marks)",
+            "Java Programming & Binary Search Drills",
+            "Viva Voce Simulation & Scoring Rubrics"
+          ],
+          "previousModule": "005_001_work-integrated-learning-and-project-characteristics",
+          "nextModule": null,
+          "badge": "IT 802 Board Test Paper Master"
+        }
+      ]
+    }
+  ]
+}

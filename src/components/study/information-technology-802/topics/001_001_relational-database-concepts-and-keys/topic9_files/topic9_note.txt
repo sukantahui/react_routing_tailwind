@@ -1,0 +1,31 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 9: DOWNLOADABLE DOCUMENTS & COMPREHENSIVE REVISION HUB
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. COMPLETE MODULE 001 REVISION SUMMARY:
+   - Database vs File System: Eliminates redundancy, guarantees ACID, enforces security.
+   - 3-Level Architecture: Physical (Storage), Logical (Schema), View (User Portals).
+   - Terminology: Relation = Table, Tuple = Row, Attribute = Column, Domain = Value Pool.
+   - Degree = Count of Columns (Modified ONLY via ALTER TABLE ADD/DROP).
+   - Cardinality = Count of Rows (Modified ONLY via INSERT/DELETE).
+   - NULL = Missing / Unknown value. (= NULL fails; use IS NULL / IS NOT NULL).
+   - Keys: Superkey -> Candidate Key -> Primary Key -> Alternate Key (Candidate - PK).
+   - Foreign Key: Child table column matching Parent Primary Key (Enforces Referential Integrity).
+   - Self-Referencing Foreign Key: Points to same table PK (CEO ManagerID = NULL).
+   - MySQL Navigation: SHOW DATABASES; USE dbname; SHOW TABLES; DESCRIBE tablename;
+
+2. HIGH-YIELD FORMULA REFERENCE SHEET:
+   - Updated Degree = Initial Degree + Cols Added - Cols Dropped
+   - Updated Cardinality = Initial Cardinality + Rows Inserted - Rows Deleted
+   - Cartesian Degree(A x B) = Degree(A) + Degree(B)
+   - Cartesian Cardinality(A x B) = Cardinality(A) x Cardinality(B)
+   - Alternate Keys = Candidate Keys - Primary Key
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+Download the MySQL starter script below, open MySQL Workbench or Command Line,
+and execute all queries hands-on.
+================================================================================

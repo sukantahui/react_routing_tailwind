@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 11: ELIMINATING DUPLICATE OUTPUT ROWS: THE DISTINCT KEYWORD
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 10 mins | Level: Beginner
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] By default, SELECT returns all matching rows, including duplicate values (the default is ALL).
+[2] The DISTINCT keyword filters out repeated duplicate tuples from the displayed result set.
+[3] Syntax: SELECT DISTINCT col1, col2 FROM table_name;
+[4] DISTINCT applies to the combination of all projected columns in the SELECT list.
+[5] DISTINCT only affects the displayed output; it never deletes duplicate rows from the underlying physical table.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- DISTINCT Demonstration
+USE SchoolDB;
+
+-- 1. All rows (Shows repeated cities)
+SELECT City FROM Student;
+
+-- 2. Eliminating duplicate cities (Unique list)
+SELECT DISTINCT City FROM Student;
+
+-- 3. DISTINCT across multiple columns (Unique Stream + City combinations)
+SELECT DISTINCT Stream, City FROM Student;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"If a board question asks 'Display all unique departments' or 'List distinct cities without repetition', use `SELECT DISTINCT ...`. — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

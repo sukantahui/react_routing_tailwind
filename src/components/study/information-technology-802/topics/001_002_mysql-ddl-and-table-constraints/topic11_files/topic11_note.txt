@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 11: PRACTICE YOUR SKILL HERE
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 30 min | Level: Examination Simulator
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] 30 Timed Board Examination MCQs with instant scoring, feedback, and in-depth bilingual explanations.
+[2] 15 High-Yield Subjective Questions covering CREATE TABLE, ALTER TABLE ADD/MODIFY/CHANGE, DECIMAL precision, and ON DELETE CASCADE.
+[3] Live DDL Schema Simulator: Interactively add/drop columns and observe schema structure and degree transformations.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. Examination Practice Guidelines ---
+This workbench provides comprehensive evaluation drills for **CBSE Class XII IT (802) Module 002**.
+
+Take the objective tests, inspect the interactive schema alterations, and master every concept tested in board exams.
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Interactive Practice Sandbox Table
+CREATE TABLE ExamPracticeDDL (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    CandidateName VARCHAR(50) NOT NULL,
+    Score INT CHECK (Score BETWEEN 0 AND 100),
+    SubmissionTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Attempt the 30-mark objective drill under timed conditions. Review the step-by-step explanations for any questions you answer incorrectly to solidify your concepts."
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

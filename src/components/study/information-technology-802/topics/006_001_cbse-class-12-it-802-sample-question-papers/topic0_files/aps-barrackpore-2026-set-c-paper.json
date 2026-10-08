@@ -1,0 +1,422 @@
+{
+  "paperId": "APS-BKPORE-2026-XII-IT802-SET-C",
+  "title": "Army Public School Barrackpore – Class XII Information Technology (802) Half Yearly Examination (2026-2027) (SET-C)",
+  "duration": "3 Hours",
+  "totalMarks": 60,
+  "prerequisites": "CBSE Class XII Information Technology (802) syllabus: Database Concepts & MySQL, Operating Web Based Applications, Java Programming, and Work Integrated Learning (WIL)",
+  "instructions": [
+    "Please read the instructions carefully.",
+    "This Question Paper consists of 23 questions in two sections – Section A & Section B.",
+    "Section A has Objective type questions whereas Section B contains Subjective type questions.",
+    "All questions of a particular section must be attempted in the correct order.",
+    "SECTION A – OBJECTIVE TYPE QUESTIONS (30 MARKS): Contains 06 questions. There is no negative marking.",
+    "SECTION B – SUBJECTIVE TYPE QUESTIONS (30 MARKS): Contains 17 questions. A candidate has to do 11 questions."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Question 1 – Objective Type Questions (Employability & Web Skills)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Name the National Portal of India.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `india.gov.in` (National Portal of India)\n\n**Explanation:** `india.gov.in` is the official single-window portal developed by the Government of India to access all citizen-centric public information and e-Governance services.",
+          "hint": "The official Government of India single-entry website."
+        },
+        {
+          "q": "ii) What do you mean by Work Integrated Learning (WIL)?",
+          "marks": 1,
+          "answer": "**Correct Answer:** Work Integrated Learning (WIL) is an educational approach that combines formal academic classroom learning with practical, real-world workplace experience or industry internships.\n\n**Explanation:** WIL bridges the gap between academic theory and industry practices, empowering students with hands-on job skills.",
+          "hint": "Combining classroom education with practical workplace experience."
+        },
+        {
+          "q": "iii) Name one front-end and one back-end application to create Web Applications.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n- **Front-end Application / Technology:** HTML / CSS / JavaScript (or Java NetBeans GUI Forms)\n- **Back-end Application / Technology:** MySQL Database (or Oracle Database / Java Server Applications)",
+          "hint": "Client-side interface vs server-side database storage."
+        },
+        {
+          "q": "iv) Tista is compiling a detailed and clear description of application features of her project on an online billing system and recognizing the limitations that are placed on the project. Identify the correct phase where Tista is currently working in:\n(a) Requirement Definition Phase\n(b) Testing Phase\n(c) Implementation Phase\n(d) Design Phase",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Requirement Definition Phase**\n\n**Explanation:** In the Requirement Definition / Analysis phase, software developers gather functional needs, compile feature specifications, and identify project boundaries and constraints before architectural design or coding begins.",
+          "hint": "The phase where features, scope, and limitations are gathered."
+        },
+        {
+          "q": "v) Read the following statements carefully about E-Governance:\n(i) It is the use of electronic tools for governance.\n(ii) It has decreased the transparency in the system.\n(iii) E-Governance empowers the citizens socially and economically.\n(iv) It enables citizens to access information after paying money.\n\nSelect the correct option:\n(a) Both (i) and (ii) are correct.\n(b) Both (ii) and (iii) are correct.\n(c) Both (i) and (iii) are correct.\n(d) Only (iv) is correct.",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Both (i) and (iii) are correct.**\n\n**Explanation:** E-Governance uses ICT tools to provide public services and empowers citizens socially and economically while increasing (not decreasing) transparency.",
+          "hint": "Statements (i) and (iii) are true advantages of E-Governance."
+        },
+        {
+          "q": "vi) Which of the following is NOT a characteristic of a Project?\n(a) Project has a beginning and an end.\n(b) The extent of the project is defined.\n(c) Project has no boundaries.\n(d) Project requires finite resources.",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Project has no boundaries.**\n\n**Explanation:** Every project is bounded by defined scope, time constraints, and finite resources. Therefore, having 'no boundaries' is false.",
+          "hint": "Projects always have defined limits and boundaries."
+        },
+        {
+          "q": "vii) Identify the Web Browser from the list of applications given below:\n(a) Adobe Photoshop\n(b) Java NetBeans IDE\n(c) OpenOffice Calc\n(d) Opera",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) Opera**\n\n**Explanation:** Opera is a popular web browser used to navigate the World Wide Web. Photoshop is image software, NetBeans is an IDE, and Calc is a spreadsheet program.",
+          "hint": "A program used to view websites."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 2 – Objective Type Questions (E-Services & Web Portals)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which of the following is NOT an example of e-Governance?\n(a) To file property tax.\n(b) To apply for renewal of passport.\n(c) To start an online coding course for 3 months.\n(d) To get voters ID Card issued.",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) To start an online coding course for 3 months.**\n\n**Explanation:** Online coding courses fall under e-Learning / EdTech, whereas property tax, passport renewal, and voter ID issuance are government-to-citizen (G2C) e-Governance services.",
+          "hint": "Commercial courses are e-Learning, not government services."
+        },
+        {
+          "q": "ii) Online shopping is an e-commerce application where the customer can purchase goods over the internet. There are several websites where the customers can go for online shopping. Select from the options which one is NOT an online shopping website:\n(a) snapdeal.com\n(b) infibeam.com\n(c) coursera.org\n(d) nykaa.com",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) coursera.org**\n\n**Explanation:** `coursera.org` is an online learning / MOOC education platform, while Snapdeal, Infibeam, and Nykaa are retail e-commerce shopping portals.",
+          "hint": "Coursera is an educational course portal."
+        },
+        {
+          "q": "iii) E-business offers advantages and opportunities, there are also risks and barriers. These include:\n(a) Violation of customer Privacy.\n(b) Spikes causing websites to fail at peak times.\n(c) Internet hackers penetrating Company security.\n(d) All of the above.",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) All of the above.**\n\n**Explanation:** Privacy violations, high-traffic server crashes (spikes), and cyber security penetrations by hackers are major recognized risks and barriers in e-business.",
+          "hint": "All listed points are recognized operational and cyber risks in e-business."
+        },
+        {
+          "q": "iv) Mention two work areas which use Database Management System.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n1. **Hospitality & Hotel Management** (Guest reservations, room inventory, billing)\n2. **Telecommunications / Banking** (Call detail records, customer account balances, transactions)",
+          "hint": "Banking, Railways, Telecommunications, or Hospitality."
+        },
+        {
+          "q": "v) You must have an account on the ________ portal to book a railway ticket.",
+          "marks": 1,
+          "answer": "**Correct Answer:** **IRCTC** (`irctc.co.in` / Indian Railway Catering and Tourism Corporation)",
+          "hint": "The official Indian Railways passenger ticketing portal."
+        },
+        {
+          "q": "vi) ________ are real time lectures, where users participate, may ask questions and clear their doubts.\n(a) Interactive Tutorials\n(b) Video Tutorials\n(c) PowerPoint Presentation\n(d) Webinar",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) Webinar**\n\n**Explanation:** A Webinar (Web Seminar) is an interactive, live, real-time video seminar over the internet where attendees participate and ask questions in real time.",
+          "hint": "Live web-based seminar with real-time question clearance."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 3 – Objective Type Questions (Java Programming Fundamentals)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which of the following is an invalid variable declaration?\ni) `char Section = 'D';`\nii) `String FirstName = 'Jeet';`\niii) `int ab = 38;`\niv) `double percentage = 87.6%;`\n\n(a) Only (ii)\n(b) (ii) and (iii)\n(c) (iii) and (iv)\n(d) (ii) and (iv)",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) (ii) and (iv)**\n\n**Explanation:**\n- In Java, `String` literals must be enclosed in double quotes `\"Jeet\"` (single quotes are reserved for `char`).\n- In `double percentage = 87.6%;`, `%` is an operator and is invalid in a numeric literal.",
+          "hint": "Single quotes around strings and % in numbers are syntax errors in Java."
+        },
+        {
+          "q": "ii) Write Output of the following two Statements:\n```java\nSystem.out.println(12 / 5);\nSystem.out.println(12.0 / 5);\n```",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n```\n2\n2.4\n```\n**Explanation:** `12 / 5` performs integer division (truncating fractional part to `2`), while `12.0 / 5` performs floating-point division yielding `2.4`.",
+          "hint": "Integer / Integer gives Integer; Double / Integer gives Double."
+        },
+        {
+          "q": "iii) The ________ statement in Java is used to execute a block of code matching one value out of many possible values.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `switch` (or `switch-case`)",
+          "hint": "The multi-way branch selection statement in Java."
+        },
+        {
+          "q": "iv) Let `x = 10` and `y = 80`. Then what will be the value of `x`, if:\n`x %= y;`",
+          "marks": 1,
+          "answer": "**Correct Answer:** `10`\n\n**Explanation:** `x %= y` evaluates to `x = x % y` → `10 % 80 = 10` (since 10 divided by 80 has quotient 0 and remainder 10).",
+          "hint": "10 divided by 80 gives remainder 10."
+        },
+        {
+          "q": "v) Why is `do-while` called an Exit Controlled Loop?",
+          "marks": 1,
+          "answer": "**Correct Answer:** In a `do-while` loop, the loop condition is tested at the **end (exit point)** after the loop body has executed. Therefore, the body of the loop is guaranteed to execute at least once regardless of the condition.",
+          "hint": "The condition is checked at the bottom/exit of the loop."
+        },
+        {
+          "q": "vi) What is the purpose of Java Virtual Machine (JVM)?",
+          "marks": 1,
+          "answer": "**Correct Answer:** The JVM is the runtime engine of Java that loads, verifies, and executes Java Bytecode (`.class` files), converting it into machine-specific native instructions and enabling platform independence (WORA).",
+          "hint": "To execute platform-independent bytecode on native host hardware."
+        },
+        {
+          "q": "vii) Name two primitive data types in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `int` and `char` (or `double`, `boolean`, `byte`, `short`, `long`, `float`)",
+          "hint": "Fundamental built-in data types in Java."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 4 – Objective Type Questions (RDBMS & SQL Basics)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) If the value of an attribute in a tuple is not known or not applicable or not available, a special value called ________ is used to represent them.\n(a) EMPTY\n(b) BLANK\n(c) NULL\n(d) VOID",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) NULL**\n\n**Explanation:** In relational databases, `NULL` represents missing, unassigned, or unknown values.",
+          "hint": "The SQL marker for unknown or missing data."
+        },
+        {
+          "q": "ii) Which of the following is NOT a valid data type of SQL?\n(a) CHAR(n)\n(b) VARCHAR(n)\n(c) STR(n)\n(d) DATE",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) STR(n)**\n\n**Explanation:** SQL supports `CHAR`, `VARCHAR`, `TEXT`, but `STR` is not a valid SQL data type keyword.",
+          "hint": "SQL character types are CHAR and VARCHAR."
+        },
+        {
+          "q": "iii) Write the SQL command to display all the details of teachers from the table `Teacher` whose salary is greater than 15000.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n```sql\nSELECT * FROM Teacher WHERE salary > 15000;\n```",
+          "hint": "SELECT * FROM Table WHERE column > value;"
+        },
+        {
+          "q": "iv) Assume there is a database called Organization. Write SQL Code to view all the Tables present inside the database Organization.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n```sql\nUSE Organization;\nSHOW TABLES;\n```",
+          "hint": "USE database; followed by SHOW TABLES;"
+        },
+        {
+          "q": "v) A Table `Product` has 8 columns and 15 rows. After deleting 4 rows and adding 3 columns, what is the Degree and Cardinality of the table?",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n- **Degree (Number of Columns):** `8 + 3 = 11`\n- **Cardinality (Number of Rows):** `15 - 4 = 11`\n\n**Explanation:** Degree represents total columns; Cardinality represents total tuples.",
+          "hint": "Degree = columns; Cardinality = rows."
+        },
+        {
+          "q": "vi) Arman wants to delete the records where name starts with 'A' from the `Customer` Table. Help Arman to choose the correct SQL Code:\n(a) `Delete Customer where name like 'A%';`\n(b) `Delete from Customer where name like 'A%';`\n(c) `Delete Customer where Name=\"A%\";`\n(d) `Delete from Customer where Name=\"A%\";`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) `Delete from Customer where name like 'A%';`**\n\n**Explanation:** The valid SQL syntax is `DELETE FROM TableName WHERE ColumnName LIKE 'Pattern';`. `%` wildcard matches any trailing characters.",
+          "hint": "DELETE FROM requires 'FROM' and pattern matching uses 'LIKE'."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 5 – Objective Type Questions (Java OOP, Arrays & Assertions)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which clause in switch case is executed if none of the case is matched with the test variable?\n(a) default\n(b) switch\n(c) break\n(d) case",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) default**\n\n**Explanation:** The `default` branch in a switch statement runs when no constant case matches the test expression.",
+          "hint": "The catch-all branch in a switch statement."
+        },
+        {
+          "q": "ii) Why is the assertion feature in Java made disabled by default?",
+          "marks": 1,
+          "answer": "**Correct Answer:** Assertions are disabled by default in Java runtime to ensure **maximum execution performance** in production environments, as evaluating assertion predicates adds runtime overhead.",
+          "hint": "To prevent performance slowdowns in production."
+        },
+        {
+          "q": "iii) The ________ method of Array class is used to arrange the Array of integers in ascending order.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `Arrays.sort()` (or `sort()`)",
+          "hint": "Method in java.util.Arrays to order elements."
+        },
+        {
+          "q": "iv) A ________ is a member method in Java having the same name as that of the class which is automatically called when the object of a class is created.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `Constructor`",
+          "hint": "Special member method named after the class."
+        },
+        {
+          "q": "v) Predict the output of the following expression if the initial value of `x` is 5:\n`x = ((++x) * 2) + 7`\n(a) 19\n(b) 21\n(c) 18\n(d) 20",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 19**\n\n**Step-by-step Tracing:**\n1. `++x` (pre-increment) increases `x` from 5 to 6, returning `6`.\n2. `6 * 2 = 12`.\n3. `12 + 7 = 19`.\n4. Result assigned to `x` is `19`.",
+          "hint": "Pre-increment makes x=6 before multiplication: (6*2)+7 = 19."
+        },
+        {
+          "q": "vi) Which keyword is used in Java to declare a constant?\n(a) const\n(b) constant\n(c) final\n(d) static",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) final**\n\n**Explanation:** The `final` modifier prevents re-assignment of variable values.",
+          "hint": "Modifier that makes a variable unalterable."
+        },
+        {
+          "q": "vii) Find Output of the following Code?\n```java\nint[] array = {37, 12, 56, 27, 10, 64};\nSystem.out.println(array[5] - array[0]);\n```",
+          "marks": 1,
+          "answer": "**Correct Answer:** `27`\n\n**Step-by-step Evaluation:**\n- `array[5]` is `64` (index 5 element).\n- `array[0]` is `37` (index 0 element).\n- `64 - 37 = 27`.",
+          "hint": "array[5] = 64 and array[0] = 37."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 6 – Objective Type Questions (Advanced SQL & Queries)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) All SQL statement/command must be terminated with a ________",
+          "marks": 1,
+          "answer": "**Correct Answer:** Semicolon (`;`)",
+          "hint": "The standard SQL delimiter symbol."
+        },
+        {
+          "q": "ii) Which clause in the Foreign Key creation ensures if a record is deleted from the parent table, then corresponding record from the dependent/child table will be automatically deleted?",
+          "marks": 1,
+          "answer": "**Correct Answer:** `ON DELETE CASCADE`",
+          "hint": "Cascades deletion from parent to children."
+        },
+        {
+          "q": "iii) Which of the following will display the highest and lowest value of the column Fee from the table COACH?\n(a) `SELECT HIGH(FEE), LOW(FEE) FROM COACH;`\n(b) `SELECT HIGHEST(FEE), LOWEST(FEE) FROM COACH;`\n(c) `SELECT MAXIMUM(FEE), MINIMUM(FEE) FROM COACH;`\n(d) `SELECT MAX(FEE), MIN(FEE) FROM COACH;`",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) `SELECT MAX(FEE), MIN(FEE) FROM COACH;`**\n\n**Explanation:** SQL standard aggregate functions for extremes are `MAX()` and `MIN()`.",
+          "hint": "SQL functions are MAX() and MIN()."
+        },
+        {
+          "q": "iv) Which SQL Clause in the Select command eliminates redundant information and display data without repetition?",
+          "marks": 1,
+          "answer": "**Correct Answer:** `DISTINCT`",
+          "hint": "Keyword placed after SELECT to filter duplicates."
+        },
+        {
+          "q": "v) In DBMS – the Primary Key in a table can reference back to the Foreign Key of the same table. State True or False.",
+          "marks": 1,
+          "answer": "**Correct Answer:** **True** (Self-Referencing Foreign Key / Recursive Relationship, e.g. `ManagerID` referencing `EmpID` in the same Employee table).",
+          "hint": "A table can reference its own primary key."
+        },
+        {
+          "q": "vi) Which SQL Code will display the details of the employees whose name has the word \"Kumar\" anywhere in the attribute name?\n(a) `Select * from Employee where Name Like \"Kumar%\";`\n(b) `Select * from Employee where Name Like \"%Kumar%\";`\n(c) `Select * from Employee where Name Like \"%Kumar\";`\n(d) `Select * from Employee where Name Like \"_Kumar\";`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) `Select * from Employee where Name Like \"%Kumar%\";`**\n\n**Explanation:** Surrounding the search string with `%` wildcards (`%Kumar%`) matches the word anywhere within the text.",
+          "hint": "% on both sides matches text anywhere in the string."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Subjective Type Questions (Part 1 – Web Applications & DBMS Concepts)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 2 = 6 Marks)",
+      "questions": [
+        {
+          "q": "Question 7\nA garment Company is planning to launch its website and a Mobile App. Mention four factors that the company shall keep in mind to attract people for online shopping.",
+          "marks": 2,
+          "answer": "**Model Answer:** Four key factors the garment company should ensure:\n1. **User-Friendly & Attractive UI/UX:** Clean navigation, fast loading times, and responsive layout across mobiles and tablets.\n2. **High-Quality Product Visuals & Sizing Charts:** Multi-angle high-resolution images, detailed fabric descriptions, and interactive size calculators.\n3. **Multiple Secure Payment Options:** Support for UPI, Credit/Debit cards, Net Banking, COD with SSL/HTTPS security.\n4. **Discounts, Easy Returns & Fast Delivery:** Clear return/refund policies, transparent tracking, and promotional coupons.",
+          "hint": "UI design, secure payments, product details, and return policies."
+        },
+        {
+          "q": "Question 8\nMention two purposes of database management systems in the field of Telecommunication.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n1. **Call Detail Record (CDR) & Billing Management:** Real-time logging and billing calculation of millions of daily calls, SMS, and data usage per subscriber.\n2. **Customer Relationship & Plan Provisioning:** Managing subscriber profiles, active prepaid/postpaid plan validity, KYC records, and network tower traffic routing.",
+          "hint": "Call records billing and subscriber profile management."
+        },
+        {
+          "q": "Question 9\nWhat do you mean by a Project? List down two key characteristics of a Project.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n- **Definition:** A Project is a temporary endeavor undertaken to create a unique product, service, or result.\n- **Two Key Characteristics:**\n  1. **Definite Beginning and End:** It has a well-defined start date and target completion deadline.\n  2. **Unique Deliverable & Finite Resources:** It produces a distinct outcome and operates under constrained time, budget, and resources.",
+          "hint": "Temporary endeavor creating a unique deliverable with finite resources."
+        },
+        {
+          "q": "Question 10\nWrite down two precautions to be taken care of while performing an Online Transaction.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n1. **Verify Secure Connection (HTTPS & Padlock):** Ensure the website URL begins with `https://` and displays a locked padlock icon before entering card details.\n2. **Avoid Public Wi-Fi & Never Share OTP:** Never conduct financial transactions over open public Wi-Fi networks and never disclose OTP, CVV, or passwords to anyone.",
+          "hint": "Look for HTTPS/padlock and never use open public Wi-Fi or share OTP."
+        },
+        {
+          "q": "Question 11\n(i) What do you mean by Shopping Cart?\n(ii) Name 2 e-Governance portals.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n(i) **Shopping Cart:** A piece of e-commerce software that acts as a virtual basket allowing online shoppers to accumulate multiple products, adjust quantities, calculate total costs/taxes, and proceed to checkout.\n(ii) **Two e-Governance Portals:**\n  1. **National Portal of India** (`india.gov.in`)\n  2. **Passport Seva Portal** (`passportindia.gov.in`) (or `digilocker.gov.in`, `parivahan.gov.in`)",
+          "hint": "Virtual checkout basket and official citizen service websites."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Subjective Type Questions (Part 2 – Programming & SQL Problem Sets)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 2 = 6 Marks)",
+      "questions": [
+        {
+          "q": "Question 12\nThe following code is presented in if-else if-else.\n```java\nint w = Integer.parseInt(jTextField1.getText());\nint pay = 0;\nif (w == 5)\n    pay = w * 20;\nelse if (w == 8)\n    pay = w * 26;\nelse if (w == 20)\n    pay = w * 138;\nelse if (w == 30)\n    pay = 14000;\nelse\n    pay = 0;\n```\nConvert the code into equivalent `switch` case without affecting the output.",
+          "marks": 2,
+          "answer": "**Model Solution:**\n```java\nint w = Integer.parseInt(jTextField1.getText());\nint pay = 0;\nswitch (w) {\n    case 5:\n        pay = w * 20;\n        break;\n    case 8:\n        pay = w * 26;\n        break;\n    case 20:\n        pay = w * 138;\n        break;\n    case 30:\n        pay = 14000;\n        break;\n    default:\n        pay = 0;\n        break;\n}\n```",
+          "hint": "Use switch(w) with case labels 5, 8, 20, 30 and default branch with break statements."
+        },
+        {
+          "q": "Question 13\nWrite one point of difference between DELETE command and DROP Command in SQL with one sample SQL Code of each.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n| Feature | `DELETE` Command | `DROP` Command |\n| :--- | :--- | :--- |\n| **Category** | Data Manipulation Language (**DML**) | Data Definition Language (**DDL**) |\n| **Action** | Deletes specific/all **rows** while table structure remains intact | Destroys the **entire table structure** and data permanently |\n| **Rollback** | Can be rolled back in transactions | Cannot be rolled back (auto-committed) |\n\n**Sample SQL Code:**\n```sql\n-- DELETE: Removes rows where Roll is 101\nDELETE FROM Student WHERE Roll = 101;\n\n-- DROP: Destroys the entire Student table permanently\nDROP TABLE Student;\n```",
+          "hint": "DELETE removes rows (DML); DROP destroys the table structure permanently (DDL)."
+        },
+        {
+          "q": "Question 14\nJeeniya is assigned the task to maintain the SQL database for Power Stock Ltd. She has created a table named `STOCKDATA` with the following structure:\n- `Stock_id` integer PRIMARY KEY\n- `Symbol` char(10)\n- `Value` integer(5)\n- `Type` char(10)\n\nThe table presently contains following data:\n| Stock_id | Symbol | Value | Type |\n| :--- | :--- | :--- | :--- |\n| 2624 | REL | 6653 | Sell |\n| 7660 | INFY | 3064 | Buy |\n| 4361 | NFY | 3117 | Buy |\n| 7292 | TC | 6865 | Buy |\n\n(a) What SQL statement Jeeniya should write to display the following output:\n| Type | Sum(Value) |\n| :--- | :--- |\n| Buy | 13046 |\n| Sell | 6653 |\n\n(b) What SQL statement will she write if all the values of the Value attribute in the existing table `STOCKDATA` are to be increased by 25%?",
+          "marks": 2,
+          "answer": "**Model Solution:**\n\n**(a)**\n```sql\nSELECT Type, SUM(Value) FROM STOCKDATA GROUP BY Type;\n```\n\n**(b)**\n```sql\nUPDATE STOCKDATA SET Value = Value * 1.25;\n-- or: UPDATE STOCKDATA SET Value = Value + (Value * 0.25);\n```",
+          "hint": "(a) GROUP BY Type with SUM(Value). (b) UPDATE SET Value = Value * 1.25."
+        },
+        {
+          "q": "Question 15\nWrite Output of the following Java code:\n```java\npublic class Series {\n    public static void main(String[] args) {\n        int num = 5;\n        do {\n            System.out.println(num + 2);\n            --num;\n        } while (num >= 2);\n    }\n}\n```",
+          "marks": 2,
+          "answer": "**Model Answer:**\n**Console Output:**\n```\n7\n6\n5\n4\n```\n\n**Step-by-Step Execution Trace:**\n- **Iteration 1:** `num = 5` → prints `5 + 2 = 7` → `--num` becomes `4` → condition `4 >= 2` is **True**.\n- **Iteration 2:** `num = 4` → prints `4 + 2 = 6` → `--num` becomes `3` → condition `3 >= 2` is **True**.\n- **Iteration 3:** `num = 3` → prints `3 + 2 = 5` → `--num` becomes `2` → condition `2 >= 2` is **True**.\n- **Iteration 4:** `num = 2` → prints `2 + 2 = 4` → `--num` becomes `1` → condition `1 >= 2` is **False** (Loop terminates).",
+          "hint": "num starts at 5, prints num+2, decrements until num < 2."
+        },
+        {
+          "q": "Question 16\nA Table `Movie` has the following attributes:\n- `MovieName` - varchar(50)\n- `Release_Year` - integer\n- `Type` - varchar(20)\n- `imdb_rating` - decimal(3,2)\n\n(i) Write SQL Code to insert the following records in the above table:\n`\"Jurassic Park\", 1993, \"Thriller\", 8.2`\n\n(ii) How many maximum digits can the attribute `imdb_rating` store before and after the decimal?",
+          "marks": 2,
+          "answer": "**Model Solution:**\n\n**(i)**\n```sql\nINSERT INTO Movie VALUES ('Jurassic Park', 1993, 'Thriller', 8.2);\n```\n\n**(ii)**\nIn `decimal(3, 2)`:\n- Total Precision = 3 digits.\n- Scale (digits after decimal) = 2 digits.\n- **Digits before decimal:** `3 - 2 = 1` digit (Maximum value: `9.99`).\n- **Digits after decimal:** `2` digits.",
+          "hint": "(i) Standard INSERT INTO syntax. (ii) Precision 3, scale 2 means 1 digit before and 2 after."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Subjective Type Questions (Part 3 – Multi-Table Queries & Advanced Programming)",
+      "marksPerQuestion": 4,
+      "totalQuestions": 4,
+      "description": "Answer any 3 Questions out of 4 Questions. (3 × 4 = 12 Marks)",
+      "questions": [
+        {
+          "q": "Question 17 [EMP Table Queries]\nWrite the Output of the SQL Queries (i) to (iii) based on the table `EMP` given below:\n\nTable `EMP`:\n| ENO | ENAME | JOB | HIREDATE | SALARY | COMM |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| 735 | Rajanya | Manager | 2013-05-13 | 55000 | 5500 |\n| 744 | David | Accountant | 2013-07-07 | 29500 | 2500 |\n| 752 | Girish | Clerk | 2014-06-14 | 20000 | NULL |\n| 778 | Pradeep | Clerk | 2013-12-25 | 25000 | 1750 |\n| 785 | Sanjana | Analyst | 2015-10-14 | 37000 | 2650 |\n| 790 | Akshay | Analyst | 2013-01-22 | 33000 | 3500 |\n| 887 | Vijaya | Manager | 2016-09-12 | 61000 | 3900 |\n| 903 | Indrajeet | Analyst | 2011-03-22 | 36500 | 2250 |\n\n(i) `Select Sum(Salary) from Emp where Job='Analyst' and HireDate>'2012-01-03';`\n\n(ii) `Select EName, Job from Emp where Comm is Null;`\n\n(iii) `Select EName, HireDate from Emp where Ename like '%a' and Job in ('Analyst', 'Clerk');`",
+          "marks": 4,
+          "answer": "**Model Solutions:**\n\n**(i)**\nMatching records (Job = 'Analyst' and HireDate > '2012-01-03'):\n- Sanjana: 37000\n- Akshay: 33000\n- *(Indrajeet's HireDate is '2011-03-22', so excluded)*\n- `Sum(Salary) = 37000 + 33000 = 70000`\n\n**Output:**\n```\nSum(Salary)\n70000\n```\n\n**(ii)**\nMatching record (Comm is NULL):\n- Girish (Clerk)\n\n**Output:**\n```\nEName   Job\nGirish  Clerk\n```\n\n**(iii)**\nMatching records (Ename ends with 'a' and Job is Analyst or Clerk):\n- Sanjana (Analyst, HireDate: `2015-10-14`)\n\n**Output:**\n```\nEName    HireDate\nSanjana  2015-10-14\n```",
+          "hint": "(i) Sum Sanjana + Akshay = 70000. (ii) Girish has NULL comm. (iii) Sanjana ends with 'a'."
+        },
+        {
+          "q": "Question 18\n(a) Write a Java Program to print all the numbers from N to 1 using a while Loop. The value of N should be accepted from the user as input.\n(b) What are the two ways of creating threads in Java?",
+          "marks": 4,
+          "answer": "**Model Solution:**\n\n**(a) Java Program:**\n```java\nimport java.util.Scanner;\n\npublic class ReverseCount {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter the value of N: \");\n        int n = scanner.nextInt();\n        \n        System.out.println(\"Numbers from \" + n + \" to 1:\");\n        int count = n;\n        while (count >= 1) {\n            System.out.print(count + \" \");\n            count--;\n        }\n        System.out.println();\n        scanner.close();\n    }\n}\n```\n\n**(b) Two Ways of Creating Threads in Java:**\n1. **By extending the `java.lang.Thread` class** and overriding its `run()` method.\n2. **By implementing the `java.lang.Runnable` interface** and passing its instance to a `Thread` object.",
+          "hint": "(a) Scanner input, while(count >= 1) count--. (b) Extend Thread class or Implement Runnable interface."
+        },
+        {
+          "q": "Question 21 [STUDENT & PARENTS Multi-Table Queries]\nConsider the given tables and write SQL commands for the following:\n\nTable `STUDENT`:\n| StuID | StuName | Class | Sec | Roll | BirthYear | ParentID |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n| A001 | Rakesh Kumar Singh | II | A | 1 | 2018 | P001 |\n| A002 | Sushil Kumar | II | A | 20 | 2019 | P002 |\n| A003 | Reena Malhotra | III | B | 25 | 2016 | P003 |\n| A004 | Seema Singh | II | B | 12 | 2018 | P004 |\n| A005 | Sushil Poddar | III | A | 18 | 2016 | P005 |\n| A006 | Aatishi Jaiswal | II | B | 2 | 2019 | P006 |\n\nTable `PARENTS`:\n| ParentID | ParentName |\n| :--- | :--- |\n| P001 | Suman Singh |\n| P002 | Santosh Kumar |\n| P003 | Sushant Malhotra |\n| P004 | Ashutosh Singh |\n| P005 | Jagat Narayan Poddar |\n| P006 | Hemant Jaiswal |\n\n(A) Display all students who are in Class 'II' in the descending order of their Roll.\n(B) Display Student Name, Class, Sec, Roll and Parent Name of those students whose BirthYear is less than 2019.\n(C) Add a new Column in STUDENT Table namely `BloodGroup` of `Char(2)`.\n(D) Display the Student Name, Parent Name of all students who are not in Class 'II'.",
+          "marks": 4,
+          "answer": "**Model Solutions:**\n\n**(A)**\n```sql\nSELECT * FROM STUDENT \nWHERE Class = 'II' \nORDER BY Roll DESC;\n```\n\n**(B)**\n```sql\nSELECT S.StuName, S.Class, S.Sec, S.Roll, P.ParentName \nFROM STUDENT S, PARENTS P \nWHERE S.ParentID = P.ParentID AND S.BirthYear < 2019;\n```\n\n**(C)**\n```sql\nALTER TABLE STUDENT ADD BloodGroup CHAR(2);\n```\n\n**(D)**\n```sql\nSELECT S.StuName, P.ParentName \nFROM STUDENT S, PARENTS P \nWHERE S.ParentID = P.ParentID AND S.Class <> 'II';\n-- or: WHERE S.ParentID = P.ParentID AND S.Class != 'II';\n```",
+          "hint": "(A) ORDER BY Roll DESC. (B) Join on ParentID WHERE BirthYear < 2019. (C) ALTER TABLE ADD. (D) WHERE Class <> 'II'."
+        },
+        {
+          "q": "Question 22 [Java Arrays & Binary Search]\n(a) Write a Java Statement to declare a double type array called `Marks` storing the marks of 5 students as `93.0, 87.5, 97.5, 65.0, 70.0`.\n\n(b) Consider the following code and fill in the gaps for Statement-1 and Statement-2 to complete the code of Binary Search in Java:\n```java\nimport ____________; // Statement-1\nclass Main {\n    public static void main(String args[]) {\n        String [] languages={\"Python\",\"Go\",\"Ruby\",\"C#\",\"Java\",\"C++\"};\n        int position=Arrays.________(languages, \"Ruby\"); // Statement-2\n        System.out.println(\"Ruby is present at=\"+position);\n    }\n}\n```\n(c) What will be the output after completing the gaps of the above code?",
+          "marks": 4,
+          "answer": "**Model Solution:**\n\n**(a)**\n```java\ndouble[] Marks = {93.0, 87.5, 97.5, 65.0, 70.0};\n// or: double Marks[] = {93.0, 87.5, 97.5, 65.0, 70.0};\n```\n\n**(b)**\n- **Statement-1:** `java.util.Arrays` (or `java.util.*`)\n- **Statement-2:** `binarySearch`\n\n**(c) Output:**\n```\nRuby is present at=2\n```\n*(Note: In the array `{\"Python\", \"Go\", \"Ruby\", \"C#\", \"Java\", \"C++\"}`, \"Ruby\" is located at index 2).* ",
+          "hint": "(a) double[] Marks = {...}. (b) Statement-1: java.util.Arrays, Statement-2: binarySearch. (c) index position 2."
+        },
+        {
+          "q": "Question 23 [Java String Methods]\nConsider a String:\n`String str = \"Answer is Wrong\";`\nWrite Java Statements to perform the following:\n(i) To return a new string by joining the word \" for me\" at the end of the original string.\n(ii) To return a new string by replacing the word \"Wrong\" with the word \"Correct\".\n(iii) To print the index position of the first occurrence of the letter 's' in the string.\n(iv) To print the length of the string.",
+          "marks": 4,
+          "answer": "**Model Solutions:**\n\n**(i)**\n```java\nString newStr = str.concat(\" for me\"); \n// or: String newStr = str + \" for me\";\n```\n\n**(ii)**\n```java\nString replacedStr = str.replace(\"Wrong\", \"Correct\");\n```\n\n**(iii)**\n```java\nSystem.out.println(str.indexOf('s'));\n```\n*(Returns `2`, since 'A'=0, 'n'=1, 's'=2)*\n\n**(iv)**\n```java\nSystem.out.println(str.length());\n```\n*(Returns `15`, total characters in \"Answer is Wrong\")*",
+          "hint": "(i) str.concat() (ii) str.replace() (iii) str.indexOf('s') (iv) str.length()"
+        }
+      ]
+    }
+  ]
+}

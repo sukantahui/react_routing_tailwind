@@ -1,0 +1,58 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_003: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT
+TOPIC 1: STAGE 1: REQUIREMENT DEFINITION / ANALYSIS PHASE (FEASIBILITY, SCOPE & SRS)
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS REQUIREMENT DEFINITION / ANALYSIS?
+--------------------------------------------------------------------------------
+Stage 1 is the discovery and scoping phase. It determines 'WHAT' the web application 
+must do, who will use it, under what constraints it will operate, and whether the 
+project is viable to undertake.
+
+2. CORE ACTIVITIES IN STAGE 1
+--------------------------------------------------------------------------------
+1. Fact-Finding & Requirement Elicitation:
+   - Stakeholder Interviews: One-on-one sessions with managers, cashiers, and users.
+   - Questionnaires & Surveys: Collecting structured inputs from distributed users.
+   - Document Analysis: Examining existing paper bill books, receipts, and ledger registers.
+   - On-Site Observation: Watching current manual bottlenecks and recording timings.
+
+2. Feasibility Analysis:
+   - Technical Feasibility: Do we have the hardware, database servers, and coding skills?
+   - Economic Feasibility (Cost-Benefit): Will business savings exceed development costs?
+   - Operational Feasibility: Will employees willingly adopt the new web portal?
+   - Schedule Feasibility: Can we launch before the required business deadline?
+
+3. Functional vs Non-Functional Requirements:
+   - Functional Requirements: Specific system behaviors and features (e.g. Barcode scanning, 
+     calculating 18% GST, generating printable PDF tax invoices, searching customer records).
+   - Non-Functional Requirements: System quality attributes (e.g. Page load under 1.5 seconds, 
+     handling 5,000 concurrent users, 99.9% uptime, AES-256 password encryption).
+
+4. Scope Definition & Boundary Management:
+   - Explicitly documenting what is INCLUDED and what is EXCLUDED to prevent 'Scope Creep'.
+
+3. THE PRIMARY DELIVERABLE: THE SRS DOCUMENT
+--------------------------------------------------------------------------------
+The Software Requirements Specification (SRS) is the formal contract and technical 
+blueprint produced at the end of Stage 1.
+
+Key Sections of an Authentic SRS (e.g. Online Billing System):
+1. Introduction & Project Scope.
+2. User Personas & Role-Based Access Control (Admin, Cashier, Customer, Auditor).
+3. Detailed Functional Requirements & Use Cases.
+4. Non-Functional Criteria (Performance, Security, Concurrency, Availability).
+5. External Software & Hardware Dependencies (MySQL 8.0, Java 17, Apache Tomcat).
+6. Business Rules & Operational Constraints.
+
+4. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+Requirement Definition বা প্রথম ধাপে মূলত ক্লায়েন্টের চাহিদা বোঝা হয়। এর প্রধান কাজ হলো:
+- ইন্টারভিউ ও প্রশ্নপত্রের মাধ্যমে প্রয়োজনীয় তথ্য সংগ্রহ করা।
+- সম্ভাব্যতা যাচাই (Technical ও Economic Feasibility) করা।
+- সফটওয়্যারের কাজের পরিধি (Scope) নির্দিষ্ট করা যাতে স্কোপ ক্রিপ না ঘটে।
+- সমস্ত তথ্য দিয়ে একটি আনুষ্ঠানিক SRS (Software Requirements Specification) দলিল তৈরি করা।
+
+================================================================================

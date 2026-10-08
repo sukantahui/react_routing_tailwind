@@ -1,0 +1,88 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 0: CLASSIFICATION OF SQL COMMANDS: DATA DEFINITION LANGUAGE (DDL) VS DATA MANIPULATION LANGUAGE (DML)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 18 min | Level: Fundamental
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] DDL (Data Definition Language): Commands that define, alter, and destroy database structures/schemas (CREATE, ALTER, DROP, TRUNCATE, RENAME).
+[2] DML (Data Manipulation Language): Commands that insert, modify, and delete row tuples within tables (INSERT, UPDATE, DELETE).
+[3] DQL (Data Query Language): Commands used to retrieve records from relations (SELECT).
+[4] TCL (Transaction Control Language): Commands that manage database transactions (COMMIT, ROLLBACK, SAVEPOINT).
+[5] DCL (Data Control Language): Commands that manage permissions and privileges (GRANT, REVOKE).
+[6] Auto-Commit Behavior: DDL commands implicitly execute COMMIT immediately—they cannot be rolled back. DML operations can be rolled back before COMMIT.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. The 5 Major Subsets of Structured Query Language (SQL) ---
+SQL is a domain-specific declarative language used to manage relational databases. SQL statements are categorized into 5 functional families:
+
+1. **Data Definition Language (DDL):** Builds the structural skeleton (tables, indexes, views, constraints). Operations change database catalog metadata.
+2. **Data Manipulation Language (DML):** Operates on the data values stored inside the skeleton. Modifies row tuples.
+3. **Data Query Language (DQL):** Queries and filters data without altering underlying records.
+4. **Transaction Control Language (TCL):** Controls logical units of work to maintain ACID consistency.
+5. **Data Control Language (DCL):** Manages user authentication, role privileges, and security boundaries.
+
+--- 2. DDL vs DML: The Critical Board Comparison Table ---
+| Parameter | Data Definition Language (DDL) | Data Manipulation Language (DML) |
+| :--- | :--- | :--- |
+| **Core Purpose** | Defines & modifies table structure/schema | Manages and modifies rows/tuples within tables |
+| **Keywords** | `CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME` | `INSERT`, `UPDATE`, `DELETE` |
+| **Target Level** | Database schema & metadata catalog | Data instance (tuples / records) |
+| **Auto-Commit** | Implicitly auto-committed (Cannot ROLLBACK) | Explicit commit needed (Can ROLLBACK) |
+| **Effect on Degree** | Can change Degree (`ALTER TABLE ADD/DROP`) | Has ZERO effect on Degree |
+| **Effect on Cardinality** | `TRUNCATE` / `DROP` sets Cardinality to 0 | Modifies Cardinality (`INSERT` / `DELETE`) |
+
+--- 3. Auto-Commit Mechanics & Rollback Implications ---
+In relational database engines like MySQL (InnoDB), DDL commands issue an implicit `COMMIT` both immediately before and immediately after execution.
+
+Therefore:
+- Executing `ALTER TABLE Student ADD BloodGroup CHAR(2);` permanently commits all pending transaction changes.
+- You cannot issue a `ROLLBACK` to undo a `DROP TABLE` or `ALTER TABLE` command.
+- In contrast, `DELETE FROM Student WHERE City = 'Barrackpore';` can be undone with `ROLLBACK;` if executed inside an active transaction.
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- DDL vs DML Comprehensive Lab Demonstration
+
+-- 1. DDL OPERATIONS (Structural Schema Definition - Auto-committed)
+CREATE DATABASE IF NOT EXISTS AcademyDB;
+USE AcademyDB;
+
+CREATE TABLE CourseMaster (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(50) NOT NULL,
+    DurationMonths INT DEFAULT 6,
+    CourseFee DECIMAL(8,2) NOT NULL
+);
+
+ALTER TABLE CourseMaster ADD InstructorName VARCHAR(40);
+
+-- 2. DML OPERATIONS (Data Instance Manipulation - Transactional)
+INSERT INTO CourseMaster (CourseID, CourseName, DurationMonths, CourseFee, InstructorName)
+VALUES (101, 'Python & Data Science', 12, 18500.00, 'Sukanta Hui'),
+       (102, 'RDBMS & MySQL 802', 6, 9500.00, 'Debangshu Pal');
+
+UPDATE CourseMaster 
+SET CourseFee = 8999.00 
+WHERE CourseID = 102;
+
+DELETE FROM CourseMaster 
+WHERE CourseID = 101;
+
+SELECT * FROM CourseMaster;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"In CBSE board questions, remember: CREATE, ALTER, DROP, and TRUNCATE are DDL commands because they modify the database schema or structure and are auto-committed. INSERT, UPDATE, and DELETE are DML commands because they alter table rows and can be rolled back inside transactions!"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

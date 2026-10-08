@@ -67,7 +67,9 @@ const WhyChooseUs = () => {
     showAll || selectedCategory !== "All" ? filteredReviews : filteredReviews.slice(0, 6);
 
   return (
-    <section id="why-choose-us" className="py-16 bg-slate-950 text-slate-100 border-b border-slate-800/80">
+    <section id="why-choose-us" className="py-16 bg-slate-950 text-slate-100 border-b border-slate-800/80 relative">
+      <div id="reviews" className="absolute -top-14 left-0 pointer-events-none" />
+      <div id="advantages" className="absolute -top-14 left-0 pointer-events-none" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">

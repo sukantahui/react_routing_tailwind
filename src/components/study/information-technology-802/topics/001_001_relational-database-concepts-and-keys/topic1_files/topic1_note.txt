@@ -1,0 +1,27 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 1: WORK AREAS & DOMAINS UTILIZING DBMS
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FIVE CORE ENTERPRISE DOMAINS:
+   A) Telecommunications: Call Detail Records (CDR) processing and live subscriber rating.
+   B) Banking & Finance: Double-entry accounting ledgers and ATM/UPI transaction concurrency.
+   C) Indian Railways (IRCTC): Real-time seat inventory reservation and anti-double booking locks.
+   D) Healthcare Systems: Electronic Health Records (EHR) and patient clinical histories.
+   E) Educational Institutions: Student Information Systems (SIS) and CBSE board marks compilation.
+
+2. SUMMARY DOMAIN MATRIX:
+   Telecom -> CDR Processing (Caller, Receiver, Duration, TowerID)
+   Banking -> Account Ledger (AccountNo, TxnType, Amount, Balance)
+   Railways -> Seat Inventory (PNR, TrainNo, TravelDate, BerthNo)
+   Healthcare -> EHR Records (PatientID, Diagnosis, Medication)
+   Education -> Student Master (StudentID, RollNo, Theory, Practical)
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+In Question 8 of CBSE Class XII IT (802) board paper: If asked to explain the
+use of DBMS in Telecom billing, describe Call Detail Records (CDR), subscriber
+balance deduction, and data packet accounting.
+================================================================================

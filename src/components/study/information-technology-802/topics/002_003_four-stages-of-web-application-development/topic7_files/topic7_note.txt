@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+SEGMENT 2: OPERATING WEB-BASED APPLICATIONS & E-SERVICES
+MODULE: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT
+TOPIC 7: DOWNLOADABLE DOCUMENTS & MASTER REVISION HUB
+TEACHER / AUTHOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. OVERVIEW OF TOPIC 7 DOWNLOADABLE DOCUMENTS
+--------------------------------------------------------------------------------
+This master hub provides students and educators with instant access to downloadable revision documents, templates, and reference materials covering the entire Web Application Development Lifecycle (WADLC):
+
+Available Downloadable Artifacts in This Module:
+1. `002_003_web_dev_master_summary.txt`: Comprehensive, all-in-one revision guide for Module 002_003.
+2. `topic0_note.txt`: Web Application Development Lifecycle Overview Notes.
+3. `topic1_note.txt`: Stage 1: Requirement Definition / Analysis Phase Notes.
+4. `topic2_note.txt`: Stage 2: Design Phase (3-Tier, ER Modeling, Wireframes) Notes.
+5. `topic3_note.txt`: Stage 3: Implementation / Coding Phase (Front-End & Back-End JDBC) Notes.
+6. `topic4_note.txt`: Stage 4: Testing & Quality Assurance Phase Notes.
+7. `topic5_note.txt`: Deployment, Maintenance, and Feedback Integration Notes.
+8. `topic6_note.txt`: Identifying Development Phases from Real-World Scenarios Notes.
+
+2. 10-POINT MASTER REVISION CHECKLIST FOR CBSE PRE-BOARD EXAMS
+--------------------------------------------------------------------------------
+[ ] 1. I can enumerate and explain the 4 sequential stages of web development in exact order.
+[ ] 2. I know that Stage 1 answers "WHAT" the system does, and Stage 2 answers "HOW" it will work and look.
+[ ] 3. I know that the Software Requirements Specification (SRS) is the primary deliverable of Stage 1.
+[ ] 4. I can explain the 3-Tier Architecture (Presentation Tier, Application Tier, Data Tier) and give examples.
+[ ] 5. I understand database normalization (1NF, 2NF, 3NF) and the roles of Primary Key & Foreign Key.
+[ ] 6. I know why PreparedStatement with parameter placeholders (?) is mandatory in JDBC to block SQL Injection.
+[ ] 7. I know that executeUpdate() runs INSERT/UPDATE/DELETE, while executeQuery() runs SELECT and returns a ResultSet.
+[ ] 8. I can distinguish Unit Testing, Integration Testing, System Testing, Regression Testing, and UAT (Beta Testing).
+[ ] 9. I can define the 4 types of maintenance: Corrective (bugs), Adaptive (tax/OS changes), Perfective (new features/speed), and Preventive (proactive upgrades).
+[ ] 10. I can analyze real-world case study prompts and accurately identify the exact development phase and deliverable.
+
+3. INSTITUTE & AUTHOR CREDITS
+--------------------------------------------------------------------------------
+Author: Sukanta Hui
+Institution: Coder & AccoTax
+Location: 25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India
+Website: https://www.codernaccotax.co.in
+
+================================================================================
+END OF TOPIC 7 STUDY NOTES
+================================================================================

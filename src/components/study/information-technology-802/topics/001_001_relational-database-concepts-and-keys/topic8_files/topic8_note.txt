@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 8: SQL STATEMENT TERMINATION & MYSQL CLIENT NAVIGATION
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. SQL STATEMENT DELIMITER (;):
+   - In MySQL Command Line Client and ANSI SQL, every command must terminate
+     with a semicolon (`;`).
+   - If you press ENTER without a semicolon, MySQL shows a continuation prompt
+     (`->`) waiting for the terminator.
+   - To cancel a mistyped multi-line command, type `\c` and press ENTER.
+
+2. CORE MYSQL CLIENT NAVIGATION COMMANDS:
+
+   Command                      | Purpose / Description
+   -----------------------------|----------------------------------------------------
+   `SHOW DATABASES;`            | Lists all existing databases on the MySQL server.
+   `USE database_name;`         | Switches the active session to the specified database.
+   `SHOW TABLES;`               | Lists all tables inside the currently active database.
+   `DESCRIBE table_name;`       | Displays the column schema of a table.
+   `DESC table_name;`           | Shorthand alias for DESCRIBE.
+   `SHOW CREATE TABLE table;`   | Shows the exact CREATE TABLE DDL script used.
+   `SELECT DATABASE();`         | Displays the name of currently active database.
+   `SELECT CURRENT_USER();`     | Displays logged-in username and host (e.g. root@localhost).
+   `SELECT VERSION();`          | Displays MySQL server engine version string.
+   `STATUS;` or `\s`           | Displays complete session connection diagnostics.
+   `EXIT;` or `QUIT;` or `\q`   | Disconnects and exits MySQL client.
+
+3. UNDERSTANDING 'DESCRIBE table_name;' OUTPUT COLUMNS:
+   - Field: The name of the column/attribute.
+   - Type: Data type and precision (e.g. `VARCHAR(60)`, `DECIMAL(5,2)`).
+   - Null: `YES` (can contain NULL) or `NO` (enforced NOT NULL).
+   - Key: `PRI` (Primary Key), `UNI` (Unique Key), `MUL` (Foreign Key / Indexed).
+   - Default: Fallback value when no data is provided.
+   - Extra: Special attributes (e.g. `auto_increment`).
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+In CBSE Board Objective Questions:
+1. Question: What error occurs if you run `SELECT * FROM Student;` without `USE`?
+   Answer: `ERROR 1046 (3D000): No database selected`.
+2. Remember: SQL keywords are NOT case-sensitive, but always terminate with `;`!
+================================================================================

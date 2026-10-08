@@ -1,0 +1,68 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 5: ONLINE TRANSACTION SAFETY: KEY PRECAUTIONS WHILE PERFORMING DIGITAL TRANSACTIONS
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. THE DIGITAL TRANSACTION FLOW & THREAT SURFACES
+--------------------------------------------------------------------------------
+When a customer pays online:
+[Client Browser / Mobile App] ──(HTTPS/TLS 1.3)──► [Merchant Server]
+                                                            │
+                                                            ▼
+                                                [Payment Gateway (Razorpay/CCAvenue)]
+                                                            │
+                                                            ▼
+                                                [Card Network (Visa/RuPay/Mastercard)]
+                                                            │
+                                                            ▼
+                                                [Issuing Bank (2FA / OTP Verification)]
+
+Threat Surfaces:
+- Unsecured public Wi-Fi sniffing.
+- Phishing & lookalike fake URLs.
+- Hardware/Software Keyloggers.
+- Social Engineering / Vishing phone calls.
+
+2. THE 7 GOLDEN PRECAUTIONS FOR SAFE DIGITAL TRANSACTIONS
+--------------------------------------------------------------------------------
+1. Verify HTTPS & SSL Padlock:
+   - Always inspect the address bar for `https://` and a closed padlock icon. Never enter 
+     banking passwords or card details on unencrypted `http://` pages.
+
+2. Never Transact on Public or Unsecured Wi-Fi:
+   - Free Wi-Fi in railway stations, airports, or cafes lacks encryption. Hackers can sniff 
+     data packets or deploy "Evil Twin" fake hotspots. Always use cellular mobile data or trusted private VPNs.
+
+3. Protect Secret Credentials (OTP, CVV, ATM PIN, MPIN):
+   - Never share your 3-digit CVV, 4/6-digit ATM PIN, or dynamic OTP with anyone. 
+   - Remember: Legitimate bank employees, RBI officials, or police NEVER ask for OTPs or PINs.
+
+4. Utilize Two-Factor Authentication (2FA):
+   - Always ensure 2FA is active. A password alone is vulnerable to breaches; requiring an OTP 
+     or biometric scan stops unauthorized logins even if passwords leak.
+
+5. Use Virtual On-Screen Keyboards on Shared Computers:
+   - When using shared or cybercafe PCs, click characters on an on-screen keyboard to defeat 
+     keystroke-logging malware.
+
+6. Always Explicitly 'Log Out' & Avoid Saving Credentials on Shared Devices:
+   - Never check "Remember Me" on public computers. Explicitly log out to invalidate the server session token.
+
+7. Enable Real-Time SMS/Email Bank Transaction Alerts:
+   - Immediate notifications ensure unauthorized debits are caught within minutes. Report fraud 
+     immediately to Bank Helpline and National Cyber Crime Portal (1930 / cybercrime.gov.in).
+
+3. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+ডিজিটাল লেনদেন নিরাপদে সম্পন্ন করার জন্য ৭টি প্রধান নিয়ম মেনে চলা আবশ্যক:
+১. ওয়েবসাইটের শুরুতে HTTPS ও বন্ধ তালার (Padlock) চিহ্ন দেখে নেওয়া।
+২. পাবলিক বা খোলা ওয়াই-ফাই ব্যবহার করে ব্যাংকিং লেনদেন না করা।
+৩. ওটিপি (OTP), সিভিভি (CVV) এবং এটিএম পিন (PIN) কাউকে না দেওয়া।
+৪. টু-ফ্যাক্টর অথেনটিকেশন (2FA) সক্রিয় রাখা।
+৫. সাইবার ক্যাফেতে ভার্চুয়াল কীবোর্ড ব্যবহার করা।
+৬. কাজ শেষে অবশ্যই লগআউট (Log Out) করা।
+৭. কোনো সন্দেহজনক লেনদেন হলে অবিলম্বে ব্যাংকে ও ১৯৩০ হেল্পলাইনে অভিযোগ জানানো।
+
+================================================================================

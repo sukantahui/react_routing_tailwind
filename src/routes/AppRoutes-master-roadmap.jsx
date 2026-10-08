@@ -268,6 +268,10 @@ const ROUTES = {
   ENGLISH_GRAMMAR_ROADMAP: '/english-grammar/roadmap',
   ENGLISH_GRAMMAR_MODULE: '/english-grammar/module/:slug',
   ENGLISH_GRAMMAR_TOPIC: '/english-grammar/topic/:moduleSlug/:topicIndex',
+
+  INFORMATION_TECHNOLOGY_802_ROADMAP: '/information-technology-802/roadmap',
+  INFORMATION_TECHNOLOGY_802_MODULE: '/information-technology-802/module/:slug',
+  INFORMATION_TECHNOLOGY_802_TOPIC: '/information-technology-802/topic/:moduleSlug/:topicIndex',
 };
 
 // --------------------------------------------------------------
@@ -591,6 +595,15 @@ const STUDY_TRACKS = [
     loadRoadmap: () => import('../components/study/english-grammar/english-grammar-roadmap.json'),
     getTopics: () => import.meta.glob('../components/study/english-grammar/topics/*/Topic*.jsx'),
     topicBasePath: '../components/study/english-grammar/topics',
+  },
+  {
+    key: 'information-technology-802',
+    roadmapRoute: ROUTES.INFORMATION_TECHNOLOGY_802_ROADMAP,
+    moduleRoute: ROUTES.INFORMATION_TECHNOLOGY_802_MODULE,
+    topicRoute: ROUTES.INFORMATION_TECHNOLOGY_802_TOPIC,
+    loadRoadmap: () => import('../components/study/information-technology-802/information-technology-802-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/information-technology-802/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/information-technology-802/topics',
   },
 ];
 

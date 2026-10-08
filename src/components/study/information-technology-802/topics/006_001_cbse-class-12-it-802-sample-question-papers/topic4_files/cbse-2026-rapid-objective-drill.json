@@ -1,0 +1,240 @@
+{
+  "paperId": "CBSE-2026-XII-IT802-OBJECTIVE-DRILL-04",
+  "title": "CBSE Class XII Information Technology (Subject Code: 802) – Rapid-Fire Objective Drill (30 Marks)",
+  "duration": "1 Hour 30 Minutes",
+  "totalMarks": 30,
+  "prerequisites": "CBSE Class XII IT (802) Syllabus: MySQL, Web Applications, Core Java & NetBeans GUI, Project Lifecycle & WIL",
+  "instructions": [
+    "This practice test contains 30 Objective Type Questions specifically designed to master Section A of the CBSE Class XII IT (802) Board Examination.",
+    "Questions include Multiple Choice Questions (MCQs), output predictions, fill in the blanks, syntax corrections, and boolean evaluations.",
+    "Each question carries 1 Mark. Total Marks: 30.",
+    "Review the hints and comprehensive explanations after attempting each question."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Part 1 – Employability & Operating Web Applications",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer all 6 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "1. Which Indian government portal provides a unified e-Marketplace for online procurement of goods and services by Central and State Government departments?\n(a) GeM (Government e-Marketplace)\n(b) DigiLocker\n(c) IRCTC\n(d) SWAYAM",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) GeM (Government e-Marketplace)**\n\n**Explanation:** GeM is the dedicated public procurement portal designed to facilitate end-to-end procurement of common use goods and services by government bodies.",
+          "hint": "Government e-Marketplace portal."
+        },
+        {
+          "q": "2. In the 4 stages of Web Application Development, what is the primary output generated during Stage 1 (Requirement Gathering & Analysis)?\n(a) Software Requirement Specification (SRS) Document\n(b) Compiled .class Bytecode Files\n(c) CSS Stylesheet Rules\n(d) MySQL Production Database Backups",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Software Requirement Specification (SRS) Document**\n\n**Explanation:** Stage 1 captures client business requirements and outputs the formal SRS document, establishing functional and non-functional specifications.",
+          "hint": "The foundational requirements document (SRS)."
+        },
+        {
+          "q": "3. Which of the following is an example of a Customer-to-Customer (C2C) e-Commerce transaction model?\n(a) Buying an e-Ticket on IRCTC\n(b) Selling a second-hand laptop to another individual on OLX or eBay\n(c) Ordering books directly from a publishing company\n(d) Filing income tax returns on the official portal",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Selling a second-hand laptop to another individual on OLX or eBay**\n\n**Explanation:** C2C facilitates direct commercial transactions between individual consumers via an intermediary online platform.",
+          "hint": "Consumer selling directly to another consumer."
+        },
+        {
+          "q": "4. State whether True or False:\n\"E-Learning platforms like SWAYAM and DIKSHA provide remote, self-paced access to interactive video lectures and accredited certifications.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** National e-Learning initiatives like SWAYAM deliver free online courses from school to postgraduate levels with proctored exams.",
+          "hint": "Online digital education platforms."
+        },
+        {
+          "q": "5. What type of software license allows developers to inspect, modify, and freely redistribute the underlying source code (e.g. MySQL, Linux)?\n(a) Proprietary Closed License\n(b) Commercial Single-User License\n(c) Open Source / FOSS License\n(d) Trial Shareware",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Open Source / FOSS License**\n\n**Explanation:** Free and Open Source Software (FOSS) grants users the freedom to view, modify, and enhance the source code without proprietary licensing fees.",
+          "hint": "Free and Open Source Software (FOSS)."
+        },
+        {
+          "q": "6. Which standard protocol ensures secure communication by encrypting credit card details during e-Banking and online payments?\n(a) Telnet\n(b) FTP\n(c) HTTPS / SSL-TLS\n(d) SNMP",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) HTTPS / SSL-TLS**\n\n**Explanation:** HTTPS uses Transport Layer Security (TLS/SSL) encryption to protect confidential transactions against interception and eavesdropping.",
+          "hint": "Secure HTTP with SSL/TLS."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Part 2 – Relational Database & MySQL Queries",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer all 6 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "7. Which SQL command is used to add a new record (row) into a MySQL table?\n(a) ADD RECORD\n(b) INSERT INTO\n(c) UPDATE\n(d) CREATE ROW",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) INSERT INTO**\n\n**Explanation:** `INSERT INTO table_name VALUES (...);` is the standard DML command to add new data rows.",
+          "hint": "DML statement for adding rows."
+        },
+        {
+          "q": "8. What is the output of the following SQL query?\n```sql\nSELECT LENGTH('CBSE IT 802');\n```\n(a) 10\n(b) 11\n(c) 9\n(d) 12",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 11**\n\n**Explanation:** The string contains: `'C'`(1), `'B'`(2), `'S'`(3), `'E'`(4), `' '`(5), `'I'`(6), `'T'`(7), `' '`(8), `'8'`(9), `'0'`(10), `'2'`(11). Total length = 11 characters including spaces.",
+          "hint": "Count every character including the spaces."
+        },
+        {
+          "q": "9. Which MySQL wildcard character matches any sequence of zero, one, or multiple characters in a `LIKE` clause?\n(a) Underscore (`_`)\n(b) Percent sign (`%`)\n(c) Asterisk (`*`)\n(d) Question mark (`?`)",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Percent sign (`%`)**\n\n**Explanation:** In SQL `LIKE`, `%` matches zero or more arbitrary characters, while `_` matches exactly one character.",
+          "hint": "Percentage symbol matches variable length text."
+        },
+        {
+          "q": "10. In a database with 6 tables, what is the term for a candidate key that was NOT chosen as the Primary Key?\n(a) Foreign Key\n(b) Alternate Key\n(c) Composite Key\n(d) Secondary Index",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Alternate Key**\n\n**Explanation:** All candidate keys other than the selected Primary Key are termed Alternate Keys.",
+          "hint": "Unselected candidate keys."
+        },
+        {
+          "q": "11. Write the SQL expression to find the square root of 225 in MySQL.",
+          "marks": 1,
+          "answer": "**Correct Answer: `SELECT SQRT(225);`** (Result: `15.0`)",
+          "hint": "Use the SQRT() function in MySQL."
+        },
+        {
+          "q": "12. State whether True or False:\n\"The SQL statement `UPDATE STUDENT SET Fee = Fee + 500;` will modify every single row in the STUDENT table because it lacks a WHERE clause.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** In SQL `UPDATE` or `DELETE`, omitting the `WHERE` filter applies the update unconditionally across all rows in the table.",
+          "hint": "Without WHERE, UPDATE affects all records."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Part 3 – Core Java, NetBeans GUI & Operators",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer all 6 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "13. What is the value of `result` in Java after executing:\n```java\nint a = 8, b = 3;\ndouble result = (double) a / b;\n```\n(a) 2\n(b) 2.0\n(c) 2.6666666666666665\n(d) 2.67",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 2.6666666666666665**\n\n**Explanation:** Explicit casting `(double) a` converts 8 to 8.0, causing floating-point division `8.0 / 3` which yields `2.6666666666666665`.",
+          "hint": "Double precision floating-point division."
+        },
+        {
+          "q": "14. Which NetBeans Swing container is used to group Radio Buttons together so that selecting one radio button automatically deselects the others?\n(a) JPanel\n(b) ButtonGroup\n(c) JScrollPane\n(d) JTabbedPane",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) ButtonGroup**\n\n**Explanation:** `javax.swing.ButtonGroup` creates a mutually exclusive set of radio buttons where only one option can be active at a time.",
+          "hint": "ButtonGroup component."
+        },
+        {
+          "q": "15. What will be printed by the following Java code?\n```java\nint x = 10;\nSystem.out.println(x > 5 ? \"Passed\" : \"Failed\");\n```\n(a) Passed\n(b) Failed\n(c) true\n(d) 10",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Passed**\n\n**Explanation:** The ternary operator `condition ? expr1 : expr2` evaluates `10 > 5` as `true`, returning `\"Passed\"`.",
+          "hint": "Ternary conditional operator evaluates to expr1 when true."
+        },
+        {
+          "q": "16. Which of the following is an invalid Java identifier name?\n(a) _score\n(b) $amount\n(c) 2ndStudent\n(d) totalMarks",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 2ndStudent**\n\n**Explanation:** In Java, identifier names cannot start with a numeric digit (must begin with a letter, `$`, or `_`).",
+          "hint": "Java identifiers cannot start with a digit."
+        },
+        {
+          "q": "17. Write the output of `Math.round(9.5)` in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: 10** (or `10L` as long)\n\n**Explanation:** `Math.round(9.5)` rounds up to the nearest integer value `10`.",
+          "hint": "9.5 rounds up to 10."
+        },
+        {
+          "q": "18. What is the purpose of the `this` keyword in Java class methods?",
+          "marks": 1,
+          "answer": "**Correct Answer:** The `this` keyword is a reference variable that refers to the **current object** instance, commonly used to distinguish instance variables from local constructor parameters.",
+          "hint": "Refers to the current class instance."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Part 4 – 1D Arrays, Strings & Exception Handling",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer all 6 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "19. If `String s = \"Barrackpore\";`, what does `s.startsWith(\"Bar\")` return?\n(a) \"Bar\"\n(b) true\n(c) false\n(d) 0",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) true**\n\n**Explanation:** `startsWith(prefix)` checks if the string begins with the specified prefix and returns boolean `true` or `false`.",
+          "hint": "Returns boolean true if prefix matches."
+        },
+        {
+          "q": "20. What is the index of the last element in an array declared as `int[] list = new int[15];`?\n(a) 15\n(b) 14\n(c) 0\n(d) 16",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 14**\n\n**Explanation:** Java arrays are 0-indexed; an array of size `N` has valid indices from `0` to `N - 1` (here `15 - 1 = 14`).",
+          "hint": "Array size minus one."
+        },
+        {
+          "q": "21. What happens if a Java program accesses `arr[10]` on an array of length 5?\n(a) It returns 0\n(b) It throws `ArrayIndexOutOfBoundsException` at runtime\n(c) It expands the array size dynamically\n(d) It causes compile error",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) It throws `ArrayIndexOutOfBoundsException` at runtime**\n\n**Explanation:** Accessing an index `< 0` or `>= array.length` triggers `java.lang.ArrayIndexOutOfBoundsException` at runtime.",
+          "hint": "Array index out of bounds runtime exception."
+        },
+        {
+          "q": "22. Write the Java statement to convert a String `String str = \"cbse\";` to all uppercase letters.",
+          "marks": 1,
+          "answer": "**Correct Answer: `String upper = str.toUpperCase();`**\n\n**Explanation:** `toUpperCase()` returns a new String with all characters converted to uppercase (`\"CBSE\"`).",
+          "hint": "str.toUpperCase() method."
+        },
+        {
+          "q": "23. Which method is called to start the execution of a thread created by extending `Thread` class?\n(a) thread.run()\n(b) thread.start()\n(c) thread.begin()\n(d) thread.execute()",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) thread.start()**\n\n**Explanation:** Calling `.start()` allocates a new call stack and triggers the JVM to invoke the `run()` method asynchronously.",
+          "hint": "The .start() method spawns the thread."
+        },
+        {
+          "q": "24. State whether True or False:\n\"In Java, the `equals()` method compares the actual character contents of two String objects, whereas `==` compares their memory references.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** `s1.equals(s2)` performs content comparison; `s1 == s2` checks whether both references point to the exact same memory location.",
+          "hint": ".equals() compares content; == compares memory references."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Part 5 – Work-Integrated Learning (WIL) & Project Management",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer all 6 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "25. Which of the following is a primary characteristic that distinguishes a project from continuous operations?\n(a) A project has a finite lifespan with a defined start and finish date\n(b) A project continues indefinitely year after year\n(c) A project uses zero financial resources\n(d) A project requires no documentation",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) A project has a finite lifespan with a defined start and finish date**\n\n**Explanation:** Projects are temporary endeavors undertaken to create a unique product, service, or result within defined time and budget limits.",
+          "hint": "Temporary endeavor with defined start and finish."
+        },
+        {
+          "q": "26. In the Project Life Cycle, which phase immediately follows Project Planning?\n(a) Project Closure\n(b) Project Execution & Implementation\n(c) Feasibility Study\n(d) Requirement Gathering",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Project Execution & Implementation**\n\n**Explanation:** The sequential project phases are: (1) Initiation -> (2) Planning -> (3) Execution & Implementation -> (4) Monitoring & Controlling -> (5) Closure.",
+          "hint": "Execution follows planning."
+        },
+        {
+          "q": "27. What is 'Work-Integrated Learning (WIL)' designed to achieve for IT students?\n(a) To replace all practical lab sessions with theoretical memorization\n(b) To blend formal classroom theory with real-world workplace industry application\n(c) To sell computer hardware\n(d) To eliminate teacher assessments",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) To blend formal classroom theory with real-world workplace industry application**\n\n**Explanation:** WIL provides structured industry internship and project experience integrated with academic curriculum.",
+          "hint": "Blends classroom theory with industry workplace practice."
+        },
+        {
+          "q": "28. State whether True or False:\n\"A software project milestone represents a significant achievement or event with zero duration in the project timeline.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** Milestones mark major checkpoints (e.g. 'SRS Approved', 'Alpha Version Released') and have a duration of zero days.",
+          "hint": "Milestones are zero-duration checkpoints."
+        },
+        {
+          "q": "29. What is the main purpose of Risk Management in project management?\n(a) To identify, analyze, and mitigate potential project threats before they cause schedule or cost overruns\n(b) To ignore software bugs\n(c) To increase project expenses intentionally\n(d) To delay client deliverables",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) To identify, analyze, and mitigate potential project threats before they cause schedule or cost overruns**\n\n**Explanation:** Proactive risk management minimizes negative impacts and maximizes project success probability.",
+          "hint": "Identifies and mitigates threats in advance."
+        },
+        {
+          "q": "30. Name the graphical project scheduling tool that displays tasks along a calendar timeline as horizontal horizontal bars.\n(a) Gantt Chart\n(b) Pie Chart\n(c) Entity-Relationship Diagram\n(d) Flowchart",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Gantt Chart**\n\n**Explanation:** A Gantt Chart is a bar chart that illustrates a project schedule, showing task dependencies, start/end dates, and milestones.",
+          "hint": "Horizontal bar chart for project schedules."
+        }
+      ]
+    }
+  ]
+}

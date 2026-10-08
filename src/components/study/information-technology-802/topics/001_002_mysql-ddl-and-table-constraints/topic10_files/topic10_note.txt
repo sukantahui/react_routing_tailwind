@@ -1,0 +1,56 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 10: DOWNLOADABLE DOCUMENTS
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 12 min | Level: Resource Hub
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] Module 002 Complete Revision Note: Full comprehensive plain text guide with syntax diagrams and board tips.
+[2] Formula & Precision Quick Sheet: Precision vs Scale rules, storable ranges, and ALTER TABLE quick reference.
+[3] MySQL DDL Master Script: `002_ddl_constraints_master.sql` containing all schema creation, alteration, and constraint test cases.
+[4] CBSE Board Question Bank: 50+ solved MCQs, 25 short-answer questions, and DDL schema writing drills.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. Module 002 Learning Assets Overview ---
+All study resources for **Module 002 (MySQL DDL Statements & Table Constraints)** have been compiled for offline review.
+
+Use the instant print and download buttons below to export printable PDF notes, text sheets, and SQL lab initialization scripts.
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Complete Module 002 Master DDL Script
+CREATE DATABASE IF NOT EXISTS CBSE_IT802_Module002;
+USE CBSE_IT802_Module002;
+
+CREATE TABLE Movie (
+    MovieID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(80) NOT NULL,
+    ReleaseYear INT NOT NULL,
+    Genre VARCHAR(30) DEFAULT 'Drama',
+    IMDb_Rating DECIMAL(3,2) CHECK (IMDb_Rating >= 0.0 AND IMDb_Rating <= 9.99)
+);
+
+CREATE TABLE Student (
+    RollNo INT PRIMARY KEY,
+    StudentName VARCHAR(50) NOT NULL,
+    Email VARCHAR(80) UNIQUE,
+    City VARCHAR(30) DEFAULT 'Barrackpore'
+);
+
+ALTER TABLE Student ADD BloodGroup CHAR(2);
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Download the complete DDL master SQL script to practice CREATE TABLE, ALTER TABLE ADD/MODIFY, and DECIMAL(p,s) precision commands directly in your MySQL Workbench or command line client."
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

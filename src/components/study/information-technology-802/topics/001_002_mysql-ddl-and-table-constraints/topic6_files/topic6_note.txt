@@ -1,0 +1,70 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 6: MODIFYING LIVE TABLE STRUCTURE WITH ALTER TABLE: ADDING COLUMNS (ALTER TABLE TABLE ADD COLUMN DATATYPE)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 18 min | Level: Core DDL Practical
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] ALTER TABLE is a DDL command used to add, modify, rename, or drop columns and constraints on existing tables.
+[2] Basic Syntax: ALTER TABLE table_name ADD column_name datatype [constraints];
+[3] Effect on Degree: Adding 1 column increases the Degree of the relation by +1.
+[4] Effect on Cardinality: Adding a column does NOT change Cardinality. All existing rows receive NULL (or the specified DEFAULT value).
+[5] Column Positioning: By default, MySQL appends the new column to the end. Use `FIRST` to place it at the beginning, or `AFTER existing_column` to place it after a specific column.
+[6] Adding Multiple Columns: ALTER TABLE table_name ADD col1 type, ADD col2 type;
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. The Mechanics of Schema Expansion via ALTER TABLE ADD ---
+When business requirements evolve, database administrators must expand live tables without losing existing rows.
+
+### Key Rules:
+1. **Existing Data Preservation:** Adding a column never deletes existing records.
+2. **Default Population:** If the new column has no `DEFAULT` specified, all existing tuples are assigned `NULL` in that column.
+3. **Degree Incrementation:** If table `Student` has Degree = 5 (5 columns) and 40 rows, executing `ALTER TABLE Student ADD BloodGroup CHAR(2);` changes Degree to **6**, while Cardinality remains **40**.
+
+--- 2. Column Placement Syntax: FIRST and AFTER ---
+- **Append to End (Default):**
+  `ALTER TABLE Student ADD AadhaarNo CHAR(12);`
+- **Insert as First Column:**
+  `ALTER TABLE Student ADD SerialNo INT FIRST;`
+- **Insert After Specific Column:**
+  `ALTER TABLE Student ADD GuardianContact CHAR(10) AFTER StudentName;`
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- ALTER TABLE ADD Demonstration Script
+CREATE TABLE StudentProfile (
+    RollNo INT PRIMARY KEY,
+    StudentName VARCHAR(50) NOT NULL,
+    Class VARCHAR(5) NOT NULL
+);
+
+INSERT INTO StudentProfile VALUES
+(1, 'Swadeep Roy', 'XII'),
+(2, 'Sachin Ghosh', 'XII');
+
+-- 1. Standard Add -> Degree becomes 4
+ALTER TABLE StudentProfile ADD BloodGroup CHAR(2);
+
+-- 2. Add with DEFAULT and NOT NULL -> Degree becomes 5
+ALTER TABLE StudentProfile ADD City VARCHAR(30) NOT NULL DEFAULT 'Barrackpore';
+
+-- 3. Add column AFTER StudentName -> Degree becomes 6
+ALTER TABLE StudentProfile ADD DateOfBirth DATE AFTER StudentName;
+
+DESCRIBE StudentProfile;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Board Exam Question: 'Write SQL command to add a new column BloodGroup of type CHAR(2) to the Student table.' The exact answer is: ALTER TABLE Student ADD BloodGroup CHAR(2);. Remember: ALTER TABLE modifies table structure, NOT table data!"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

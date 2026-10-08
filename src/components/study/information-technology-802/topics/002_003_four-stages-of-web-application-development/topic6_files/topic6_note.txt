@@ -1,0 +1,56 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+SEGMENT 2: OPERATING WEB-BASED APPLICATIONS & E-SERVICES
+MODULE: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT
+TOPIC 6: IDENTIFYING DEVELOPMENT PHASES FROM REAL-WORLD SCENARIOS & CASE STUDIES
+TEACHER / AUTHOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE IMPORTANCE OF SCENARIO-BASED PHASE IDENTIFICATION
+--------------------------------------------------------------------------------
+In the CBSE Class XII Information Technology (Code 802) board examination, competency-based questions frequently present real-world industry scenarios and ask students to identify the exact stage of the Web Application Development Lifecycle (WADLC).
+
+2. QUICK KEYWORD DECODER & STAGE TRIGGER MATRIX
+--------------------------------------------------------------------------------
+| STAGE / PHASE | KEY TRIGGER ACTIVITIES & NOUNS | DELIVERABLE GENERATED |
+|---|---|---|
+| Stage 1: Requirement Definition / Analysis | • Stakeholder & client interviews<br>• User questionnaires & surveys<br>• Technical / Economic Feasibility Study<br>• Defining scope & operational boundaries<br>• Identifying 'WHAT' the system must do | Software Requirements Specification (SRS) Document |
+| Stage 2: Design Phase | • Drawing ER diagrams (Entity-Relationship)<br>• Normalizing database tables (1NF, 2NF, 3NF)<br>• Creating UI wireframes & page mockups in Figma<br>• Planning 3-Tier Client-Server Architecture<br>• Flowcharts, DFDs, & Navigation Trees | Design Document Specification (DDS), ER Schemas, UI Mockups |
+| Stage 3: Implementation / Coding Phase | • Writing HTML5, CSS3, JavaScript front-ends<br>• Developing Java Servlets / Spring Boot logic<br>• Writing JDBC queries & PreparedStatements<br>• Designing NetBeans Swing GUI components<br>• Following clean coding standards & Git commits | Executable Source Code Repository |
+| Stage 4: Testing & Quality Assurance Phase | • Executing Unit test cases with JUnit<br>• Integration testing across UI & MySQL<br>• Boundary Value Analysis (edge test cases)<br>• User Acceptance Testing (UAT / Beta testing)<br>• Penetration / Security audits & Load testing<br>• Logging bugs in JIRA / Bugzilla defect tracker | Test Plan, Test Cases, Bug Reports, UAT Sign-off |
+| Post-Development: Deployment & Maintenance | • Hosting on cloud servers (AWS / Tomcat)<br>• Configuring DNS domain & SSL HTTPS certificate<br>• Fixing live errors -> Corrective Maintenance<br>• Adapting to GST tax changes -> Adaptive Maintenance<br>• Adding Dark Mode / PDF download -> Perfective Maintenance<br>• Upgrading MySQL to prevent crashes -> Preventive Maintenance | Live Production URL, SLA, Hotfix Release Notes |
+
+3. THREE REAL-WORLD CASE STUDIES & PHASE WALKTHROUGHS
+--------------------------------------------------------------------------------
+Case Study 1: Barrackpore Electric Supply Online Billing System
+- Step A: Meeting with local billing officers to determine bill calculation formulas (Domestic vs Commercial tariffs). -> [Stage 1: Requirement Definition]
+- Step B: Designing the database table schema `BILLS(BillID, ConsumerID, Units, TotalAmount, DueDate)` and drafting mobile wireframes. -> [Stage 2: Design Phase]
+- Step C: Writing Java JDBC PreparedStatement routines to insert new billing records securely. -> [Stage 3: Implementation / Coding]
+- Step D: Testing bill calculation with negative units (-50 kWh) and boundary units (200 kWh) to catch unhandled errors. -> [Stage 4: Testing & QA]
+- Step E: Correcting an unexpected rounding error after launch where ₹1 extra was deducted during UPI payments. -> [Corrective Maintenance]
+
+Case Study 2: Army Public School Barrackpore Student Portal
+- Step A: Teachers and parents submit a wishlist of portal features (attendance, report cards, fees). -> [Stage 1: Requirement Definition]
+- Step B: Architect drafts 3-tier architecture: React front-end, Java API middle-tier, MySQL data tier. -> [Stage 2: Design Phase]
+- Step C: Developers write front-end NetBeans / React UI and back-end student database controllers. -> [Stage 3: Implementation]
+- Step D: School principal and teachers test the pre-release portal on real student marks for approval. -> [User Acceptance Testing (UAT) in Stage 4]
+- Step E: Upgrading server hardware and database indexing to handle 5,000 parents accessing report cards on result day. -> [Preventive Maintenance]
+
+Case Study 3: Kolkata Multi-Specialty Hospital OPD Booking
+- Step A: Analyzing hospital budget and server feasibility. -> [Stage 1: Feasibility Study]
+- Step B: Creating an Entity-Relationship (ER) diagram linking DOCTOR, PATIENT, and APPOINTMENT entities. -> [Stage 2: Design Phase]
+- Step C: Writing SQL queries with parameterized PreparedStatements to book appointment slots. -> [Stage 3: Implementation]
+- Step D: Pen-testing the appointment booking form against SQL injection payloads (`' OR '1'='1`). -> [Stage 4: Security Testing]
+- Step E: Updating patient privacy settings to comply with new Indian digital health data protection laws. -> [Adaptive Maintenance]
+
+4. KEY CBSE BOARD EXAM TAKEAWAYS
+--------------------------------------------------------------------------------
+- If the question mentions "interviews", "client survey", "feasibility", or "scope" -> Stage 1: Requirement Definition.
+- If the question mentions "ER diagram", "wireframe", "normalization", "sitemap", or "mockup" -> Stage 2: Design Phase.
+- If the question mentions "writing code", "Java", "HTML", "JDBC", or "PreparedStatement" -> Stage 3: Implementation.
+- If the question mentions "test cases", "discovering bugs", "UAT", "Beta testing", or "JMeter load test" -> Stage 4: Testing & QA.
+- If the question mentions "fixing live errors" -> Corrective Maintenance; "new tax laws" -> Adaptive Maintenance; "new requested feature" -> Perfective Maintenance; "proactive upgrade" -> Preventive Maintenance.
+
+================================================================================
+END OF TOPIC 6 STUDY NOTES
+================================================================================

@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 4: SELECT PROJECTIONS, ARITHMETIC EXPRESSIONS & ALIASES (AS)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 12 mins | Level: Beginner
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] SELECT is the primary query statement in SQL used to retrieve data from tables.
+[2] Projection: Selecting specific columns (e.g. SELECT FullName, Stream FROM Student;).
+[3] Arithmetic Projections: Evaluating calculations on the fly (e.g. SELECT BasicSalary * 12 AS AnnualSalary FROM Emp;).
+[4] Column Aliasing: Using the 'AS' keyword to provide descriptive headers in the result output.
+[5] SELECT queries are read-only and NEVER modify the underlying table records.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- SELECT Projections & Dynamic Calculations
+USE CompanyDB;
+
+-- 1. Basic Projection with Aliases
+SELECT 
+  EmpNo AS ID,
+  EmpName AS [Employee Name],
+  BasicSalary,
+  BasicSalary * 0.15 AS HRA,
+  BasicSalary * 0.08 AS DA,
+  (BasicSalary + (BasicSalary * 0.15) + (BasicSalary * 0.08)) AS GrossSalary
+FROM Employee;
+
+-- 2. Projected Literals & Constant Expressions
+SELECT EmpName, 'Permanent Staff' AS EmploymentStatus, BasicSalary * 12 AS AnnualCTC
+FROM Employee;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Column aliases with spaces must be enclosed in quotes (e.g. `AS 'Annual Package'`). Arithmetic in SELECT only affects display output, never table data. — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

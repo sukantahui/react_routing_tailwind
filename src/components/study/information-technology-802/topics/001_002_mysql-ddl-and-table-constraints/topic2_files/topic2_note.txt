@@ -1,0 +1,84 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 2: DEEP DIVE INTO DECIMAL(P, S): PRECISION (TOTAL DIGITS) VS SCALE (DIGITS AFTER DECIMAL POINT) - E.G. DECIMAL(3,2) FOR IMDB RATINGS
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 22 min | Level: High Yield Board Math
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] Precision (p): The total number of significant decimal digits stored (both to the left and right of the decimal point). Range: 1 to 65.
+[2] Scale (s): The number of digits stored to the right of the decimal point. Range: 0 to 30 (where s <= p).
+[3] Digits to the Left of Decimal: Calculated as (p - s).
+[4] Maximum Storable Positive Value: 10^(p-s) - 10^(-s). For DECIMAL(3,2), it is 9.99.
+[5] Maximum Storable Value Examples:
+  - DECIMAL(4,2): 99.99
+  - DECIMAL(5,2): 999.99
+  - DECIMAL(3,2): 9.99
+  - DECIMAL(5,0): 99999
+[6] Rounding & Truncation: Inserting 8.456 into DECIMAL(3,2) gets rounded to 8.46. Inserting 12.5 into DECIMAL(3,2) triggers an Out of Range error.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. The Formula & Mechanics of DECIMAL(p, s) ---
+In SQL, `DECIMAL(p, s)` (synonymous with `NUMERIC(p, s)`) provides exact fixed-point storage.
+
+### Mathematical Formulation:
+- **Precision ($p$):** Total number of digits in the entire number.
+- **Scale ($s$):** Number of fractional digits after the decimal point.
+- **Integer digits allowed:** $p - s$
+
+$$\text{Maximum Value} = \underbrace{99\dots9}_{p-s\text{ digits}} . \underbrace{99\dots9}_{s\text{ digits}}$$
+
+### Step-by-Step Analysis of DECIMAL(3,2):
+1. Precision $p = 3$
+2. Scale $s = 2$
+3. Integer digits $= p - s = 3 - 2 = 1$ digit.
+4. Fractional digits $= s = 2$ digits.
+5. Maximum possible value: **`9.99`**
+6. Minimum possible value: **`-9.99`**
+
+--- 2. Real-World Case Study: IMDb Movie Ratings ---
+Suppose you create a table `Movie` with column `IMDb_Rating DECIMAL(3,2)`:
+
+- Storing `8.80` (Inception): **Valid** (1 integer digit, 2 decimal digits)
+- Storing `9.30` (The Shawshank Redemption): **Valid** (1 integer digit, 2 decimal digits)
+- Storing `9.99`: **Valid** (Maximum limit)
+- Storing `10.00`: **FAILS WITH ERROR 1264 (22003): Out of range value for column 'IMDb_Rating'**
+  - *Why?* Because `10.00` has 2 integer digits (`10`), but `DECIMAL(3,2)` only allows $3 - 2 = 1$ integer digit!
+  - *Solution for perfect 10.0 scores:* Define as `DECIMAL(4,2)` (allows up to `99.99`) or `DECIMAL(3,1)` (allows up to `99.9`).
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- DECIMAL(p, s) Demonstration & Range Testing Lab
+CREATE TABLE MovieReviewDB (
+    MovieID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(80) NOT NULL,
+    ReleaseYear INT,
+    Genre VARCHAR(30),
+    IMDb_Rating DECIMAL(3,2),
+    BoxOfficeCollectionCrores DECIMAL(10,2)
+);
+
+INSERT INTO MovieReviewDB (Title, ReleaseYear, Genre, IMDb_Rating, BoxOfficeCollectionCrores)
+VALUES ('3 Idiots', 2009, 'Comedy/Drama', 8.40, 460.00),
+       ('The Dark Knight', 2008, 'Action/Crime', 9.00, 1004.56),
+       ('Interstellar', 2014, 'Sci-Fi', 8.70, 701.72),
+       ('Masterpiece Max', 2026, 'Drama', 9.99, 1250.80);
+
+SELECT Title, IMDb_Rating, BoxOfficeCollectionCrores,
+       ROUND(IMDb_Rating * 10, 1) AS RatingOutOf100
+FROM MovieReviewDB;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Board Exam Question: What is the maximum value that can be stored in DECIMAL(3,2)? Total digits (p) = 3, digits after decimal (s) = 2. Digits before decimal = p - s = 3 - 2 = 1. Therefore, maximum value is 9.99! If a movie gets rating 10.0, it will cause an 'Out of range value' error!"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

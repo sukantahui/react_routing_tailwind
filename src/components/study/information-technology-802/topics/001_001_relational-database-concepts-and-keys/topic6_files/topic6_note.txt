@@ -1,0 +1,56 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 6: FOREIGN KEYS & REFERENTIAL INTEGRITY (PARENT VS CHILD TABLES)
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A FOREIGN KEY?
+   A Foreign Key is an attribute (or combination of attributes) in a child table
+   whose values must match the Primary Key of a referenced parent table (or be NULL).
+
+2. CORE CONCEPTS & TERMINOLOGY:
+   a) Parent Table (Referenced Table):
+      The master table containing the referenced primary key.
+      Example: `PARENTS(ParentID, ParentName)`
+
+   b) Child Table (Referencing / Dependent Table):
+      The dependent table containing the foreign key pointing to the parent.
+      Example: `STUDENT(StudentID, StuName, ParentID)`
+
+   c) Referential Integrity Rule:
+      A child table CANNOT contain a foreign key value that does not exist in the
+      referenced parent table.
+
+3. DATA OPERATION SEQUENCING RULES:
+   - INSERTION: Insert into Parent Table FIRST, then into Child Table.
+   - DELETION: Delete from Child Table FIRST, then from Parent Table.
+   - TABLE CREATION: Create Parent Table FIRST.
+   - TABLE DROPPING: Drop Child Table FIRST.
+
+4. CASCADE ACTIONS ON FOREIGN KEYS:
+   - `ON DELETE CASCADE`: Deleting parent automatically deletes all child rows.
+   - `ON DELETE SET NULL`: Deleting parent sets foreign key in child rows to NULL.
+   - `ON DELETE RESTRICT / NO ACTION`: Rejects parent deletion if child rows exist.
+   - `ON UPDATE CASCADE`: Updating parent primary key automatically updates child foreign keys.
+
+5. SAMPLE SQL DEFINITION:
+   CREATE TABLE PARENTS (
+       ParentID VARCHAR(10) PRIMARY KEY,
+       ParentName VARCHAR(60) NOT NULL
+   );
+
+   CREATE TABLE STUDENT (
+       StudentID VARCHAR(10) PRIMARY KEY,
+       StuName VARCHAR(60) NOT NULL,
+       ParentID VARCHAR(10),
+       FOREIGN KEY (ParentID) REFERENCES PARENTS(ParentID) ON DELETE CASCADE
+   );
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+In CBSE Board Objective Questions:
+1. Question: What happens when parent record is deleted with ON DELETE CASCADE?
+   Answer: All corresponding child records referencing that parent are automatically deleted.
+2. Remember: Foreign keys CAN have duplicate values and CAN contain NULLs!
+================================================================================

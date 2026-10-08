@@ -4,15 +4,16 @@ import clsx from "clsx";
 const FAQTemplate = ({ 
   title = "Frequently Asked Questions", 
   subtitle = "Test your understanding with these domain mastery questions",
-  questions = [],
+  questions,
+  faqs,
   showPrint = true,
   showExpandAll = true,
   showSearch = true,
   showProgress = true
 }) => {
+  const normalizedQuestions = (questions && questions.length > 0) ? questions : (faqs || []);
   const [visibleAnswers, setVisibleAnswers] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredIndices, setFilteredIndices] = useState([]);
 
   // Toggle individual answer
   const toggleAnswer = useCallback((index) => {
@@ -25,11 +26,11 @@ const FAQTemplate = ({
   // Expand all answers
   const expandAll = useCallback(() => {
     const allVisible = {};
-    questions.forEach((_, idx) => {
+    normalizedQuestions.forEach((_, idx) => {
       allVisible[idx] = true;
     });
     setVisibleAnswers(allVisible);
-  }, [questions]);
+  }, [normalizedQuestions]);
 
   // Collapse all answers
   const collapseAll = useCallback(() => {
@@ -42,32 +43,30 @@ const FAQTemplate = ({
   }, [visibleAnswers]);
 
   // Filter questions based on search
-  useMemo(() => {
+  const filteredIndices = useMemo(() => {
     if (!searchTerm.trim()) {
-      setFilteredIndices(questions.map((_, idx) => idx));
-    } else {
-      const term = searchTerm.toLowerCase();
-      const indices = questions
-        .map((q, idx) => ({ idx, question: q.question || "", answer: q.shortAnswer || "" }))
-        .filter(item => 
-          item.question.toLowerCase().includes(term) || 
-          item.answer.toLowerCase().includes(term)
-        )
-        .map(item => item.idx);
-      setFilteredIndices(indices);
+      return normalizedQuestions.map((_, idx) => idx);
     }
-  }, [searchTerm, questions]);
+    const term = searchTerm.toLowerCase();
+    return normalizedQuestions
+      .map((q, idx) => ({ idx, question: q.question || "", answer: q.shortAnswer || q.answer || q.explanation || "" }))
+      .filter(item => 
+        item.question.toLowerCase().includes(term) || 
+        item.answer.toLowerCase().includes(term)
+      )
+      .map(item => item.idx);
+  }, [searchTerm, normalizedQuestions]);
 
   // Print Function
   const handlePrint = useCallback(() => {
     const content = document.getElementById("question-set");
     if (!content) return;
 
-    const wasAllExpanded = visibleCount === questions.length;
+    const wasAllExpanded = visibleCount === normalizedQuestions.length;
     
     if (!wasAllExpanded) {
       const allVisible = {};
-      questions.forEach((_, idx) => {
+      normalizedQuestions.forEach((_, idx) => {
         allVisible[idx] = true;
       });
       setVisibleAnswers(allVisible);
@@ -131,12 +130,12 @@ const FAQTemplate = ({
         }, 500);
       }
     }, 200);
-  }, [title, subtitle, questions, visibleCount, collapseAll]);
+  }, [title, subtitle, normalizedQuestions, visibleCount, collapseAll]);
 
   // Calculate progress percentage
   const progressPercentage = useMemo(() => {
-    return questions.length > 0 ? (visibleCount / questions.length) * 100 : 0;
-  }, [visibleCount, questions.length]);
+    return normalizedQuestions.length > 0 ? (visibleCount / normalizedQuestions.length) * 100 : 0;
+  }, [visibleCount, normalizedQuestions.length]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -173,7 +172,7 @@ const FAQTemplate = ({
             <p className="text-xs sm:text-sm text-slate-300 mt-1">{subtitle}</p>
             <div className="mt-2.5 flex items-center gap-2 text-xs flex-wrap">
               <span className="bg-slate-950/80 text-indigo-300 border border-indigo-800/60 px-2.5 py-0.5 rounded-full font-mono font-bold">
-                📝 {questions.length} Questions
+                📝 {normalizedQuestions.length} Questions
               </span>
               <span className="bg-slate-950/80 text-emerald-300 border border-emerald-800/60 px-2.5 py-0.5 rounded-full font-mono font-bold">
                 ✅ {visibleCount} Answered
@@ -214,11 +213,11 @@ const FAQTemplate = ({
         </div>
 
         {/* Progress Bar */}
-        {showProgress && questions.length > 0 && (
+        {showProgress && normalizedQuestions.length > 0 && (
           <div className="mt-3.5 pt-3 border-t border-slate-800/80">
             <div className="flex justify-between text-xs text-slate-300 mb-1.5 font-medium">
               <span>Mastery Progress</span>
-              <span className="font-bold text-sky-400">{Math.round(progressPercentage)}% ({visibleCount}/{questions.length})</span>
+              <span className="font-bold text-sky-400">{Math.round(progressPercentage)}% ({visibleCount}/{normalizedQuestions.length})</span>
             </div>
             <div className="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden border border-slate-800">
               <div 
@@ -270,7 +269,7 @@ const FAQTemplate = ({
         {/* Questions List */}
         <div className="space-y-2.5">
           {filteredIndices.map((originalIdx) => {
-            const faq = questions[originalIdx];
+            const faq = normalizedQuestions[originalIdx];
             const isVisible = visibleAnswers[originalIdx];
             
             return (
@@ -317,10 +316,10 @@ const FAQTemplate = ({
                 {isVisible && (
                   <div className="p-4 sm:p-5 bg-slate-950/90 border-t border-slate-800/80 space-y-3 text-xs sm:text-sm">
                     {/* Quick Answer */}
-                    {faq.shortAnswer && (
+                    {(faq.shortAnswer || faq.answer) && (
                       <div className="bg-emerald-950/30 border-l-4 border-emerald-500 p-3 rounded-r-lg space-y-1">
-                        <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400">✅ Quick Answer</p>
-                        <p className="text-slate-200 leading-relaxed">{faq.shortAnswer}</p>
+                        <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400">✅ Answer</p>
+                        <p className="text-slate-200 leading-relaxed">{faq.shortAnswer || faq.answer}</p>
                       </div>
                     )}
 
@@ -362,7 +361,7 @@ const FAQTemplate = ({
               onClick={() => setSearchTerm("")}
               className="text-xs text-sky-400 hover:text-sky-300 underline font-semibold"
             >
-              Clear filter and show all {questions.length} questions
+              Clear filter and show all {normalizedQuestions.length} questions
             </button>
           </div>
         )}

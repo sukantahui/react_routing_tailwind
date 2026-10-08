@@ -1,0 +1,68 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 4: MAJOR E-BUSINESS RISKS: PRIVACY, SERVER DOWNTIME & HACKERS
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. THE THREE CRITICAL E-BUSINESS RISKS (CBSE BLUEPRINT)
+--------------------------------------------------------------------------------
+In the CBSE Class XII Information Technology (802) syllabus, three major operational 
+and security risks are heavily tested:
+
+1. VIOLATION OF CUSTOMER PRIVACY:
+   - What it means: Unauthorized harvesting, profiling, tracking, or selling of confidential 
+     customer personal data (phone numbers, physical addresses, browsing history, financial profiles).
+   - How it occurs:
+     * Unencrypted customer databases without access controls.
+     * Invasive third-party advertising cookies and tracker pixels.
+     * Insiders selling user data to telemarketing agencies.
+   - Legal Framework: Digital Personal Data Protection (DPDP) Act 2023 & IT Act 2000 mandate 
+     explicit consent, purpose limitation, and massive fines for data fiduciaries failing to safeguard data.
+
+2. TRAFFIC SPIKES CAUSING PEAK-HOUR SERVER DOWNTIME:
+   - What it means: Unexpected massive surges in simultaneous customer visits (e.g. during 
+     festive flash sales like Big Billion Days / Diwali sales) overwhelming server infrastructure.
+   - Consequence: High CPU utilization (100%), RAM exhaustion, database connection saturation, 
+     leading to HTTP 503 Service Unavailable / 504 Gateway Timeout errors.
+   - Financial Impact: Immediate loss of millions of rupees in sales per hour + permanent customer migration.
+   - Mitigation Strategies:
+     * Multi-Instance Load Balancers (Nginx / Cloud ELB) to distribute requests evenly.
+     * Cloud Auto-Scaling (AWS / Azure / GCP) to automatically spin up additional virtual servers.
+     * Content Delivery Networks (CDNs like Cloudflare) to cache and serve static assets at edge nodes.
+     * Database Connection Pooling to recycle open database sockets.
+
+3. HACKERS PENETRATING COMPANY SECURITY:
+   - What it means: Malicious cyber criminals breaching enterprise network perimeters to steal, 
+     corrupt, or lock sensitive enterprise assets.
+   - Primary Cyber Threat Vectors:
+     * SQL Injection (SQLi): Injecting malicious SQL syntax into web forms to extract entire user databases.
+     * Cross-Site Scripting (XSS): Injecting client-side scripts to hijack victim session cookies.
+     * Distributed Denial of Service (DDoS): Flooding application servers with malicious botnet traffic.
+     * Ransomware: Encrypting production databases and extorting cryptocurrency ransoms.
+     * Payment Gateway Interception / Man-in-the-Middle (MitM) sniffing.
+   - Mitigation Strategies:
+     * Web Application Firewalls (WAF) to filter malicious payloads.
+     * Cryptographic Hashing (bcrypt / Argon2) for all stored passwords.
+     * Strict PCI-DSS compliance for payment card processing.
+     * Periodic Ethical Hacking & Penetration Testing (Pen-testing).
+
+2. COMPARISON OF THREATS & MITIGATION ARCHITECTURE
+--------------------------------------------------------------------------------
+THREAT VECTOR            UNDERLYING CAUSE                  PROACTIVE MITIGATION
+--------------------------------------------------------------------------------
+Privacy Violation        Inadequate consent & open DB      DPDP compliance, data encryption, RBAC
+Server Downtime          Flash sale traffic bottlenecks    Load Balancers, Auto-Scaling, CDNs
+SQL Injection            Unvalidated user form inputs      PreparedStatements & Parameterized SQL
+DDoS Botnet Flood        Junk HTTP request surges          Cloudflare DDoS Shields & Rate Limiting
+Password Leaks           Plaintext credential storage      Salted SHA-256 / bcrypt password hashing
+
+3. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+ই-বিজনেস পরিচালনার ক্ষেত্রে তিনটি প্রধান ঝুঁকি সিবিএসই পরীক্ষার জন্য অত্যন্ত গুরুত্বপূর্ণ:
+১. গ্রাহকের গোপনীয়তা লঙ্ঘন (Customer Privacy Violation): অনুমতি ছাড়া ব্যক্তিগত তথ্য বিক্রি বা ফাঁস।
+২. সার্ভার ডাউনটাইম (Server Downtime during Traffic Spikes): বিশেষ ছাড়ের সময়ে অতিরিক্ত ভিড়ের কারণে সার্ভার ক্র্যাশ করা।
+৩. হ্যাকারদের আক্রমণ (Hacker Infiltration): SQL Injection, DDoS বা র‍্যানসমওয়্যার দিয়ে ডেটাবেজ ধ্বংস বা চুরি করা।
+লোড ব্যালেন্সার, ক্লাউড অটো-স্কেলিং, ফায়ারওয়াল (WAF) ও শক্তিশালী এনক্রিপশনের মাধ্যমে এই ঝুঁকি মোকাবিলা করা হয়।
+
+================================================================================

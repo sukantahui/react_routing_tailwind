@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 6: FILTERING GROUPED DATA USING THE HAVING CLAUSE VS ROW-LEVEL WHERE
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 15 mins | Level: Hard
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] WHERE Clause: Filters individual row tuples before grouping. CANNOT contain aggregate functions (e.g. WHERE AVG(Salary) > 50000 is ILLEGAL).
+[2] HAVING Clause: Filters aggregated group summaries after grouping. CAN contain aggregate functions (e.g. HAVING AVG(Salary) > 50000).
+[3] Syntax Order: SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ...
+[4] If a condition does NOT involve aggregate functions, it is more efficient to place it in WHERE.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- HAVING vs WHERE Demonstration
+USE SchoolDB;
+
+-- Find Streams with an Average Score >= 90.00 and having more than 1 student
+SELECT 
+  Stream,
+  COUNT(*) AS StudentCount,
+  AVG(TotalMarks) AS AvgStreamScore
+FROM Student
+WHERE TotalMarks >= 50.00          -- Row-level filter: Exclude failures before grouping
+GROUP BY Stream
+HAVING AVG(TotalMarks) >= 90.00    -- Group-level filter: Only streams with average >= 90
+   AND COUNT(*) > 1;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"100% Guaranteed Board Question: 'Difference between WHERE and HAVING'. WHERE filters records BEFORE grouping. HAVING filters groups AFTER aggregation. Aggregate functions are NEVER allowed in WHERE! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

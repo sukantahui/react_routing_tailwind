@@ -1,0 +1,26 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 5: RELATIONAL KEYS (PRIMARY, CANDIDATE, ALTERNATE, COMPOSITE KEYS)
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. HIERARCHY OF KEYS:
+   - Superkey: Any attribute set that uniquely identifies a row.
+   - Candidate Key: Minimal Superkey with zero redundant attributes.
+   - Primary Key: The single chosen candidate key (UNIQUE + NOT NULL).
+   - Alternate Key: Remaining Candidate Keys = Candidate Keys - Primary Key.
+   - Composite Primary Key: Combination of 2+ columns ensuring uniqueness.
+
+2. SAMPLE CODE:
+   CREATE TABLE StudentRegistration (
+       AdmissionNo VARCHAR(10) PRIMARY KEY,
+       AadhaarNo CHAR(12) NOT NULL UNIQUE,
+       StudentEmail VARCHAR(80) UNIQUE,
+       FullName VARCHAR(60) NOT NULL
+   );
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+Alternate Keys = Candidate Keys - Primary Key.
+================================================================================

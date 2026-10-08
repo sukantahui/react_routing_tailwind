@@ -1,0 +1,66 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 9: PRACTICE YOUR SKILL HERE: EXAM SIMULATOR & MODEL ANSWER KEY
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. OVERVIEW OF THE ASSESSMENT SUITE
+--------------------------------------------------------------------------------
+This module assessment provides comprehensive CBSE Class XII IT (802) exam practice:
+- 30 Timed Objective MCQs (30 Minutes Timer).
+- High-yield subjective questions (2-mark, 3-mark, and 5-mark blueprint format).
+- Full bilingual English and Bengali explanations for every question.
+
+2. SUBJECTIVE BOARD QUESTIONS WITH MODEL ANSWERS
+--------------------------------------------------------------------------------
+
+[QUESTION 1 - 2 MARKS]
+Q: Differentiate between E-Commerce and E-Business with one practical example of each.
+Model Answer:
+- E-Commerce refers specifically to the commercial buying and selling of goods, products, 
+  and services over the Internet (e.g., buying a laptop on amazon.in).
+- E-Business is the broader concept encompassing all electronic business processes, including 
+  E-Commerce plus Enterprise Resource Planning (ERP), Customer Relationship Management (CRM), 
+  Supply Chain Management (SCM), and internal employee intranets (e.g., a manufacturing enterprise 
+  using SAP ERP and Salesforce CRM to manage production, vendor bidding, and staff).
+
+[QUESTION 2 - 2 MARKS]
+Q: What is a Virtual Shopping Cart? State two primary functions performed by it.
+Model Answer:
+- Definition: A Virtual Shopping Cart is an interactive software module on an e-commerce 
+  website that temporarily stores and organizes items selected by a customer before final checkout.
+- Two Primary Functions:
+  1. Session State Persistence: Retains selected products and quantities as the user browses multiple catalog pages.
+  2. Dynamic Calculation: Computes live subtotals, promotional coupon discounts, statutory GST taxes, and shipping fees.
+
+[QUESTION 3 - 3 MARKS]
+Q: Explain the three major operational risks that an E-Business enterprise faces.
+Model Answer:
+1. Violation of Customer Privacy: Unauthorized harvesting, tracking, or selling of confidential 
+   user data without consent, leading to severe regulatory penalties under the DPDP Act 2023.
+2. Server Downtime during Peak-Hour Traffic Spikes: Sudden festive traffic surges (e.g. flash sales) 
+   overwhelming server CPU/RAM and crashing databases (HTTP 503 errors), causing immense revenue loss.
+3. Hacker Penetration: Malicious cyber attacks such as SQL Injection (stealing customer data), 
+   DDoS floods, and Ransomware encrypting transaction records.
+
+[QUESTION 4 - 3 MARKS]
+Q: State any three critical precautions that a consumer must observe while performing digital financial transactions.
+Model Answer:
+1. Verify HTTPS & Padlock: Ensure the URL starts with `https://` with a closed padlock icon indicating TLS encryption.
+2. Avoid Public Wi-Fi: Never conduct net banking or enter card details over open, unsecured public Wi-Fi hotspots.
+3. Protect Secret Credentials: Never disclose OTPs, CVV codes, or ATM/UPI PINs to anyone, as authentic banks NEVER ask for them.
+
+[QUESTION 5 - 5 MARKS]
+Q: (a) What is a Webinar? Explain its two hallmark characteristics.
+   (b) How does Synchronous online learning differ from Asynchronous E-Learning?
+Model Answer:
+(a) Webinar Definition & Characteristics:
+- A Webinar (Web + Seminar) is an interactive, real-time multimedia presentation or lecture delivered over the Internet.
+- Characteristic 1: Two-Way Bidirectional Interactivity (audio, video, live chat, live polls, and dedicated Q&A pods).
+- Characteristic 2: Real-time Screen Sharing and collaborative digital whiteboards.
+(b) Synchronous vs Asynchronous Learning:
+- Synchronous Learning occurs live in real time at scheduled intervals with active teacher-student interaction (e.g., Zoom, Google Meet). Complex doubts are cleared instantly.
+- Asynchronous Learning is self-paced where learners access pre-recorded video lectures and readings at their convenience (e.g., Coursera, edX, SWAYAM). Doubt resolution is delayed via forums.
+
+================================================================================

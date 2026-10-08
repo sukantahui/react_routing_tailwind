@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 10: PRACTICE YOUR SKILL HERE (30 MCQS & SUBJECTIVE DRILL)
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. COMPLETE 30-MARK OBJECTIVE DRILL:
+   - Comprehensive test covering all 9 topics in Module 001.
+   - Topics: DBMS vs File Systems, Enterprise Domains, Terminology,
+     Degree & Cardinality, NULL Semantics, Relational Keys, Foreign Keys & CASCADE,
+     Self-Referencing Keys, and MySQL Navigation Commands.
+
+2. HIGH-YIELD SUBJECTIVE QUESTIONS & ANSWERS:
+   Q1: Differentiate between Degree and Cardinality with an example.
+   Ans: Degree is the number of attributes (columns) in a relation; Cardinality
+        is the number of tuples (rows). Example: If Student table has 5 columns
+        and 20 rows, Degree = 5 and Cardinality = 20.
+
+   Q2: Why does `WHERE Commission = NULL` fail to return rows?
+   Ans: Under SQL Three-Valued Logic (3VL), comparing anything with NULL using '='
+        evaluates to UNKNOWN. In WHERE clauses, only TRUE rows are returned.
+        The correct syntax is `WHERE Commission IS NULL`.
+
+   Q3: Explain the relationship between Candidate Keys, Primary Key, and Alternate Keys.
+   Ans: Candidate keys are all minimal superkeys capable of uniquely identifying tuples.
+        The single candidate key selected by the designer is the Primary Key.
+        All remaining candidate keys are Alternate Keys:
+        Alternate Keys = Candidate Keys - Primary Key.
+
+   Q4: What is ON DELETE CASCADE?
+   Ans: A referential integrity action on a foreign key that automatically deletes
+        all corresponding child records when the referenced parent record is deleted.
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+Practice all 30 MCQs under timed conditions (Target: 20 minutes). Review any
+incorrect answers immediately using the detailed technical explanations!
+================================================================================

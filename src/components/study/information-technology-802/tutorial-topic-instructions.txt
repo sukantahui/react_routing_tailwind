@@ -1,0 +1,58 @@
+use the information-technology-802-roadmap.json file to get the topics, slug is the folder name will be created under topics folder, there will be no other folder inside topics folder other than the slug folders. 
+inside each slug folder create Topic[number].jsx file.
+
+Special Segment for Question Paper Samples:
+- Following the icse-java-x architecture, Segment 6 (slug: 006_001_cbse-class-12-it-802-sample-question-papers) stores full solved board and school mock papers.
+- In Topic[N].jsx, use <JavaQuestionPaperTemplate> to render the paper data from topic[N]_files/[paper_name].json.
+
+Standard Module Topics:
+inside each folder create topic[number]_files folder and inside that folder create following files:
+    -- topic[number]_note.txt
+    -- topic[number]_questions.js
+    -- relevant code files (.java, .sql, .html)
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+Reference Standard: Army Public School Barrackpore & CBSE Class XII Information Technology (Subject Code: 802) Board Examination.
+
+Core Syllabus Areas:
+1. Database Concepts & MySQL RDBMS:
+   - Relational Model: Relations, Tuples, Attributes, Degree, Cardinality, Primary Key, Foreign Key, NULL value semantics, Self-referencing FK.
+   - SQL DDL: CREATE TABLE, ALTER TABLE (ADD column, BloodGroup), DROP TABLE vs DELETE FROM, Data types: CHAR, VARCHAR, DECIMAL(p,s), INT, DATE.
+   - SQL DML & Filtering: INSERT INTO, UPDATE SET arithmetic percentage increases (Value * 1.25), DELETE WHERE, LIKE pattern matching ('%Kumar%', 'A%', '%a'), IN, IS NULL, IS NOT NULL, DISTINCT, ORDER BY.
+   - SQL Aggregate Functions & GROUP BY: SUM(), AVG(), MIN(), MAX(), COUNT(), GROUP BY Type/Job, HAVING vs WHERE.
+   - Multi-Table Joins: Equi-joins linking STUDENT and PARENTS on ParentID.
+
+2. Operating Web Based Applications & E-Services:
+   - Front-end vs Back-end tools (NetBeans IDE / HTML vs MySQL / Oracle).
+   - E-Governance: National Portal of India (india.gov.in), citizen empowerment, transparency, civic portals (Passport, Parivahan, IRCTC).
+   - E-Commerce & Online Safety: Shopping carts, e-commerce vs e-learning portals, transaction safety precautions (HTTPS, 2FA, OTP), e-business risks (privacy, server peak spikes, hackers).
+   - Webinars & E-Learning platforms.
+   - 4 Stages of Web Application Development: Requirement Definition Phase, Design Phase, Implementation (Coding) Phase, Testing Phase.
+
+3. Java Programming (Core Java, Control Flow, OOP, Arrays, Strings, Threads, Assertions):
+   - JVM purpose, Bytecode, Primitive data types (int, char, double, boolean), final constants.
+   - Integer division (12/5 = 2 vs 12.0/5 = 2.4), Modulus %, Prefix/Postfix operator evaluation (x = ((++x)*2)+7).
+   - Converting if-else if-else to switch-case (matching jTextField.getText()), default clause, break.
+   - Exit-controlled do-while loops, while loop algorithms (N down to 1), loop output tracing.
+   - OOP Constructors (same name as class, automatic invocation upon object creation).
+   - 1D Arrays declaration ({93.0, 87.5, ...}), array indexing (array[5] - array[0]), java.util.Arrays utilities (Arrays.sort(), Arrays.binarySearch() gap filling).
+   - String class methods: concat(), replace(), indexOf(), length(), substring().
+   - Multithreading: Two ways to create threads (Extending Thread class vs Implementing Runnable interface).
+   - Java Assertions: Purpose of assert keyword, why assertions are disabled by default, enabling via -ea flag.
+
+4. Work-Integrated Learning (WIL) & Project Management:
+   - Definition of Work-Integrated Learning (WIL).
+   - Project characteristics: definite start and end, defined boundaries/scope, requires finite resources, unique outcome.
+
+5. Question Paper Samples Segment:
+   - Full solved question papers (APS Barrackpore Set-C, CBSE Board Model Papers).
+   - JSON structure: paperId, title, duration, totalMarks, instructions, sections (A & B), questions with q, marks, answer, hint.
+
+Component Rules:
+    - React 19 FUNCTION-BASED components ONLY
+    - One Topic = One File
+    - Pure Tailwind CSS (Dark mode default)
+    - Stack sections vertically
+    - Rupee sign (₹) for currency

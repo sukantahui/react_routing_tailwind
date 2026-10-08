@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 3: DELETE FROM STATEMENT: REMOVING SPECIFIC ROWS
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 10 mins | Level: Intermediate
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] DELETE FROM removes specific row tuples from a table based on a WHERE criteria.
+[2] Syntax: DELETE FROM table_name WHERE condition;
+[3] Omitting the WHERE clause (DELETE FROM table_name;) deletes all records, leaving an empty table structure with cardinality 0.
+[4] DELETE is a DML command (transactional and row-by-row); DROP and TRUNCATE are DDL commands.
+[5] DROP TABLE destroys the table blueprint completely from the data dictionary.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Safe Record Deletion
+USE SchoolDB;
+
+-- 1. Conditional Deletion: Remove inactive or graduated students
+DELETE FROM Student 
+WHERE Stream = 'Science' AND TotalMarks < 40;
+
+-- 2. Deleting specific record by Primary Key
+DELETE FROM Student 
+WHERE RollNo = 105;
+
+-- 3. To empty the table completely while keeping columns:
+-- DELETE FROM Student; -- Cardinality becomes 0, Degree remains unchanged.
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Board Question Alert: Difference between DELETE and DROP. DELETE clears rows (Cardinality = 0, Degree intact). DROP destroys the entire table and its schema definition! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

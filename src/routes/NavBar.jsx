@@ -282,6 +282,7 @@ const NavBar = () => {
     { to: "/icse-java-x/roadmap", label: "ICSE Class 10 Java", icon: "bi-journal-code", category: "school", color: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20", badge: "Class X", desc: "Board exam preparation & Java mastery" },
     { to: "/isc-11/roadmap", label: "ISC 11 Computer Sc.", icon: "bi-journal-richtext", category: "school", color: "text-pink-400 bg-pink-400/10 border-pink-400/20", badge: "Class 11", desc: "Boolean algebra, arrays & recursion" },
     { to: "/isc-12/roadmap", label: "ISC 12 Computer Sc.", icon: "bi-journal-richtext", category: "school", color: "text-pink-400 bg-pink-400/10 border-pink-400/20", badge: "Class 12", desc: "Data structures, algorithms & board prep" },
+    { to: "/information-technology-802/roadmap", label: "CBSE IT (802) Class 11-12", icon: "bi-laptop", category: "school", color: "text-indigo-400 bg-indigo-400/10 border-indigo-400/20", badge: "Code 802", desc: "RDBMS, Java, Swing GUI, JDBC, Web Apps & Projects" },
     { to: "/english-grammar/roadmap", label: "English Grammar", icon: "bi-book", category: "school", color: "text-teal-400 bg-teal-400/10 border-teal-400/20", badge: "Master", desc: "Foundations, concord, tenses, voice, speech & composition" },
     { to: "/general/roadmap", label: "General Computing", icon: "bi-files", category: "school", color: "text-slate-400 bg-slate-400/10 border-slate-400/20", desc: "Fundamental digital literacy & theory" },
 
@@ -309,13 +310,74 @@ const NavBar = () => {
     });
   }, [tutorialsItems, mobileTutorialCategory, mobileSearchQuery]);
 
+  // About & Institutional Navigation Items (Landing Page Sections & Verifications)
+  const aboutNavItems = useMemo(() => [
+    {
+      to: "/#about",
+      isHash: true,
+      label: "About Institute",
+      desc: "Story, mission & ISO 9001:2015 credentials",
+      icon: "bi-building",
+      tag: "Since 1998",
+      color: "from-sky-500/20 to-blue-500/10 text-sky-400 border-sky-500/30",
+    },
+    {
+      to: "/#fees",
+      isHash: true,
+      label: "Pay Fees Online",
+      desc: "Instant 0% fee UPI payment & dynamic QR",
+      icon: "bi-qr-code-scan",
+      tag: "Instant UPI",
+      color: "from-emerald-500/20 to-teal-500/10 text-emerald-400 border-emerald-500/30",
+    },
+    {
+      to: "/#teachers",
+      isHash: true,
+      label: "Our Faculty",
+      desc: "Meet certified mentors & industry trainers",
+      icon: "bi-people-fill",
+      tag: "Mentors",
+      color: "from-indigo-500/20 to-purple-500/10 text-indigo-400 border-indigo-500/30",
+    },
+    {
+      to: "/#why-choose-us",
+      isHash: true,
+      label: "Why Choose Us",
+      desc: "Key advantages & verified Google reviews",
+      icon: "bi-star-fill",
+      tag: "4.9 ★",
+      color: "from-purple-500/20 to-pink-500/10 text-purple-400 border-purple-500/30",
+    },
+    {
+      to: "/certificates",
+      isHash: false,
+      label: "Verify Certificate",
+      desc: "Instant verification for issued diplomas",
+      icon: "bi-patch-check-fill",
+      tag: "Verify",
+      color: "from-amber-500/20 to-yellow-500/10 text-amber-400 border-amber-500/30",
+    },
+    {
+      to: "/#contact",
+      isHash: true,
+      label: "Contact & Desk",
+      desc: "Barrackpore campus map & direct helpline",
+      icon: "bi-geo-alt-fill",
+      tag: "Help Desk",
+      color: "from-rose-500/20 to-orange-500/10 text-rose-400 border-rose-500/30",
+    },
+  ], []);
+
   // Flat Search Index for Command Palette / Quick Search Modal
   const globalSearchIndex = useMemo(() => {
     const list = [
       { to: "/", label: "Home Page", group: "PAGE", desc: "Coder & AccoTax institute overview & intro", icon: "bi-house-door" },
       { to: "/#about", label: "About Institute", group: "SECTION", desc: "Learn about our mission, vision & credentials", icon: "bi-info-circle" },
+      { to: "/#fees", label: "Pay Fees Online (UPI QR)", group: "PAYMENT", desc: "Instant UPI course fee payment & receipt generation", icon: "bi-wallet2" },
+      { to: "/#why-choose-us", label: "Why Choose Us & Reviews", group: "SECTION", desc: "28+ years legacy, student feedback & Google reviews", icon: "bi-star-fill" },
       { to: "/#courses", label: "Courses & Curricula", group: "SECTION", desc: "Explore diplomas, certificate programs & syllabus", icon: "bi-book" },
       { to: "/#teachers", label: "Faculty & Mentors", group: "SECTION", desc: "Meet our experienced industry instructors", icon: "bi-people" },
+      { to: "/certificates", label: "Certificate Verification", group: "VERIFY", desc: "Online verification for official certificates", icon: "bi-patch-check-fill" },
       { to: "/#contact", label: "Contact & Location", group: "SECTION", desc: "Get in touch, location map & inquiries", icon: "bi-envelope" },
       { to: "/login", label: "Student & Faculty Login", group: "PORTAL", desc: "Access authenticated student and teacher portal", icon: "bi-box-arrow-in-right" },
       ...(isBijoyaValid
@@ -449,7 +511,7 @@ const NavBar = () => {
 
   // Check active routes for tools, tutorials, and about
   const isToolsActive = useMemo(() => {
-    const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer", "/certificates", "/wampserver-guide", "/wamp"];
+    const paths = ["/tools", "/screen-recorder", "/python-play", "/play", "/vscode", "/whiteBoard", "/qrcode", "/icons", "/LinkedListVisualizer", "/DoublyLinkedListVisualizer", "/BinaryTreeVisualizer", "/AvlTreeVisualizer", "/wampserver-guide", "/wamp", "/student-course-qr"];
     return paths.some((p) => location.pathname.startsWith(p));
   }, [location.pathname]);
 
@@ -459,7 +521,16 @@ const NavBar = () => {
 
   const isAboutActive = useMemo(() => {
     return (
-      (isHome && (activeHash === "#about" || activeHash === "#teachers" || activeHash === "#contact")) ||
+      (isHome && (
+        activeHash === "#about" ||
+        activeHash === "#fees" ||
+        activeHash === "#payment" ||
+        activeHash === "#teachers" ||
+        activeHash === "#why-choose-us" ||
+        activeHash === "#advantages" ||
+        activeHash === "#reviews" ||
+        activeHash === "#contact"
+      )) ||
       location.pathname === "/certificates" ||
       location.pathname === "/teachers"
     );
@@ -775,66 +846,73 @@ const NavBar = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 6, scale: 0.98 }}
                       transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/80 p-2 z-50 ring-1 ring-white/10 space-y-1"
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[520px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/80 p-3.5 z-50 ring-1 ring-white/10"
                     >
-                      <HashLink
-                        smooth
-                        to="/#about"
-                        onClick={closeAllDropdowns}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-white transition group"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-105 transition flex-shrink-0">
-                          <i className="bi bi-info-circle text-sm"></i>
+                      {/* Header */}
+                      <div className="flex items-center justify-between pb-2.5 border-b border-slate-800 mb-2.5 px-1">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-sky-400"></span>
+                          <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                            Institute &amp; Student Services
+                          </span>
                         </div>
-                        <div className="min-w-0">
-                          <p className="text-xs font-semibold text-white group-hover:text-sky-300 transition">About Institute</p>
-                          <p className="text-[10px] text-slate-400 truncate">Story, vision &amp; ISO 9001 credentials</p>
-                        </div>
-                      </HashLink>
+                        <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 font-medium flex items-center gap-1">
+                          <i className="bi bi-shield-check"></i>
+                          ISO 9001:2015 Certified
+                        </span>
+                      </div>
 
-                      <HashLink
-                        smooth
-                        to="/#teachers"
-                        onClick={closeAllDropdowns}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-white transition group"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-105 transition flex-shrink-0">
-                          <i className="bi bi-people text-sm"></i>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-xs font-semibold text-white group-hover:text-indigo-300 transition">Our Faculty</p>
-                          <p className="text-[10px] text-slate-400 truncate">Meet expert mentors &amp; trainers</p>
-                        </div>
-                      </HashLink>
+                      {/* 2-Column Grid */}
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {aboutNavItems.map((item) => {
+                          const LinkComp = item.isHash ? HashLink : NavLink;
+                          return (
+                            <LinkComp
+                              key={item.to}
+                              smooth={item.isHash ? true : undefined}
+                              to={item.to}
+                              onClick={closeAllDropdowns}
+                              className="group flex items-start gap-2.5 p-2 rounded-xl bg-slate-950/40 hover:bg-slate-800/80 border border-slate-800/60 hover:border-slate-700 transition-all duration-150"
+                            >
+                              <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${item.color} border flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition mt-0.5`}>
+                                <i className={`bi ${item.icon} text-sm`}></i>
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <div className="flex items-center justify-between gap-1">
+                                  <p className="text-xs font-semibold text-white group-hover:text-sky-300 transition truncate">
+                                    {item.label}
+                                  </p>
+                                  {item.tag && (
+                                    <span className="text-[9px] px-1.5 py-0.2 rounded font-medium bg-slate-800 text-slate-400 border border-slate-700/60 flex-shrink-0">
+                                      {item.tag}
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-[10px] text-slate-400 line-clamp-1 group-hover:text-slate-300 transition mt-0.5">
+                                  {item.desc}
+                                </p>
+                              </div>
+                            </LinkComp>
+                          );
+                        })}
+                      </div>
 
-                      <NavLink
-                        to="/certificates"
-                        onClick={closeAllDropdowns}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-white transition group"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition flex-shrink-0">
-                          <i className="bi bi-patch-check-fill text-sm"></i>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-xs font-semibold text-white group-hover:text-amber-300 transition">Verify Certificate</p>
-                          <p className="text-[10px] text-slate-400 truncate">Authenticate issued credentials</p>
-                        </div>
-                      </NavLink>
-
-                      <HashLink
-                        smooth
-                        to="/#contact"
-                        onClick={closeAllDropdowns}
-                        className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-800/80 text-slate-300 hover:text-white transition group"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition flex-shrink-0">
-                          <i className="bi bi-envelope text-sm"></i>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-xs font-semibold text-white group-hover:text-emerald-300 transition">Contact &amp; Location</p>
-                          <p className="text-[10px] text-slate-400 truncate">Address, map &amp; inquiry desk</p>
-                        </div>
-                      </HashLink>
+                      {/* Footer */}
+                      <div className="mt-2.5 pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400 px-1">
+                        <span className="flex items-center gap-1.5 text-slate-400 text-[10px]">
+                          <i className="bi bi-geo-alt-fill text-sky-400"></i>
+                          4 No Platform, Barrackpore Stn
+                        </span>
+                        <HashLink
+                          smooth
+                          to="/#fees"
+                          onClick={closeAllDropdowns}
+                          className="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 hover:underline text-[11px]"
+                        >
+                          <i className="bi bi-qr-code"></i>
+                          <span>Pay Fees Online</span>
+                        </HashLink>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -1268,12 +1346,27 @@ const NavBar = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-800/80 bg-slate-950/60 hover:bg-slate-800 text-slate-300 hover:text-white transition"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700/60 flex items-center justify-center text-sky-400">
-                            <i className="bi bi-info-circle"></i>
+                          <div className="w-7 h-7 rounded-lg bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                            <i className="bi bi-building"></i>
                           </div>
                           <div>
                             <p className="text-xs font-semibold text-white">About</p>
                             <p className="text-[9px] text-slate-400">Our Story &amp; Vision</p>
+                          </div>
+                        </HashLink>
+
+                        <HashLink
+                          smooth
+                          to="/#fees"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-2.5 p-2.5 rounded-xl border border-emerald-500/30 bg-emerald-950/20 hover:bg-emerald-900/30 text-emerald-300 hover:text-white transition"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                            <i className="bi bi-qr-code-scan"></i>
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-white">Pay Fees</p>
+                            <p className="text-[9px] text-emerald-400 font-medium">Instant UPI QR</p>
                           </div>
                         </HashLink>
 
@@ -1289,6 +1382,21 @@ const NavBar = () => {
                           <div>
                             <p className="text-xs font-semibold text-white">Courses</p>
                             <p className="text-[9px] text-slate-400">All Training Programs</p>
+                          </div>
+                        </HashLink>
+
+                        <HashLink
+                          smooth
+                          to="/#why-choose-us"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-2.5 p-2.5 rounded-xl border border-purple-500/30 bg-purple-950/20 hover:bg-purple-900/30 text-purple-300 hover:text-white transition"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                            <i className="bi bi-star-fill"></i>
+                          </div>
+                          <div>
+                            <p className="text-xs font-semibold text-white">Why Us</p>
+                            <p className="text-[9px] text-purple-400 font-medium">Reviews &amp; Trust</p>
                           </div>
                         </HashLink>
 
@@ -1312,7 +1420,7 @@ const NavBar = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-800/80 bg-slate-950/60 hover:bg-slate-800 text-slate-300 hover:text-white transition"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700/60 flex items-center justify-center text-sky-400">
+                          <div className="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
                             <i className="bi bi-people"></i>
                           </div>
                           <div>
@@ -1328,12 +1436,12 @@ const NavBar = () => {
                           className="col-span-2 flex items-center justify-between p-2.5 rounded-xl border border-slate-800/80 bg-slate-950/60 hover:bg-slate-800 text-slate-300 hover:text-white transition"
                         >
                           <div className="flex items-center gap-2.5">
-                            <div className="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700/60 flex items-center justify-center text-sky-400">
+                            <div className="w-7 h-7 rounded-lg bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400">
                               <i className="bi bi-envelope"></i>
                             </div>
                             <div>
-                              <p className="text-xs font-semibold text-white">Contact</p>
-                              <p className="text-[9px] text-slate-400">Location, Address &amp; Inquiries</p>
+                              <p className="text-xs font-semibold text-white">Contact &amp; Location</p>
+                              <p className="text-[9px] text-slate-400">Address, Map &amp; Direct Inquiries</p>
                             </div>
                           </div>
                           <i className="bi bi-arrow-right text-slate-500 text-xs"></i>

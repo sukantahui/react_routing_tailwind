@@ -1,0 +1,454 @@
+{
+  "paperId": "DPS-2026-XII-IT802-MODEL",
+  "title": "Delhi Public School (DPS) – Class XII Information Technology (802) Solved Model Board Examination Paper",
+  "duration": "3 Hours",
+  "totalMarks": 60,
+  "prerequisites": "CBSE Class XII IT (802) Syllabus: MySQL Relational Databases, Web Applications, Core Java & NetBeans GUI Forms, Project Management & WIL",
+  "instructions": [
+    "This Question Paper consists of 23 questions divided into two sections: Section A (30 Marks) and Section B (30 Marks).",
+    "Section A consists of Objective Type Questions. All sub-questions carry 1 mark each.",
+    "Section B consists of Subjective Type Questions with choices indicated in each sub-part.",
+    "Ensure correct Java syntax and MySQL relational queries in all answers.",
+    "Calculators and smart devices are prohibited."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Question 1 – Objective Questions (Employability & Operating Web Applications)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which digital initiative of the Government of India provides a unified paperless KYC and document repository platform?\n(a) DigiLocker\n(b) IRCTC\n(c) BHIM UPI\n(d) CyberSwachhta",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) DigiLocker**\n\n**Explanation:** DigiLocker enables citizens to access electronic copies of authentic digital documents (such as Driving License, PAN, CBSE Marksheets) directly from original issuers.",
+          "hint": "Digital document locker under Digital India."
+        },
+        {
+          "q": "ii) In the 4 stages of Web Application Development, which stage translates functional requirements and wireframes into working Java and SQL code?\n(a) Requirement Gathering\n(b) Web Application Design\n(c) Web Application Coding & Implementation\n(d) Web Application Maintenance",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Web Application Coding & Implementation**\n\n**Explanation:** Stage 3 is the development/programming phase where developers write frontend GUI, backend logic, and MySQL queries.",
+          "hint": "The programming and database coding phase."
+        },
+        {
+          "q": "iii) Mention ONE key factor that differentiates a dynamic web application from a static web page.",
+          "marks": 1,
+          "answer": "**Correct Answer:** A dynamic web application interacts with a backend database (e.g. MySQL) to generate personalized, real-time content based on user input, whereas a static web page displays fixed identical HTML content to all users.",
+          "hint": "Interaction with backend database and real-time content."
+        },
+        {
+          "q": "iv) What does the acronym 'WIL' stand for in technical education curricula?\n(a) Wide Interface Layout\n(b) Work Integrated Learning\n(c) Wireless Information Link\n(d) Web Integrated Logic",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Work Integrated Learning**",
+          "hint": "Work-Integrated Learning."
+        },
+        {
+          "q": "v) State whether True or False:\n\"E-Governance portals operate 24 hours a day, 7 days a week, enabling citizens to submit applications without visiting government offices physically.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** 24x7 online access and eliminating physical queues are core benefits of e-Governance.",
+          "hint": "E-Governance provides 24x7 online availability."
+        },
+        {
+          "q": "vi) Which of the following is NOT an attribute of a well-defined project?\n(a) Finite resource allocation\n(b) Defined starting and target completion dates\n(c) Infinite budget and unbounded timeline\n(d) Specific and unique deliverable",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Infinite budget and unbounded timeline**\n\n**Explanation:** Projects are strictly bounded by finite budgets, fixed timelines, and defined scopes.",
+          "hint": "Projects never have infinite budgets or unbounded time."
+        },
+        {
+          "q": "vii) Identify the web browser from the options given below:\n(a) Mozilla Firefox\n(b) Apache Tomcat\n(c) MySQL Workbench\n(d) JDK Compiler",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Mozilla Firefox**",
+          "hint": "Mozilla Firefox is a web browser."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 2 – Objective Questions (RDBMS & MySQL Foundation)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) In MySQL, which command is used to select and activate a database named `DPS_DB` for running queries?\n(a) OPEN DPS_DB;\n(b) USE DPS_DB;\n(c) SELECT DPS_DB;\n(d) LOAD DPS_DB;",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) USE DPS_DB;**\n\n**Explanation:** The `USE database_name;` statement selects the active database for the current MySQL session.",
+          "hint": "USE databasename;"
+        },
+        {
+          "q": "ii) What are the Degree and Cardinality of a table with 6 columns and 80 student records?\n(a) Degree = 80, Cardinality = 6\n(b) Degree = 6, Cardinality = 80\n(c) Degree = 6, Cardinality = 6\n(d) Degree = 86, Cardinality = 480",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Degree = 6, Cardinality = 80**\n\n**Explanation:** Degree = Number of attributes (columns) = 6. Cardinality = Number of tuples (rows) = 80.",
+          "hint": "Degree = columns; Cardinality = rows."
+        },
+        {
+          "q": "iii) Which SQL operator is used to search for records that fall within an inclusive lower and upper boundary range?\n(a) IN\n(b) BETWEEN\n(c) LIKE\n(d) RANGE",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) BETWEEN**\n\n**Explanation:** `WHERE column BETWEEN val1 AND val2` tests for values inclusive of both endpoints.",
+          "hint": "BETWEEN val1 AND val2."
+        },
+        {
+          "q": "iv) What is the function of the SQL aggregate function `AVG(column_name)`?\n(a) Counts the total number of characters in a string\n(b) Returns the arithmetic mean of all non-NULL numeric values in the specified column\n(c) Returns the middle median record\n(d) Rounds numbers to two decimals",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Returns the arithmetic mean of all non-NULL numeric values in the specified column**",
+          "hint": "Calculates arithmetic mean."
+        },
+        {
+          "q": "v) Write the MySQL query to list all employee names ending with the letters 'Roy'.",
+          "marks": 1,
+          "answer": "**Correct Answer: `SELECT EmpName FROM EMPLOYEE WHERE EmpName LIKE '%Roy';`**",
+          "hint": "WHERE EmpName LIKE '%Roy';"
+        },
+        {
+          "q": "vi) State whether True or False:\n\"The `ALTER TABLE` statement is used to modify data values inside existing table rows.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** `ALTER TABLE` is a DDL command that modifies the table structure/columns. The `UPDATE` statement (DML) modifies data values inside rows.",
+          "hint": "ALTER modifies schema; UPDATE modifies row values."
+        },
+        {
+          "q": "vii) What is an Alternate Key in a relational table?",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any Candidate Key that was not selected as the Primary Key is called an Alternate Key.",
+          "hint": "Candidate keys other than the primary key."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 3 – Objective Questions (Core Java & OOP Concepts)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 8,
+      "description": "Answer any 7 Questions out of 8 Questions. (7 × 1 = 7 Marks)",
+      "questions": [
+        {
+          "q": "i) Which Java software layer executes compiled bytecode instructions on a target operating system?\n(a) JDK\n(b) JVM\n(c) Javadoc\n(d) Java API",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) JVM (Java Virtual Machine)**",
+          "hint": "Java Virtual Machine."
+        },
+        {
+          "q": "ii) What will be printed by the following Java code?\n```java\nint x = 15;\nint y = ++x * 2;\nSystem.out.println(\"x=\" + x + \", y=\" + y);\n```\n(a) x=15, y=30\n(b) x=16, y=32\n(c) x=16, y=30\n(d) x=15, y=32",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) x=16, y=32**\n\n**Explanation:** Pre-increment `++x` increments `x` from 15 to 16 first. Then `16 * 2 = 32`. Both `x=16` and `y=32` are printed.",
+          "hint": "Pre-increment makes x=16, then y = 16 * 2 = 32."
+        },
+        {
+          "q": "iii) Which of the following data types cannot be used as a controlling expression in a Java `switch` statement (prior to Java 7)?\n(a) int\n(b) char\n(c) byte\n(d) double",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) double**\n\n**Explanation:** Floating-point types (`float` and `double`) cannot be used in `switch` expressions due to precision inexactness.",
+          "hint": "Floating point double cannot be switched."
+        },
+        {
+          "q": "iv) What is the default access modifier of class members in Java when no explicit modifier is specified?\n(a) private\n(b) public\n(c) default (package-private)\n(d) protected",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) default (package-private)**",
+          "hint": "Package-private default."
+        },
+        {
+          "q": "v) Write the output of `Math.sqrt(169)` in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: 13.0**",
+          "hint": "Square root of 169 is 13.0."
+        },
+        {
+          "q": "vi) Which keyword is used in Java to define a constant variable whose value cannot be reassigned?\n(a) const\n(b) static\n(c) final\n(d) immutable",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) final**",
+          "hint": "final keyword creates constants."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"In Java, constructor methods can have a `void` return type specified in their header.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** Constructors must not have any return type specification. Specifying `void` turns it into a regular method.",
+          "hint": "Constructors never specify return types."
+        },
+        {
+          "q": "viii) Name the method used to compare whether two Java String objects have identical character sequences.",
+          "marks": 1,
+          "answer": "**Correct Answer: `equals(String other)` (or `equalsIgnoreCase(String other)`)**",
+          "hint": "equals() method for content comparison."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 4 – Objective Questions (Arrays, Strings & Swing GUI)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) What will be the output of `\"Delhi Public School\".substring(6, 12)` in Java?\n(a) \"Public\"\n(b) \"Public \"\n(c) \"Delhi\"\n(d) \"School\"",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) \"Public\"**\n\n**Explanation:** Indices: `D(0) e(1) l(2) h(3) i(4)  (5) P(6) u(7) b(8) l(9) i(10) c(11)  (12)`. From index 6 to 11: `\"Public\"`.",
+          "hint": "Characters from index 6 up to 11."
+        },
+        {
+          "q": "ii) How many elements can an array declared as `double[] rates = new double[12];` hold?\n(a) 11\n(b) 12\n(c) 13\n(d) 24",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 12**",
+          "hint": "Array size allocated is 12."
+        },
+        {
+          "q": "iii) In NetBeans GUI, which property of a `JTextField` sets the initial text displayed inside the text box?\n(a) label\n(b) text\n(c) title\n(d) name",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) text**",
+          "hint": "text property."
+        },
+        {
+          "q": "iv) Which Swing control is used when you want the user to select only one option out of multiple mutually exclusive choices?\n(a) JCheckBox\n(b) JRadioButton (grouped with ButtonGroup)\n(c) JTextArea\n(d) JList",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) JRadioButton (grouped with ButtonGroup)**",
+          "hint": "JRadioButton in ButtonGroup."
+        },
+        {
+          "q": "v) What exception is thrown when an application attempts to use `null` where an object instance reference is required?\n(a) ArithmeticException\n(b) NullPointerException\n(c) NumberFormatException\n(d) ClassNotFoundException",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) NullPointerException**",
+          "hint": "NullPointerException."
+        },
+        {
+          "q": "vi) Write the output of `\"DPS Barrackpore\".toUpperCase()`.",
+          "marks": 1,
+          "answer": "**Correct Answer: \"DPS BARRACKPORE\"**",
+          "hint": "Converts string to uppercase."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"In Java, arrays can store elements of mixed heterogeneous data types (e.g. integer and String in the same primitive array).\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** Java primitive arrays are homogeneous data structures that hold elements of a single specified data type only.",
+          "hint": "Primitive arrays are homogeneous."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 5 – Objective Questions (Project Management & Life Cycle)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Which phase in the software project lifecycle is responsible for defining the project boundaries, goals, and business justification?\n(a) Initiation Phase\n(b) Testing Phase\n(c) Deployment Phase\n(d) Maintenance Phase",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Initiation Phase**",
+          "hint": "The first foundational project phase."
+        },
+        {
+          "q": "ii) What term is used to describe the unwanted gradual expansion of project requirements beyond original agreed boundaries?\n(a) Scope Creep\n(b) System Integration\n(c) Data Normalization\n(d) Method Overriding",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Scope Creep**",
+          "hint": "Uncontrolled expansion of project scope."
+        },
+        {
+          "q": "iii) Mention TWO key deliverables generated in the Initiation & Requirement Analysis stage of an IT project.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any two of:\n1. Project Charter\n2. Software Requirement Specification (SRS) Document\n3. Feasibility Study Report\n4. Stakeholder Register",
+          "hint": "Project Charter, SRS document, Feasibility report."
+        },
+        {
+          "q": "iv) State whether True or False:\n\"A project milestone is a significant checkpoint in a project schedule that has a duration of zero days.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**",
+          "hint": "Milestones mark major achievements with zero duration."
+        },
+        {
+          "q": "v) What is the main objective of Risk Mitigation in project management?\n(a) To eliminate all programmers\n(b) To plan and execute proactive strategies that reduce the probability and impact of potential project threats\n(c) To delete project documentation\n(d) To increase costs intentionally",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) To plan and execute proactive strategies that reduce the probability and impact of potential project threats**",
+          "hint": "Reducing likelihood and impact of threats."
+        },
+        {
+          "q": "vi) Name the chart that plots project tasks across time as horizontal bars to show dependencies and durations.\n(a) Gantt Chart\n(b) Pie Chart\n(c) Scatter Plot\n(d) Entity Chart",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Gantt Chart**",
+          "hint": "Gantt Chart."
+        },
+        {
+          "q": "vii) In Work Integrated Learning (WIL), what is the formal document where students record their daily industry internship activities and skills acquired?",
+          "marks": 1,
+          "answer": "**Correct Answer: Student Internship Logbook (or WIL Portfolio)**",
+          "hint": "Internship logbook or WIL portfolio."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 6 to 15 – Short Answer Questions (Core Java & MySQL)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "description": "Answer any 6 Questions out of 10 Questions. (6 × 2 = 12 Marks)",
+      "questions": [
+        {
+          "q": "6. Convert the following entry-controlled `for` loop into an equivalent `while` loop in Java:\n```java\nint product = 1;\nfor (int i = 1; i <= 5; i++) {\n    product *= i;\n}\nSystem.out.println(\"Factorial = \" + product);\n```",
+          "marks": 2,
+          "answer": "**Equivalent `while` loop:**\n```java\nint product = 1;\nint i = 1;\nwhile (i <= 5) {\n    product *= i;\n    i++;\n}\nSystem.out.println(\"Factorial = \" + product);\n```\n**Output:** `Factorial = 120`.",
+          "hint": "Initialize i before while; increment i inside body."
+        },
+        {
+          "q": "7. Differentiate between `WHERE` and `HAVING` clauses in MySQL with an example.",
+          "marks": 2,
+          "answer": "**Distinction:**\n- **`WHERE` clause:** Filters individual table rows **before** aggregation; cannot be used with aggregate functions (e.g. `WHERE Salary > 50000`).\n- **`HAVING` clause:** Filters grouped summary records **after** `GROUP BY` aggregation; works with aggregate functions (e.g. `HAVING AVG(Salary) > 60000`).",
+          "hint": "WHERE filters rows before grouping; HAVING filters groups after GROUP BY."
+        },
+        {
+          "q": "8. Explain the difference between Primitive Data Types and Reference Data Types in Java.",
+          "marks": 2,
+          "answer": "**Comparison:**\n1. **Primitive Types:** Predefined by the Java language (`int`, `double`, `char`, `boolean`); store raw binary values directly on the call stack.\n2. **Reference Types:** User-defined or library classes/arrays (`String`, `Scanner`, custom classes); store memory memory addresses pointing to objects on the heap.",
+          "hint": "Stack-allocated raw values vs heap object memory references."
+        },
+        {
+          "q": "9. Write MySQL DDL statements to:\n(a) Create a table named `MEMBER` with `MemberID` (INT Primary Key) and `MName` (VARCHAR 30 Not Null).\n(b) Add a new column `City` (VARCHAR 25) to table `MEMBER`.",
+          "marks": 2,
+          "answer": "**MySQL Statements:**\n```sql\n-- (a) Create Table\nCREATE TABLE MEMBER (\n    MemberID INT PRIMARY KEY,\n    MName VARCHAR(30) NOT NULL\n);\n\n-- (b) Add Column\nALTER TABLE MEMBER ADD City VARCHAR(25);\n```",
+          "hint": "CREATE TABLE and ALTER TABLE ADD;"
+        },
+        {
+          "q": "10. What is Constructor Overloading in Java? Give a brief code example.",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Constructor Overloading:** Having multiple constructors in the same class with different parameter lists.\n- **Example:**\n```java\nclass Student {\n    int roll;\n    String name;\n    Student() { roll = 0; name = \"Unknown\"; } // Default\n    Student(int r, String n) { roll = r; name = n; } // Parameterized\n}\n```",
+          "hint": "Multiple constructors with distinct parameter lists in same class."
+        },
+        {
+          "q": "11. Differentiate between `CHAR(15)` and `VARCHAR(15)` in MySQL.",
+          "marks": 2,
+          "answer": "**Distinction:**\n- `CHAR(15)` is **fixed-length**; always occupies 15 bytes of disk storage, padding extra spaces if text is shorter.\n- `VARCHAR(15)` is **variable-length**; stores only actual characters entered plus length byte(s), saving memory.",
+          "hint": "Fixed length padding vs variable length storage."
+        },
+        {
+          "q": "12. What is a Foreign Key constraint in MySQL? What condition must be satisfied to define a foreign key?",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Foreign Key:** An attribute in a child table that references the Primary Key of a parent table to maintain referential integrity.\n- **Condition:** The referenced column in the parent table must be a `PRIMARY KEY` or `UNIQUE` key with matching data type.",
+          "hint": "References primary key in parent table with matching data type."
+        },
+        {
+          "q": "13. Predict the output of the following Java code:\n```java\nint a = 20, b = 6;\nSystem.out.println(\"Result: \" + (a > b && b != 0));\nSystem.out.println(\"Calc: \" + a / b + \".\" + a % b);\n```",
+          "marks": 2,
+          "answer": "**Output:**\n```\nResult: true\nCalc: 3.2\n```\n**Explanation:** `(20 > 6 && 6 != 0)` is `true && true` = `true`. `20 / 6 = 3` and `20 % 6 = 2`, producing `\"3.2\"`.",
+          "hint": "Logical AND is true; integer division is 3 and remainder is 2."
+        },
+        {
+          "q": "14. Name the 4 sequential stages of the Web Application Development Life Cycle.",
+          "marks": 2,
+          "answer": "**Answer:**\n1. Stage 1: Requirement Gathering & Analysis\n2. Stage 2: Web Application Design (UI & DB Schema)\n3. Stage 3: Coding & Implementation\n4. Stage 4: Testing, Deployment & Maintenance",
+          "hint": "1. Requirements, 2. Design, 3. Coding, 4. Testing & Deployment."
+        },
+        {
+          "q": "15. Write the MySQL statement to delete all records from table `STUDENT_MOCK` where `City = 'Kolkata'`.",
+          "marks": 2,
+          "answer": "**MySQL Statement:**\n```sql\nDELETE FROM STUDENT_MOCK WHERE City = 'Kolkata';\n```",
+          "hint": "DELETE FROM tablename WHERE City = 'Kolkata';"
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 16 to 20 – Programming, GUI & Analytical Questions",
+      "marksPerQuestion": 4,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 4 = 12 Marks)",
+      "questions": [
+        {
+          "q": "16. In NetBeans GUI Builder, an Electricity Bill Calculator form has the following controls:\n- `txtUnits` (JTextField for units consumed)\n- `rbDomestic` (JRadioButton – ₹5.00/unit)\n- `rbCommercial` (JRadioButton – ₹9.00/unit)\n- `chkSurcharge` (JCheckBox for Peak Hour Surcharge – 10% extra)\n- `txtNetBill` (JTextField for Net Bill Amount)\n- `btnCalculate` (JButton)\n\nWrite Java code for `btnCalculateActionPerformed()` to compute and display the final bill.",
+          "marks": 4,
+          "answer": "**Java GUI Source Code:**\n```java\nprivate void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {\n    try {\n        double units = Double.parseDouble(txtUnits.getText().trim());\n        if (units < 0) {\n            javax.swing.JOptionPane.showMessageDialog(this, \n                \"Units consumed cannot be negative!\", \"Input Error\", \n                javax.swing.JOptionPane.WARNING_MESSAGE);\n            return;\n        }\n        \n        // Step 1: Tariff Rate from Radio Buttons\n        double ratePerUnit = 5.00; // Default Domestic\n        if (rbCommercial.isSelected()) {\n            ratePerUnit = 9.00;\n        }\n        \n        // Step 2: Base Bill\n        double baseBill = units * ratePerUnit;\n        \n        // Step 3: Check Surcharge\n        double surcharge = 0.0;\n        if (chkSurcharge.isSelected()) {\n            surcharge = baseBill * 0.10; // 10% surcharge\n        }\n        \n        // Step 4: Final Net Bill\n        double netBill = baseBill + surcharge;\n        \n        // Step 5: Display\n        txtNetBill.setText(String.format(\"₹ %.2f\", netBill));\n        \n    } catch (NumberFormatException ex) {\n        javax.swing.JOptionPane.showMessageDialog(this, \n            \"Please enter valid numeric units!\", \"Error\", \n            javax.swing.JOptionPane.ERROR_MESSAGE);\n    }\n}\n```",
+          "hint": "Read units, select rate based on radio button, calculate base bill, add 10% surcharge if checked, display formatted total."
+        },
+        {
+          "q": "17. Write a complete Java program to input an array of 8 integers `{64, 34, 25, 12, 22, 11, 90, 45}` and sort the array in ascending order using Bubble Sort algorithm. Print the sorted array.",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\npublic class BubbleSortDemo {\n    public static void main(String[] args) {\n        int[] arr = {64, 34, 25, 12, 22, 11, 90, 45};\n        int n = arr.length;\n        \n        // Bubble Sort Algorithm\n        for (int i = 0; i < n - 1; i++) {\n            for (int j = 0; j < n - i - 1; j++) {\n                if (arr[j] > arr[j + 1]) {\n                    // Swap adjacent elements\n                    int temp = arr[j];\n                    arr[j] = arr[j + 1];\n                    arr[j + 1] = temp;\n                }\n            }\n        }\n        \n        // Display sorted array\n        System.out.println(\"Sorted Array in Ascending Order:\");\n        for (int num : arr) {\n            System.out.print(num + \" \");\n        }\n        System.out.println();\n    }\n}\n```\n\n**Output:** `11 12 22 25 34 45 64 90`",
+          "hint": "Nested loops with adjacent element comparison and swap."
+        },
+        {
+          "q": "18. Write a Java program that inputs a String (e.g. \"Madam\") and checks whether the string is a Palindrome (case-insensitive).",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\nimport java.util.Scanner;\n\npublic class PalindromeString {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter string: \");\n        String original = scanner.nextLine();\n        \n        String cleanStr = original.trim().toLowerCase();\n        String reversed = \"\";\n        \n        for (int i = cleanStr.length() - 1; i >= 0; i--) {\n            reversed += cleanStr.charAt(i);\n        }\n        \n        if (cleanStr.equals(reversed)) {\n            System.out.println(\"\\\"\" + original + \"\\\" is a Palindrome String!\");\n        } else {\n            System.out.println(\"\\\"\" + original + \"\\\" is NOT a Palindrome String.\");\n        }\n        scanner.close();\n    }\n}\n```",
+          "hint": "Reverse string in lowercase and compare with original string."
+        },
+        {
+          "q": "19. Explain Exception Handling in Java using `try`, `catch`, `finally`, `throw`, and `throws` keywords.",
+          "marks": 4,
+          "answer": "**Answer:**\n1. **`try` block:** Encloses code that may trigger a runtime exception.\n2. **`catch` block:** Intercepts and handles the specific exception instance.\n3. **`finally` block:** Always executes after try-catch for essential cleanup (closing streams/connections).\n4. **`throw` keyword:** Explicitly creates and throws an exception object inside a method.\n5. **`throws` keyword:** Declares checked exceptions in the method signature for the caller to handle.",
+          "hint": "try (risky code), catch (handler), finally (cleanup), throw (triggers error), throws (method signature declaration)."
+        },
+        {
+          "q": "20. What is Work-Integrated Learning (WIL)? Describe THREE benefits of WIL for students and industry partners.",
+          "marks": 4,
+          "answer": "**Answer:**\n- **Definition:** WIL blends academic theory with structured real-world workplace internships.\n- **Three Benefits:**\n  1. **For Students:** Enhances technical competencies, problem-solving, and employability in real production environments.\n  2. **For Industry:** Provides access to fresh, skilled talent and potential future recruits already familiar with corporate workflows.\n  3. **For Educational Institutions:** Keeps curriculum relevant and aligned with current industrial practices.",
+          "hint": "Combines theory with industry; benefits students with job skills and companies with trained talent."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 21 & 22 – Relational Database Multi-Table SQL Queries",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "description": "Consider the following relational tables 'FACULTY' and 'DEPARTMENT' and answer the questions (i) to (x). (10 × 1 = 10 Marks)",
+      "questions": [
+        {
+          "q": "Table: FACULTY\n| FacID | FacName | DeptCode | Salary | City |\n| :--- | :--- | :--- | :--- | :--- |\n| F101 | Dr. Sukanta Hui | D01 | 75000.00 | Barrackpore |\n| F102 | Susmita Dey | D02 | 62000.00 | Kolkata |\n| F103 | Mamata Sen | D01 | 58000.00 | Barrackpore |\n| F104 | Debangshu Roy | D03 | 68000.00 | Naihati |\n| F105 | Abhronila Das | D02 | 71000.00 | Barrackpore |\n\nTable: DEPARTMENT\n| DeptCode | DeptName | Building | HOD |\n| :--- | :--- | :--- | :--- |\n| D01 | Computer Science | Raman Block | Dr. Sukanta Hui |\n| D02 | Mathematics | Aryabhata Block | Abhronila Das |\n| D03 | Physics | Bose Block | Debangshu Roy |\n| D04 | Chemistry | Kalam Block | Dr. K. Sen |\n\ni) Write SQL query to display the FacName, Salary, and City of all faculties residing in 'Barrackpore' earning more than ₹60,000.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT FacName, Salary, City \nFROM FACULTY \nWHERE City = 'Barrackpore' AND Salary > 60000.00;\n```",
+          "hint": "WHERE City = 'Barrackpore' AND Salary > 60000.00;"
+        },
+        {
+          "q": "ii) Write SQL query to calculate the average salary (`AVG(Salary)`) and total faculties (`COUNT(*)`) in each DeptCode.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT DeptCode, AVG(Salary) AS AvgSalary, COUNT(*) AS TotalFaculty \nFROM FACULTY \nGROUP BY DeptCode;\n```",
+          "hint": "SELECT DeptCode, AVG(Salary), COUNT(*) FROM FACULTY GROUP BY DeptCode;"
+        },
+        {
+          "q": "iii) Write SQL query to display FacName, DeptName, Building, and Salary by joining 'FACULTY' and 'DEPARTMENT' tables.",
+          "marks": 1,
+          "answer": "**SQL Query (Equi-Join):**\n```sql\nSELECT F.FacName, D.DeptName, D.Building, F.Salary \nFROM FACULTY F, DEPARTMENT D \nWHERE F.DeptCode = D.DeptCode;\n```",
+          "hint": "Join on FACULTY.DeptCode = DEPARTMENT.DeptCode."
+        },
+        {
+          "q": "iv) Write SQL query to count the total number of faculties living in 'Barrackpore'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT COUNT(*) AS Barrackpore_Faculties \nFROM FACULTY \nWHERE City = 'Barrackpore';\n```",
+          "hint": "SELECT COUNT(*) FROM FACULTY WHERE City = 'Barrackpore';"
+        },
+        {
+          "q": "v) Write SQL query to display all departments located in buildings ending with 'Block'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM DEPARTMENT \nWHERE Building LIKE '%Block';\n```",
+          "hint": "WHERE Building LIKE '%Block';"
+        },
+        {
+          "q": "vi) Write SQL query to increase the salary by 10% for all faculties belonging to DeptCode 'D01'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nUPDATE FACULTY \nSET Salary = Salary * 1.10 \nWHERE DeptCode = 'D01';\n```",
+          "hint": "UPDATE FACULTY SET Salary = Salary * 1.10 WHERE DeptCode = 'D01';"
+        },
+        {
+          "q": "vii) Write SQL query to display all faculty records sorted by Salary in descending order.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM FACULTY \nORDER BY Salary DESC;\n```",
+          "hint": "ORDER BY Salary DESC;"
+        },
+        {
+          "q": "viii) Predict the output of the following SQL query:\n```sql\nSELECT DeptCode, COUNT(*) FROM FACULTY GROUP BY DeptCode HAVING COUNT(*) > 1;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n| DeptCode | COUNT(*) |\n| :--- | :--- |\n| D01 | 2 |\n| D02 | 2 |\n\n**Explanation:** D01 has 2 faculties (F101, F103); D02 has 2 faculties (F102, F105). D03 has only 1.",
+          "hint": "D01 and D02 both have 2 faculty members."
+        },
+        {
+          "q": "ix) Predict the output of the following SQL query:\n```sql\nSELECT MAX(Salary), MIN(Salary), SUM(Salary) FROM FACULTY;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n| MAX(Salary) | MIN(Salary) | SUM(Salary) |\n| :--- | :--- | :--- |\n| 75000.00 | 58000.00 | 334000.00 |\n\n**Calculation:**\n- Max = 75000.00 (Dr. Sukanta Hui)\n- Min = 58000.00 (Mamata Sen)\n- Sum = 75000 + 62000 + 58000 + 68000 + 71000 = 334000.00",
+          "hint": "Max is 75000, Min is 58000, Sum is 334000."
+        },
+        {
+          "q": "x) Identify the Primary Key of table 'FACULTY' and table 'DEPARTMENT'. What is the Foreign Key in table 'FACULTY'?",
+          "marks": 1,
+          "answer": "**Answer:**\n- **Primary Key of FACULTY:** `FacID`\n- **Primary Key of DEPARTMENT:** `DeptCode`\n- **Foreign Key of FACULTY:** `DeptCode` (references `DEPARTMENT.DeptCode`).",
+          "hint": "FacID is PK in FACULTY; DeptCode is PK in DEPARTMENT; DeptCode is FK in FACULTY."
+        }
+      ]
+    }
+  ]
+}

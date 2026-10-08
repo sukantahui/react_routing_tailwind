@@ -1,0 +1,454 @@
+{
+  "paperId": "CBSE-2026-XII-IT802-SET-B",
+  "title": "CBSE Class XII Information Technology (Subject Code: 802) – All-India Mock Board Solved Examination Paper (SET-B)",
+  "duration": "3 Hours",
+  "totalMarks": 60,
+  "prerequisites": "CBSE Class XII Information Technology (802) Curriculum: Relational Databases with MySQL, Operating Web Applications, Java Programming & NetBeans GUI Forms, Project Management & WIL",
+  "instructions": [
+    "This Question Paper contains 23 questions divided into two sections: Section A (30 Marks) and Section B (30 Marks).",
+    "Section A consists of Objective Type Questions. All sub-questions carry 1 mark each.",
+    "Section B consists of Subjective Type Questions covering Short Answer, Programming, GUI Event Handling, and SQL Multi-Table Queries.",
+    "Follow internal choices as specified in each section.",
+    "Calculators and smart devices are prohibited."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Question 1 – Objective Questions (Employability & Operating Web Applications)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which mobile payment interface developed by National Payments Corporation of India (NPCI) enables instant real-time bank-to-bank electronic fund transfers using a Virtual Payment Address (VPA)?\n(a) BHIM UPI (Bharat Interface for Money)\n(b) DigiLocker\n(c) SWAYAM\n(d) IRCTC",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) BHIM UPI (Bharat Interface for Money)**\n\n**Explanation:** BHIM (Bharat Interface for Money) is the mobile payment application based on Unified Payments Interface (UPI) facilitating instantaneous electronic bank transfers.",
+          "hint": "Bharat Interface for Money."
+        },
+        {
+          "q": "ii) What is the main objective of Work Integrated Learning (WIL) in the CBSE curriculum?\n(a) To replace school textbooks completely\n(b) To blend theoretical academic coursework with practical hands-on industry workplace experience\n(c) To conduct theoretical exams only\n(d) To purchase computer hardware",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) To blend theoretical academic coursework with practical hands-on industry workplace experience**",
+          "hint": "Blending academic theory with workplace experience."
+        },
+        {
+          "q": "iii) Mention ONE key responsibility of a Database Administrator (DBA) in maintaining web application database servers.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any one of:\n1. Managing user access permissions and authentication security.\n2. Performing regular database backups and disaster recovery planning.\n3. Optimizing query execution performance and database indexing.\n4. Ensuring database schema integrity and uptime availability.",
+          "hint": "Managing user permissions, database backups, or performance optimization."
+        },
+        {
+          "q": "iv) In the Web Application Development Life Cycle, which stage is responsible for installing the tested system onto production web servers for live citizen use?\n(a) Requirement Gathering\n(b) System Design\n(c) Implementation\n(d) Deployment & Maintenance",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) Deployment & Maintenance**\n\n**Explanation:** The deployment phase releases the production application into live hosting environments and maintains 24x7 operational reliability.",
+          "hint": "Deployment to live production servers."
+        },
+        {
+          "q": "v) State whether True or False:\n\"E-Commerce platforms require physical printed paper receipts for all financial transactions.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** E-Commerce transactions utilize paperless digital invoices, SMS notifications, and encrypted electronic payment confirmations.",
+          "hint": "E-Commerce is paperless and digital."
+        },
+        {
+          "q": "vi) Which of the following is a primary characteristic that distinguishes a project from continuous business operations?\n(a) Projects have indefinite timelines\n(b) Projects produce unique results within defined time and budget limits\n(c) Projects use infinite financial resources\n(d) Projects require zero planning",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Projects produce unique results within defined time and budget limits**",
+          "hint": "Unique outcome + defined time and budget boundaries."
+        },
+        {
+          "q": "vii) Identify the web browser from the options given below:\n(a) Google Chrome\n(b) MySQL Server\n(c) NetBeans IDE\n(d) Apache HTTP Server",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Google Chrome**",
+          "hint": "Google Chrome is a web browser."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 2 – Objective Questions (RDBMS & MySQL Foundation)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) In MySQL, which command is used to display all databases currently available on the server?\n(a) SHOW DATABASES;\n(b) LIST DATABASES;\n(c) DISPLAY DATABASES;\n(d) VIEW DATABASES;",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) SHOW DATABASES;**",
+          "hint": "SHOW DATABASES;"
+        },
+        {
+          "q": "ii) What is the Degree of a table with 9 columns and 120 customer records?\n(a) 120\n(b) 9\n(c) 1080\n(d) 129",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 9**\n\n**Explanation:** Degree is the total number of attributes (columns) = 9. Cardinality is the number of rows (tuples) = 120.",
+          "hint": "Degree = number of columns."
+        },
+        {
+          "q": "iii) Which SQL keyword is used with `SELECT` to eliminate duplicate values from the output result set?\n(a) UNIQUE\n(b) DISTINCT\n(c) DIFFERENT\n(d) FILTER",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) DISTINCT**",
+          "hint": "DISTINCT keyword."
+        },
+        {
+          "q": "iv) What is the value returned by `SELECT LENGTH('NetBeans IDE');` in MySQL?\n(a) 10\n(b) 11\n(c) 12\n(d) 8",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 12**\n\n**Explanation:** 'N-e-t-B-e-a-n-s' (8) + space (1) + 'I-D-E' (3) = 12 total characters.",
+          "hint": "Count characters including the space: 8 + 1 + 3 = 12."
+        },
+        {
+          "q": "v) Write the MySQL query to display all records from table `STUDENT` where the name starts with the letter 'A'.",
+          "marks": 1,
+          "answer": "**Correct Answer: `SELECT * FROM STUDENT WHERE SName LIKE 'A%';`**",
+          "hint": "WHERE SName LIKE 'A%';"
+        },
+        {
+          "q": "vi) State whether True or False:\n\"In MySQL, `DROP TABLE` removes both the table data and its schema definition, while `DELETE FROM` removes only the data rows.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**",
+          "hint": "DROP removes schema and data; DELETE removes only rows."
+        },
+        {
+          "q": "vii) Which SQL clause is used to filter records after aggregate grouping with `GROUP BY`?\n(a) WHERE\n(b) HAVING\n(c) ORDER BY\n(d) FILTER",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) HAVING**",
+          "hint": "HAVING clause."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 3 – Objective Questions (Core Java & OOP Fundamentals)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 8,
+      "description": "Answer any 7 Questions out of 8 Questions. (7 × 1 = 7 Marks)",
+      "questions": [
+        {
+          "q": "i) Which Java software component interprets compiled bytecode into native machine instructions at runtime?\n(a) JDK\n(b) JVM\n(c) javac\n(d) Javadoc",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) JVM (Java Virtual Machine)**",
+          "hint": "Java Virtual Machine."
+        },
+        {
+          "q": "ii) What is the value of `k` after evaluating:\n```java\nint x = 6;\nint k = x++ + ++x + x;\n```\n(a) 20\n(b) 21\n(c) 22\n(d) 23",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 22**\n\n**Evaluation:**\n1. `x++`: evaluates to 6, `x` becomes 7\n2. `++x`: pre-increments `x` to 8; evaluates to 8\n3. `x`: current value is 8\n4. `k = 6 + 8 + 8 = 22`",
+          "hint": "Trace: 6 + 8 + 8 = 22."
+        },
+        {
+          "q": "iii) Which loop structure in Java is exit-controlled and runs at least once regardless of condition?\n(a) for\n(b) while\n(c) do-while\n(d) enhanced for",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) do-while**",
+          "hint": "do-while loop."
+        },
+        {
+          "q": "iv) What is the return type of a Java constructor?\n(a) void\n(b) int\n(c) Object\n(d) Constructors do not have any return type",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) Constructors do not have any return type**",
+          "hint": "Constructors have no return type."
+        },
+        {
+          "q": "v) Write the output of `Math.pow(2, 5)` in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: 32.0**",
+          "hint": "2 to the power 5 is 32.0."
+        },
+        {
+          "q": "vi) Which Java access modifier makes a member accessible everywhere from any package?\n(a) public\n(b) private\n(c) protected\n(d) default",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) public**",
+          "hint": "public access modifier."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"In Java, the `final` keyword applied to a method prevents subclasses from overriding that method.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**",
+          "hint": "final methods cannot be overridden."
+        },
+        {
+          "q": "viii) Name the method used to convert a String `\"789\"` into an integer in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: `Integer.parseInt(\"789\")`**",
+          "hint": "Integer.parseInt() method."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 4 – Objective Questions (Arrays, Strings, NetBeans GUI & Threads)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) What will be printed by the following code?\n```java\nString s = \"Barrackpore\";\nSystem.out.println(s.substring(3, 7));\n```\n(a) \"rack\"\n(b) \"rackp\"\n(c) \"arra\"\n(d) \"kpore\"",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) \"rack\"**\n\n**Explanation:** Indices: `B(0) a(1) r(2) r(3) a(4) c(5) k(6) p(7)`. Index 3..6 is `r-a-c-k`.",
+          "hint": "Characters from index 3 up to 6."
+        },
+        {
+          "q": "ii) What is the default initial value of elements in a `boolean[] flags = new boolean[5];` array in Java?\n(a) true\n(b) false\n(c) null\n(d) 0",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) false**",
+          "hint": "Default boolean value is false."
+        },
+        {
+          "q": "iii) Which method in Java pauses the current thread for 2000 milliseconds?\n(a) Thread.pause(2000)\n(b) Thread.sleep(2000)\n(c) Thread.wait(2000)\n(d) Thread.delay(2000)",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Thread.sleep(2000)**",
+          "hint": "Thread.sleep(2000)."
+        },
+        {
+          "q": "iv) In NetBeans GUI, which Swing component allows multiple items to be checked simultaneously?\n(a) JRadioButton\n(b) JCheckBox\n(c) JLabel\n(d) JTextField",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) JCheckBox**",
+          "hint": "JCheckBox for multiple independent selections."
+        },
+        {
+          "q": "v) Which exception is thrown when an array index is negative or greater than or equal to array length?\n(a) NullPointerException\n(b) ArrayIndexOutOfBoundsException\n(c) ArithmeticException\n(d) NumberFormatException",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) ArrayIndexOutOfBoundsException**",
+          "hint": "ArrayIndexOutOfBoundsException."
+        },
+        {
+          "q": "vi) Write the output of `\"CBSE Board\".charAt(5)` in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: 'B'**\n\n**Explanation:** Indices: `C(0) B(1) S(2) E(3)  (4) B(5) o(6) a(7) r(8) d(9)`. Character at index 5 is `'B'`.",
+          "hint": "Character at index 5 is capital 'B'."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"In Java, array length is accessed using the property `arr.length` without parentheses, whereas String length uses the method `str.length()` with parentheses.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**",
+          "hint": "Array uses .length property; String uses .length() method."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 5 – Objective Questions (Work Integrated Learning & Project Management)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Which phase of software development produces the Entity-Relationship (ER) diagram and database schema tables?\n(a) Requirement Gathering\n(b) Design Phase\n(c) Implementation Phase\n(d) Testing Phase",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Design Phase**",
+          "hint": "Design phase creates ER diagrams and schema blueprints."
+        },
+        {
+          "q": "ii) What is a 'Project Milestone'?\n(a) A Java loop counter\n(b) A significant checkpoint in a project timeline marking the completion of a key deliverable with zero duration\n(c) A computer virus\n(d) An invoice receipt",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) A significant checkpoint in a project timeline marking the completion of a key deliverable with zero duration**",
+          "hint": "A zero-duration checkpoint marking deliverable completion."
+        },
+        {
+          "q": "iii) Mention TWO finite resource constraints that every IT project manager must balance.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any two of:\n1. **Time / Schedule** (project deadline)\n2. **Cost / Budget** (allocated financial funds)\n3. **Human Resources / Manpower** (development team size)\n4. **Equipment / Infrastructure**",
+          "hint": "Time, Budget, Human Resources, Scope."
+        },
+        {
+          "q": "iv) State whether True or False:\n\"In Work Integrated Learning (WIL), students document daily learning and technical accomplishments in an internship logbook verified by the industry mentor.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**",
+          "hint": "Internship logbook records verified activities."
+        },
+        {
+          "q": "v) What term describes the uncontrolled continuous addition of project features without corresponding increases in budget or time?\n(a) Scope Creep\n(b) Refactoring\n(c) Normalization\n(d) Polymorphism",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Scope Creep**",
+          "hint": "Scope Creep."
+        },
+        {
+          "q": "vi) Name the graphical scheduling tool that plots tasks and dependencies along a timeline as horizontal bars.\n(a) Gantt Chart\n(b) Histogram\n(c) Pie Chart\n(d) Venn Diagram",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Gantt Chart**",
+          "hint": "Gantt Chart."
+        },
+        {
+          "q": "vii) In software engineering, what is the document called that formally authorizes the project and names the project manager?\n(a) Project Charter\n(b) Source Code\n(c) User Manual\n(d) Bug Report",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Project Charter**",
+          "hint": "Project Charter."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 6 to 15 – Short Answer Questions (Core Java & MySQL)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "description": "Answer any 6 Questions out of 10 Questions. (6 × 2 = 12 Marks)",
+      "questions": [
+        {
+          "q": "6. Rewrite the following `if-else-if` ladder using an equivalent `switch` statement in Java:\n```java\nint tier = 2;\nif (tier == 1) {\n    System.out.println(\"Standard Support\");\n} else if (tier == 2) {\n    System.out.println(\"Priority 24x7 Support\");\n} else if (tier == 3) {\n    System.out.println(\"Dedicated Enterprise Support\");\n} else {\n    System.out.println(\"Basic Community Support\");\n}\n```",
+          "marks": 2,
+          "answer": "**Equivalent `switch` statement:**\n```java\nint tier = 2;\nswitch (tier) {\n    case 1:\n        System.out.println(\"Standard Support\");\n        break;\n    case 2:\n        System.out.println(\"Priority 24x7 Support\");\n        break;\n    case 3:\n        System.out.println(\"Dedicated Enterprise Support\");\n        break;\n    default:\n        System.out.println(\"Basic Community Support\");\n        break;\n}\n```",
+          "hint": "Switch statement with cases 1, 2, 3 and default."
+        },
+        {
+          "q": "7. Differentiate between `DELETE FROM tablename;` and `DROP TABLE tablename;` in MySQL.",
+          "marks": 2,
+          "answer": "**Distinction:**\n1. **`DELETE FROM tablename;` (DML):** Deletes all data rows from the table, but the table schema/structure remains intact in the database dictionary.\n2. **`DROP TABLE tablename;` (DDL):** Permanently deletes both the table structure, column definitions, constraints, and all contained data rows from the database.",
+          "hint": "DELETE removes rows; DROP removes schema and data permanently."
+        },
+        {
+          "q": "8. Explain Method Overloading vs Method Overriding in Java with one point of distinction each.",
+          "marks": 2,
+          "answer": "**Distinction:**\n- **Method Overloading:** Occurs in the **same class**; methods share the same name but have **different parameter signatures** (compile-time polymorphism).\n- **Method Overriding:** Occurs between **superclass and subclass**; methods have the **exact same name and parameter signature** (runtime dynamic polymorphism).",
+          "hint": "Same class with different parameters vs super-sub class with same parameters."
+        },
+        {
+          "q": "9. Write MySQL DDL statements to:\n(a) Create a database named `COLLEGE_DB`.\n(b) Open / activate `COLLEGE_DB`.",
+          "marks": 2,
+          "answer": "**MySQL Statements:**\n```sql\n-- (a) Create Database\nCREATE DATABASE COLLEGE_DB;\n\n-- (b) Open / Use Database\nUSE COLLEGE_DB;\n```",
+          "hint": "CREATE DATABASE COLLEGE_DB; and USE COLLEGE_DB;"
+        },
+        {
+          "q": "10. What is an Exception in Java? What is the role of the `finally` block?",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Exception:** An abnormal runtime condition that disrupts normal program execution.\n- **`finally` block:** A block that **always executes**, regardless of whether an exception is thrown or caught, ensuring cleanup of external resources (closing database connections, streams).",
+          "hint": "Runtime error condition + cleanup block that always executes."
+        },
+        {
+          "q": "11. Differentiate between `PRIMARY KEY` and `FOREIGN KEY` constraints in MySQL.",
+          "marks": 2,
+          "answer": "**Distinction:**\n- **`PRIMARY KEY`:** Uniquely identifies each tuple in its table and strictly rejects NULL values (only 1 per table).\n- **`FOREIGN KEY`:** A column in a child table that references the primary key of a parent table to maintain referential integrity (can accept duplicate and NULL values).",
+          "hint": "Primary key uniquely identifies tuples; Foreign key links child table to parent primary key."
+        },
+        {
+          "q": "12. What is a Parameterized Constructor in Java? How is it invoked?",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Parameterized Constructor:** A constructor that accepts input arguments to initialize object instance variables with specific caller-provided values.\n- **Invocation:** It is invoked automatically during instantiation by passing arguments inside `new ClassName(arg1, arg2)`.",
+          "hint": "Constructor accepting arguments during object creation."
+        },
+        {
+          "q": "13. Predict the output of the following Java snippet:\n```java\nint count = 1, sum = 0;\nwhile (count <= 5) {\n    if (count == 4) break;\n    sum += count;\n    count++;\n}\nSystem.out.println(\"Sum = \" + sum);\n```",
+          "marks": 2,
+          "answer": "**Output:** `Sum = 6`\n\n**Trace:** Iterations for `count = 1, 2, 3` execute (`1 + 2 + 3 = 6`). When `count = 4`, the `break` statement immediately terminates the loop.",
+          "hint": "1 + 2 + 3 = 6; loop breaks when count is 4."
+        },
+        {
+          "q": "14. Name the 4 standard stages of Web Application Development.",
+          "marks": 2,
+          "answer": "**Answer:**\n1. Stage 1: Requirement Gathering & Analysis\n2. Stage 2: Web Application Design\n3. Stage 3: Coding & Implementation\n4. Stage 4: Testing & Deployment",
+          "hint": "1. Requirement Gathering, 2. Design, 3. Coding, 4. Testing & Deployment."
+        },
+        {
+          "q": "15. Write the MySQL statement to add a new column `Email` of type `VARCHAR(50)` to table `CUSTOMER`.",
+          "marks": 2,
+          "answer": "**MySQL Statement:**\n```sql\nALTER TABLE CUSTOMER ADD Email VARCHAR(50);\n```",
+          "hint": "ALTER TABLE CUSTOMER ADD Email VARCHAR(50);"
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 16 to 20 – Programming, GUI & Analytical Questions",
+      "marksPerQuestion": 4,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 4 = 12 Marks)",
+      "questions": [
+        {
+          "q": "16. In NetBeans GUI Builder, a Hospital OPD billing form has the following controls:\n- `txtConsultationFee` (JTextField for base fee)\n- `rbGeneral` (JRadioButton – Standard OPD, 0% add-on)\n- `rbEmergency` (JRadioButton – Emergency OPD, ₹300 add-on)\n- `chkECG` (JCheckBox for ECG Test – ₹400 add-on)\n- `txtNetPayable` (JTextField for Net Payable)\n- `btnCalculate` (JButton)\n\nWrite Java code for `btnCalculateActionPerformed()` to compute and display Net Payable = Consultation Fee + Emergency Add-on + ECG Add-on.",
+          "marks": 4,
+          "answer": "**Java GUI Source Code:**\n```java\nprivate void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {\n    try {\n        double baseFee = Double.parseDouble(txtConsultationFee.getText().trim());\n        if (baseFee < 0) {\n            javax.swing.JOptionPane.showMessageDialog(this, \n                \"Consultation fee cannot be negative!\", \"Input Error\", \n                javax.swing.JOptionPane.WARNING_MESSAGE);\n            return;\n        }\n        \n        // Step 1: Emergency Add-on\n        double emergencyAddon = 0.0;\n        if (rbEmergency.isSelected()) {\n            emergencyAddon = 300.0;\n        }\n        \n        // Step 2: ECG Add-on\n        double ecgAddon = 0.0;\n        if (chkECG.isSelected()) {\n            ecgAddon = 400.0;\n        }\n        \n        // Step 3: Total calculation\n        double netPayable = baseFee + emergencyAddon + ecgAddon;\n        \n        // Step 4: Display\n        txtNetPayable.setText(String.format(\"₹ %.2f\", netPayable));\n        \n    } catch (NumberFormatException ex) {\n        javax.swing.JOptionPane.showMessageDialog(this, \n            \"Please enter a valid numeric consultation fee!\", \"Error\", \n            javax.swing.JOptionPane.ERROR_MESSAGE);\n    }\n}\n```",
+          "hint": "Read consultation fee, check rbEmergency.isSelected(), check chkECG.isSelected(), calculate total and setText."
+        },
+        {
+          "q": "17. Write a complete Java program to initialize an array of 8 integers `{45, 12, 89, 23, 67, 34, 90, 56}`. Find and display the second largest element in the array.",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\npublic class SecondLargestDemo {\n    public static void main(String[] args) {\n        int[] arr = {45, 12, 89, 23, 67, 34, 90, 56};\n        \n        int largest = Integer.MIN_VALUE;\n        int secondLargest = Integer.MIN_VALUE;\n        \n        for (int i = 0; i < arr.length; i++) {\n            int num = arr[i];\n            if (num > largest) {\n                secondLargest = largest;\n                largest = num;\n            } else if (num > secondLargest && num != largest) {\n                secondLargest = num;\n            }\n        }\n        \n        System.out.println(\"Largest Element        = \" + largest);\n        System.out.println(\"Second Largest Element = \" + secondLargest);\n    }\n}\n```\n\n**Output:**\n```\nLargest Element        = 90\nSecond Largest Element = 89\n```",
+          "hint": "Track largest and secondLargest in a single pass."
+        },
+        {
+          "q": "18. Write a Java program that inputs a String (e.g. \"Barrackpore Coder 2026\") and counts the total number of vowels (`a, e, i, o, u`) and consonants present in it.",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\nimport java.util.Scanner;\n\npublic class VowelConsonantCounter {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter a string: \");\n        String text = scanner.nextLine().toLowerCase();\n        \n        int vowels = 0;\n        int consonants = 0;\n        \n        for (int i = 0; i < text.length(); i++) {\n            char ch = text.charAt(i);\n            if (ch >= 'a' && ch <= 'z') {\n                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {\n                    vowels++;\n                } else {\n                    consonants++;\n                }\n            }\n        }\n        \n        System.out.println(\"Total Vowels     = \" + vowels);\n        System.out.println(\"Total Consonants = \" + consonants);\n        scanner.close();\n    }\n}\n```",
+          "hint": "Convert to lowercase, check if letter, if vowel increment vowels else consonants."
+        },
+        {
+          "q": "19. Explain Multithreading in Java. Differentiate between extending `Thread` class and implementing `Runnable` interface.",
+          "marks": 4,
+          "answer": "**Answer:**\n- **Multithreading:** The ability of a CPU to execute multiple concurrent threads of execution within a single program process.\n- **Comparison:**\n  1. **Extending `Thread`:** A class extends `java.lang.Thread` and overrides `run()`. However, because Java doesn't support multiple inheritance, the class cannot extend any other class.\n  2. **Implementing `Runnable`:** A class implements `java.lang.Runnable` and overrides `run()`. It is more flexible and recommended because the class remains free to inherit from another superclass.",
+          "hint": "Extending Thread prevents further inheritance; implementing Runnable preserves class inheritance flexibility."
+        },
+        {
+          "q": "20. Explain the role and core responsibilities of a Project Manager across the 5 standard Project Management Phases.",
+          "marks": 4,
+          "answer": "**Answer:**\n1. **Initiation:** Defines project objectives, business scope, and authors the Project Charter.\n2. **Planning:** Develops work breakdown structure (WBS), Gantt chart schedule, budget estimates, and risk management plans.\n3. **Execution:** Coordinates development teams, assigns resources, and builds system deliverables.\n4. **Monitoring & Controlling:** Measures actual performance against baseline schedule, mitigates scope creep, and ensures quality.\n5. **Closure:** Obtains client acceptance signoff, conducts post-project review, and archives documentation.",
+          "hint": "Initiation (Charter), Planning (Schedule/Budget), Execution (Building), Monitoring (Control), Closure (Handover)."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 21 & 22 – Relational Database Multi-Table SQL Queries",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "description": "Consider the following relational tables 'STUDENT' and 'LIBRARY' and answer the questions (i) to (x). (10 × 1 = 10 Marks)",
+      "questions": [
+        {
+          "q": "Table: STUDENT\n| AdmNo | SName | Class | Stream | City |\n| :--- | :--- | :--- | :--- | :--- |\n| 1001 | Sukanta Hui | XII | Science | Barrackpore |\n| 1002 | Susmita Dey | XII | Commerce | Kolkata |\n| 1003 | Mamata Sen | XI | Science | Barrackpore |\n| 1004 | Debangshu Roy | XII | Science | Naihati |\n| 1005 | Abhronila Das | XII | Commerce | Barrackpore |\n\nTable: LIBRARY\n| IssueID | AdmNo | BookTitle | Fine | IssueDate |\n| :--- | :--- | :--- | :--- | :--- |\n| L801 | 1001 | Master Java GUI | 0.00 | 2026-01-10 |\n| L802 | 1001 | RDBMS MySQL Core | 15.00 | 2026-01-25 |\n| L803 | 1002 | Accounting Principles | 0.00 | 2026-02-05 |\n| L804 | 1003 | Computer Fundamentals | 20.00 | 2026-02-14 |\n| L805 | 1004 | Modern Physics | 0.00 | 2026-03-01 |\n| L806 | 1005 | Business Studies | 10.00 | 2026-03-15 |\n\ni) Write SQL query to display SName, Stream, and City of all students in Class 'XII' living in 'Barrackpore'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT SName, Stream, City \nFROM STUDENT \nWHERE Class = 'XII' AND City = 'Barrackpore';\n```",
+          "hint": "SELECT SName, Stream, City FROM STUDENT WHERE Class = 'XII' AND City = 'Barrackpore';"
+        },
+        {
+          "q": "ii) Write SQL query to calculate the total fine collected (`SUM(Fine)`) and average fine (`AVG(Fine)`) across all library records.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT SUM(Fine) AS TotalFine, AVG(Fine) AS AvgFine \nFROM LIBRARY;\n```",
+          "hint": "SELECT SUM(Fine), AVG(Fine) FROM LIBRARY;"
+        },
+        {
+          "q": "iii) Write SQL query to display SName, Stream, BookTitle, and Fine by joining 'STUDENT' and 'LIBRARY' tables.",
+          "marks": 1,
+          "answer": "**SQL Query (Equi-Join):**\n```sql\nSELECT S.SName, S.Stream, L.BookTitle, L.Fine \nFROM STUDENT S, LIBRARY L \nWHERE S.AdmNo = L.AdmNo;\n```",
+          "hint": "Join on STUDENT.AdmNo = LIBRARY.AdmNo."
+        },
+        {
+          "q": "iv) Write SQL query to count the total number of students in each Stream.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT Stream, COUNT(*) AS StudentCount \nFROM STUDENT \nGROUP BY Stream;\n```",
+          "hint": "SELECT Stream, COUNT(*) FROM STUDENT GROUP BY Stream;"
+        },
+        {
+          "q": "v) Write SQL query to display all books whose title contains the word 'Java'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM LIBRARY \nWHERE BookTitle LIKE '%Java%';\n```",
+          "hint": "WHERE BookTitle LIKE '%Java%';"
+        },
+        {
+          "q": "vi) Write SQL query to update the Fine to ₹0.00 for IssueID 'L802'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nUPDATE LIBRARY \nSET Fine = 0.00 \nWHERE IssueID = 'L802';\n```",
+          "hint": "UPDATE LIBRARY SET Fine = 0.00 WHERE IssueID = 'L802';"
+        },
+        {
+          "q": "vii) Write SQL query to display all library records sorted by Fine in descending order.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM LIBRARY \nORDER BY Fine DESC;\n```",
+          "hint": "ORDER BY Fine DESC;"
+        },
+        {
+          "q": "viii) Predict the output of the following SQL query:\n```sql\nSELECT AdmNo, COUNT(*) FROM LIBRARY GROUP BY AdmNo HAVING COUNT(*) > 1;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n| AdmNo | COUNT(*) |\n| :--- | :--- |\n| 1001 | 2 |\n\n**Explanation:** AdmNo `1001` (Sukanta Hui) has borrowed 2 books (L801 and L802).",
+          "hint": "AdmNo 1001 has 2 book issues."
+        },
+        {
+          "q": "ix) Predict the output of the following SQL query:\n```sql\nSELECT COUNT(DISTINCT City) FROM STUDENT;\n```",
+          "marks": 1,
+          "answer": "**Output:** `3`\n\n**Explanation:** The distinct cities in the table are: 'Barrackpore', 'Kolkata', and 'Naihati' (total 3 unique values).",
+          "hint": "3 distinct cities: Barrackpore, Kolkata, Naihati."
+        },
+        {
+          "q": "x) Identify the Primary Key of table 'STUDENT' and table 'LIBRARY'. What is the Foreign Key in table 'LIBRARY'?",
+          "marks": 1,
+          "answer": "**Answer:**\n- **Primary Key of STUDENT:** `AdmNo`\n- **Primary Key of LIBRARY:** `IssueID`\n- **Foreign Key of LIBRARY:** `AdmNo` (references `STUDENT.AdmNo`).",
+          "hint": "STUDENT PK is AdmNo; LIBRARY PK is IssueID; LIBRARY FK is AdmNo."
+        }
+      ]
+    }
+  ]
+}

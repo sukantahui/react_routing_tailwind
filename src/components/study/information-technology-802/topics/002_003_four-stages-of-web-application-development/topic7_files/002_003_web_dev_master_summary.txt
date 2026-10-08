@@ -1,0 +1,103 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+SEGMENT 2: OPERATING WEB-BASED APPLICATIONS & E-SERVICES
+MODULE: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT (002_003)
+MASTER REVISION & EXAM PREPARATION SUMMARY
+AUTHOR / EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE, WEST BENGAL)
+================================================================================
+
+1. EXECUTIVE OVERVIEW: THE 4 STAGES OF WEB APPLICATION DEVELOPMENT
+--------------------------------------------------------------------------------
+The Web Application Development Lifecycle (WADLC) is a structured, engineering-driven framework consisting of four sequential core phases followed by post-development deployment and ongoing maintenance:
+
+  [STAGE 1: REQUIREMENT DEFINITION / ANALYSIS] -> "WHAT must the system do?"
+        |
+        v
+  [STAGE 2: DESIGN PHASE]                       -> "HOW will the system look & operate?"
+        |
+        v
+  [STAGE 3: IMPLEMENTATION / CODING PHASE]      -> "Translating blueprints into code"
+        |
+        v
+  [STAGE 4: TESTING & QUALITY ASSURANCE PHASE]   -> "Eliminating bugs & validating SRS"
+        |
+        v
+  [POST-DEV: DEPLOYMENT & MAINTENANCE]         -> "Live cloud hosting & 4 maintenance types"
+
+--------------------------------------------------------------------------------
+2. STAGE-BY-STAGE SUMMARY & CORE DELIVERABLES
+--------------------------------------------------------------------------------
+
+STAGE 1: REQUIREMENT DEFINITION / ANALYSIS PHASE
+- Objective: Compile detailed functional features, operational constraints, performance requirements, and project boundaries.
+- Key Activities:
+  * Conducting stakeholder interviews, client questionnaires, and domain audits.
+  * Performing Technical, Economic, and Operational Feasibility Studies.
+  * Establishing project scope to prevent Scope Creep (uncontrolled requirement inflation).
+- Primary Deliverable: Software Requirements Specification (SRS) Document signed by clients and lead engineers.
+
+STAGE 2: DESIGN PHASE
+- Objective: Convert the signed SRS into structural, architectural, and visual blueprints before writing code.
+- Key Activities:
+  * High-Level Design (HLD): 3-Tier Client-Server Architecture (Presentation Tier: HTML/CSS/JS -> Application Tier: Java Servlets -> Data Tier: MySQL).
+  * Low-Level Design (LLD): Entity-Relationship (ER) database modeling, table normalization (1NF, 2NF, 3NF), primary/foreign keys.
+  * UI/UX Wireframing & Mockups (Figma, Adobe XD), Navigation Trees, Sitemaps, Data Flow Diagrams (DFDs), and Algorithmic Flowcharts.
+- Primary Deliverable: Design Document Specification (DDS), ER Schemas, UI Wireframe Mockups.
+
+STAGE 3: IMPLEMENTATION / CODING PHASE
+- Objective: Write modular, secure, and maintainable source code matching the design specifications.
+- Key Activities:
+  * Front-End Development: Semantic HTML5, responsive CSS3 grids, JavaScript Fetch API/AJAX for asynchronous data updates, and NetBeans Swing GUI.
+  * Middle-Tier & Back-End Development: Java Servlets, RESTful APIs, session authentication, and business calculations.
+  * Database Connectivity (JDBC): Establishing connections with `DriverManager.getConnection()`, executing queries with `PreparedStatement` (mandatory to prevent SQL Injection), and retrieving records using `ResultSet`.
+  * Key Methods: `executeUpdate()` for INSERT/UPDATE/DELETE vs `executeQuery()` for SELECT.
+- Primary Deliverable: Fully Integrated Executable Source Code Repository with Git version control history.
+
+STAGE 4: TESTING & QUALITY ASSURANCE (QA) PHASE
+- Objective: Systematically execute the software to uncover bugs, security vulnerabilities, and verify SRS compliance.
+- Hierarchy of Testing Levels:
+  1. Unit Testing: Testing isolated methods (e.g. `calculateLateFee()`) using test frameworks like JUnit.
+  2. Integration Testing: Verifying data exchange across UI forms, Java controllers, and MySQL database.
+  3. System Testing: Comprehensive end-to-end testing of the complete software build.
+  4. User Acceptance Testing (UAT): Alpha testing (internal team) and Beta testing (real client end-users).
+- Specialized Testing: Regression Testing (re-testing after bug fixes), Boundary Value Analysis, Load & Stress Testing (JMeter), Penetration Testing (pen-testing SQL Injection and XSS).
+- Bug Lifecycle: NEW -> ASSIGNED -> OPEN -> FIXED -> RETEST -> CLOSED.
+- Primary Deliverable: Comprehensive Test Plan, Test Cases, Bug Defect Reports, and UAT Acceptance Certificate.
+
+--------------------------------------------------------------------------------
+3. POST-DEVELOPMENT: DEPLOYMENT & THE 4 TYPES OF MAINTENANCE
+--------------------------------------------------------------------------------
+Deployment:
+- Staging environment dress-rehearsals, DNS domain mapping (`www.quickbill.co.in`), SSL/TLS HTTPS encryption certificates, and cloud hosting (AWS / Tomcat).
+
+The 4 Types of Software Maintenance (Accounts for 60-80% of lifecycle cost):
+1. Corrective Maintenance: Fixing live bugs, runtime calculation mistakes, or crashes reported by active users after launch.
+2. Adaptive Maintenance: Updating software to remain compatible when external environments change (e.g. new Indian GST tax slabs, OS upgrades, or new browser engines).
+3. Perfective Maintenance: Enhancing performance speed, optimizing queries, or adding convenient new features (e.g. Dark Mode or PDF statements) based on user feedback.
+4. Preventive Maintenance: Proactively refactoring database indexes, updating server hardware, and patching security libraries to prevent future failures before they occur.
+
+Continuous User Feedback Loop:
+- In-App ratings, support tickets, and analytics flow back into Stage 1 Requirements for Version 2.0.
+
+--------------------------------------------------------------------------------
+4. BOARD EXAM RAPID-FIRE REVISION FORMULAS
+--------------------------------------------------------------------------------
+Q1: Which phase answers "WHAT" the system does? -> Stage 1: Requirement Definition.
+Q2: Which phase answers "HOW" the system works and looks? -> Stage 2: Design Phase.
+Q3: Which phase writes the actual program code? -> Stage 3: Implementation / Coding Phase.
+Q4: Which phase executes test cases and discovers defects? -> Stage 4: Testing & QA Phase.
+Q5: Name the deliverable of Stage 1. -> Software Requirements Specification (SRS).
+Q6: Name the deliverable of Stage 2. -> Design Document Specification (DDS) / ER Schemas.
+Q7: Why use PreparedStatement in JDBC? -> To prevent SQL Injection and optimize execution performance.
+Q8: Which JDBC method executes an INSERT query? -> `executeUpdate()`.
+Q9: Which JDBC method executes a SELECT query? -> `executeQuery()`.
+Q10: What is Regression Testing? -> Re-running test suites after bug fixes to ensure existing features remain unbroken.
+Q11: What is Beta Testing? -> Testing pre-release software with real prospective users in their live operational environment.
+Q12: Adapting an app to new GST tax rates is what maintenance? -> Adaptive Maintenance.
+Q13: Fixing an invoice calculation bug reported by users is what maintenance? -> Corrective Maintenance.
+Q14: Proactively upgrading MySQL to prevent zero-day attacks is what maintenance? -> Preventive Maintenance.
+Q15: Adding Dark Mode based on customer demand is what maintenance? -> Perfective Maintenance.
+
+================================================================================
+END OF MASTER REVISION SUMMARY
+================================================================================

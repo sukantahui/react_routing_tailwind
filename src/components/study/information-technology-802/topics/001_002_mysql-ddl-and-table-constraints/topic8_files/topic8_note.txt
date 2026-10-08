@@ -1,0 +1,62 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 8: REMOVING TABLES: DIFFERENCE BETWEEN DROP TABLE (DDL - REMOVES SCHEMA & DATA) AND DELETE FROM (DML - REMOVES ROWS, ROLLBACK POSSIBLE)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 20 min | Level: High Yield Board Comparison
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] DROP TABLE (DDL): Completely destroys the table definition (schema), data rows, constraints, and indexes. The table ceases to exist in the database catalog.
+[2] DELETE FROM (DML): Deletes individual rows or all rows satisfying a WHERE condition. The table schema and column definitions remain completely intact.
+[3] TRUNCATE TABLE (DDL): Rapidly deletes ALL rows by dropping and re-creating the table. Preserves schema structure.
+[4] Rollback Ability: DELETE FROM can be rolled back using `ROLLBACK` within a transaction. DROP TABLE and TRUNCATE TABLE are auto-committed DDL commands and CANNOT be rolled back.
+[5] WHERE Clause Support: Only `DELETE FROM` supports the `WHERE` clause for selective tuple deletion.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. The 3-Way Comparison: DROP vs TRUNCATE vs DELETE ---
+| Parameter | DROP TABLE | TRUNCATE TABLE | DELETE FROM |
+| :--- | :--- | :--- | :--- |
+| **SQL Category** | **DDL** (Data Definition) | **DDL** (Data Definition) | **DML** (Data Manipulation) |
+| **Schema Structure** | **Destroyed** (Table gone) | **Preserved** (Structure remains) | **Preserved** (Structure remains) |
+| **WHERE Clause** | Not Supported | Not Supported | **Supported** (Selective deletion) |
+| **Rollback Possible** | **NO** (Auto-committed) | **NO** (Auto-committed) | **YES** (Inside transaction) |
+| **Auto-Increment Reset** | N/A (Table deleted) | Resets counter back to 1 | Does NOT reset counter |
+| **Speed & Triggers** | Instantaneous; no triggers | Fast page deallocation; no triggers | Row-by-row logging; fires triggers |
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- DROP TABLE vs TRUNCATE vs DELETE Lab
+CREATE TABLE ExamBatch (
+    BatchID INT PRIMARY KEY AUTO_INCREMENT,
+    BatchName VARCHAR(30),
+    StudentCount INT
+);
+
+INSERT INTO ExamBatch (BatchName, StudentCount) VALUES
+('Batch A (Morning)', 45),
+('Batch B (Afternoon)', 40),
+('Batch C (Evening)', 38);
+
+-- Selective deletion with DELETE (DML)
+DELETE FROM ExamBatch WHERE BatchName = 'Batch C (Evening)';
+
+-- Full wipeout with TRUNCATE (DDL)
+TRUNCATE TABLE ExamBatch;
+
+-- Complete destruction with DROP TABLE (DDL)
+DROP TABLE IF EXISTS ExamBatch;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"This is one of the highest-weightage board comparison questions: DROP TABLE removes both the schema and all rows permanently and cannot be rolled back. DELETE FROM deletes rows (optionally filtered with WHERE), preserves the table schema structure, and CAN be rolled back in transactions!"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

@@ -1,0 +1,50 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 4: THE CONCEPT OF NULL IN SQL (THREE-VALUED LOGIC & WHY '= NULL' FAILS)
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS NULL IN SQL?
+   - NULL represents a missing, unknown, unassigned, or not applicable value.
+   - NULL is NOT zero (0) -> 0 is a definite numeric quantity.
+   - NULL is NOT an empty string ('') -> '' is a string of length 0.
+
+2. WHY DOES 'attribute = NULL' FAIL IN SQL?
+   - In SQL Three-Valued Logic (3VL), comparisons evaluate to TRUE, FALSE, or UNKNOWN.
+   - When SQL evaluates `Commission = NULL`, it cannot determine if an unknown value
+     equals another unknown value, so it answers UNKNOWN.
+   - A SQL `WHERE` filter ONLY returns rows that evaluate strictly to TRUE.
+   - Hence, `WHERE Commission = NULL` returns 0 rows!
+
+3. CORRECT SYNTAX:
+   - To find missing values: `WHERE Commission IS NULL;`
+   - To find present values: `WHERE Commission IS NOT NULL;`
+
+4. THREE-VALUED LOGIC (3VL) TRUTH TABLE:
+   Operation                 | Result
+   --------------------------|-----------------------------------------------
+   UNKNOWN AND TRUE          | UNKNOWN
+   UNKNOWN AND FALSE         | FALSE
+   UNKNOWN AND UNKNOWN       | UNKNOWN
+   UNKNOWN OR TRUE           | TRUE
+   UNKNOWN OR FALSE          | UNKNOWN
+   NOT UNKNOWN               | UNKNOWN
+
+5. BEHAVIOR WITH AGGREGATE FUNCTIONS:
+   - `SUM(col)`, `AVG(col)`, `MIN(col)`, `MAX(col)`, `COUNT(col)` completely IGNORE NULLs.
+   - Example: Values = (10, 20, NULL, 30) -> `AVG()` = (10 + 20 + 30) / 3 = 20.00
+   - Exception: `COUNT(*)` counts ALL rows in the table, including rows containing NULLs.
+
+6. ARITHMETIC WITH NULL:
+   - Any math operation with NULL yields NULL:
+     `Salary + Commission` (where Commission is NULL) -> NULL!
+   - Solution in MySQL: Use `Salary + IFNULL(Commission, 0.00)`
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+In CBSE Board Objective Questions:
+1. Question: Why is `WHERE Marks = NULL` invalid?
+   Answer: Because equality comparisons with NULL yield UNKNOWN. `IS NULL` must be used.
+2. Remember: Primary Key columns CANNOT be NULL!
+================================================================================

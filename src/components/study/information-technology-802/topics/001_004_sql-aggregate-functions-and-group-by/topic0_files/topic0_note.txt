@@ -1,0 +1,43 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 0: SINGLE-ROW FUNCTIONS VS MULTI-ROW (AGGREGATE) FUNCTIONS IN SQL
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 10 mins | Level: Beginner
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] Single-Row Functions (e.g. LOWER, UPPER, LENGTH, ROUND): Accept 1 row input -> Return 1 output per row (N in -> N out).
+[2] Multi-Row / Aggregate Functions (e.g. SUM, AVG, MIN, MAX, COUNT): Accept N rows -> Condense into 1 scalar summary row (N in -> 1 out).
+[3] Aggregate functions are evaluated across row groups or the entire table relation.
+[4] You cannot place an un-aggregated non-group column alongside an aggregate function in standard SQL without GROUP BY.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Comparing Single-Row vs Multi-Row Functions
+USE CompanyDB;
+
+-- Single-Row Functions: Returns 5 rows for 5 employees
+SELECT EmpName, UPPER(EmpName), LENGTH(EmpName), ROUND(BasicSalary, -3)
+FROM Employee;
+
+-- Multi-Row (Aggregate) Functions: Returns exactly 1 summary row for all employees
+SELECT 
+  COUNT(*) AS TotalStaff,
+  SUM(BasicSalary) AS TotalPayroll,
+  AVG(BasicSalary) AS AvgSalary,
+  MAX(BasicSalary) AS HighestSalary,
+  MIN(BasicSalary) AS LowestSalary
+FROM Employee;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Single-row functions change individual row text or numbers (e.g. UPPER(Name)). Aggregate functions boil down the whole table into ONE summary number (e.g. SUM(Salary)). Keep this distinction crystal clear for board exams! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

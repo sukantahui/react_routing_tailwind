@@ -1,0 +1,71 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 2: THE CONCEPT AND FUNCTIONALITY OF A VIRTUAL SHOPPING CART
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A VIRTUAL SHOPPING CART?
+--------------------------------------------------------------------------------
+A Virtual Shopping Cart (or Shopping Basket) is an essential software component and 
+interactive user-interface module on an e-commerce website that tracks, organizes, 
+and temporarily accumulates the products a customer selects for purchase before 
+proceeding to the final checkout and payment gateway.
+
+2. CORE FUNCTIONALITIES OF A SHOPPING CART
+--------------------------------------------------------------------------------
+1. Session State Persistence:
+   - Preserves cart items across page refreshes and multi-page catalog browsing using 
+     HTTP Cookies, Local Storage, or Server-Side Session IDs.
+2. Dynamic Item Management:
+   - Add new items to cart with specified attributes (Size, Color, Edition).
+   - Increment (+) or Decrement (-) product quantity on the fly.
+   - Delete / Remove unwanted items.
+   - 'Save for Later' or 'Move to Wishlist' options.
+3. Financial Calculation Engine:
+   - Unit Subtotal = Item Price x Quantity.
+   - Promotional Coupon / Voucher Code application (e.g. 10% instant discount).
+   - Statutory Tax Computation (GST: CGST + SGST or IGST).
+   - Shipping / Delivery Fees (or Free Shipping above a set threshold, e.g. ₹499).
+   - Final Grand Total = (Subtotal - Discount) + Taxes + Shipping.
+4. Real-Time Inventory Validation:
+   - Queries the backend warehouse database to verify live stock availability before checkout.
+5. Checkout Handshake:
+   - Seamlessly transfers order parameters to the secure HTTPS payment gateway.
+
+3. TYPICAL SHOPPING CART WORKFLOW
+--------------------------------------------------------------------------------
+[Browse Catalog] 
+       │
+       ▼
+[Click 'Add to Cart'] ──► (Session Storage / Cookie Updated)
+       │
+       ▼
+[Open Cart Drawer / Page] ──► (Modify Qty / Enter Promo Code)
+       │
+       ▼
+[Proceed to Checkout] ──► (Shipping Address Selection & Delivery Slot)
+       │
+       ▼
+[Payment Gateway Handshake] ──► (HTTPS Encrypted UPI / NetBanking / Card 2FA OTP)
+       │
+       ▼
+[Order Confirmation] ──► (Automated Invoice Generation, SMS Alert & Warehouse Dispatch)
+
+4. CART ABANDONMENT & CAUSES
+--------------------------------------------------------------------------------
+Cart Abandonment occurs when a user adds items to a cart but exits before making payment.
+Key Causes:
+- Unexpected high delivery/shipping charges revealed at final step.
+- Forced mandatory user registration without guest checkout.
+- Complicated, lengthy multi-step checkout forms.
+- Payment gateway transaction time-outs or failure.
+
+5. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+ভার্চুয়াল শপিং কার্ট হলো ই-কমার্স ওয়েবসাইটের একটি বিশেষ সফটওয়্যার মডিউল যা ক্রেতার 
+পছন্দ করা পণ্যগুলিকে জমা রাখে। এর মাধ্যমে ক্রেতা পণ্যের সংখ্যা বাড়াতে বা কমাতে পারেন, 
+কুপন কোড ব্যবহার করে ছাড় পেতে পারেন এবং জিএসটি ও ডেলিভারি চার্জসহ চূড়ান্ত বিল দেখতে পান। 
+চেকআউট বোতামে চাপ দিলে এটি নিরাপদে পেমেন্ট গেটওয়ের সাথে যুক্ত হয়ে লেনদেন সম্পন্ন করে।
+
+================================================================================

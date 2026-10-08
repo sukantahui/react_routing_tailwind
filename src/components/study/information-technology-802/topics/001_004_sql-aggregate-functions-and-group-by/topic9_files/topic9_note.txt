@@ -1,0 +1,34 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 9: PRACTICE YOUR SKILL HERE: 30-QUESTION TIMED EXAMINATION SIMULATOR
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 30 mins | Level: Exam Ready
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] 30 Authentic CBSE Class XII IT (802) Multiple Choice Questions on Aggregate Functions & GROUP BY.
+[2] Interactive SQL GROUP BY & Aggregate Function Simulator with live category bucketing.
+[3] Subjective Board Examination Question Drills with Model Answers.
+[4] 25 Comprehensive FAQs with bilingual English + Bengali explanations.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Aggregate Functions & GROUP BY Benchmark
+SELECT Stream, COUNT(*), AVG(TotalMarks) 
+FROM Student 
+WHERE TotalMarks >= 60 
+GROUP BY Stream 
+HAVING COUNT(*) >= 2;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Score at least 25/30 on this simulator to ensure complete readiness for CBSE Board examination SQL aggregation questions! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

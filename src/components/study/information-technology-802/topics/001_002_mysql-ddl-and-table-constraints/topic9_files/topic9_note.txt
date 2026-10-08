@@ -1,0 +1,68 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 9: VIEWING AND VERIFYING DATABASE SCHEMA: DESCRIBE TABLE_NAME AND SHOW CREATE TABLE
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 16 min | Level: Practical & Diagnostic
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] DESCRIBE table_name (or DESC table_name): Displays the structural specification of a table in a 6-column tabular layout (Field, Type, Null, Key, Default, Extra).
+[2] Field: Column attribute name.
+[3] Type: MySQL data type and length.
+[4] Null: Indicates whether the column accepts NULL values (YES or NO).
+[5] Key: Indicates indexing status (PRI for Primary Key, UNI for Unique, MUL for non-unique secondary index or Foreign Key).
+[6] Default: Displays the default fallback value assigned to the column.
+[7] Extra: Displays special attributes like `auto_increment`.
+[8] SHOW CREATE TABLE table_name: Outputs the exact complete SQL statement required to reconstruct the table.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. Deconstructing the DESCRIBE Output Table ---
+When you execute `DESCRIBE Student;`, MySQL outputs a diagnostic table:
+
+```text
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| RollNo    | int         | NO   | PRI | NULL    | auto_increment |
+| Name      | varchar(50) | NO   |     | NULL    |                |
+| Email     | varchar(80) | YES  | UNI | NULL    |                |
+| City      | varchar(30) | YES  |     | Kolkata |                |
++-----------+-------------+------+-----+---------+----------------+
+```
+
+- **PRI in Key column:** Identifies the Primary Key.
+- **UNI in Key column:** Identifies a Unique column constraint.
+- **MUL in Key column:** Identifies a Foreign Key or non-unique indexed column.
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Schema Inspection Commands Showcase
+CREATE TABLE InventoryItem (
+    ItemID INT PRIMARY KEY AUTO_INCREMENT,
+    ItemName VARCHAR(60) NOT NULL,
+    SKUCode CHAR(8) UNIQUE NOT NULL,
+    UnitPrice DECIMAL(8,2) NOT NULL DEFAULT 0.00,
+    StockQuantity INT NOT NULL DEFAULT 0,
+    LastRestocked DATE
+);
+
+DESCRIBE InventoryItem;
+-- or shorthand:
+DESC InventoryItem;
+
+SHOW CREATE TABLE InventoryItem;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"In practical viva and board questions: 'How do you check the columns and datatypes of a table?' Answer: DESCRIBE table_name; or DESC table_name;. 'How do you see the exact SQL statement used to create a table with all foreign key constraints?' Answer: SHOW CREATE TABLE table_name;"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

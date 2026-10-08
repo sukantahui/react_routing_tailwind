@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 5: COMBINING WHERE FILTERING WITH GROUP BY AGGREGATIONS
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 13 mins | Level: Intermediate
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] SQL Query Execution Order: FROM -> WHERE -> GROUP BY -> SELECT -> ORDER BY.
+[2] The WHERE clause filters individual row tuples BEFORE any groups are formed.
+[3] Rows that fail the WHERE condition are discarded and never participate in GROUP BY aggregations.
+[4] Example: `SELECT Job, SUM(Salary) FROM Emp WHERE HireDate > '2012-01-03' GROUP BY Job;`
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Two-Phase Execution: WHERE then GROUP BY
+USE CompanyDB;
+
+-- Calculate Total Salary per Department for Employees hired after 2020
+SELECT 
+  Department,
+  COUNT(*) AS RecentHires,
+  SUM(BasicSalary) AS TotalRecentPayroll,
+  AVG(BasicSalary) AS AvgRecentSalary
+FROM Employee
+WHERE HireDate >= '2020-01-01'
+GROUP BY Department;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Remember the order: WHERE filters the raw rows first. Then GROUP BY groups only the surviving rows. — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

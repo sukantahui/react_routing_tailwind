@@ -1,0 +1,37 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 8: DOWNLOADABLE DOCUMENTS & MASTER REVISION HUB
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. STUDY MATERIAL RESOURCE REPOSITORY
+--------------------------------------------------------------------------------
+This topic aggregates all printable study documents, plain text revision notes, 
+and high-yield CBSE board examination checklists for Module 002_002:
+
+Available Resources:
+1. `002_002_ecommerce_master_summary.txt`: Complete high-density master revision guide.
+2. `topic0_note.txt`: E-Commerce concept, customer advantages & retail comparisons.
+3. `topic1_note.txt`: E-Commerce portals (Amazon, Nykaa, Snapdeal) vs MOOCs (Coursera, edX).
+4. `topic2_note.txt`: Virtual shopping cart mechanics, session persistence & calculations.
+5. `topic3_note.txt`: E-Business strategic advantages, ERP/CRM ecosystem & barriers.
+6. `topic4_note.txt`: Privacy breaches (DPDP Act), server downtime spikes & hacker defense.
+7. `topic5_note.txt`: 7 Golden rules of online transaction safety & fraud prevention.
+8. `topic6_note.txt`: HTTPS/TLS Port 443, SSL padlock, 2FA/MFA & CVV hygiene.
+9. `topic7_note.txt`: Synchronous webinars, virtual classrooms & live Q&A doubt clearance.
+
+2. HIGH-YIELD CBSE BOARD EXAM REVISION CHECKLIST
+--------------------------------------------------------------------------------
+[ ] Can you state 3 distinct advantages of E-Commerce for consumers? (24x7, variety, price check)
+[ ] Can you categorize portals into E-Commerce (Nykaa/Snapdeal) and E-Learning (Coursera/edX)?
+[ ] Do you know the 4 primary functions of a Virtual Shopping Cart? (Session, items, pricing, checkout)
+[ ] Can you explain the difference between E-Business and E-Commerce with examples?
+[ ] Can you list the 3 major e-business risks tested in CBSE IT 802? (Privacy, Downtime, Hackers)
+[ ] What causes peak-hour server downtime and how do Load Balancers & Auto-Scaling mitigate it?
+[ ] What are the 3 pillars of Multi-Factor Authentication (MFA)? (Know, Have, Are)
+[ ] Why are e-commerce merchants strictly prohibited from storing customer CVV codes?
+[ ] What is the national cyber fraud helpline in India? (1930 / cybercrime.gov.in)
+[ ] What is a Webinar, and how does synchronous learning differ from asynchronous MOOCs?
+
+================================================================================

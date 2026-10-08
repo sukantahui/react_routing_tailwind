@@ -22,6 +22,9 @@ const Study = () => {
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
             <Link to="/study/bca">BCA</Link>
           </li>
+          <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
+            <Link to="/information-technology-802/roadmap">Information Technology (802)</Link>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,0 +1,24 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 3: CALCULATING DEGREE & CARDINALITY AFTER TABLE ALTERATIONS
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FORMULA SUMMARY:
+   - New Degree = Initial Degree + Cols Added - Cols Dropped (DDL commands)
+   - New Cardinality = Initial Cardinality + Rows Inserted - Rows Deleted (DML commands)
+   - Cartesian Degree(A x B) = Degree(A) + Degree(B)
+   - Cartesian Cardinality(A x B) = Cardinality(A) x Cardinality(B)
+
+2. BOARD PROBLEM (APS BARRACKPORE HALF-YEARLY SET-C):
+   - Table: 8 columns, 15 rows.
+   - Operations: Delete 4 rows, Add 3 columns.
+   - Degree = 8 + 3 = 11.
+   - Cardinality = 15 - 4 = 11.
+   - Answer: Degree = 11, Cardinality = 11.
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+Never confuse Degree with Cardinality! Degree = Columns; Cardinality = Rows.
+================================================================================

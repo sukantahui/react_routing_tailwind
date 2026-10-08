@@ -1,0 +1,70 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 1: VALID MYSQL DATA TYPES: CHAR(N), VARCHAR(N), INTEGER / INT, DECIMAL(P,S) / NUMERIC, DATE, TIME
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 20 min | Level: Essential Foundation
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] CHAR(n): Fixed-length string (0 to 255 chars). Always reserves n bytes on disk, right-padding shorter strings with spaces.
+[2] VARCHAR(n): Variable-length string (0 to 65,535 chars). Allocates only necessary string length + 1 prefix byte (for length <= 255).
+[3] INT / INTEGER: 4-byte signed integer storing values from -2,147,483,648 to 2,147,483,647.
+[4] DECIMAL(p, s) / NUMERIC: Exact fixed-point numeric representation where p = precision (total digits) and s = scale (digits after decimal point).
+[5] DATE: Temporal type storing date values in 'YYYY-MM-DD' format (e.g. '2026-10-08').
+[6] TIME: Temporal type storing time values in 'HH:MM:SS' format.
+[7] DATETIME: Combines date and time in 'YYYY-MM-DD HH:MM:SS' format (8 bytes).
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. Text Data Types: CHAR(n) vs VARCHAR(n) ---
+Choosing between `CHAR` and `VARCHAR` impacts memory consumption and indexing speed:
+
+- **`CHAR(10)`**: If you store the string `'Amit'` (4 chars), MySQL stores all 4 characters plus 6 trailing spaces (`'Amit      '`). It always consumes exactly 10 bytes on disk.
+- **`VARCHAR(10)`**: If you store `'Amit'`, MySQL stores the 4 characters plus 1 byte recording the length (4). Total storage consumed = 5 bytes.
+
+### When to use which?
+- Use **`CHAR`** when string length is constant: Gender (`CHAR(1)`), Blood Group (`CHAR(2)` - 'A+', 'B+'), State Code (`CHAR(2)` - 'WB', 'DL'), PIN code (`CHAR(6)`).
+- Use **`VARCHAR`** when string length varies: Student Name (`VARCHAR(60)`), Address (`VARCHAR(120)`), Email ID (`VARCHAR(100)`).
+
+--- 2. Exact vs Approximate Numeric Types ---
+Relational databases provide two kinds of fractional numbers:
+1. **Exact Fixed-Point (`DECIMAL` / `NUMERIC`):** Stored as exact binary decimal representations without floating-point rounding errors. Mandatory for financial balances, taxes, prices, and marks.
+2. **Approximate Floating-Point (`FLOAT` / `DOUBLE`):** Stored using IEEE 754 floating point format. Fast for scientific computing but introduces minute rounding discrepancies.
+
+--- 3. Temporal Types: DATE, TIME, and DATETIME Format Rules ---
+Standard ANSI / MySQL temporal literals must always be enclosed inside single quotes (`'`):
+- **DATE:** `'YYYY-MM-DD'` (e.g. `'2026-03-15'`)
+- **TIME:** `'HH:MM:SS'` (e.g. `'14:30:00'`)
+- **DATETIME:** `'YYYY-MM-DD HH:MM:SS'` (e.g. `'2026-03-15 14:30:00'`)
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Valid MySQL Data Types Showcase Table
+CREATE TABLE StudentRegistration (
+    RegistrationID INT PRIMARY KEY AUTO_INCREMENT,
+    Gender CHAR(1) NOT NULL,
+    BloodGroup CHAR(2),
+    StateCode CHAR(2) DEFAULT 'WB',
+    FullName VARCHAR(60) NOT NULL,
+    EmailAddress VARCHAR(80) UNIQUE,
+    PermanentAddress VARCHAR(150),
+    AdmissionFee DECIMAL(8,2) NOT NULL,
+    Class10Percentage DECIMAL(5,2),
+    DateOfBirth DATE NOT NULL,
+    RegistrationTime TIME NOT NULL,
+    CreatedTimestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"The most frequent board question: Difference between CHAR(n) and VARCHAR(n). CHAR is fixed-length (pads with spaces up to n bytes), while VARCHAR is variable-length (stores only actual characters + 1-2 length bytes). Use CHAR for fixed codes like BloodGroup CHAR(2) or Gender CHAR(1); use VARCHAR for Names and Addresses!"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

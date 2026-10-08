@@ -1,0 +1,451 @@
+{
+  "paperId": "CBSE-2026-XII-IT802-PRACTICE-03",
+  "title": "CBSE Class XII Information Technology (Subject Code: 802) – All-India Practice Solved Paper 3",
+  "duration": "3 Hours",
+  "totalMarks": 60,
+  "prerequisites": "CBSE Class XII IT (802) Syllabus: MySQL Relational Database, Operating Web Applications, Core Java & NetBeans GUI, Project Lifecycle & WIL",
+  "instructions": [
+    "This question paper contains 23 questions divided into two sections: Section A (30 Marks) and Section B (30 Marks).",
+    "Section A is Objective Type. Follow internal choice guidelines for each sub-part.",
+    "Section B is Subjective Type. Write complete and well-commented SQL queries and Java code snippets.",
+    "Ensure correct variable naming and MySQL syntax in all queries.",
+    "Calculators and mobile devices are strictly prohibited."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Question 1 – Objective Questions (Employability, Web & Digital Initiatives)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which unified mobile platform launched by the Government of India provides all Central, State, and Local Government citizen services in a single app?\n(a) UMANG (Unified Mobile Application for New-age Governance)\n(b) DigiLocker\n(c) BHIM UPI\n(d) SWAYAM",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) UMANG (Unified Mobile Application for New-age Governance)**\n\n**Explanation:** UMANG is a single-window mobile application launched under Digital India to access over 1,200+ central and state government e-Services.",
+          "hint": "The all-in-one government mobile application."
+        },
+        {
+          "q": "ii) In the Web Application Development Life Cycle, which stage deals with creating wireframes, sitemaps, and user interface navigational flows?\n(a) Stage 1: Requirement Gathering\n(b) Stage 2: Web Application Design\n(c) Stage 3: Coding & Development\n(d) Stage 4: Testing & Deployment",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Stage 2: Web Application Design**\n\n**Explanation:** The Design phase designs the user experience (UX), mockups, sitemaps, and relational database schema before coding begins.",
+          "hint": "The stage for mockups, UI blueprints, and wireframes."
+        },
+        {
+          "q": "iii) State whether the following statement is True or False:\n\"E-Commerce platforms require buyers and sellers to meet physically to negotiate commodity prices.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** E-Commerce eliminates geographical and physical barriers, enabling electronic transactions and dynamic digital price comparisons.",
+          "hint": "E-Commerce is online and electronic."
+        },
+        {
+          "q": "iv) What is a major advantage of using CSS (Cascading Style Sheets) in web development?\n(a) It executes backend MySQL queries\n(b) It separates visual presentation and design styling from the underlying HTML structure\n(c) It replaces Java programming logic\n(d) It acts as a firewall against malware",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) It separates visual presentation and design styling from the underlying HTML structure**\n\n**Explanation:** CSS separates content (HTML) from visual presentation, enabling centralized responsive styling across multiple web pages.",
+          "hint": "Separation of design styling from HTML structure."
+        },
+        {
+          "q": "v) Which term describes a project constraint where an expansion in project features without proportional increases in time or budget causes project failure?\n(a) Scope Creep\n(b) Milestone\n(c) Data Redundancy\n(d) Code Refactoring",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Scope Creep**\n\n**Explanation:** Scope Creep refers to uncontrolled growth or continuous addition of features to a project's scope without adjustments to time, cost, and resources.",
+          "hint": "Uncontrolled expansion of project deliverables."
+        },
+        {
+          "q": "vi) Mention any ONE major green IT practice that minimizes carbon footprint in software development.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any one of:\n1. Server virtualization and cloud computing to reduce idle physical server power.\n2. Adopting paperless digital workflows and electronic documentation.\n3. Turning off high-power workstations when not in use.\n4. Recycling electronic hardware responsibly.",
+          "hint": "Server virtualization, cloud computing, or paperless digital workflows."
+        },
+        {
+          "q": "vii) In Work Integrated Learning (WIL), who assesses the practical performance of the student in the workplace?\n(a) Only the school principal\n(b) The industry workplace mentor in collaboration with the academic faculty supervisor\n(c) The local police department\n(d) The student themselves without supervision",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) The industry workplace mentor in collaboration with the academic faculty supervisor**\n\n**Explanation:** WIL involves dual assessment: the workplace mentor evaluates industry competency while academic faculty verify curriculum learning outcomes.",
+          "hint": "Collaborative evaluation by industry supervisor and academic mentor."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 2 – Objective Questions (RDBMS & MySQL Concepts)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) In MySQL, what does the column specification `DECIMAL(7, 2)` indicate?\n(a) 7 total digits before the decimal and 2 digits after the decimal\n(b) Exactly 7 digits after the decimal point\n(c) A maximum of 7 total significant digits, with 2 digits to the right of the decimal point\n(d) An integer value between 2 and 7",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) A maximum of 7 total significant digits, with 2 digits to the right of the decimal point**\n\n**Explanation:** In `DECIMAL(p, s)`, `p` (precision) is the total number of significant digits, and `s` (scale) is the number of digits following the decimal point (e.g., maximum `99999.99`).",
+          "hint": "p = total digits; s = decimal fractional digits."
+        },
+        {
+          "q": "ii) Which MySQL command is used to delete an entire database along with all its tables, procedures, and data?\n(a) REMOVE DATABASE db_name;\n(b) DROP DATABASE db_name;\n(c) DELETE DATABASE db_name;\n(d) CLEAR DATABASE db_name;",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) DROP DATABASE db_name;**\n\n**Explanation:** `DROP DATABASE database_name;` permanently deletes the database directory and all contained relations.",
+          "hint": "DROP DATABASE is the DDL command."
+        },
+        {
+          "q": "iii) Write the SQL comparison operator used to check whether a column contains NULL values.\n(a) = NULL\n(b) IS NULL\n(c) == NULL\n(d) LIKE NULL",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) IS NULL**\n\n**Explanation:** Since NULL represents unknown data, standard equality operators (`=` or `!=`) always evaluate to UNKNOWN; `IS NULL` or `IS NOT NULL` must be used.",
+          "hint": "Use IS NULL for null checks."
+        },
+        {
+          "q": "iv) What is the result of Cartesian Product between Table A (4 rows, 3 columns) and Table B (5 rows, 2 columns)?\n(a) 9 rows and 5 columns\n(b) 20 rows and 5 columns\n(c) 20 rows and 6 columns\n(d) 1 row and 1 column",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 20 rows and 5 columns**\n\n**Explanation:**\n- Cardinality of Cartesian Product = 4 × 5 = **20 rows**\n- Degree of Cartesian Product = 3 + 2 = **5 columns**",
+          "hint": "Rows multiply (4 × 5); columns add (3 + 2)."
+        },
+        {
+          "q": "v) Which SQL aggregate function counts all rows in a table, including rows with NULL values?\n(a) COUNT(column_name)\n(b) COUNT(*)\n(c) SUM(*)\n(d) TOTAL(*)",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) COUNT(*)**\n\n**Explanation:** `COUNT(*)` counts the total number of rows regardless of whether individual column values are NULL.",
+          "hint": "COUNT(*) counts all records including nulls."
+        },
+        {
+          "q": "vi) Write the MySQL keyword used to arrange the query result set in descending order.\n(a) ASC\n(b) DESC\n(c) DOWN\n(d) REVERSE",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) DESC**\n\n**Explanation:** `ORDER BY column_name DESC` sorts the rows in descending sequence.",
+          "hint": "DESC keyword in ORDER BY."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"A relational table can have multiple Primary Keys.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** A relational table can have only **ONE Primary Key** (which may be composite, consisting of multiple columns), though it can have multiple Candidate Keys / Unique constraints.",
+          "hint": "Only one primary key is allowed per table."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 3 – Objective Questions (Core Java, Data Types & NetBeans GUI)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 8,
+      "description": "Answer any 7 Questions out of 8 Questions. (7 × 1 = 7 Marks)",
+      "questions": [
+        {
+          "q": "i) What is the data type and value returned by the expression `(10 > 5) && (3 == 4)` in Java?\n(a) int, 0\n(b) boolean, false\n(c) boolean, true\n(d) String, \"false\"",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) boolean, false**\n\n**Explanation:** `(10 > 5)` is `true`; `(3 == 4)` is `false`. In logical AND (`&&`), `true && false` evaluates to `false`.",
+          "hint": "Logical AND requires both conditions to be true."
+        },
+        {
+          "q": "ii) What is the output of the following Java expression?\n```java\nSystem.out.println(Math.pow(3, 3) + Math.sqrt(64));\n```\n(a) 35.0\n(b) 17.0\n(c) 35\n(d) 27.8",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 35.0**\n\n**Explanation:** `Math.pow(3, 3)` returns `27.0`; `Math.sqrt(64)` returns `8.0`. `27.0 + 8.0 = 35.0`.",
+          "hint": "3 cubed is 27.0; square root of 64 is 8.0; 27.0 + 8.0 = 35.0."
+        },
+        {
+          "q": "iii) Which Java keyword prevents a class from being inherited by any subclass?\n(a) abstract\n(b) static\n(c) final\n(d) private",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) final**\n\n**Explanation:** When a class is declared `final` (e.g. `final class String`), no other class can extend or inherit it.",
+          "hint": "The final keyword prevents inheritance."
+        },
+        {
+          "q": "iv) Which NetBeans Swing method is used to set the text content of a `JLabel` named `lblResult`?\n(a) lblResult.insertText(\"Hello\");\n(b) lblResult.setText(\"Hello\");\n(c) lblResult.writeText(\"Hello\");\n(d) lblResult.putText(\"Hello\");",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) lblResult.setText(\"Hello\");**\n\n**Explanation:** In Java Swing, `setText(String text)` is the standard mutator method to update label and text field content.",
+          "hint": "setText() method."
+        },
+        {
+          "q": "v) What is the value of `k` after executing:\n```java\nint k = 15;\nk %= 4;\n```\n(a) 3\n(b) 3.75\n(c) 4\n(d) 1",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 3**\n\n**Explanation:** `k %= 4` calculates remainder of `15 / 4`. `15 = 4 * 3 + 3`, so the remainder is `3`.",
+          "hint": "Modulus gives the remainder of division."
+        },
+        {
+          "q": "vi) Which Java access modifier makes a class member accessible ONLY within its own class?\n(a) public\n(b) protected\n(c) default (package-private)\n(d) private",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) private**\n\n**Explanation:** `private` members cannot be accessed directly from outside the enclosing class.",
+          "hint": "Strict internal encapsulation."
+        },
+        {
+          "q": "vii) Write the output of `\"Information Technology\".indexOf('T')`.",
+          "marks": 1,
+          "answer": "**Correct Answer: 12**\n\n**Explanation:** Indices: `I(0) n(1) f(2) o(3) r(4) m(5) a(6) t(7) i(8) o(9) n(10)  (11) T(12)` -> Capital 'T' is at index 12.",
+          "hint": "Count characters from index 0 up to uppercase 'T'."
+        },
+        {
+          "q": "viii) Name the method used to convert a numeric String `\"450\"` into a primitive `int` in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: `Integer.parseInt(\"450\")`**\n\n**Explanation:** `Integer.parseInt(str)` parses the string argument as a signed decimal integer.",
+          "hint": "Integer.parseInt() method."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 4 – Objective Questions (Strings, 1D Arrays, Threads & Exceptions)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) What will be the output of the following Java snippet?\n```java\nString s1 = \"Apple\";\nString s2 = \"Banana\";\nSystem.out.println(s1.compareTo(s2) < 0);\n```\n(a) true\n(b) false\n(c) 0\n(d) Compile error",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) true**\n\n**Explanation:** In ASCII/Unicode, 'A' (65) < 'B' (66). `s1.compareTo(s2)` returns a negative integer (-1). Thus `-1 < 0` is `true`.",
+          "hint": "'A' comes before 'B' in lexicographical order."
+        },
+        {
+          "q": "ii) How do you determine the total number of elements in an array `int[] marks = new int[20];` in Java?\n(a) marks.length()\n(b) marks.length\n(c) marks.size()\n(d) marks.count",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) marks.length**\n\n**Explanation:** In Java, arrays use the `.length` **property** (no parentheses), while Strings use the `.length()` **method**.",
+          "hint": "Array uses .length property without parentheses."
+        },
+        {
+          "q": "iii) Which interface in Java must be implemented by a class to create a runnable thread without extending `Thread` class?\n(a) java.lang.Runnable\n(b) java.lang.Cloneable\n(c) java.io.Serializable\n(d) java.lang.Process",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) java.lang.Runnable**\n\n**Explanation:** Implementing `Runnable` requires overriding `public void run()` and allows the class to extend another superclass.",
+          "hint": "The standard Runnable interface."
+        },
+        {
+          "q": "iv) Which exception is thrown when an arithmetic operation attempts to divide an integer by zero?\n(a) NullPointerException\n(b) ArithmeticException\n(c) NumberFormatException\n(d) ArrayIndexOutOfBoundsException",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) ArithmeticException**\n\n**Explanation:** Integer division by zero (e.g. `10 / 0`) triggers `java.lang.ArithmeticException: / by zero` at runtime.",
+          "hint": "Arithmetic error on divide by zero."
+        },
+        {
+          "q": "v) What is the correct command-line flag to enable Java assertions during application execution?\n(a) java -assert App\n(b) java -ea App\n(c) java -debug App\n(d) java -test App",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) java -ea App**\n\n**Explanation:** The `-ea` (or `-enableassertions`) flag activates runtime evaluation of `assert` statements.",
+          "hint": "-ea flag stands for enable assertions."
+        },
+        {
+          "q": "vi) Write the output of `\"Barrackpore\".charAt(4)`.",
+          "marks": 1,
+          "answer": "**Correct Answer: 'a'**\n\n**Explanation:** Indices: `B(0) a(1) r(2) r(3) a(4) c(5) k(6) p(7) o(8) r(9) e(10)` -> Character at index 4 is `'a'`.",
+          "hint": "Index 4 is the 5th character."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"A single `try` block in Java can have multiple associated `catch` blocks to handle different types of exceptions.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** Java supports multiple `catch` blocks following a single `try` block to handle specialized exceptions (e.g., `NumberFormatException`, `ArithmeticException`, `Exception`).",
+          "hint": "Multiple catch blocks can follow a single try."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 5 – Objective Questions (Project Management & Life Cycle)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Which of the following is NOT one of the 4 standard stages of Web Application Development?\n(a) Stage 1: Requirement Gathering & Analysis\n(b) Stage 2: Web Application Design\n(c) Stage 3: Coding & Implementation\n(d) Stage 4: Purchasing New Desktop Computers",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) Stage 4: Purchasing New Desktop Computers**\n\n**Explanation:** The 4 standard stages are: (1) Requirement Gathering, (2) Design, (3) Coding & Implementation, and (4) Testing & Quality Assurance / Deployment.",
+          "hint": "Hardware purchasing is not a software life cycle phase."
+        },
+        {
+          "q": "ii) What term describes potential uncertain events that may adversely impact the project schedule, cost, or quality?\n(a) Project Risk\n(b) Project Milestone\n(c) Database Trigger\n(d) Primary Constraint",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Project Risk**\n\n**Explanation:** Project Risk is an uncertain event or condition that, if it occurs, has a negative impact on project objectives.",
+          "hint": "Uncertain factors that threaten project delivery."
+        },
+        {
+          "q": "iii) Mention TWO key deliverables produced at the end of the Design Phase in web development.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any two of:\n1. Entity-Relationship (ER) Diagrams and MySQL Table Schemas\n2. UI Mockups / Wireframes and Screen Layouts\n3. System Architecture & Navigational Flowcharts\n4. API and Data Flow Specifications",
+          "hint": "ER Diagrams, UI Wireframes, System Architecture."
+        },
+        {
+          "q": "iv) State whether True or False:\n\"In Work Integrated Learning (WIL), hands-on internship hours are documented in a formal logbook verified by the industry mentor.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** A student logbook/portfolio records daily industrial tasks, skills acquired, and hours completed, authenticated by the industry supervisor.",
+          "hint": "Internship logbook maintains verified records."
+        },
+        {
+          "q": "v) Why is User Acceptance Testing (UAT) conducted before final deployment?\n(a) To replace all developers with new staff\n(b) To verify that the software meets real-world business requirements from the perspective of end users\n(c) To erase all previous source code\n(d) To format user hard drives",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) To verify that the software meets real-world business requirements from the perspective of end users**\n\n**Explanation:** UAT ensures the software deliverable satisfies user business workflows and client acceptance criteria.",
+          "hint": "Validates business workflows from the end user's view."
+        },
+        {
+          "q": "vi) Name the document that defines the specific scope boundaries, what is included in the project, and explicitly what is excluded.",
+          "marks": 1,
+          "answer": "**Correct Answer: Project Scope Statement (or Scope Baseline / SRS)**\n\n**Explanation:** The Scope Statement clearly outlines deliverables, inclusions, exclusions, constraints, and assumptions.",
+          "hint": "Project Scope Statement."
+        },
+        {
+          "q": "vii) In software testing, what is 'Regression Testing'?\n(a) Testing a system to ensure new code changes or bug fixes did not break existing functionality\n(b) Testing whether the computer turns on\n(c) Deleting test cases\n(d) Running code without compilation",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Testing a system to ensure new code changes or bug fixes did not break existing functionality**\n\n**Explanation:** Regression testing re-runs previous test suites to confirm that recent modifications haven't introduced regressions in previously working modules.",
+          "hint": "Verifying existing features remain unaffected after new updates."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Question 6 – Short Answer Questions (Core Java Control Flow & Logic)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 2 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Differentiate between Entry-controlled loops and Exit-controlled loops in Java with one example of each.",
+          "marks": 2,
+          "answer": "**Distinction:**\n- **Entry-Controlled Loop:** Test condition is checked **before** executing the loop body. If false initially, the body is never executed (e.g. `for` loop, `while` loop).\n- **Exit-Controlled Loop:** Test condition is evaluated **after** executing the body. The body is guaranteed to run at least once (e.g. `do-while` loop).",
+          "hint": "Condition checked at entry (for/while) vs at exit (do-while)."
+        },
+        {
+          "q": "ii) Predict the output of the following Java program snippet:\n```java\nint p = 5;\nfor (int i = 1; i <= 4; i++) {\n    if (i == 3) {\n        p += 10;\n    } else {\n        p += i;\n    }\n}\nSystem.out.println(\"p = \" + p);\n```",
+          "marks": 2,
+          "answer": "**Output:** `p = 22`\n\n**Step-by-step Trace:**\n- Initial: `p = 5`\n- `i = 1`: `p = 5 + 1 = 6`\n- `i = 2`: `p = 6 + 2 = 8`\n- `i = 3`: `i == 3` is true -> `p = 8 + 10 = 18`\n- `i = 4`: `p = 18 + 4 = 22`\n- Loop ends when `i = 5`.",
+          "hint": "Trace each loop iteration step-by-step."
+        },
+        {
+          "q": "iii) Write a Java code snippet using a `switch` statement to print the name of the day corresponding to a day number (1 for Monday, 2 for Tuesday, ..., 7 for Sunday), and \"Invalid Day\" for any other number.",
+          "marks": 2,
+          "answer": "**Java Source Code:**\n```java\nint day = 3;\nswitch (day) {\n    case 1: System.out.println(\"Monday\"); break;\n    case 2: System.out.println(\"Tuesday\"); break;\n    case 3: System.out.println(\"Wednesday\"); break;\n    case 4: System.out.println(\"Thursday\"); break;\n    case 5: System.out.println(\"Friday\"); break;\n    case 6: System.out.println(\"Saturday\"); break;\n    case 7: System.out.println(\"Sunday\"); break;\n    default: System.out.println(\"Invalid Day\"); break;\n}\n```",
+          "hint": "Switch with cases 1 to 7 and default case."
+        },
+        {
+          "q": "iv) What is a Constructor in Java? List any TWO rules for defining constructors in a Java class.",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Constructor:** A special member method used to initialize objects of a class when instantiated via `new`.\n- **Two Rules:**\n  1. The constructor name must be identical to the class name.\n  2. It must not declare any return type, not even `void`.\n  3. It cannot be `abstract`, `static`, or `final`.",
+          "hint": "Special initialization method with same name as class and no return type."
+        },
+        {
+          "q": "v) Differentiate between `throw` and `throws` keywords in Java exception handling.",
+          "marks": 2,
+          "answer": "**Comparison:**\n- **`throw` keyword:** Used inside a method body to explicitly throw a specific exception instance (e.g. `throw new ArithmeticException(\"Invalid\");`).\n- **`throws` keyword:** Used in the method signature to declare that the method may throw checked exceptions to the caller (e.g. `public void readFile() throws IOException`).",
+          "hint": "throw explicitly triggers an exception; throws declares potential exceptions in signature."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Question 7 – Short Answer Questions (RDBMS & SQL Constraints)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 2 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Write MySQL DDL statement to create a table `COURSES` with the following columns:\n- `CourseID` (CHAR 5, Primary Key)\n- `CourseName` (VARCHAR 40, Not Null)\n- `DurationMonths` (INT, Default 6)\n- `Fee` (DECIMAL 8,2)",
+          "marks": 2,
+          "answer": "**MySQL DDL Statement:**\n```sql\nCREATE TABLE COURSES (\n    CourseID CHAR(5) PRIMARY KEY,\n    CourseName VARCHAR(40) NOT NULL,\n    DurationMonths INT DEFAULT 6,\n    Fee DECIMAL(8, 2)\n);\n```",
+          "hint": "CREATE TABLE with PRIMARY KEY, NOT NULL, DEFAULT 6, DECIMAL(8,2)."
+        },
+        {
+          "q": "ii) Write the MySQL statement to drop an existing column `DurationMonths` from table `COURSES`.",
+          "marks": 2,
+          "answer": "**MySQL Statement:**\n```sql\nALTER TABLE COURSES DROP COLUMN DurationMonths;\n```\n\n*(Note: `COLUMN` keyword is optional: `ALTER TABLE COURSES DROP DurationMonths;`)*",
+          "hint": "ALTER TABLE tablename DROP COLUMN colname;"
+        },
+        {
+          "q": "iii) What is the difference between Equi-Join and Natural Join in MySQL?",
+          "marks": 2,
+          "answer": "**Distinction:**\n- **Equi-Join:** A join that matches rows based on equality of columns using the `=` operator (e.g. `WHERE A.id = B.id`). The resulting relation retains both joining columns.\n- **Natural Join:** An automatic join on all common column names with equal values (`NATURAL JOIN`). It automatically eliminates redundant duplicate join columns from the result set.",
+          "hint": "Equi-join uses = comparison; Natural join automatically joins matching column names and eliminates duplicate columns."
+        },
+        {
+          "q": "iv) Consider table `PRODUCT`. Write a SQL query to display all products whose price is between ₹500 and ₹2000 (both inclusive) using the `BETWEEN` operator.",
+          "marks": 2,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM PRODUCT \nWHERE Price BETWEEN 500 AND 2000;\n```",
+          "hint": "WHERE Price BETWEEN 500 AND 2000;"
+        },
+        {
+          "q": "v) Explain the role of the `CHECK` constraint in SQL table definitions with a brief example.",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Role:** The `CHECK` constraint ensures that all values stored in a column satisfy a specified Boolean condition, preventing invalid domain data.\n- **Example:**\n```sql\nCREATE TABLE VOTER (\n    VoterID INT PRIMARY KEY,\n    Age INT CHECK (Age >= 18)\n);\n```",
+          "hint": "Enforces domain integrity with boolean condition (e.g. Age >= 18)."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Question 8 – Programming Questions (Java 1D Arrays, Strings & GUI)",
+      "marksPerQuestion": 4,
+      "totalQuestions": 3,
+      "description": "Answer any 2 Questions out of 3 Questions. (2 × 4 = 8 Marks)",
+      "questions": [
+        {
+          "q": "i) In NetBeans GUI builder, design an application to calculate Student Grade and Percentage:\n- `txtMarks1`, `txtMarks2`, `txtMarks3` (JTextFields for 3 subject marks out of 100)\n- `lblPercentage` (JLabel for Percentage)\n- `lblGrade` (JLabel for Grade: 'A' if >= 85, 'B' if >= 65, 'C' if >= 40, else 'D')\n- `btnEvaluate` (JButton)\n\nWrite Java code for `btnEvaluateActionPerformed()` event handler.",
+          "marks": 4,
+          "answer": "**Java Event Handler Code:**\n```java\nprivate void btnEvaluateActionPerformed(java.awt.event.ActionEvent evt) {\n    try {\n        // Step 1: Read marks\n        double m1 = Double.parseDouble(txtMarks1.getText().trim());\n        double m2 = Double.parseDouble(txtMarks2.getText().trim());\n        double m3 = Double.parseDouble(txtMarks3.getText().trim());\n        \n        // Validation\n        if (m1 < 0 || m1 > 100 || m2 < 0 || m2 > 100 || m3 < 0 || m3 > 100) {\n            javax.swing.JOptionPane.showMessageDialog(this, \n                \"Marks must be between 0 and 100!\", \"Range Error\", \n                javax.swing.JOptionPane.WARNING_MESSAGE);\n            return;\n        }\n        \n        // Step 2: Compute percentage\n        double total = m1 + m2 + m3;\n        double percentage = (total / 300.0) * 100.0;\n        \n        // Step 3: Determine Grade\n        String grade;\n        if (percentage >= 85) {\n            grade = \"A (Distinction)\";\n        } else if (percentage >= 65) {\n            grade = \"B (First Class)\";\n        } else if (percentage >= 40) {\n            grade = \"C (Pass)\";\n        } else {\n            grade = \"D (Needs Improvement)\";\n        }\n        \n        // Step 4: Display results\n        lblPercentage.setText(String.format(\"%.2f %%\", percentage));\n        lblGrade.setText(grade);\n        \n    } catch (NumberFormatException ex) {\n        javax.swing.JOptionPane.showMessageDialog(this, \n            \"Please enter valid numeric marks in all fields!\", \n            \"Error\", javax.swing.JOptionPane.ERROR_MESSAGE);\n    }\n}\n```",
+          "hint": "Read inputs, compute average, assign grade with if-else-if, setText on labels."
+        },
+        {
+          "q": "ii) Write a Java program that defines a 1D integer array `{45, 12, 89, 7, 34, 67, 23, 90}`. Find and display:\n(a) The maximum element in the array\n(b) The minimum element in the array\n(c) The average of all elements",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\npublic class ArrayStatsDemo {\n    public static void main(String[] args) {\n        int[] numbers = {45, 12, 89, 7, 34, 67, 23, 90};\n        \n        int max = numbers[0];\n        int min = numbers[0];\n        int sum = 0;\n        \n        for (int i = 0; i < numbers.length; i++) {\n            int current = numbers[i];\n            if (current > max) {\n                max = current;\n            }\n            if (current < min) {\n                min = current;\n            }\n            sum += current;\n        }\n        \n        double average = (double) sum / numbers.length;\n        \n        System.out.println(\"Maximum Element = \" + max);\n        System.out.println(\"Minimum Element = \" + min);\n        System.out.println(\"Sum of Elements = \" + sum);\n        System.out.printf(\"Average Value   = %.2f\\n\", average);\n    }\n}\n```\n\n**Output:**\n```\nMaximum Element = 90\nMinimum Element = 7\nSum of Elements = 367\nAverage Value   = 45.88\n```",
+          "hint": "Initialize max/min with first element, loop through array, sum elements, divide by length."
+        },
+        {
+          "q": "iii) Write a Java method `public static boolean isPalindrome(String text)` that returns `true` if the input text reads the same forward and backwards (ignoring case), and `false` otherwise.",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\npublic class PalindromeChecker {\n    public static boolean isPalindrome(String text) {\n        if (text == null) return false;\n        \n        String cleanStr = text.trim().toLowerCase();\n        int left = 0;\n        int right = cleanStr.length() - 1;\n        \n        while (left < right) {\n            if (cleanStr.charAt(left) != cleanStr.charAt(right)) {\n                return false; // Mismatch found\n            }\n            left++;\n            right--;\n        }\n        return true; // All characters matched\n    }\n    \n    public static void main(String[] args) {\n        System.out.println(isPalindrome(\"Madam\"));   // Output: true\n        System.out.println(isPalindrome(\"Radar\"));   // Output: true\n        System.out.println(isPalindrome(\"Kolkata\")); // Output: false\n    }\n}\n```",
+          "hint": "Compare characters from left and right pointers moving towards center."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Question 9 – Relational Database Multi-Table SQL Queries & Analysis",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "description": "Consider the following relational tables 'STUDENT' and 'ENROLLMENT' and answer the questions (i) to (x). (10 × 1 = 10 Marks)",
+      "questions": [
+        {
+          "q": "Table: STUDENT\n| RollNo | SName | Stream | City | Age |\n| :--- | :--- | :--- | :--- | :--- |\n| S101 | Debangshu Roy | Science | Barrackpore | 17 |\n| S102 | Susmita Dey | Commerce | Kolkata | 18 |\n| S103 | Abhronila Das | Science | Barrackpore | 17 |\n| S104 | Mamata Sen | Humanities | Naihati | 18 |\n| S105 | Sukanta Hui | Science | Barrackpore | 17 |\n\nTable: ENROLLMENT\n| EnrollID | RollNo | CourseName | FeesPaid | Status |\n| :--- | :--- | :--- | :--- | :--- |\n| E501 | S101 | Java Programming | 3500.00 | Completed |\n| E502 | S101 | RDBMS MySQL | 2500.00 | Ongoing |\n| E503 | S102 | Tally & GST | 4000.00 | Completed |\n| E504 | S103 | Python AI | 4500.00 | Completed |\n| E505 | S104 | Digital Media | 2000.00 | Ongoing |\n| E506 | S105 | FullStack Java | 5000.00 | Completed |\n\ni) Write SQL query to display the names and streams of all students living in 'Barrackpore'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT SName, Stream \nFROM STUDENT \nWHERE City = 'Barrackpore';\n```",
+          "hint": "SELECT SName, Stream FROM STUDENT WHERE City = 'Barrackpore';"
+        },
+        {
+          "q": "ii) Write SQL query to calculate the total fees collected (`SUM`) and the average fees (`AVG`) across all completed enrollments (`Status = 'Completed'`).",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT SUM(FeesPaid) AS TotalFees, AVG(FeesPaid) AS AvgFees \nFROM ENROLLMENT \nWHERE Status = 'Completed';\n```",
+          "hint": "SELECT SUM(FeesPaid), AVG(FeesPaid) FROM ENROLLMENT WHERE Status = 'Completed';"
+        },
+        {
+          "q": "iii) Write SQL query to display each Stream and the total number of students in that stream from the 'STUDENT' table.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT Stream, COUNT(*) AS TotalStudents \nFROM STUDENT \nGROUP BY Stream;\n```",
+          "hint": "SELECT Stream, COUNT(*) FROM STUDENT GROUP BY Stream;"
+        },
+        {
+          "q": "iv) Write SQL query to display Student Name, Stream, CourseName, and FeesPaid by joining 'STUDENT' and 'ENROLLMENT' tables.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT S.SName, S.Stream, E.CourseName, E.FeesPaid \nFROM STUDENT S, ENROLLMENT E \nWHERE S.RollNo = E.RollNo;\n```\n*OR using ANSI JOIN:*\n```sql\nSELECT S.SName, S.Stream, E.CourseName, E.FeesPaid \nFROM STUDENT S \nINNER JOIN ENROLLMENT E ON S.RollNo = E.RollNo;\n```",
+          "hint": "Join on STUDENT.RollNo = ENROLLMENT.RollNo."
+        },
+        {
+          "q": "v) Write SQL query to display the courses where the CourseName contains the word 'Java'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM ENROLLMENT \nWHERE CourseName LIKE '%Java%';\n```",
+          "hint": "WHERE CourseName LIKE '%Java%';"
+        },
+        {
+          "q": "vi) Write SQL query to display all records from the 'ENROLLMENT' table sorted by FeesPaid in descending order.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM ENROLLMENT \nORDER BY FeesPaid DESC;\n```",
+          "hint": "ORDER BY FeesPaid DESC;"
+        },
+        {
+          "q": "vii) Write SQL query to update the FeesPaid to ₹3000.00 for enrollment record 'E502'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nUPDATE ENROLLMENT \nSET FeesPaid = 3000.00 \nWHERE EnrollID = 'E502';\n```",
+          "hint": "UPDATE ENROLLMENT SET FeesPaid = 3000.00 WHERE EnrollID = 'E502';"
+        },
+        {
+          "q": "viii) Predict the output of the following SQL query:\n```sql\nSELECT RollNo, COUNT(*) FROM ENROLLMENT GROUP BY RollNo HAVING COUNT(*) > 1;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n| RollNo | COUNT(*) |\n| :--- | :--- |\n| S101 | 2 |\n\n**Explanation:** RollNo `S101` (Debangshu Roy) is enrolled in two courses (E501 and E502). All other students have exactly 1 enrollment.",
+          "hint": "S101 has 2 enrollments."
+        },
+        {
+          "q": "ix) Predict the output of the following SQL query:\n```sql\nSELECT COUNT(DISTINCT Stream) FROM STUDENT;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n`3`\n\n**Explanation:** The unique streams are: 'Science', 'Commerce', and 'Humanities' (total 3 distinct values).",
+          "hint": "Count of unique streams: Science, Commerce, Humanities = 3."
+        },
+        {
+          "q": "x) Identify the Primary Key of table 'STUDENT' and table 'ENROLLMENT'. State the Cardinality of table 'STUDENT'.",
+          "marks": 1,
+          "answer": "**Answer:**\n- **Primary Key of STUDENT:** `RollNo`\n- **Primary Key of ENROLLMENT:** `EnrollID` (with `RollNo` as Foreign Key)\n- **Cardinality of STUDENT:** `5` (contains 5 rows / tuples).",
+          "hint": "STUDENT PK is RollNo; ENROLLMENT PK is EnrollID; STUDENT cardinality is 5."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 3: COUNTING RECORDS: COUNT(*) VS COUNT(COL)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 12 mins | Level: Intermediate
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] COUNT(*): Returns the total number of row tuples in the table, including rows where some or all columns contain NULL.
+[2] COUNT(column): Returns the count of rows where the specified column contains a NON-NULL value.
+[3] COUNT(DISTINCT column): Returns the count of UNIQUE non-null values in the column.
+[4] If a table has 10 rows and 4 employees have NULL commission, COUNT(*) = 10, COUNT(Commission) = 6.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- COUNT(*) vs COUNT(col) vs COUNT(DISTINCT col)
+USE CompanyDB;
+
+SELECT 
+  COUNT(*) AS TotalTuples,
+  COUNT(EmpNo) AS TotalEmpNos,
+  COUNT(Commission) AS NonNullCommissions,
+  COUNT(DISTINCT Department) AS UniqueDepartmentCount
+FROM Employee;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Board Exam Golden Rule: COUNT(*) counts ALL rows. COUNT(col) counts only NON-NULL rows. COUNT(DISTINCT col) counts UNIQUE non-null values! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

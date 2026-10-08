@@ -1,0 +1,475 @@
+{
+  "paperId": "APS-BKPORE-2026-XII-IT802-SET-A",
+  "title": "Army Public School Barrackpore – Class XII Information Technology (802) Annual Pre-Board Examination (SET-A)",
+  "duration": "3 Hours",
+  "totalMarks": 60,
+  "prerequisites": "CBSE Class XII Information Technology (802) syllabus: Database Management with MySQL, Web Applications & E-Services, Core Java & NetBeans GUI, and Work Integrated Learning (WIL)",
+  "instructions": [
+    "Please read the instructions carefully.",
+    "This Question Paper consists of 23 questions divided into two sections: Section A (30 Marks) and Section B (30 Marks).",
+    "Section A has Objective type questions covering Employability Skills and Subject Specific Skills.",
+    "Section B has Subjective type questions with internal choices provided.",
+    "All questions of a particular section must be attempted in the correct sequential order."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Question 1 – Objective Type Questions (Employability & Web Skills)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which digital initiative of the Government of India provides a secure, cloud-based platform for issuing, sharing, and verifying academic degrees and marksheets electronically?\n(a) National Academic Depository (NAD) / DigiLocker\n(b) GeM\n(c) BHIM UPI\n(d) IRCTC",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) National Academic Depository (NAD) / DigiLocker**\n\n**Explanation:** NAD/DigiLocker is a 24x7 online storehouse of all academic awards, certificates, and diplomas issued by boards and universities.",
+          "hint": "Digital repository for academic marksheets and certificates."
+        },
+        {
+          "q": "ii) Define Work Integrated Learning (WIL) in the context of CBSE vocational education.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Work-Integrated Learning (WIL) is an educational strategy that integrates formal classroom academic studies with hands-on, real-world industry workplace experience and internships.",
+          "hint": "Coupling classroom learning with workplace internships."
+        },
+        {
+          "q": "iii) Name the two core components required to run a dynamic Web Application.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n1. **Front-End / Client-Side:** Web browser user interface (HTML5 / CSS / JavaScript or Java Swing UI)\n2. **Back-End / Server-Side:** Application server logic & Relational Database (MySQL / Apache / Java)",
+          "hint": "Client-side interface and server-side database."
+        },
+        {
+          "q": "iv) In which stage of web application development is user feedback collected on initial UI wireframes and architecture blueprints?\n(a) Stage 1: Requirement Gathering\n(b) Stage 2: Web Application Design\n(c) Stage 3: Coding & Database Integration\n(d) Stage 4: Web Application Testing & Deployment",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Stage 2: Web Application Design**\n\n**Explanation:** Stage 2 develops wireframes, sitemaps, ER diagrams, and visual mockups, which are validated by stakeholders prior to coding.",
+          "hint": "The phase for mockups and UI layout approval."
+        },
+        {
+          "q": "v) State whether True or False:\n\"E-Governance portals reduce corruption by eliminating human intermediaries and increasing transaction transparency.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** Direct digital citizen interactions through automated e-governance platforms minimize discretionary human intervention and bureaucratic corruption.",
+          "hint": "Transparency is a core objective of e-Governance."
+        },
+        {
+          "q": "vi) Which of the following is a non-negotiable attribute of every project?\n(a) It has an indefinite timeline\n(b) It produces a unique deliverable with defined start and end dates\n(c) It operates without any resource boundaries\n(d) It requires zero documentation",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) It produces a unique deliverable with defined start and end dates**\n\n**Explanation:** Projects are temporary endeavors characterized by unique outcomes, fixed deadlines, and finite resources.",
+          "hint": "Unique outcome + start/end dates."
+        },
+        {
+          "q": "vii) Which of the following open-source tools is a dedicated Relational Database Management System (RDBMS)?\n(a) Mozilla Firefox\n(b) MySQL Server\n(c) NetBeans IDE\n(d) Apache OpenOffice Writer",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) MySQL Server**\n\n**Explanation:** MySQL Server is an open-source SQL relational database management system.",
+          "hint": "MySQL is the RDBMS."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 2 – Objective Type Questions (E-Services & DBMS)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which of the following is an example of Business-to-Consumer (B2C) E-Commerce?\n(a) An individual citizen applying for a PAN card online\n(b) A retail customer ordering a book on Amazon or Flipkart\n(c) Government procuring office furniture through GeM\n(d) An individual selling a used car to a friend on an auction app",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) A retail customer ordering a book on Amazon or Flipkart**\n\n**Explanation:** B2C involves commercial businesses selling products or services directly to individual end consumers.",
+          "hint": "Business selling directly to consumers."
+        },
+        {
+          "q": "ii) Name the official Indian railway portal that allows online passenger reservation and ticket status inquiry.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `irctc.co.in` (Indian Railway Catering and Tourism Corporation)",
+          "hint": "The official Indian railway booking site."
+        },
+        {
+          "q": "iii) Mention TWO security threats commonly encountered in e-Commerce transactions.",
+          "marks": 1,
+          "answer": "**Correct Answer:** Any two of:\n1. **Phishing & Credential Theft** (fake payment gateways)\n2. **Credit/Debit Card Fraud & Identity Theft**\n3. **Man-in-the-Middle (MitM) Eavesdropping**\n4. **DDoS Attacks (Denial of Service)** on shopping portals",
+          "hint": "Phishing, Card Fraud, DDoS, or Identity Theft."
+        },
+        {
+          "q": "iv) In a relational database, what is a 'Tuple'?\n(a) A column or attribute\n(b) A row or record\n(c) The name of the database\n(d) A SQL constraint",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) A row or record**\n\n**Explanation:** In relational algebra and MySQL terminology, a row in a table is called a Tuple, and a column is called an Attribute.",
+          "hint": "Tuple = Row/Record."
+        },
+        {
+          "q": "v) State whether True or False:\n\"A candidate key that is chosen to uniquely identify rows in a table is called the Primary Key.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** Out of all candidate keys capable of unique row identification, the database designer selects one as the Primary Key.",
+          "hint": "The chosen candidate key becomes the primary key."
+        },
+        {
+          "q": "vi) Which of the following data types in MySQL is used to store variable-length strings up to 255 characters?\n(a) CHAR(255)\n(b) VARCHAR(255)\n(c) INTEGER\n(d) DECIMAL(10,2)",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) VARCHAR(255)**\n\n**Explanation:** `VARCHAR` dynamically allocates storage based on actual string length, conserving disk space.",
+          "hint": "Variable character data type."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 3 – Objective Type Questions (RDBMS & SQL Syntax)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Which SQL clause is used to filter records based on pattern matching with wildcards?\n(a) IN\n(b) LIKE\n(c) BETWEEN\n(d) EQUALS",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) LIKE**\n\n**Explanation:** The `LIKE` operator is used with wildcards (`%` for multi-character, `_` for single character) to perform pattern matching.",
+          "hint": "SQL wildcard pattern matching clause."
+        },
+        {
+          "q": "ii) What will be returned by the SQL expression `SELECT MOD(17, 5);` in MySQL?\n(a) 3.4\n(b) 3\n(c) 2\n(d) 5",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 2**\n\n**Explanation:** `MOD(17, 5)` returns the remainder of `17 / 5`. Since `17 = 5 * 3 + 2`, the remainder is `2`.",
+          "hint": "17 divided by 5 leaves a remainder of 2."
+        },
+        {
+          "q": "iii) Which of the following is a DDL (Data Definition Language) command?\n(a) SELECT\n(b) UPDATE\n(c) ALTER TABLE\n(d) INSERT INTO",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) ALTER TABLE**\n\n**Explanation:** `ALTER TABLE` modifies the structure/schema of a table and is therefore a DDL command. `SELECT`, `UPDATE`, and `INSERT` are DML commands.",
+          "hint": "Modifies table schema definition."
+        },
+        {
+          "q": "iv) Write the SQL query to display the current date and time in MySQL.",
+          "marks": 1,
+          "answer": "**Correct Answer: `SELECT NOW();`** (or `SELECT SYSDATE();`)",
+          "hint": "NOW() or SYSDATE() function."
+        },
+        {
+          "q": "v) What is the default sort order when using the `ORDER BY` clause in a MySQL SELECT statement?\n(a) Descending (DESC)\n(b) Ascending (ASC)\n(c) Random\n(d) Insertion order",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Ascending (ASC)**\n\n**Explanation:** If neither `ASC` nor `DESC` is specified, MySQL defaults to ascending alphabetical/numerical order (`ASC`).",
+          "hint": "Default sorting is ascending."
+        },
+        {
+          "q": "vi) State whether True or False:\n\"The `COUNT(column_name)` function includes NULL values in its calculation.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** `COUNT(column_name)` ignores NULL values and counts only non-NULL entries. Only `COUNT(*)` counts all rows including NULLs.",
+          "hint": "COUNT(column) excludes NULL entries."
+        },
+        {
+          "q": "vii) Write the SQL command to permanently delete a table named `MOCK_DATA` and its schema from the database.",
+          "marks": 1,
+          "answer": "**Correct Answer: `DROP TABLE MOCK_DATA;`**\n\n**Explanation:** `DROP TABLE` deletes both table structure and data permanently.",
+          "hint": "DROP TABLE tablename;"
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 4 – Objective Type Questions (Core Java Programming)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 6 Questions out of 7 Questions. (6 × 1 = 6 Marks)",
+      "questions": [
+        {
+          "q": "i) Which file extension is generated after compiling a Java source file `Billing.java` with javac compiler?\n(a) .obj\n(b) .exe\n(c) .class\n(d) .java",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) .class**\n\n**Explanation:** The `javac` compiler translates Java source code into platform-independent bytecode saved as `.class` files.",
+          "hint": "Compiled Java bytecode file extension."
+        },
+        {
+          "q": "ii) What is the value of `z` after evaluating:\n```java\nint a = 5, b = 2;\nint z = a++ * --b + ++a;\n```\n(a) 12\n(b) 11\n(c) 17\n(d) 10",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 12**\n\n**Evaluation:**\n1. `a++`: uses 5, `a` becomes 6\n2. `--b`: `b` pre-decremented from 2 to 1; evaluated value = 1\n3. Product: `5 * 1 = 5`\n4. `++a`: `a` pre-incremented from 6 to 7; evaluated value = 7\n5. `z = 5 + 7 = 12`",
+          "hint": "Trace: (5 * 1) + 7 = 12."
+        },
+        {
+          "q": "iii) Which of the following is an entry-controlled loop in Java?\n(a) do-while loop\n(b) for loop\n(c) switch\n(d) if-else",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) for loop**\n\n**Explanation:** In `for` and `while` loops, the test condition is evaluated before entering the loop body (entry-controlled).",
+          "hint": "Condition checked at the beginning."
+        },
+        {
+          "q": "iv) What is the size in bytes occupied by the primitive `double` data type in Java?\n(a) 2 bytes\n(b) 4 bytes\n(c) 8 bytes\n(d) 16 bytes",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 8 bytes** (64 bits IEEE 754 floating point).",
+          "hint": "Double precision floating point takes 8 bytes."
+        },
+        {
+          "q": "v) Which keyword in Java is used to invoke the constructor of the immediate superclass?\n(a) this\n(b) super\n(c) parent\n(d) base",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) super**\n\n**Explanation:** `super()` calls the constructor of the parent superclass and must be the first statement in the subclass constructor.",
+          "hint": "super() keyword."
+        },
+        {
+          "q": "vi) Write the output of `Math.min(14.8, 9.2)` in Java.",
+          "marks": 1,
+          "answer": "**Correct Answer: 9.2**",
+          "hint": "Smaller of the two double numbers."
+        },
+        {
+          "q": "vii) State whether True or False:\n\"In Java, multiple variables of different data types can be declared in a single declaration statement separated by commas.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** A single declaration statement can only declare variables of the **same** data type (e.g. `int a, b, c;`). Different types require separate statements.",
+          "hint": "Single statement only permits one data type specification."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 5 – Objective Type Questions (Arrays, Strings & Multithreading)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) What will be printed by the following code snippet?\n```java\nString s = \"Barrackpore\";\nSystem.out.println(s.substring(7));\n```\n(a) \"pore\"\n(b) \"kpore\"\n(c) \"rack\"\n(d) \"pore \"",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) \"pore\"**\n\n**Explanation:** `s.substring(7)` returns substring from index 7 to the end. Indices: `B(0) a(1) r(2) r(3) a(4) c(5) k(6) p(7) o(8) r(9) e(10)`. Characters from 7 are `p-o-r-e`.",
+          "hint": "Characters from index 7 to end."
+        },
+        {
+          "q": "ii) How do you declare and initialize a 1D integer array containing numbers 10, 20, 30 in Java?\n(a) int arr[] = (10, 20, 30);\n(b) int[] arr = {10, 20, 30};\n(c) array int = [10, 20, 30];\n(d) int arr = new Array(10, 20, 30);",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) int[] arr = {10, 20, 30};**",
+          "hint": "Standard Java array literal initialization."
+        },
+        {
+          "q": "iii) Which method in Java `Thread` class causes the currently executing thread to temporarily pause and allow other threads of equal priority to execute?\n(a) Thread.yield()\n(b) Thread.stop()\n(c) Thread.exit()\n(d) Thread.kill()",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) Thread.yield()**\n\n**Explanation:** `yield()` hints the thread scheduler that the current thread is willing to yield its current use of a processor.",
+          "hint": "Yield method pauses current thread."
+        },
+        {
+          "q": "iv) Write the output of `\"Coder \".concat(\"Barrackpore\")`.",
+          "marks": 1,
+          "answer": "**Correct Answer: \"Coder Barrackpore\"**",
+          "hint": "Concatenates both strings."
+        },
+        {
+          "q": "v) Which unchecked runtime exception occurs when attempting to divide an integer by zero?\n(a) NullPointerException\n(b) ArithmeticException\n(c) NumberFormatException\n(d) ClassCastException",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) ArithmeticException**",
+          "hint": "Arithmetic exception on divide by zero."
+        },
+        {
+          "q": "vi) State whether True or False:\n\"In Java, arrays are fixed in size once instantiated and cannot be resized dynamically on the heap.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** Java arrays have fixed length determined at instantiation time. To resize, a new larger array must be created and elements copied.",
+          "hint": "Primitive arrays have immutable fixed length."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 6 – Objective Type Questions (NetBeans GUI Controls)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 1 = 3 Marks)",
+      "questions": [
+        {
+          "q": "i) Which Swing component in NetBeans IDE is used to accept single-line editable text input from the user?\n(a) JLabel\n(b) JTextField\n(c) JCheckBox\n(d) JButton",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) JTextField**\n\n**Explanation:** `JTextField` provides an editable single-line text input field.",
+          "hint": "Single line text entry component."
+        },
+        {
+          "q": "ii) Write the NetBeans Swing method used to make a `JTextField` non-editable so that users cannot modify its value.",
+          "marks": 1,
+          "answer": "**Correct Answer: `txtField.setEditable(false);`**",
+          "hint": "setEditable(false) method."
+        },
+        {
+          "q": "iii) Which method is used to programmatically check if a `JRadioButton` is currently selected by the user?\n(a) isChecked()\n(b) isSelected()\n(c) getSelection()\n(d) isTicked()",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) isSelected()**\n\n**Explanation:** `isSelected()` returns boolean `true` if the button/checkbox is currently selected.",
+          "hint": "isSelected() returns boolean."
+        },
+        {
+          "q": "iv) Name the default event generated when a user clicks on a `JButton` in NetBeans GUI.",
+          "marks": 1,
+          "answer": "**Correct Answer: `ActionEvent`** (handled via `actionPerformed` method).",
+          "hint": "java.awt.event.ActionEvent."
+        },
+        {
+          "q": "v) State whether True or False:\n\"A `JLabel` in Java Swing can display both text and graphical icons.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** `JLabel` can render plain text, HTML formatted text, image icons (via `setIcon()`), or a combination of both.",
+          "hint": "JLabel supports text and image icons."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 7 to 16 – Short Answer Questions (Java, RDBMS & WIL Concepts)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "description": "Answer any 6 Questions out of 10 Questions. (6 × 2 = 12 Marks)",
+      "questions": [
+        {
+          "q": "7. Rewrite the following `while` loop using an equivalent `for` loop in Java:\n```java\nint count = 10;\nwhile (count >= 2) {\n    System.out.println(count);\n    count -= 2;\n}\n```",
+          "marks": 2,
+          "answer": "**Equivalent Java `for` loop:**\n```java\nfor (int count = 10; count >= 2; count -= 2) {\n    System.out.println(count);\n}\n```\n**Output:** Prints `10`, `8`, `6`, `4`, `2` on separate lines.",
+          "hint": "Combine initialization, condition, and decrement inside for( ; ; )."
+        },
+        {
+          "q": "8. Differentiate between `CHAR` and `VARCHAR` data types in MySQL with an example.",
+          "marks": 2,
+          "answer": "**Distinction:**\n1. **`CHAR(n)`:** Fixed-length character storage. It always occupies `n` bytes on disk, padding with spaces if string is shorter (e.g. state code `CHAR(2)`).\n2. **`VARCHAR(n)`:** Variable-length character storage. It stores only the actual characters entered plus length overhead bytes, saving storage (e.g. name `VARCHAR(50)`).",
+          "hint": "Fixed length vs variable length storage."
+        },
+        {
+          "q": "9. Explain the difference between `break` and `continue` statements in Java loops with a brief example.",
+          "marks": 2,
+          "answer": "**Comparison:**\n- **`break`:** Terminates the entire enclosing loop immediately; execution continues at the statement following the loop.\n- **`continue`:** Skips the remaining statements in the **current iteration** only and jumps directly to the next iteration / condition check.",
+          "hint": "break terminates loop; continue skips current iteration."
+        },
+        {
+          "q": "10. Write MySQL DDL statements to:\n(a) Create a database named `HOSPITAL_DB`.\n(b) Display all tables present in the active database.",
+          "marks": 2,
+          "answer": "**MySQL Statements:**\n```sql\n-- (a) Create Database\nCREATE DATABASE HOSPITAL_DB;\n\n-- (b) Show Tables\nSHOW TABLES;\n```",
+          "hint": "CREATE DATABASE and SHOW TABLES;"
+        },
+        {
+          "q": "11. What is an Exception in Java? What is the role of the `try-catch` construct?",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Exception:** A disruptive runtime event that abnormally terminates program execution if unhandled.\n- **`try-catch` construct:** Encloses risky code within the `try` block and traps/handles runtime exception instances gracefully inside the `catch` block without crashing the application.",
+          "hint": "Runtime disruptive error handled gracefully via try-catch."
+        },
+        {
+          "q": "12. Differentiate between `PRIMARY KEY` and `UNIQUE` constraints in MySQL.",
+          "marks": 2,
+          "answer": "**Distinction:**\n- **`PRIMARY KEY`:** Uniquely identifies each tuple in the table and **strictly rejects NULL values**. Only **one** primary key is allowed per table.\n- **`UNIQUE` constraint:** Ensures all values in the column are distinct, but **permits NULL values**. A table can have **multiple** unique columns.",
+          "hint": "Primary key rejects NULLs and is unique per table; UNIQUE permits NULLs."
+        },
+        {
+          "q": "13. What is a Constructor in Java? How does a Parameterized Constructor differ from a Default Constructor?",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Constructor:** A special member method called automatically upon object creation to initialize instance state.\n- **Default Constructor:** Takes no arguments and initializes fields to standard defaults.\n- **Parameterized Constructor:** Accepts custom arguments to initialize instance variables with specific values provided by the caller.",
+          "hint": "No-arg default vs custom arguments parameterized constructor."
+        },
+        {
+          "q": "14. Define 'Scope Creep' in IT project management and describe ONE preventive measure.",
+          "marks": 2,
+          "answer": "**Answer:**\n- **Scope Creep:** The uncontrolled addition of new features and requirements to a project without corresponding adjustments to budget, time, or resources.\n- **Preventive Measure:** Implementing a formal **Change Control Management** procedure where all scope alterations require written client approval and budget/timeline renegotiation.",
+          "hint": "Uncontrolled feature expansion prevented by formal change control."
+        },
+        {
+          "q": "15. Predict the output of the following Java snippet:\n```java\nint x = 4, y = 10;\nSystem.out.println(\"Output: \" + x + y);\nSystem.out.println(\"Sum: \" + (x + y));\n```",
+          "marks": 2,
+          "answer": "**Output:**\n```\nOutput: 410\nSum: 14\n```\n**Explanation:** In the first line, string concatenation occurs from left to right (`\"Output: \" + 4 -> \"Output: 4\" + 10 -> \"Output: 410\"`). In the second line, parentheses force arithmetic addition `(4 + 10 = 14)` first.",
+          "hint": "Left-to-right string concatenation vs parenthesized arithmetic addition."
+        },
+        {
+          "q": "16. Write the MySQL statement to modify the data type of column `ContactNo` from `INT` to `VARCHAR(15)` in table `SUPPLIER`.",
+          "marks": 2,
+          "answer": "**MySQL Statement:**\n```sql\nALTER TABLE SUPPLIER MODIFY ContactNo VARCHAR(15);\n```",
+          "hint": "ALTER TABLE tablename MODIFY colname newdatatype;"
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 17 to 21 – Analytical, GUI & Programming Questions",
+      "marksPerQuestion": 4,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 4 = 12 Marks, with Q17-Q18 carrying 4 marks and Q19-Q21 carrying 4 marks)",
+      "questions": [
+        {
+          "q": "17. An IT Store billing form designed in NetBeans GUI has the following components:\n- `txtItemName` (JTextField)\n- `txtUnitPrice` (JTextField)\n- `txtQuantity` (JTextField)\n- `chkWarranty` (JCheckBox for 2-Year Extended Warranty – adds ₹500)\n- `txtGrandTotal` (JTextField for Grand Total)\n- `btnCalculate` (JButton)\n\nWrite Java code for `btnCalculateActionPerformed()` event handler to compute and display Grand Total = (UnitPrice × Quantity) + Warranty.",
+          "marks": 4,
+          "answer": "**Java GUI Source Code:**\n```java\nprivate void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {\n    try {\n        // Step 1: Read numeric inputs\n        double unitPrice = Double.parseDouble(txtUnitPrice.getText().trim());\n        int quantity = Integer.parseInt(txtQuantity.getText().trim());\n        \n        if (unitPrice < 0 || quantity <= 0) {\n            javax.swing.JOptionPane.showMessageDialog(this, \n                \"Price and Quantity must be positive values!\", \n                \"Input Error\", javax.swing.JOptionPane.WARNING_MESSAGE);\n            return;\n        }\n        \n        // Step 2: Compute base amount\n        double baseAmount = unitPrice * quantity;\n        \n        // Step 3: Check warranty checkbox\n        double warrantyCost = 0.0;\n        if (chkWarranty.isSelected()) {\n            warrantyCost = 500.0;\n        }\n        \n        // Step 4: Grand total\n        double grandTotal = baseAmount + warrantyCost;\n        \n        // Step 5: Display result\n        txtGrandTotal.setText(String.format(\"₹ %.2f\", grandTotal));\n        \n    } catch (NumberFormatException ex) {\n        javax.swing.JOptionPane.showMessageDialog(this, \n            \"Please enter valid numbers for Price and Quantity!\", \n            \"Error\", javax.swing.JOptionPane.ERROR_MESSAGE);\n    }\n}\n```",
+          "hint": "Read Double and Integer, check chkWarranty.isSelected(), calculate total and setText."
+        },
+        {
+          "q": "18. Write a Java program that inputs an array of 10 integers `{25, 60, 15, 80, 45, 90, 30, 75, 10, 50}`. Count and display:\n(a) Total number of even integers\n(b) Total number of odd integers\n(c) Sum of all even integers",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\npublic class ArrayEvenOddDemo {\n    public static void main(String[] args) {\n        int[] numbers = {25, 60, 15, 80, 45, 90, 30, 75, 10, 50};\n        \n        int evenCount = 0;\n        int oddCount = 0;\n        int evenSum = 0;\n        \n        for (int i = 0; i < numbers.length; i++) {\n            int num = numbers[i];\n            if (num % 2 == 0) {\n                evenCount++;\n                evenSum += num;\n            } else {\n                oddCount++;\n            }\n        }\n        \n        System.out.println(\"Total Even Numbers = \" + evenCount);\n        System.out.println(\"Total Odd Numbers  = \" + oddCount);\n        System.out.println(\"Sum of Even Numbers = \" + evenSum);\n    }\n}\n```\n\n**Output:**\n```\nTotal Even Numbers = 6\nTotal Odd Numbers  = 4\nSum of Even Numbers = 320\n```",
+          "hint": "Loop through array, check num % 2 == 0 for even count and sum, else increment odd count."
+        },
+        {
+          "q": "19. Write a Java program to input a String (e.g. \"Barrackpore Army School\") and reverse each character in the string, displaying the reversed output.",
+          "marks": 4,
+          "answer": "**Java Source Code:**\n```java\nimport java.util.Scanner;\n\npublic class StringReverseDemo {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter text: \");\n        String input = scanner.nextLine();\n        \n        String reversed = \"\";\n        for (int i = input.length() - 1; i >= 0; i--) {\n            reversed += input.charAt(i);\n        }\n        \n        System.out.println(\"Original String : \" + input);\n        System.out.println(\"Reversed String : \" + reversed);\n        scanner.close();\n    }\n}\n```",
+          "hint": "Traverse string backwards from length()-1 to 0 appending characters."
+        },
+        {
+          "q": "20. Explain the 4 sequential stages of the Web Application Development Life Cycle.",
+          "marks": 4,
+          "answer": "**Answer:**\n1. **Stage 1: Requirement Gathering & Feasibility Analysis:** Identifies business objectives, user requirements, technical constraints, producing the Software Requirement Specification (SRS).\n2. **Stage 2: Web Application Design:** Creates UI wireframes, page sitemaps, system architecture, and entity-relationship (ER) database schema.\n3. **Stage 3: Coding & Implementation:** Programmers write client-side UI, server-side business logic, and integrate MySQL database queries.\n4. **Stage 4: Testing, Deployment & Maintenance:** Executes unit/system testing, deploys to production servers, and performs routine updates and bug fixes.",
+          "hint": "1. Requirement Gathering, 2. Design, 3. Coding & Integration, 4. Testing & Deployment."
+        },
+        {
+          "q": "21. Explain the difference between Single-Threaded and Multithreaded execution in Java. Mention two benefits of multithreading.",
+          "marks": 4,
+          "answer": "**Answer:**\n- **Single-Threaded:** Executes tasks sequentially one after another. If a task blocks (e.g. file download), the entire application freezes.\n- **Multithreading:** Allows concurrent execution of multiple sub-tasks (threads) within the same process memory space.\n- **Two Benefits:**\n  1. **Higher CPU Utilization:** Keeps processors busy while other threads wait for I/O.\n  2. **Better UI Responsiveness:** GUI remains fluid while background threads process heavy database operations.",
+          "hint": "Sequential vs concurrent thread execution; CPU efficiency and UI responsiveness."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Questions 22 & 23 – Case Study & Multi-Table SQL Queries",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "description": "Consider the following relational tables 'CUSTOMER' and 'ORDERS' and answer the questions (i) to (x). (10 × 1 = 10 Marks)",
+      "questions": [
+        {
+          "q": "Table: CUSTOMER\n| CustID | CustName | City | Phone | CreditLimit |\n| :--- | :--- | :--- | :--- | :--- |\n| C101 | Sukanta Hui | Barrackpore | 9830012345 | 50000.00 |\n| C102 | Susmita Dey | Kolkata | 9830054321 | 75000.00 |\n| C103 | Mamata Sen | Naihati | 9830098765 | 40000.00 |\n| C104 | Debangshu Roy | Barrackpore | 9830045678 | 60000.00 |\n| C105 | Abhronila Das | Shyamnagar | 9830033221 | 80000.00 |\n\nTable: ORDERS\n| OrderID | CustID | ItemName | Qty | OrderAmount | OrderDate |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| O901 | C101 | Laptop | 1 | 45000.00 | 2026-01-10 |\n| O902 | C101 | Wireless Mouse | 2 | 1200.00 | 2026-01-15 |\n| O903 | C102 | Laser Printer | 1 | 18500.00 | 2026-02-01 |\n| O904 | C103 | LED Monitor | 2 | 22000.00 | 2026-02-14 |\n| O905 | C104 | Mechanical Keyboard | 1 | 3500.00 | 2026-03-05 |\n| O906 | C105 | Gaming Laptop | 1 | 78000.00 | 2026-03-12 |\n\ni) Write SQL query to display the CustName, City, and CreditLimit of all customers living in 'Barrackpore' with CreditLimit >= 55000.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT CustName, City, CreditLimit \nFROM CUSTOMER \nWHERE City = 'Barrackpore' AND CreditLimit >= 55000;\n```",
+          "hint": "SELECT CustName, City, CreditLimit FROM CUSTOMER WHERE City = 'Barrackpore' AND CreditLimit >= 55000;"
+        },
+        {
+          "q": "ii) Write SQL query to display the total order amount (`SUM`) and total items purchased (`SUM(Qty)`) across all orders.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT SUM(OrderAmount) AS TotalSales, SUM(Qty) AS TotalItems \nFROM ORDERS;\n```",
+          "hint": "SELECT SUM(OrderAmount), SUM(Qty) FROM ORDERS;"
+        },
+        {
+          "q": "iii) Write SQL query to display the CustName, ItemName, Qty, and OrderAmount by joining 'CUSTOMER' and 'ORDERS' tables.",
+          "marks": 1,
+          "answer": "**SQL Query (Equi-Join):**\n```sql\nSELECT C.CustName, O.ItemName, O.Qty, O.OrderAmount \nFROM CUSTOMER C, ORDERS O \nWHERE C.CustID = O.CustID;\n```",
+          "hint": "Join on CUSTOMER.CustID = ORDERS.CustID."
+        },
+        {
+          "q": "iv) Write SQL query to count the total number of customers in each City.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT City, COUNT(*) AS TotalCustomers \nFROM CUSTOMER \nGROUP BY City;\n```",
+          "hint": "SELECT City, COUNT(*) FROM CUSTOMER GROUP BY City;"
+        },
+        {
+          "q": "v) Write SQL query to display all orders where the ItemName contains the word 'Laptop'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM ORDERS \nWHERE ItemName LIKE '%Laptop%';\n```",
+          "hint": "WHERE ItemName LIKE '%Laptop%';"
+        },
+        {
+          "q": "vi) Write SQL query to increase the CreditLimit by ₹10,000 for all customers from 'Kolkata'.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nUPDATE CUSTOMER \nSET CreditLimit = CreditLimit + 10000.00 \nWHERE City = 'Kolkata';\n```",
+          "hint": "UPDATE CUSTOMER SET CreditLimit = CreditLimit + 10000.00 WHERE City = 'Kolkata';"
+        },
+        {
+          "q": "vii) Write SQL query to display all orders sorted by OrderDate in descending order.",
+          "marks": 1,
+          "answer": "**SQL Query:**\n```sql\nSELECT * \nFROM ORDERS \nORDER BY OrderDate DESC;\n```",
+          "hint": "ORDER BY OrderDate DESC;"
+        },
+        {
+          "q": "viii) Predict the output of the following SQL query:\n```sql\nSELECT CustID, COUNT(*) FROM ORDERS GROUP BY CustID HAVING COUNT(*) > 1;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n| CustID | COUNT(*) |\n| :--- | :--- |\n| C101 | 2 |\n\n**Explanation:** CustID `C101` (Sukanta Hui) has placed 2 orders (O901 and O902).",
+          "hint": "C101 placed 2 orders."
+        },
+        {
+          "q": "ix) Predict the output of the following SQL query:\n```sql\nSELECT MAX(CreditLimit), MIN(CreditLimit), AVG(CreditLimit) FROM CUSTOMER;\n```",
+          "marks": 1,
+          "answer": "**Output:**\n| MAX(CreditLimit) | MIN(CreditLimit) | AVG(CreditLimit) |\n| :--- | :--- | :--- |\n| 80000.00 | 40000.00 | 61000.00 |\n\n**Calculation:**\n- Max = 80000 (Abhronila Das)\n- Min = 40000 (Mamata Sen)\n- Avg = (50000 + 75000 + 40000 + 60000 + 80000) / 5 = 305000 / 5 = 61000.00",
+          "hint": "Max is 80000, Min is 40000, Avg is 61000."
+        },
+        {
+          "q": "x) Identify the Primary Key of table 'CUSTOMER' and the Foreign Key of table 'ORDERS'. State the Cardinality of table 'ORDERS'.",
+          "marks": 1,
+          "answer": "**Answer:**\n- **Primary Key of CUSTOMER:** `CustID`\n- **Foreign Key of ORDERS:** `CustID` (references `CUSTOMER.CustID`)\n- **Cardinality of ORDERS:** `6` (contains 6 rows / tuples).",
+          "hint": "CUSTOMER PK is CustID; ORDERS FK is CustID; ORDERS cardinality is 6."
+        }
+      ]
+    }
+  ]
+}

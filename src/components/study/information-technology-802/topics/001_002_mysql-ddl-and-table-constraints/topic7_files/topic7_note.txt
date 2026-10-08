@@ -1,0 +1,66 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 7: MODIFYING COLUMNS, RENAMING COLUMNS (CHANGE), AND DROPPING COLUMNS WITH ALTER TABLE
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 22 min | Level: Advanced DDL Practical
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] ALTER TABLE MODIFY: Modifies the data type, width, or constraints of an existing column without changing its name.
+[2] ALTER TABLE CHANGE: Renames an existing column and optionally alters its data type and constraints.
+[3] ALTER TABLE RENAME COLUMN (MySQL 8.0+): Renames a column cleanly without re-specifying the data type.
+[4] ALTER TABLE DROP COLUMN: Permanently removes a column and all values stored in it from the table.
+[5] Effect of DROP COLUMN: Decreases Degree by -1 for each dropped column. Cardinality remains unchanged.
+[6] Safety Precautions: You cannot drop a column if it is referenced by a Foreign Key constraint in another table.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. MODIFY vs CHANGE vs RENAME COLUMN Comparison ---
+| Command | Primary Use Case | Syntax Example |
+| :--- | :--- | :--- |
+| **`MODIFY`** | Change datatype/width/constraint only | `ALTER TABLE Student MODIFY StudentName VARCHAR(80) NOT NULL;` |
+| **`CHANGE`** | Rename column + change datatype | `ALTER TABLE Student CHANGE SName FullName VARCHAR(80);` |
+| **`RENAME COLUMN`** | Rename column only (MySQL 8.0+) | `ALTER TABLE Student RENAME COLUMN SName TO FullName;` |
+| **`DROP COLUMN`** | Delete an attribute completely | `ALTER TABLE Student DROP COLUMN TemporaryAddress;` |
+
+--- 2. Data Truncation Warnings during MODIFY ---
+When shrinking a column's width (e.g., from `VARCHAR(100)` down to `VARCHAR(20)`), if any existing row contains string longer than 20 characters, MySQL will throw **Error 1265: Data truncated for column** or abort in strict SQL mode.
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- ALTER TABLE MODIFY, CHANGE, and DROP COLUMN Lab
+CREATE TABLE BookStore (
+    BookID INT PRIMARY KEY,
+    Title VARCHAR(30),
+    Price INT,
+    AuthorName VARCHAR(40),
+    OldRemarks VARCHAR(100)
+);
+
+-- 1. MODIFY Title width
+ALTER TABLE BookStore MODIFY Title VARCHAR(80) NOT NULL;
+
+-- 2. MODIFY Price datatype to DECIMAL(8,2)
+ALTER TABLE BookStore MODIFY Price DECIMAL(8,2) NOT NULL DEFAULT 199.00;
+
+-- 3. CHANGE AuthorName to PrimaryAuthor
+ALTER TABLE BookStore CHANGE AuthorName PrimaryAuthor VARCHAR(60) NOT NULL;
+
+-- 4. DROP OldRemarks
+ALTER TABLE BookStore DROP COLUMN OldRemarks;
+
+DESC BookStore;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Remember the difference: MODIFY is used to change datatype or constraints of an existing column without renaming it. CHANGE is used to rename a column AND/OR change its datatype. DROP COLUMN permanently deletes a column and its data!"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

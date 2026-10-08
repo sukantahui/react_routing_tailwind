@@ -1,0 +1,63 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 0: INTRODUCTION TO DBMS & NEED OVER FILE SYSTEMS
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A DATABASE?
+   A database is an organized, logically coherent collection of interrelated data
+   representing some aspect of the real world (Mini-world / Universe of Discourse).
+   Example: Student admission records, fee transactions, and CBSE board marks at
+   Army Public School Barrackpore or Coder & AccoTax.
+
+2. WHAT IS A DATABASE MANAGEMENT SYSTEM (DBMS)?
+   A DBMS is a sophisticated software package designed to define, construct,
+   manipulate, share, and protect centralized databases among various users and
+   applications.
+   Examples: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server.
+
+3. FIVE CRITICAL LIMITATIONS OF TRADITIONAL FILE PROCESSING SYSTEMS:
+   a) Data Redundancy and Inconsistency:
+      Same student details duplicated in multiple files across departments.
+      Updating one file while forgetting another causes data conflicts.
+   b) Difficulty in Accessing Data:
+      Extracting custom reports requires writing new software programs in C/C++/Java.
+   c) Data Isolation:
+      Data scattered in various file formats makes ad-hoc retrieval painful.
+   d) Integrity Problems:
+      Constraint rules (e.g. Marks between 0 and 100) are hard-coded in applications
+      rather than enforced centrally by storage engines.
+   e) Atomicity Problems:
+      System crashes midway leave accounts corrupted without automated rollback.
+   f) Concurrent-Access Anomalies:
+      Simultaneous edits overwrite each other without record-level locks.
+   g) Security Problems:
+      Difficult to give fine-grained role-based permissions (e.g. read-only views).
+
+4. THREE-LEVEL ANSI-SPARC DATABASE ARCHITECTURE:
+   Level 1: Physical / Internal Level - How data is stored on disk (B-Tree, Extents).
+   Level 2: Logical / Conceptual Level - What data is stored (Tables, Keys, Constraints).
+   Level 3: View / External Level - Customized user-specific views (Student Result Portal).
+
+5. ACID PROPERTIES OF TRANSACTIONS:
+   - Atomicity: All or nothing execution.
+   - Consistency: Database moves from one valid state to another.
+   - Isolation: Concurrent transactions do not interfere with intermediate states.
+   - Durability: Committed data survives sudden crashes and power losses.
+
+6. SUMMARY COMPARISON TABLE:
+   Feature               | File System           | Relational DBMS (MySQL)
+   ----------------------|-----------------------|-----------------------------------
+   Data Redundancy       | High (Duplicated)     | Minimal (Normalized tables)
+   Data Access           | Procedural code       | Declarative ANSI SQL
+   Concurrency Control   | Not supported natively| Robust multi-version concurrency
+   Crash Recovery        | Manual / Data loss    | Automated Write-Ahead Logging
+   Data Security         | OS-level only         | Fine-grained Role-Based Access
+
+================================================================================
+EDUCATOR'S EXAM TIP (SUKANTA HUI):
+In CBSE Board Exam (Question 8), students are frequently asked to state the
+advantages of DBMS over file systems. Always mention: Elimination of Data
+Redundancy, Enforcement of Integrity Constraints, and ACID Compliance.
+================================================================================

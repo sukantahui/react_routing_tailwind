@@ -225,6 +225,7 @@ export default function FeesPayment() {
       id="fees"
       className="relative py-16 sm:py-24 bg-[#030712] text-slate-100 border-b border-slate-800/80 overflow-hidden"
     >
+      <div id="payment" className="absolute -top-14 left-0 pointer-events-none" />
       {/* Background ambient glowing gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[550px] h-[350px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[350px] h-[250px] bg-sky-500/10 rounded-full blur-[100px] pointer-events-none" />

@@ -1,0 +1,82 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 3: CREATING TABLES WITH CREATE TABLE AND DEFINING COLUMN & TABLE CONSTRAINTS
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 22 min | Level: Core Practical
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] CREATE TABLE statement creates a new relation schema in the active database.
+[2] Syntax Structure: CREATE TABLE table_name (col1 datatype constraints, col2 datatype constraints, ..., [table_constraints]);
+[3] Column-Level Constraint: Declared immediately after the column's data type definition.
+[4] Table-Level Constraint: Declared as a separate clause at the end of the table definition. Mandatory for Composite Primary Keys.
+[5] IF NOT EXISTS clause: Prevents runtime error 1050 if the table already exists.
+[6] AUTO_INCREMENT: Automatically generates sequential unique integer keys on row insertion in MySQL.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. Standard ANSI / MySQL CREATE TABLE Syntax ---
+The complete syntax pattern for `CREATE TABLE` is:
+```sql
+CREATE TABLE [IF NOT EXISTS] table_name (
+    column_name_1 data_type [COLUMN_CONSTRAINTS],
+    column_name_2 data_type [COLUMN_CONSTRAINTS],
+    ...
+    [CONSTRAINT constraint_name] PRIMARY KEY (col_a, col_b),
+    [CONSTRAINT constraint_name] FOREIGN KEY (col_fk) REFERENCES parent_table(parent_pk)
+);
+```
+
+--- 2. Column-Level vs Table-Level Constraints ---
+- **Column-Level:** Applied to a single individual column during its type specification. Examples:
+  `RollNo INT PRIMARY KEY`, `Email VARCHAR(80) UNIQUE NOT NULL`.
+- **Table-Level:** Applied to one or more columns simultaneously at the end of the `CREATE TABLE` block. Necessary when defining multi-column composite primary keys or named foreign keys:
+  `CONSTRAINT PK_Enrollment PRIMARY KEY (StudentID, CourseID)`.
+
+*Note:* `NOT NULL` can ONLY be applied as a column-level constraint.
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Comprehensive CREATE TABLE Script
+CREATE DATABASE IF NOT EXISTS HospitalManagement;
+USE HospitalManagement;
+
+CREATE TABLE Doctor (
+    DoctorID INT PRIMARY KEY AUTO_INCREMENT,
+    DoctorName VARCHAR(50) NOT NULL,
+    Specialization VARCHAR(40) NOT NULL,
+    Phone CHAR(10) UNIQUE NOT NULL,
+    ConsultationFee DECIMAL(8,2) DEFAULT 500.00,
+    JoinedDate DATE NOT NULL
+);
+
+CREATE TABLE PatientAdmission (
+    AdmissionID INT AUTO_INCREMENT,
+    PatientName VARCHAR(60) NOT NULL,
+    Age INT NOT NULL,
+    Gender CHAR(1) NOT NULL,
+    AssignedDoctorID INT NOT NULL,
+    RoomType VARCHAR(20) DEFAULT 'General Ward',
+    AdmissionDate DATE NOT NULL,
+    DischargeDate DATE,
+    
+    CONSTRAINT PK_Admission PRIMARY KEY (AdmissionID),
+    CONSTRAINT CHK_PatientAge CHECK (Age >= 0 AND Age <= 125),
+    CONSTRAINT CHK_Gender CHECK (Gender IN ('M', 'F', 'O')),
+    CONSTRAINT FK_DoctorAssigned FOREIGN KEY (AssignedDoctorID) 
+        REFERENCES Doctor(DoctorID) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"When writing CREATE TABLE in CBSE board exams, make sure every column has a valid datatype. Column-level constraints are written directly after datatype (e.g. RollNo INT PRIMARY KEY). Table-level constraints are written at the end of the column list (e.g. PRIMARY KEY (RollNo, Class))."
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

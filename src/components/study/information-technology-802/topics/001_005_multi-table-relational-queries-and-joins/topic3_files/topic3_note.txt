@@ -1,0 +1,86 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_005: MULTI-TABLE RELATIONAL QUERIES & TABLE JOINS
+TOPIC 3: EXPLICIT JOIN SYNTAX USING INNER JOIN ... ON ...
+Educator: Sukanta Hui, Barrackpore
+================================================================================
+
+1. CORE CONCEPT & OVERVIEW
+--------------------------------------------------------------------------------
+ANSI SQL-92 standard syntax, separating join criteria (ON) from data filtering (WHERE), readable multi-table queries.
+
+In relational database systems (RDBMS), data is normalized into multiple specialized
+tables (e.g., STUDENT, PARENTS, COACH, ACTIVITY) to eliminate redundancy, avoid 
+anomalies, and maintain referential integrity. When information from multiple tables 
+is needed simultaneously, Multi-Table Relational Queries and Table Joins are used.
+
+2. CARTESIAN PRODUCT VS EQUI-JOIN
+--------------------------------------------------------------------------------
+- Cartesian Product (Cross Join):
+  * Unfiltered combination of every row in Table 1 with every row in Table 2.
+  * Cardinality (Row Count) = Cardinality(T1) * Cardinality(T2).
+  * Degree (Column Count)   = Degree(T1) + Degree(T2).
+  * Syntax: SELECT * FROM Table1, Table2;
+
+- Equi-Join:
+  * Filtered Cartesian product where a Primary Key in the parent table matches 
+    a Foreign Key in the child table.
+  * Eliminates mathematically invalid row pairings.
+  * Implicit Syntax:
+      SELECT S.Name, P.FatherName 
+      FROM Student S, Parents P 
+      WHERE S.ParentID = P.ParentID;
+  * Explicit ANSI Syntax:
+      SELECT S.Name, P.FatherName 
+      FROM Student S 
+      INNER JOIN Parents P ON S.ParentID = P.ParentID;
+
+3. CBSE BOARD BENCHMARK SCHEMA
+--------------------------------------------------------------------------------
+Table 1: STUDENT
++--------+---------------+----------+-------+-----------+
+| RollNo | Name          | ParentID | Class | BirthYear |
++--------+---------------+----------+-------+-----------+
+| 101    | Amit Kumar    | P1       | XII   | 2007      |
+| 102    | Susmita Roy   | P2       | XI    | 2008      |
+| 103    | Debangshu Pal | P3       | XII   | 2007      |
+| 104    | Mamata Sharma | P1       | X     | 2009      |
+| 105    | Ajoy Sen      | P4       | XII   | 2006      |
++--------+---------------+----------+-------+-----------+
+
+Table 2: PARENTS
++----------+--------------------+----------------+--------------+
+| ParentID | FatherName         | MotherName     | Phone        |
++----------+--------------------+----------------+--------------+
+| P1       | Rajesh Kumar       | Sunita Kumar   | 9830011223   |
+| P2       | Bimal Roy          | Ananya Roy     | 9831122334   |
+| P3       | Chandan Pal        | Mousumi Pal    | 9832233445   |
+| P4       | Tapan Sen          | Rita Sen       | 9833344556   |
++----------+--------------------+----------------+--------------+
+
+4. BOARD EXAMINATION PITFALLS & GOLDEN RULES
+--------------------------------------------------------------------------------
+[Rule 1] Table Aliasing:
+Always qualify column names with table aliases (e.g. S.ParentID vs P.ParentID) to 
+prevent 'ERROR 1052: Column in field list is ambiguous'.
+
+[Rule 2] N-Table Joins:
+To join N tables together without Cartesian explosion, you need at least (N - 1) 
+join equality conditions in your WHERE or ON clause.
+
+[Rule 3] WHERE Filtering with Joins:
+Additional filter criteria (e.g. BirthYear < 2019, Class <> 'II') must be combined 
+with the join predicate using the logical AND operator.
+
+[Rule 4] ORDER BY Sorting:
+ORDER BY executes as the final step. Multi-table queries can sort by attributes 
+from either table (e.g. ORDER BY S.RollNo DESC, P.FatherName ASC).
+
+5. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+রিলেশনাল ডেটাবেসে একাধিক টেবিলের ডেটা সংযুক্ত করতে জয়েন (Join) ব্যবহৃত হয়।
+কার্টেসিয়ান প্রোডাক্টে রো সংখ্যা গুণ এবং কলাম সংখ্যা যোগ হয়।
+বোর্ড পরীক্ষায় ইকুই-জয়েনে প্রাইমারি কী এবং ফরেন কী এর সমতা (S.ParentID = P.ParentID)
+অবশ্যই WHERE বা ON ক্লজে উল্লেখ করতে হবে।
+
+================================================================================

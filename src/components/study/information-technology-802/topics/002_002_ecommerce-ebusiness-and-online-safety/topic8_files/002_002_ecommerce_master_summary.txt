@@ -1,0 +1,83 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+MASTER COMPREHENSIVE REVISION SUMMARY (ALL TOPICS 0 - 7)
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. TOPIC 0: CONCEPT OF E-COMMERCE & CUSTOMER ADVANTAGES
+--------------------------------------------------------------------------------
+- Definition: E-Commerce (Electronic Commerce) is the buying and selling of goods, 
+  services, and digital products over electronic computer networks (primarily the Internet).
+- Core Models:
+  * B2C (Business-to-Consumer): Amazon, Flipkart, Nykaa selling to individual buyers.
+  * B2B (Business-to-Business): IndiaMART, Udaan wholesale trade between businesses.
+  * C2C (Consumer-to-Consumer): OLX, eBay peer-to-peer pre-owned sales.
+- Key Customer Advantages:
+  1. 24x7 Round-the-Clock Convenience: Orders placed anytime without travel.
+  2. Vast Variety & Global Inventory: Millions of SKUs available nationwide.
+  3. Real-Time Price Comparisons & Best Deals: Instant cross-portal price checks & discounts.
+  4. Doorstep Delivery with GPS Tracking: AWB tracking numbers for live status.
+  5. Verified Customer Reviews: Real buyer photos and ratings for informed choices.
+
+2. TOPIC 1: POPULAR E-COMMERCE VS E-LEARNING PORTALS
+--------------------------------------------------------------------------------
+- E-Commerce Portals:
+  * Amazon (Global retail superstore)
+  * Flipkart (Electronics, fashion, Big Billion Days)
+  * Snapdeal (Value-for-money consumer merchandise)
+  * Nykaa (Niche beauty, cosmetics, personal care)
+  * Infibeam (Indian digital retail & payment gateway infrastructure)
+- E-Learning & MOOC Platforms:
+  * Coursera & edX (University-partnered degrees and verified certificates)
+  * SWAYAM (Govt of India free online college courses & credit transfer)
+  * NPTEL (Premier IIT & IISc engineering/science lectures)
+  * Khan Academy (Free K-12 STEM interactive lessons)
+- Key Distinction: E-Commerce delivers physical/commercial goods via couriers; E-Learning delivers intellectual skills, videos, and certificates via browser streaming.
+
+3. TOPIC 2: VIRTUAL SHOPPING CART FUNCTIONALITY
+--------------------------------------------------------------------------------
+- Definition: Software module on an e-commerce site tracking selected items before checkout.
+- Core Functions:
+  * Session State Persistence: Uses cookies/tokens to preserve items across pages.
+  * Dynamic Item Management: Modify quantities (+ / -), remove items, save to wishlist.
+  * Calculation Engine: Subtotal - Discounts + GST (18%) + Shipping = Grand Total.
+  * Live Stock Validation: Queries backend database before confirming availability.
+  * Payment Handshake: Seamlessly connects with secure HTTPS payment gateway.
+
+4. TOPIC 3: E-BUSINESS BENEFITS, RISKS & BARRIERS
+--------------------------------------------------------------------------------
+- E-Business vs E-Commerce: E-Commerce is a subset of E-Business. E-Business includes ERP, CRM, SCM, E-Procurement, and internal intranets.
+- Strategic Benefits: Global reach, reduced showroom rents, automated supply chain, 24x7 sales.
+- Adoption Barriers: Digital divide in rural areas, lack of physical product touch-and-feel, cyber fraud apprehension, and high return logistics costs.
+
+5. TOPIC 4: MAJOR E-BUSINESS RISKS (THE 3 CORE THREATS)
+--------------------------------------------------------------------------------
+1. Violation of Customer Privacy: Unauthorized sale/leak of user data. Governed by DPDP Act 2023.
+2. Server Downtime during Traffic Spikes: CPU/RAM saturation during flash sales causing HTTP 503 errors. Mitigated by Load Balancers, Auto-Scaling, and CDNs.
+3. Hacker Penetration: SQL Injection (manipulating database queries), DDoS botnet floods, XSS, and Ransomware. Mitigated by WAF, Parameterized SQL, and password hashing.
+
+6. TOPIC 5: ONLINE TRANSACTION SAFETY PRECAUTIONS
+--------------------------------------------------------------------------------
+1. Verify HTTPS & Padlock icon in the URL bar.
+2. Avoid conducting payments on open public Wi-Fi networks.
+3. Never disclose OTP, CVV, ATM PIN, or MPIN to anyone (Banks NEVER ask).
+4. Utilize Two-Factor Authentication (2FA) on all financial accounts.
+5. Use Virtual On-Screen Keyboards on shared computers against keyloggers.
+6. Explicitly Log Out after transactions to invalidate session tokens.
+7. Enable real-time SMS/Email alerts; report fraud immediately to 1930 / cybercrime.gov.in.
+
+7. TOPIC 6: HTTPS, SSL PADLOCK & 2FA GUIDELINES
+--------------------------------------------------------------------------------
+- HTTPS (Port 443) vs HTTP (Port 80): Uses TLS 1.3 with AES-256 encryption.
+- 3 Pillars of MFA: Something you KNOW (Password), Something you HAVE (OTP/Phone), Something you ARE (Biometrics).
+- CVV Rule: RBI & PCI-DSS strictly prohibit e-commerce merchants from saving CVV codes.
+
+8. TOPIC 7: WEBINARS & REAL-TIME E-LEARNING
+--------------------------------------------------------------------------------
+- Definition: Web + Seminar. Synchronous, real-time online lectures with bidirectional audio/video.
+- Features: Live screen sharing, interactive digital whiteboards, live polls, Q&A pods, breakout rooms, and cloud session recording for asynchronous replay.
+
+================================================================================
+END OF MASTER SUMMARY · MODULE 002_002 · CBSE IT (802)
+================================================================================

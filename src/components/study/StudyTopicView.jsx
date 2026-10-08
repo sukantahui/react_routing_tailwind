@@ -519,6 +519,48 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   }, [topicKey, topicModules]);
 
   // ----------------------------------------------------------------
+  // AUTHENTICATION & ROLE AUTHORIZATION CHECK
+  // ----------------------------------------------------------------
+  const rawUser = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
+  const isLoggedIn = !!(token && rawUser);
+
+  let user = null;
+  try {
+    user = rawUser ? (typeof rawUser === "string" ? JSON.parse(rawUser) : rawUser) : null;
+  } catch {
+    user = null;
+  }
+
+  const userRole = (
+    user?.role ||
+    user?.userType?.userTypeName ||
+    user?.user_type_name ||
+    user?.user_type ||
+    user?.roleName ||
+    ""
+  ).trim().toLowerCase();
+
+  const isTeacherOrAdmin = isLoggedIn && ["admin", "teacher", "developer", "owner", "manager", "faculty", "instructor"].includes(userRole);
+
+  const isRestrictedTopic =
+    (moduleData?.visibility || "").toLowerCase() === "admin-teacher" ||
+    (segmentData?.visibility || "").toLowerCase() === "admin-teacher" ||
+    (moduleData?.slug || "").startsWith("006_") ||
+    (segmentData?.segmentId || "").startsWith("segment-6") ||
+    (segmentData?.segmentId || "").includes("006") ||
+    (Array.isArray(moduleData?.allowedRoles) && moduleData.allowedRoles.length > 0) ||
+    (Array.isArray(segmentData?.allowedRoles) && segmentData.allowedRoles.length > 0);
+
+  const isAuthorized = !isRestrictedTopic || (
+    isLoggedIn && (
+      (Array.isArray(moduleData?.allowedRoles) && moduleData.allowedRoles.some(r => r.trim().toLowerCase() === userRole)) ||
+      (Array.isArray(segmentData?.allowedRoles) && segmentData.allowedRoles.some(r => r.trim().toLowerCase() === userRole)) ||
+      isTeacherOrAdmin
+    )
+  );
+
+  // ----------------------------------------------------------------
   // MODULE NOT FOUND CHECK
   // ----------------------------------------------------------------
   if (!moduleData || !topicTitle) {
@@ -536,6 +578,45 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           >
             <ArrowLeft size={16} /> Back to Module
           </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // ----------------------------------------------------------------
+  // ACCESS RESTRICTED: TEACHER & ADMIN ONLY
+  // ----------------------------------------------------------------
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
+        <div className="text-center max-w-lg p-8 sm:p-10 rounded-3xl bg-slate-900/90 border border-amber-500/30 shadow-2xl backdrop-blur-md">
+          <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-5 shadow-inner">
+            <ShieldCheck size={36} />
+          </div>
+          <span className="px-3 py-1 text-[11px] font-mono font-bold tracking-wide uppercase rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30">
+            Faculty & Admin Access Only
+          </span>
+          <h1 className="text-2xl font-bold text-slate-100 mt-4 mb-2">Restricted Examination Material</h1>
+          <p className="text-sm text-slate-400 leading-relaxed mb-6">
+            Segment 006 (<strong className="text-slate-200">{moduleData?.title || "Solved Board Examination Paper"}</strong>) contains official examination question papers and step-by-step solutions accessible only to authenticated Teachers and Administrators.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              to={`/${roadmapData.folder}/roadmap`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold rounded-xl border border-slate-700 transition"
+            >
+              <ArrowLeft size={16} />
+              Return to Roadmap
+            </Link>
+            {!isLoggedIn ? (
+              <Link
+                to="/login"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-sm font-bold rounded-xl shadow-lg shadow-amber-500/20 transition"
+              >
+                Sign In as Teacher / Admin →
+              </Link>
+            ) : null}
+          </div>
         </div>
       </div>
     );

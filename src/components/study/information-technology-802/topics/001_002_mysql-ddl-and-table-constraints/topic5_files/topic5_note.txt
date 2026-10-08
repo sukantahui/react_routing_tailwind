@@ -1,0 +1,88 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 5: FOREIGN KEY CONSTRAINT DEFINITION AND CASCADE OPERATIONS (ON DELETE CASCADE, ON UPDATE CASCADE)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 24 min | Level: Advanced Board Core
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] Foreign Key: An attribute or set of attributes in a child table whose values must match the Primary Key in a parent table or be NULL.
+[2] Referential Integrity: Ensures that no orphan records exist in the child table referencing nonexistent parent tuples.
+[3] Parent Table: The table containing the referenced Primary Key.
+[4] Child Table: The table containing the referencing Foreign Key.
+[5] ON DELETE CASCADE: When a parent record is deleted, all child records referencing that parent are automatically deleted.
+[6] ON UPDATE CASCADE: When a parent Primary Key is updated, all referencing child Foreign Key values are automatically updated.
+[7] ON DELETE RESTRICT: Rejects deletion of parent row if matching child records exist.
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. The Principles of Referential Integrity ---
+Referential integrity guarantees that relationships between tables remain consistent. For instance, in a school database, an exam score record cannot exist for a `StudentID` that has not been registered in the `StudentMaster` table.
+
+### Syntax for Foreign Key with Cascade Actions:
+```sql
+CREATE TABLE ChildTable (
+    ChildID INT PRIMARY KEY,
+    ParentRefID INT,
+    CONSTRAINT FK_ParentRef FOREIGN KEY (ParentRefID)
+        REFERENCES ParentTable(ParentID)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+```
+
+--- 2. The 4 Referential Action Rules Compared ---
+| Action | Behavior on Parent Row Deletion / Modification |
+| :--- | :--- |
+| **`CASCADE`** | Automatically deletes/updates all corresponding rows in the child table. |
+| **`RESTRICT`** | Prevents deletion/update of the parent row with error 1451. |
+| **`SET NULL`** | Deletes parent row and sets child foreign key values to `NULL`. |
+| **`NO ACTION`** | Equivalent to `RESTRICT` in MySQL standard engine. |
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Referential Integrity & ON DELETE CASCADE Lab
+CREATE TABLE DepartmentMaster (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(40) NOT NULL,
+    Location VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Staff (
+    StaffID INT PRIMARY KEY,
+    StaffName VARCHAR(50) NOT NULL,
+    DeptID INT,
+    Salary DECIMAL(10,2),
+    CONSTRAINT FK_StaffDept FOREIGN KEY (DeptID)
+        REFERENCES DepartmentMaster(DeptID)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+INSERT INTO DepartmentMaster VALUES 
+(10, 'Computer Science', 'Academic Block A'),
+(20, 'Commerce & Accounts', 'Commerce Block B');
+
+INSERT INTO Staff VALUES
+(1001, 'Sukanta Hui', 10, 75000.00),
+(1002, 'Mamata Sharma', 10, 52000.00),
+(1003, 'Debangshu Pal', 20, 48000.00);
+
+-- Deleting Dept 10 cascades to Staff 1001 and 1002
+DELETE FROM DepartmentMaster WHERE DeptID = 10;
+
+SELECT * FROM Staff;
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"A Foreign Key in a child table references the Primary Key of a parent table. What happens if you delete a parent record? If ON DELETE CASCADE is set, MySQL automatically deletes all matching child records! If ON DELETE RESTRICT (default) is set, MySQL throws an error and forbids deleting the parent record."
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

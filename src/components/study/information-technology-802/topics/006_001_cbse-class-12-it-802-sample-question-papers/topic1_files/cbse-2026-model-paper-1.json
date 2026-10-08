@@ -1,0 +1,415 @@
+{
+  "paperId": "CBSE-2026-XII-IT802-MODEL-01",
+  "title": "CBSE Class XII Information Technology (Subject Code: 802) – Official Board Model Solved Paper 1",
+  "duration": "3 Hours",
+  "totalMarks": 60,
+  "prerequisites": "CBSE Class XII Information Technology (802) syllabus: Database Concepts with MySQL, Operating Web Based Applications, Core Java & NetBeans GUI Programming, Work Integrated Learning (WIL)",
+  "instructions": [
+    "Please read the instructions carefully before attempting the paper.",
+    "This Question Paper consists of 23 questions divided into two sections: Section A (30 Marks) and Section B (30 Marks).",
+    "Section A contains Objective Type questions covering Employability & Subject Specific concepts. All sub-questions carry 1 mark each.",
+    "Section B contains Subjective Type questions covering short answer, code conversion, SQL queries, multi-table joins, and Java programming.",
+    "Calculators and electronic devices are not permitted."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Question 1 – Objective Questions (Employability, Web & Systems)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which Indian government initiative serves as a secure cloud-based document wallet for issuing and verifying digital certificates and documents?\n(a) DigiLocker\n(b) IRCTC\n(c) CyberSwachhta\n(d) GeM",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) DigiLocker**\n\n**Explanation:** DigiLocker is a key initiative under Digital India providing citizens with a cloud-based storage platform for authenticated digital document verification (Aadhaar, driving license, marksheet).",
+          "hint": "The digital document repository portal under Digital India."
+        },
+        {
+          "q": "ii) What is the main purpose of Work Integrated Learning (WIL) in IT education?\n(a) To replace school textbooks completely\n(b) To integrate academic theoretical learning with hands-on industrial workplace exposure\n(c) To conduct theoretical written examinations only\n(d) To purchase computer hardware for school laboratories",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) To integrate academic theoretical learning with hands-on industrial workplace exposure**\n\n**Explanation:** WIL bridges academia and industry by enabling students to apply theoretical knowledge in real workplace projects.",
+          "hint": "Bridging classroom learning with workplace practice."
+        },
+        {
+          "q": "iii) Mention one popular open-source relational database server and one Java Integrated Development Environment (IDE) widely used in schools.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n- **Open-source RDBMS Server:** MySQL (or PostgreSQL)\n- **Java IDE:** Apache NetBeans IDE (or Eclipse / IntelliJ IDEA)",
+          "hint": "MySQL for database and NetBeans for Java."
+        },
+        {
+          "q": "iv) In software project management, which phase involves creating entity-relationship (ER) diagrams, UI mockups, and database table structures?\n(a) Requirement Definition Phase\n(b) Design Phase\n(c) Implementation Phase\n(d) Deployment Phase",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Design Phase**\n\n**Explanation:** The Design Phase translates functional requirements into technical blueprints, including database ER models, table layouts, and graphical UI mockups.",
+          "hint": "The phase where architecture and schemas are blueprinted."
+        },
+        {
+          "q": "v) State whether the following statement is True or False:\n\"E-Governance portals operate 24x7 and eliminate the need for physical queues in government administrative offices.\"",
+          "marks": 1,
+          "answer": "**Correct Answer: True**\n\n**Explanation:** E-Governance services provide round-the-clock digital access to public administrative functions, reducing bureaucratic delays and physical queues.",
+          "hint": "E-Governance offers 24x7 online access."
+        },
+        {
+          "q": "vi) Which of the following is an essential characteristic of every software project?\n(a) It is perpetual with no ending date\n(b) It creates a unique deliverable and has defined scope and resources\n(c) It operates with unlimited budget and infinite staff\n(d) It requires no planning or requirement analysis",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) It creates a unique deliverable and has defined scope and resources**\n\n**Explanation:** Projects are temporary endeavors characterized by unique outcomes, defined timeframes, and finite resource constraints.",
+          "hint": "A project is temporary, unique, and bounded by resources."
+        },
+        {
+          "q": "vii) Identify the odd one out among the following software tools:\n(a) Google Chrome\n(b) Mozilla Firefox\n(c) Microsoft Edge\n(d) MySQL Server",
+          "marks": 1,
+          "answer": "**Correct Answer: (d) MySQL Server**\n\n**Explanation:** Chrome, Firefox, and Edge are client-side Web Browsers, whereas MySQL Server is a back-end Relational Database Management System (RDBMS).",
+          "hint": "Three are web browsers; one is a database server."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 2 – Objective Questions (E-Commerce & Digital Safety)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which cryptographic protocol is indicated by the presence of a green/locked padlock in the browser address bar during secure financial checkout?\n(a) HTTP\n(b) HTTPS (SSL/TLS)\n(c) FTP\n(d) SMTP",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) HTTPS (SSL/TLS)**\n\n**Explanation:** HTTPS (Hypertext Transfer Protocol Secure) encrypts communication channels using SSL/TLS cryptographic certificates to safeguard sensitive credentials.",
+          "hint": "The secure, encrypted version of HTTP."
+        },
+        {
+          "q": "ii) Which of the following is NOT an e-commerce website?\n(a) amazon.in\n(b) flipkart.com\n(c) wikipedia.org\n(d) meesho.com",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) wikipedia.org**\n\n**Explanation:** Wikipedia is a free non-profit digital encyclopedia, whereas Amazon, Flipkart, and Meesho are commercial retail shopping platforms.",
+          "hint": "Wikipedia is an informational encyclopedia."
+        },
+        {
+          "q": "iii) In an e-commerce application, what is the temporary storage area called where selected items are held before finalizing the payment?\n(a) Wishlist\n(b) Shopping Cart\n(c) Cash Register\n(d) Delivery Queue",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Shopping Cart**\n\n**Explanation:** A Virtual Shopping Cart holds selected products, computes line-item subtotals and discounts, and allows quantity adjustments before checkout.",
+          "hint": "The digital basket holding items for checkout."
+        },
+        {
+          "q": "iv) Mention two severe operational risks faced by e-business platforms during festival sale events.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n1. **Server Downtime / Crash due to Sudden Traffic Spikes**\n2. **Cyber Attacks / Payment Gateway Breaches by Malicious Hackers**",
+          "hint": "Server crashes from heavy traffic and cyber security threats."
+        },
+        {
+          "q": "v) Name the official Indian railway portal used by millions to book online train reservations.",
+          "marks": 1,
+          "answer": "**Correct Answer: IRCTC** (`irctc.co.in` / Indian Railway Catering and Tourism Corporation)",
+          "hint": "The Indian Railways passenger reservation portal."
+        },
+        {
+          "q": "vi) A live, interactive online presentation or workshop conducted over the internet with real-time Q&A is called a ________",
+          "marks": 1,
+          "answer": "**Correct Answer: Webinar** (Web Seminar)",
+          "hint": "Live online seminar."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 3 – Objective Questions (Java Syntax & Operators)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which of the following is an invalid identifier in Java?\n(a) `total_marks`\n(b) `_studentName`\n(c) `2ndPosition`\n(d) `$feeAmount`",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) `2ndPosition`**\n\n**Explanation:** In Java, identifier names cannot begin with a digit (`0-9`). They must start with a letter, underscore (`_`), or dollar sign (`$`).",
+          "hint": "Java identifiers cannot start with numbers."
+        },
+        {
+          "q": "ii) What will be the output of `System.out.println(15 / 4);` and `System.out.println(15.0 / 4);` in Java?",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n```\n3\n3.75\n```\n**Explanation:** `15 / 4` is integer division yielding `3`. `15.0 / 4` is floating-point division yielding `3.75`.",
+          "hint": "Integer division drops the decimal part."
+        },
+        {
+          "q": "iii) What will be the value of `k` after executing:\n```java\nint k = 25;\nk %= 6;\n```",
+          "marks": 1,
+          "answer": "**Correct Answer: `1`**\n\n**Explanation:** `25 % 6` computes the remainder of 25 divided by 6 (`25 = 6 × 4 + 1` → remainder = `1`).",
+          "hint": "25 divided by 6 leaves a remainder of 1."
+        },
+        {
+          "q": "iv) Which keyword is used in Java to declare a variable whose value cannot be modified after initialization?\n(a) const\n(b) static\n(c) final\n(d) immutable",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) final**\n\n**Explanation:** The `final` keyword defines constants in Java (`final int MAX_STUDENTS = 100;`).",
+          "hint": "The keyword for constants in Java."
+        },
+        {
+          "q": "v) Why is a `while` loop known as an Entry-Controlled Loop?",
+          "marks": 1,
+          "answer": "**Correct Answer:** A `while` loop checks the test condition **before entering** the body of the loop. If the condition is false initially, the loop body does not execute at all.",
+          "hint": "The condition is checked at the entry point."
+        },
+        {
+          "q": "vi) What does WORA stand for in the context of Java's JVM architecture?",
+          "marks": 1,
+          "answer": "**Correct Answer:** **Write Once, Run Anywhere**",
+          "hint": "Java's core cross-platform philosophy."
+        },
+        {
+          "q": "vii) What is the default value of an uninitialized instance variable of type `boolean` in Java?\n(a) true\n(b) false\n(c) null\n(d) 0",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) false**\n\n**Explanation:** In Java, instance variables of type `boolean` are automatically initialized to `false` by default.",
+          "hint": "The default boolean literal."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 4 – Objective Questions (RDBMS & MySQL Fundamentals)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) A candidate key that is not chosen as the Primary Key is called the ________ Key.\n(a) Foreign\n(b) Alternate\n(c) Super\n(d) Composite",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Alternate**\n\n**Explanation:** Candidate keys that are not selected as the primary key are termed Alternate keys.",
+          "hint": "The secondary candidate key."
+        },
+        {
+          "q": "ii) In MySQL, what is the maximum number of digits stored before the decimal in a column defined as `DECIMAL(5, 2)`?\n(a) 5\n(b) 2\n(c) 3\n(d) 7",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) 3**\n\n**Explanation:** Precision = 5, Scale = 2. Digits before decimal = `5 - 2 = 3` (Maximum number: `999.99`).",
+          "hint": "Precision minus Scale gives digits before decimal."
+        },
+        {
+          "q": "iii) Write the SQL query to list all records from table `Hospital` where the department is 'Cardiology'.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n```sql\nSELECT * FROM Hospital WHERE Department = 'Cardiology';\n```",
+          "hint": "SELECT * FROM Table WHERE column = 'value';"
+        },
+        {
+          "q": "iv) A table `Employee` has 6 attributes and 20 tuples. If 5 tuples are deleted and 2 new attributes are added, what are the new Degree and Cardinality of the table?",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n- **Degree (Columns):** `6 + 2 = 8`\n- **Cardinality (Rows):** `20 - 5 = 15`",
+          "hint": "Degree = columns, Cardinality = rows."
+        },
+        {
+          "q": "v) Which SQL operator is used to test for missing or unassigned values in a column?\n(a) `= NULL`\n(b) `IS NULL`\n(c) `== NULL`\n(d) `LIKE NULL`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) IS NULL**\n\n**Explanation:** In SQL, `NULL` cannot be compared with `=` because `NULL = NULL` yields unknown. `IS NULL` and `IS NOT NULL` are used.",
+          "hint": "SQL uses 'IS NULL'."
+        },
+        {
+          "q": "vi) Which wildcard character in the SQL `LIKE` clause matches exactly ONE single character?\n(a) `%`\n(b) `*`\n(c) `_` (Underscore)\n(d) `?`",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) `_` (Underscore)**\n\n**Explanation:** In SQL, `%` matches zero or more characters, whereas `_` (underscore) matches exactly one single character.",
+          "hint": "The single character wildcard."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 5 – Objective Questions (OOP, Arrays & Java API)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 7,
+      "description": "Answer any 5 Questions out of 7 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which method of `java.util.Arrays` searches a sorted array for a specified value using the binary search algorithm?\n(a) `Arrays.search()`\n(b) `Arrays.find()`\n(c) `Arrays.binarySearch()`\n(d) `Arrays.lookup()`",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) `Arrays.binarySearch()`**\n\n**Explanation:** `Arrays.binarySearch(array, key)` performs binary search on a pre-sorted array.",
+          "hint": "The binary search method in java.util.Arrays."
+        },
+        {
+          "q": "ii) What will be the output of evaluating `a = ++x * 3 + x++;` if initial `x = 4`?\n(a) 20\n(b) 21\n(c) 19\n(d) 24",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 20**\n\n**Step-by-Step Evaluation:**\n1. `++x`: pre-increment turns `x` from 4 to 5, returning `5`.\n2. `5 * 3 = 15`.\n3. `x++`: post-increment uses current value `5`, then `x` becomes 6.\n4. `a = 15 + 5 = 20`.",
+          "hint": "++x gives 5; 5 * 3 = 15; + 5 from x++ gives 20."
+        },
+        {
+          "q": "iii) In Java, what command-line flag is passed to the JVM to enable assertion checking during execution?\n(a) `-assert`\n(b) `-ea` (or `-enableassertions`)\n(c) `-test`\n(d) `-debug`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) `-ea` (or `-enableassertions`)**\n\n**Explanation:** Assertions are disabled by default. Running `java -ea ClassName` activates assertion evaluation.",
+          "hint": "The enable assertions flag."
+        },
+        {
+          "q": "iv) A constructor in Java:\n(a) Must have a `void` return type\n(b) Has the same name as the class and has no return type\n(c) Must be declared with `static` keyword\n(d) Is called manually using the dot operator",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Has the same name as the class and has no return type**\n\n**Explanation:** Constructors are specialized methods sharing the exact class name, lacking return types, and executing automatically upon `new` instantiation.",
+          "hint": "Same name as class, no return type."
+        },
+        {
+          "q": "v) What will be the output of `System.out.println(\"Barrackpore\".indexOf('r'));`?\n(a) 2\n(b) 3\n(c) 8\n(d) 11",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 2**\n\n**Explanation:** In `\"Barrackpore\"`, indexing starts at 0: `B`=0, `a`=1, `r`=2. The first occurrence of `'r'` is at index `2`.",
+          "hint": "B=0, a=1, r=2."
+        },
+        {
+          "q": "vi) Name the root interface implemented when creating threads in Java without extending the Thread class.",
+          "marks": 1,
+          "answer": "**Correct Answer:** `java.lang.Runnable` (or `Runnable`)",
+          "hint": "The thread functional interface."
+        },
+        {
+          "q": "vii) Given `int[] val = {10, 20, 30, 40, 50};`, what is `val.length`?\n(a) 4\n(b) 5\n(c) 6\n(d) 50",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 5**\n\n**Explanation:** The array contains 5 elements. The `length` property returns total element count `5`.",
+          "hint": "Total count of elements in the array."
+        }
+      ]
+    },
+    {
+      "section": "A",
+      "type": "Question 6 – Objective Questions (SQL Aggregates & Foreign Keys)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 6,
+      "description": "Answer any 5 Questions out of 6 Questions. (5 × 1 = 5 Marks)",
+      "questions": [
+        {
+          "q": "i) Which SQL clause groups rows that have the same values in specified columns into summary rows?\n(a) `ORDER BY`\n(b) `GROUP BY`\n(c) `HAVING`\n(d) `JOIN BY`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) `GROUP BY`**\n\n**Explanation:** `GROUP BY` groups summary records for aggregate functions like SUM, COUNT, AVG.",
+          "hint": "Clause used for categorical grouping."
+        },
+        {
+          "q": "ii) Which keyword is placed in a `SELECT` statement to eliminate duplicate rows from the query output?\n(a) `UNIQUE`\n(b) `DISTINCT`\n(c) `DIFFERENT`\n(d) `FILTER`",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) `DISTINCT`**\n\n**Explanation:** `SELECT DISTINCT column_name FROM table;` returns only unique non-repeating values.",
+          "hint": "The keyword for duplicate elimination."
+        },
+        {
+          "q": "iii) When creating a Foreign Key, what action automatically updates the matching foreign key value in the child table when the parent primary key is modified?\n(a) `ON UPDATE CASCADE`\n(b) `ON UPDATE SET NULL`\n(c) `ON UPDATE RESTRICT`\n(d) `ON UPDATE NO ACTION`",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) `ON UPDATE CASCADE`**\n\n**Explanation:** `ON UPDATE CASCADE` ensures parent primary key modifications propagate to all dependent child records automatically.",
+          "hint": "Cascades updates from parent to child."
+        },
+        {
+          "q": "iv) What does the aggregate function `COUNT(*)` return in SQL?\n(a) The sum of all numeric values in a column\n(b) The total number of rows in a table including NULL values\n(c) The average of values\n(d) The total number of distinct non-null values only",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) The total number of rows in a table including NULL values**\n\n**Explanation:** `COUNT(*)` counts all rows returned by the query regardless of whether columns contain NULL.",
+          "hint": "Counts all rows including NULLs."
+        },
+        {
+          "q": "v) State True or False: In SQL, the `HAVING` clause can be used to filter rows without aggregate functions before grouping occurs.",
+          "marks": 1,
+          "answer": "**Correct Answer: False**\n\n**Explanation:** `WHERE` filters individual rows before grouping, whereas `HAVING` is specifically designed to filter groups after aggregate functions have been applied.",
+          "hint": "WHERE filters before grouping; HAVING filters after."
+        },
+        {
+          "q": "vi) Write the SQL query to find the highest salary from the table `Staff`.",
+          "marks": 1,
+          "answer": "**Correct Answer:**\n```sql\nSELECT MAX(Salary) FROM Staff;\n```",
+          "hint": "Use MAX(Salary)."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Subjective Questions (Part 1 – E-Commerce & Systems)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 2 = 6 Marks)",
+      "questions": [
+        {
+          "q": "Question 7\nA local retail bookstore in Barrackpore wants to launch an online ordering website. List four essential features that the website must provide to ensure a convenient customer experience.",
+          "marks": 2,
+          "answer": "**Model Answer:** Four essential features:\n1. **Search & Category Filtering:** Fast searching by book title, author, ISBN, and genre.\n2. **Shopping Cart & Wishlist:** Ability to add books, adjust quantities, and save books for future orders.\n3. **Multiple Secure Payment Methods:** Integration of UPI (GPay, PhonePe), Credit/Debit cards, and Net Banking over HTTPS.\n4. **Order Tracking & Digital Invoices:** Real-time delivery status tracking and instant downloadable PDF receipts.",
+          "hint": "Search filters, shopping cart, secure payments, and order tracking."
+        },
+        {
+          "q": "Question 8\nExplain two significant applications of Database Management Systems in the Banking sector.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n1. **Customer Account & Balance Maintenance:** Storing customer KYC profiles, active account balances, and real-time ledger accounting.\n2. **Transaction Processing & Audit Logs:** Managing atomic funds transfers (NEFT, RTGS, UPI, ATM withdrawals) and maintaining tamper-evident audit trails.",
+          "hint": "Account balances and real-time transaction processing."
+        },
+        {
+          "q": "Question 9\nDefine the term 'Project'. Mention two characteristics that distinguish a Project from ongoing routine operations.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n- **Definition:** A Project is a temporary endeavor undertaken to create a unique product, service, or result.\n- **Two Distinguishing Characteristics:**\n  1. **Temporary Nature:** It has a specific starting date and defined completion deadline (routine operations are continuous).\n  2. **Unique Outcome:** It delivers a non-repetitive, unique deliverable under constrained resources.",
+          "hint": "Temporary endeavor with unique deliverables vs continuous operations."
+        },
+        {
+          "q": "Question 10\nState two critical precautions a user should observe when conducting online financial transactions on a shared computer.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n1. **Use Incognito / Private Browsing & Never Save Credentials:** Always decline browser prompts to save passwords or autofill card details, and close the session immediately.\n2. **Log Out Explicitly & Clear Cache:** Click the official 'Logout' button and clear browser cache and cookies after the transaction.",
+          "hint": "Do not save passwords, use incognito, and log out."
+        },
+        {
+          "q": "Question 11\n(i) What is the function of an E-Commerce Shopping Cart?\n(ii) Name two popular Indian digital portals for citizen services.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n(i) **Shopping Cart Function:** Holds chosen items temporarily, computes subtotals with taxes and shipping, and directs users to checkout.\n(ii) **Two Citizen Portals:**\n  1. `digilocker.gov.in` (Digital Document Wallet)\n  2. `parivahan.gov.in` (Vehicle Registration & Driving License Services)",
+          "hint": "Item holding/calculation and citizen service websites."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Subjective Questions (Part 2 – Programming Logic & DDL/DML)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer any 3 Questions out of 5 Questions. (3 × 2 = 6 Marks)",
+      "questions": [
+        {
+          "q": "Question 12\nRewrite the following nested if-else code into an equivalent `switch-case` statement:\n```java\nint code = Integer.parseInt(jTextFieldCourse.getText());\nString courseName = \"\";\nif (code == 101)\n    courseName = \"Java Programming\";\nelse if (code == 102)\n    courseName = \"MySQL Database\";\nelse if (code == 103)\n    courseName = \"Web Development\";\nelse if (code == 104)\n    courseName = \"Cyber Security\";\nelse\n    courseName = \"General IT\";\n```",
+          "marks": 2,
+          "answer": "**Model Solution:**\n```java\nint code = Integer.parseInt(jTextFieldCourse.getText());\nString courseName = \"\";\nswitch (code) {\n    case 101:\n        courseName = \"Java Programming\";\n        break;\n    case 102:\n        courseName = \"MySQL Database\";\n        break;\n    case 103:\n        courseName = \"Web Development\";\n        break;\n    case 104:\n        courseName = \"Cyber Security\";\n        break;\n    default:\n        courseName = \"General IT\";\n        break;\n}\n```",
+          "hint": "Use switch(code) with cases 101, 102, 103, 104 and default."
+        },
+        {
+          "q": "Question 13\nDifferentiate between the SQL commands `TRUNCATE TABLE` and `DELETE FROM` with respect to command category, execution speed, and rollback capability.",
+          "marks": 2,
+          "answer": "**Model Answer:**\n| Feature | `TRUNCATE TABLE` | `DELETE FROM` |\n| :--- | :--- | :--- |\n| **Category** | Data Definition Language (**DDL**) | Data Manipulation Language (**DML**) |\n| **Mechanism & Speed** | Deallocates entire data pages directly; **Extremely Fast** | Deletes rows individually and logs each row; **Slower** |\n| **WHERE Clause** | Cannot use `WHERE` (removes all rows unconditionally) | Can use `WHERE` to remove specific rows |\n| **Rollback** | Cannot be rolled back in standard MySQL DDL transactions | Can be rolled back inside active transactions |",
+          "hint": "TRUNCATE is DDL, fast, no WHERE; DELETE is DML, row-by-row, supports WHERE."
+        },
+        {
+          "q": "Question 14\nA table `BOOKSTORE` has attributes: `Book_ID` (Integer PK), `Title` (Varchar 30), `Price` (Integer), `Category` (Varchar 20).\n\n(a) Write a SQL statement to display Category and the Average Price of books in each category.\n(b) Write a SQL statement to give a 10% discount by reducing the Price of all books in the 'Computer' category.",
+          "marks": 2,
+          "answer": "**Model Solutions:**\n\n**(a)**\n```sql\nSELECT Category, AVG(Price) FROM BOOKSTORE GROUP BY Category;\n```\n\n**(b)**\n```sql\nUPDATE BOOKSTORE SET Price = Price * 0.90 WHERE Category = 'Computer';\n-- or: UPDATE BOOKSTORE SET Price = Price - (Price * 0.10) WHERE Category = 'Computer';\n```",
+          "hint": "(a) GROUP BY Category with AVG(Price). (b) UPDATE SET Price = Price * 0.90 WHERE Category='Computer'."
+        },
+        {
+          "q": "Question 15\nTrace and write the console output of the following Java program:\n```java\npublic class LoopDemo {\n    public static void main(String[] args) {\n        int x = 1;\n        do {\n            System.out.println(\"Value: \" + (x * 3));\n            x += 2;\n        } while (x <= 7);\n    }\n}\n```",
+          "marks": 2,
+          "answer": "**Model Answer:**\n**Console Output:**\n```\nValue: 3\nValue: 9\nValue: 15\nValue: 21\n```\n\n**Step-by-Step Execution Trace:**\n- **Iteration 1:** `x = 1` → prints `1 * 3 = 3` → `x` becomes `3` → `3 <= 7` is **True**.\n- **Iteration 2:** `x = 3` → prints `3 * 3 = 9` → `x` becomes `5` → `5 <= 7` is **True**.\n- **Iteration 3:** `x = 5` → prints `5 * 3 = 15` → `x` becomes `7` → `7 <= 7` is **True**.\n- **Iteration 4:** `x = 7` → prints `7 * 3 = 21` → `x` becomes `9` → `9 <= 7` is **False** (Terminates).",
+          "hint": "x takes values 1, 3, 5, 7 and prints x * 3."
+        },
+        {
+          "q": "Question 16\nA table `STUDENT_FEES` has attributes: `Receipt_No` (Integer), `Student_Name` (Varchar 40), `Course_Code` (Varchar 10), `Fee_Paid` (Decimal 7, 2).\n\n(i) Write SQL code to insert a record: `1001, \"Abhronila Sen\", \"IT802\", 4500.50`\n(ii) What is the total precision and scale of `Fee_Paid`? What is the maximum amount it can store?",
+          "marks": 2,
+          "answer": "**Model Solution:**\n\n**(i)**\n```sql\nINSERT INTO STUDENT_FEES VALUES (1001, 'Abhronila Sen', 'IT802', 4500.50);\n```\n\n**(ii)**\nIn `Decimal(7, 2)`:\n- **Precision (Total Digits):** `7`\n- **Scale (Digits after decimal):** `2`\n- **Digits before decimal:** `7 - 2 = 5`\n- **Maximum amount storable:** `99999.99` (₹99,999.99)",
+          "hint": "Precision is 7, scale is 2, maximum is 99999.99."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Subjective Questions (Part 3 – Multi-Table Queries & Programming)",
+      "marksPerQuestion": 4,
+      "totalQuestions": 4,
+      "description": "Answer any 3 Questions out of 4 Questions. (3 × 4 = 12 Marks)",
+      "questions": [
+        {
+          "q": "Question 17 [HOTEL Table SQL Queries]\nConsider the table `HOTEL` given below:\n\nTable `HOTEL`:\n| RoomNo | GuestName | RoomType | CheckIn | DailyRent | Discount |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| 101 | Debangshu Hui | Deluxe | 2026-01-10 | 3500 | 500 |\n| 102 | Susmita Das | SuperDeluxe | 2026-02-14 | 5000 | NULL |\n| 103 | Tuhina Paul | Suite | 2026-01-20 | 8000 | 1200 |\n| 104 | Sachin Roy | Deluxe | 2026-03-05 | 3500 | 350 |\n| 105 | Mahima Sen | Standard | 2026-02-18 | 2000 | NULL |\n| 106 | Swadeep Ghosh | Suite | 2026-01-25 | 8000 | 1000 |\n\nWrite the Output for SQL Queries (i) to (iii):\n(i) `SELECT RoomType, COUNT(*) FROM HOTEL GROUP BY RoomType;`\n(ii) `SELECT GuestName, DailyRent FROM HOTEL WHERE Discount IS NULL;`\n(iii) `SELECT SUM(DailyRent) FROM HOTEL WHERE RoomType = 'Suite' AND CheckIn >= '2026-01-20';`",
+          "marks": 4,
+          "answer": "**Model Solutions:**\n\n**(i)**\n**Output:**\n```\nRoomType       COUNT(*)\nDeluxe         2\nSuperDeluxe    1\nSuite          2\nStandard       1\n```\n\n**(ii)**\nMatching records (Discount IS NULL):\n- Susmita Das: 5000\n- Mahima Sen: 2000\n\n**Output:**\n```\nGuestName      DailyRent\nSusmita Das    5000\nMahima Sen     2000\n```\n\n**(iii)**\nMatching records (RoomType = 'Suite' AND CheckIn >= '2026-01-20'):\n- Tuhina Paul (8000)\n- Swadeep Ghosh (8000)\n- `SUM = 8000 + 8000 = 16000`\n\n**Output:**\n```\nSUM(DailyRent)\n16000\n```",
+          "hint": "(i) Count per room type. (ii) Guests with NULL discount. (iii) Sum suites from Jan 20."
+        },
+        {
+          "q": "Question 18\n(a) Write a complete Java program using a `while` loop that inputs a positive integer `N` from the user and calculates the sum of all odd integers from 1 to N.\n(b) Differentiate between extending `Thread` class and implementing `Runnable` interface for thread creation.",
+          "marks": 4,
+          "answer": "**Model Solution:**\n\n**(a) Java Program:**\n```java\nimport java.util.Scanner;\n\npublic class SumOddNumbers {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a positive integer N: \");\n        int n = sc.nextInt();\n        \n        int sum = 0;\n        int i = 1;\n        while (i <= n) {\n            if (i % 2 != 0) {\n                sum += i;\n            }\n            i++;\n        }\n        \n        System.out.println(\"Sum of odd numbers from 1 to \" + n + \" is: \" + sum);\n        sc.close();\n    }\n}\n```\n\n**(b) Comparison:**\n| Feature | Extending `Thread` Class | Implementing `Runnable` Interface |\n| :--- | :--- | :--- |\n| **Inheritance** | Class cannot extend any other class (Java lacks multiple class inheritance) | Class can still extend another superclass while implementing `Runnable` |\n| **Architecture** | Tightly couples task code with thread lifecycle | Decouples runnable task logic from the thread runner (Clean OOP design) |",
+          "hint": "(a) Use while loop with i % 2 != 0. (b) Multiple inheritance limitation vs decoupling."
+        },
+        {
+          "q": "Question 21 [DOCTOR & APPOINTMENTS Multi-Table Queries]\nConsider the following relational tables:\n\nTable `DOCTOR`:\n| DocID | DocName | Department | OPD_Fee |\n| :--- | :--- | :--- | :--- |\n| D01 | Dr. R. K. Sharma | Cardiology | 800 |\n| D02 | Dr. P. Sengupta | Neurology | 1000 |\n| D03 | Dr. A. Banerjee | Orthopedics | 600 |\n| D04 | Dr. S. Mukherjee | Pediatrics | 500 |\n\nTable `APPOINTMENTS`:\n| AppID | PatientName | DocID | AppDate | Status |\n| :--- | :--- | :--- | :--- | :--- |\n| 1001 | Mamata Hui | D01 | 2026-03-10 | Confirmed |\n| 1002 | Susmita Roy | D02 | 2026-03-11 | Confirmed |\n| 1003 | Debangshu Pal | D01 | 2026-03-12 | Pending |\n| 1004 | Tuhina Sen | D03 | 2026-03-12 | Confirmed |\n\nWrite SQL statements for the following:\n(A) Display PatientName, Department, and OPD_Fee of all appointments confirmed with their respective doctors.\n(B) Display all doctors whose OPD_Fee is greater than 600 in descending order of OPD_Fee.\n(C) Add a new column `ContactNo` of type `VARCHAR(10)` to the `DOCTOR` table.\n(D) Count total appointments assigned to doctor with `DocID = 'D01'`.",
+          "marks": 4,
+          "answer": "**Model Solutions:**\n\n**(A)**\n```sql\nSELECT A.PatientName, D.Department, D.OPD_Fee \nFROM APPOINTMENTS A, DOCTOR D \nWHERE A.DocID = D.DocID AND A.Status = 'Confirmed';\n```\n\n**(B)**\n```sql\nSELECT * FROM DOCTOR \nWHERE OPD_Fee > 600 \nORDER BY OPD_Fee DESC;\n```\n\n**(C)**\n```sql\nALTER TABLE DOCTOR ADD ContactNo VARCHAR(10);\n```\n\n**(D)**\n```sql\nSELECT COUNT(*) FROM APPOINTMENTS WHERE DocID = 'D01';\n```",
+          "hint": "(A) Join on DocID WHERE Status='Confirmed'. (B) OPD_Fee > 600 ORDER BY DESC. (C) ALTER TABLE ADD. (D) COUNT(*) WHERE DocID='D01'."
+        },
+        {
+          "q": "Question 23 [Java String Operations]\nConsider the string variable: `String text = \"Barrackpore Digital Hub\";`\n\nWrite Java statements to perform the following operations:\n(i) Extract the substring `\"Digital\"` from `text`.\n(ii) Convert the entire string to lowercase.\n(iii) Replace all occurrences of `'a'` with `'@'`.\n(iv) Check if `text` starts with the prefix `\"Barrack\"`.",
+          "marks": 4,
+          "answer": "**Model Solutions:**\n\n**(i)**\nIn `\"Barrackpore Digital Hub\"`:\n- Index of `'D'` is 12, Index after `'l'` is 19.\n```java\nString sub = text.substring(12, 19);\n```\n\n**(ii)**\n```java\nString lower = text.toLowerCase();\n```\n\n**(iii)**\n```java\nString modified = text.replace('a', '@');\n```\n\n**(iv)**\n```java\nboolean starts = text.startsWith(\"Barrack\");\n```",
+          "hint": "(i) text.substring(12, 19) (ii) text.toLowerCase() (iii) text.replace('a', '@') (iv) text.startsWith(\"Barrack\")"
+        }
+      ]
+    }
+  ]
+}

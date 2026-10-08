@@ -1,0 +1,52 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 2: RELATIONAL MODEL TERMINOLOGY (RELATION, TUPLE, ATTRIBUTE)
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. HISTORICAL CONTEXT:
+   Dr. Edgar F. Codd (IBM Research) introduced the Relational Model in 1970 based
+   on mathematical set theory and first-order predicate logic.
+
+2. CORE TERMINOLOGY MAPPING:
+   Theoretical Term (Codd) | Practical SQL Term | File Processing Term
+   ------------------------|--------------------|---------------------
+   Relation                | Table              | File
+   Tuple                   | Row                | Record
+   Attribute               | Column             | Field
+   Domain                  | Data Type / Range  | Data Type
+   Cardinality             | Number of Rows     | Total Records
+   Degree                  | Number of Columns  | Number of Fields
+
+3. KEY DEFINITIONS FOR CBSE BOARD EXAM:
+   a) Relation:
+      A two-dimensional table containing structured data organized into rows and
+      columns. Must have a distinct name within the schema.
+   b) Tuple:
+      A single horizontal row in a relation representing an individual entity
+      instance (e.g. Mamata Das's record).
+   c) Attribute:
+      A vertical column in a relation representing a named characteristic or
+      property of an entity (e.g. StudentName, RollNo, TheoryMarks).
+   d) Domain:
+      The set of all permissible atomic values from which an attribute draws its
+      values.
+   e) Degree:
+      The total count of attributes (columns) in a relation.
+   f) Cardinality:
+      The total count of tuples (rows) in a relation at a given moment.
+
+4. FUNDAMENTAL PROPERTIES OF RELATIONS:
+   1. Atomic Values (1NF): No multi-valued lists or repeating groups in a cell.
+   2. Unordered Tuples: Physical row sequence is logically immaterial.
+   3. Unordered Attributes: Column sequence is referenced by name, not order.
+   4. Distinct Tuples: No two identical tuples can exist (Enforced via PK).
+   5. Distinct Attribute Names: Within a relation, all column names must be unique.
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+Never confuse Tuple with Attribute! A Tuple is horizontal (Row/Record), whereas
+an Attribute is vertical (Column/Field). In CBSE board objective questions,
+matching questions frequently test these exact synonyms.
+================================================================================

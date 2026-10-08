@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 1: MATHEMATICAL AGGREGATE FUNCTIONS: SUM(COL), AVG(COL) (IGNORING NULL VALUES)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 12 mins | Level: Intermediate
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] SUM(column): Calculates the total arithmetic sum of all non-null values in the specified column.
+[2] AVG(column): Calculates the arithmetic mean (Sum / Non-Null Count).
+[3] Crucial Rule: SUM and AVG completely IGNORE NULL values. NULL is NOT treated as 0.
+[4] If a column has values {100, 200, NULL, 300}, AVG is (100+200+300)/3 = 200 (NOT 600/4 = 150).
+[5] If all rows in a column are NULL, SUM(col) and AVG(col) return NULL.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Demonstrating SUM and AVG with NULL Handling
+USE CompanyDB;
+
+-- Compute Total and Average Commission
+-- Note: Employees with NULL commission are excluded from the average calculation denominator!
+SELECT 
+  SUM(Commission) AS TotalCommissionPaid,
+  AVG(Commission) AS AvgCommissionPerEligibleStaff,
+  COUNT(Commission) AS StaffReceivingCommission,
+  COUNT(*) AS TotalStaffInCompany
+FROM Employee;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"CBSE Board Favorite: 'Does AVG include NULL in the denominator?' The answer is strictly NO! AVG divides by COUNT(column), which ignores NULLs. — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

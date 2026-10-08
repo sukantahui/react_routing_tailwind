@@ -1,0 +1,67 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_003: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT
+TOPIC 0: OVERVIEW OF THE WEB APPLICATION DEVELOPMENT LIFECYCLE (WADL / SDLC)
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS THE WEB APPLICATION DEVELOPMENT LIFECYCLE?
+--------------------------------------------------------------------------------
+The Web Application Development Lifecycle (WADL) is a structured, systematic process 
+used by software engineering teams to design, develop, test, deploy, and maintain high-quality 
+web applications meeting stakeholder requirements within scheduled time and budget constraints.
+
+Why Structured Methodology is Crucial:
+- Eliminates chaotic ad-hoc coding and guesswork.
+- Prevents 'Scope Creep' (uncontrolled feature bloat).
+- Reduces the exponential cost of fixing late-stage bugs.
+- Provides clear phase-gate milestones and verifiable deliverables.
+
+2. THE FOUR SEQUENTIAL STAGES (CBSE BLUEPRINT)
+--------------------------------------------------------------------------------
+STAGE 1: REQUIREMENT DEFINITION / ANALYSIS PHASE (WHAT TO BUILD)
+- Focus: Understanding client needs, operational scope, and system constraints.
+- Activities: Stakeholder interviews, questionnaires, paper workflow analysis, feasibility study.
+- Key Deliverable: Software Requirements Specification (SRS) Document.
+
+STAGE 2: DESIGN PHASE (HOW TO ARCHITECT & VISUALIZE)
+- Focus: Translating the SRS into technical and visual blueprints before writing code.
+- Activities: UI/UX wireframes, sitemaps, database Entity-Relationship (ER) modeling, 
+  table schemas, Data Flow Diagrams (DFD), technology stack selection (e.g. 3-Tier Java + MySQL).
+- Key Deliverables: Design Document Specification (DDS), ER Diagrams, UI Mockups, DDL scripts.
+
+STAGE 3: IMPLEMENTATION / CODING PHASE (BUILDING THE SOFTWARE)
+- Focus: Translating design blueprints into working, compiled, executable source code.
+- Activities: Writing front-end HTML/CSS/JavaScript, server-side Java/Python business logic, 
+  JDBC database connectors, and SQL query integration.
+- Key Deliverable: Working, integrated, version-controlled source code repository.
+
+STAGE 4: TESTING & QUALITY ASSURANCE PHASE (VALIDATION & BUG FINDING)
+- Focus: Executing the software to find defects, verify requirements, and ensure stability.
+- Activities: Unit testing, Integration testing, Functional testing, Security audits (SQLi/XSS), 
+  User Acceptance Testing (UAT).
+- Key Deliverables: Test Plan, Test Cases, Bug Tracking & Sign-off Reports.
+
+FOLLOWED BY: DEPLOYMENT & MAINTENANCE
+- Hosting on live web servers (Apache Tomcat, Nginx, AWS/Azure), SSL installation, 
+  and ongoing corrective/adaptive/perfective maintenance based on user feedback.
+
+3. SUMMARY TABLE: THE 4 STAGES AT A GLANCE
+--------------------------------------------------------------------------------
+STAGE NUMBER   STAGE NAME                PRIMARY GOAL                KEY DELIVERABLE
+--------------------------------------------------------------------------------
+Stage 1        Requirement Definition    Define scope & features     SRS Document
+Stage 2        Design Phase              Architecture & UI layout    ER Diagrams & Wireframes
+Stage 3        Implementation (Coding)   Write working source code   Source Code Repository
+Stage 4        Testing & QA              Discover & fix defects      Test Cases & Bug Report
+
+4. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+ওয়েব অ্যাপ্লিকেশন তৈরি করার জন্য একটি নির্দিষ্ট ধারাবাহিক পদ্ধতি মেনে চলা হয় যাকে ৪টি ধাপে 
+ভাগ করা হয়েছে:
+১. Requirement Definition: ক্লায়েন্টের প্রয়োজন বুঝে কী তৈরি হবে তা ঠিক করা এবং SRS দলিল লেখা।
+২. Design Phase: কোডিং শুরুর আগে নকশা বা ব্লুপ্রিন্ট, যেমন UI লেআউট ও ডেটাবেজ ER ডায়াগ্রাম তৈরি।
+৩. Implementation (Coding): প্রোগ্রামাররা HTML, CSS, JavaScript, Java ও SQL দিয়ে কোড লেখেন।
+৪. Testing: সফটওয়্যারের সমস্ত ত্রুটি বা বাগ (Bugs) খুঁজে বের করে তা ঠিক করা এবং চূড়ান্ত অনুমোদন দেওয়া।
+
+================================================================================

@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 12: SORTING RESULTS: THE ORDER BY CLAUSE (ASC, DESC & MULTI-COLUMN)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 12 mins | Level: Beginner
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] The ORDER BY clause sorts the query output records in a specified sequence.
+[2] ASC (Ascending): Lowest to highest, A to Z, oldest date to newest (Default if omitted).
+[3] DESC (Descending): Highest to lowest, Z to A, newest date to oldest.
+[4] Multi-Column Sorting: ORDER BY col1 ASC, col2 DESC (Sorts by col1 first; resolves ties using col2).
+[5] In MySQL, NULL values are treated as the lowest possible values and appear first in ASC order.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- ORDER BY Sorting Benchmark
+USE SchoolDB;
+
+-- 1. Ascending Sort by Marks (Default)
+SELECT RollNo, FullName, TotalMarks 
+FROM Student 
+ORDER BY TotalMarks ASC;
+
+-- 2. Descending Sort (Top Rankers first)
+SELECT RollNo, FullName, TotalMarks 
+FROM Student 
+ORDER BY TotalMarks DESC;
+
+-- 3. Multi-Column Sorting: Stream Ascending, then Marks Descending within stream
+SELECT RollNo, FullName, Stream, TotalMarks 
+FROM Student 
+ORDER BY Stream ASC, TotalMarks DESC;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"ORDER BY is always written as the LAST clause in a basic SELECT statement (after WHERE). ASC is optional because it is the default. — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

@@ -1,0 +1,27 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001: RELATIONAL DATABASE CONCEPTS, KEYS & TERMINOLOGY
+TOPIC 7: SELF-REFERENCING FOREIGN KEYS (RECURSIVE TABLE RELATIONSHIPS)
+AUTHOR & EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A SELF-REFERENCING FOREIGN KEY?
+   A column in a table that references the Primary Key of that EXACT SAME table.
+
+2. REAL-WORLD USAGE:
+   - Employee -> Manager reporting chains.
+   - Category -> Subcategory trees on Amazon/Flipkart.
+   - Parts -> Sub-assembly parts in manufacturing.
+
+3. THE ROOT NODE:
+   The top Director/CEO has `ManagerID = NULL`.
+
+4. SELF-JOIN QUERY:
+   SELECT E.EmpName, IFNULL(M.EmpName, 'Top Director') AS Manager
+   FROM Employee E
+   LEFT JOIN Employee M ON E.ManagerID = M.EmpID;
+
+================================================================================
+EXAM TIP BY SUKANTA HUI:
+Always use LEFT JOIN for Self-Joins so that the top executive is not filtered out!
+================================================================================

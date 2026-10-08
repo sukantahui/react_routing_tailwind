@@ -1,0 +1,117 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+SEGMENT 2: OPERATING WEB-BASED APPLICATIONS & E-SERVICES
+MODULE: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT
+TOPIC 8: EXAM SIMULATOR & SUBJECTIVE MODEL ANSWER KEY (2, 3 & 5 MARKS)
+TEACHER / AUTHOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+SECTION A: 2-MARK SOLVED CBSE BOARD QUESTIONS & MODEL ANSWERS
+--------------------------------------------------------------------------------
+Q1. What is the primary purpose of the Requirement Definition Phase (Stage 1) in web development? Name its key deliverable.
+Ans: The Requirement Definition Phase answers "WHAT" the system must achieve. It involves interacting with clients and stakeholders to compile detailed functional requirements, operational constraints, and project boundaries.
+Key Deliverable: Software Requirements Specification (SRS) Document.
+
+Q2. Differentiate between Unit Testing and Integration Testing.
+Ans:
+- Unit Testing: Tests individual methods, subroutines, or isolated classes (e.g. testing `calculateBillTariff()`) to verify internal logic.
+- Integration Testing: Tests the communication, data exchange, and interfaces between interconnected modules (e.g. testing whether the UI form successfully transmits JSON data to Java Servlets and updates the MySQL database).
+
+Q3. Why is PreparedStatement preferred over Statement in Java JDBC programming?
+Ans:
+1. Security: PreparedStatement parameterizes inputs using placeholders (`?`), neutralizing SQL Injection attacks.
+2. Performance: The database pre-compiles and caches the SQL execution plan, resulting in faster repeated query execution.
+
+Q4. Differentiate between `executeUpdate()` and `executeQuery()` in JDBC.
+Ans:
+- `executeUpdate()`: Used for DML and DDL commands (`INSERT`, `UPDATE`, `DELETE`, `CREATE`). It returns an `int` representing the number of affected rows.
+- `executeQuery()`: Used for `SELECT` statements. It returns a `ResultSet` object containing the retrieved tabular records.
+
+Q5. What is Regression Testing? Why is it crucial?
+Ans: Regression Testing involves re-executing existing test suites after bug fixes or code modifications. It is crucial to guarantee that new changes have not broken existing, working features or introduced new defects.
+
+--------------------------------------------------------------------------------
+SECTION B: 3-MARK SOLVED CBSE BOARD QUESTIONS & MODEL ANSWERS
+--------------------------------------------------------------------------------
+Q6. Explain the 3-Tier Architecture of a Web Application with a neat diagrammatic representation and example technologies.
+Ans:
+The 3-Tier Architecture decouples the web application into three distinct layers:
+
+[ TIER 1: PRESENTATION TIER ] (Client Browser)
+  - Technologies: HTML5, CSS3, JavaScript, React.
+  - Function: Renders UI, captures user actions, performs client-side validation.
+        |
+        v (HTTPS REST Request)
+[ TIER 2: APPLICATION / BUSINESS LOGIC TIER ] (Web Application Server)
+  - Technologies: Java Servlets, Spring Boot, Node.js, Apache Tomcat.
+  - Function: Enforces business logic, computes billing tariffs, authenticates users, packages JSON.
+        |
+        v (JDBC / SQL Bridge)
+[ TIER 3: DATA / DATABASE TIER ] (Database Management System)
+  - Technologies: MySQL 8.0, PostgreSQL, Oracle.
+  - Function: Safely stores, retrieves, indexes, and manages normalized relational tables.
+
+Q7. Define the four types of software maintenance with one real-world example for each.
+Ans:
+1. Corrective Maintenance: Fixing defects or errors discovered by live users in production.
+   * Example: Fixing an invoice calculation bug that deducted ₹10 extra during UPI payments.
+2. Adaptive Maintenance: Modifying software to adapt to external environment or legal policy changes.
+   * Example: Updating tax calculation algorithms to comply with a revised Indian GST tax slab (from 18% to 12%).
+3. Perfective Maintenance: Enhancing performance, speed, or adding desirable features based on user requests.
+   * Example: Adding a Dark Mode UI theme and a "Download 12-Month Statement as PDF" button.
+4. Preventive Maintenance: Proactively refactoring code and upgrading infrastructure to prevent future failures.
+   * Example: Re-indexing MySQL tables and patching OpenSSL libraries to eliminate security vulnerabilities.
+
+Q8. What is User Acceptance Testing (UAT)? Differentiate between Alpha Testing and Beta Testing.
+Ans:
+UAT is the final testing phase conducted by actual end-users and client stakeholders to verify that the software satisfies real-world business requirements before granting formal deployment sign-off.
+- Alpha Testing: Conducted in a controlled internal laboratory environment by the organization's internal QA team and developers.
+- Beta Testing: Conducted in a real-world operating environment by external prospective end-users prior to commercial release.
+
+--------------------------------------------------------------------------------
+SECTION C: 5-MARK COMPREHENSIVE CASE STUDY & DEVELOPMENT LIFECYCLE
+--------------------------------------------------------------------------------
+Q9. Case Study: "You are appointed as the Lead Software Engineer to develop an Online Electricity Billing & Invoicing System for the consumers of Barrackpore."
+Explain how you will execute this project across the 4 Stages of Web Application Development and post-deployment maintenance.
+
+Model Answer:
+1. STAGE 1: REQUIREMENT DEFINITION / ANALYSIS PHASE:
+   - Interact with Barrackpore electric supply accountants and consumers to compile detailed requirements: consumer ID lookup, slab-based tariff computation, online UPI/card payments, and receipt generation.
+   - Perform Technical, Economic, and Operational Feasibility studies.
+   - Define project scope (e.g. system handles up to 50,000 consumers; excludes commercial high-voltage billing).
+   - Produce and sign the formal Software Requirements Specification (SRS) document.
+
+2. STAGE 2: DESIGN PHASE:
+   - High-Level Design (HLD): Formulate 3-Tier Architecture (Presentation: React/HTML5, Application: Java Servlets, Data: MySQL).
+   - Low-Level Design (LLD): Create Entity-Relationship (ER) diagrams and normalized 3NF schemas:
+     * `CONSUMERS (ConsumerID [PK], Name, MeterNo, Address)`
+     * `BILLS (BillID [PK], ConsumerID [FK], Units, TotalAmount, DueDate, Status)`
+     * `TRANSACTIONS (TxnID [PK], BillID [FK], AmountPaid, Gateway, Timestamp)`
+   - Design UI/UX wireframes in Figma and chart navigational hierarchies.
+   - Deliverable: Design Document Specification (DDS).
+
+3. STAGE 3: IMPLEMENTATION / CODING PHASE:
+   - Front-End: Write semantic HTML5 forms, CSS3 styles, and client-side JavaScript validation (e.g. 10-digit consumer ID check).
+   - Back-End: Develop Java Servlets (`BillingServlet.java`) containing slab calculation algorithms.
+   - Database Persistence: Use JDBC `PreparedStatement` to safely insert billing records into MySQL and block SQL injection:
+     `PreparedStatement ps = con.prepareStatement("INSERT INTO BILLS VALUES (?, ?, ?)");`
+   - Deliverable: Executable Source Code Repository with Git version history.
+
+4. STAGE 4: TESTING & QUALITY ASSURANCE PHASE:
+   - Unit Testing: Validate isolated tariff formulas with JUnit across 0, 100, 200, and 500 kWh inputs.
+   - Integration Testing: Verify seamless JSON data flow from UI forms to Java Servlets and MySQL tables.
+   - Boundary Value Analysis: Test negative unit inputs (-50 kWh) to verify graceful error handling.
+   - Security Testing: Pen-test login forms against SQL injection payloads (`' OR '1'='1`).
+   - User Acceptance Testing (UAT): Conduct Beta testing with select consumers in Barrackpore for final sign-off.
+   - Deliverable: Test Plan, Bug Defect Reports, and UAT Sign-off Certificate.
+
+5. POST-DEPLOYMENT & ONGOING MAINTENANCE:
+   - Deploy onto cloud web servers (Apache Tomcat / AWS), map domain DNS, and install SSL HTTPS encryption.
+   - Perform Corrective Maintenance for unexpected calculation bugs.
+   - Perform Adaptive Maintenance when Indian GST tax slabs change.
+   - Perform Perfective Maintenance by adding requested dark mode and PDF bill exports.
+   - Perform Preventive Maintenance by optimizing database indexes to handle peak-hour traffic.
+
+================================================================================
+END OF TOPIC 8 STUDY NOTES & MODEL ANSWER KEY
+================================================================================

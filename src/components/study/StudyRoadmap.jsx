@@ -122,7 +122,115 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
   const [copiedSlug, setCopiedSlug] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
   const [lastVisited, setLastVisited] = useState(null);
-  const [, setAuthVersion] = useState(0);
+  const [authVersion, setAuthVersion] = useState(0);
+
+  // Authentication & Role Check Helpers
+  const isLoggedIn = useCallback(() => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    return !!(token && user);
+  }, [authVersion]);
+
+  const getUser = useCallback(() => {
+    const rawUser = localStorage.getItem("user");
+    if (!rawUser) return null;
+    try {
+      return typeof rawUser === "string" ? JSON.parse(rawUser) : rawUser;
+    } catch {
+      return null;
+    }
+  }, [authVersion]);
+
+  const getUserRole = useCallback(() => {
+    const user = getUser();
+    return (
+      user?.role ||
+      user?.userType?.userTypeName ||
+      user?.user_type_name ||
+      user?.user_type ||
+      user?.roleName ||
+      ""
+    ).trim().toLowerCase();
+  }, [getUser]);
+
+  const isTeacherOrAdmin = useCallback(() => {
+    if (!isLoggedIn()) return false;
+    const role = getUserRole();
+    const allowed = ["admin", "teacher", "developer", "owner", "manager", "faculty", "instructor"];
+    return allowed.includes(role);
+  }, [isLoggedIn, getUserRole]);
+
+  // Segment Visibility & Role Authorization Check
+  const isSegmentAuthorized = useCallback((segment) => {
+    if (!segment) return false;
+    const vis = (segment.visibility || "").toLowerCase();
+    const allowedRoles = segment.allowedRoles;
+    const segId = (segment.segmentId || "").toLowerCase();
+
+    // Explicit admin-teacher visibility, or 006 segment convention
+    const isAdminTeacherRequired =
+      vis === "admin-teacher" ||
+      vis === "admin_teacher" ||
+      vis === "teacher-admin" ||
+      vis === "teacher_admin" ||
+      vis === "admin,teacher" ||
+      (Array.isArray(allowedRoles) && allowedRoles.length > 0) ||
+      segId.startsWith("segment-6") ||
+      segId.includes("006") ||
+      (segment.modules || []).some(m => (m.slug || "").startsWith("006_") || (m.visibility || "").toLowerCase() === "admin-teacher");
+
+    if (isAdminTeacherRequired) {
+      if (!isLoggedIn()) return false;
+      const userRole = getUserRole();
+      if (Array.isArray(allowedRoles) && allowedRoles.length > 0) {
+        return allowedRoles.some(r => r.trim().toLowerCase() === userRole);
+      }
+      return isTeacherOrAdmin();
+    }
+
+    if (vis === "loggedin" || segment.requiresAuth) {
+      return isLoggedIn();
+    }
+
+    return true;
+  }, [isLoggedIn, getUserRole, isTeacherOrAdmin]);
+
+  // Module Visibility & Role Authorization Check
+  const isModuleAuthorized = useCallback((module, parentSegment = null) => {
+    if (!module) return false;
+    const vis = (module.visibility || "").toLowerCase();
+    const allowedRoles = module.allowedRoles || parentSegment?.allowedRoles;
+    const slug = (module.slug || "").toLowerCase();
+
+    const isAdminTeacherRequired =
+      vis === "admin-teacher" ||
+      vis === "admin_teacher" ||
+      vis === "teacher-admin" ||
+      vis === "teacher_admin" ||
+      vis === "admin,teacher" ||
+      (Array.isArray(module.allowedRoles) && module.allowedRoles.length > 0) ||
+      slug.startsWith("006_") ||
+      (parentSegment && !isSegmentAuthorized(parentSegment));
+
+    if (isAdminTeacherRequired) {
+      if (!isLoggedIn()) return false;
+      const userRole = getUserRole();
+      if (Array.isArray(allowedRoles) && allowedRoles.length > 0) {
+        return allowedRoles.some(r => r.trim().toLowerCase() === userRole);
+      }
+      return isTeacherOrAdmin();
+    }
+
+    if (vis === "loggedin" || module.requiresAuth) {
+      return isLoggedIn();
+    }
+
+    return true;
+  }, [isLoggedIn, getUserRole, isTeacherOrAdmin, isSegmentAuthorized]);
+
+  const isModuleVisible = useCallback((module) => {
+    return isModuleAuthorized(module);
+  }, [isModuleAuthorized]);
 
   // Storage Keys — unique per subject/course
   const storageSubject = subjectKey || roadmapData?.folder || roadmapData?.subjectCode || "study";
@@ -132,19 +240,20 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
   // Helper to determine the active segment ID from lastVisited or storage
   const resolveActiveSegmentId = useCallback((visitedData) => {
+    const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
     if (visitedData?.segmentId) {
-      const exists = (roadmapData?.segments || []).some(s => s.segmentId === visitedData.segmentId);
+      const exists = validSegments.some(s => s.segmentId === visitedData.segmentId);
       if (exists) return visitedData.segmentId;
     }
     if (visitedData?.slug || visitedData?.moduleId) {
-      for (const seg of roadmapData?.segments || []) {
+      for (const seg of validSegments) {
         if (seg.modules?.some(m => m.slug === visitedData.slug || m.moduleId === visitedData.moduleId)) {
           return seg.segmentId;
         }
       }
     }
-    return roadmapData?.segments?.[0]?.segmentId || null;
-  }, [roadmapData]);
+    return validSegments[0]?.segmentId || null;
+  }, [roadmapData, isSegmentAuthorized]);
 
   // Initial active segment (defaults to last visited or first segment)
   const [activeSegmentId, setActiveSegmentId] = useState(() => {
@@ -157,7 +266,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     } catch {
       // ignore
     }
-    return roadmapData?.segments?.[0]?.segmentId || null;
+    const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
+    return validSegments[0]?.segmentId || null;
   });
 
   // Track expanded state per segment: only current/last visited is open initially; others minimized
@@ -172,11 +282,12 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     } catch {
       // ignore
     }
+    const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
     if (!initId) {
-      initId = roadmapData?.segments?.[0]?.segmentId;
+      initId = validSegments[0]?.segmentId;
     }
     const map = {};
-    (roadmapData?.segments || []).forEach(seg => {
+    validSegments.forEach(seg => {
       map[seg.segmentId] = seg.segmentId === initId;
     });
     return map;
@@ -191,7 +302,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
       } else {
         setActiveSegmentId(segmentId);
         const map = {};
-        (roadmapData?.segments || []).forEach(seg => {
+        const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
+        validSegments.forEach(seg => {
           map[seg.segmentId] = seg.segmentId === segmentId;
         });
         return map;
@@ -203,7 +315,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     setActiveSegmentId(segmentId);
     setExpandedSegments(() => {
       const map = {};
-      (roadmapData?.segments || []).forEach(seg => {
+      const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
+      validSegments.forEach(seg => {
         map[seg.segmentId] = seg.segmentId === segmentId;
       });
       return map;
@@ -212,7 +325,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
   const expandAllSegments = () => {
     const map = {};
-    (roadmapData?.segments || []).forEach(seg => {
+    const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
+    validSegments.forEach(seg => {
       map[seg.segmentId] = true;
     });
     setExpandedSegments(map);
@@ -220,7 +334,8 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
   const collapseAllSegments = () => {
     const map = {};
-    (roadmapData?.segments || []).forEach(seg => {
+    const validSegments = (roadmapData?.segments || []).filter(isSegmentAuthorized);
+    validSegments.forEach(seg => {
       map[seg.segmentId] = false;
     });
     setExpandedSegments(map);
@@ -319,14 +434,6 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     });
     setExpandedSegments(map);
   }, [storageSubject, roadmapData, LAST_VISITED_KEY, resolveActiveSegmentId]);
-
-  const isLoggedIn = useCallback(() => {
-    const token = localStorage.getItem("token");
-    const user = localStorage.getItem("user");
-    return !!(token && user);
-  }, []);
-
-  // Show quick toast notification
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => {
@@ -402,41 +509,39 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     });
   };
 
-  // Module Visibility Check
-  const isModuleVisible = useCallback((module) => {
-    if (!module || !('visibility' in module)) return true;
-    const vis = module.visibility.toLowerCase();
-    if (vis === "public") return true;
-    if (vis === "loggedin") return isLoggedIn();
-    return false;
-  }, [isLoggedIn]);
+  // ==========================================================
+  // Compute Stats & Filtered Modules for Authorized Segments
+  // ==========================================================
+  const visibleSegments = useMemo(() => {
+    return (roadmapData?.segments || []).filter(isSegmentAuthorized);
+  }, [roadmapData, isSegmentAuthorized, authVersion]);
 
-  // ==========================================================
-  // Compute Stats & Filtered Modules
-  // ==========================================================
   const flatModules = useMemo(() => {
     const list = [];
-    (roadmapData?.segments || []).forEach((seg, sIndex) => {
+    visibleSegments.forEach((seg, sIndex) => {
       (seg.modules || []).forEach((mod, mIndex) => {
-        list.push({
-          ...mod,
-          segmentId: seg.segmentId,
-          segmentTitle: seg.title,
-          segmentIndex: sIndex,
-          indexOverall: list.length + 1,
-          moduleIndexInSegment: mIndex + 1
-        });
+        if (isModuleAuthorized(mod, seg)) {
+          list.push({
+            ...mod,
+            segmentId: seg.segmentId,
+            segmentTitle: seg.title,
+            segmentIndex: sIndex,
+            indexOverall: list.length + 1,
+            moduleIndexInSegment: mIndex + 1
+          });
+        }
       });
     });
     return list;
-  }, [roadmapData]);
+  }, [visibleSegments, isModuleAuthorized]);
 
-  // Global Flattened Topics Index across ALL segments and modules for instant search
+  // Global Flattened Topics Index across ALL authorized segments and modules for instant search
   const allFlattenedTopics = useMemo(() => {
-    if (!roadmapData?.segments) return [];
+    if (!visibleSegments) return [];
     const list = [];
-    roadmapData.segments.forEach((seg, sIdx) => {
+    visibleSegments.forEach((seg, sIdx) => {
       (seg.modules || []).forEach((mod, mIdx) => {
+        if (!isModuleAuthorized(mod, seg)) return;
         (mod.topics || []).forEach((topicStr, tIdx) => {
           list.push({
             topicTitle: topicStr,
@@ -458,7 +563,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
       });
     });
     return list;
-  }, [roadmapData]);
+  }, [visibleSegments, isModuleAuthorized, roadmapData]);
 
   // Completion & Progress Metrics
   const stats = useMemo(() => {
@@ -574,8 +679,9 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
 
   // Segments with filtered modules
   const filteredSegments = useMemo(() => {
-    return roadmapData.segments.map((seg, sIndex) => {
-      const filtered = seg.modules
+    return visibleSegments.map((seg, sIndex) => {
+      const filtered = (seg.modules || [])
+        .filter(mod => isModuleAuthorized(mod, seg))
         .map((mod, mIndex) => ({
           ...mod,
           segmentId: seg.segmentId,
@@ -589,11 +695,11 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
         ...seg,
         theme: SEGMENT_THEMES[sIndex % SEGMENT_THEMES.length],
         filteredModules: filtered,
-        totalModulesInSegment: seg.modules.length,
-        completedInSegment: seg.modules.filter(m => isCompleted(m.moduleId)).length
+        totalModulesInSegment: (seg.modules || []).filter(m => isModuleAuthorized(m, seg)).length,
+        completedInSegment: (seg.modules || []).filter(m => isCompleted(m.moduleId)).length
       };
     }).filter(seg => seg.filteredModules.length > 0);
-  }, [matchesFilters, isCompleted]);
+  }, [visibleSegments, matchesFilters, isCompleted, isModuleAuthorized]);
 
   const totalFilteredCount = useMemo(() => {
     return filteredSegments.reduce((acc, s) => acc + s.filteredModules.length, 0);
@@ -1206,11 +1312,11 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                   : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
               }`}
             >
-              All Segments ({(search.trim() || difficultyFilter !== "all" || statusFilter !== "all") ? totalFilteredCount : (roadmapData.segments?.length || 0)})
+              All Segments ({(search.trim() || difficultyFilter !== "all" || statusFilter !== "all") ? totalFilteredCount : (visibleSegments?.length || 0)})
             </button>
 
-            {roadmapData.segments?.map((seg, idx) => {
-              const totalCount = seg.modules?.length || 0;
+            {visibleSegments?.map((seg, idx) => {
+              const totalCount = (seg.modules || []).filter(m => isModuleAuthorized(m, seg)).length;
               const matchCount = segmentMatchCounts[seg.segmentId] || 0;
               const isSelected = selectedSegment === seg.segmentId;
               const theme = SEGMENT_THEMES[idx % SEGMENT_THEMES.length];
@@ -1459,6 +1565,11 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                           <Layers size={11} className="text-slate-400" />
                           {segment.totalModulesInSegment} Modules
                         </span>
+                        {segment.visibility === "admin-teacher" && (
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-950/90 text-amber-300 border border-amber-600/70 flex items-center gap-1 shadow-sm">
+                            <ShieldCheck size={10} className="text-amber-400" /> Faculty & Admin Exclusive
+                          </span>
+                        )}
                         {isCurrent && (
                           <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-sky-950/90 text-sky-300 border border-sky-600/70 flex items-center gap-1 shadow-sm">
                             <Sparkles size={10} className="text-sky-400" /> Current Segment

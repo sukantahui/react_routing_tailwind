@@ -1,0 +1,62 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 6: SECURITY GUIDELINES: HTTPS, SSL PADLOCK, 2FA, OTP & CREDENTIAL PROTECTION
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. HTTPS & SSL/TLS ENCRYPTION ARCHITECTURE
+--------------------------------------------------------------------------------
+- HTTP (Port 80) transmits all web requests and form data in unencrypted Plaintext. 
+  Anyone listening on the network (packet sniffer) can read usernames, passwords, and card details.
+- HTTPS (Port 443) runs over Transport Layer Security (TLS/SSL). 
+  It scrambles plaintext into unreadable Ciphertext before transmitting across the network.
+
+Key Security Pillars of HTTPS:
+1. Encryption: Data is encrypted using AES-256 symmetric cipher so eavesdroppers cannot read packets.
+2. Data Integrity: Cryptographic hashes prevent data packets from being modified or corrupted in transit.
+3. Authentication: A Digital Certificate issued by a trusted Certificate Authority (CA) verifies 
+   that the website domain genuinely belongs to the authentic organization.
+
+The Browser Padlock:
+- A closed padlock icon next to `https://` indicates a valid, untampered SSL certificate.
+- Clicking the padlock reveals Certificate Validity, Issuing CA (e.g. DigiCert), and Encryption Strength.
+
+2. WHY PUBLIC WI-FI IS DANGEROUS FOR PAYMENTS
+--------------------------------------------------------------------------------
+- Unencrypted Broadcasts: Open Wi-Fi routers in railway stations, airports, or cafes broadcast 
+  radio packets in the clear. Packet sniffers (e.g., Wireshark) can capture data transmitted by nearby laptops.
+- Evil Twin Hotspots: Hackers set up fraudulent rogue Wi-Fi networks (e.g. "Free_Railway_WiFi") 
+  to intercept all user traffic and launch Man-in-the-Middle (MitM) or DNS spoofing attacks.
+- Rule: Always switch to cellular mobile data (4G/5G) or use an encrypted VPN when performing transactions!
+
+3. TWO-FACTOR AUTHENTICATION (2FA) & MULTI-FACTOR AUTHENTICATION (MFA)
+--------------------------------------------------------------------------------
+The 3 Pillars of Authentication:
+1. Knowledge Factor (Something you KNOW): Passwords, PINs, Security Questions.
+2. Possession Factor (Something you HAVE): Registered Mobile phone receiving SMS OTP, Authenticator App (TOTP), Hardware FIDO2 USB Security Key.
+3. Inherence Factor (Something you ARE): Biometrics (Fingerprint scan, Retina scan, FaceID).
+
+Why 2FA is Essential:
+Even if a cyber criminal steals your password via a database breach, they CANNOT log in without 
+the dynamic One-Time Password (OTP) sent to your physical smartphone.
+
+4. CREDENTIAL HYGIENE: CVV & PASSWORDS
+--------------------------------------------------------------------------------
+- CVV (Card Verification Value): 
+  * 3 digits on the reverse signature strip of Visa/Mastercard/RuPay (4 digits on front of Amex).
+  * Verifies physical possession of the card during online card-not-present transactions.
+  * RBI & PCI-DSS mandate: E-Commerce portals and merchants are strictly BANNED from storing CVV numbers.
+- Password Golden Rules:
+  * Minimum 12-16 characters with mixed uppercase, lowercase, numbers, and symbols.
+  * Unique password for each distinct website (managed via a Password Manager).
+  * Never share passwords, PINs, or OTPs with anyone over phone or email.
+
+5. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+HTTPS এবং ব্রাউজারের বন্ধ তালা চিহ্ন প্রমাণ করে যে ডেটা এনক্রিপ্টেড হয়ে সার্ভারে যাচ্ছে। 
+পাবলিক বা ফ্রি ওয়াই-ফাইতে লেনদেন করলে হ্যাকাররা প্যাকেট স্নিফিংয়ের মাধ্যমে তথ্য চুরি করতে পারে। 
+টু-ফ্যাক্টর অথেনটিকেশন (2FA) পাসওয়ার্ডের সাথে ওটিপি (OTP) যুক্ত করে অ্যাকাউন্টকে দ্বিস্তরীয় সুরক্ষা দেয়। 
+কার্ডের পেছনের ৩ অঙ্কের সিভিভি (CVV) এবং ব্যাংকিং পাসওয়ার্ড সম্পূর্ণ গোপন রাখতে হয়।
+
+================================================================================

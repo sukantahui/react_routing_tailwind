@@ -1,0 +1,68 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_002: MYSQL DDL STATEMENTS & TABLE CONSTRAINTS
+TOPIC 4: COLUMN CONSTRAINTS: PRIMARY KEY, NOT NULL, UNIQUE, DEFAULT, CHECK
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 24 min | Level: Board Favorite
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] PRIMARY KEY: Uniquely identifies each tuple in the relation. Implicitly enforces UNIQUE and NOT NULL. A table can have only ONE primary key.
+[2] NOT NULL: Enforces that the column cannot store NULL (missing) values. Must be supplied during row insertion.
+[3] UNIQUE: Enforces that all non-null values in the column must be distinct across all rows. Allows multiple NULL values in standard SQL.
+[4] DEFAULT: Specifies a fallback default literal value if no value is explicitly provided in an INSERT statement.
+[5] CHECK: Validates that data values satisfy a Boolean condition.
+[6] Difference: PRIMARY KEY = UNIQUE + NOT NULL (Single per table); UNIQUE = Unique values only, allows NULLs (Multiple allowed per table).
+
+2. THEORETICAL BREAKDOWN:
+--------------------------------------------------------------------------------
+--- 1. The 5 Core Table Constraints Defined ---
+Integrity constraints are database rules that prevent invalid data entry:
+
+1. **`PRIMARY KEY`**: Uniquely indexes each tuple. Ensures entity integrity. Cannot contain duplicates or `NULL`.
+2. **`NOT NULL`**: Rejects missing or blank entries.
+3. **`UNIQUE`**: Prevents duplicate entries (e.g. Aadhaar Number, PAN Number, Roll Number, Email).
+4. **`DEFAULT`**: Automatically populates column when user omits it during `INSERT`.
+5. **`CHECK`**: Enforces domain-specific validation rules.
+
+--- 2. Primary Key vs Unique Key Comparison ---
+| Parameter | PRIMARY KEY | UNIQUE Key |
+| :--- | :--- | :--- |
+| **Count per Table** | Exactly **1** Primary Key per table | **Multiple** Unique keys allowed per table |
+| **NULL Values** | Strictly **NO NULLs** allowed | **NULL values allowed** |
+| **Clustered Index** | Automatically creates clustered index in InnoDB | Creates secondary unique index |
+| **Purpose** | Uniquely identifies each row/entity | Enforces uniqueness for alternate candidate keys |
+
+
+3. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- Comprehensive Column Constraints Lab Script
+CREATE TABLE EmployeeDirectory (
+    EmpCode INT PRIMARY KEY,
+    FullName VARCHAR(50) NOT NULL,
+    OfficialEmail VARCHAR(80) UNIQUE NOT NULL,
+    AadhaarNumber CHAR(12) UNIQUE,
+    Age INT NOT NULL CHECK (Age >= 18 AND Age <= 65),
+    BasicSalary DECIMAL(10,2) NOT NULL CHECK (BasicSalary >= 15000.00),
+    Department VARCHAR(30) CHECK (Department IN ('IT', 'Accounts', 'HR', 'Logistics')),
+    City VARCHAR(30) DEFAULT 'Barrackpore',
+    Status VARCHAR(15) DEFAULT 'Active'
+);
+
+INSERT INTO EmployeeDirectory (EmpCode, FullName, OfficialEmail, AadhaarNumber, Age, BasicSalary, Department)
+VALUES (5001, 'Mamata Sharma', 'mamata.sharma@org.in', '987654321012', 24, 45000.00, 'IT');
+
+INSERT INTO EmployeeDirectory (EmpCode, FullName, OfficialEmail, AadhaarNumber, Age, BasicSalary, Department)
+VALUES (5002, 'Susmita Roy', 'susmita.roy@org.in', '876543210987', 22, 38000.00, 'Accounts');
+
+4. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Never confuse PRIMARY KEY with UNIQUE! A table can have ONLY ONE Primary Key (which rejects NULLs). A table can have MULTIPLE Unique constraints (which accept NULLs). NOT NULL ensures that a field cannot be left blank during INSERT."
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

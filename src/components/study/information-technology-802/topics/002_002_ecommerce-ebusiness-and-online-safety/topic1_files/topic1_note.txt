@@ -1,0 +1,67 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 1: POPULAR E-COMMERCE PORTALS VS E-LEARNING PORTALS
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. POPULAR E-COMMERCE PORTALS & SPECIALIZATIONS
+--------------------------------------------------------------------------------
+1. Amazon (amazon.in):
+   - Global multi-category retail powerhouse founded by Jeff Bezos.
+   - Products: Electronics, books, apparel, groceries (Amazon Fresh), cloud services (AWS).
+   - Core Features: Prime 1-day delivery, A-to-Z Guarantee, Customer Reviews, 1-Click Ordering.
+
+2. Flipkart (flipkart.com):
+   - Indian e-commerce giant founded by Sachin Bansal and Binny Bansal (acquired by Walmart).
+   - Products: Mobile phones, electronics, fashion, home appliances.
+   - Core Features: Big Billion Days, SuperCoins, Flipkart Assured quality badge.
+
+3. Snapdeal (snapdeal.com):
+   - Indian e-commerce marketplace founded by Kunal Bahl & Rohit Bansal.
+   - Focus: Value-for-money, affordable consumer products tailored for Tier-2 and Tier-3 cities.
+
+4. Nykaa (nykaa.com):
+   - Specialized Indian beauty, cosmetics, skincare, and fashion portal founded by Falguni Nayar.
+   - Key USP: 100% authentic, curated beauty products sourced directly from manufacturers.
+
+5. Infibeam (infibeam.com / CCAvenue):
+   - Pioneer in Indian digital retail, later diversified into digital payment gateway infrastructure.
+
+2. POPULAR E-LEARNING & MOOC PORTALS
+--------------------------------------------------------------------------------
+1. Coursera (coursera.org):
+   - Founded by Stanford University professors Daphne Koller & Andrew Ng.
+   - Offers Massive Open Online Courses (MOOCs), university degrees, and professional certifications.
+
+2. edX (edx.org):
+   - Founded by Harvard University and MIT (Massachusetts Institute of Technology).
+   - Delivers rigorous university courses in Computer Science, Data Science, AI, and Engineering.
+
+3. SWAYAM (swayam.gov.in) & NPTEL:
+   - Flagship digital education portals developed by the Ministry of Education (MoE), Govt of India.
+   - Delivers free online college courses with credit transfer recognition across Indian universities.
+
+4. Khan Academy (khanacademy.org):
+   - Non-profit platform offering free K-12 interactive STEM learning, math practice, and tutorials.
+
+3. COMPARISON MATRIX: E-COMMERCE VS E-LEARNING
+--------------------------------------------------------------------------------
+PARAMETER                E-COMMERCE PORTALS               E-LEARNING PORTALS
+--------------------------------------------------------------------------------
+Primary Deliverable      Physical / Digital consumer goods Digital knowledge, videos, certificates
+Core Technology          Shopping Cart, Inventory, 3PL    LMS (Learning Management System), Video CDN
+Fulfillment Channel      Road/Air Couriers to Doorstep    Instant Web Streaming & PDF downloads
+Revenue Model            Product Margin, Seller Commission Freemium, Course Subscription, Certification Fee
+Return Mechanism         Doorstep pickup & physical refund 7 to 14 days digital fee refund policy
+Key Examples             Amazon, Flipkart, Nykaa, Snapdeal Coursera, edX, SWAYAM, NPTEL, Udemy
+
+4. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+ই-কমার্স পোর্টাল (যেমন Amazon, Flipkart, Snapdeal, Nykaa) মূলত বাণিজ্যিক পণ্য সামগ্রী 
+কেনার জন্য ব্যবহৃত হয় যেখানে কুরিয়ারের মাধ্যমে জিনিস বাড়িতে পৌঁছায়। 
+অপরদিকে ই-লার্নিং পোর্টাল (যেমন Coursera, edX, SWAYAM, NPTEL) শিক্ষামূলক কোর্স, ভিডিও 
+লেকচার ও সার্টিফিকেট অর্জনের জন্য ব্যবহৃত হয়। উভয় প্ল্যাটফর্মেই ডিজিটাল পেমেন্ট গেটওয়ে 
+ও ইউজার লগইন ব্যবস্থা থাকে।
+
+================================================================================

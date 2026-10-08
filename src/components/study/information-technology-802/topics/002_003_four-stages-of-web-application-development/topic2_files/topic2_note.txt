@@ -1,0 +1,92 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+SEGMENT 2: OPERATING WEB-BASED APPLICATIONS & E-SERVICES
+MODULE: THE FOUR STAGES OF WEB APPLICATION DEVELOPMENT
+TOPIC 2: STAGE 2: DESIGN PHASE (BLUEPRINTS, UI WIREFRAMES, ER SCHEMAS, ARCHITECTURE)
+TEACHER / AUTHOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS THE DESIGN PHASE?
+--------------------------------------------------------------------------------
+The Design Phase is the second critical phase of the Web Application Development Lifecycle (WADLC). While Stage 1 (Requirement Definition) answers "WHAT" the application must achieve, Stage 2 answers "HOW" the system will look, navigate, and technically operate.
+
+In this phase, software architects, UI/UX designers, and database administrators convert the approved Software Requirements Specification (SRS) into precise technical specifications, user interface blueprints, and relational data schemas before any programming code is written.
+
+2. TWO LEVELS OF SYSTEM DESIGN
+--------------------------------------------------------------------------------
+A. High-Level Design (HLD) / Macro Architecture:
+   - Overall System Architecture (e.g. 3-Tier Client-Server Architecture)
+   - Technology Stack Selection (Front-End: React/HTML/CSS, Application Server: Java/Servlets, Database: MySQL)
+   - High-Level Data Flow Diagrams (DFDs Level 0 / Context Diagram and Level 1)
+   - Security Protocol Strategy (HTTPS, Token-based Authentication, Encryption)
+   - Network Topology and Cloud Infrastructure Planning
+
+B. Low-Level Design (LLD) / Micro Specifications:
+   - Detailed Database Schema (Tables, Columns, Data Types, Primary/Foreign Keys, Constraints)
+   - Database Normalization (1NF, 2NF, 3NF to eliminate anomalies)
+   - User Interface (UI) Wireframes, Mockups, and Form Layouts
+   - Navigation Trees and Hierarchical Sitemaps
+   - Class Diagrams, Method Signatures, and Algorithmic Flowcharts
+   - Form Validation Schemas and Error Handling Rules
+
+3. 3-TIER CLIENT-SERVER ARCHITECTURE IN WEB APPLICATIONS
+--------------------------------------------------------------------------------
+Modern web applications are built on a robust 3-Tier model to decouple presentation from business logic and database management:
+
+  [ TIER 1: PRESENTATION TIER (Front-End) ]
+      - Technologies: HTML5, CSS3, JavaScript, React, NetBeans Swing (Desktop)
+      - Function: Renders UI, captures user clicks, displays feedback, performs client-side validation.
+      |
+      v (HTTP / HTTPS RESTful Request)
+  [ TIER 2: APPLICATION / BUSINESS LOGIC TIER (Middle-Tier Server) ]
+      - Technologies: Java Servlets, Spring Boot, Python Django, Node.js
+      - Function: Executes core business rules, billing computations, discount calculations, authentication, and session handling.
+      |
+      v (JDBC / SQL Query Bridge)
+  [ TIER 3: DATA / DATABASE TIER (Back-End Storage) ]
+      - Technologies: MySQL, Oracle, PostgreSQL
+      - Function: Safely stores, retrieves, modifies, and indexes tabular data with ACID transaction compliance.
+
+4. DATABASE DESIGN & ER MODELING (ENTITY-RELATIONSHIP)
+--------------------------------------------------------------------------------
+Before creating SQL tables, architects design Entity-Relationship (ER) diagrams:
+- Entity: An object of interest in the real world (e.g., Customer, Product, Order, Invoice).
+- Attributes: Properties characterizing an entity (e.g., CustomerID, Name, Email, Phone).
+- Relationships:
+  * One-to-One (1:1): e.g., Citizen <-> Passport
+  * One-to-Many (1:N): e.g., Customer <-> Orders (One customer can place multiple orders)
+  * Many-to-Many (M:N): e.g., Orders <-> Products (Resolved using an associative OrderDetails junction table)
+
+Key Table Schema Example for an Online Billing System:
+1. CUSTOMERS (CustomerID [PK], FullName, Email, MobileNumber, City)
+2. PRODUCTS (ProductID [PK], ProductName, UnitPrice, StockQty)
+3. ORDERS (OrderID [PK], CustomerID [FK], OrderDate, TotalAmount, Status)
+4. ORDER_ITEMS (OrderItemID [PK], OrderID [FK], ProductID [FK], Quantity, SubTotal)
+5. PAYMENTS (PaymentID [PK], OrderID [FK], PaymentMode, TransactionRef, Status)
+
+5. USER INTERFACE (UI) WIREFRAMES & NAVIGATION TREES
+--------------------------------------------------------------------------------
+- Wireframes: Skeletal black-and-white visual schematics illustrating page layout, button placement, search bars, tabular listings, and modal dialogs without final cosmetic styling.
+- Navigation Tree: A hierarchical roadmap showing how a user traverses through web pages:
+    Home -> Product Catalog -> Product Details -> Cart -> Checkout -> Payment -> Invoice Confirmation.
+- Responsive Design Rules: Ensuring dynamic adaptation across 320px mobile screens, 768px tablets, and 1920px desktop monitors.
+
+6. DELIVERABLES OF STAGE 2 (DESIGN PHASE)
+--------------------------------------------------------------------------------
+1. Design Document Specification (DDS)
+2. UI/UX Wireframes and High-Fidelity Mockups
+3. Entity-Relationship (ER) Diagrams and Normalized Relational Schemas
+4. Data Flow Diagrams (DFD) and Process Flowcharts
+5. API Contract Specifications (REST Endpoints, JSON payloads)
+6. Design Review & Architecture Sign-Off Documentation
+
+7. KEY CBSE BOARD EXAM TAKEAWAYS
+--------------------------------------------------------------------------------
+- "Which phase translates SRS into visual and structural blueprints?" -> Design Phase (Stage 2).
+- "Name the three tiers of web application architecture." -> Presentation Tier, Application / Business Logic Tier, Data Tier.
+- "Why is database normalization performed during design?" -> To eliminate redundant data, optimize storage, and prevent insertion/deletion anomalies.
+- "What is the key artifact generated before coding begins?" -> Design Document Specification (DDS).
+
+================================================================================
+END OF TOPIC 2 STUDY NOTES
+================================================================================

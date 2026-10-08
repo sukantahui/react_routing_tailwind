@@ -1,0 +1,53 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_004: SQL AGGREGATE FUNCTIONS & GROUP BY QUERIES
+TOPIC 8: DOWNLOADABLE DOCUMENTS & REVISION HUB
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 8 mins | Level: All Levels
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] Complete MySQL 8.0 Aggregate and GROUP BY benchmark script.
+[2] Comprehensive comparison cheat sheet: WHERE vs HAVING, COUNT(*) vs COUNT(col).
+[3] Printable plain text revision notes with teacher commentary from Sukanta Hui.
+[4] All question banks compiled for board examination revision.
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- ==============================================================================
+-- CBSE CLASS XII IT (802) - MODULE 001_004 MASTER AGGREGATE BENCHMARK SCRIPT
+-- Educator: Sukanta Hui, Barrackpore
+-- ==============================================================================
+
+USE CBSE_IT802_DML;
+
+-- 1. All Aggregate Functions
+SELECT 
+  COUNT(*) AS TotalRows,
+  COUNT(Commission) AS NonNullCommissions,
+  SUM(BasicSalary) AS TotalSalary,
+  AVG(BasicSalary) AS AvgSalary,
+  MAX(BasicSalary) AS MaxSalary,
+  MIN(BasicSalary) AS MinSalary
+FROM Employee;
+
+-- 2. GROUP BY with HAVING
+SELECT 
+  Department,
+  COUNT(*) AS Headcount,
+  AVG(BasicSalary) AS AvgDeptSalary
+FROM Employee
+GROUP BY Department
+HAVING AVG(BasicSalary) > 50000;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Execute the master script in your MySQL Workbench to observe how row counts change across COUNT(*), COUNT(col), and GROUP BY HAVING queries! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

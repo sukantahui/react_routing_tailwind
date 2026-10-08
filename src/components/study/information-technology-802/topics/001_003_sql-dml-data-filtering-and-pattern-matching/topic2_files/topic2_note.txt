@@ -1,0 +1,54 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 001_003: SQL DML STATEMENTS, DATA FILTERING & PATTERN MATCHING
+TOPIC 2: ARITHMETIC UPDATES: PERCENTAGE ADJUSTMENTS (E.G. VALUE = VALUE * 1.25)
+================================================================================
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+Target Syllabus: CBSE Class XII IT (802) & APS Barrackpore Standards
+Reading Time: 14 mins | Level: Intermediate
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+--------------------------------------------------------------------------------
+[1] SQL supports arithmetic operators (+, -, *, /, %) directly inside the SET assignment clause.
+[2] 25% Increase Multiplier: NewValue = Value * 1.25 (Equivalent to Value + Value * 0.25).
+[3] 10% Increase Multiplier: NewValue = Value * 1.10.
+[4] 15% Discount / Decrease Multiplier: NewValue = Value * 0.85 (Equivalent to Value - Value * 0.15).
+[5] CBSE Exam Classic: 'Write a SQL query to increase the Value of all Stock items by 25%' -> UPDATE STOCKDATA SET Value = Value * 1.25;
+
+2. PRACTICAL SQL BENCHMARK SCRIPT:
+--------------------------------------------------------------------------------
+-- CBSE Board Benchmark: Percentage Arithmetic Updates
+CREATE TABLE IF NOT EXISTS STOCKDATA (
+  StockId INT PRIMARY KEY,
+  StockName VARCHAR(30),
+  Category VARCHAR(20),
+  Units INT,
+  Value DECIMAL(10,2)
+);
+
+INSERT INTO STOCKDATA VALUES 
+  (101, 'Alpha Growth', 'Equity', 500, 1000.00),
+  (102, 'Beta Tech', 'Equity', 300, 2400.00),
+  (103, 'Govt Bond A', 'Debt', 1000, 500.00);
+
+-- CBSE Question: Increase the Value of all Equity stocks by 25%
+UPDATE STOCKDATA 
+SET Value = Value * 1.25
+WHERE Category = 'Equity';
+
+-- CBSE Question: Apply 10% bonus units to Debt securities
+UPDATE STOCKDATA 
+SET Units = Units * 1.10
+WHERE Category = 'Debt';
+
+SELECT * FROM STOCKDATA;
+
+3. TEACHER'S MENTOR ADVICE:
+--------------------------------------------------------------------------------
+"Remember: 25% hike is `Value = Value * 1.25`. Never write `Value + 25%` because `%` in SQL is the modulo remainder operator, not a percentage sign! — Sukanta Hui"
+— Sukanta Hui, Barrackpore (Coder & AccoTax)
+
+================================================================================
+Generated for Student Practice: Mamata, Mahima, Abhronila, Susmita, Debangshu, Sachin, Swadeep, Tuhina
+================================================================================

@@ -1,0 +1,60 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 002_002: E-COMMERCE, E-BUSINESS & ONLINE TRANSACTION SAFETY
+TOPIC 7: WEBINARS & E-LEARNING: REAL-TIME INTERACTIVE ONLINE LECTURES FOR QUESTION CLEARANCE
+Educator: Sukanta Hui, Coder & AccoTax, Barrackpore, West Bengal, India
+================================================================================
+
+1. WHAT IS A WEBINAR?
+--------------------------------------------------------------------------------
+A Webinar (a blend of 'Web' + 'Seminar') is an interactive, real-time online seminar, 
+lecture, workshop, or multimedia presentation delivered over the Internet using video 
+conferencing and collaboration technologies.
+
+Key Characteristic: Two-Way Bidirectional Interactivity.
+Unlike one-way television broadcasts or static recorded videos, webinars enable live, 
+synchronous communication between the instructor/presenter and participants.
+
+2. CORE INTERACTIVE FEATURES OF WEBINAR PLATFORMS
+--------------------------------------------------------------------------------
+1. Real-Time Audio & Video Streaming:
+   - High-definition live video feeds of the speaker, with WebRTC browser protocols 
+     and noise suppression.
+2. Screen Sharing & Application Streaming:
+   - Presenters broadcast slides, software IDEs (e.g. NetBeans, Eclipse, VS Code), 
+     or browser web apps live to all attendee monitors.
+3. Interactive Digital Whiteboards:
+   - Live collaborative canvases allowing instructors to sketch circuit diagrams, 
+     ER diagrams, and write mathematical formulas in real time.
+4. Dedicated Q&A Pod & Moderated Chat:
+   - Structured question queues with upvoting and marked answers, preventing student 
+     doubts from disappearing in rapid chat streams.
+5. 'Raise Hand' Virtual Queuing:
+   - Attendees signal for speaking permissions to ask questions via live voice audio.
+6. Live Audience Polling & Instant Quizzes:
+   - Instant multiple-choice questions displayed on screen to evaluate class comprehension 
+     with real-time percentage feedback graphs.
+7. Breakout Rooms for Group Collaboration:
+   - Splitting attendees into small virtual rooms for team problem solving before reconvening.
+8. Cloud Session Recording:
+   - Automated cloud archival allowing absent students to review the complete lesson asynchronously.
+
+3. SYNCHRONOUS VS ASYNCHRONOUS E-LEARNING
+--------------------------------------------------------------------------------
+PARAMETER                SYNCHRONOUS (LIVE WEBINARS)       ASYNCHRONOUS (PRE-RECORDED MOOCs)
+--------------------------------------------------------------------------------
+Interaction Timing       Real-time live scheduled meetings Self-paced, on-demand at student's choice
+Doubt Resolution         Instant live clarification        Delayed forum / email responses
+Attendance Schedule      Fixed scheduled time slot         Flexible 24x7 anytime viewing
+Engagement Dynamic       High social presence & live polls Self-motivated, independent learning
+Key Examples             Zoom, Google Meet, MS Teams, Webex Coursera, edX, SWAYAM, YouTube lectures
+
+4. BENGALI SUMMARY / শিক্ষক নির্দেশিকা
+--------------------------------------------------------------------------------
+ওয়েবিনার (Webinar) হলো ইন্টারনেটের মাধ্যমে আয়োজিত লাইভ সেমিনার বা ভার্চুয়াল ক্লাস। 
+রেকর্ডেড ভিডিওর তুলনায় এর বড় সুবিধা হলো শিক্ষকের সাথে সরাসরি কথা বলা, স্ক্রিন শেয়ার 
+দেখা এবং তৎক্ষণাৎ প্রশ্নের উত্তর (Question Clearance) পেয়ে যাওয়া। 
+জুম (Zoom), গুগল মিট (Google Meet), বা মাইক্রোসফট টিমস (MS Teams) এর মাধ্যমে এই ক্লাসগুলো 
+পরিচালিত হয়।
+
+================================================================================
