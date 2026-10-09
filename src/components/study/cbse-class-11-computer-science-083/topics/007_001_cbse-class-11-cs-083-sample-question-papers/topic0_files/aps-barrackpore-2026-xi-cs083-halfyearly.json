@@ -42,97 +42,97 @@
           "q": "Which CPU register stores the memory address of the NEXT instruction to be fetched?\n(A) Accumulator (AC)\n(B) Instruction Register (IR)\n(C) Program Counter (PC)\n(D) Memory Buffer Register (MBR)",
           "marks": 1,
           "answer": "**Correct Answer:** (C) `Program Counter (PC)`\n\n**Explanation:**\nThe Program Counter (PC) automatically holds and increments the memory address of the next sequential instruction to be fetched by the Control Unit.",
-          "hint: PC points to the next instruction in sequence."
+          "hint": "PC points to the next instruction in sequence."
         },
         {
           "q": "What is the output of the Python expression `print(bool('False'))`?\n(A) False\n(B) True\n(C) None\n(D) Error",
           "marks": 1,
           "answer": "**Correct Answer:** (B) `True`\n\n**Explanation:**\nIn Python truth value testing, any non-empty string is evaluated as truthy (`True`), regardless of its textual characters.",
-          "hint: Non-empty strings are always truthy."
+          "hint": "Non-empty strings are always truthy."
         },
         {
           "q": "Which of the following represents the 8-bit 2's complement of decimal integer -13 [Enrichment]?\n(A) 11110011\n(B) 11110010\n(C) 00001101\n(D) 10001101",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `11110011`\n\n**Explanation:**\n+13 = `00001101`. 1's complement = `11110010`. Add 1 to LSB = `11110011`.",
-          "hint: 1's complement + 1."
+          "hint": "1's complement + 1."
         },
         {
           "q": "What type of error is caused by missing a colon `:` at the end of a `while` loop statement header?\n(A) Runtime Error\n(B) Logical Error\n(C) Syntax Error\n(D) Semantic Error",
           "marks": 1,
           "answer": "**Correct Answer:** (C) `Syntax Error`\n\n**Explanation:**\nA missing colon violates Python's formal language grammar rules and is caught during compile/parse time before execution begins.",
-          "hint: Grammar violations are Syntax Errors."
+          "hint": "Grammar violations are Syntax Errors."
         },
         {
           "q": "What is the output of `-11 // 3` in Python?\n(A) -3\n(B) -4\n(C) -3.66\n(D) 3",
           "marks": 1,
           "answer": "**Correct Answer:** (B) `-4`\n\n**Explanation:**\nFloor division `//` always rounds down to the next lowest integer toward negative infinity. $-11 / 3 = -3.666...$, which floors down to $-4$.",
-          "hint: Floor division rounds toward negative infinity."
+          "hint": "Floor division rounds toward negative infinity."
         },
         {
           "q": "Which assistive technology tool converts on-screen text into synthesized speech for visually impaired users?\n(A) Screen Magnifier\n(B) Screen Reader (NVDA/JAWS)\n(C) Speech Dictation\n(D) Eye-Tracker",
           "marks": 1,
           "answer": "**Correct Answer:** (B) `Screen Reader (NVDA/JAWS)`\n\n**Explanation:**\nScreen Readers interpret graphical/textual screen content and synthesize audible speech or refreshable Braille for visually impaired users.",
-          "hint: Screen readers synthesize text to audio."
+          "hint": "Screen readers synthesize text to audio."
         },
         {
           "q": "What is the result of `2 ** 3 ** 2` in Python?\n(A) 64\n(B) 512\n(C) 36\n(D) 18",
           "marks": 1,
           "answer": "**Correct Answer:** (B) `512`\n\n**Explanation:**\nExponentiation operator `**` has right-to-left associativity: $2^{(3^2)} = 2^9 = 512$.",
-          "hint: Evaluate 3**2 first, then 2**9."
+          "hint": "Evaluate 3**2 first, then 2**9."
         },
         {
           "q": "Which of the following is NOT a reserved keyword in Python?\n(A) lambda\n(B) eval\n(C) yield\n(D) nonlocal",
           "marks": 1,
           "answer": "**Correct Answer:** (B) `eval`\n\n**Explanation:**\n`eval` is a built-in function, not a reserved keyword.",
-          "hint: eval() is a built-in function."
+          "hint": "eval() is a built-in function."
         },
         {
           "q": "What is the output of `'school'.find('ol')`?\n(A) 4\n(B) 5\n(C) True\n(D) -1",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `4`\n\n**Explanation:**\nIndexing begins at 0 (`s`:0, `c`:1, `h`:2, `o`:3, `o`:4, `l`:5). The substring `'ol'` starts at index 4.",
-          "hint: 0-indexed position."
+          "hint": "0-indexed position."
         },
         {
           "q": "Which of the following immutable data types cannot be modified in place?\n(A) List\n(B) Dictionary\n(C) Tuple\n(D) Set",
           "marks": 1,
           "answer": "**Correct Answer:** (C) `Tuple`\n\n**Explanation:**\nTuples, Strings, and Numbers are immutable in Python.",
-          "hint: Tuples are immutable sequences."
+          "hint": "Tuples are immutable sequences."
         },
         {
           "q": "Convert binary number (11010)₂ to decimal:\n(A) 24\n(B) 26\n(C) 28\n(D) 30",
           "marks": 1,
           "answer": "**Correct Answer:** (B) `26`\n\n**Explanation:**\n$16 + 8 + 0 + 2 + 0 = 26_{10}$.",
-          "hint: 16 + 8 + 2."
+          "hint": "16 + 8 + 2."
         },
         {
           "q": "Which Indian Act provides statutory legal recognition for electronic records, digital signatures, and cyber offenses?\n(A) Information Technology Act, 2000\n(B) Indian Penal Code, 1860\n(C) Copyright Act, 1957\n(D) Patents Act, 1970",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `Information Technology Act, 2000 (IT Act)`\n\n**Explanation:**\nThe IT Act 2000 is India's primary legislation governing cyber crimes, e-commerce, and electronic records.",
-          "hint: IT Act 2000."
+          "hint": "IT Act 2000."
         },
         {
           "q": "What is the output of `print('Python', 'CS', sep='@', end='!')`?\n(A) Python@CS!\n(B) Python CS@!\n(C) Python@CS\n(D) Python CS",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `Python@CS!`\n\n**Explanation:**\n`sep='@'` places `@` between strings and `end='!'` appends `!` without newline.",
-          "hint: sep replaces space, end replaces newline."
+          "hint": "sep replaces space, end replaces newline."
         },
         {
           "q": "What is the dual of the Boolean relation `A + A' = 1`?\n(A) A . A' = 0\n(B) A + 1 = 1\n(C) A . 0 = 0\n(D) A + A = A",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `A . A' = 0`\n\n**Explanation:**\nBy Duality: swap `+` with `.` and `1` with `0`.",
-          "hint: Swap + to . and 1 to 0."
+          "hint": "Swap + to . and 1 to 0."
         },
         {
           "q": "What is the output of `list(range(2, 10, 3))`?\n(A) [2, 5, 8]\n(B) [2, 5, 8, 11]\n(C) [2, 3, 4, 5, 6, 7, 8, 9]\n(D) [3, 6, 9]",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `[2, 5, 8]`\n\n**Explanation:**\nStarts at 2, steps by +3: 2, 5, 8 (next is 11, which exceeds stop value 10).",
-          "hint: 2, 2+3=5, 5+3=8."
+          "hint": "2, 2+3=5, 5+3=8."
         },
         {
           "q": "Which function in Python `random` module returns a floating-point number in the semi-open range [0.0, 1.0)?\n(A) random.random()\n(B) random.randint()\n(C) random.randrange()\n(D) random.uniform()",
           "marks": 1,
           "answer": "**Correct Answer:** (A) `random.random()`\n\n**Explanation:**\n`random.random()` returns a float in $[0.0, 1.0)$.",
-          "hint: random.random() returns [0.0, 1.0)."
+          "hint": "random.random() returns [0.0, 1.0)."
         }
       ]
     },
@@ -147,43 +147,43 @@
           "q": "Differentiate between volatile and non-volatile memory with one hardware example for each.",
           "marks": 2,
           "answer": "**Distinction:**\n1. **Volatile Memory:** Loses its stored data immediately when electrical power is switched off. Direct example: **RAM (Random Access Memory)**.\n2. **Non-Volatile Memory:** Retains stored data permanently even in the complete absence of electrical power. Direct example: **ROM (Read Only Memory)** or **SSD / Flash Drive**.",
-          "hint: Volatile loses data on power loss (RAM); non-volatile retains data (ROM/SSD)."
+          "hint": "Volatile loses data on power loss (RAM); non-volatile retains data (ROM/SSD)."
         },
         {
           "q": "Explain the concept of l-value and r-value in Python with code examples.",
           "marks": 2,
           "answer": "**Explanation:**\n- **l-value (Left Value):** Refers to an addressable memory target (such as a variable or list index) that can hold data on the left side of `=`. Example: `x = 10`.\n- **r-value (Right Value):** Refers to an evaluated data value, literal, or expression on the right side of `=`. Example: `x = a + b`.\n- **Violation:** `x + 5 = 20` raises `SyntaxError: cannot assign to expression` because `x + 5` is an r-value, not an assignable l-value target.",
-          "hint: l-value is variable storage target; r-value is evaluated data."
+          "hint": "l-value is variable storage target; r-value is evaluated data."
         },
         {
           "q": "State De Morgan's First and Second Laws in Boolean algebra.",
           "marks": 2,
           "answer": "**De Morgan's Laws:**\n1. **First Law (NAND = Bubbled OR):** The complement of a logical product equals the sum of individual complements:\n$$\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$$\n2. **Second Law (NOR = Bubbled AND):** The complement of a logical sum equals the product of individual complements:\n$$\\overline{A + B} = \\overline{A} \\cdot \\overline{B}$$",
-          "hint: (A.B)' = A' + B' and (A+B)' = A'.B'."
+          "hint": "(A.B)' = A' + B' and (A+B)' = A'.B'."
         },
         {
           "q": "What is the difference between Syntax Errors and Logical Errors?",
           "marks": 2,
           "answer": "**Comparison:**\n1. **Syntax Errors:** Violate the grammatical rules of the programming language (e.g. missing colon, misspelled keyword). The Python parser stops execution immediately before running any code.\n2. **Logical Errors:** Flaws in algorithm or mathematical formulas (e.g. `avg = m1 + m2 / 2`). The program runs completely without crashing, but outputs incorrect results.",
-          "hint: Syntax halts compiler; logical runs but produces wrong math."
+          "hint": "Syntax halts compiler; logical runs but produces wrong math."
         },
         {
           "q": "Identify and explain two assistive technologies designed for students with visual impairments.",
           "marks": 2,
           "answer": "**Assistive Technologies:**\n1. **Screen Readers (NVDA / JAWS):** Software programs that convert semantic digital text, links, and window elements into synthesized audible speech.\n2. **Refreshable Braille Displays:** Dynamic electro-mechanical hardware devices that raise tactile pins representing Braille cells from computer text.",
-          "hint: Screen readers and Refreshable Braille displays."
+          "hint": "Screen readers and Refreshable Braille displays."
         },
         {
           "q": "Convert decimal number (125)₁₀ into its equivalent Binary and Hexadecimal representations.",
           "marks": 2,
           "answer": "**Conversions:**\n1. **Decimal to Binary:**\n$125 = 64 + 32 + 16 + 8 + 4 + 0 + 1 = (01111101)_2$\n2. **Decimal to Hexadecimal:**\n$125 / 16 = 7$ with remainder $13$ ($D_{16}$). Thus $(7D)_{16}$.",
-          "hint: 125 = 1111101 in base 2; 7D in base 16."
+          "hint": "125 = 1111101 in base 2; 7D in base 16."
         },
         {
           "q": "Predict the output of the following Python code:\n```python\ntext = 'Barrackpore'\nprint(text[1:8:2])\nprint(text[::-1])\n```",
           "marks": 2,
           "answer": "**Output:**\n```\narkp\neropkcarraB\n```\n\n**Tracing:**\n1. `text[1:8:2]`: Slices indices 1 ('a'), 3 ('r'), 5 ('k'), 7 ('p') -> `'arkp'`.\n2. `text[::-1]`: Reverses the string completely -> `'eropkcarraB'`.",
-          "hint: Slicing with step 2 and reverse slicing."
+          "hint": "Slicing with step 2 and reverse slicing."
         }
       ]
     },
@@ -198,31 +198,31 @@
           "q": "Draw the functional block diagram of a digital computer system and explain the specific roles of ALU, CU, and Registers.",
           "marks": 3,
           "answer": "**Anatomy & Roles:**\n1. **Arithmetic Logic Unit (ALU):** Executes all arithmetic calculations (+, -, *, /) and logical comparisons (<, >, ==, AND, OR).\n2. **Control Unit (CU):** Acts as central supervisor; fetches instructions from memory, decodes opcodes, and emits timing pulses across system buses.\n3. **Internal Registers:** Ultra-high-speed temporary semiconductor storage slots operating at CPU clock speed (e.g. Accumulator, Program Counter, Instruction Register).",
-          "hint: ALU computes, CU decodes & coordinates, Registers store active operands."
+          "hint": "ALU computes, CU decodes & coordinates, Registers store active operands."
         },
         {
           "q": "Write a Python program to input a positive integer N and check whether it is a Prime Number or Composite Number.",
           "marks": 3,
           "answer": "```python\nimport math\n\nn = int(input('Enter a positive integer: '))\nif n <= 1:\n    print(n, 'is neither Prime nor Composite.')\nelse:\n    is_prime = True\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            is_prime = False\n            break\n    if is_prime:\n        print(n, 'is a PRIME number.')\n    else:\n        print(n, 'is a COMPOSITE number.')\n```",
-          "hint: Check divisors up to isqrt(n)."
+          "hint": "Check divisors up to isqrt(n)."
         },
         {
           "q": "Explain the concept of Web Content Accessibility Guidelines (WCAG) and the four POUR principles.",
           "marks": 3,
           "answer": "**WCAG & POUR Principles:**\n1. **Perceivable:** Users must be able to comprehend information via sensory modalities (e.g. text alt tags for images, closed captions for audio).\n2. **Operable:** All interface interactions, links, and forms must be operable via keyboard navigation alone without mouse traps.\n3. **Understandable:** Content, error messages, and UI layouts must be clear, readable, and predictable.\n4. **Robust:** Code must adhere to web standards to remain compatible across diverse browsers and assistive screen readers.",
-          "hint: POUR = Perceivable, Operable, Understandable, Robust."
+          "hint": "POUR = Perceivable, Operable, Understandable, Robust."
         },
         {
           "q": "Write a Python program to input a string and count the total number of Vowels, Consonants, Digits, and Special Characters.",
           "marks": 3,
           "answer": "```python\ns = input('Enter a string: ')\nvowels = consonants = digits = specials = 0\n\nfor ch in s:\n    if ch.isalpha():\n        if ch.lower() in 'aeiou':\n            vowels += 1\n        else:\n            consonants += 1\n    elif ch.isdigit():\n        digits += 1\n    elif not ch.isspace():\n        specials += 1\n\nprint(f'Vowels: {vowels}, Consonants: {consonants}, Digits: {digits}, Special Chars: {specials}')\n```",
-          "hint: Use isalpha(), isdigit(), and in 'aeiou'."
+          "hint": "Use isalpha(), isdigit(), and in 'aeiou'."
         },
         {
           "q": "Prove the Boolean Distributive Law `A + (B . C) = (A + B) . (A + C)` using a complete truth table.",
           "marks": 3,
           "answer": "**Truth Table Proof:**\n\n| A | B | C | B.C | LHS: A+(B.C) | A+B | A+C | RHS: (A+B).(A+C) |\n|---|---|---|-----|-------------|-----|-----|------------------|\n| 0 | 0 | 0 |  0  |      0      |  0  |  0  |        0         |\n| 0 | 0 | 1 |  0  |      0      |  0  |  1  |        0         |\n| 0 | 1 | 0 |  0  |      0      |  1  |  0  |        0         |\n| 0 | 1 | 1 |  1  |      1      |  1  |  1  |        1         |\n| 1 | 0 | 0 |  0  |      1      |  1  |  1  |        1         |\n| 1 | 0 | 1 |  0  |      1      |  1  |  1  |        1         |\n| 1 | 1 | 0 |  0  |      1      |  1  |  1  |        1         |\n| 1 | 1 | 1 |  1  |      1      |  1  |  1  |        1         |\n\nSince Column **LHS** is identical to Column **RHS** in all 8 rows, the law is proven.",
-          "hint: Construct 8-row truth table for 3 variables A, B, C."
+          "hint": "Construct 8-row truth table for 3 variables A, B, C."
         }
       ]
     },
@@ -237,13 +237,13 @@
           "q": "Write a complete, menu-driven Python program to manage student roll numbers and marks using a Dictionary. Provide options to: (1) Add Student, (2) Search Marks by Roll, (3) Display Class Average and Highest Scorer, (4) Exit.",
           "marks": 5,
           "answer": "```python\nstudents = {}\n\nwhile True:\n    print('\\n--- CODER & ACCOTAX STUDENT MARKS PORTAL ---')\n    print('1. Add / Update Student')\n    print('2. Search Marks by Roll Number')\n    print('3. Display Class Average & Topper')\n    print('4. Exit')\n    choice = input('Enter your choice (1-4): ')\n    \n    if choice == '1':\n        roll = int(input('Enter Roll Number: '))\n        name = input('Enter Student Name: ')\n        marks = float(input('Enter CS Marks (out of 100): '))\n        students[roll] = {'name': name, 'marks': marks}\n        print(f'Student {name} registered successfully!')\n    elif choice == '2':\n        roll = int(input('Enter Roll Number to search: '))\n        if roll in students:\n            info = students[roll]\n            print(f\"Found! Name: {info['name']}, Marks: {info['marks']}\")\n        else:\n            print('Error: Roll number not found.')\n    elif choice == '3':\n        if not students:\n            print('No student records available.')\n        else:\n            total_marks = sum(s['marks'] for s in students.values())\n            avg = total_marks / len(students)\n            topper = max(students.values(), key=lambda s: s['marks'])\n            print(f'Total Students: {len(students)}')\n            print(f'Class Average: {avg:.2f}')\n            print(f\"Highest Scorer: {topper['name']} with {topper['marks']} marks\")\n    elif choice == '4':\n        print('Exiting portal. Thank you!')\n        break\n    else:\n        print('Invalid choice. Please choose 1, 2, 3, or 4.')\n```",
-          "hint: Use while True loop with dictionary mapping roll to student dict."
+          "hint": "Use while True loop with dictionary mapping roll to student dict."
         },
         {
           "q": "Discuss the Digital Gender Divide in India. Highlight causes for lower female representation in computing careers and propose 4 actionable engineering and institutional interventions to promote inclusivity.",
           "marks": 5,
           "answer": "**Comprehensive Analysis:**\n\n1. **The Digital Gender Divide:** Disparities in access to digital devices, internet connectivity, and computing education between men and women, particularly severe in rural areas.\n\n2. **Primary Root Causes:**\n   - Socio-cultural stereotypes stereotyping computing and hardware as male domains.\n   - Unequal access to family-owned smartphones, computers, and home internet.\n   - Lack of visible female engineering mentors and role models in early education.\n\n3. **Four Actionable Interventions:**\n   - **Equal Lab Access & Pair Programming:** Ensure school computer labs practice mixed-gender pair programming.\n   - **Curriculum Role Models:** Highlight historic female computer scientists (Ada Lovelace, Grace Hopper, Katherine Johnson) in textbooks.\n   - **Inclusive IT Hiring & Mentorship:** Implement transparent, bias-free recruitment and formal women-in-tech mentorship networks.\n   - **Accessible Community Centers:** Establish safe digital community hubs in rural towns with free coding workshops.",
-          "hint: Discuss causes (stereotypes, unequal access) and 4 concrete solutions."
+          "hint": "Discuss causes (stereotypes, unequal access) and 4 concrete solutions."
         }
       ]
     },
@@ -258,19 +258,19 @@
           "q": "Case Study: Susmita is developing an inventory management script for a shop in Barrackpore. She executes the following code:\n```python\nitems = ['Notebook', 'Pen', 'Eraser', 'Compass', 'Ruler']\nprices = [45, 15, 5, 60, 20]\n\n# Slicing and comprehension\nsub_items = items[1:4]\npremium = [p for p in prices if p > 15]\nprint('A:', sub_items)\nprint('B:', premium)\nprint('C:', 'pen' in items)\nprint('D:', items.index('Eraser'))\n```\nPredict the exact output for lines A, B, C, and D with explanations.",
           "marks": 4,
           "answer": "**Exact Output:**\n```\nA: ['Pen', 'Eraser', 'Compass']\nB: [45, 60, 20]\nC: False\nD: 2\n```\n\n**Explanations:**\n- **A:** `items[1:4]` slices indices 1, 2, and 3.\n- **B:** List comprehension filters prices strictly greater than 15 (45, 60, 20).\n- **C:** String search is case-sensitive; `'pen'` is not `'Pen'` -> `False`.\n- **D:** `'Eraser'` is located at 0-indexed position 2.",
-          "hint: Remember slicing upper bound is exclusive and string search is case-sensitive."
+          "hint": "Remember slicing upper bound is exclusive and string search is case-sensitive."
         },
         {
           "q": "Trace the step-by-step execution of the following nested loop code and write its exact final output:\n```python\ncount = 0\nfor i in range(1, 4):\n    for j in range(i, 4):\n        if (i + j) % 2 == 0:\n            print(f'{i}:{j}', end=' ')\n            count += 1\nprint('\\nTotal Matches:', count)\n```",
           "marks": 4,
           "answer": "**Exact Output:**\n```\n1:1 1:3 2:2 3:3 \nTotal Matches: 4\n```\n\n**Trace Table:**\n- i=1: j=1 -> (1+1)%2==0 -> prints `1:1`; j=2 -> (1+2)=3 (odd); j=3 -> (1+3)=4 -> prints `1:3`.\n- i=2: j=2 -> (2+2)=4 -> prints `2:2`; j=3 -> (2+3)=5 (odd).\n- i=3: j=3 -> (3+3)=6 -> prints `3:3`.\n- Total matches = 4.",
-          "hint: Construct trace table for pairs (i, j) where sum is even."
+          "hint": "Construct trace table for pairs (i, j) where sum is even."
         },
         {
           "q": "Case Study on Error Debugging: Abhronila is given the following faulty program:\n```python\n# Target: Input 3 test scores and compute percentage out of 300\nm1 = input('Enter Score 1: ')\nm2 = input('Enter Score 2: ')\nm3 = input('Enter Score 3: ')\n\ntotal = m1 + m2 + m3\npercentage = total / 300 * 100\nprint('Percentage:', percentage)\n```\n(a) Identify the runtime exception and logical errors in the code.\n(b) Write the corrected Python program.",
           "marks": 4,
           "answer": "**(a) Error Diagnosis:**\n1. `input()` returns strings (`str`). Therefore `m1 + m2 + m3` performs string concatenation (e.g. `'80' + '90' + '100' = '8090100'`).\n2. `total / 300` raises `TypeError: unsupported operand type(s) for /: 'str' and 'int'` because strings cannot be divided by integers.\n\n**(b) Corrected Python Program:**\n```python\nm1 = float(input('Enter Score 1: '))\nm2 = float(input('Enter Score 2: '))\nm3 = float(input('Enter Score 3: '))\n\ntotal = m1 + m2 + m3\npercentage = (total / 300.0) * 100.0\nprint(f'Total: {total}/300')\nprint(f'Percentage: {percentage:.2f}%')\n```",
-          "hint: Cast input to float() to enable arithmetic division."
+          "hint": "Cast input to float() to enable arithmetic division."
         }
       ]
     }
