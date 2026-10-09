@@ -1,0 +1,121 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001_002: TYPES OF SOFTWARE, OPERATING SYSTEM ARCHITECTURE & LANGUAGE PROCESSORS
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. TAXONOMY OF COMPUTER SOFTWARE
+--------------------------------------------------------------------------------
+Software is a collection of programs, data, and configuration instructions that tell
+hardware what actions to execute.
+
+A. SYSTEM SOFTWARE:
+   Programs designed to manage, control, and operate underlying computer hardware.
+   Provides a platform on which application software can execute.
+   - Operating Systems: Windows, GNU/Linux, macOS, Android, iOS.
+   - Language Processors: Compilers, Interpreters, Assemblers, Linkers, Loaders.
+   - Device Drivers: GPU Drivers, Audio Codecs, USB host controller drivers.
+   - System Utilities: Antivirus, Disk Cleaners, Defragmenters, Backup utilities.
+
+B. APPLICATION SOFTWARE:
+   Programs designed to assist end-users in executing specific business, educational,
+   or entertainment tasks.
+   - General-Purpose Application Software:
+     Packaged, off-the-shelf software developed for broad public utility.
+     Examples: MS Word (Word Processing), MS Excel (Spreadsheets), VLC (Media Player).
+   - Tailor-Made / Customized Application Software:
+     Bespoke software built specifically to meet the custom operational requirements
+     of a single institution or business enterprise.
+     Examples: Army Public School Barrackpore Fee Portal, Hospital ERP, Railway Reservation (IRCTC).
+
+2. CORE FUNCTIONS OF AN OPERATING SYSTEM
+--------------------------------------------------------------------------------
+The Operating System (OS) is the fundamental system program that supervises all
+hardware peripherals and manages system resources:
+
+1. PROCESSOR (CPU) MANAGEMENT:
+   - Allocates CPU execution time among multiple competing tasks and threads.
+   - Implements scheduling algorithms: First Come First Served (FCFS), Shortest Job
+     First (SJF), Priority Scheduling, and Round Robin (RR) with time-slicing.
+   - Maintains the Process Control Block (PCB) tracking process state (Ready, Running, Blocked).
+
+2. MEMORY (RAM) MANAGEMENT:
+   - Tracks every byte of physical memory (allocated vs free).
+   - Allocates address spaces when programs load and reclaims memory when processes exit.
+   - Implements Virtual Memory via Paging and Segmentation: Swaps inactive memory pages
+     between RAM and the storage drive (swap/pagefile) to run applications larger than RAM.
+
+3. FILE SYSTEM MANAGEMENT:
+   - Organizes persistent data into hierarchical directory trees (Folders and Files).
+   - Manages file attributes, timestamps, read/write/execute permissions (Access Control Lists).
+   - Formats storage drives using structured file systems (NTFS, ext4, APFS, FAT32).
+
+4. DEVICE (I/O) MANAGEMENT:
+   - Communicates with hardware peripherals through specialized Device Drivers.
+   - Provides buffering, caching, and SPOOLing (Simultaneous Peripheral Operations On-Line)
+     to prevent slow I/O devices (like printers) from stalling fast CPU cores.
+
+5. SECURITY & PROTECTION:
+   - Enforces user authentication (passwords, biometrics, PINs).
+   - Isolates process memory spaces so one crashed program cannot corrupt other processes
+     or the OS kernel (Ring 0 Kernel Mode vs Ring 3 User Mode).
+
+6. USER INTERFACE (UI):
+   - Command Line Interface (CLI): Text prompts accepting typed commands (e.g. Bash, PowerShell).
+   - Graphical User Interface (GUI): Visual elements like Windows, Icons, Menus, Pointer (WIMP).
+   - Touch / Voice User Interfaces: Mobile gestures and natural language voice assistants.
+
+3. LANGUAGE PROCESSORS & TRANSLATION PIPELINE
+--------------------------------------------------------------------------------
+Digital CPUs can ONLY execute binary machine language (0s and 1s). Language processors
+bridge high-level human-readable code to machine-level electrical instructions.
+
+A. COMPILER:
+   - Translates the entire high-level source code into intermediate object/machine code
+     in a single comprehensive pass before execution.
+   - Generates an exhaustive list of all syntax errors found across the entire program.
+   - Execution is extremely fast once compiled.
+   - Examples: C (gcc), C++ (g++), Rust (rustc).
+
+B. INTERPRETER:
+   - Translates and executes high-level source code line-by-line sequentially.
+   - Stops execution immediately at the very first syntax or runtime error encountered.
+   - Easier for beginners to debug, but execution speed is slower than pure compiled code.
+   - Examples: Classic BASIC, standard Python runtime execution, Ruby.
+
+C. ASSEMBLER:
+   - Translates low-level assembly language mnemonic instructions (e.g. MOV, ADD, JMP, SUB)
+     into corresponding binary opcode bit patterns.
+   - Machine-dependent (tied directly to specific CPU architecture like x86 or ARM).
+
+D. LINKER & LOADER:
+   - Linker: Combines multiple independent object code modules (.o/.obj) and system library
+     functions into a single standalone executable binary (.exe/.elf).
+   - Loader: OS subsystem that reads the binary executable from secondary storage (SSD/HDD),
+     allocates memory space in RAM, resolves dynamic addresses, and initiates CPU execution.
+
+4. [ENRICHMENT / ADVANCED CONCEPT] OPERATING SYSTEM CLASSIFICATIONS
+--------------------------------------------------------------------------------
+- Real-Time Operating System (RTOS):
+  Guarantees deterministic, sub-millisecond execution deadlines for mission-critical tasks.
+  * Hard RTOS: Missed deadline = complete catastrophic failure (e.g., Missile Guidance, Pacemakers).
+  * Soft RTOS: Missed deadline causes quality degradation without catastrophe (e.g., Live Video Streaming).
+  Examples: FreeRTOS, VxWorks, QNX.
+
+- Distributed Operating System:
+  Coordinates multiple independent physical computers connected over a high-speed network,
+  presenting them to users as a single unified computing facility (e.g., Apache Hadoop/Spark clusters).
+
+- Batch Processing OS:
+  Jobs with similar requirements are batched together and processed sequentially without
+  direct user interaction (historic mainframes, payroll batch processing).
+
+- Time-Sharing / Multitasking OS:
+  Allocates small time slices (quanta) across multiple running programs to create the
+  illusion of simultaneous concurrent execution (modern desktop & mobile OS).
+
+================================================================================
+END OF REVISION NOTES - MODULE 001_002
+================================================================================

@@ -1,0 +1,104 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 002_003: BOOLEAN LOGIC, LOGIC GATES & TRUTH TABLES
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. FUNDAMENTALS OF BOOLEAN LOGIC
+--------------------------------------------------------------------------------
+Boolean Logic, established by George Boole (1854), operates on binary variables that
+can assume only two truth states: 1 (True / High) or 0 (False / Low).
+
+A. PRIMARY LOGIC GATES:
+   1. NOT Gate (Inverter):
+      - Symbol: Triangle with a bubble at the output.
+      - Equation: Y = A' or Y = ~A
+      - Truth Table: 0 -> 1, 1 -> 0
+
+   2. AND Gate (Logical Conjunction / Product):
+      - Symbol: Flat input edge with a rounded D-shaped output.
+      - Equation: Y = A . B
+      - Rule: Output is 1 ONLY when both inputs are 1.
+      - Truth Table: 0.0=0, 0.1=0, 1.0=0, 1.1=1
+
+   3. OR Gate (Logical Disjunction / Sum):
+      - Symbol: Curved input edge with a pointed output nose.
+      - Equation: Y = A + B
+      - Rule: Output is 0 ONLY when both inputs are 0; otherwise 1.
+      - Truth Table: 0+0=0, 0+1=1, 1+0=1, 1+1=1
+
+B. UNIVERSAL LOGIC GATES:
+   NAND and NOR gates are "Universal" because any boolean function can be built
+   exclusively from them.
+
+   1. NAND Gate (NOT-AND):
+      - Symbol: AND gate with an output inversion bubble.
+      - Equation: Y = (A . B)'
+      - Rule: Output is 0 ONLY when both inputs are 1.
+
+   2. NOR Gate (NOT-OR):
+      - Symbol: OR gate with an output inversion bubble.
+      - Equation: Y = (A + B)'
+      - Rule: Output is 1 ONLY when both inputs are 0.
+
+C. EXCLUSIVE LOGIC GATES:
+   1. XOR Gate (Exclusive-OR / Inequality Detector):
+      - Symbol: OR gate preceded by an additional curved input line.
+      - Equation: Y = A (+) B = A'B + AB'
+      - Rule: Output is 1 when inputs are DIFFERENT (odd parity).
+
+   2. XNOR Gate (Exclusive-NOR / Equivalence / Coincidence Detector):
+      - Symbol: XOR gate with an output inversion bubble.
+      - Equation: Y = (A (+) B)' = AB + A'B'
+      - Rule: Output is 1 when inputs are IDENTICAL.
+
+2. POSTULATES & LAWS OF BOOLEAN ALGEBRA
+--------------------------------------------------------------------------------
+1. Properties of 0 and 1 (Dominance & Identity):
+   - 0 + A = A       | 1 . A = A        (Identity Laws)
+   - 1 + A = 1       | 0 . A = 0        (Dominance / Annulment Laws)
+
+2. Idempotent Laws:
+   - A + A = A       | A . A = A
+
+3. Involution Law (Double Negation):
+   - (A')' = A
+
+4. Complementarity Laws:
+   - A + A' = 1      | A . A' = 0
+
+5. Commutative Laws:
+   - A + B = B + A   | A . B = B . A
+
+6. Associative Laws:
+   - A + (B + C) = (A + B) + C
+   - A . (B . C) = (A . B) . C
+
+7. Distributive Laws:
+   - A . (B + C) = (A . B) + (A . C)   (AND over OR)
+   - A + (B . C) = (A + B) . (A + C)   (OR over AND - Unique to Boolean algebra)
+
+8. Absorption Laws:
+   - A + (A . B) = A
+   - A . (A + B) = A
+   - A + (A' . B) = A + B
+
+3. DE MORGAN'S THEOREMS (CRITICAL FOR EXAMS)
+--------------------------------------------------------------------------------
+- First Theorem (NAND = Bubbled OR):
+  The complement of a logical product equals the sum of the complements.
+  (A . B)' = A' + B'
+
+- Second Theorem (NOR = Bubbled AND):
+  The complement of a logical sum equals the product of the complements.
+  (A + B)' = A' . B'
+
+- Principle of Duality:
+  Any valid Boolean identity remains valid if '+' is swapped with '.', and '0' is
+  swapped with '1'. (e.g. Dual of A + 1 = 1 is A . 0 = 0).
+
+================================================================================
+END OF REVISION NOTES - MODULE 002_003
+================================================================================

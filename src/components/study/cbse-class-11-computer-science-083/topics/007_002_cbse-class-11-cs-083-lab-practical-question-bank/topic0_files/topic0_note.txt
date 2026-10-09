@@ -1,0 +1,56 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+SPECIAL PRACTICAL EXAMINATION MODULE: 20-PROGRAM PRACTICAL LABORATORY REPOSITORY
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. CBSE CLASS XI PRACTICAL EXAMINATION SCHEME (TOTAL: 30 MARKS)
+--------------------------------------------------------------------------------
+S.No | Assessment Component                                            | Marks
+--------------------------------------------------------------------------------
+1.   | Lab Test: Python Program Solving (Algorithm, Code & Output)      | 12 Marks
+2.   | Practical Report File (Minimum 20 Python programs verified)      | 07 Marks
+3.   | Term Project (Python Mini-Project / Application)                | 03 Marks
+4.   | Viva Voce (Oral examination on Python & Computer Organisation)   | 08 Marks
+--------------------------------------------------------------------------------
+     | GRAND TOTAL PRACTICAL MARKS                                     | 30 Marks
+--------------------------------------------------------------------------------
+
+2. THE 20-PROGRAM PRACTICAL LABORATORY REPOSITORY
+--------------------------------------------------------------------------------
+The following 20 programs constitute Coder & AccoTax's curated laboratory repository
+aligned with CBSE's suggested practical problem list, fulfilling the statutory minimum
+20-program report-file requirement:
+
+1. Arithmetic Calculator: Input 2 numbers and calculate (+, -, *, /, //, %, **).
+2. Largest and Smallest of Three Numbers: Nested conditional comparisons.
+3. Quadratic Equation Solver: Discriminant D = b^2 - 4ac analysis.
+4. Prime Number Checker & Primes in Range [start, end].
+5. Fibonacci Series Generator up to N terms.
+6. Armstrong Number Verifier: Sum of digits raised to power of total digits.
+7. Palindrome Verifier for Strings and Numbers.
+8. Greatest Common Divisor (GCD/HCF) and LCM using Euclid's Modulo Algorithm.
+9. Sum of Geometric Series: 1 + x + x^2 + x^3 + ... + x^n.
+10. Sum of Alternating Series: 1 - x + x^2 - x^3 + ... + (-1)^n * x^n.
+11. Factorial Calculation using iterative loops.
+12. Perfect Number Verifier (Sum of proper divisors equals number).
+13. String Glyph Counter: Vowels, Consonants, Uppercase, Lowercase, Digits, Specials.
+14. Geometric Pattern Generator: Right-angled and Centered Star Pyramids.
+15. List Mathematical Statistics: Max, Min, Mean, Median, and Second Largest.
+16. Linear Search Algorithm: Sequential search with index reporting.
+17. List Element Frequency Counter using Dictionary Mapping.
+18. Tuple Swapping, Slicing, and Min-Max Extraction.
+19. Student Records Manager using Nested Dictionaries.
+20. Random Simulation: 6-Sided Dice Roll and Lottery Generator.
+
+3. VIVA VOCE EXAMINATION PREPARATION STRATEGY
+--------------------------------------------------------------------------------
+- Be ready to explain time complexity: $O(1)$ for hash lookup vs $O(N)$ for linear search.
+- Be ready to justify why `math.isqrt(N)` is used in prime checking.
+- Know the difference between mutable (lists, dicts, sets) and immutable (tuples, strings, numbers).
+- Understand why `range(start, stop)` is exclusive of the stop boundary.
+
+================================================================================
+END OF PRACTICAL LAB MANUAL - MODULE 007_002
+================================================================================

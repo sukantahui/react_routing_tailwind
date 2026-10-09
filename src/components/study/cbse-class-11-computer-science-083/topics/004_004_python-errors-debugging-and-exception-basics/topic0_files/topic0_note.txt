@@ -1,0 +1,87 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTATIONAL THINKING AND PROGRAMMING - 1 (PYTHON) - 45 MARKS
+MODULE 004_004: PYTHON ERRORS, DEBUGGING TECHNIQUES & EXCEPTION BASICS
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. THREE MAJOR CATEGORIES OF PROGRAMMING ERRORS
+--------------------------------------------------------------------------------
+Errors in software development are categorized by when and how they manifest:
+
+A. SYNTAX ERRORS (COMPILE-TIME / PARSE-TIME ERRORS):
+   - Violations of the formal grammatical rules of Python syntax.
+   - Detected by the Python parser BEFORE program execution begins (no lines run).
+   - Common Causes:
+     * Missing colons `:` at the end of `if`, `elif`, `else`, `for`, `while`, `def` headers.
+     * Unbalanced or mismatched parentheses `( )`, brackets `[ ]`, or quotes `' "`.
+     * Misspelled keywords (e.g., `whlie`, `fore`).
+     * Invalid identifier names (e.g., `2nd_val = 50`).
+     * Invalid l-value assignments (e.g., `x + y = 10` or `10 = x`).
+     * Inconsistent indentation (`IndentationError: unexpected indent`).
+
+B. LOGICAL ERRORS (SEMANTIC BUGS):
+   - Flaws in the program's algorithmic logic, design, or mathematical formulas.
+   - The program compiles and executes completely WITHOUT crashing, but silently
+     produces incorrect or unexpected outputs.
+   - Hardest to detect because the interpreter gives no error messages or line numbers.
+   - Common Causes:
+     * Incorrect operator precedence: `avg = m1 + m2 / 2` instead of `(m1 + m2) / 2`.
+     * Using wrong comparison operator: `if marks > 33` instead of `marks >= 33`.
+     * Off-by-one errors in loop ranges: `range(1, 10)` generates 1 to 9 (not 10).
+     * Infinite loops caused by forgetting loop variable increments (`i = i + 1`).
+
+C. RUNTIME ERRORS (EXCEPTIONS):
+   - Errors that occur DURING active program execution when an illegal or impossible
+     operation is attempted.
+   - Halts program execution immediately (crashes) unless caught by exception handlers.
+   - Standard Built-in Python Exceptions:
+     * `ZeroDivisionError`: Dividing any numeric value by zero (`10 / 0`, `5 // 0`, `8 % 0`).
+     * `ValueError`: Passing correct type with inappropriate value content (`int('abc')`, `math.sqrt(-4)`).
+     * `TypeError`: Operating on incompatible data types (`'Age: ' + 16`, `len(100)`).
+     * `IndexError`: Accessing a list/tuple index outside valid range (`lst[10]` when len is 3).
+     * `KeyError`: Looking up a non-existent key in a dictionary (`d['missing_key']`).
+     * `NameError`: Using a variable or function name that has not been defined or assigned.
+     * `FileNotFoundError`: Attempting to read a non-existent file on disk.
+
+2. ANATOMY OF A PYTHON TRACEBACK
+--------------------------------------------------------------------------------
+When an unhandled exception occurs, Python displays a Traceback report:
+```
+Traceback (most recent call last):
+  File "grade_calculator.py", line 14, in <module>
+    avg = total / student_count
+ZeroDivisionError: division by zero
+```
+- File Name: Identifies the exact script file (`grade_calculator.py`).
+- Line Number: Points directly to the offending line (`line 14`).
+- Offending Code: Shows the exact statement that triggered the error.
+- Exception Type & Description: `ZeroDivisionError: division by zero`.
+
+3. DEBUGGING STRATEGIES & BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Systematic Print Debugging:
+   - Insert temporary `print()` statements before and after suspect calculation lines
+     to inspect variable states and execution path flows.
+2. Code Tracing (Dry Runs):
+   - Step through the code manually on paper using a Trace Table with sample test cases.
+3. Boundary & Edge Case Testing:
+   - Always test with $0$, negative values, empty strings, and upper limits.
+4. Exception Handling using `try ... except`:
+   ```python
+   try:
+       n = int(input("Enter integer: "))
+       res = 100 / n
+       print("Result:", res)
+   except ValueError:
+       print("Error: Please enter valid digits only!")
+   except ZeroDivisionError:
+       print("Error: Denominator cannot be zero!")
+   finally:
+       print("Execution completed.")
+   ```
+
+================================================================================
+END OF REVISION NOTES - MODULE 004_004
+================================================================================

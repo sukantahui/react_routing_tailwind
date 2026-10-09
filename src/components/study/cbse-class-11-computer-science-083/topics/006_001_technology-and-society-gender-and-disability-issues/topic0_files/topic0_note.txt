@@ -1,0 +1,83 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT III: SOCIETY, LAW AND ETHICS (SLE) - 15 MARKS
+MODULE 006_001: TECHNOLOGY & SOCIETY: GENDER AND DISABILITY ISSUES IN COMPUTING
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+> [!IMPORTANT]
+> This is a statutory, prescribed area in the official CBSE Senior Secondary Computer
+> Science curriculum covering gender inclusion, disability barriers, and assistive tech.
+
+1. GENDER DISPARITY & ISSUES IN COMPUTING & TECH
+--------------------------------------------------------------------------------
+A. THE DIGITAL GENDER DIVIDE:
+   - Disparity in access to computing hardware, high-speed internet, digital literacy,
+     and technical career pathways between genders.
+   - Socio-cultural barriers often result in lower female enrollment in Computer Science
+     degrees despite high aptitude.
+
+B. HISTORIC & CONTEMPORARY FEMALE ROLE MODELS IN COMPUTING:
+   - Ada Lovelace (1815–1852): The world's first computer programmer; designed the first
+     algorithm for Charles Babbage's Analytical Engine.
+   - Rear Admiral Grace Hopper (1906–1992): Developed the first compiler (A-0), pioneered
+     high-level programming languages (COBOL), and popularized the term "debugging".
+   - Katherine Johnson & NASA Human Computers: Calculated orbital trajectories for Mercury & Apollo.
+   - Radia Perlman: Mother of the Internet; invented the Spanning Tree Protocol (STP).
+
+C. PROMOTING GENDER INCLUSION IN IT:
+   - Equal access to coding labs, robotics kits, and hardware resources.
+   - Elimination of unconscious gender bias in curriculum materials and hiring pipelines.
+   - Mentorship networks, girls-who-code clubs, and inclusive workplace policies.
+
+2. DISABILITY BARRIERS & ASSISTIVE TECHNOLOGIES (DIVYANGJAN)
+--------------------------------------------------------------------------------
+Computing interfaces must accommodate users across four primary disability categories:
+
+1. VISUAL IMPAIRMENTS (Blindness, Low Vision, Color Blindness):
+   - Assistive Hardware & Software:
+     * Screen Readers (NVDA, JAWS, VoiceOver, Orca): Converts text and semantic HTML
+       into synthesized speech.
+     * Refreshable Braille Displays: Electro-mechanical pins raised dynamically for tactile reading.
+     * Screen Magnifiers: Zooms portions of the screen (e.g. Windows Magnifier).
+     * High Contrast Themes: Minimum WCAG contrast ratio (4.5:1 for normal text).
+     * Alternative Text (`alt` attribute): Mandatory descriptions for all informative images.
+
+2. HEARING IMPAIRMENTS (Deafness, Hard of Hearing):
+   - Assistive Solutions:
+     * Closed Captioning (CC) & Subtitles: Real-time text transcription of audio & sound effects.
+     * Visual & Vibrational Alerts: Screen flashes or haptic buzzes instead of audio beeps.
+     * Speech-to-Text Transcribers: Real-time classroom lecture transcription engines.
+
+3. MOTOR & PHYSICAL IMPAIRMENTS (Paralysis, Tremors, Quadriplegia, Cerebral Palsy):
+   - Assistive Solutions:
+     * Eye-Tracking Cameras: Gaze-directed mouse pointer control and dwell-clicking.
+     * Adaptive Switches & Sip-and-Puff Devices: Operates computers using air breath pressure.
+     * Voice Recognition & Speech Dictation: Complete hands-free keyboard typing.
+     * 100% Keyboard Operability: Full navigation via `Tab`, `Shift+Tab`, `Enter`, and Arrow keys.
+
+4. COGNITIVE & LEARNING IMPAIRMENTS (Dyslexia, ADHD, Autism):
+   - Assistive Solutions:
+     * Dyslexia-Friendly Fonts (OpenDyslexic): Weighted bottom glyphs to prevent letter flipping.
+     * Reader Mode / Distraction-Free Views: Removes sidebars, ads, and auto-playing videos.
+     * Text-to-Speech Highlighting: Highlights active words synchronously while reading aloud.
+
+3. WEB CONTENT ACCESSIBILITY GUIDELINES (WCAG) - THE 'POUR' PRINCIPLES
+--------------------------------------------------------------------------------
+1. Perceivable: Information and UI components must be presentable to users in ways they can perceive (Alt text, Captions, High contrast).
+2. Operable: UI components and navigation must be operable via keyboard without mouse dependency (No keyboard traps).
+3. Understandable: Information and operation of user interface must be clear, predictable, and readable.
+4. Robust: Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive tools.
+
+4. LEGAL & NATIONAL ACCESSIBILITY FRAMEWORKS IN INDIA
+--------------------------------------------------------------------------------
+- Sugamya Bharat Abhiyan (Accessible India Campaign, 2015):
+  Flagship nationwide campaign to ensure universal accessibility across built environments,
+  public transport systems, and government ICT portals (mandatory GIGW compliance).
+- Rights of Persons with Disabilities (RPwD) Act, 2016:
+  Mandates non-discrimination, equal educational opportunities, and statutory digital accessibility.
+
+================================================================================
+END OF REVISION NOTES - MODULE 006_001
+================================================================================

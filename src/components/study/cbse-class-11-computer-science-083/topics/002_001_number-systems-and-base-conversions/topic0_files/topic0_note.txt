@@ -1,0 +1,84 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 002_001: NUMBER SYSTEMS & RADIX CONVERSION MATHEMATICS
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. NUMBER SYSTEMS TAXONOMY
+--------------------------------------------------------------------------------
+A Positional Number System is a mathematical system where the value of a digit is
+determined by the digit itself, its position (weight), and the base (radix) of the system:
+Value = Sum of (Digit_i * Base^i)
+
+1. BINARY (Base 2 / Radix 2):
+   - Digits: {0, 1}
+   - Weight: Powers of 2 (2^0=1, 2^1=2, 2^2=4, 2^3=8, 2^4=16, 2^5=32, 2^6=64, 2^7=128...)
+   - Standard unit for physical digital hardware (high/low voltage levels).
+
+2. OCTAL (Base 8 / Radix 8):
+   - Digits: {0, 1, 2, 3, 4, 5, 6, 7}
+   - Weight: Powers of 8 (8^0=1, 8^1=8, 8^2=64, 8^3=512...)
+   - Relationship with Binary: 1 Octal digit = 3 Binary bits (2^3 = 8).
+
+3. DECIMAL (Base 10 / Radix 10):
+   - Digits: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+   - Weight: Powers of 10 (10^0=1, 10^1=10, 10^2=100, 10^3=1000...)
+   - Natural human counting system.
+
+4. HEXADECIMAL (Base 16 / Radix 16):
+   - Digits: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F}
+   - Letters: A=10, B=11, C=12, D=13, E=14, F=15.
+   - Weight: Powers of 16 (16^0=1, 16^1=16, 16^2=256, 16^3=4096...)
+   - Relationship with Binary: 1 Hex digit = 4 Binary bits (1 Nibble) (2^4 = 16).
+
+2. MASTER CONVERSION ALGORITHMS
+--------------------------------------------------------------------------------
+A. ANY BASE TO DECIMAL:
+   Multiply each digit by (Base^position) and calculate the sum.
+   Example: (1101)₂ = 1*2³ + 1*2² + 0*2¹ + 1*2⁰ = 8 + 4 + 0 + 1 = 13₁₀
+   Example: (3A5)₁₆ = 3*16² + 10*16¹ + 5*16⁰ = 3*256 + 160 + 5 = 933₁₀
+
+B. DECIMAL TO ANY BASE:
+   Repeatedly divide the decimal integer by the target base, record remainders,
+   and read remainders from BOTTOM TO TOP (Least Significant Remainder is top,
+   Most Significant Remainder is bottom).
+
+C. BINARY <-> OCTAL SHORTCUT:
+   - Binary -> Octal: Group binary bits in triplets (3 bits) from RIGHT TO LEFT for
+     integer part. Replace each 3-bit group with its single octal digit.
+     (101110)₂ = 101 | 110 = (56)₈
+   - Octal -> Binary: Replace each octal digit with its exact 3-bit binary equivalent.
+     (73)₈ = 111 | 011 = (111011)₂
+
+D. BINARY <-> HEXADECIMAL SHORTCUT:
+   - Binary -> Hexadecimal: Group binary bits in nibbles (4 bits) from RIGHT TO LEFT.
+     Replace each 4-bit group with its single hexadecimal symbol.
+     (11011011)₂ = 1101 | 1011 = (DB)₁₆
+   - Hexadecimal -> Binary: Replace each hex digit with its exact 4-bit binary nibble.
+     (A4)₁₆ = 1010 | 0100 = (10100100)₂
+
+E. OCTAL <-> HEXADECIMAL:
+   Always use BINARY as the intermediate conversion bridge:
+   Octal (Base 8) <---> Binary (Base 2) <---> Hexadecimal (Base 16)
+
+3. [ENRICHMENT / ADVANCED CONCEPT] FRACTIONAL RADIX CONVERSIONS
+--------------------------------------------------------------------------------
+A. FRACTIONAL BINARY TO DECIMAL:
+   Multiply fractional digits by negative powers of 2 (2⁻¹ = 0.5, 2⁻² = 0.25, 2⁻³ = 0.125, 2⁻⁴ = 0.0625).
+   Example: (0.1011)₂ = 1*0.5 + 0*0.25 + 1*0.125 + 1*0.0625 = 0.6875₁₀
+
+B. FRACTIONAL DECIMAL TO BINARY:
+   Repeatedly MULTIPLY the fractional part by 2. Record the integer part (0 or 1),
+   keep the new fractional part, and repeat until fractional part reaches 0 or
+   desired precision is reached. Read recorded integers from TOP TO BOTTOM.
+   Example: (0.625)₁₀
+   0.625 * 2 = 1.25 -> Int: 1, Frac: 0.25
+   0.250 * 2 = 0.50 -> Int: 0, Frac: 0.50
+   0.500 * 2 = 1.00 -> Int: 1, Frac: 0.00 (Done!)
+   Result: (0.101)₂
+
+================================================================================
+END OF REVISION NOTES - MODULE 002_001
+================================================================================

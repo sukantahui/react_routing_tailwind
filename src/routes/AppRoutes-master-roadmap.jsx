@@ -272,6 +272,10 @@ const ROUTES = {
   INFORMATION_TECHNOLOGY_802_ROADMAP: '/information-technology-802/roadmap',
   INFORMATION_TECHNOLOGY_802_MODULE: '/information-technology-802/module/:slug',
   INFORMATION_TECHNOLOGY_802_TOPIC: '/information-technology-802/topic/:moduleSlug/:topicIndex',
+
+  CBSE_CLASS_11_CS_083_ROADMAP: '/cbse-class-11-computer-science-083/roadmap',
+  CBSE_CLASS_11_CS_083_MODULE: '/cbse-class-11-computer-science-083/module/:slug',
+  CBSE_CLASS_11_CS_083_TOPIC: '/cbse-class-11-computer-science-083/topic/:moduleSlug/:topicIndex',
 };
 
 // --------------------------------------------------------------
@@ -604,6 +608,15 @@ const STUDY_TRACKS = [
     loadRoadmap: () => import('../components/study/information-technology-802/information-technology-802-roadmap.json'),
     getTopics: () => import.meta.glob('../components/study/information-technology-802/topics/*/Topic*.jsx'),
     topicBasePath: '../components/study/information-technology-802/topics',
+  },
+  {
+    key: 'cbse-class-11-computer-science-083',
+    roadmapRoute: ROUTES.CBSE_CLASS_11_CS_083_ROADMAP,
+    moduleRoute: ROUTES.CBSE_CLASS_11_CS_083_MODULE,
+    topicRoute: ROUTES.CBSE_CLASS_11_CS_083_TOPIC,
+    loadRoadmap: () => import('../components/study/cbse-class-11-computer-science-083/cbse-class-11-computer-science-083-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/cbse-class-11-computer-science-083/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/cbse-class-11-computer-science-083/topics',
   },
 ];
 

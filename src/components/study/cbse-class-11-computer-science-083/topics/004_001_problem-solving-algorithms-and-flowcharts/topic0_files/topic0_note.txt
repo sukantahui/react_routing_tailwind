@@ -1,0 +1,77 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTATIONAL THINKING AND PROGRAMMING - 1 (PYTHON) - 45 MARKS
+MODULE 004_001: PROBLEM SOLVING METHODOLOGY, ALGORITHMS & FLOWCHARTS
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. PROBLEM-SOLVING LIFECYCLE
+--------------------------------------------------------------------------------
+1. Problem Analysis & Understanding:
+   - Identify Input requirements, Expected Output format, and Processing Constraints.
+2. Algorithm Design:
+   - Formulate language-independent logical steps using Pseudocode and Flowcharts.
+3. Program Implementation (Coding):
+   - Translate the algorithm into high-level programming language syntax (Python).
+4. Testing & Debugging:
+   - Test using dry runs, trace tables, sample cases, and boundary/edge inputs.
+5. Documentation & Maintenance:
+   - Add inline comments, docstrings, user manuals, and prepare for future upgrades.
+
+2. CORE PROPERTIES OF AN ALGORITHM
+--------------------------------------------------------------------------------
+- Input: Takes zero or more well-defined inputs.
+- Output: Produces at least one clear, well-defined output.
+- Finiteness: Must terminate after a countable number of execution steps.
+- Definiteness (Unambiguity): Every step must be unambiguous, clear, and precise.
+- Feasibility / Effectiveness: Operations must be basic and achievable on hardware.
+- Language Independence: An algorithm can be implemented in any language.
+
+3. STANDARD FLOWCHART SYMBOLS & CONVENTIONS
+--------------------------------------------------------------------------------
+1. Oval / Rounded Rectangle (Terminal):
+   - Represents START and STOP / END of the flowchart.
+2. Parallelogram (Input / Output):
+   - Represents data input (`INPUT A, B`, `READ N`) and output (`PRINT RES`, `DISPLAY`).
+3. Rectangle (Processing):
+   - Represents computational operations, calculations, and assignments (`SUM = A + B`, `I = 1`).
+4. Diamond / Rhombus (Decision):
+   - Represents conditional checks (`Is N > 0?`, `Is A > B?`) with branching paths (Yes / No).
+5. Small Circle (Connector):
+   - Joins converging pathways or connects sections across pages without crossing lines.
+6. Flowlines with Arrowheads:
+   - Indicate exact sequence of execution (strictly Top-to-Bottom and Left-to-Right).
+
+4. DRY RUNNING & TRACE TABLES
+--------------------------------------------------------------------------------
+A Dry Run is manual mental/paper execution of an algorithm before running it on a computer.
+A Trace Table tracks:
+- Step Number / Line Number
+- Active Variable Values (e.g., I, N, SUM, FACT)
+- Condition Evaluations (True / False)
+- Output Emitted
+
+Example: Factorial Algorithm Trace Table (for N = 4):
+-------------------------------------------------------------
+Step | I | FACT | Condition (I <= N) | Action / Calculation
+-------------------------------------------------------------
+1    | 1 | 1    | -                  | Initialization
+2    | 1 | 1    | 1 <= 4 (True)      | FACT = 1 * 1 = 1, I = 2
+3    | 2 | 2    | 2 <= 4 (True)      | FACT = 1 * 2 = 2, I = 3
+4    | 3 | 6    | 3 <= 4 (True)      | FACT = 2 * 3 = 6, I = 4
+5    | 4 | 24   | 4 <= 4 (True)      | FACT = 6 * 4 = 24, I = 5
+6    | 5 | 24   | 5 <= 4 (False)     | Loop Exits -> Output 24
+-------------------------------------------------------------
+
+5. CLASSIC ALGORITHMS FOR CLASS XI EXAMS
+--------------------------------------------------------------------------------
+1. Sum of first N natural numbers: Formula $S = \frac{N(N+1)}{2}$ or iterative accumulation.
+2. Greatest of Three Numbers: Nested conditional comparisons.
+3. Prime Number Verification: Check divisors from $2$ to $\sqrt{N}$.
+4. GCD / HCF using Euclid's Modulo Algorithm: Replace $(A, B)$ with $(B, A \bmod B)$ until $B = 0$.
+5. Fibonacci Series: $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$.
+
+================================================================================
+END OF REVISION NOTES - MODULE 004_001
+================================================================================

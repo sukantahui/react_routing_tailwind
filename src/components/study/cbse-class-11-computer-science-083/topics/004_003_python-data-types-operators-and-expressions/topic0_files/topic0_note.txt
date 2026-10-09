@@ -1,0 +1,89 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTATIONAL THINKING AND PROGRAMMING - 1 (PYTHON) - 45 MARKS
+MODULE 004_003: PYTHON DATA TYPES, OPERATORS, PRECEDENCE & EXPRESSIONS
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. PYTHON DATA TYPE TAXONOMY
+--------------------------------------------------------------------------------
+Every value in Python is an object associated with a specific data type:
+- Numbers:
+  * `int`: Arbitrary-precision integers (`-25`, `0`, `156`).
+  * `float`: Double-precision 64-bit IEEE 754 floating-point numbers (`3.14`, `-0.001`, `1.45e3`).
+  * `complex`: Real and imaginary parts (`3 + 4j`, `z.real`, `z.imag`).
+- Boolean: `bool` (`True` = 1, `False` = 0) (Subclass of int).
+- Sequence Types: `str` (immutable text), `list` (mutable sequence), `tuple` (immutable sequence).
+- Mapping Type: `dict` (key-value associative hash map).
+- Set Types: `set` (mutable unique collection), `frozenset` (immutable set).
+- Special Singleton: `NoneType` (value `None`).
+
+2. TYPE CASTING & CONVERSION
+--------------------------------------------------------------------------------
+- Implicit Type Conversion (Coercion):
+  Python automatically promotes smaller numeric types to wider types to prevent precision loss.
+  Example: `5 + 2.5` -> Integer `5` promoted to Float `5.0` -> Result is `7.5` (`float`).
+- Explicit Type Conversion (Type Casting):
+  Programmer explicitly invokes conversion constructor functions:
+  `int('45')` -> `45`, `float('3.14')` -> `3.14`, `str(100)` -> `'100'`, `bool(0)` -> `False`.
+- Truth Value Testing (Truthy vs Falsy):
+  * Falsy Values: `False`, `None`, numeric zeros (`0`, `0.0`, `0j`), empty collections (`''`, `[]`, `()`, `{}`).
+  * Truthy Values: Everything else (including `'False'`, `[-1]`, `[0]`).
+
+3. COMPREHENSIVE OPERATOR TAXONOMY
+--------------------------------------------------------------------------------
+1. Arithmetic Operators:
+   - `+` (Addition), `-` (Subtraction), `*` (Multiplication)
+   - `/` (True Float Division: `7 / 2 = 3.5`)
+   - `//` (Floor Division: rounds down to nearest integer toward $-\infty$: `-7 // 2 = -4`)
+   - `%` (Modulo Remainder: result takes the sign of the divisor $b$: `-7 % 2 = 1`)
+   - `**` (Exponentiation / Power: `2 ** 3 = 8`)
+
+2. Relational (Comparison) Operators:
+   - `==`, `!=`, `<`, `>`, `<=`, `>=` (Returns boolean `True` or `False`).
+   - Supports Chaining: `10 < x < 20` $\iff$ `(10 < x) and (x < 20)`.
+
+3. Logical Operators (Short-Circuit Evaluation):
+   - `and`: Returns first falsy operand, or last truthy operand if all are true.
+   - `or`: Returns first truthy operand, or last falsy operand if all are false.
+   - `not`: Inverts boolean state (`not True = False`).
+
+4. Bitwise Operators (Bit-level binary operations):
+   - `&` (AND), `|` (OR), `^` (XOR), `~` (Bitwise Invert: `~x = -(x + 1)`), `<<` (Left Shift), `>>` (Right Shift).
+
+5. Identity Operators:
+   - `is`: `True` if operands reference identical memory object ($id(a) == id(b)$).
+   - `is not`: Negated identity.
+   - Contrast with `==`: `==` checks value equality; `is` checks memory address identity.
+
+6. Membership Operators:
+   - `in`: `True` if element exists inside sequence/collection.
+   - `not in`: `True` if element does not exist.
+
+4. OPERATOR PRECEDENCE & ASSOCIATIVITY TABLE (HIGHEST TO LOWEST)
+--------------------------------------------------------------------------------
+Rank | Operator                          | Description                 | Associativity
+--------------------------------------------------------------------------------
+1    | ( )                               | Parentheses (Grouping)      | Left to Right
+2    | **                                | Exponentiation              | RIGHT TO LEFT
+3    | +x, -x, ~x                        | Unary plus, minus, NOT      | Right to Left
+4    | *, /, //, %                       | Multiplication, Division    | Left to Right
+5    | +, -                              | Addition, Subtraction       | Left to Right
+6    | <<, >>                            | Bitwise Shifts              | Left to Right
+7    | &                                 | Bitwise AND                 | Left to Right
+8    | ^                                 | Bitwise XOR                 | Left to Right
+9    | |                                 | Bitwise OR                  | Left to Right
+10   | ==, !=, <, <=, >, >=, is, in      | Comparisons, Identity, Mem  | Left to Right
+11   | not                               | Logical NOT                 | Right to Left
+12   | and                               | Logical AND                 | Left to Right
+13   | or                                | Logical OR                  | Left to Right
+14   | =, +=, -=, *=, /=, //=, %=, **=   | Assignment Operators        | Right to Left
+--------------------------------------------------------------------------------
+
+CRITICAL EXAM TRAP:
+`2 ** 3 ** 2` evaluates as `2 ** (3 ** 2) = 2 ** 9 = 512` (Right to Left Associativity).
+
+================================================================================
+END OF REVISION NOTES - MODULE 004_003
+================================================================================

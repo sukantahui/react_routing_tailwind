@@ -1,0 +1,92 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTATIONAL THINKING AND PROGRAMMING - 1 (PYTHON) - 45 MARKS
+MODULE 004_002: PYTHON TOKENS, L-VALUE & R-VALUE MECHANICS, VARIABLES & I/O
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. PYTHON TOKENS (LEXICAL UNITS)
+--------------------------------------------------------------------------------
+A Token is the smallest individual lexical unit recognized by the Python interpreter.
+
+A. KEYWORDS (RESERVED WORDS):
+   - 35 reserved words having special, predefined compiler meanings.
+   - Cannot be used as variable or function identifier names.
+   - Capitalized Keywords (Only 3): `True`, `False`, `None`.
+   - All other 32 keywords are lowercase:
+     `and`, `as`, `assert`, `async`, `await`, `break`, `class`, `continue`, `def`,
+     `del`, `elif`, `else`, `except`, `finally`, `for`, `from`, `global`, `if`,
+     `import`, `in`, `is`, `lambda`, `nonlocal`, `not`, `or`, `pass`, `raise`,
+     `return`, `try`, `while`, `with`, `yield`.
+
+B. IDENTIFIERS (NAMING RULES):
+   - Used to name variables, functions, classes, modules, and objects.
+   - Statutory Rules:
+     1. Must begin with an alphabet letter (A–Z, a–z) or an underscore (`_`).
+     2. Cannot begin with a numeric digit (0–9) (e.g., `2nd_val` is INVALID).
+     3. Can contain letters, digits, and underscores (no spaces or special punctuation).
+     4. Case-Sensitive: `score`, `Score`, and `SCORE` are three distinct variables.
+     5. Cannot match any reserved Python keyword (e.g., `def = 5` is INVALID).
+
+C. LITERALS (CONSTANTS):
+   - Fixed data values directly written in source code.
+   - Numeric Literals:
+     * Integer: Decimal (`156`), Binary (`0b1010`), Octal (`0o75`), Hexadecimal (`0x2F`).
+     * Floating-Point: Fractional (`3.14159`), Exponent (`1.5e-3` = 0.0015).
+     * Complex: `3 + 4j` (where `j` = $\sqrt{-1}$).
+   - String Literals: Enclosed in single (`'...'`), double (`"..."`), or triple quotes (`'''...'''`).
+   - Boolean Literals: `True` (value 1) and `False` (value 0).
+   - Special Literal: `None` (represents absence of value / null reference, type `NoneType`).
+
+D. OPERATORS:
+   - Symbols performing computations: `+`, `-`, `*`, `/`, `//`, `%`, `**`, `==`, `!=`, `<`, `>`, `and`, `or`, `not`, `&`, `|`, `^`, `~`, `<<`, `>>`, `in`, `is`.
+
+E. DELIMITERS / PUNCTUATORS:
+   - Structural symbols: `( ) [ ] { } , : . = ; @ += -= *= /= ...`.
+
+2. EXPLICIT L-VALUE AND R-VALUE MECHANICS
+--------------------------------------------------------------------------------
+In an assignment statement:
+    lvalue = rvalue
+
+- L-VALUE (Left Value / Location Value):
+  * Represents an addressable storage target in memory capable of holding data.
+  * In Python, l-values must be valid assignable targets: variable names, list indices
+    (`lst[0]`), dictionary keys (`d['k']`), or object attributes (`obj.attr`).
+  * Expressions and literals CANNOT serve as l-values.
+
+- R-VALUE (Right Value / Read Value):
+  * Represents an evaluated expression, literal constant, or variable value.
+  * Any valid Python expression that computes to an object can serve as an r-value.
+
+- EXAM EXAMPLES OF L-VALUE VIOLATIONS (RAISES SYNTAXERROR):
+  * `x + y = 10`  -> INVALID (Expression `x + y` cannot be on left side)
+  * `100 = score` -> INVALID (Literal `100` cannot be on left side)
+  * `a * 2 = b`   -> INVALID (Arithmetic expression on left side)
+
+- VALID ASSIGNMENTS:
+  * `x = 10`           -> Simple Assignment
+  * `a, b = 10, 20`    -> Multiple Assignment (Tuple Unpacking)
+  * `x = y = z = 100`  -> Chained Assignment (All point to same object)
+  * `a, b = b, a`      -> Clean Variable Swapping (Without third temporary variable)
+
+3. STANDARD INPUT & OUTPUT (I/O)
+--------------------------------------------------------------------------------
+A. INPUT FUNCTION: `input([prompt])`
+   - Pauses execution and reads a line of text entered by user.
+   - ALWAYS returns a string (`str`).
+   - Type Casting is mandatory for math:
+     * `age = int(input("Enter age: "))`
+     * `price = float(input("Enter price: "))`
+
+B. PRINT FUNCTION: `print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)`
+   - `sep`: String inserted between arguments (Default is single space `' '`).
+   - `end`: String appended at the very end (Default is newline `'\\n'`).
+   - Example:
+     `print('Mamata', 'Susmita', sep=' & ', end=' are Class XI toppers.\n')`
+     Output: `Mamata & Susmita are Class XI toppers.`
+
+================================================================================
+END OF REVISION NOTES - MODULE 004_002
+================================================================================

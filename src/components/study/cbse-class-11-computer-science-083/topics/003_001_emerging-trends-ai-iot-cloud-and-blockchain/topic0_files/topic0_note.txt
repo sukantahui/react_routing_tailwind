@@ -1,0 +1,64 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - ENRICHMENT MODULE
+MODULE 003_001: EMERGING TRENDS IN COMPUTING (AI, IOT, CLOUD & BLOCKCHAIN)
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+> [!NOTE]
+> This module is an [Enrichment / Advanced Concept] module designed to provide senior
+> secondary students with foundational literacy in 21st-century technological frontiers.
+
+1. ARTIFICIAL INTELLIGENCE & MACHINE LEARNING
+--------------------------------------------------------------------------------
+- Artificial Intelligence (AI): The broad discipline of building software systems
+  capable of human-like intelligence, reasoning, decision-making, and pattern recognition.
+- Machine Learning (ML): Algorithms that learn predictive mathematical models from
+  empirical training data without being explicitly hard-coded with static rules.
+  * Supervised Learning: Trained on labeled data pairs (Features X -> Target Y).
+  * Unsupervised Learning: Discovers latent clusters and associations in unlabeled data.
+  * Reinforcement Learning: Learns optimal policies via reward/penalty feedback loops.
+- Deep Learning (DL): Subset of ML using deep multi-layer Artificial Neural Networks (ANNs).
+- Natural Language Processing (NLP): Enables computers to parse, understand, translate,
+  and generate human natural languages (e.g., ChatGPT, Google Translate, Sentiment Analysis).
+- Computer Vision (CV): Enables computers to extract meaningful semantic information
+  from digital images, video feeds, and spatial point clouds.
+
+2. INTERNET OF THINGS (IoT) & SENSORS
+--------------------------------------------------------------------------------
+- Definition: A vast network of physical objects ("things") embedded with sensors,
+  microcontrollers (ESP32, Raspberry Pi), and network radios (Wi-Fi, Bluetooth, LoRa)
+  that collect and transmit telemetry data over the Internet.
+- Core Architecture:
+  1. Sensors (Input): Thermistors, Accelerometers, Soil Moisture Probes, Ultrasonic sensors.
+  2. Actuators (Output): Relays, Solenoid Valves, Stepper Motors, Audio buzzers.
+  3. IoT Gateways & Edge Nodes: Local filtering, protocol translation (MQTT, HTTP), edge processing.
+  4. Cloud Analytics: Ingestion of big data streams, predictive maintenance, and alert automation.
+
+3. CLOUD COMPUTING SERVICE & DEPLOYMENT MODELS
+--------------------------------------------------------------------------------
+- Definition: On-demand network access to a shared pool of configurable computing
+  resources (servers, storage, databases, networking, software) with rapid elasticity.
+- Service Models:
+  1. IaaS (Infrastructure as a Service): Raw compute, virtual machines, block storage (e.g. AWS EC2, GCP Compute).
+  2. PaaS (Platform as a Service): Managed runtime environment for building and deploying applications (e.g. Heroku, App Engine).
+  3. SaaS (Software as a Service): Fully functional end-user applications delivered via web browsers (e.g. Google Workspace, MS 365).
+- Deployment Models: Public Cloud, Private Cloud, Hybrid Cloud, Community Cloud.
+
+4. BLOCKCHAIN & DISTRIBUTED LEDGER TECHNOLOGY
+--------------------------------------------------------------------------------
+- Definition: A decentralized, cryptographically secured, append-only distributed ledger
+  maintained by a peer-to-peer network without requiring a central authority.
+- Key Components:
+  1. Block Structure: Block Header contains: Block Index, Timestamp, Transaction Data,
+     Nonce, and previous_hash (the SHA-256 hash of the parent block).
+  2. Cryptographic Hash (SHA-256): Fixed 256-bit (64 hex character) digest. Any tiny change
+     in transaction data produces a wildly different hash (Avalanche Effect).
+  3. Immutability: Changing data in block N invalidates previous_hash in block N+1,
+     breaking the chain across the entire distributed network.
+  4. Consensus Mechanisms: Proof of Work (PoW), Proof of Stake (PoS) to achieve Byzantine fault-tolerant agreement.
+  5. Smart Contracts: Autonomous programs executed on a blockchain when conditions are met.
+
+================================================================================
+END OF REVISION NOTES - MODULE 003_001 [ENRICHMENT]
+================================================================================

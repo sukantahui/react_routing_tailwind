@@ -1,0 +1,1753 @@
+{
+  "trackId": "cbse-class11-computer-science-083",
+  "trackTitle": "CBSE Class XI Computer Science (Subject Code: 083) Complete Mastery",
+  "description": "An exhaustive, exam-aligned master curriculum for CBSE Class XI Computer Science (Code 083) as prescribed by CBSE (2024-25 / 2025-26). Covers Unit I: Computer Systems and Organisation (10 Marks), Unit II: Computational Thinking and Programming - 1 (45 Marks) including explicit l-value/r-value mechanics, syntax/logical/runtime errors, strings, lists, tuples, dictionaries, and modules, Unit III: Society, Law and Ethics (15 Marks) featuring dedicated Technology & Society coverage (gender & disability inclusion, assistive technology), clearly demarcated Enrichment modules (AI, IoT, Cloud, Blockchain, signed binary 2's complement), and a complete 20-program Practical Laboratory Repository with Suggested Mock Examination Papers.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "CBSE Class XI Computer Science (Code 083) Master Tutorial Roadmap",
+    "version": "2.1.0",
+    "lastUpdated": "2026-10-09"
+  },
+  "folder": "cbse-class-11-computer-science-083",
+  "subject": "Computer Science (083)",
+  "officialSyllabusDistribution": {
+    "unit1": {
+      "unitName": "Unit I: Computer Systems and Organisation (CSO)",
+      "theoryMarks": 10,
+      "description": "Basic computer organisation, memory hierarchy, software types, OS functions, number systems, encoding schemes, Boolean logic and logic gates."
+    },
+    "unit2": {
+      "unitName": "Unit II: Computational Thinking and Programming - 1 (Python)",
+      "theoryMarks": 45,
+      "description": "Problem solving, algorithms, flowcharts, Python basics, tokens, l-value/r-value, data types, operators, expressions, syntax/logical/runtime errors, conditionals, loops, strings, lists, tuples, dictionaries, and standard modules (math, random, statistics)."
+    },
+    "unit3": {
+      "unitName": "Unit III: Society, Law and Ethics (SLE)",
+      "theoryMarks": 15,
+      "description": "Technology & Society (Gender and disability issues, assistive tech), digital footprints, netiquette, data privacy, IPR, plagiarism, FOSS licenses, cyber safety, Indian IT Act 2000, e-waste management, and green computing."
+    },
+    "totalTheoryMarks": 70,
+    "practicalMarks": 30,
+    "grandTotalMarks": 100
+  },
+  "subjectLogo": {
+    "name": "Computer Science 083",
+    "icon": "Terminal",
+    "type": "svg",
+    "path": "/logos/cs-083.svg",
+    "alt": "CBSE Class XI Computer Science (083) Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "segment-1-computer-systems-and-organisation",
+      "title": "Segment 1 – Computer Systems & Organisation: Architecture, Memory Hierarchy & System Software (Unit I – 10 Marks)",
+      "level": "Beginner to Intermediate",
+      "summary": "Master computer architecture, CPU execution units, memory hierarchy (primary, secondary, cache), units of memory measurement, operating system functions, language processors (compilers, interpreters, assemblers), and system vs application software.",
+      "modules": [
+        {
+          "moduleId": "cs-083-cso-basic-organisation-memory",
+          "slug": "001_001_basic-computer-organisation-and-memory-units",
+          "title": "Basic Computer Organisation, CPU Architecture & Memory Units",
+          "level": "Beginner",
+          "estimatedHours": 6,
+          "tags": [
+            "computer-organisation",
+            "cpu-architecture",
+            "alu-cu-registers",
+            "system-bus",
+            "memory-hierarchy",
+            "ram-rom-cache",
+            "units-of-memory",
+            "storage-devices"
+          ],
+          "topics": [
+            "Introduction to Computer Systems: Hardware Components and Functional Units (Input, CPU, Output, Memory)",
+            "Central Processing Unit (CPU): Arithmetic Logic Unit (ALU), Control Unit (CU), and Registers (Accumulator, Program Counter, Instruction Register)",
+            "System Bus Architecture: Data Bus, Address Bus, and Control Bus",
+            "Instruction Execution Cycle: Fetch, Decode, Execute, and Store Cycle",
+            "Memory Hierarchy: Primary Memory (RAM - SRAM vs DRAM, ROM - PROM, EPROM, EEPROM)",
+            "High-Speed Cache Memory: L1, L2, L3 Cache and Principle of Locality of Reference",
+            "Secondary Storage Devices: Hard Disk Drives (HDD), Solid-State Drives (SSD), Optical Disks, and Flash Drives",
+            "Units of Memory Measurement: Bit, Nibble, Byte, KB, MB, GB, TB, PB, EB, ZB, YB and Conversion Formulas",
+            "Input and Output Devices: Keyboard, Mouse, Scanners, OCR, OMR, MICR, Monitors, Printers, and Plotters",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Identify the functional units of a computer system and their interconnections via system buses",
+            "Distinguish between volatile RAM (SRAM/DRAM) and non-volatile ROM (PROM/EPROM/EEPROM)",
+            "Explain the role of high-speed cache memory and register storage in CPU instruction execution",
+            "Convert storage sizes accurately between Bit, Byte, Kilobyte, Megabyte, Gigabyte, and Terabyte units"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Master fundamental computer organisation, CPU block diagram, bus architecture, memory hierarchy, cache mechanisms, and memory measurement unit calculations.",
+          "miniProjects": [
+            "Hardware Specification Analyzer: Build a specification audit for a modern school lab workstation",
+            "Memory Unit Conversion Calculator in Python: Convert user-input byte values across KB, MB, GB, and TB"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 5,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Computer Organisation Conceptual Quiz + Memory Calculation Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Functional Block Diagram of Computer System",
+            "CPU Anatomy: ALU, CU, Accumulator & Program Counter",
+            "Memory Hierarchy: Registers -> Cache -> RAM -> Secondary Storage",
+            "RAM vs ROM Types & Characteristics",
+            "Units of Digital Information & Mathematical Conversions"
+          ],
+          "previousModule": null,
+          "nextModule": "001_002_types-of-software-and-operating-system-functions",
+          "badge": "Computer Architecture Foundation Badge"
+        },
+        {
+          "moduleId": "cs-083-cso-software-types-operating-system",
+          "slug": "001_002_types-of-software-and-operating-system-functions",
+          "title": "Types of Software, Operating System Architecture & Language Processors",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "system-software",
+            "application-software",
+            "operating-system",
+            "compiler-interpreter",
+            "assembler",
+            "os-functions",
+            "cli-vs-gui",
+            "device-drivers"
+          ],
+          "topics": [
+            "Classification of Software: System Software, Application Software, and Utility Software",
+            "System Software: Operating System (OS), Device Drivers, and System Utilities",
+            "Language Processors: Assembler, Compiler, and Interpreter (Detailed Comparison & Execution Models)",
+            "Application Software: General Purpose Software (Word processors, Spreadsheets) vs Customized / Tailored Software",
+            "Operating System Core Functions: Processor Management (CPU Scheduling), Memory Management, File Management, Device Management",
+            "Operating System as a Resource Manager and Virtual Machine",
+            "User Interfaces in Operating Systems: Command Line Interface (CLI) vs Graphical User Interface (GUI)",
+            "Types of Operating Systems: Single-User, Multi-User, Multiprogramming, Time-Sharing [Prescribed] | [Enrichment / Advanced: Real-Time RTOS, Distributed OS]",
+            "Common Operating Systems: Windows, Linux (Ubuntu, Debian), macOS, Android, and iOS",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Categorize software systems into System, Application, and Utility layers with practical examples",
+            "Compare Compiler vs Interpreter with respect to translation speed, error reporting, and object code generation",
+            "Explain the major resource management functions performed by modern operating systems",
+            "Differentiate between CLI and GUI environments and identify multi-user vs time-sharing operating systems"
+          ],
+          "prerequisites": [
+            "001_001_basic-computer-organisation-and-memory-units"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Master software taxonomy, OS architecture, resource management, language processors (compilers vs interpreters), and user interfaces with enrichment notes on real-time systems.",
+          "miniProjects": [
+            "Software Cataloging Tool: Classify enterprise applications into system, utility, general, and bespoke categories",
+            "Language Processor Benchmark Tracker: Tabulate source execution speed for interpreted vs compiled scripts"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "coding": 4,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Software Classification & OS Architecture Theory Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Software Hierarchy: System vs Application vs Utility",
+            "Language Processors: Assembler vs Compiler vs Interpreter",
+            "Core Functions of Operating Systems (Memory, Processor, File, Device)",
+            "OS Types: Single User, Time-Sharing, Multiprogramming",
+            "CLI vs GUI Paradigm Comparison"
+          ],
+          "previousModule": "001_001_basic-computer-organisation-and-memory-units",
+          "nextModule": "002_001_number-systems-and-base-conversions",
+          "badge": "Operating Systems & Software Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-2-number-systems-and-boolean-logic",
+      "title": "Segment 2 – Number Systems, Internal Data Representation & Boolean Logic (Unit I – 10 Marks)",
+      "level": "Intermediate",
+      "summary": "Master positional number systems (Binary, Octal, Decimal, Hexadecimal), base conversion algorithms, character encodings (ASCII, ISCII, Unicode), signed representations (2's complement - Enrichment), Boolean algebra, truth tables, logic gates, and circuit synthesis.",
+      "modules": [
+        {
+          "moduleId": "cs-083-number-systems-base-conversions",
+          "slug": "002_001_number-systems-and-base-conversions",
+          "title": "Number Systems & Radix Conversion Algorithms",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "number-systems",
+            "binary-octal-hex",
+            "radix-conversion",
+            "successive-division",
+            "bit-grouping",
+            "base-conversion"
+          ],
+          "topics": [
+            "Positional Number Systems: Radix / Base Concept (Binary Base-2, Octal Base-8, Decimal Base-10, Hexadecimal Base-16)",
+            "Decimal to Binary, Octal, and Hexadecimal Conversion (Successive Division Method)",
+            "Binary, Octal, and Hexadecimal to Decimal Conversion (Positional Weight Expansion Method)",
+            "Binary to Octal (3-Bit Grouping) and Octal to Binary Conversion",
+            "Binary to Hexadecimal (4-Bit Grouping) and Hexadecimal to Binary Conversion",
+            "Octal to Hexadecimal and Hexadecimal to Octal via Binary Intermediary",
+            "[Enrichment / Advanced Concept: Fractional Radix Conversions (Successive Multiplication Method)]",
+            "[Enrichment / Advanced Concept: Binary Arithmetic (Addition, Subtraction, Multiplication, Division)]",
+            "Step-by-Step Conversion Shortcuts and Exam Speed Calculation Techniques",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Perform rapid conversions between Decimal, Binary, Octal, and Hexadecimal number systems",
+            "Apply 3-bit and 4-bit bit-grouping shortcuts for Octal <-> Binary <-> Hexadecimal translations",
+            "Understand fractional conversions and binary arithmetic as enrichment foundations for digital computation"
+          ],
+          "prerequisites": [
+            "001_001_basic-computer-organisation-and-memory-units"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 3,
+          "summary": "Master all prescribed positional number systems, integer radix conversion algorithms, and bit-grouping techniques, with clearly labeled enrichment on fractional conversions.",
+          "miniProjects": [
+            "Multi-Radix Base Converter in Python: Build a CLI tool converting numbers between bases 2, 8, 10, and 16"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 20,
+            "coding": 6,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Number System Conversion Problem Set",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "Radix Concept & Positional Value Notation",
+            "Decimal <-> Binary/Octal/Hex Integer Conversions",
+            "Bit-Grouping Shortcuts (3-bit octal, 4-bit hex)",
+            "Octal <-> Hexadecimal Conversion via Binary",
+            "[Enrichment] Fractional Conversions & Binary Arithmetic"
+          ],
+          "previousModule": "001_002_types-of-software-and-operating-system-functions",
+          "nextModule": "002_002_internal-data-representation-and-encoding-schemes",
+          "badge": "Number System Master Badge"
+        },
+        {
+          "moduleId": "cs-083-internal-data-representation-encodings",
+          "slug": "002_002_internal-data-representation-and-encoding-schemes",
+          "title": "Internal Data Representation & Character Encoding Schemes (ASCII, ISCII, Unicode)",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "encoding-schemes",
+            "ascii",
+            "iscii",
+            "unicode",
+            "utf-8",
+            "character-representation",
+            "enrichment-signed-binary"
+          ],
+          "topics": [
+            "Need for Encoding Schemes: Mapping Characters and Glyphs to Numeric Binary Code Points",
+            "Character Encoding Standards: ASCII (7-bit ASCII & 8-bit Extended ASCII) and Standard Code Points ('A'=65, 'a'=97, '0'=48)",
+            "Indian Script Code for Information Interchange (ISCII): Architecture and 8-bit Indian Language Representation",
+            "UNICODE Transformation Formats: Universal Coded Character Set, UTF-8 (Variable-length 1 to 4 bytes), UTF-16, and UTF-32",
+            "Significance of Unicode in Multilingual Computing, Indian Languages, and Web Globalization",
+            "[Enrichment / Advanced Architecture Concept: Signed Binary Integers (Sign-Magnitude, 1's Complement, and 2's Complement)]",
+            "[Enrichment / Advanced Architecture Concept: Subtraction using 2's Complement and Hardware Overflow Handling]",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Compare ASCII, ISCII, and UNICODE character encoding standards and their byte footprint",
+            "Explain how UTF-8 dynamically handles English and Indian vernacular scripts",
+            "Understand signed binary numbers and 2's complement as an advanced computer architecture enrichment topic"
+          ],
+          "prerequisites": [
+            "002_001_number-systems-and-base-conversions"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master core prescribed character encoding schemes (ASCII, ISCII, Unicode UTF-8/16/32) with clearly demarcated enrichment on signed 2's complement integer storage.",
+          "miniProjects": [
+            "Unicode Character Inspector: Display Unicode code point, binary bytes, and hex representation for English and Indic text"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 18,
+            "coding": 5,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Character Encoding Schemes & Representation Assessment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Character Encoding Overview & Binary Code Points",
+            "ASCII and Extended ASCII Tables",
+            "ISCII & Indian Language Support",
+            "Unicode & UTF-8 Variable-Length Architecture",
+            "[Enrichment] Signed Binary Representation & 2's Complement"
+          ],
+          "previousModule": "002_001_number-systems-and-base-conversions",
+          "nextModule": "002_003_boolean-logic-logic-gates-and-truth-tables",
+          "badge": "Data Representation Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-boolean-logic-gates-circuits",
+          "slug": "002_003_boolean-logic-logic-gates-and-truth-tables",
+          "title": "Boolean Logic, Postulates, Logic Gates & Circuit Design",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "boolean-logic",
+            "logic-gates",
+            "and-or-not",
+            "nand-nor",
+            "xor-xnor",
+            "truth-tables",
+            "de-morgans-laws",
+            "boolean-postulates",
+            "circuit-design"
+          ],
+          "topics": [
+            "Introduction to Boolean Algebra: Binary Decision Variables, Boolean Constants (0 and 1), and Truth Values",
+            "Fundamental Logic Operations: Logical NOT (Inversion), Logical AND (Conjunction), Logical OR (Disjunction)",
+            "Primary Logic Gates: NOT Gate, AND Gate, OR Gate (Symbols, Truth Tables, and Boolean Equations)",
+            "Universal Logic Gates: NAND Gate and NOR Gate (Why they are called Universal Gates & Realizing Basic Gates with Universal Gates)",
+            "Special Logic Gates: Exclusive-OR (XOR) Gate and Exclusive-NOR (XNOR) Gate",
+            "Truth Table Construction for Multi-Variable Boolean Expressions (2-variable, 3-variable, and 4-variable)",
+            "Postulates and Laws of Boolean Logic: Identity, Idempotent, Boundedness/Null, Complement, Commutative, Associative, Distributive, and Absorption Laws",
+            "De Morgan's First Law (A + B)' = A' · B' and Second Law (A · B)' = A' + B' (Algebraic & Truth Table Proofs)",
+            "Duality Principle: Formulating Duals of Boolean Expressions and Equations",
+            "Logic Circuit Synthesis: Drawing Logic Circuit Diagrams from Boolean Expressions and Deriving Expressions from Logic Circuits",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Construct truth tables for complex multi-variable Boolean expressions",
+            "Prove Boolean theorems and De Morgan's laws using algebraic proofs and truth table verification",
+            "Demonstrate why NAND and NOR gates are universal gates by constructing NOT, AND, and OR gates using them",
+            "Synthesize and draw logic circuit diagrams directly from Boolean expressions"
+          ],
+          "prerequisites": [
+            "001_001_basic-computer-organisation-and-memory-units"
+          ],
+          "difficulty": "Medium to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master Boolean algebra, truth tables, primary & universal logic gates (NAND/NOR), Boolean postulates, De Morgan's laws, and digital logic circuit design.",
+          "miniProjects": [
+            "Boolean Expression Truth Table Generator in Python: Automatically generate truth tables for any Boolean formula",
+            "Logic Gate Circuit Simulator: Evaluate digital logic circuits given input pin voltages"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 20,
+            "coding": 6,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Boolean Algebra Proofs & Circuit Synthesis Examination",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Boolean Logic & Binary Decision Variables",
+            "Basic Logic Gates: AND, OR, NOT",
+            "Universal Gates: NAND and NOR Universal Realization",
+            "XOR and XNOR Gates",
+            "Boolean Postulates, Distributive Law & De Morgan's Laws",
+            "Truth Table Verification & Circuit Diagram Synthesis"
+          ],
+          "previousModule": "002_002_internal-data-representation-and-encoding-schemes",
+          "nextModule": "003_001_emerging-trends-ai-iot-cloud-and-blockchain",
+          "badge": "Boolean Logic & Circuit Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-3-emerging-trends-in-computing",
+      "title": "Segment 3 – Emerging Trends in Computing [Enrichment / Advanced Concepts – Beyond Core Class XI CS 083]",
+      "level": "Enrichment / Advanced",
+      "summary": "Valuable enrichment module covering modern technological revolutions transforming the industry: Artificial Intelligence, Machine Learning, NLP, Immersive Technologies (AR/VR), Robotics, Big Data Analytics, IoT, Cloud Computing (IaaS/PaaS/SaaS), Grid Computing, and Blockchain.",
+      "isEnrichment": true,
+      "modules": [
+        {
+          "moduleId": "cs-083-emerging-trends-computing",
+          "slug": "003_001_emerging-trends-ai-iot-cloud-and-blockchain",
+          "title": "Emerging Trends in Computing: AI, IoT, Cloud & Blockchain [Enrichment Module]",
+          "level": "Enrichment",
+          "estimatedHours": 6,
+          "tags": [
+            "enrichment-topic",
+            "emerging-trends",
+            "artificial-intelligence",
+            "machine-learning",
+            "nlp",
+            "ar-vr",
+            "robotics",
+            "big-data-5vs",
+            "iot-sensors",
+            "cloud-computing",
+            "blockchain"
+          ],
+          "topics": [
+            "[Enrichment Scope Note: This module covers advanced industry computing paradigms beyond the core Class XI CS 083 syllabus for holistic technical exposure]",
+            "Artificial Intelligence (AI): Definition, History, Weak AI vs Strong AI, and Real-World Applications",
+            "Machine Learning (ML) and Deep Learning: Supervised, Unsupervised, and Reinforcement Learning Foundations",
+            "Natural Language Processing (NLP): Speech Recognition, Language Translation, Sentiment Analysis, and Chatbots",
+            "Immersive Experiences: Augmented Reality (AR), Virtual Reality (VR), and Mixed Reality (MR)",
+            "Robotics: Components of Robots (Actuators, Sensors, Controllers) and Industrial / Healthcare Applications",
+            "Big Data Characteristics: The 5 Vs of Big Data (Volume, Velocity, Variety, Veracity, and Value)",
+            "Internet of Things (IoT): Smart Devices, Sensors, Actuators, RFID, Smart Homes, Smart Agriculture, and Smart Cities",
+            "Cloud Computing Paradigm: On-Demand Self-Service, Resource Pooling, Rapid Elasticity, and Delivery Models (IaaS, PaaS, SaaS)",
+            "Cloud Deployment Models: Public Cloud, Private Cloud, Community Cloud, and Hybrid Cloud",
+            "Grid Computing & Blockchain: Distributed Resource Sharing and Decentralized Cryptographic Ledgers",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Understand emerging computational paradigms (AI, ML, NLP, IoT, Cloud Computing, Blockchain) for enrichment and Olympiad readiness",
+            "Differentiate between Supervised, Unsupervised, and Reinforcement learning models",
+            "Contrast IaaS, PaaS, and SaaS cloud delivery models and analyze Blockchain decentralization"
+          ],
+          "prerequisites": [
+            "001_001_basic-computer-organisation-and-memory-units"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Enrichment exploration of AI, Machine Learning, NLP, AR/VR, Big Data 5 Vs, IoT architectures, Cloud service models (IaaS/PaaS/SaaS), Grid computing, and Blockchain.",
+          "miniProjects": [
+            "Emerging Tech Ecosystem Analyzer: Map industry use cases across healthcare, finance, and logistics to AI, IoT, and Cloud"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "caseStudy": 4
+          },
+          "assessment": {
+            "type": "Emerging Technologies Conceptual Assessment + Case Study Evaluation",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Enrichment Scope & Purpose",
+            "AI, Machine Learning & NLP Revolution",
+            "Immersive Tech (AR/VR) & Robotics",
+            "Big Data 5 Vs & Internet of Things (IoT)",
+            "Cloud Computing Delivery Models (IaaS/PaaS/SaaS)",
+            "Blockchain Distributed Ledgers"
+          ],
+          "previousModule": "002_003_boolean-logic-logic-gates-and-truth-tables",
+          "nextModule": "004_001_problem-solving-algorithms-and-flowcharts",
+          "badge": "Emerging Technologies Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-4-computational-thinking-and-python-foundations",
+      "title": "Segment 4 – Computational Thinking, Python Foundations, Expressions & Flow of Control (Unit II – 45 Marks)",
+      "level": "Beginner to Intermediate",
+      "summary": "Master algorithm design, flowcharting, Python language syntax, tokens, l-value vs r-value mechanics, dynamic typing, arithmetic & logical operators, operator precedence, dedicated syntax/logical/runtime error debugging, conditional execution (if-elif-else), loops (for/while), jump statements, and tracing output.",
+      "modules": [
+        {
+          "moduleId": "cs-083-problem-solving-algorithms-flowcharts",
+          "slug": "004_001_problem-solving-algorithms-and-flowcharts",
+          "title": "Problem Solving Methodology, Algorithms & Flowchart Design",
+          "level": "Beginner",
+          "estimatedHours": 6,
+          "tags": [
+            "problem-solving",
+            "computational-thinking",
+            "algorithm-design",
+            "flowcharts",
+            "pseudocode",
+            "decomposition",
+            "dry-run-table"
+          ],
+          "topics": [
+            "Steps in Problem Solving: Analyzing the Problem, Developing an Algorithm, Coding, Testing, and Debugging",
+            "Computational Thinking Pillars: Decomposition, Pattern Recognition, Abstraction, and Algorithm Design",
+            "Algorithm Formulation: Characteristics of a Good Algorithm (Finiteness, Definiteness, Inputs, Outputs, Effectiveness)",
+            "Flowchart Conventions: Standard ANSI/ISO Symbols (Start/Stop, Input/Output, Process, Decision, Connector, Flow lines)",
+            "Developing Flowcharts for Sequential, Decision-Making, and Iterative Problems",
+            "Pseudocode: Writing Clear, Language-Independent Pseudocode for Problem Solving",
+            "Tracing Flowcharts and Algorithms with Dry-Run Execution Tables",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Formulate step-by-step algorithms for mathematical, business, and computational problems",
+            "Draw standardized flowcharts using proper ANSI symbols for decision and looping logic",
+            "Write clear, structured pseudocode and verify program correctness using dry-run trace tables"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Master computational problem-solving methodology, algorithmic decomposition, standard flowchart symbols, pseudocode writing, and dry-run tracing.",
+          "miniProjects": [
+            "Algorithm Portfolio: Create algorithms and flowcharts for 10 foundational computing problems (GCD, Prime, Factorial, Sorting)",
+            "Flowchart Dry-Run Simulator: Trace variable state transitions step-by-step for complex nested branching algorithms"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "coding": 5,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Algorithm Design & Flowchart Construction Lab Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Problem Solving Steps: Analysis -> Algorithm -> Coding -> Testing",
+            "Pillars of Computational Thinking",
+            "Standard Flowchart Symbols & Conventions",
+            "Structured Pseudocode Syntax",
+            "Dry-Run Trace Tables for Verification"
+          ],
+          "previousModule": "003_001_emerging-trends-ai-iot-cloud-and-blockchain",
+          "nextModule": "004_002_python-basics-tokens-variables-and-io",
+          "badge": "Computational Problem Solver Badge"
+        },
+        {
+          "moduleId": "cs-083-python-basics-tokens-lvalue-rvalue",
+          "slug": "004_002_python-basics-tokens-variables-and-io",
+          "title": "Python Basics, Lexical Tokens, Variables, l-value vs r-value & Standard I/O",
+          "level": "Beginner",
+          "estimatedHours": 8,
+          "tags": [
+            "python-basics",
+            "tokens",
+            "keywords",
+            "identifiers",
+            "literals",
+            "lvalue-rvalue",
+            "dynamic-typing",
+            "input-print",
+            "sep-end-params"
+          ],
+          "topics": [
+            "Introduction to Python: Features, Interactive Mode (REPL) vs Script Mode (.py files)",
+            "Python Character Set: Letters, Digits, Special Symbols, Whitespace, and Other Characters",
+            "Python Lexical Tokens: Keywords (35 reserved words in Python 3.12+), Identifiers (Naming Rules & Conventions)",
+            "Python Literals: Numeric (Integer, Float, Complex), String Literals, Boolean Literals (True, False), Special Literal (None)",
+            "Python Punctuators and Delimiters: (), [], {}, @, comma, colon, dot, =, semicolon, +=, etc.",
+            "Variables as Object References, id() function, and Garbage Collection",
+            "The Concept of l-value (Locator Value / Memory Target) and r-value (Read Value / Evaluated Expression)",
+            "Assignment Semantics: 'lvalue = rvalue' Rules (Why '10 = a' or 'x + 2 = y' Raises SyntaxError: cannot assign to literal/expression)",
+            "Dynamic Typing in Python: Rebinding Variables to Different Data Types during Runtime",
+            "Comments in Python: Single-Line Comments (#) and Multiline Comments / Docstrings (\"\"\"...\"\"\")",
+            "Standard Console Input: input() Function, Prompt Strings, and Explicit Type Conversions (int(input()), float(input()))",
+            "Standard Console Output: print() Function, Separator Parameter (sep='...'), and Ending Parameter (end='...')",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Write, execute, and debug Python scripts in interactive mode and script mode",
+            "Classify Python tokens into keywords, identifiers, literals, operators, and punctuators",
+            "Master l-value and r-value rules in variable assignment and identify illegal assignment statements",
+            "Explain Python's dynamic typing memory model using id() and type() functions",
+            "Handle console I/O effectively using input() typecasting and print() formatting with sep and end"
+          ],
+          "prerequisites": [
+            "004_001_problem-solving-algorithms-and-flowcharts"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Master Python programming fundamentals: Interactive vs Script mode, tokens, identifiers, literals, explicit l-value/r-value mechanics, dynamic typing, and standard console I/O formatting.",
+          "miniProjects": [
+            "Interactive Student Profile Generator: Collect student biodata and print formatted ID badge with sep/end formatting",
+            "l-value vs r-value Diagnostic Tool: Validate assignment statements and explain illegal assignments"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Python Syntax, Tokens & l-value/r-value Practical Lab",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Python Setup & Execution Modes (IDLE, Terminal)",
+            "Lexical Tokens & Identifier Naming Rules",
+            "Literals: Numeric, String, Boolean, None",
+            "l-value vs r-value in Assignment Statements (Why '10 = x' fails)",
+            "Variables, Object References & Dynamic Typing with id()",
+            "Console Input & Output formatting (sep, end)"
+          ],
+          "previousModule": "004_001_problem-solving-algorithms-and-flowcharts",
+          "nextModule": "004_003_python-data-types-operators-and-expressions",
+          "badge": "Python Foundations & l-value Badge"
+        },
+        {
+          "moduleId": "cs-083-python-data-types-operators-expressions",
+          "slug": "004_003_python-data-types-operators-and-expressions",
+          "title": "Python Data Types, Operators, Type Promotion & Expression Tracing",
+          "level": "Intermediate",
+          "estimatedHours": 10,
+          "tags": [
+            "data-types",
+            "mutable-immutable",
+            "arithmetic-operators",
+            "floor-division",
+            "modulus-operator",
+            "relational-logical",
+            "membership-identity",
+            "operator-precedence",
+            "type-casting"
+          ],
+          "topics": [
+            "Core Data Types Hierarchy: Numbers (int, float, complex), Boolean (bool), Sequences (str, list, tuple), Mappings (dict), Sets (set)",
+            "Mutable vs Immutable Data Types: In-Depth Distinction and Memory Address Inspection via id()",
+            "Arithmetic Operators: Addition (+), Subtraction (-), Multiplication (*), True Division (/), Floor Division (//), Modulus (%), Exponentiation (**)",
+            "Division & Modulus Rules: True Division always returns float (4/2 = 2.0); Floor Division with Negatives (-13 // 4 = -4) and Modulus (-13 % 4 = 3)",
+            "Relational (Comparison) Operators: ==, !=, <, >, <=, >= (Chained Comparisons in Python e.g. 1 < x < 10)",
+            "Logical (Boolean) Operators: and, or, not (Short-Circuit Evaluation Rules and Truth Value Testing)",
+            "Assignment and Augmented Assignment Operators: =, +=, -=, *=, /=, //=, %=, **=, &=, |=, ^=",
+            "Identity Operators: is and is not (Comparing Object Identity/Memory vs == Comparing Value Equality)",
+            "Membership Operators: in and not in (Checking Substring, List, Tuple, and Dictionary Key Membership)",
+            "Bitwise Operators: & (AND), | (OR), ^ (XOR), ~ (NOT / Inversion), << (Left Shift), >> (Right Shift)",
+            "Operator Precedence and Associativity Table: Parentheses > ** > Unary (+, -, ~) > (*, /, //, %) > (+, -) > Relational > Equality > Logical",
+            "Type Conversion: Implicit Type Promotion vs Explicit Type Casting (int(), float(), str(), bool(), list(), tuple())",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Categorize Python core data types into mutable vs immutable with memory address verification",
+            "Evaluate complex arithmetic and logical expressions following strict operator precedence and short-circuit evaluation",
+            "Accurately calculate floor division (//) and modulus (%) involving positive and negative integers",
+            "Differentiate between identity operators (is / is not) and equality operators (== / !=)"
+          ],
+          "prerequisites": [
+            "004_002_python-basics-tokens-variables-and-io"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Python data types, mutability rules, arithmetic/relational/logical/identity/membership operators, floor division mechanics, precedence rules, and expression evaluation.",
+          "miniProjects": [
+            "Arithmetic Expression Evaluator & Tracing Engine: Step-by-step trace solver for CBSE examination expressions",
+            "Data Type Mutability Inspector: Test object in-place mutation vs re-allocation across all standard types"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 20,
+            "coding": 12,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Python Expression Evaluation & Operator Output Prediction Test",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "Python Data Type Hierarchy & Mutability Concept",
+            "Arithmetic Operators & Division/Modulus with Negatives",
+            "Relational, Logical & Short-Circuit Evaluation",
+            "Identity (is) vs Equality (==) & Membership (in)",
+            "Operator Precedence Hierarchy & Dry-Run Evaluation"
+          ],
+          "previousModule": "004_002_python-basics-tokens-variables-and-io",
+          "nextModule": "004_004_python-errors-debugging-and-exception-basics",
+          "badge": "Python Expression Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-python-errors-debugging-types",
+          "slug": "004_004_python-errors-debugging-and-exception-basics",
+          "title": "Errors in Python: Syntax, Logical & Runtime Errors and Debugging Techniques",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "python-errors",
+            "syntax-errors",
+            "logical-errors",
+            "runtime-errors",
+            "exceptions",
+            "debugging",
+            "traceback-inspection"
+          ],
+          "topics": [
+            "Understanding Errors in Python Programs: Prevention, Identification, and Resolution",
+            "Syntax Errors (Parsing / Compile-Time Errors): Missing colons (:), unclosed quotes/parentheses, illegal identifiers, incorrect indentation",
+            "Logical Errors (Semantic Errors): Incorrect formulas, improper operator precedence, off-by-one errors in loops, flawed conditional branching",
+            "Runtime Errors (Exceptions during Execution): Code syntactically correct but halts during runtime",
+            "Common Python Runtime Exceptions: ZeroDivisionError, NameError, TypeError, ValueError, IndexError, KeyError",
+            "Reading and Deciphering Python Traceback Messages: File name, line number, exception type, and error description",
+            "Debugging Methodologies: Print debugging, dry-run tracing with input values, code linting, and step-by-step logic verification",
+            "Error Finding Questions in CBSE Board Papers: Identifying and Underlining errors in code snippets and writing corrected code",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Clearly distinguish between Syntax Errors, Logical Errors, and Runtime Errors with concrete code examples",
+            "Identify and correct common syntax mistakes (missing colons, misaligned indentation, incorrect keywords)",
+            "Diagnose runtime exceptions (ZeroDivisionError, NameError, TypeError, IndexError) from traceback messages",
+            "Solve CBSE-pattern error finding questions by identifying bugs and providing corrected Python code"
+          ],
+          "prerequisites": [
+            "004_003_python-data-types-operators-and-expressions"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Dedicated module covering Python error taxonomy (Syntax, Logical, Runtime errors), traceback deciphering, exception diagnostics, and CBSE error-finding exam practice.",
+          "miniProjects": [
+            "Python Code Debugger Lab: A collection of 25 intentionally buggy code snippets with interactive error identification and correction workbench",
+            "Traceback Diagnostic Assistant: Explain the exact cause and fix for user-pasted Python error tracebacks"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 15,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Error Identification, Classification & Debugging Practical Test",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "Taxonomy of Errors: Syntax vs Logical vs Runtime",
+            "Syntax Errors & Common Beginner Blunders",
+            "Logical Errors & How to Detect Hidden Logic Flaws",
+            "Runtime Exceptions: ZeroDivisionError, TypeError, IndexError",
+            "Reading Traceback Messages & Step-by-Step Debugging",
+            "CBSE Error Finding & Code Correction Drills"
+          ],
+          "previousModule": "004_003_python-data-types-operators-and-expressions",
+          "nextModule": "004_005_control-flow-conditionals-and-nested-decisions",
+          "badge": "Python Error & Debugging Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-python-control-flow-conditionals",
+          "slug": "004_005_control-flow-conditionals-and-nested-decisions",
+          "title": "Flow of Control, Conditional Statements & Decision Making",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "control-flow",
+            "if-statement",
+            "if-else",
+            "if-elif-else",
+            "nested-if",
+            "indentation-rules",
+            "ternary-operator",
+            "decision-making"
+          ],
+          "topics": [
+            "Program Execution Flow: Sequential Execution vs Conditional Branching vs Iteration",
+            "Python Indentation Architecture: Four Spaces, Blocks, and IndentationError / TabError Prevention",
+            "Simple Decision Making: if Statement Syntax, Condition Evaluation, and Execution Block",
+            "Two-Way Branching: if-else Statement and Alternating Logic",
+            "Multi-Way Branching: if-elif-else Ladder and Cascading Decision Logic",
+            "Nested Conditional Statements: Placing if Statements inside if or else Blocks",
+            "Conditional Expressions / Ternary Operator: x = value_if_true if condition else value_if_false",
+            "Practical Decision Programs: Largest of Three Numbers, Grade Allocation, Leap Year Verification, Quadratic Equation Roots",
+            "Common Pitfalls in Conditionals: Assignment = vs Equality ==, Misaligned Indentation, Redundant Condition Checks",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Structure clean conditional branching using if, if-else, and if-elif-else ladders",
+            "Write nested decision trees with correct indentation to solve complex classification problems",
+            "Implement mathematical decision algorithms including Leap Year checking and Quadratic Equation roots calculation",
+            "Utilize Python ternary conditional expressions for concise variable assignments"
+          ],
+          "prerequisites": [
+            "004_004_python-errors-debugging-and-exception-basics"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Python control flow: Indentation rules, if-else statements, if-elif-else ladders, nested conditionals, ternary expressions, and standard decision-making algorithms.",
+          "miniProjects": [
+            "Income Tax Slab Calculator in Python: Compute taxable amount and tax liability across multiple income tiers",
+            "Quadratic Equation Solver: Compute real and complex roots with discriminant analysis"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 15,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Conditional Logic & Decision Making Programming Lab",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Execution Control & Python Indentation Architecture",
+            "Single if and if-else Branching",
+            "if-elif-else Ladders for Multi-Range Problems",
+            "Nested if Statements & Edge Case Handling",
+            "Ternary Expressions & Debugging Syntax/Indentation Traps"
+          ],
+          "previousModule": "004_004_python-errors-debugging-and-exception-basics",
+          "nextModule": "004_006_loops-iteration-and-jump-statements",
+          "badge": "Python Control Flow Master Badge"
+        },
+        {
+          "moduleId": "cs-083-python-loops-iteration-jumps",
+          "slug": "004_006_loops-iteration-and-jump-statements",
+          "title": "Iterative Loops, Jump Statements & Algorithm Implementation",
+          "level": "Intermediate",
+          "estimatedHours": 12,
+          "tags": [
+            "loops",
+            "for-loop",
+            "while-loop",
+            "range-function",
+            "break-continue-pass",
+            "nested-loops",
+            "pattern-printing",
+            "prime-numbers",
+            "fibonacci-series"
+          ],
+          "topics": [
+            "Concept of Iteration and Repetition in Computing",
+            "The range() Function: range(stop), range(start, stop), range(start, stop, step), Positive and Negative Steps",
+            "Definite Iteration: for Loop Syntax, Traversing Sequences, and Loop Variable Life Cycle",
+            "Indefinite Iteration: while Loop Syntax, Loop Initialization, Condition, and Updation (Preventing Infinite Loops)",
+            "Loop Control / Jump Statements: break (Immediate Loop Termination), continue (Skip to Next Iteration), pass (Null Statement / Placeholder)",
+            "[Enrichment / Advanced Python: Loop else Clause (Execution of else block when loop finishes without encountering break)]",
+            "Nested Loops: Outer Loop vs Inner Loop Execution Cycle and Performance Considerations",
+            "Pattern Generation Programs: Right-Angled Triangles, Inverted Pyramids, Number Triangles, and Alphabet Grids",
+            "Mathematical Series Programs: Sum of Natural Numbers, Factorial of a Number, Fibonacci Sequence, Series Sum 1 + x + x^2 + ... + x^n",
+            "Number Property Verification: Prime Number Testing, Armstrong Number, Palindrome Number, Perfect Number, GCD and LCM (Euclid's Algorithm)",
+            "Output Prediction Drills: Tracing Complex Nested Loop and Jump Statement Combinations",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Write definite and indefinite loops using for, while, and the versatile range() function",
+            "Control loop execution dynamically using break, continue, and pass statements",
+            "Construct nested loop algorithms to print geometric, numeric, and character patterns",
+            "Implement core mathematical algorithms: Prime checking, Fibonacci series, Armstrong numbers, GCD/LCM, Factorials, Series sums"
+          ],
+          "prerequisites": [
+            "004_005_control-flow-conditionals-and-nested-decisions"
+          ],
+          "difficulty": "Medium to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master for loops, while loops, range() configurations, break/continue/pass jumps, nested loop patterns, and classic number theory algorithms, with enrichment on loop-else clauses.",
+          "miniProjects": [
+            "Number Theory Lab Suite: Build interactive testers for Prime, Armstrong, Palindrome, Perfect numbers, and GCD/LCM",
+            "CBSE Pattern Generator: CLI tool to print 15 standard CBSE examination asterisk and number patterns"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 20,
+            "coding": 22,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Loop Algorithm Coding Challenge + Output Prediction Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Definite vs Indefinite Iteration",
+            "The range() Function Parameters & Negative Steps",
+            "for and while Loops Implementation",
+            "break, continue, and pass Statements",
+            "[Enrichment] The Unique loop-else Clause",
+            "Nested Loops & Pattern Printing Techniques",
+            "Classic Mathematical Series & Property Verification Algorithms"
+          ],
+          "previousModule": "004_005_control-flow-conditionals-and-nested-decisions",
+          "nextModule": "005_001_python-strings-indexing-slicing-and-methods",
+          "badge": "Python Iteration & Algorithm Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-5-python-data-structures-and-modules",
+      "title": "Segment 5 – Python Core Data Structures: Strings, Lists, Tuples, Dictionaries & Standard Library Modules (Unit II – 45 Marks)",
+      "level": "Intermediate to Advanced",
+      "summary": "Master Python built-in collections: String manipulation & slicing, mutable List processing & search algorithms, immutable Tuples, key-value Dictionaries, and standard library modules (math, random, statistics) with output prediction.",
+      "modules": [
+        {
+          "moduleId": "cs-083-python-strings-manipulation",
+          "slug": "005_001_python-strings-indexing-slicing-and-methods",
+          "title": "Python Strings, Indexing, Slicing & Built-in Text Methods",
+          "level": "Intermediate",
+          "estimatedHours": 10,
+          "tags": [
+            "strings",
+            "string-indexing",
+            "string-slicing",
+            "string-immutability",
+            "string-methods",
+            "string-traversal",
+            "f-strings",
+            "palindrome-string"
+          ],
+          "topics": [
+            "String Creation, Escape Sequences (\\n, \\t, \\\\, \\', \\\"), Raw Strings (r\"...\"), and Multiline Strings",
+            "Two-Way Indexing in Python: Forward Positive Indexing [0 to len-1] and Backward Negative Indexing [-len to -1]",
+            "Immutability of Strings: Why String Item Assignment s[0] = 'A' Raises TypeError",
+            "String Slicing: str[start:stop], str[start:stop:step], Default Bounds, Negative Steps, and String Reversal s[::-1]",
+            "String Operators: Concatenation (+), Replication (*), Membership (in, not in), Comparison (<, >, ==, lexicographical ordering)",
+            "String Traversal: Iterating using for char in s: and Index-Based Traversal using for i in range(len(s)):",
+            "Case Conversion Methods: upper(), lower(), capitalize(), title(), swapcase()",
+            "Search and Inspection Methods: count(sub), find(sub), rfind(sub), index(sub), startswith(prefix), endswith(suffix)",
+            "Character Classification Methods: isalnum(), isalpha(), isdigit(), islower(), isupper(), isspace(), istitle()",
+            "Trimming, Splitting and Joining: lstrip(), rstrip(), strip(), split(sep), partition(sep), join(iterable), replace(old, new)",
+            "String Formatting: Prescribed str.format() and modern f-Strings (f\"{name} scores {marks:.2f}\") | [Enrichment: C-style % format specifiers]",
+            "String Algorithms: Counting Vowels/Consonants/Digits/Special Characters, Palindrome Checker, Word Frequency Counter",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Perform advanced string slicing with positive/negative bounds and step intervals to extract substrings and reverse text",
+            "Utilize string inspection and transformation methods (count, find, replace, split, join, strip) in text processing",
+            "Classify characters in text strings using isalpha(), isdigit(), isalnum(), and isspace() functions",
+            "Format dynamic output strings cleanly using modern Python f-Strings and format specifiers"
+          ],
+          "prerequisites": [
+            "004_006_loops-iteration-and-jump-statements"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Python strings: Two-way indexing, slicing mechanics, immutability, built-in string methods (find, split, join, replace, count), character validation, and string algorithm coding.",
+          "miniProjects": [
+            "Text Analysis & Cryptography Engine: Count words, vowels, consonants, and implement Caesar cipher string encryption",
+            "CBSE String Manipulation Toolkit: Palindrome verifier, title case converter, and delimiter transformer"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 18,
+            "coding": 18,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "String Manipulation & Slicing Output Prediction Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "String Creation, Escapes & Immutability",
+            "Two-Way Positive & Negative Indexing",
+            "String Slicing Syntax & Step Reversal s[::-1]",
+            "String Methods: Search (find/index), Case, and Classification (isalpha/isdigit)",
+            "Text Modification: replace, split, partition, join, strip",
+            "f-Strings & Common Exam String Algorithms"
+          ],
+          "previousModule": "004_006_loops-iteration-and-jump-statements",
+          "nextModule": "005_002_python-lists-traversal-manipulation-and-algorithms",
+          "badge": "Python String Processing Master Badge"
+        },
+        {
+          "moduleId": "cs-083-python-lists-algorithms",
+          "slug": "005_002_python-lists-traversal-manipulation-and-algorithms",
+          "title": "Python Lists, Dynamic Manipulation, Traversal & Search Algorithms",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 12,
+          "tags": [
+            "lists",
+            "list-mutability",
+            "append-extend-insert",
+            "pop-remove-del",
+            "list-slicing",
+            "linear-search",
+            "bubble-sort",
+            "matrix-2d-lists"
+          ],
+          "topics": [
+            "List Concept: Ordered Sequence, Heterogeneous Elements, Dynamic Resizing, and Nested Lists",
+            "Creating Lists: List Literals [], list() Constructor, Range to List, and List Repetition",
+            "Indexing, Negative Indexing, and Slicing on Lists (Extracting Sub-Lists and Slicing Assignment)",
+            "Mutability of Lists: Item Assignment L[i] = val, Slice Replacement L[1:3] = [10, 20], and In-Place Modifications",
+            "List Operators: Concatenation (+), Replication (*), Membership (in, not in), Comparison",
+            "List Traversal: Element-by-Element Traversal vs Index-Based Traversal with enumerate()",
+            "Adding Elements: append(item), extend(iterable), insert(index, item) (Comparing Append vs Extend)",
+            "Removing Elements: pop(), pop(index), remove(value), clear(), del L[index], and del L[start:stop]",
+            "Utility and Search Methods: count(value), index(value), reverse(), sort(reverse=True), copy()",
+            "Built-in Functions on Lists: len(L), min(L), max(L), sum(L), sorted(L) (Comparing list.sort() in-place vs sorted(list) returning new list)",
+            "Shallow Copy vs Deep Copy in Nested Lists: copy.copy() vs copy.deepcopy()",
+            "Core List Algorithms: Linear Search Algorithm, Finding Maximum & Minimum without built-in functions, Second Largest Element",
+            "Advanced List Processing: Swapping Adjacent Elements, Frequency Count of Elements, Removing Duplicate Elements, Matrix Addition (2D Lists)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Create, index, slice, and mutate lists using standard methods (append, extend, insert, pop, remove)",
+            "Distinguish between in-place methods (list.sort(), list.reverse()) and built-in functions (sorted(), reversed())",
+            "Implement foundational search and aggregation algorithms on lists (Linear search, second maximum, frequency tally)",
+            "Manipulate 2D nested lists for matrix representation and matrix addition algorithms"
+          ],
+          "prerequisites": [
+            "005_001_python-strings-indexing-slicing-and-methods"
+          ],
+          "difficulty": "Medium to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master Python lists: Mutable indexing and slicing, insertion and deletion methods, append vs extend, sorting, linear search, second maximum, and 2D matrix manipulation.",
+          "miniProjects": [
+            "Student Marksheet Processing Engine: Compute total, average, grade, highest, and lowest scorers from a list of student records",
+            "Matrix Operations Calculator: Implement 2D list addition, row-wise sum, and column-wise sum"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 20,
+            "coding": 20,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "List Data Structure & Algorithm Programming Lab",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "List Creation, Mutability & In-Place Modification",
+            "Adding Items: append vs extend vs insert",
+            "Removing Items: pop vs remove vs del vs clear",
+            "Searching & Sorting: index, sort() vs sorted()",
+            "Linear Search & Second Maximum Algorithm",
+            "2D Nested Lists & Matrix Operations"
+          ],
+          "previousModule": "005_001_python-strings-indexing-slicing-and-methods",
+          "nextModule": "005_003_python-tuples-immutability-and-operations",
+          "badge": "Python List Algorithm Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-python-tuples-operations",
+          "slug": "005_003_python-tuples-immutability-and-operations",
+          "title": "Python Tuples, Immutability, Sequence Operations & Packing/Unpacking",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "tuples",
+            "tuple-immutability",
+            "single-element-tuple",
+            "tuple-packing-unpacking",
+            "tuple-operations",
+            "list-tuple-conversion"
+          ],
+          "topics": [
+            "Concept of Tuples: Ordered, Immutable Sequences of Elements",
+            "Creating Tuples: Empty Tuple (), Single-Element Tuple (x,) (The Crucial Comma Rule), Multi-Element Tuple, tuple() Constructor",
+            "Tuple Indexing and Slicing (Positive and Negative Indexing)",
+            "Immutability of Tuples: Security, Data Integrity, and What happens with Mutable Objects inside Tuples e.g. (1, [2, 3])",
+            "Tuple Operations: Concatenation (+), Replication (*), Membership (in, not in), Comparison",
+            "Tuple Traversal using for and while Loops",
+            "Built-in Functions for Tuples: len(), max(), min(), sum(), sorted(), tuple.count(), tuple.index()",
+            "Tuple Packing and Tuple Unpacking: a, b, c = t, Swapping Variables using Tuple Packing a, b = b, a",
+            "Returning Multiple Values from Functions via Tuple Unpacking",
+            "Type Conversion between Lists and Tuples: list(tuple) and tuple(list)",
+            "When to Use Tuples over Lists: Performance Advantages, Read-Only Protection, and Dictionary Keys",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Construct single-element and multi-element tuples with proper syntax and comma notation",
+            "Explain tuple immutability and observe how mutable objects nested inside tuples behave",
+            "Utilize tuple packing and unpacking for multi-variable assignment, swapping, and function returns",
+            "Convert seamlessly between list and tuple data structures based on program mutability requirements"
+          ],
+          "prerequisites": [
+            "005_002_python-lists-traversal-manipulation-and-algorithms"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Python tuples: Tuple syntax, the single-element comma rule, immutability rules, tuple packing/unpacking, swapping variables, and tuple-list conversions.",
+          "miniProjects": [
+            "Coordinates & Geography Manager: Store immutable GPS coordinates and compute distances using tuple unpacking",
+            "Tuple Packing Diagnostic Lab: Experiment with multiple return values and variable swapping"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Tuples Conceptual & Practical Output Prediction Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Tuple Definition & The Single-Element Comma Trap (x,) vs (x)",
+            "Tuple Immutability & Safety Guarantee",
+            "Tuple Operations & Built-in Functions (count, index)",
+            "Tuple Packing & Unpacking in Multi-Variable Swapping",
+            "List <-> Tuple Conversions & When to choose Tuples"
+          ],
+          "previousModule": "005_002_python-lists-traversal-manipulation-and-algorithms",
+          "nextModule": "005_004_python-dictionaries-key-value-mapping-and-methods",
+          "badge": "Python Tuple Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-python-dictionaries-mapping",
+          "slug": "005_004_python-dictionaries-key-value-mapping-and-methods",
+          "title": "Python Dictionaries, Key-Value Mappings & Dictionary Manipulation",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "dictionaries",
+            "key-value-pairs",
+            "dict-methods",
+            "dict-mutability",
+            "frequency-counter",
+            "nested-dictionaries",
+            "dict-traversal"
+          ],
+          "topics": [
+            "Concept of Dictionaries: Unordered (Insertion-ordered in Python 3.7+), Key-Value Pair Mappings",
+            "Creating Dictionaries: {key: value}, Empty Dictionary {}, dict() Constructor, dict.fromkeys()",
+            "Rules for Dictionary Keys: Must Be Immutable (Numbers, Strings, Tuples) and Unique (Duplicate Keys Overwrite)",
+            "Rules for Dictionary Values: Can Be Any Data Type (Mutable, Immutable, Duplicates Allowed)",
+            "Accessing Elements: Subscript Notation D[key] (KeyError if missing) vs Safe Retrieval D.get(key, default)",
+            "Mutability of Dictionaries: Adding New Key-Value Pairs, Modifying Existing Values, Updating Multiple Entries",
+            "Removing Items: del D[key], D.pop(key, default), D.popitem() (LIFO removal), D.clear()",
+            "Membership Testing in Dictionaries: in and not in Operators (Always Check Keys, Never Values)",
+            "Built-in Dictionary Methods: keys(), values(), items(), update(), get(), copy(), clear(), setdefault()",
+            "Built-in Functions: len(), sorted(D) (Sorts Keys), max(D), min(D)",
+            "Iterating through Dictionaries: Traversing Keys, Traversing Values, Traversing (key, value) Pairs via D.items()",
+            "Practical Dictionary Applications: Character Frequency Counter, Word Frequency Counter, Student Marks Database & Phone Directory",
+            "Nested Dictionaries: Representing Multi-Attribute Records and Tabular Data",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Construct dictionaries with immutable keys and arbitrary value types, avoiding duplicate key pitfalls",
+            "Access, update, and remove key-value mappings safely using subscript notation, get(), pop(), and del",
+            "Iterate through dictionary keys, values, and item tuples using keys(), values(), and items() methods",
+            "Implement practical frequency counting and lookup databases (Phone directory, Student gradebook)"
+          ],
+          "prerequisites": [
+            "005_003_python-tuples-immutability-and-operations"
+          ],
+          "difficulty": "Medium to Advanced",
+          "difficultyIndex": 3,
+          "summary": "Master Python dictionaries: Key immutability rules, value flexibility, D.get(), D.items(), D.pop(), frequency counter algorithms, and nested records.",
+          "miniProjects": [
+            "Word & Character Frequency Analyzer: Build a text analyzer that computes exact word frequency maps",
+            "Student Contact Directory: Interactive phonebook with add, search, update, delete, and view all operations"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 18,
+            "coding": 18,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Dictionary Key-Value Mapping & Practical Coding Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Dictionary Concept & Key Immutability Rules",
+            "Accessing Elements: D[key] vs D.get(key, default)",
+            "Adding, Modifying & Removing Key-Value Pairs",
+            "Dictionary Methods: keys(), values(), items(), update()",
+            "Frequency Counter Implementation (Character & Word)",
+            "Nested Dictionaries & Exam Code Output Tracing"
+          ],
+          "previousModule": "005_003_python-tuples-immutability-and-operations",
+          "nextModule": "005_005_python-standard-library-modules-math-random-statistics",
+          "badge": "Python Dictionary Master Badge"
+        },
+        {
+          "moduleId": "cs-083-python-standard-modules",
+          "slug": "005_005_python-standard-library-modules-math-random-statistics",
+          "title": "Python Standard Library Modules: Math, Random & Statistics",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "modules",
+            "import-syntax",
+            "math-module",
+            "random-module",
+            "statistics-module",
+            "random-output-prediction",
+            "randint-randrange"
+          ],
+          "topics": [
+            "Concept of Python Modules: Modular Programming, Reusability, and Namespaces",
+            "Importing Modules in Python: import module, from module import item, import module as alias, from module import *",
+            "The Built-in math Module: Constants (math.pi, math.e, math.tau)",
+            "Math Functions: math.ceil(), math.floor(), math.fabs(), math.sqrt(), math.pow(), math.exp(), math.log(), math.gcd(), math.sin(), math.cos(), math.tan(), math.degrees(), math.radians()",
+            "The Built-in random Module: Pseudo-Random Number Generation and Seeds",
+            "Random Functions: random.random() [0.0, 1.0), random.randint(a, b) [a, b inclusive], random.randrange(start, stop, step) [start, stop exclusive]",
+            "Sequence Random Functions: random.choice(seq), random.shuffle(list), random.sample(seq, k)",
+            "Tracing Output for CBSE Board Questions involving random.randint() and random.randrange() (Calculating Minimum and Maximum Possible Values)",
+            "The Built-in statistics Module: statistics.mean(), statistics.median(), statistics.mode(), statistics.stdev()",
+            "Common Errors when Importing Modules: ModuleNotFoundError, AttributeError, Namespace Collisions",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Import modules using standard import syntax, selective member imports, and module aliases",
+            "Apply math module functions (ceil, floor, sqrt, pow, gcd, fabs) to solve mathematical problems",
+            "Predict output ranges (minimum and maximum bounds) for board questions using random.randint() and random.randrange()",
+            "Compute statistical measures of central tendency (mean, median, mode) using the statistics module"
+          ],
+          "prerequisites": [
+            "005_004_python-dictionaries-key-value-mapping-and-methods"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Python standard modules: import variations, math module functions, random module bounds prediction (randint vs randrange), and statistics calculations.",
+          "miniProjects": [
+            "Random Board Examination Question Simulator: Generate CBSE-style random number tracing questions with bounds verification",
+            "Statistical Data Analyzer: Compute summary statistics (mean, median, mode, spread) for classroom test datasets"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 18,
+            "coding": 12,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Standard Modules & Random Output Prediction Assessment",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "Module Concept & import Statements",
+            "math Module: ceil, floor, sqrt, pow, gcd, trigonometric functions",
+            "random Module: random(), randint(a, b), randrange(start, stop, step)",
+            "Mastering CBSE Random Output Prediction Questions (Min/Max Bounds)",
+            "statistics Module: mean, median, mode",
+            "Namespace Management & Avoiding Namespace Pollution"
+          ],
+          "previousModule": "005_004_python-dictionaries-key-value-mapping-and-methods",
+          "nextModule": "006_001_technology-and-society-gender-and-disability-issues",
+          "badge": "Python Modules & Random Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-6-society-law-and-ethics",
+      "title": "Segment 6 – Society, Law and Ethics: Technology & Society, Cyber Safety, IPR & E-Waste (Unit III – 15 Marks)",
+      "level": "Intermediate",
+      "summary": "Master official Unit III prescribed topics: Technology and Society (Gender and disability issues in computing, assistive technologies, accessibility), digital footprints, netiquette, data privacy, Intellectual Property Rights (IPR), plagiarism, Open Source licenses (GPL, CC), cybercrimes, Indian IT Act 2000, and e-waste management.",
+      "modules": [
+        {
+          "moduleId": "cs-083-sle-technology-society-inclusion",
+          "slug": "006_001_technology-and-society-gender-and-disability-issues",
+          "title": "Technology and Society: Gender and Disability Issues & Assistive Technologies [Prescribed Area]",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "technology-and-society",
+            "gender-issues-in-tech",
+            "disability-issues-in-computing",
+            "assistive-technologies",
+            "screen-readers",
+            "web-accessibility",
+            "inclusive-computing",
+            "wcag-standards"
+          ],
+          "topics": [
+            "Technology and Society Overview: The Pervasive Impact of Computing on Social Equity and Inclusion",
+            "Gender Issues in Computing: Historical Context, Underrepresentation of Women in STEM and Tech Workforce",
+            "Bridging the Gender Divide: Initiatives, Community Programs, Mentorship, and Equitable Computing Education",
+            "Disability Issues in Computing: Barriers Faced by Users with Visual, Hearing, Motor, and Cognitive Impairments",
+            "Assistive Technologies for Differently-Abled Users: Screen Readers (JAWS, NVDA, VoiceOver), Screen Magnifiers, Refreshable Braille Displays",
+            "Alternative Input/Output Devices: Voice Recognition & Dictation Software, Eye-Tracking Systems, Head Pointers, Adaptive Keyboards",
+            "Principles of Accessible Software Design: WCAG Guidelines (Perceivable, Operable, Understandable, Robust - POUR)",
+            "Inclusive Digital Classrooms: Designing Accessible Learning Resources, High-Contrast UI, Subtitles, and Screen-Reader Friendly Code",
+            "Ergonomics and Health Issues in Long-Term Computer Usage: Repetitive Strain Injury (RSI), Computer Vision Syndrome (CVS), Posture Guidelines",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Identify gender disparity challenges in computer science education and analyze strategies for building inclusive tech ecosystems",
+            "Explain physical, sensory, and cognitive barriers encountered by differently-abled individuals when using digital devices",
+            "Categorize assistive hardware and software technologies (Screen readers, eye-tracking, braille displays, speech synthesizers)",
+            "Apply core Web Content Accessibility Guidelines (WCAG) to evaluate software usability for all users"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Dedicated module covering official CBSE prescribed Technology and Society syllabus: Gender parity in tech, disability accessibility barriers, assistive technologies (screen readers, adaptive hardware), WCAG guidelines, and inclusive computing.",
+          "miniProjects": [
+            "Web Accessibility Audit Tool: Audit a school portal for color contrast, alt-text tags, keyboard navigation, and screen-reader compatibility",
+            "Assistive Tech Showcase Portfolio: Document specifications and use cases of 5 state-of-the-art assistive computing devices"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "caseStudy": 4
+          },
+          "assessment": {
+            "type": "Technology & Society Accessibility and Gender Inclusion Case Study Evaluation",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Technology & Social Equity Overview",
+            "Gender Disparity in Tech: Causes & Bridging Initiatives",
+            "Disability Accessibility Challenges in Computing",
+            "Assistive Hardware & Software Technologies in Action",
+            "WCAG Accessibility Standards & Inclusive Design Principles",
+            "Ergonomics & Healthy Computing Habits"
+          ],
+          "previousModule": "005_005_python-standard-library-modules-math-random-statistics",
+          "nextModule": "006_002_digital-footprints-netiquette-and-data-protection",
+          "badge": "Inclusive Computing & Accessibility Champion Badge"
+        },
+        {
+          "moduleId": "cs-083-sle-digital-footprints-netiquette",
+          "slug": "006_002_digital-footprints-netiquette-and-data-protection",
+          "title": "Digital Footprints, Online Etiquette, Digital Citizenship & Privacy",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "society-law-ethics",
+            "digital-footprints",
+            "active-vs-passive",
+            "netiquette",
+            "digital-citizenship",
+            "data-privacy",
+            "cookies-tracking"
+          ],
+          "topics": [
+            "Concept of Digital Footprints: Definition, Trail of Digital Traces left by Users",
+            "Active Digital Footprints (Social media posts, emails, form submissions) vs Passive Digital Footprints (IP addresses, cookies, browsing history, server logs)",
+            "Importance of Managing Digital Footprints: Online Reputation, Career Impact, and Digital Identity",
+            "Digital Society and Netiquette: Core Rules of Online Behaviour, Cyber Manners, and Polite Online Discourse",
+            "Communication Netiquette: Respecting Others' Time and Bandwidth, Not Shouting (ALL CAPS), Avoiding Flaming",
+            "Social Media and Email Netiquette: Professional Subject Lines, Appropriate Attachments, Mindful Tagging and Sharing",
+            "Responsible Digital Citizenship: Empathy, Inclusivity, Reporting Inappropriate Content, Digital Well-Being",
+            "Data Privacy and Protection: Cookies, Third-Party Trackers, Private Browsing (Incognito Mode), and Privacy Policies",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Distinguish between active and passive digital footprints with real-world examples",
+            "Apply cyber netiquette and email/social media etiquette in online communication",
+            "Explain how browser cookies and tracking scripts collect user telemetry",
+            "Formulate best practices for managing personal digital footprints and preserving online privacy"
+          ],
+          "prerequisites": [
+            "006_001_technology-and-society-gender-and-disability-issues"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Master digital footprints (active vs passive), cyber netiquette, communication rules, digital citizenship, and online privacy protection.",
+          "miniProjects": [
+            "Digital Footprint Audit Checklist: Create a personal cybersecurity audit for social media and browsing traces",
+            "Netiquette Policy Guide: Draft a school code of conduct for digital communication and virtual classrooms"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "Digital Footprints & Cyber Netiquette Case Study Evaluation",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "What is a Digital Footprint? Active vs Passive Trails",
+            "Managing Digital Traces & Privacy Risks",
+            "Core Netiquette Principles & Cyber Manners",
+            "Email & Social Media Etiquette",
+            "Responsible Digital Citizenship & Data Privacy"
+          ],
+          "previousModule": "006_001_technology-and-society-gender-and-disability-issues",
+          "nextModule": "006_003_intellectual-property-rights-plagiarism-and-foss",
+          "badge": "Digital Citizenship & Privacy Badge"
+        },
+        {
+          "moduleId": "cs-083-sle-ipr-plagiarism-foss",
+          "slug": "006_003_intellectual-property-rights-plagiarism-and-foss",
+          "title": "Intellectual Property Rights, Plagiarism, Software Piracy & FOSS Licensing",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "ipr",
+            "patents-copyrights-trademarks",
+            "plagiarism",
+            "software-piracy",
+            "foss",
+            "gpl-licensing",
+            "creative-commons",
+            "open-source"
+          ],
+          "topics": [
+            "Intellectual Property (IP) and Intellectual Property Rights (IPR): Definition, Need for Protection",
+            "Categories of IPR: Patents (Inventions & Processes), Copyrights (Literary, Artistic & Software Works), Trademarks (Brand Identity & Logos)",
+            "Infringement of IPR: Unauthorised Use, Distribution, and Reproduction of Protected Assets",
+            "Plagiarism: Definition, Types of Plagiarism, Plagiarism Detection Tools, and Ethical Attribution / Citation Methods",
+            "Software Piracy: Definition, Forms of Piracy (Softlifting, Hard-disk loading, Counterfeiting, OEM unbundling), and Legal Consequences",
+            "Free and Open Source Software (FOSS): Philosophy, Four Essential Freedoms defined by Free Software Foundation (FSF)",
+            "Free Software vs Open Source Software (OSS) vs Proprietary Software vs Freeware vs Shareware",
+            "Software Licensing Standards: GNU General Public License (GPL), Apache License, MIT License, BSD License",
+            "Creative Commons (CC) Licenses: Attribution (BY), ShareAlike (SA), NonCommercial (NC), NoDerivs (ND)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Differentiate between Patents, Copyrights, and Trademarks with appropriate computing examples",
+            "Identify instances of plagiarism, copyright infringement, and software piracy and apply proper citation techniques",
+            "Explain the FSF Four Freedoms and contrast Free Software, OSS, Freeware, Shareware, and Proprietary software",
+            "Interpret open source licenses (GPL, MIT, Apache) and Creative Commons (CC) license terms"
+          ],
+          "prerequisites": [
+            "006_002_digital-footprints-netiquette-and-data-protection"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Master Intellectual Property Rights (Patents, Copyrights, Trademarks), plagiarism prevention, software piracy types, FOSS philosophy, GPL, and Creative Commons licensing.",
+          "miniProjects": [
+            "Open Source License Advisor: Guide developers to choose between MIT, GPL, Apache, and Proprietary licenses",
+            "IPR & Copyright Case Study Report: Analyze legal disputes involving software patents and trademark violations"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "IPR, Licensing & Plagiarism Evaluation Assessment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "IPR Overview: Patents vs Copyrights vs Trademarks",
+            "Plagiarism Types & Ethical Attribution",
+            "Software Piracy Modes & Legal Penalties",
+            "FOSS Philosophy & FSF 4 Freedoms",
+            "Software Licenses (GPL, MIT, Apache) & Creative Commons (CC)"
+          ],
+          "previousModule": "006_002_digital-footprints-netiquette-and-data-protection",
+          "nextModule": "006_004_cyber-crimes-cyber-safety-and-it-act",
+          "badge": "IPR & Open Source Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-sle-cyber-crimes-safety-it-act",
+          "slug": "006_004_cyber-crimes-cyber-safety-and-it-act",
+          "title": "Cyber Crimes, Online Threats, Cyber Safety & The Indian IT Act",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "cyber-crimes",
+            "hacking-cracking",
+            "phishing-vishing-smishing",
+            "malware-viruses-worms",
+            "ransomware",
+            "ddos-attacks",
+            "cyber-safety",
+            "indian-it-act-2000"
+          ],
+          "topics": [
+            "Classification of Cyber Crimes: Crimes against Individuals, Property, and Society / Government",
+            "Common Cyber Crimes: Hacking (Ethical White-Hat vs Malicious Black-Hat), Cracking, Cyber Bullying, Cyber Stalking, Identity Theft",
+            "Social Engineering Attacks: Phishing (Spoofed emails & websites), Vishing (Voice phishing), Smishing (SMS phishing)",
+            "Malicious Software (Malware): Viruses (File infector, Boot sector), Worms (Self-replicating), Trojan Horses (Deceptive payloads)",
+            "Advanced Malware Threats: Ransomware (Crypto-extortion), Spyware (Keyloggers), Adware, Rootkits, Botnets",
+            "Network Attacks: Denial of Service (DoS) and Distributed Denial of Service (DDoS) Attacks, Man-in-the-Middle (MitM) Attacks",
+            "Cyber Safety and Preventive Best Practices: Safe Browsing Habits, Strong Passwords, Multi-Factor Authentication (2FA/MFA)",
+            "Protective Technologies: Antivirus Software, Firewalls (Packet filtering & Proxy), HTTPS Encryption vs HTTP, VPNs",
+            "Indian Cyber Law: Overview of Information Technology Act 2000 (IT Act 2000) and Major IT (Amendment) Act 2008 Provisions",
+            "Key IT Act Sections: Section 65 (Tampering with source docs), Section 66 (Hacking), Section 66E (Privacy violation), Section 67 (Obscene content)",
+            "Cyber Incident Reporting: Reporting to CERT-In (Indian Computer Emergency Response Team) and National Cyber Crime Portal (cybercrime.gov.in)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Identify malware types (Viruses, Worms, Trojans, Ransomware, Spyware) by their propagation and payload mechanisms",
+            "Analyze social engineering attack vectors (Phishing, Vishing, Smishing) and implement countermeasures",
+            "Formulate cyber safety strategies including strong password hygiene, 2FA, HTTPS, and firewall deployment",
+            "Explain key provisions and penalties under the Indian Information Technology Act 2000 (Sections 65, 66, 66E, 67)"
+          ],
+          "prerequisites": [
+            "006_003_intellectual-property-rights-plagiarism-and-foss"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master cyber crimes, malware classifications (Viruses, Worms, Trojans, Ransomware), phishing attacks, cybersecurity best practices, firewalls, and the Indian IT Act 2000.",
+          "miniProjects": [
+            "Phishing Detection & Threat Advisory: Construct a diagnostic checklist to detect spoofed URLs and malicious emails",
+            "Password Strength & Entropy Evaluator in Python: Calculate password entropy and verify compliance with NIST guidelines"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 18,
+            "caseStudy": 4
+          },
+          "assessment": {
+            "type": "Cyber Security & Indian IT Act 2000 Legal Case Assessment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Cyber Crime Categories & Motivations",
+            "Hacking vs Cracking & Social Engineering (Phishing/Vishing)",
+            "Malware Taxonomy: Viruses, Worms, Trojans, Ransomware, Spyware",
+            "DoS/DDoS Attacks & Protective Technologies (Firewalls, HTTPS, 2FA)",
+            "Indian IT Act 2000 & 2008 Sections and Reporting Portals"
+          ],
+          "previousModule": "006_003_intellectual-property-rights-plagiarism-and-foss",
+          "nextModule": "006_005_e-waste-management-and-green-computing",
+          "badge": "Cyber Security & IT Law Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-sle-ewaste-green-computing",
+          "slug": "006_005_e-waste-management-and-green-computing",
+          "title": "E-Waste Management, Environmental Hazards & Green Computing",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "e-waste",
+            "hazardous-metals",
+            "lead-mercury-cadmium",
+            "3rs-reduce-reuse-recycle",
+            "e-waste-rules-india",
+            "green-computing",
+            "energy-star"
+          ],
+          "topics": [
+            "Electronic Waste (E-Waste): Definition, Fast-Growing Waste Stream, Common Sources (Computers, Phones, Monitors, Batteries)",
+            "Toxic and Hazardous Components in E-Waste: Lead, Mercury, Cadmium, Hexavalent Chromium, Brominated Flame Retardants",
+            "Environmental and Human Health Hazards: Ground Water Contamination, Soil Degradation, Respiratory and Neurological Disorders",
+            "Safe E-Waste Disposal and Recycling: The 3Rs Principle (Reduce, Reuse, Recycle), Extended Producer Responsibility (EPR)",
+            "E-Waste Management Rules in India: Responsibilities of Manufacturers, Consumers, Bulk Consumers, and Authorized Dismantlers/Recyclers",
+            "Green Computing: Definition, Objectives of Energy-Efficient, Environment-Friendly Computing Lifecycle",
+            "Green Computing Best Practices: Power Management Settings, Sleep/Hibernate Modes, Energy Star Rated Devices, Virtualization, Paperless Workflow",
+            "Designing Sustainable Hardware: Biodegradable Components, RoHS (Restriction of Hazardous Substances) Compliance",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Identify hazardous metals (Lead, Mercury, Cadmium) present in e-waste and their ecological impacts",
+            "Describe the safe disposal, refurbishment, and recycling lifecycle of electronic devices following the 3Rs",
+            "Explain the statutory requirements under India's E-Waste Management Rules and Extended Producer Responsibility",
+            "Implement Green Computing habits including energy management and choosing RoHS/Energy Star certified equipment"
+          ],
+          "prerequisites": [
+            "006_004_cyber-crimes-cyber-safety-and-it-act"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "Master e-waste sources, toxic materials (Lead, Mercury, Cadmium), ecological hazards, 3Rs disposal practices, Indian E-Waste Management Rules, and Green Computing strategies.",
+          "miniProjects": [
+            "School E-Waste Disposal Audit & Policy: Formulate an institutional policy for collecting and recycling decommissioned IT hardware",
+            "Green Computing Energy Footprint Calculator: Estimate kilowatt-hour savings by optimizing PC power sleep settings"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "caseStudy": 3
+          },
+          "assessment": {
+            "type": "E-Waste Management & Green Computing Strategy Assessment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "What is E-Waste? Exponential Growth & Sources",
+            "Toxic Components & Human/Environmental Hazards",
+            "Safe Recycling & The 3Rs Principles",
+            "Indian E-Waste Management Rules & Extended Producer Responsibility",
+            "Green Computing Best Practices & Sustainable Hardware"
+          ],
+          "previousModule": "006_004_cyber-crimes-cyber-safety-and-it-act",
+          "nextModule": "007_001_cbse-class-11-cs-083-sample-question-papers",
+          "badge": "Green Computing & E-Waste Guardian Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-7-cbse-class-11-cs-083-examination-mastery",
+      "title": "Segment 7 – Examination Mastery: Solved Sample Papers, Suggested Mock Sets & Practical Lab Bank",
+      "level": "Board Examination Scope",
+      "summary": "Comprehensive solved examination papers for CBSE Class XI Computer Science (083) covering Army Public School Barrackpore & Kendriya Vidyalaya Half-Yearly / Annual exams, Official CBSE 70-Mark Theory Unit Blueprint (Unit I: 10M, Unit II: 45M, Unit III: 15M) with Suggested 5-Section Mock Pattern, and complete 20-Program Practical Laboratory Repository with viva voce.",
+      "visibility": "admin-teacher",
+      "allowedRoles": [
+        "Admin",
+        "Teacher",
+        "Developer",
+        "Owner",
+        "Manager",
+        "Faculty",
+        "Instructor"
+      ],
+      "requiresAuth": true,
+      "modules": [
+        {
+          "moduleId": "cs-083-sample-question-papers-theory",
+          "slug": "007_001_cbse-class-11-cs-083-sample-question-papers",
+          "title": "CBSE Class XI Computer Science (083) Solved Sample Papers & Suggested Mock Sets",
+          "level": "Board Examination Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 18,
+          "estimatedHours": 25,
+          "visibility": "admin-teacher",
+          "allowedRoles": [
+            "Admin",
+            "Teacher",
+            "Developer",
+            "Owner",
+            "Manager",
+            "Faculty",
+            "Instructor"
+          ],
+          "requiresAuth": true,
+          "summary": "Full solved examination papers for CBSE Class XI Computer Science (083) covering Army Public School Barrackpore Half Yearly & Annual Examinations, Kendriya Vidyalaya Term Sets, and Official CBSE Sample Question Papers (70 Marks Theory: Unit I 10M, Unit II 45M, Unit III 15M) presented using Coder & AccoTax's suggested mock examination blueprint with complete solutions, output prediction dry-runs, and marking schemes.",
+          "tags": [
+            "sample-question-papers",
+            "aps-barrackpore",
+            "kvs-exam-papers",
+            "cbse-class-11",
+            "cs-083",
+            "theory-70-marks",
+            "suggested-mock-pattern",
+            "output-prediction",
+            "solved-papers"
+          ],
+          "topics": [
+            "CBSE Official Theory Marks Blueprint Overview (Unit I: 10 Marks, Unit II: 45 Marks, Unit III: 15 Marks — Total 70 Marks)",
+            "Suggested Mock Examination Pattern (Section A 18M, Section B 14M, Section C 15M, Section D 10M, Section E 13M)",
+            "Army Public School Barrackpore – Class XI Computer Science (083) Half-Yearly Examination (Solved Paper 2026-2027)",
+            "Army Public School Barrackpore – Class XI Computer Science (083) Annual Examination (Solved Paper 2026-2027)",
+            "Kendriya Vidyalaya Sangathan – Class XI CS (083) Term-1 Examination Solved Model Paper",
+            "Kendriya Vidyalaya Sangathan – Class XI CS (083) Annual Examination Solved Model Paper",
+            "CBSE Class XI Computer Science (083) Suggested Mock Question Paper – Set 1 (Theory 70 Marks with Marking Scheme)",
+            "CBSE Class XI Computer Science (083) Suggested Mock Question Paper – Set 2 (Theory 70 Marks with Marking Scheme)",
+            "CBSE Class XI Computer Science (083) Suggested Mock Question Paper – Set 3 (Theory 70 Marks with Marking Scheme)",
+            "Top 100 Python Code Output Prediction & Tracing Questions (With Dry Run Tables)",
+            "Top 50 Error Finding and Syntax Debugging Questions (With Corrected Code Lines)",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Attempt full-length 70-mark CBSE Class XI Computer Science (083) examination papers aligned with official unit-wise weightage",
+            "Master objective MCQs, assertion-reason, expression evaluation, and CSO architecture questions",
+            "Solve very short (2M), short (3M), long (5M), and case-study (4M) Python programming problems with high scoring precision",
+            "Accurately predict output for complex nested loop, string slicing, and random module code snippets"
+          ],
+          "prerequisites": [
+            "001_002_types-of-software-and-operating-system-functions",
+            "002_003_boolean-logic-logic-gates-and-truth-tables",
+            "004_006_loops-iteration-and-jump-statements",
+            "005_005_python-standard-library-modules-math-random-statistics",
+            "006_005_e-waste-management-and-green-computing"
+          ],
+          "miniProjects": [
+            "Complete 10-Paper Full-Length CBSE Class XI CS (083) Examination Portfolio with Marksheet Analytics"
+          ],
+          "exercises": {
+            "mcq": 500,
+            "shortAnswer": 200,
+            "coding": 150,
+            "projects": 10
+          },
+          "assessment": {
+            "type": "Full 70-Mark CBSE Class XI CS (083) Annual Examination Simulation",
+            "passScore": 85
+          },
+          "teachingFlow": [
+            "Official CBSE Unit Marks Weightage (Unit I 10M, Unit II 45M, Unit III 15M)",
+            "Suggested Mock Examination Pattern Structure",
+            "Section A Objective Drills & Assertion-Reason Questions",
+            "Section B Short Answers & Conversions",
+            "Section C Python Programming & Algorithms",
+            "Section D Long Answer Architecture & Boolean Logic",
+            "Section E Case-Based & Output Prediction Tracing"
+          ],
+          "previousModule": "006_005_e-waste-management-and-green-computing",
+          "nextModule": "007_002_cbse-class-11-cs-083-lab-practical-question-bank",
+          "badge": "CBSE CS 083 Theory Exam Master"
+        },
+        {
+          "moduleId": "cs-083-practical-lab-question-bank",
+          "slug": "007_002_cbse-class-11-cs-083-lab-practical-question-bank",
+          "title": "Class XI CS (083) 30-Mark Practical Examination Lab Bank: 20-Program Practical Repository Aligned with CBSE Suggested Programs",
+          "level": "Board Examination Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 18,
+          "estimatedHours": 20,
+          "visibility": "admin-teacher",
+          "allowedRoles": [
+            "Admin",
+            "Teacher",
+            "Developer",
+            "Owner",
+            "Manager",
+            "Faculty",
+            "Instructor"
+          ],
+          "requiresAuth": true,
+          "summary": "Comprehensive 30-mark practical examination laboratory repository for CBSE Class XI Computer Science (083), featuring a 20-program practical bank aligned with CBSE suggested programs (fulfilling the statutory minimum 20-program practical report file requirement), viva voce question bank, mini-project guidelines, and evaluation rubrics.",
+          "tags": [
+            "practical-exam",
+            "lab-question-bank",
+            "20-program-repository",
+            "cbse-suggested-programs",
+            "minimum-20-programs-report-file",
+            "viva-voce",
+            "practical-file",
+            "30-marks-practical",
+            "cbse-class-11-cs"
+          ],
+          "topics": [
+            "CBSE Class XI CS (083) Practical Examination Blueprint: Lab Test 12M (Python Program 8M + Logic 4M), Report File 7M (Minimum 20 Programs), Project 8M, Viva Voce 3M — Total 30 Marks",
+            "Lab Program 01: Input two numbers and compute addition, subtraction, multiplication, true division, floor division, modulus, and exponentiation",
+            "Lab Program 02: Input three numbers and determine the largest and smallest among them using nested conditionals",
+            "Lab Program 03: Quadratic equation solver – Compute roots (real, equal, complex) with discriminant calculation (b^2 - 4ac)",
+            "Lab Program 04: Prime number verifier and generator – Check if a number is prime and print all prime numbers in a user-given range [start, end]",
+            "Lab Program 05: Fibonacci sequence generator – Generate first N terms of Fibonacci series and calculate their sum",
+            "Lab Program 06: Armstrong number checker – Verify if a number is an Armstrong number and print all 3-digit Armstrong numbers (100 to 999)",
+            "Lab Program 07: Palindrome checker for numbers and strings using slicing and mathematical digit reversal",
+            "Lab Program 08: Greatest Common Divisor (GCD) and Least Common Multiple (LCM) computation for two integers using Euclid's Algorithm",
+            "Lab Program 09: Series summation calculator 1 – Compute the sum of series: 1 + x + x^2 + x^3 + ... + x^n for given x and n",
+            "Lab Program 10: Series summation calculator 2 – Compute the sum of alternating series: 1 - x + x^2 - x^3 + ... + (-1)^n * x^n",
+            "Lab Program 11: Factorial calculation – Compute factorial of a given positive integer using iterative for and while loops",
+            "Lab Program 12: Perfect number tester – Check if a given number is a perfect number (sum of proper divisors equals the number)",
+            "Lab Program 13: String character statistics – Count uppercase, lowercase, vowels, consonants, digits, whitespace, and special symbols in a string",
+            "Lab Program 14: String character case toggler & formatter – Toggle case of every character and capitalize words without built-in methods",
+            "Lab Program 15: List linear search – Search for an element in a list of numbers and report its first and all occurrence index positions",
+            "Lab Program 16: List statistics & second largest element – Find maximum, minimum, mean, and second largest number in a list without using max()/min()",
+            "Lab Program 17: List element swapper – Swap elements at adjacent even and odd index positions in a list (e.g. [1,2,3,4] -> [2,1,4,3])",
+            "Lab Program 18: List element frequency tally – Count and display the occurrence frequency of each distinct element in a list",
+            "Lab Program 19: Tuple number processor – Input N numbers into a tuple, compute sum, average, min, max, and convert to sorted tuple",
+            "Lab Program 20: Dictionary student gradebook & search – Create a dictionary with Roll No as key and (Name, Marks) as values; search by roll number and display rank/grades",
+            "Class XI Mini-Project Guidelines: Text-based console application (Student Record Manager / Supermarket Billing System)",
+            "Top 50 Viva Voce Questions & Answers for Class XI CS Practical Examination",
+            "Downloadable Documents",
+            "Practice your Skill here"
+          ],
+          "learningOutcomes": [
+            "Write, debug, and execute all 20 individual CBSE Class XI Computer Science laboratory programs in Python",
+            "Compile and maintain a complete practical laboratory file containing all 20 programs with problem statements, algorithms, source code, and outputs",
+            "Develop a working Python text-based mini-project utilizing collections (Lists, Tuples, Dictionaries) and standard modules",
+            "Confidently answer external viva voce questions covering Python foundations, data structures, and computer systems"
+          ],
+          "prerequisites": [
+            "004_006_loops-iteration-and-jump-statements",
+            "005_005_python-standard-library-modules-math-random-statistics"
+          ],
+          "miniProjects": [
+            "Supermarket Inventory & Billing Console App: Complete Python project with item lookup, cart calculation, discount, and receipt generation"
+          ],
+          "exercises": {
+            "coding": 50,
+            "vivaQuestions": 50,
+            "projects": 5
+          },
+          "assessment": {
+            "type": "30-Mark CBSE Class XI CS (083) Practical Examination Lab Test + Viva Voce",
+            "passScore": 85
+          },
+          "teachingFlow": [
+            "Practical Blueprint & 30-Mark Score Breakdown",
+            "Core Numeric & Mathematical Lab Programs (Programs 01 to 08)",
+            "Series & Factorial Lab Programs (Programs 09 to 12)",
+            "String Processing Lab Programs (Programs 13 and 14)",
+            "List Searching, Sorting & Swapping Lab Programs (Programs 15 to 18)",
+            "Tuple & Dictionary Record Management Lab Programs (Programs 19 and 20)",
+            "Class XI Mini-Project Development Lifecycle",
+            "Viva Voce Intensive Drills & Scoring Rubrics"
+          ],
+          "previousModule": "007_001_cbse-class-11-cs-083-sample-question-papers",
+          "nextModule": null,
+          "badge": "CBSE CS 083 Practical Examination Master"
+        }
+      ]
+    }
+  ]
+}

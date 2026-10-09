@@ -1,0 +1,75 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTATIONAL THINKING AND PROGRAMMING - 1 (PYTHON) - 45 MARKS
+MODULE 004_005: CONTROL FLOW, CONDITIONALS & NESTED DECISIONS
+================================================================================
+Educator: Sukanta Hui | Institute: Coder & AccoTax | Location: Barrackpore, Kolkata
+Official Syllabus Aligned: 2024-25 / 2025-26 Senior Secondary Computer Science
+
+1. DECISION MAKING IN PYTHON
+--------------------------------------------------------------------------------
+Conditional statements alter sequential execution flow based on boolean evaluations:
+
+1. SIMPLE `if` STATEMENT:
+   ```python
+   if condition:
+       statement_1
+       statement_2
+   ```
+
+2. `if-else` STATEMENT (Two-way Branching):
+   ```python
+   if condition:
+       # Executes if condition is True
+       true_block
+   else:
+       # Executes if condition is False
+       false_block
+   ```
+
+3. `if-elif-else` LADDER (Multi-way Branching):
+   - Conditions are checked sequentially from top to bottom.
+   - The FIRST branch whose condition evaluates to `True` executes, and the entire
+     remaining ladder is skipped.
+   - The optional `else` block executes if NO preceding condition was `True`.
+
+4. NESTED CONDITIONALS:
+   - An `if` statement embedded within the body of an outer `if`, `elif`, or `else`.
+
+5. CONDITIONAL EXPRESSION (TERNARY OPERATOR):
+   - One-line inline conditional assignment:
+     `variable = value_if_true if condition else value_if_false`
+     Example: `result = 'Even' if num % 2 == 0 else 'Odd'`
+
+2. COMMON CBSE REAL-WORLD APPLICATION PATTERNS
+--------------------------------------------------------------------------------
+A. LEAP YEAR CHECKER:
+   ```python
+   if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+       print(year, "is a Leap Year")
+   else:
+       print(year, "is NOT a Leap Year")
+   ```
+
+B. ELECTRICITY / INCOME TAX SLAB CALCULATION:
+   - Up to 100 units: ₹3/unit
+   - 101 to 200 units: ₹5/unit
+   - Above 200 units: ₹7/unit
+   ```python
+   if units <= 100:
+       bill = units * 3
+   elif units <= 200:
+       bill = (100 * 3) + ((units - 100) * 5)
+   else:
+       bill = (100 * 3) + (100 * 5) + ((units - 200) * 7)
+   ```
+
+C. QUADRATIC EQUATION ROOTS (ax^2 + bx + c = 0):
+   - Compute Discriminant $D = b^2 - 4ac$
+   - If $D > 0$: Two distinct real roots $\frac{-b \pm \sqrt{D}}{2a}$
+   - If $D == 0$: One repeated real root $\frac{-b}{2a}$
+   - If $D < 0$: Complex conjugate roots $\frac{-b}{2a} \pm \frac{\sqrt{|D|}}{2a} j$
+
+================================================================================
+END OF REVISION NOTES - MODULE 004_005
+================================================================================
