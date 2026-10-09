@@ -1,0 +1,62 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT 1: COMPUTER SYSTEMS & ORGANISATION
+MODULE 002.001: COMPLETE NUMBER SYSTEMS & BASE CONVERSIONS HANDBOOK
+Author: Sukanta Hui
+================================================================================
+
+1. NUMBER SYSTEMS TAXONOMY & CHARACTERISTICS:
+--------------------------------------------------------------------------------
+System         | Radix (Base) | Allowed Digits / Symbols       | Place Weight
+--------------------------------------------------------------------------------
+Binary         | 2            | 0, 1                           | 2^n
+Octal          | 8            | 0, 1, 2, 3, 4, 5, 6, 7         | 8^n
+Decimal        | 10           | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9   | 10^n
+Hexadecimal    | 16           | 0-9, A, B, C, D, E, F          | 16^n
+--------------------------------------------------------------------------------
+* Hexadecimal Values: A=10, B=11, C=12, D=13, E=14, F=15.
+
+2. SUMMARY OF MASTER CONVERSION ALGORITHMS:
+--------------------------------------------------------------------------------
+A. DECIMAL TO ANY BASE (Base r):
+   - Integer Part: Successive division by r. Collect remainders from bottom to top (MSD to LSD).
+   - Fractional Part: Successive multiplication by r. Collect generated integer carries from top to bottom.
+
+B. ANY BASE (Base r) TO DECIMAL:
+   - Positional Weight Expansion:
+     Value = Sum(d_i * r^i) for all positions i (positive powers for integer part, negative for fractional).
+
+C. BINARY <-> OCTAL:
+   - 3-bit grouping. (2^3 = 8).
+   - Binary -> Octal: Group in 3s starting from binary point towards left and right.
+   - Octal -> Binary: Replace each octal digit with its exact 3-bit equivalent.
+
+D. BINARY <-> HEXADECIMAL:
+   - 4-bit grouping (Nibble matching). (2^4 = 16).
+   - Binary -> Hex: Group in 4s starting from binary point.
+   - Hex -> Binary: Replace each hex digit with its exact 4-bit equivalent.
+
+E. OCTAL <-> HEXADECIMAL:
+   - Always bridge through Binary:
+     (Octal)8 <==== 3-bit ====> (Binary)2 <==== 4-bit ====> (Hexadecimal)16
+
+3. BINARY ARITHMETIC RULES:
+--------------------------------------------------------------------------------
+Addition:
+  0 + 0 = 0
+  0 + 1 = 1
+  1 + 0 = 1
+  1 + 1 = 10 (Sum: 0, Carry: 1)
+  1 + 1 + 1 = 11 (Sum: 1, Carry: 1)
+
+Subtraction:
+  0 - 0 = 0
+  1 - 0 = 1
+  1 - 1 = 0
+  0 - 1 = 1 (after borrowing 1 from the next higher column, (10)2 - 1 = 1)
+
+4. SPEED TRICKS & EXAM TIPS:
+--------------------------------------------------------------------------------
+- Powers of Two Table: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024.
+- Parity Check: Odd decimal numbers MUST end in bit 1.
+- In all conversions, always write subscripts/bases clearly: e.g. (156)10 = (10011100)2 = (234)8 = (9C)16.
+================================================================================

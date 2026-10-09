@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 002_001 NUMBER SYSTEMS AND BASE CONVERSIONS
+TOPIC 2: BINARY, OCTAL, AND HEXADECIMAL TO DECIMAL CONVERSION
+================================================================================
+
+1. THE POSITIONAL WEIGHT EXPANSION METHOD:
+In any positional number system with base 'R', the decimal value of an n-digit integer (d_{n-1} d_{n-2} ... d_1 d_0)_R is calculated by multiplying each digit by its positional power of the base (R^i) and summing all terms:
+
+Decimal Value = (d_{n-1} × R^{n-1}) + (d_{n-2} × R^{n-2}) + ... + (d_1 × R¹) + (d_0 × R⁰)
+
+2. WORKED EXAMPLES:
+
+A. BINARY TO DECIMAL:
+Convert (101101)₂ to Decimal:
+= (1 × 2⁵) + (0 × 2⁴) + (1 × 2³) + (1 × 2²) + (0 × 2¹) + (1 × 2⁰)
+= (1 × 32) + (0 × 16) + (1 × 8) + (1 × 4) + (0 × 2) + (1 × 1)
+= 32 + 0 + 8 + 4 + 0 + 1
+= (45)₁₀
+
+B. OCTAL TO DECIMAL:
+Convert (572)₈ to Decimal:
+= (5 × 8²) + (7 × 8¹) + (2 × 8⁰)
+= (5 × 64) + (7 × 8) + (2 × 1)
+= 320 + 56 + 2
+= (378)₁₀
+
+C. HEXADECIMAL TO DECIMAL:
+Convert (2AF)₁₆ to Decimal:
+(Remember: A = 10, F = 15)
+= (2 × 16²) + (A × 16¹) + (F × 16⁰)
+= (2 × 256) + (10 × 16) + (15 × 1)
+= 512 + 160 + 15
+= (687)₁₀
+
+3. POWERS OF BASES FOR RAPID CALCULATION:
+- Base 2 Powers:  2⁰=1, 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256
+- Base 8 Powers:  8⁰=1, 8¹=8, 8²=64, 8³=512, 8⁴=4096
+- Base 16 Powers: 16⁰=1, 16¹=16, 16²=256, 16³=4096, 16⁴=65536
+
+4. CBSE EXAMINATION PITFALLS & TIPS:
+- Common Mistake: Writing that any number raised to the power 0 equals 0 (e.g. 16⁰ = 0).
+  Correct: Any non-zero base raised to power 0 is ALWAYS equal to 1 (R⁰ = 1).
+- For Hexadecimal, always substitute the numeric values for letters (A=10, B=11, C=12, D=13, E=14, F=15) before multiplying.

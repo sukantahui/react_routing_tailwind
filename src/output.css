@@ -2188,8 +2188,14 @@
   .min-w-\[60px\] {
     min-width: 60px;
   }
+  .min-w-\[75px\] {
+    min-width: 75px;
+  }
   .min-w-\[80px\] {
     min-width: 80px;
+  }
+  .min-w-\[85px\] {
+    min-width: 85px;
   }
   .min-w-\[90px\] {
     min-width: 90px;
@@ -15579,6 +15585,13 @@
     }
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
+  .to-yellow-950\/40 {
+    --tw-gradient-to: color-mix(in srgb, oklch(28.6% 0.066 53.813) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-to: color-mix(in oklab, var(--color-yellow-950) 40%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
   .to-zinc-900 {
     --tw-gradient-to: var(--color-zinc-900);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -22019,6 +22032,14 @@
       background-color: color-mix(in srgb, oklch(27.9% 0.041 260.031) 60%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-slate-800) 60%, transparent);
+      }
+    }
+  }
+  .open\:bg-slate-900\/80 {
+    &:is([open], :popover-open, :open) {
+      background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 80%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-slate-900) 80%, transparent);
       }
     }
   }
@@ -30244,6 +30265,11 @@
       }
     }
   }
+  .focus\:ring-cyan-400 {
+    &:focus {
+      --tw-ring-color: var(--color-cyan-400);
+    }
+  }
   .focus\:ring-cyan-500 {
     &:focus {
       --tw-ring-color: var(--color-cyan-500);
@@ -32855,6 +32881,11 @@
   .md\:grid-cols-9 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(9, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-cols-10 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(10, minmax(0, 1fr));
     }
   }
   .md\:grid-cols-12 {

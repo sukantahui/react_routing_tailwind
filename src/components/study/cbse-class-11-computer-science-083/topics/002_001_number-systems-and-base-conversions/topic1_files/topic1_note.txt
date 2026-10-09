@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 002_001 NUMBER SYSTEMS AND BASE CONVERSIONS
+TOPIC 1: DECIMAL TO BINARY, OCTAL, AND HEXADECIMAL CONVERSION
+================================================================================
+
+1. THE SUCCESSIVE DIVISION ALGORITHM (INTEGER PART):
+To convert an integer from Decimal (Base 10) to any target base 'R' (Binary Base 2, Octal Base 8, Hexadecimal Base 16):
+- Step 1: Divide the decimal number by the target base R using integer division.
+- Step 2: Record the integer quotient and the remainder (0 <= Remainder < R).
+- Step 3: Replace the decimal number with the quotient obtained in Step 2.
+- Step 4: Repeat Steps 1 through 3 until the quotient becomes 0.
+- Step 5: Read the remainders from BOTTOM to TOP (the last remainder obtained is the Most Significant Bit/Digit - MSB, and the first remainder is the Least Significant Bit/Digit - LSB).
+
+2. WORKED EXAMPLES:
+
+Example 1: Convert (156)₁₀ to Binary (Base 2)
+156 / 2 = 78 , Remainder: 0 (LSB)
+ 78 / 2 = 39 , Remainder: 0
+ 39 / 2 = 19 , Remainder: 1
+ 19 / 2 =  9 , Remainder: 1
+  9 / 2 =  4 , Remainder: 1
+  4 / 2 =  2 , Remainder: 0
+  2 / 2 =  1 , Remainder: 0
+  1 / 2 =  0 , Remainder: 1 (MSB)
+Reading bottom to top: (156)₁₀ = (10011100)₂
+
+Example 2: Convert (156)₁₀ to Octal (Base 8)
+156 / 8 = 19 , Remainder: 4 (LSB)
+ 19 / 8 =  2 , Remainder: 3
+  2 / 8 =  0 , Remainder: 2 (MSB)
+Reading bottom to top: (156)₁₀ = (234)₈
+
+Example 3: Convert (156)₁₀ to Hexadecimal (Base 16)
+156 / 16 = 9 , Remainder: 12 (Letter 'C') (LSB)
+  9 / 16 = 0 , Remainder:  9 (MSB)
+Reading bottom to top: (156)₁₀ = (9C)₁₆
+
+3. HEXADECIMAL DIGIT SYMBOLS (10 to 15):
+10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F
+
+4. CBSE EXAMINATION PITFALLS & TIPS:
+- Common Mistake: Reading remainders from TOP to BOTTOM instead of BOTTOM to TOP.
+- Common Mistake: Writing remainder 12 as "12" in hexadecimal instead of single digit symbol 'C'.
+- Always show the complete vertical division ladder in subjective 2-mark or 3-mark questions.

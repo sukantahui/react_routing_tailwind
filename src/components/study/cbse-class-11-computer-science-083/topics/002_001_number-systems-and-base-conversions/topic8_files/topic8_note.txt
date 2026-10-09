@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+TOPIC 08: FAST BASE CONVERSION SHORTCUTS & EXAM SPEED TRICKS
+Author: Sukanta Hui
+================================================================================
+
+1. THE "POWERS OF TWO" SUBTRACTION SHORTCUT:
+   - For rapid Decimal -> Binary conversion without drawing a full division ladder:
+   - Memorize: 128, 64, 32, 16, 8, 4, 2, 1.
+   - Example: Convert 219 to Binary.
+     * 219 >= 128 -> Bit 1 (rem: 219 - 128 = 91)
+     * 91 >= 64   -> Bit 1 (rem: 91 - 64 = 27)
+     * 27 < 32    -> Bit 0
+     * 27 >= 16   -> Bit 1 (rem: 27 - 16 = 11)
+     * 11 >= 8    -> Bit 1 (rem: 11 - 8 = 3)
+     * 3 < 4      -> Bit 0
+     * 3 >= 2     -> Bit 1 (rem: 3 - 2 = 1)
+     * 1 >= 1     -> Bit 1 (rem: 1 - 1 = 0)
+     => (219)10 = (11011011)2 in under 10 seconds!
+
+2. 4-2-1 OCTAL FAST LOOKUP:
+   - Direct mental mapping for each octal digit:
+     0: 000    1: 001    2: 010    3: 011
+     4: 100    5: 101    6: 110    7: 111
+
+3. 8-4-2-1 HEXADECIMAL FAST LOOKUP:
+   - 0: 0000   4: 0100   8: 1000   C (12): 1100
+   - 1: 0001   5: 0101   9: 1001   D (13): 1101
+   - 2: 0010   6: 0110   A (10): 1010   E (14): 1110
+   - 3: 0011   7: 0111   B (11): 1011   F (15): 1111
+
+4. HEX <-> OCTAL DIRECT BRIDGING:
+   - Never convert to base 10 in between.
+   - Step 1: Hex -> 4-bit Binary nibbles.
+   - Step 2: Regroup bits in 3-bit triplets from right.
+   - Step 3: Write Octal digits directly.
+
+5. VERIFICATION SHORTCUT:
+   - In board exams, always verify parity (even numbers must end in 0 in binary; odd in 1).
+   - In Octal and Hex, even numbers always end in even digits (0,2,4,6,8,A,C,E).
+================================================================================

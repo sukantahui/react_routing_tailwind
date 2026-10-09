@@ -1,0 +1,55 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 002_001 NUMBER SYSTEMS AND BASE CONVERSIONS
+TOPIC 4: BINARY TO HEXADECIMAL AND HEXADECIMAL TO BINARY (4-BIT SHORTCUT)
+================================================================================
+
+1. THE MATHEMATICAL RELATIONSHIP:
+Because 16 = 2⁴, exactly FOUR binary bits (one Nibble) correspond to ONE hexadecimal digit (0 to 9, A to F).
+
+2. HEXADECIMAL TO 4-BIT BINARY CONVERSION TABLE:
+| Hex Digit | Decimal Value | 4-Bit Binary (Nibble) |
+| :---: | :---: | :---: |
+| 0 | 0 | 0000 |
+| 1 | 1 | 0001 |
+| 2 | 2 | 0010 |
+| 3 | 3 | 0011 |
+| 4 | 4 | 0100 |
+| 5 | 5 | 0101 |
+| 6 | 6 | 0110 |
+| 7 | 7 | 0111 |
+| 8 | 8 | 1000 |
+| 9 | 9 | 1001 |
+| A | 10 | 1010 |
+| B | 11 | 1011 |
+| C | 12 | 1100 |
+| D | 13 | 1101 |
+| E | 14 | 1110 |
+| F | 15 | 1111 |
+
+3. BINARY TO HEXADECIMAL CONVERSION PROCEDURE:
+- Step 1: Divide the binary integer into groups of 4 bits (nibbles), starting from the RIGHT (LSB) moving towards the LEFT.
+- Step 2: If the leftmost group has fewer than 4 bits, pad with leading zeros on the left.
+- Step 3: Replace each 4-bit nibble with its corresponding hex character (0-9, A-F).
+
+Example 1: Convert (1101111101)₂ to Hexadecimal
+Group from right: (11) (0111) (1101)
+Pad left group:   (0011) (0111) (1101)
+Convert nibbles:    3       7       D
+Result: (1101111101)₂ = (37D)₁₆
+
+4. HEXADECIMAL TO BINARY CONVERSION PROCEDURE:
+- Step 1: Take each hexadecimal digit individually.
+- Step 2: Write its exact 4-bit binary representation (e.g., A -> 1010, 3 -> 0011).
+- Step 3: Concatenate all 4-bit nibbles together.
+
+Example 2: Convert (9E5)₁₆ to Binary
+9 -> 1001
+E -> 1110 (14)
+5 -> 0101
+Result: (9E5)₁₆ = (100111100101)₂
+
+5. CBSE EXAMINATION PITFALLS & TIPS:
+- Common Mistake: Writing 3 as "11" instead of the full 4-bit nibble "0011". Every single hex digit MUST expand to exactly 4 binary bits!
+- Hexadecimal characters A-F must be written in uppercase in board exam answers.

@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 002_001 NUMBER SYSTEMS AND BASE CONVERSIONS
+TOPIC 6: [ENRICHMENT] FRACTIONAL RADIX CONVERSIONS
+================================================================================
+
+1. THE SUCCESSIVE MULTIPLICATION ALGORITHM (FRACTIONAL PART):
+To convert a fractional decimal number (e.g. 0.625) to another base 'R':
+- Step 1: Multiply the fractional part by the target base R.
+- Step 2: Record the integer part of the product (the carry digit).
+- Step 3: Take the remaining fractional part and repeat multiplication by R.
+- Step 4: Continue until the fractional part becomes 0.000 or desired precision is achieved.
+- Step 5: Read the recorded integer digits from TOP to BOTTOM (MSB to LSB).
+
+2. WORKED EXAMPLES:
+
+Example 1: Convert (0.625)₁₀ to Binary (Base 2)
+0.625 × 2 = 1.250 -> Integer: 1 (MSB) , Remaining Fraction: 0.250
+0.250 × 2 = 0.500 -> Integer: 0       , Remaining Fraction: 0.500
+0.500 × 2 = 1.000 -> Integer: 1 (LSB) , Remaining Fraction: 0.000 (Finished)
+Reading top to bottom: (0.625)₁₀ = (0.101)₂
+
+Example 2: Convert (0.625)₁₀ to Octal (Base 8)
+0.625 × 8 = 5.000 -> Integer: 5 (Finished)
+Reading top to bottom: (0.625)₁₀ = (0.5)₈
+
+Example 3: Convert (0.1011)₂ to Decimal
+= (1 × 2⁻¹) + (0 × 2⁻²) + (1 × 2⁻³) + (1 × 2⁻⁴)
+= (1 × 0.5) + (0 × 0.25) + (1 × 0.125) + (1 × 0.0625)
+= 0.5 + 0 + 0.125 + 0.0625
+= (0.6875)₁₀
+
+3. COMBINED INTEGER + FRACTION CONVERSION:
+For numbers with both integer and fractional components (e.g. 25.625):
+- Convert the integer part (25) using Successive Division (bottom to top).
+- Convert the fractional part (0.625) using Successive Multiplication (top to bottom).
+- Combine both with the radix point: (25.625)₁₀ = (11001.101)₂.
+
+4. CBSE EXAMINATION PITFALLS & TIPS:
+- Crucial Distinction: Integers are converted by DIVISION reading BOTTOM TO TOP; Fractions are converted by MULTIPLICATION reading TOP TO BOTTOM.
+- Never mix up the reading directions!

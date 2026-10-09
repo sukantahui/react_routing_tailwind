@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 002_001 NUMBER SYSTEMS AND BASE CONVERSIONS
+TOPIC 3: BINARY TO OCTAL AND OCTAL TO BINARY CONVERSION (3-BIT SHORTCUT)
+================================================================================
+
+1. THE MATHEMATICAL RELATIONSHIP:
+Because 8 = 2³, exactly THREE binary bits correspond to ONE octal digit (0 to 7).
+This eliminates the need to convert through decimal as an intermediary.
+
+2. OCTAL TO 3-BIT BINARY CONVERSION TABLE:
+| Octal Digit | 3-Bit Binary |
+| :---: | :---: |
+| 0 | 000 |
+| 1 | 001 |
+| 2 | 010 |
+| 3 | 011 |
+| 4 | 100 |
+| 5 | 101 |
+| 6 | 110 |
+| 7 | 111 |
+
+3. BINARY TO OCTAL CONVERSION PROCEDURE:
+- Step 1: Divide the binary integer into groups of 3 bits, starting from the RIGHT (Least Significant Bit - LSB) moving towards the LEFT.
+- Step 2: If the leftmost group has fewer than 3 bits, pad with leading zeros on the left.
+- Step 3: Replace each 3-bit group with its corresponding octal digit (0-7).
+
+Example 1: Convert (11010110)₂ to Octal
+Group from right: (11) (010) (110)
+Pad left group:   (011) (010) (110)
+Convert triplets:   3     2     6
+Result: (11010110)₂ = (326)₈
+
+4. OCTAL TO BINARY CONVERSION PROCEDURE:
+- Step 1: Take each octal digit individually.
+- Step 2: Write its exact 3-bit binary representation (e.g., 5 -> 101, 2 -> 010, 1 -> 001).
+- Step 3: Concatenate all 3-bit blocks together.
+
+Example 2: Convert (742)₈ to Binary
+7 -> 111
+4 -> 100
+2 -> 010
+Result: (742)₈ = (111100010)₂
+
+5. CBSE EXAMINATION PITFALLS & TIPS:
+- Common Mistake: Writing 2 as "10" instead of the full 3-bit triplet "010" in the middle of a number (e.g., (52)₈ -> 10110 instead of 101010). Every octal digit must expand to EXACTLY 3 bits!
+- Grouping must ALWAYS start from the right (LSB) for the integer part.

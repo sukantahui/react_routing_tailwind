@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT 1
+MODULE 002.001: 30-QUESTION BOARD BENCHMARK EXAMINATION DRILLS & SOLUTIONS
+Author: Sukanta Hui
+================================================================================
+
+HIGH-YIELD PRACTICE PROBLEMS & DETAILED STEP-BY-STEP SOLUTIONS:
+
+PROBLEM 1:
+Convert (254.375)10 to:
+a) Binary (Base 2)
+b) Octal (Base 8)
+c) Hexadecimal (Base 16)
+
+SOLUTION:
+Step 1: Convert Integer Part (254)10:
+  - Binary: 254 = 128 + 64 + 32 + 16 + 8 + 4 + 2 = (11111110)2
+  - Octal: 254 / 8 = 31 R 6; 31 / 8 = 3 R 7; 3 / 8 = 0 R 3 => (376)8
+  - Hex: 254 / 16 = 15 R 14 ('E'); 15 / 16 = 0 R 15 ('F') => (FE)16
+
+Step 2: Convert Fractional Part (0.375)10:
+  - Binary: 0.375 * 2 = 0.75 (0); 0.75 * 2 = 1.50 (1); 0.5 * 2 = 1.0 (1) => (.011)2
+  - Octal: 0.375 * 8 = 3.00 => (.3)8
+  - Hex: 0.375 * 16 = 6.00 => (.6)16
+
+Final Answer:
+a) (11111110.011)2
+b) (376.3)8
+c) (FE.6)16
+
+--------------------------------------------------------------------------------
+PROBLEM 2:
+Convert (ABC.D8)16 to Octal without going through decimal.
+
+SOLUTION:
+Step 1: Expand Hex digits into 4-bit nibbles:
+  A = 1010, B = 1011, C = 1100, . , D = 1101, 8 = 1000
+  Binary = 1010 1011 1100 . 1101 1000 2
+
+Step 2: Regroup into 3-bit triplets:
+  Integer part (from point to left): 101 010 111 100
+  Fractional part (from point to right): 110 110 000 (pad with zero at end if needed)
+
+Step 3: Convert triplets to Octal digits:
+  101 -> 5, 010 -> 2, 111 -> 7, 100 -> 4 . 110 -> 6, 110 -> 6, 000 -> 0
+  Result: (5274.66)8
+
+--------------------------------------------------------------------------------
+PROBLEM 3:
+Add binary numbers: (111011)2 + (101110)2 and verify in decimal.
+
+SOLUTION:
+  Carries: 1 1 1 1 1 0
+           1 1 1 0 1 1  (59 in decimal)
+         + 1 0 1 1 1 0  (46 in decimal)
+         -------------
+         1 1 0 1 0 0 1  (105 in decimal)
+
+Verification: 59 + 46 = 105.
+64 + 32 + 8 + 1 = 105 (Verified).
+================================================================================
