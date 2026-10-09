@@ -194,11 +194,11 @@ export default function Topic0() {
             <ul className="space-y-2 text-xs text-slate-300">
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Chained Comparison:</strong> Write `90 <= marks <= 100` instead of `marks >= 90 and marks <= 100`.</span>
+                <span><strong>Chained Comparison:</strong> Write <code>90 &lt;= marks &lt;= 100</code> instead of <code>marks &gt;= 90 and marks &lt;= 100</code>.</span>
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Use Ternary for Simple Choices:</strong> `result = 'Pass' if score >= 33 else 'Fail'`.</span>
+                <span><strong>Use Ternary for Simple Choices:</strong> <code>result = 'Pass' if score &gt;= 33 else 'Fail'</code>.</span>
               </li>
             </ul>
           </div>

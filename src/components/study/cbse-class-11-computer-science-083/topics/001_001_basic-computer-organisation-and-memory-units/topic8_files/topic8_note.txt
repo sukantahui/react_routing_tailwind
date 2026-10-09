@@ -1,0 +1,74 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - MASTER REVISION NOTE
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001: BASIC COMPUTER ORGANISATION, CPU ARCHITECTURE & MEMORY UNITS
+TOPIC 8: INPUT AND OUTPUT (I/O) DEVICES: KEYBOARDS, SCANNERS, OCR, OMR, MICR, PRINTERS & PLOTTERS
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. INPUT DEVICES OVERVIEW
+-------------------------------------------------------------------------------
+Input devices transduce real-world physical, optical, mechanical, or acoustic
+signals into binary digital bitstreams consumable by the CPU and primary memory.
+
+Key Specialized Input Devices for CBSE Examinations:
+1. Keyboard & Mouse:
+   - Keyboard: Key matrix sends scan codes (e.g. ASCII / Unicode) upon keypress.
+   - Mouse: Optical sensor tracks surface displacement (X, Y coordinate deltas).
+
+2. Optical Mark Reader (OMR):
+   - Principle: Detects presence or absence of dark pencil/pen marks on pre-printed forms
+     by measuring reflected light intensity.
+   - Application: Evaluates competitive examinations and CBSE objective answer sheets.
+
+3. Optical Character Recognition (OCR):
+   - Principle: Scans physical printed/handwritten text documents and uses pattern
+     recognition algorithms to convert pixel images into editable digital text strings.
+   - Application: Digitizing historical books, automatic passport readers at airports.
+
+4. Magnetic Ink Character Recognition (MICR):
+   - Principle: Reads characters printed with magnetized iron oxide ink (E-13B font)
+     using magnetic read heads.
+   - Key Feature: Highly secure against fraud; characters readable even if stamped or smudged.
+   - Application: Processing banking cheques (Cheque number, 9-digit MICR code).
+
+5. Barcode & QR Code Scanners:
+   - Reads 1D linear barcodes (UPC/EAN) or 2D matrix QR codes for instant inventory lookup
+     and UPI payments.
+
+
+2. OUTPUT DEVICES: SOFT COPY VS HARD COPY
+-------------------------------------------------------------------------------
+* Soft Copy Devices: Output is temporary, electronic, and vanishes upon power off.
+  - Examples: Visual Display Units (VDU / Monitors: LCD, LED, OLED), Projectors, Audio Speakers.
+* Hard Copy Devices: Output is permanent, tangible, and printed on paper or physical sheets.
+  - Examples: Printers, Plotters, 3D Printers.
+
+
+3. PRINTER TAXONOMY: IMPACT VS NON-IMPACT
+-------------------------------------------------------------------------------
+A. IMPACT PRINTERS:
+   - Working Principle: Forms characters by physically striking an inked ribbon against paper.
+   - Characteristics: Noisy, slow, low resolution (draft quality), BUT CAN produce carbon copies.
+   - Examples: Dot Matrix Printers (DMP), Daisy Wheel Printers, Line Printers.
+   - Typical Use: Railway reservation tickets, GST duplicate invoices, bank passbooks.
+
+B. NON-IMPACT PRINTERS:
+   - Working Principle: Forms images without mechanical impact using heat, laser light, or ink sprays.
+   - Characteristics: Silent, fast, ultra-high resolution (1200+ DPI), CANNOT produce carbon copies.
+   - Examples:
+     * Laser Printers: Uses a rotating electrostatic drum, laser beam, and dry toner powder.
+     * Inkjet Printers: Sprays microscopic droplets of liquid ink through thermal/piezo nozzles.
+     * Thermal Printers: Uses heat-sensitive paper (ATM receipts, POS billing machines).
+
+
+4. PLOTTERS (VECTOR GRAPHICS OUTPUT)
+-------------------------------------------------------------------------------
+* Principle: Uses mechanically driven colored ink pens to draw continuous smooth vector
+  lines directly onto large paper rolls.
+* Application: Architectural blueprints, civil engineering maps, CAD drawings, large vinyl banners.
+* Types: Drum Plotters (paper moves on a cylinder) and Flatbed Plotters (paper is stationary).
+
+===============================================================================
+Coder & AccoTax - 25-10/A Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================

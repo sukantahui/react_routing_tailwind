@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 2: LANGUAGE PROCESSORS - ASSEMBLER, COMPILER, AND INTERPRETER
+================================================================================
+
+1. WHAT IS A LANGUAGE PROCESSOR (TRANSLATOR)?
+Computers can execute instructions ONLY in Machine Language (0s and 1s binary code). Humans write programs in Assembly language (mnemonics) or High-Level Languages (Python, C++, Java). A Language Processor is system software that converts source code into machine-executable binary object code.
+
+2. THREE MAJOR TYPES OF LANGUAGE PROCESSORS:
+
+A. ASSEMBLER:
+Translates Low-Level Assembly Language programs (mnemonics like `MOV`, `ADD`, `SUB`, `JMP`) into Machine Language (binary opcodes).
+- 1-to-1 Mapping: Usually one assembly statement maps directly to one machine instruction.
+- Hardware-dependent: Assembly code written for an x86 Intel processor will not run on an ARM processor.
+
+B. COMPILER:
+Translates the ENTIRE High-Level Language source program into Machine Code in a single batch pass BEFORE execution.
+- Generates an intermediate Object Code file (.obj / .exe).
+- Lists all syntax errors at once after analyzing the entire source file.
+- Once compiled, the target executable runs at maximum CPU hardware speed without needing the compiler present.
+- Examples: C, C++, Rust, Go, Fortran compilers (GCC, Clang, MSVC).
+
+C. INTERPRETER:
+Translates High-Level Language source code LINE-BY-LINE, executing each line immediately as it is translated.
+- Does NOT create a standalone object code file.
+- Halts execution immediately upon encountering the first syntax/runtime error.
+- Slower execution speed compared to compiled code because translation overhead occurs on every run.
+- Easier for debugging and interactive experimentation.
+- Examples: Python (CPython bytecode interpreter), JavaScript (V8), Ruby, PHP.
+
+3. CBSE COMPARISON TABLE: COMPILER VS INTERPRETER
+
+| Feature | Compiler | Interpreter |
+| :--- | :--- | :--- |
+| Translation Strategy | Translates entire source file at once | Translates line-by-line sequentially |
+| Error Reporting | Displays all syntax errors at once | Halts at the first error encountered |
+| Object Code Created | Yes (.obj / .exe generated) | No standalone object file generated |
+| Execution Speed | Very Fast (executed directly by CPU) | Slower (interpreting overhead per run) |
+| Source Code Needed at Run? | No (only the binary is needed) | Yes (source code interpreted each time) |
+| Memory Requirement | Requires more memory during compile | Requires less memory during execution |
+| Primary Examples | C, C++, Rust | Python, JavaScript, Ruby |
+
+4. HYBRID EXECUTION MODEL (PYTHON & JAVA):
+Modern languages like Python use a two-step hybrid approach:
+Step 1: Python Compiler compiles source code (.py) into intermediate Bytecode (.pyc).
+Step 2: Python Virtual Machine (PVM Interpreter) interprets and executes the bytecode on the target host CPU.

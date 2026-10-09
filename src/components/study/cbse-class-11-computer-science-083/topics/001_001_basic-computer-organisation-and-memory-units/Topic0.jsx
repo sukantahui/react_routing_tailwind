@@ -4,7 +4,7 @@ import {
   CheckCircle2, AlertTriangle, HelpCircle, FileText,
   Calculator, Monitor, Server, Smartphone, RefreshCw,
   Terminal, ShieldCheck, ArrowRight, CornerDownRight,
-  Database, Eye, Sparkles
+  Database, Eye, Sparkles, Code
 } from 'lucide-react';
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -411,7 +411,7 @@ const MemoryConverterWidget = () => {
       <div className="bg-slate-950/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-400 flex items-center gap-2">
         <Sparkles size={15} className="text-amber-400 shrink-0" />
         <span>
-          <strong>CBSE Law:</strong> In digital computing, prefixes use powers of 2 ($2^{10} = 1024$). Hence, $1\text{ KB} = 1024\text{ Bytes}$, $1\text{ MB} = 1024\text{ KB}$, and $1\text{ GB} = 1024\text{ MB}$.
+          <strong>CBSE Law:</strong> In digital computing, prefixes use powers of 2 (2¹⁰ = 1024). Hence, 1 KB = 1024 Bytes, 1 MB = 1024 KB, and 1 GB = 1024 MB.
         </span>
       </div>
     </div>
@@ -544,7 +544,7 @@ export default function Topic0() {
                   <span className="font-bold text-sky-400">1. Data Bus (Bi-directional):</span> Carries raw data and program variables between CPU, RAM, and I/O ports. A 64-bit data bus moves 8 bytes simultaneously.
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="font-bold text-emerald-400">2. Address Bus (Uni-directional):</span> Carries physical memory addresses from the CPU to RAM. An $n$-bit address bus addresses $2^n$ unique bytes ($2^{32} = 4\text{ GB}$, $2^{64} = 16\text{ Exabytes}$).
+                  <span className="font-bold text-emerald-400">2. Address Bus (Uni-directional):</span> Carries physical memory addresses from the CPU to RAM. An n-bit address bus addresses 2ⁿ unique bytes (2³² = 4 GB, 2⁶⁴ = 16 Exabytes).
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
                   <span className="font-bold text-amber-400">3. Control Bus (Bi-directional):</span> Transmits control and clock synchronization signals like Memory Read (`MEMR`), Memory Write (`MEMW`), and Hardware Interrupts (`INTR`).
@@ -740,7 +740,7 @@ export default function Topic0() {
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-rose-400 font-bold shrink-0">✗</span>
-                <span><strong>Decimal vs Binary Multipliers:</strong> Multiplying by 1000 instead of 1024 for digital units. $1\text{ KB} = 1024\text{ Bytes}$, not $1000\text{ Bytes}$.</span>
+                <span><strong>Decimal vs Binary Multipliers:</strong> Multiplying by 1000 instead of 1024 for digital units. 1 KB = 1024 Bytes, not 1000 Bytes.</span>
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-rose-400 font-bold shrink-0">✗</span>
@@ -760,11 +760,11 @@ export default function Topic0() {
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>Show Step-by-Step Unit Conversion:</strong> Write $(16 \times 1024 \times 1024 \times 1024)\text{ Bytes}$ explicitly when calculating total bytes in 16 GB.</span>
+                <span><strong>Show Step-by-Step Unit Conversion:</strong> Write (16 × 1024 × 1024 × 1024) Bytes explicitly when calculating total bytes in 16 GB.</span>
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>State Directionality of Buses:</strong> Explicitly mention that the Address Bus is unidirectional (CPU $\to$ Memory), while Data and Control buses are bidirectional.</span>
+                <span><strong>State Directionality of Buses:</strong> Explicitly mention that the Address Bus is unidirectional (CPU &rarr; Memory), while Data and Control buses are bidirectional.</span>
               </li>
             </ul>
           </div>
@@ -780,7 +780,7 @@ export default function Topic0() {
           <div className="space-y-1 text-xs">
             <h4 className="text-sm font-bold text-amber-300">CBSE High-Frequency Exam Alert (10 Marks CSO Unit)</h4>
             <p className="text-slate-300 leading-relaxed">
-              Every year, Section A contains at least one 1-mark question on units of memory (e.g. <em>"How many megabytes are there in 1 Petabyte?"</em>) or identifying which register holds the address of the next instruction (<strong>Program Counter</strong>). Be prepared to calculate exact powers of 2 ($2^{10} = 1\text{ KB}$, $2^{20} = 1\text{ MB}$, $2^{30} = 1\text{ GB}$, $2^{40} = 1\text{ TB}$, $2^{50} = 1\text{ PB}$).
+              Every year, Section A contains at least one 1-mark question on units of memory (e.g. <em>"How many megabytes are there in 1 Petabyte?"</em>) or identifying which register holds the address of the next instruction (<strong>Program Counter</strong>). Be prepared to calculate exact powers of 2 (2¹⁰ = 1 KB, 2²⁰ = 1 MB, 2³⁰ = 1 GB, 2⁴⁰ = 1 TB, 2⁵⁰ = 1 PB).
             </p>
           </div>
         </div>

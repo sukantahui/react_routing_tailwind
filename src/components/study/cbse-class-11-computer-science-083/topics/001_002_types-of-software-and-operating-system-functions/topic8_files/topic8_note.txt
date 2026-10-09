@@ -1,0 +1,53 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 8: COMMON OPERATING SYSTEMS (WINDOWS, LINUX, MACOS, ANDROID, IOS)
+================================================================================
+
+1. DESKTOP & SERVER OPERATING SYSTEMS:
+
+A. MICROSOFT WINDOWS:
+The most widely adopted desktop operating system globally.
+- Kernel Architecture: Windows NT Hybrid Kernel.
+- Licensing: Proprietary commercial software (Requires paid license key).
+- Default File System: NTFS (New Technology File System).
+- Primary Strength: Unmatched third-party software catalog, legacy enterprise compatibility, and PC gaming support (DirectX).
+
+B. GNU/LINUX (UBUNTU, DEBIAN, RED HAT, FEDORA):
+A Unix-like operating system built around the open-source Linux kernel created by Linus Torvalds.
+- Kernel Architecture: Monolithic Kernel.
+- Licensing: Free and Open Source Software (FOSS) under GNU General Public License (GPL).
+- Default File System: ext4, Btrfs.
+- Primary Strength: Powers over 90% of the world's top 500 supercomputers, cloud servers (AWS, Azure, Google Cloud), and developer infrastructure due to stability, zero licensing cost, and security.
+
+C. APPLE macOS:
+The proprietary operating system engineered specifically for Apple Mac desktop and laptop computers.
+- Kernel Architecture: XNU / Darwin Hybrid Kernel based on BSD Unix.
+- Licensing: Proprietary (bundled with Apple Mac hardware).
+- Default File System: APFS (Apple File System).
+- Primary Strength: Seamless hardware-software integration, Unix-compliant terminal environment for developers, and creative production workflows.
+
+2. MOBILE & EMBEDDED OPERATING SYSTEMS:
+
+A. GOOGLE ANDROID:
+The dominant global mobile operating system developed by Google and the Open Handset Alliance.
+- Kernel Foundation: Customized Linux Kernel with the Android Runtime (ART) executing compiled bytecode.
+- Licensing: Open-source foundation (Android Open Source Project - AOSP) with proprietary Google Mobile Services (GMS).
+- File System: ext4 / F2FS (Flash-Friendly File System).
+
+B. APPLE iOS:
+The proprietary mobile operating system designed exclusively for Apple iPhone hardware.
+- Kernel Foundation: Darwin / XNU Hybrid Kernel.
+- Architecture: Heavily sandboxed security architecture; applications can only be installed from the official Apple App Store.
+- File System: APFS with hardware-encrypted storage.
+
+3. CBSE EXAMINATION SUMMARY TABLE:
+
+| Operating System | Developer / Community | Kernel Basis | Licensing Model | Primary Domain |
+| :--- | :--- | :--- | :--- | :--- |
+| Windows | Microsoft | Windows NT Hybrid | Proprietary Commercial | Desktop PCs, Workstations, PC Gaming |
+| Linux (Ubuntu/Debian) | Open Source Community | Linux Monolithic | Open Source (GPL) | Cloud Servers, Supercomputers, AI Labs |
+| macOS | Apple Inc. | Darwin / XNU (BSD Unix) | Proprietary | Mac Desktops & Laptops, Creative Studios |
+| Android | Google / OHA | Modified Linux Kernel | Open Source (AOSP) + GMS | Smartphones, Tablets, Smart TVs |
+| iOS | Apple Inc. | Darwin / XNU | Proprietary Closed | Apple iPhone Mobile Hardware |

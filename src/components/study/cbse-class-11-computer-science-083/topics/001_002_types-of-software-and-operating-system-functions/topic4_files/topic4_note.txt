@@ -1,0 +1,44 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 4: OPERATING SYSTEM CORE FUNCTIONS (4 RESOURCE MANAGERS)
+================================================================================
+
+1. THE FOUR PILLARS OF OPERATING SYSTEM RESOURCE MANAGEMENT:
+
+A. PROCESSOR MANAGEMENT (CPU SCHEDULING):
+The OS determines which process gets CPU time, for how long, and in what order.
+Key Tasks:
+- Process State Management: Transitions processes across Ready, Running, and Blocked/Waiting states.
+- CPU Scheduling Algorithms:
+  * First-Come, First-Served (FCFS): Non-preemptive, executes in arrival order.
+  * Shortest Job First (SJF): Schedules smallest burst time first.
+  * Round Robin (RR): Preemptive, allocates fixed time slice (quantum) to each process.
+- Context Switching: Saves current CPU register state (PC, SP) and loads the next process.
+
+B. MEMORY MANAGEMENT (PRIMARY STORAGE / RAM ALLOCATION):
+The OS keeps track of every byte in physical RAM, allocating and deallocating memory dynamically.
+Key Tasks:
+- Dynamic Allocation: Allocates memory blocks when programs launch (`malloc()` / object creation) and reclaims them upon termination.
+- Protection & Isolation: Ensures Process A cannot access or overwrite the memory region of Process B using Base and Limit hardware registers.
+- Virtual Memory & Paging: Uses secondary storage swap space as an extension of physical RAM when memory is full.
+
+C. FILE MANAGEMENT (SECONDARY STORAGE HIERARCHY):
+The OS organizes files and directories on disk, managing permissions and physical cluster allocation.
+Key Tasks:
+- Hierarchical Tree Directory Structure: Organizes files into folders, subfolders, and root paths (e.g. `/home/user/docs` or `C:\Users\Admin`).
+- Access Control: Enforces Read (`r`), Write (`w`), and Execute (`x`) security permissions.
+- Inodes & Allocation Tables: Maintains File Allocation Tables (FAT / NTFS / ext4) tracking physical disk sectors.
+
+D. DEVICE MANAGEMENT (I/O SUBSYSTEM & DRIVERS):
+The OS manages communication with peripheral hardware devices via device controllers and drivers.
+Key Tasks:
+- I/O Buffering: Temporarily stores data in memory buffers to smooth out speed mismatches between fast CPUs and slow mechanical I/O devices.
+- Spooling (Simultaneous Peripheral Operations On-Line): Buffers incoming I/O jobs (e.g., print jobs) on disk and feeds them sequentially to slow printers without stalling the calling application.
+- Interrupt Handling: Service hardware interrupt requests (IRQ) triggered by keyboards, network cards, and mice.
+
+2. CBSE EXAMINATION HIGH-FREQUENCY TOPICS:
+- Definition of Spooling with printer example.
+- Difference between Process (program in active execution) and Program (passive code stored on disk).
+- Role of Base and Limit registers in memory protection.

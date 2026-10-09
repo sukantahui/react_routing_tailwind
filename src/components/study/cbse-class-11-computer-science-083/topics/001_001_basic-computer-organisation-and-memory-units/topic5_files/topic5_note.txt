@@ -1,0 +1,71 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - MASTER REVISION NOTE
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001: BASIC COMPUTER ORGANISATION, CPU ARCHITECTURE & MEMORY UNITS
+TOPIC 5: HIGH-SPEED CACHE MEMORY: L1, L2, L3 CACHE & LOCALITY OF REFERENCE
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. WHAT IS CACHE MEMORY?
+-------------------------------------------------------------------------------
+Cache Memory is an extremely fast, small-capacity Static RAM (SRAM) memory buffer
+positioned directly between the high-speed CPU execution core and the relatively
+slower main Dynamic RAM (DRAM).
+
+Purpose:
+To bridge the massive speed mismatch (the "Memory Wall") between CPU clocks (sub-nanosecond)
+and main memory bus latencies (50-100 nanoseconds), keeping the processor pipelines
+continuously fed with instructions.
+
+
+2. PRINCIPLE OF LOCALITY OF REFERENCE
+-------------------------------------------------------------------------------
+Cache memory operates on the fundamental empirical observation that program execution
+is non-random and exhibits two distinct forms of locality:
+
+A. TEMPORAL LOCALITY (Locality in Time):
+   - Principle: If a memory location is accessed once, it is highly likely to be accessed
+     again in the near future.
+   - Real-World Example: Loop counter variables (e.g. `i = i + 1`), loop condition checks,
+     frequently invoked function routines.
+
+B. SPATIAL LOCALITY (Locality in Space):
+   - Principle: If a specific memory location is accessed, memory locations with adjacent
+     or nearby addresses are highly likely to be accessed soon after.
+   - Real-World Example: Sequential array traversals (e.g. `scores[0]`, `scores[1]`,
+     `scores[2]`), sequential program instructions executed one after another.
+
+
+3. THE MULTI-LEVEL CACHE HIERARCHY (L1, L2, L3)
+-------------------------------------------------------------------------------
+Level | Location               | Capacity        | Latency (Clock Cycles)
+------+------------------------+-----------------+-----------------------
+L1    | Built inside CPU core  | 32 KB – 128 KB  | 1 – 4 Cycles (~0.5 - 1 ns)
+      | (Split: L1-Instruction |                 |
+      |  and L1-Data cache)    |                 |
+L2    | Dedicated per CPU core | 512 KB – 2 MB   | 10 – 20 Cycles (~3 - 5 ns)
+L3    | Shared across ALL cores| 16 MB – 96 MB   | 40 – 75 Cycles (~10 - 20 ns)
+RAM   | External motherboard   | 16 GB – 64 GB   | 200+ Cycles (~50 - 100 ns)
+
+
+4. CACHE PERFORMANCE METRICS & FORMULAS
+-------------------------------------------------------------------------------
+* Cache Hit: When requested data is already found inside cache memory.
+* Cache Miss: When data is not in cache; must be retrieved from slower main DRAM.
+* Hit Ratio (H) = (Number of Cache Hits) / (Total Memory Access Requests)
+* Miss Rate (M) = 1 - Hit Ratio = (Number of Cache Misses) / (Total Requests)
+* Average Memory Access Time (AMAT):
+  AMAT = Hit_Time + (Miss_Rate * Miss_Penalty)
+  Example: If Hit Time = 1 ns, Miss Rate = 5% (0.05), and Miss Penalty = 50 ns:
+  AMAT = 1 + (0.05 * 50) = 1 + 2.5 = 3.5 nanoseconds.
+
+
+5. CACHE WRITE POLICIES
+-------------------------------------------------------------------------------
+* Write-Through: Data is updated in BOTH Cache and main RAM simultaneously. (Simpler, safer, but slower).
+* Write-Back: Data is updated ONLY in Cache initially. The 'Dirty Bit' is set, and data
+  is written back to main RAM only when the cache line is evicted. (Faster, higher throughput).
+
+===============================================================================
+Coder & AccoTax - 25(10/A) Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================

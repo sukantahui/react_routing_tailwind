@@ -1,0 +1,40 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - TOPIC 10
+PRACTICE YOUR SKILL: BOARD EXAM DRILLS & HIGH-YIELD PROBLEM SOLUTIONS
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. 30-MARK OBJECTIVE ASSESSMENT CHECKLIST
+-------------------------------------------------------------------------------
+Ensure you can solve all 30 questions under 20 minutes with zero reference materials!
+Key competencies covered:
+- CPU Anatomy: ALU, CU, PC, IR, MAR, MDR, Accumulator
+- System Bus Rules: Directionality, Bus Width, Addressable Memory (2^N)
+- Machine Cycle Order: Fetch -> Decode -> Execute -> Store
+- RAM vs ROM: SRAM (Flip-Flops) vs DRAM (Capacitors), PROM, EPROM, EEPROM
+- Cache Mechanics: Locality of Reference (Temporal/Spatial), L1/L2/L3, AMAT
+- Secondary Storage: HDD Geometry, Access Time Formulas, NVMe SSDs, Optical Lasers
+- Digital Units: Bit to Yottabyte conversions with base-2 multipliers (1024)
+- I/O Devices: OMR, OCR, MICR, Impact vs Non-Impact Printers, Plotters
+
+
+2. HIGH-YIELD SUBJECTIVE DRILL SOLUTIONS
+-------------------------------------------------------------------------------
+Q1. A processor has a 36-bit address bus. Calculate the maximum addressable RAM.
+Ans: Max RAM = 2^36 Bytes = 2^6 * 2^30 Bytes = 64 Gigabytes (GB).
+
+Q2. Calculate the average access time of an HDD with 7200 RPM, 9ms seek time, and 0.5ms transfer time.
+Ans: Rotational Latency = (30,000 / 7200) = 4.17 ms.
+     Total Access Time = 9.0 + 4.17 + 0.5 = 13.67 milliseconds.
+
+Q3. Differentiate between OMR and OCR with one practical use case each.
+Ans: OMR detects optical pencil marks on structured forms (e.g. CBSE answer sheets).
+     OCR recognizes character shapes from scanned pages to produce editable text (e.g. passport scanning).
+
+Q4. Why does an SSD achieve access times under 0.05ms while an HDD requires 10-15ms?
+Ans: SSDs use solid-state semiconductor NAND flash cells with zero moving parts, eliminating
+     the mechanical arm seek delay and platter rotational delay inherent in HDDs.
+
+===============================================================================
+Coder & AccoTax - 25(10/A) Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================

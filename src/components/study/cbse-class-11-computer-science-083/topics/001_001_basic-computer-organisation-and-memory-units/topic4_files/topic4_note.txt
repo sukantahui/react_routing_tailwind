@@ -1,0 +1,72 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - MASTER REVISION NOTE
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001: BASIC COMPUTER ORGANISATION, CPU ARCHITECTURE & MEMORY UNITS
+TOPIC 4: PRIMARY MEMORY: RAM (SRAM VS DRAM) & ROM (PROM, EPROM, EEPROM)
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. PRIMARY MEMORY (MAIN MEMORY) DEFINITION
+-------------------------------------------------------------------------------
+Primary Memory refers to storage that is directly connected to the CPU via the
+system bus and can be accessed byte-by-byte without routing through an I/O channel.
+
+Primary memory is broadly split into two classes:
+1. Random Access Memory (RAM) - Volatile read/write working storage.
+2. Read-Only Memory (ROM) - Non-volatile permanent firmware storage.
+
+
+2. RAM (RANDOM ACCESS MEMORY): SRAM VS DRAM
+-------------------------------------------------------------------------------
+A. STATIC RAM (SRAM):
+   - Storage Mechanism: 4 to 6 CMOS transistors arranged as a bistable flip-flop latch.
+   - Refreshing: NO periodic refreshing required as long as power is maintained.
+   - Speed: Extremely fast (0.5 to 5 nanoseconds latency).
+   - Cost & Density: Very expensive per megabyte; occupies large silicon area.
+   - Primary Application: CPU internal Level 1 (L1), Level 2 (L2), and Level 3 (L3) Cache.
+
+B. DYNAMIC RAM (DRAM):
+   - Storage Mechanism: 1 Transistor + 1 Micro-Capacitor per single bit.
+   - Refreshing: MANDATORY periodic electrical refreshing (every few milliseconds)
+     because capacitors naturally leak their electrical charge over time.
+   - Speed: Slower than SRAM (10 to 50 nanoseconds).
+   - Cost & Density: Highly dense (billions of bits per chip) and economical.
+   - Primary Application: Main System Memory (DDR3, DDR4, DDR5 memory modules).
+
+
+3. ROM (READ ONLY MEMORY) AND ITS VARIANTS
+-------------------------------------------------------------------------------
+ROM is non-volatile memory whose contents persist even when the computer is turned off.
+It stores the system firmware (BIOS / UEFI) and the initial bootstrap loader program.
+
+A. Masked ROM:
+   - Hardwired with bit patterns during silicon fabrication at the foundry.
+   - Permanent, unmodifiable, and cannot be rewritten.
+
+B. PROM (Programmable ROM):
+   - Manufactured blank with tiny microscopic fuses.
+   - Programmed once using a PROM programmer by burning specific fuses (OTP: One-Time Programmable).
+
+C. EPROM (Erasable Programmable ROM):
+   - Can be erased by exposing the quartz crystal window on the chip package to intense
+     Ultraviolet (UV) light for 15-20 minutes.
+   - All bits are erased simultaneously (bulk chip erasure).
+
+D. EEPROM (Electrically Erasable Programmable ROM):
+   - Can be erased and rewritten electrically byte-by-byte in-circuit without removing
+     the chip from the motherboard.
+   - Forms the foundation of modern Flash BIOS updates and USB thumb drives.
+
+
+4. SUMMARY COMPARISON MATRIX FOR CBSE BOARD EXAMS
+-------------------------------------------------------------------------------
+Characteristic   | RAM (SRAM / DRAM)                  | ROM (PROM / EPROM / EEPROM)
+-----------------+------------------------------------+-----------------------------
+Volatility       | Volatile (Loses data on power loss)| Non-volatile (Retains data)
+Read/Write Access| High-speed Read and Write          | Primarily Read-Only (Firmware)
+Typical Capacity | 8 GB to 64 GB (Main memory)        | 4 MB to 32 MB (BIOS chip)
+Core Purpose     | Holds running OS & active apps     | Holds Bootstrap Loader & BIOS
+
+===============================================================================
+Coder & AccoTax - 25(10/A) Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================

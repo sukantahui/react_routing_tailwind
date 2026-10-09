@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 1: SYSTEM SOFTWARE - OPERATING SYSTEMS, DEVICE DRIVERS & SYSTEM UTILITIES
+================================================================================
+
+1. SYSTEM SOFTWARE DEFINITION:
+System software is a collection of programs designed to operate, control, and extend the processing capabilities of the computer itself. It acts as an indispensable intermediary layer between hardware circuitry and user application software.
+
+Key Characteristics:
+- Hardware-centric: Directly interacts with CPU registers, memory controllers, and I/O bus interfaces.
+- Low-level control: Written in high-performance languages like C, C++, and Assembly.
+- Ubiquitous: Starts executing upon system boot (bootstrap loader) and remains active until shutdown.
+
+2. THREE CORE SUB-CATEGORIES OF SYSTEM SOFTWARE:
+
+A. OPERATING SYSTEM (OS):
+The master control program that manages computer hardware resources (CPU, RAM, Storage, I/O devices) and provides a unified runtime environment for application programs.
+Examples: GNU/Linux (Ubuntu, Debian, RedHat), Microsoft Windows 11, Apple macOS, Google Android, Apple iOS.
+
+B. DEVICE DRIVERS:
+Specialized system software modules that act as software translators between the Operating System and specific hardware peripheral devices.
+Why Drivers are Needed:
+- Hardware manufacturers use proprietary electronic command protocols.
+- The OS provides generic system calls (e.g. `read()`, `write()`, `print()`).
+- The Device Driver translates generic OS calls into the precise electrical/digital signal commands understood by the device chipset (e.g., Realtek Audio Driver, NVIDIA Graphics Driver, HP LaserJet Printer Driver).
+
+C. SYSTEM UTILITY SOFTWARE (HOUSEKEEPING TOOLS):
+Maintenance and optimization software designed to help analyze, configure, optimize, or maintain a computer system.
+Key Examples:
+- Disk Defragmenter: Reorganizes non-contiguous file clusters on HDDs into contiguous sectors, minimizing physical read/write head movement and boosting access speed.
+- Antivirus / Antimalware: Scans system files for known malware signatures and heuristic threats.
+- File Compression Tools (WinRAR, 7-Zip, gzip): Reduces file size using lossless algorithms (e.g. DEFLATE, Huffman Coding) to save storage and bandwidth.
+- Disk Cleanup Tools: Cleans temporary files, cache, and system error dumps.
+- Backup & Restore Utilities: Creates redundant copies of mission-critical data on external storage.
+
+3. CBSE EXAMINATION QUESTIONS & PITFALLS:
+- Common Mistake: Writing that Antivirus is Application Software.
+  Correct View: Antivirus is classified as System Utility Software because its purpose is system maintenance, security, and hardware upkeep.
+- Distinguishing OS vs Device Driver:
+  OS manages global resources for all applications; Device Drivers provide device-specific translation for a single hardware model.

@@ -321,7 +321,7 @@ export default function Topic0() {
               </li>
               <li className="flex items-start gap-1.5">
                 <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                <span><strong>2's Complement Definition:</strong> State clearly: $2\text{'s Complement} = (1\text{'s Complement}) + 1$.</span>
+                <span><strong>2's Complement Definition:</strong> State clearly: 2's Complement = (1's Complement) + 1.</span>
               </li>
             </ul>
           </div>

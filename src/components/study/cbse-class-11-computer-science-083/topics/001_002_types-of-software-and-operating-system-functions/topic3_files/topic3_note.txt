@@ -1,0 +1,52 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 3: APPLICATION SOFTWARE - GENERAL PURPOSE VS CUSTOMIZED / TAILOR-MADE
+================================================================================
+
+1. WHAT IS APPLICATION SOFTWARE?
+Application Software is a class of computer programs designed to perform specific user-driven tasks, solve practical problems, or provide entertainment. Unlike System Software, which manages hardware and computer internals, Application Software operates at the top layer directly serving end-user productivity.
+
+2. CLASSIFICATION OF APPLICATION SOFTWARE:
+
+A. GENERAL PURPOSE APPLICATION SOFTWARE (OFF-THE-SHELF / PACKAGED):
+Software designed to satisfy a broad set of common requirements shared by millions of users across diverse industries.
+Key Features:
+- Ready to install and use immediately (zero development lead time).
+- Low cost per license because development costs are distributed over millions of buyers.
+- Extensively tested with frequent vendor updates, patches, and global user community support.
+- May contain redundant features not needed by a specific user.
+
+Sub-types and Examples:
+1. Word Processors: MS Word, LibreOffice Writer, Google Docs (documentation, typography).
+2. Electronic Spreadsheets: MS Excel, LibreOffice Calc, Google Sheets (financial modeling, formulas, data visualization).
+3. Database Management Systems (DBMS): MySQL, Oracle, MS Access, PostgreSQL (structured data querying).
+4. Presentation Graphics: MS PowerPoint, Canva, Prezi (slide decks).
+5. Web Browsers: Google Chrome, Mozilla Firefox, Apple Safari.
+
+B. CUSTOMIZED / TAILOR-MADE APPLICATION SOFTWARE (BESPOKE SOFTWARE):
+Software specially commissioned, designed, and developed to satisfy the precise, unique workflow requirements of a specific organization or client.
+Key Features:
+- Exact fit: Matches the organization's unique accounting rules, employee structures, or regulatory mandates.
+- High initial development cost and ongoing maintenance expenses.
+- Long development lead time requiring systems analysis, coding, and testing.
+- Requires specialized training for staff.
+
+Real-World Examples:
+1. Railway / Airline Ticketing System (IRCTC, Amadeus).
+2. School / College Management ERP (Fee collection, attendance, CBSE report card generation).
+3. Hospital OPD & Inpatient Management System.
+4. Banking Core Processing Systems (Finacle, TCS BaNCS).
+5. Supermarket Point of Sale (POS) Barcode Billing Software.
+
+3. CBSE EXAMINATION COMPARISON MATRIX:
+
+| Parameter | General Purpose Software | Customized / Tailor-Made Software |
+| :--- | :--- | :--- |
+| Target Audience | Mass general public & diverse businesses | One specific organization / client |
+| Development Cost | Inexpensive to the end buyer | Expensive to commission and build |
+| Availability | Readily available off-the-shelf | Takes months of development time |
+| Workflow Fit | General features; may require user adaptation | Exact fit for company business logic |
+| Maintenance | Handled by the commercial vendor | Handled by dedicated IT dev team |
+| Examples | MS Word, Excel, Photoshop, Chrome | IRCTC Portal, School Fee Portal, Bank ERP |

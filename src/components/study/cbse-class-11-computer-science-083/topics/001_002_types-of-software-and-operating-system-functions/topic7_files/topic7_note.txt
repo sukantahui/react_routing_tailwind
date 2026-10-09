@@ -1,0 +1,55 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 7: TYPES OF OPERATING SYSTEMS - PRESCRIBED & ENRICHMENT CONCEPTS
+================================================================================
+
+1. PRESCRIBED CBSE OPERATING SYSTEM TYPES:
+
+A. SINGLE-USER SINGLE-TASKING OS:
+Allows only one user to execute one program at any given time.
+- Example: MS-DOS (Microsoft Disk Operating System).
+- Limitation: If a program is printing a large file, the entire system is locked until printing completes.
+
+B. SINGLE-USER MULTI-TASKING OS:
+Allows a single user to run multiple active applications concurrently.
+- Example: Windows 11, macOS, Android.
+- Benefit: A student can type a Python program in VS Code while listening to music and downloading a PDF in the background.
+
+C. MULTI-USER OPERATING SYSTEM:
+Allows multiple distinct users to access computer system resources, memory, and CPU time concurrently from different terminals.
+- Uses strict authentication, file ownership access permissions, and session sandboxing.
+- Example: Linux (Ubuntu Server, Red Hat Enterprise Linux), Unix, Mainframe OS (z/OS).
+
+D. MULTIPROGRAMMING OPERATING SYSTEM:
+Keeps multiple programs loaded into physical memory simultaneously.
+- Core Mechanism: When the actively running program halts to wait for an I/O operation (e.g. reading from disk or waiting for user keyboard input), the CPU immediately context-switches to another ready program.
+- Primary Goal: Maximize CPU utilization and eliminate idle CPU cycles.
+
+E. TIME-SHARING (MULTITASKING) OPERATING SYSTEM:
+A logical extension of multiprogramming where the CPU switches between multiple jobs so rapidly using a fixed time quantum (e.g., 10 to 50 milliseconds) that each user gets the illusion of having a dedicated computer.
+- Employs preemptive Round Robin scheduling.
+- Primary Goal: Minimize user interactive response time.
+
+2. ENRICHMENT / ADVANCED CONCEPTS:
+
+A. REAL-TIME OPERATING SYSTEM (RTOS):
+Designed for systems where computations must strictly complete within rigid, deterministic time deadlines. A late answer is treated as a total system failure.
+- Hard RTOS: Missed deadline causes catastrophic failure (e.g., Flight Avionics, Automotive ABS/Airbags, Nuclear Plant Coolant Control). Examples: VxWorks, QNX.
+- Soft RTOS: Occasional missed deadline causes degraded quality but no fatal crash (e.g., Live Video Streaming, Audio Synthesizers). Example: RTLinux, FreeRTOS.
+
+B. DISTRIBUTED OPERATING SYSTEM:
+Manages a collection of independent, networked computers appearing to users as a single coherent system. Tasks and computational loads are automatically distributed across multiple cluster nodes.
+- Examples: Apache Hadoop OS layer, Google Borg/Kubernetes cluster orchestrator.
+
+3. CBSE EXAMINATION SUMMARY TABLE:
+
+| OS Type | Primary Objective | Key Real-World Example |
+| :--- | :--- | :--- |
+| Single-User Single-Tasking | Minimalist single execution | MS-DOS |
+| Single-User Multi-Tasking | Individual productivity multitasking | Windows 11, macOS, Android |
+| Multi-User | Multi-terminal concurrent access | Linux (Ubuntu Server), Unix |
+| Multiprogramming | Maximize CPU hardware utilization | IBM OS/360, Linux Kernel |
+| Time-Sharing | Minimize interactive response time | CTSS, Unix time-slice clusters |
+| Real-Time (RTOS) | Guaranteed strict timing deadlines | VxWorks, QNX, FreeRTOS |

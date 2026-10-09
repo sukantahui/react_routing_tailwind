@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 6: USER INTERFACES IN OPERATING SYSTEMS - CLI VS GUI
+================================================================================
+
+1. WHAT IS A USER INTERFACE (UI)?
+A User Interface is the medium through which a human user communicates, inputs commands, and interacts with the computer's Operating System and application software.
+
+2. COMMAND LINE INTERFACE (CLI) / CHARACTER USER INTERFACE (CUI):
+The user interacts with the computer entirely through text-based typed commands in a shell terminal.
+Key Features:
+- Keyboard-driven: Commands, parameters, and flags are typed directly (e.g. `mkdir`, `cp`, `grep`, `dir`, `python main.py`).
+- Extremely Low Resource Consumption: Consumes negligible RAM and CPU; requires zero GPU graphical rendering.
+- Shell Scripting & Automation: Complex recurring administrative tasks across thousands of files can be chained in a single bash/shell script.
+- Steeper Learning Curve: Requires users to memorize precise command names, syntax, and arguments.
+- Examples: Linux Bash/Zsh Terminal, Windows Command Prompt (cmd.exe), Windows PowerShell, MS-DOS, Cisco IOS.
+
+3. GRAPHICAL USER INTERFACE (GUI):
+The user interacts visually with graphical components using mouse clicks, gestures, and window managers.
+Key Features:
+- WIMP Model: Based on Windows, Icons, Menus, and Pointer.
+- High Usability & Intuitive Design: Visual visual affordance allows novice users to operate the system without memorizing commands.
+- High System Resource Demand: Requires significant RAM, CPU cycles, and dedicated GPU video memory to render windows, shadows, desktop widgets, and animations.
+- Multitasking Visibility: Users can arrange multiple overlapping application windows side-by-side.
+- Examples: Microsoft Windows 11 Desktop, Apple macOS Aqua, Ubuntu GNOME/KDE Plasma, Google Android, Apple iOS.
+
+4. CBSE EXAMINATION COMPARISON MATRIX:
+
+| Parameter | Command Line Interface (CLI) | Graphical User Interface (GUI) |
+| :--- | :--- | :--- |
+| Interaction Medium | Typed text commands on terminal prompt | Visual windows, icons, menus, pointer (WIMP) |
+| Input Devices Required | Primarily Keyboard | Mouse, Touchscreen, Trackpad, Keyboard |
+| Ease of Learning | Steep learning curve; must memorize syntax | Highly intuitive; visual and beginner-friendly |
+| System Resource Demand | Minimal (takes ~2-5 MB RAM, no GPU load) | High (requires 500+ MB RAM, GPU acceleration) |
+| Speed for Experts | Extremely fast for batch automation | Slower for repetitive bulk operations |
+| Prominent Examples | MS-DOS, Linux Bash, PowerShell | Windows 11, macOS, Android, Ubuntu GNOME |

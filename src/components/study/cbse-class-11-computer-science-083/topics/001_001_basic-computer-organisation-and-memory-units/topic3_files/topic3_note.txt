@@ -1,0 +1,71 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - MASTER REVISION NOTE
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001: BASIC COMPUTER ORGANISATION, CPU ARCHITECTURE & MEMORY UNITS
+TOPIC 3: INSTRUCTION EXECUTION CYCLE: FETCH, DECODE, EXECUTE, AND STORE
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. THE INSTRUCTION (MACHINE) CYCLE OVERVIEW
+-------------------------------------------------------------------------------
+The Instruction Cycle (also known as the Machine Cycle or Fetch-Decode-Execute Cycle)
+is the continuous sequence of basic operational phases that the Central Processing
+Unit (CPU) follows from the moment the computer boots until it shuts down.
+
+The four canonical phases are:
+1. FETCH
+2. DECODE
+3. EXECUTE
+4. STORE (Writeback)
+
+
+2. STEP-BY-STEP PHASE BREAKDOWN
+-------------------------------------------------------------------------------
+PHASE 1: INSTRUCTION FETCH (IF)
+- The memory address of the next instruction stored in the Program Counter (PC)
+  is copied into the Memory Address Register (MAR).
+- The Control Unit (CU) asserts the MEM_READ line on the Control Bus.
+- The instruction word at that RAM address is placed onto the Data Bus and
+  loaded into the Memory Data Register (MDR).
+- The instruction is transferred from MDR into the Instruction Register (IR).
+- The Program Counter (PC) is incremented by 1 (or instruction word size) so it
+  points to the next instruction in sequence.
+
+PHASE 2: INSTRUCTION DECODE (ID)
+- The Control Unit (CU) examines the binary Opcode (Operation Code) in the IR.
+- Internal decoding logic determines the nature of the operation (arithmetic,
+  logical comparison, jump/branch, or data move).
+- If operands require memory access (e.g. `ADD 201`), the effective memory
+  address is calculated and placed into MAR.
+
+PHASE 3: INSTRUCTION EXECUTE (EX)
+- The CU sends micro-control signals to the relevant hardware components:
+  * For arithmetic/logic operations, the ALU computes the output.
+  * For jump/branch operations, the target address is loaded into PC.
+  * For I/O operations, peripheral interface controllers are pulsed.
+- Status and condition flags (Zero, Negative, Carry, Overflow) are updated.
+
+PHASE 4: STORE / WRITEBACK (WB)
+- The result generated in the Execute phase is written back into its target
+  destination:
+  * Stored into an internal CPU register (e.g. Accumulator).
+  * Or written out to physical RAM by latching into MDR and asserting MEM_WRITE.
+
+
+3. TIME AND SPEED FORMULAS
+-------------------------------------------------------------------------------
+* Instruction Time (T_inst) = Clock Period (T) * Cycles Per Instruction (CPI)
+* Clock Period (T) = 1 / Clock Frequency (f)
+* MIPS (Million Instructions Per Second) = Clock Frequency (MHz) / CPI
+
+
+4. INSTRUCTION PIPELINING (ENRICHMENT & MODERN EXTENSION)
+-------------------------------------------------------------------------------
+In modern high-performance processors, multiple instructions are processed
+simultaneously across different hardware pipeline stages (e.g. while Instruction 1
+is being Executed, Instruction 2 is being Decoded, and Instruction 3 is being Fetched).
+This increases CPU throughput without raising the clock speed.
+
+===============================================================================
+Coder & AccoTax - 25(10/A) Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================

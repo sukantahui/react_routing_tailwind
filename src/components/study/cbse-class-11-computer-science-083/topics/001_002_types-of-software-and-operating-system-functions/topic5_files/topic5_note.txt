@@ -1,0 +1,31 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 5: OPERATING SYSTEM AS A RESOURCE MANAGER AND VIRTUAL MACHINE
+================================================================================
+
+1. DUAL PERSPECTIVES OF AN OPERATING SYSTEM:
+
+A. THE RESOURCE MANAGER (BOTTOM-UP VIEW):
+From the hardware perspective, a computer consists of processors, memory, timers, disks, and network interfaces. The OS acts as a fair and efficient Resource Manager:
+- Time Multiplexing: Multiple programs take turns using CPU time (Processor scheduling).
+- Space Multiplexing: Multiple programs share physical RAM and disk storage partitions simultaneously.
+- Deadlock Prevention & Conflict Resolution: Prevents two processes from conflicting when competing for the same non-shareable peripheral (e.g. printer).
+
+B. THE VIRTUAL MACHINE / EXTENDED MACHINE (TOP-DOWN VIEW):
+From the programmer/user perspective, raw electronic hardware is notoriously complex and difficult to program (e.g., motor stepping on floppy disks, electronic voltages on NAND gates).
+- Hardware Abstraction Layer (HAL): The OS hides all messy physical electronics under a clean, high-level abstraction layer known as the Extended Machine or Virtual Machine.
+- Instead of writing raw assembly to pulse disk drive read heads, the programmer simply calls high-level System Calls like `open()`, `read()`, `write()`, `close()`.
+
+2. SYSTEM CALLS & DUAL-MODE CPU OPERATION:
+
+To maintain system stability and prevent buggy or malicious programs from crashing the entire computer, CPUs provide Dual-Mode Operation:
+- User Mode (Unprivileged / Ring 3): Application programs run here. Direct access to I/O hardware and memory controllers is forbidden.
+- Kernel Mode / Supervisor Mode (Privileged / Ring 0): The OS Kernel executes here with full unrestricted access to hardware instructions.
+- The Bridge (System Call Trap): When an application needs to read a file or send data over the network, it executes a System Call, triggering a CPU Trap that switches execution to Kernel Mode, services the request, and safely switches back to User Mode.
+
+3. CBSE EXAMINATION QUESTIONS & SUMMARY:
+- Explain the term "Extended Machine / Virtual Machine" in the context of Operating Systems.
+- Differentiate between User Mode and Kernel Mode.
+- How does the OS act as a resource arbitrator when multiple users log in simultaneously?

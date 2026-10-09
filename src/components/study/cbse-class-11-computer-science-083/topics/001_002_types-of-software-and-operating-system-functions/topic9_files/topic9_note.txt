@@ -1,0 +1,31 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT I: CSO
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 9: DOWNLOADABLE DOCUMENTS & MASTER REVISION COMPENDIUM
+================================================================================
+
+1. MODULE 001_002 QUICK REVISION CHEAT SHEET:
+
+* SOFTWARE TAXONOMY:
+  - System Software: OS, Device Drivers, System Utilities.
+  - Application Software: General Purpose (MS Word, Excel) vs Customized/Bespoke (IRCTC, School ERP).
+
+* LANGUAGE PROCESSORS:
+  - Assembler: Assembly mnemonics -> Machine code.
+  - Compiler: Entire high-level source -> Object code (.exe). Batch error reporting.
+  - Interpreter: Translates line-by-line. Halts at first error. No permanent object file.
+  - Python Hybrid Model: Source (.py) -> Bytecode (.pyc) -> Python Virtual Machine (PVM).
+
+* OPERATING SYSTEM 4 CORE PILLARS:
+  1. Processor Management: Process states (Ready, Running, Blocked), CPU scheduling (FCFS, Round Robin).
+  2. Memory Management: Dynamic RAM allocation, Base/Limit register protection, Paging/Virtual Memory.
+  3. File Management: Hierarchical directory tree, Inodes, FAT/NTFS/ext4, rwx permissions.
+  4. Device Management: Device drivers, Buffering, Spooling (Simultaneous Peripheral Operations On-Line).
+
+* OS CONCURRENCY PARADIGMS:
+  - Single-User Single-Tasking: MS-DOS.
+  - Single-User Multi-Tasking: Windows 11, macOS, Android.
+  - Multi-User: Ubuntu Linux Server, Unix.
+  - Multiprogramming: Overlaps CPU bursts with I/O wait to maximize CPU utilization.
+  - Time-Sharing: Rapid Round Robin time-slicing to minimize interactive response time.
+  - Real-Time OS (RTOS): Deterministic execution satisfying hard timing deadlines (VxWorks, QNX).

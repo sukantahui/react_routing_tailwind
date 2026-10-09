@@ -1,0 +1,17 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT I: CSO
+MODULE: 001_002 TYPES OF SOFTWARE AND OPERATING SYSTEM FUNCTIONS
+TOPIC 10: PRACTICE YOUR SKILL HERE - SELF-ASSESSMENT & TEST PREPARATION
+================================================================================
+
+1. MODULE EXAMINATION OBJECTIVES:
+- Classify software items into System Software, Application Software, or System Utilities with 100% precision.
+- Differentiate between Compilers, Interpreters, and Assemblers.
+- Explain the 4 Pillars of OS Resource Management (CPU, Memory, File, Device).
+- Differentiate between CLI and GUI environments.
+- Distinguish Multiprogramming, Time-Sharing, and Real-Time Operating Systems.
+
+2. TIPS FOR ANSWERING 1-MARK, 2-MARK, AND 3-MARK QUESTIONS:
+- For 1-mark classification questions, write both the category and a one-line justification (e.g. "Antivirus -> System Utility because it performs disk/file security maintenance").
+- For 2-mark comparison questions, always construct a neat 2-column table comparing parameters side-by-side (Methodology, Error reporting, Object file, Speed).
+- For 3-mark architecture questions, explicitly list the 4 OS management modules with real-world examples (Spooling for devices, Base/Limit registers for memory).

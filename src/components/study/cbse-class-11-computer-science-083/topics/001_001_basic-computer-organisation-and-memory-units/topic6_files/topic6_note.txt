@@ -1,0 +1,71 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - MASTER REVISION NOTE
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001: BASIC COMPUTER ORGANISATION, CPU ARCHITECTURE & MEMORY UNITS
+TOPIC 6: SECONDARY STORAGE DEVICES: HDD, SSD, OPTICAL DISKS & FLASH DRIVES
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. SECONDARY (AUXILIARY) STORAGE DEFINITION
+-------------------------------------------------------------------------------
+Secondary storage refers to permanent, high-capacity, non-volatile storage used to
+store the operating system, installed application packages, databases, and user
+files when the computer is powered down.
+
+Unlike Primary Memory (RAM), Secondary Storage is NOT directly addressable by the
+CPU; data must be paged/buffered into RAM before the processor can read or execute it.
+
+
+2. MAGNETIC STORAGE: HARD DISK DRIVES (HDD)
+-------------------------------------------------------------------------------
+* Physical Construction:
+  - Rigid circular aluminum or glass platters coated with microscopic magnetic iron oxide.
+  - Platters spin at high speeds (5400 RPM, 7200 RPM, 10000 RPM, 15000 RPM).
+  - An electro-magnetic actuator arm moves read/write heads across spinning surfaces.
+* Logical Geometry:
+  - Tracks: Concentric circular rings on each platter surface.
+  - Sectors: Pie-shaped subdivisions of a track (standard: 512 bytes or 4096 bytes / Advanced Format).
+  - Cylinders: The set of identical tracks across all platter surfaces vertically.
+  - Clusters: The smallest logical allocation unit of sectors managed by the file system.
+* Disk Access Time Components:
+  1. Seek Time: Time taken for the mechanical actuator arm to position over the target track.
+  2. Rotational Latency: Time taken for the spinning platter to rotate the target sector under head.
+  3. Transfer Time: Time required to electrically read the bits off the sector into memory.
+  * Formula: Total Access Time = Seek Time + Rotational Latency + Transfer Time.
+
+
+3. SOLID-STATE DRIVES (SSD) & FLASH MEMORY
+-------------------------------------------------------------------------------
+* Physical Technology:
+  - Uses 3D NAND Flash Memory chips with floating-gate or charge-trap transistors.
+  - Contains ZERO mechanical moving parts (silent, immune to vibration and shock drops).
+* Key Advantages over HDDs:
+  1. 5x to 35x higher sequential read/write throughput (550 MB/s SATA, 7500 MB/s NVMe PCIe Gen4).
+  2. Near-zero seek time and rotational latency (10-30 microseconds vs 10-15 milliseconds in HDDs).
+  3. Significantly lower power consumption and heat generation.
+  4. Ultra-compact form factors (2.5" SATA, M.2 2280 stick).
+
+
+4. OPTICAL STORAGE: CD, DVD, BLU-RAY
+-------------------------------------------------------------------------------
+* Physical Principle: Data is stored as microscopic physical indentations ("Pits")
+  and flat reflective areas ("Lands") arranged along a single spiral track, read
+  by focusing a laser diode.
+* Comparison of Optical Media:
+  Format    | Laser Wavelength    | Standard Capacity | Typical Application
+  ----------+---------------------+-------------------+---------------------------------
+  CD-ROM    | 780 nm (Infrared)   | ~700 Megabytes    | Audio albums, legacy software
+  DVD-ROM   | 650 nm (Red laser)  | 4.7 GB (Single)   | Movies, operating system installers
+            |                     | 8.5 GB (Dual)     |
+  Blu-ray   | 405 nm (Blue-Violet)| 25 GB (Single)    | 4K UHD movies, massive data archives
+  (BD-ROM)  |                     | 50 GB (Dual)      |
+
+
+5. FLASH DRIVES AND MEMORY CARDS
+-------------------------------------------------------------------------------
+* USB Flash Drives (Pendrives) and SD/microSD cards use block-erasable NAND flash memory.
+* High portability, universal USB-A/USB-C hot-plug connectivity, and solid-state durability.
+
+===============================================================================
+Coder & AccoTax - 25(10/A) Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================

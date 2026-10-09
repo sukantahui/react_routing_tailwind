@@ -1,0 +1,76 @@
+===============================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083) - MASTER REVISION NOTE
+UNIT I: COMPUTER SYSTEMS AND ORGANISATION (CSO) - 10 MARKS
+MODULE 001: BASIC COMPUTER ORGANISATION, CPU ARCHITECTURE & MEMORY UNITS
+TOPIC 2: SYSTEM BUS ARCHITECTURE: DATA BUS, ADDRESS BUS, AND CONTROL BUS
+EDUCATOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+===============================================================================
+
+1. DEFINITION OF A SYSTEM BUS
+-------------------------------------------------------------------------------
+A Bus is a collection of parallel physical wires / conductor tracks etched on the
+motherboard PCB that carry binary electrical signals (bits) between the CPU,
+Primary Memory (RAM/ROM), and Input/Output (I/O) Device Controllers.
+
+The System Bus is categorized into three distinct functional groups:
+1. Address Bus
+2. Data Bus
+3. Control Bus
+
+
+2. THE THREE FUNCTIONAL BUSES
+-------------------------------------------------------------------------------
+A. ADDRESS BUS:
+   - Purpose: Carries the physical memory address or I/O port address that the CPU
+     wishes to read from or write to.
+   - Direction: STRICTLY UNIDIRECTIONAL (from CPU -> Memory/I/O devices).
+   - Capacity Rule: If an Address Bus has 'N' parallel address lines (bits), it can
+     directly address 2^N distinct byte locations in memory.
+     * 16 lines -> 2^16 = 65,536 bytes = 64 KB
+     * 20 lines -> 2^20 = 1,048,576 bytes = 1 MB (e.g., Intel 8086)
+     * 32 lines -> 2^32 = 4,294,967,296 bytes = 4 GB
+     * 36 lines -> 2^36 = 64 GB
+     * 64 lines -> 2^64 = 16 Exabytes (EB)
+
+B. DATA BUS:
+   - Purpose: Transfers the actual program instructions, numeric values, and character
+     data between the CPU, memory, and peripherals.
+   - Direction: BIDIRECTIONAL (two-way: CPU can read data from RAM and write data to RAM).
+   - Capacity Rule: If a Data Bus has 'M' parallel lines, the processor can transfer
+     M bits (M/8 bytes) simultaneously in a single memory access cycle.
+     * 8-bit Data Bus -> 1 Byte per transfer
+     * 16-bit Data Bus -> 2 Bytes per transfer
+     * 32-bit Data Bus -> 4 Bytes per transfer
+     * 64-bit Data Bus -> 8 Bytes per transfer
+
+C. CONTROL BUS:
+   - Purpose: Carries synchronization, command, timing, and status signals generated
+     by the Control Unit (CU) to manage all read/write operations.
+   - Direction: Mixed (Both Unidirectional and Bidirectional lines depending on signal).
+   - Essential Control Lines:
+     * Memory Read (MEMR): Strobe telling RAM to place data onto the Data Bus.
+     * Memory Write (MEMW): Strobe telling RAM to latch data from the Data Bus.
+     * I/O Read (IOR) / I/O Write (IOW): Strobe for peripheral ports.
+     * Bus Request / Bus Grant (DMA arbitration).
+     * Interrupt Request (INTR) / Interrupt Acknowledge (INTA).
+     * Clock Signals (CLK) & Reset Signals.
+
+
+3. BUS BANDWIDTH AND PERFORMANCE FORMULA
+-------------------------------------------------------------------------------
+* Peak Bus Bandwidth = Bus Width in Bytes * Bus Clock Frequency in Hertz
+  Example: A 64-bit wide Data Bus (8 bytes) operating at 3200 MHz DDR4 clock has:
+  Bandwidth = 8 bytes * 3,200,000,000 Hz = 25.6 GB/sec (25,600 MB/s).
+
+
+4. SUMMARY COMPARISON TABLE FOR CBSE EXAMINATIONS
+-------------------------------------------------------------------------------
+Bus Type     | Directionality | Carries                      | Determines What?
+-------------+----------------+------------------------------+---------------------------
+Address Bus  | Unidirectional | Physical RAM/Port addresses  | Max Addressable RAM (2^N)
+Data Bus     | Bidirectional  | Instructions, numeric data   | Data word transfer rate
+Control Bus  | Mixed/Control  | Timing, Read/Write, Interrupt| Operation sequencing & sync
+
+===============================================================================
+Coder & AccoTax - 25(10/A) Shibtala Road, Barrackpore, Kolkata - 700120
+===============================================================================
