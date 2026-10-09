@@ -1,0 +1,50 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+MASTER REVISION SUMMARY & BOARD EXAMINATION CHEATSHEET
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPTS SUMMARY
+--------------------------------------------------------------------------------
+* Loop Components: Initialization, Condition, Body, Update Expression.
+* Entry-Controlled (while, for): Condition tested BEFORE body. Min runs: 0.
+* Exit-Controlled (do-while): Condition tested AFTER body. Min runs: 1.
+* Semicolon Alert: `do { ... } while(condition);` MUST have a semicolon.
+  `while(condition);` creates an empty body loop!
+
+2. DRY RUNNING OUTPUT PREDICTION (CBSE FAVORITE)
+--------------------------------------------------------------------------------
+Snippet:
+    int num = 5;
+    do {
+        System.out.println(num + 2);
+        --num;
+    } while (num >= 2);
+
+Output:
+7
+6
+5
+4
+
+Final value of num: 1
+
+3. JUMP STATEMENTS
+--------------------------------------------------------------------------------
+* `break;`: Terminates the entire enclosing loop immediately.
+* `continue;`: Skips the remaining statements in the current iteration only.
+
+4. 10-POINT EXAM CHECKLIST
+--------------------------------------------------------------------------------
+1. Entry-controlled vs Exit-controlled differences.
+2. Semicolon rules on while vs do-while.
+3. Output prediction of decrementing loops.
+4. Division (`/ 10`) vs Modulus (`% 10`) in digit extraction.
+5. Why Scanner requires `import java.util.Scanner;`.
+6. Break statement behavior in loops and switch cases.
+7. Continue statement mechanics and while-loop increment traps.
+8. Detecting infinite loops from incorrect update expressions.
+9. Guaranteed execution of do-while loop (1 time).
+10. Converting while loops to for loops and do-while loops.
+================================================================================

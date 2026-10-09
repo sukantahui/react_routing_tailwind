@@ -1,0 +1,63 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 4: TYPES OF CONSTRUCTORS: DEFAULT VS PARAMETERIZED
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE TWO PRIMARY TYPES OF CONSTRUCTORS
+--------------------------------------------------------------------------------
+A. DEFAULT CONSTRUCTOR (No-Argument Constructor):
+   - Definition: A constructor that takes NO parameters.
+   - Purpose: Initializes instance variables with standard default values 
+     (e.g., 0, 0.0, null, false) or predefined fixed constants.
+   - Compiler-Supplied: If a class has zero user-defined constructors, the Java 
+     compiler automatically creates a default no-argument constructor.
+
+   Code:
+   public class Employee {
+       int id;
+       String name;
+
+       // User-Defined Default Constructor
+       public Employee() {
+           id = 100;
+           name = "Not Assigned";
+       }
+   }
+
+B. PARAMETERIZED CONSTRUCTOR:
+   - Definition: A constructor that accepts one or more arguments.
+   - Purpose: Allows dynamic initialization of object fields with unique, custom 
+     values supplied at the time of creation.
+
+   Code:
+   public class Employee {
+       int id;
+       String name;
+
+       // Parameterized Constructor
+       public Employee(int i, String n) {
+           id = i;
+           name = n;
+       }
+   }
+
+2. THE "COMPILER DEFAULT CONSTRUCTOR" TRAP
+--------------------------------------------------------------------------------
+CRITICAL RULE FOR CBSE EXAMS:
+* If you write NO constructors -> Compiler gives you `Employee()`.
+* If you write ANY parameterized constructor (e.g. `Employee(int, String)`) -> 
+  Compiler DOES NOT provide `Employee()`.
+* Therefore, calling `new Employee()` without explicitly writing a no-arg 
+  constructor will produce a COMPILE ERROR:
+  "constructor Employee in class Employee cannot be applied to given types".
+
+3. COMPARISON SUMMARY
+--------------------------------------------------------------------------------
+Feature             | Default Constructor        | Parameterized Constructor
+--------------------|----------------------------|----------------------------
+Parameters          | None (empty parentheses)   | 1 or more typed parameters
+Data Assigned       | Fixed / default values     | Dynamic custom caller values
+Object Diversity    | All objects start identical| Objects start with distinct states
+================================================================================

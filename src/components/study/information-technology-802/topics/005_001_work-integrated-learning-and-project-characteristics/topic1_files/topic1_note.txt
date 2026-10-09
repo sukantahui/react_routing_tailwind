@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 1: Objectives & Industry Benefits of WIL
+================================================================================
+
+1. PRIMARY OBJECTIVES OF WIL IN IT VOCATIONAL EDUCATION:
+--------------------------------------------------------
+1. **Bridging the Academic-Industry Gap**: Converting abstract algorithmic knowledge into commercial software products.
+2. **Developing Core Technical Competencies**: Hands-on mastery in database modeling, backend logic, debugging, and UI design.
+3. **Nurturing Professional Soft Skills**: Team collaboration, client communication, sprint planning, and deadline management.
+4. **Instilling Professional Workplace Ethics**: Code confidentiality, software licensing, data privacy, and intellectual property respect.
+
+2. MULTI-STAKEHOLDER BENEFITS MATRIX:
+-------------------------------------
+A. Benefits for Students:
+   - High graduate employability and market competitiveness.
+   - Creation of an authentic project portfolio.
+   - Clear understanding of IT industry career paths.
+   - Real-world problem-solving confidence.
+
+B. Benefits for Educational Institutions (Schools):
+   - Curriculum stays cutting-edge and aligned with industry standards.
+   - Stronger school reputation and placement records.
+   - Collaborative research and teacher development partnerships with IT firms.
+
+C. Benefits for Industry Partners:
+   - Early access to a screened, motivated talent pipeline.
+   - Lower onboarding time and reduced long-term hiring expenses.
+   - Cost-effective solutions for non-critical internal software tools.
+
+3. CBSE BOARD EXAM QUICK POINTS:
+--------------------------------
+- Question Pattern: "State any two benefits of Work-Integrated Learning for IT students."
+- Ideal Response:
+  1. Equips students with practical industry experience and hands-on coding competence.
+  2. Enhances professional soft skills such as teamwork, communication, and client problem-solving.
+================================================================================

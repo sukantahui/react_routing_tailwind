@@ -1,0 +1,53 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 1: DEFINING CLASSES AND INSTANTIATING OBJECTS USING THE 'NEW' OPERATOR
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A CLASS IN JAVA?
+--------------------------------------------------------------------------------
+A class is a user-defined template or blueprint describing the data fields 
+(instance variables) and methods (operations) that objects created from it 
+will possess.
+
+Syntax:
+    public class Student {
+        // Instance variables (State)
+        int rollNo;
+        String name;
+        double marks;
+
+        // Member method (Behavior)
+        void displayDetails() {
+            System.out.println("Roll: " + rollNo + ", Name: " + name);
+        }
+    }
+
+2. INSTANTIATING OBJECTS USING THE `NEW` OPERATOR
+--------------------------------------------------------------------------------
+To create an object from a class, Java uses the `new` operator:
+
+    Student s1 = new Student();
+
+Step-by-Step Breakdown:
+1. `Student s1`: Declares a reference variable `s1` in Stack Memory.
+2. `=`: Assignment operator linking the reference to the heap address.
+3. `new`: Dynamically allocates memory for the object in Heap Memory.
+4. `Student()`: Invokes the constructor to initialize object instance variables.
+
+3. MEMORY ARCHITECTURE: STACK VS HEAP
+--------------------------------------------------------------------------------
+* Stack Memory: Holds primitive local variables and object reference variables 
+  (memory pointers like `s1`, `s2`).
+* Heap Memory: Holds the actual object data (instance variables `rollNo`, `name`, 
+  `marks`) created by `new`.
+
+4. ACCESSING MEMBERS USING THE DOT (`.`) OPERATOR
+--------------------------------------------------------------------------------
+Once an object is instantiated, its variables and methods are accessed via 
+the dot operator:
+    s1.rollNo = 101;
+    s1.name = "Mamata";
+    s1.displayDetails();
+================================================================================

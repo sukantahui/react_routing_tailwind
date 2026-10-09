@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 3: Java Assertions (Purpose, Invariants & Syntax)
+================================================================================
+
+1. WHAT IS AN ASSERTION?
+------------------------
+- An assertion is a Java statement containing a boolean expression that the programmer believes to be true at that specific point in code execution.
+- If the boolean expression evaluates to `true`, execution continues normally.
+- If the boolean expression evaluates to `false` (and assertions are enabled), the JVM throws an `AssertionError`.
+
+2. TWO SYNTACTIC FORMS OF ASSERTIONS:
+-------------------------------------
+Form 1: Simple Assertion
+```java
+assert boolean_condition;
+// Example:
+assert age >= 18;
+```
+
+Form 2: Augmented Assertion (With Detail Error Message)
+```java
+assert boolean_condition : detail_expression;
+// Example:
+assert balance >= 0 : "Account balance cannot be negative! Found: " + balance;
+```
+
+3. PURPOSE & USAGE:
+-------------------
+- **Internal Invariants**: Verifying internal states that logic dictates must be true (e.g., a loop counter must never be negative).
+- **Control Flow Invariants**: Verifying that unreachable code branches (e.g. default switch cases) are truly never reached.
+- **Post-conditions**: Ensuring a computation returned a mathematically valid result (e.g., square root calculation must be non-negative).
+
+4. DO'S AND DON'TS OF ASSERTIONS (CBSE ESSENTIALS):
+---------------------------------------------------
+- **DO NOT** use assertions to validate arguments of public methods. (Use explicit `if (arg == null) throw new IllegalArgumentException();` instead).
+- **DO NOT** write assertion conditions that cause side effects (e.g., `assert list.remove(item);` is BAD because in production where assertions are off, the item will NOT be removed!).
+================================================================================

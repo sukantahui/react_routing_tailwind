@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+MASTER REVISION SUMMARY & BOARD EXAMINATION CHEATSHEET
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. STRING IMMUTABILITY & REASSIGNMENT
+--------------------------------------------------------------------------------
+* Strings cannot be modified in-place.
+* Methods return new String objects.
+* Always reassign: `str = str.concat(" text");`
+
+2. MASTER STRING METHODS SUMMARY
+--------------------------------------------------------------------------------
+Method                | Return Type | Description / Example
+----------------------|-------------|-------------------------------------------
+`str.length()`        | `int`       | Total character count (with spaces)
+`str.indexOf(ch)`     | `int`       | 0-based first occurrence; -1 if not found
+`str.replace(a, b)`   | `String`    | Replaces all occurrences of target
+`str.concat(s)`       | `String`    | Appends string to end
+`str.toUpperCase()`   | `String`    | Converts to uppercase letters
+`str.toLowerCase()`   | `String`    | Converts to lowercase letters
+`str.substring(s, e)` | `String`    | Slices from s (inclusive) to e (exclusive)
+`str.equals(s2)`      | `boolean`   | Compares character content case-sensitively
+`str.equalsIgnoreCase`| `boolean`   | Compares character content case-insensitively
+`s1 == s2`            | `boolean`   | Compares memory addresses in heap/SCP
+
+3. 10-POINT EXAM CHECKLIST
+--------------------------------------------------------------------------------
+1. String immutability and why `s.concat()` alone doesn't mutate `s`.
+2. `str.length()` (method with parentheses) vs `arr.length` (property).
+3. `str.indexOf()` returns `-1` when a character is absent.
+4. `str.substring(start, end)` excludes the character at `end`.
+5. `==` tests object identity; `.equals()` tests character content.
+6. Case conversion methods preserve numbers and symbols.
+7. Word replacement using `replace("Old", "New")`.
+8. 4-part Section B board question master format.
+9. Left-to-right evaluation in `+` concatenation with numbers.
+10. String Constant Pool (SCP) literal sharing mechanics.
+================================================================================

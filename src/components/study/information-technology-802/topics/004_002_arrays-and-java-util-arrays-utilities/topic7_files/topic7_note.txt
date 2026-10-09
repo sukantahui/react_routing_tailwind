@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 7: PREREQUISITE FOR BINARY SEARCH: WHY SORTING IS MANDATORY
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE FUNDAMENTAL MECHANISM OF BINARY SEARCH
+--------------------------------------------------------------------------------
+Binary search operates by repeatedly dividing the search interval in half:
+1. Examine the element at the middle index: `mid = (low + high) / 2`.
+2. If `arr[mid] == key`: Search is successful.
+3. If `key > arr[mid]`: Eliminate the entire LEFT half (`low = mid + 1`).
+4. If `key < arr[mid]`: Eliminate the entire RIGHT half (`high = mid - 1`).
+
+2. WHY UNSORTED ARRAYS FAIL DISASTROUSLY
+--------------------------------------------------------------------------------
+The elimination of an entire half of the array relies 100% on the guarantee 
+that all elements to the left of `mid` are smaller and all elements to the right 
+are larger.
+
+If the array is unsorted (e.g. `{80, 10, 45, 90, 20}`):
+- Searching for `10` -> mid is index 2 (`45`).
+- Since `10 < 45`, binary search discards the right half.
+- But if `10` happened to be on the right half or out of place, binary search 
+  would eliminate it entirely and report that `10` does not exist!
+
+3. THE STANDARD 2-STEP SEARCH PATTERN IN JAVA
+--------------------------------------------------------------------------------
+Step 1: Sort the array
+    Arrays.sort(marks);
+
+Step 2: Perform binary search
+    int index = Arrays.binarySearch(marks, targetScore);
+================================================================================

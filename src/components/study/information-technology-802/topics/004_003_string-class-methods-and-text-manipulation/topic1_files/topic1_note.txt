@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 1: STRING CONCATENATION (+ OPERATOR VS CONCAT() METHOD)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE `+` CONCATENATION OPERATOR
+--------------------------------------------------------------------------------
+The `+` operator is overloaded in Java. When at least one operand is a String, 
+Java converts the other operand to a String and performs concatenation.
+
+Evaluation Precedence:
+- Left-to-Right evaluation:
+  `10 + 20 + "Java"` -> `30 + "Java"` -> `"30Java"`
+  `"Java" + 10 + 20` -> `"Java10" + 20` -> `"Java1020"`
+
+2. THE `STR.CONCAT()` METHOD
+--------------------------------------------------------------------------------
+Syntax:
+    public String concat(String str)
+
+Appends the specified string `str` to the end of the calling string and returns 
+a new String object.
+
+Example:
+    String greeting = "Hello";
+    String full = greeting.concat(" for me");
+    // full becomes "Hello for me"
+
+3. DIFFERENCE MATRIX: `+` VS `.CONCAT()`
+--------------------------------------------------------------------------------
+Feature               | `+` Operator                    | `.concat()` Method
+----------------------|---------------------------------|---------------------------------
+Acceptable Types      | String, int, double, boolean... | ONLY String objects
+Chaining              | `"a" + "b" + "c"`               | `s1.concat(s2).concat(s3)`
+Null Handling         | Converts `null` to `"null"`     | Throws `NullPointerException`
+================================================================================

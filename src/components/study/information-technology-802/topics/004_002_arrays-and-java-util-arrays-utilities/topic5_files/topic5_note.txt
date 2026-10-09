@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 5: SORTING ARRAYS USING ARRAYS.SORT() IN ASCENDING ORDER
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS ARRAYS.SORT()?
+--------------------------------------------------------------------------------
+The `Arrays.sort()` method is an optimized in-place sorting utility provided 
+by `java.util.Arrays`.
+
+Syntax:
+    import java.util.Arrays;
+    ...
+    Arrays.sort(array_name);
+
+2. WORKING WITH NUMERIC & STRING ARRAYS
+--------------------------------------------------------------------------------
+A. Numeric Arrays (Integers, Doubles):
+   int[] marks = {88, 42, 95, 60, 75};
+   Arrays.sort(marks);
+   // Result: [42, 60, 75, 88, 95]
+
+B. String Arrays (Alphabetical Lexicographical Sort):
+   String[] cities = {"Kolkata", "Barrackpore", "Delhi", "Chennai"};
+   Arrays.sort(cities);
+   // Result: ["Barrackpore", "Chennai", "Delhi", "Kolkata"]
+
+3. KEY CHARACTERISTICS
+--------------------------------------------------------------------------------
+* In-place Sorting: Modifies the original array directly without allocating extra array objects.
+* Natural Ordering: Ascending order (lowest to highest).
+* Prerequisite for Binary Search: You MUST sort an array before calling `Arrays.binarySearch()`.
+================================================================================

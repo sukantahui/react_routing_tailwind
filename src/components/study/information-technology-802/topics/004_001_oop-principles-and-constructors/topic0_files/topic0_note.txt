@@ -1,0 +1,47 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 0: CORE PRINCIPLES OF OOP: ABSTRACTION, ENCAPSULATION, INHERITANCE, POLYMORPHISM
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS OBJECT-ORIENTED PROGRAMMING (OOP)?
+--------------------------------------------------------------------------------
+Object-Oriented Programming (OOP) is a programming paradigm organized around 
+real-world objects rather than standalone functions and procedural logic. 
+In Java, every application is modeled using classes (blueprints) and objects 
+(concrete instances).
+
+2. THE FOUR PILLARS OF OOP
+--------------------------------------------------------------------------------
+A. ABSTRACTION (Essential Features vs Implementation Details):
+   - Definition: Displaying only essential information to the outside world 
+     while hiding underlying complex background details.
+   - Real-World Analogy: Pressing the brake pedal in a car stops the vehicle 
+     without the driver having to know hydraulic cylinder fluid mechanics.
+
+B. ENCAPSULATION (Data Binding & Data Hiding):
+   - Definition: Bundling data variables (state) and methods (behavior) into 
+     a single unit (the class) and shielding data from unauthorized outside 
+     tampering using `private` access modifiers and `public` getter/setter methods.
+   - Real-World Analogy: A medical capsule encapsulating diverse chemical 
+     compounds inside a safe, controlled outer shell.
+
+C. INHERITANCE (Code Reuse & Hierarchy):
+   - Definition: The mechanism by which a child (subclass) inherits state 
+     and behavior from a parent (superclass) using the `extends` keyword.
+   - Advantages: Avoids code duplication, models real-world taxonomies.
+
+D. POLYMORPHISM (Many Forms):
+   - Definition: The ability of a message, method, or operator to exhibit 
+     different behaviors depending on context.
+   - Types in Java:
+     1. Compile-Time Polymorphism: Method Overloading (same name, different arguments).
+     2. Runtime Polymorphism: Method Overriding (subclass redefining superclass method).
+
+3. CBSE BOARD EXAM QUICK POINTERS
+--------------------------------------------------------------------------------
+* What guarantees data security in OOP? Encapsulation with `private` fields.
+* What keyword establishes an inheritance relationship? `extends`.
+* What enables compile-time polymorphism? Method overloading / constructor overloading.
+================================================================================

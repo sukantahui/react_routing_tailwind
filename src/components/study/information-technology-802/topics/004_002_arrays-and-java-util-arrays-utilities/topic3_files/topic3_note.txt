@@ -1,0 +1,34 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 3: ARRAY BOUNDS CHECKING & ARRAYINDEXOUTOFBOUNDSEXCEPTION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS BOUNDS CHECKING IN JAVA?
+--------------------------------------------------------------------------------
+Unlike C/C++ which permit dangerous buffer overflows, Java automatically 
+performs runtime index verification whenever an array element is accessed.
+
+Valid Index Range Formula:
+    0 <= index <= arr.length - 1
+
+2. WHAT CAUSES `ARRAYINDEXOUTOFBOUNDSEXCEPTION`?
+--------------------------------------------------------------------------------
+1. Accessing `arr[arr.length]`:
+   For an array of size 5, the maximum valid index is 4. Accessing `arr[5]` 
+   causes the exception.
+
+2. Accessing negative indices:
+   Accessing `arr[-1]` or `arr[-5]` causes the exception.
+
+3. Off-by-one errors in loops:
+   `for (int i = 0; i <= arr.length; i++)` -> When `i == arr.length`, exception is thrown!
+   Correct: `for (int i = 0; i < arr.length; i++)`
+
+3. EXCEPTION PROPERTIES
+--------------------------------------------------------------------------------
+* Package: `java.lang.ArrayIndexOutOfBoundsException`
+* Type: Unchecked / Runtime Exception (extends `IndexOutOfBoundsException`)
+* Prevention: Always use `< arr.length` or enhanced for-each loop `for (int x : arr)`.
+================================================================================

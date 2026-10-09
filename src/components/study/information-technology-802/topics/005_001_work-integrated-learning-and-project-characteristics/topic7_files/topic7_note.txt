@@ -1,0 +1,23 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 7: Downloadable Documents & Revision Center
+================================================================================
+
+1. MODULE 005_001 MASTER REVISION CHECKLIST:
+--------------------------------------------
+1. WIL Definition: Educational strategy combining academic classroom studies with practical workplace experience.
+2. Tripartite Partnership: Students + Educational Institutions + Industry Employers.
+3. Industry Benefits: Fresh talent pipeline, reduced recruitment & onboarding costs.
+4. Student Benefits: High employability, practical portfolio, teamwork, and professional ethics.
+5. Project Definition: A temporary endeavor undertaken to create a unique product, service, or result.
+6. Core Project Characteristics: Definite start/end, defined scope, finite resources, distinct boundaries.
+7. What is NOT a Project: Perpetual duration, infinite funding, boundary-less requests (Scope Creep).
+8. Triple Constraint (Iron Triangle): Interdependence of Scope, Time, and Cost in determining Quality.
+9. 6 SDLC Phases: Conception -> Requirement Definition (SRS) -> Design (ER/UI) -> Implementation (Code) -> Testing -> Deployment.
+10. School Capstone Projects: School Library, Fee Management, and Report Card systems linking Java GUI to MySQL.
+
+2. DOWNLOADABLE RESOURCES:
+--------------------------
+- `005_001_wil_project_management_master_summary.txt`: Master reference text with definitions, SDLC steps, and project templates.
+================================================================================

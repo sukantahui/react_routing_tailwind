@@ -1,0 +1,55 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 0: CONCEPT OF ITERATION IN JAVA: ENTRY-CONTROLLED VS EXIT-CONTROLLED LOOPS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS AN ITERATIVE STATEMENT (LOOP)?
+--------------------------------------------------------------------------------
+In Java programming, iterative statements (or loops) allow a set of instructions 
+to be executed repeatedly as long as a specified Boolean condition evaluates to true.
+Once the condition evaluates to false, program execution resumes immediately 
+after the loop structure.
+
+The four key components of any loop are:
+1. Initialization: Setting the starting value of the loop control variable.
+2. Test Condition: The Boolean expression evaluated to decide repetition.
+3. Body of the Loop: The set of executable statements inside the loop.
+4. Update Expression: Modifying the loop control variable (increment/decrement) 
+   to progress toward termination.
+
+2. CLASSIFICATION OF LOOPS IN JAVA
+--------------------------------------------------------------------------------
+Java provides two broad categories of loops based on where the condition is tested:
+
+A. ENTRY-CONTROLLED LOOPS (Pre-Test Loops):
+   - Definition: The condition is tested BEFORE executing the loop body.
+   - Examples: `for` loop and `while` loop.
+   - Minimum Executions: 0 (Zero) times. If the initial test is false, the body 
+     never runs.
+   - Ideal For: When the loop execution is conditional upon initial validation.
+
+B. EXIT-CONTROLLED LOOPS (Post-Test Loops):
+   - Definition: The body is executed FIRST, and the condition is evaluated AFTER.
+   - Example: `do-while` loop.
+   - Minimum Executions: 1 (One) time guaranteed, even if the condition is false.
+   - Ideal For: Interactive menu-driven console systems, validation prompts.
+
+3. COMPARISON TABLE: ENTRY-CONTROLLED VS EXIT-CONTROLLED
+--------------------------------------------------------------------------------
+Feature               | Entry-Controlled (while / for) | Exit-Controlled (do-while)
+----------------------|--------------------------------|-----------------------------
+Condition Placement   | Top / Before loop body         | Bottom / After loop body
+Minimum Iterations    | 0                              | 1
+Syntax Termination    | No semicolon after while(...)  | Semicolon mandatory (`while(...);`)
+Execution when False  | Body is bypassed entirely      | Body runs once, then stops
+Typical Applications  | Data processing, math loops   | Menu selection, input retry
+
+4. CBSE BOARD EXAM QUICK POINTERS
+--------------------------------------------------------------------------------
+* Division vs Modulus: Always distinguish `x / 10` (removes last digit) from `x % 10` 
+  (extracts last digit).
+* Semicolon Alert: `while (x < 5);` creates an empty loop body, whereas 
+  `do { ... } while (x < 5);` MUST end with a semicolon.
+================================================================================

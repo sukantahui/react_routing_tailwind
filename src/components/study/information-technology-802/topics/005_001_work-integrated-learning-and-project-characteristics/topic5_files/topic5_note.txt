@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 5: Project Life Cycle Phases (SDLC Pipeline)
+================================================================================
+
+1. THE 6 PHASES OF THE PROJECT LIFE CYCLE:
+------------------------------------------
+
+1. **Conception (Initiation & Feasibility)**:
+   - Identify the business/school problem or opportunity.
+   - Conduct Technical, Economic, and Operational Feasibility studies.
+   - Project charter approval.
+
+2. **Requirement Definition (Analysis & SRS)**:
+   - Gather user expectations through interviews, questionnaires, and observation.
+   - Formulate the Software Requirement Specification (SRS) document.
+   - Classify functional requirements (e.g. calculate student GPA) and non-functional requirements (e.g. page loads in under 2 seconds).
+
+3. **Design (System & Database Architecture)**:
+   - Conceptual & Logical Database Design (ER Diagrams, Relational Schemas, Primary/Foreign Keys).
+   - Architectural Design (Modular breakdowns, Data Flow Diagrams - DFDs).
+   - User Interface (UI/UX) wireframing.
+
+4. **Implementation (Coding & Construction)**:
+   - Writing Java classes, constructors, methods, and Swing GUI event handlers.
+   - Executing MySQL DDL scripts (`CREATE TABLE`, `ALTER TABLE`) and SQL DML queries.
+   - Unit testing by developers.
+
+5. **Testing (Verification & Validation)**:
+   - Integration Testing (checking if Java frontend connects to MySQL backend).
+   - System & Acceptance Testing (verifying with real school sample data).
+   - Bug logging and resolution.
+
+6. **Deployment & Maintenance**:
+   - Installing software on school client machines/servers.
+   - User training for school clerks/teachers.
+   - Post-launch bug fixes and feature enhancements.
+
+2. CBSE CLASS 12 BOARD EXAM REVISION POINTERS:
+----------------------------------------------
+- Know the exact chronological order of the 6 phases.
+- Remember that SRS document belongs to Phase 2 (Requirement Definition).
+- Remember that ER Diagrams and Table Normalization belong to Phase 3 (Design).
+================================================================================

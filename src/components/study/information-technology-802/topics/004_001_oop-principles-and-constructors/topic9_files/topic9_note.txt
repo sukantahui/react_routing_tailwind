@@ -1,0 +1,19 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 9: PRACTICE YOUR SKILL HERE (INTERACTIVE WORKSPACE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. PRACTICE EXERCISES
+--------------------------------------------------------------------------------
+Exercise 1:
+Design a `Student` class with:
+- Private fields: `rollNo`, `name`, `percentage`
+- Default constructor setting roll=0, name="Unknown", percentage=0.0
+- Parameterized constructor accepting all 3 attributes
+- Getter and setter methods with validation (percentage between 0 and 100).
+
+Exercise 2:
+Trace constructor output when an array of objects is instantiated.
+================================================================================

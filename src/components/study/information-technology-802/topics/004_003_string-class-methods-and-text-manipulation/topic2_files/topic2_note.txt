@@ -1,0 +1,34 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 2: SUBSTRING REPLACEMENT USING STR.REPLACE()
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS STR.REPLACE()?
+--------------------------------------------------------------------------------
+The `replace()` method returns a new String resulting from replacing all 
+occurrences of a specified target character or substring with a replacement.
+
+Method Signatures:
+1. `public String replace(char oldChar, char newChar)`
+2. `public String replace(CharSequence target, CharSequence replacement)`
+
+2. EXAMPLES IN ACTION
+--------------------------------------------------------------------------------
+A. Word Replacement (CBSE Classic):
+   String str = "Information Technology";
+   String updated = str.replace("Technology", "Science");
+   // updated = "Information Science"
+
+B. Character Substitution:
+   String code = "2026-IT-802";
+   String formatted = code.replace('-', '/');
+   // formatted = "2026/IT/802"
+
+3. CASE SENSITIVITY
+--------------------------------------------------------------------------------
+`str.replace()` is CASE-SENSITIVE:
+`"Java".replace("java", "Python")` -> Returns `"Java"` unmodified because 
+case did not match.
+================================================================================

@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 2: ACCESSING ELEMENTS VIA 0-BASED INDEXING & ARITHMETIC EXPRESSIONS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. 0-BASED INDEXING RULES
+--------------------------------------------------------------------------------
+In Java, array elements are accessed using the subscript operator `[index]`.
+* First element: `arr[0]`
+* Second element: `arr[1]`
+* K-th element: `arr[K - 1]`
+* Last element: `arr[arr.length - 1]`
+
+2. EVALUATING ARITHMETIC EXPRESSIONS ON ARRAY ELEMENTS
+--------------------------------------------------------------------------------
+In CBSE Class XII IT 802 examinations, questions frequently ask students to 
+evaluate arithmetic expressions using array index values.
+
+Example 1:
+Array: `int[] arr = {10, 20, 35, 40, 50, 65};`
+Expression: `int diff = arr[5] - arr[0];`
+Step 1: Look up index 5 -> `arr[5] = 65`
+Step 2: Look up index 0 -> `arr[0] = 10`
+Step 3: Evaluate -> `65 - 10 = 55`
+
+Example 2 (With Increment Operators):
+Array: `int[] nums = {4, 8, 12, 16};`
+`int k = 1;`
+Expression: `nums[k++] + nums[++k];`
+- `k++`: uses index 1 (`nums[1] = 8`), then k becomes 2.
+- `++k`: increments k to 3, then uses index 3 (`nums[3] = 16`).
+- Result = `8 + 16 = 24`.
+================================================================================

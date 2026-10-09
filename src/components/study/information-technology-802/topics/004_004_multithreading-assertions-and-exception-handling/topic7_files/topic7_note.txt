@@ -1,0 +1,49 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 7: Common Runtime Exceptions in CBSE IT 802
+================================================================================
+
+1. WHAT ARE UNCHECKED (RUNTIME) EXCEPTIONS?
+-------------------------------------------
+- Unchecked exceptions are subclasses of `java.lang.RuntimeException`.
+- The Java compiler does not force you to handle or declare them with `throws`.
+- They indicate programming logic flaws or invalid input data.
+
+2. THE "BIG THREE" RUNTIME EXCEPTIONS IN CBSE IT 802:
+-----------------------------------------------------
+
+1. `NullPointerException` (NPE):
+   - Cause: Attempting to invoke a method, read a field, or measure length of an object reference that is `null`.
+   - Code Example:
+     ```java
+     String name = null;
+     int len = name.length(); // Throws NullPointerException!
+     ```
+   - Defense: Null-check guard `if (name != null) { ... }`.
+
+2. `ArrayIndexOutOfBoundsException`:
+   - Cause: Accessing an array with an index < 0 or index >= `array.length`.
+   - Code Example:
+     ```java
+     int[] roll = {101, 102, 103}; // length = 3 (indices 0, 1, 2)
+     System.out.println(roll[3]);  // Throws ArrayIndexOutOfBoundsException!
+     ```
+   - Defense: Bound checking `if (idx >= 0 && idx < roll.length) { ... }`.
+
+3. `NumberFormatException`:
+   - Cause: Attempting to convert a String containing letters/symbols into a numeric type using `Integer.parseInt()` or `Double.parseDouble()`.
+   - Code Example:
+     ```java
+     String input = "CBSE2026";
+     int val = Integer.parseInt(input); // Throws NumberFormatException!
+     ```
+   - Defense: Wrapping in a `try-catch (NumberFormatException nfe)` block.
+
+3. CBSE BOARD EXAM IDENTIFICATION DRILL:
+----------------------------------------
+- String is null + method call -> `NullPointerException`
+- Array index >= length or < 0 -> `ArrayIndexOutOfBoundsException`
+- `Integer.parseInt("Hello")`  -> `NumberFormatException`
+- Division by integer 0        -> `ArithmeticException`
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 10: PRACTICE YOUR SKILL HERE (INTERACTIVE CHALLENGE WORKSPACE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. PRACTICE EXERCISES
+--------------------------------------------------------------------------------
+Exercise 1:
+Write a Java program to store 10 student test marks in an array, sort them in 
+ascending order using `Arrays.sort()`, and find the highest and lowest scores.
+
+Exercise 2:
+Implement binary search using `Arrays.binarySearch()` to locate a student's roll 
+number in an array of 50 students.
+================================================================================

@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 7: STRING EQUALITY: == OPERATOR VS EQUALS() VS EQUALSIGNORECASE()
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE THREE COMPARISON MECHANISMS
+--------------------------------------------------------------------------------
+A. The `==` Reference Equality Operator:
+   - Compares memory addresses (references) in heap memory.
+   - Returns `true` ONLY if both variables point to the exact same object.
+
+B. The `str.equals(Object other)` Method:
+   - Compares character-by-character content.
+   - Case-sensitive: `"Java".equals("java")` returns `false`.
+
+C. The `str.equalsIgnoreCase(String other)` Method:
+   - Compares character content while ignoring letter casing.
+   - `"Java".equalsIgnoreCase("java")` returns `true`.
+
+2. SCP LITERALS VS NEW OBJECTS
+--------------------------------------------------------------------------------
+Scenario 1: String Literals (String Constant Pool)
+    String a = "Hello";
+    String b = "Hello";
+    System.out.println(a == b);       // TRUE (same SCP address)
+    System.out.println(a.equals(b));  // TRUE (same content)
+
+Scenario 2: Distinct Heap Objects with `new`
+    String x = new String("Hello");
+    String y = new String("Hello");
+    System.out.println(x == y);       // FALSE (two distinct memory addresses!)
+    System.out.println(x.equals(y));  // TRUE (identical content)
+
+3. GOLDEN RULE FOR STRING COMPARISONS
+--------------------------------------------------------------------------------
+Never use `==` to compare user input strings (e.g. from Scanner or GUI textfields). 
+Always use `.equals()` or `.equalsIgnoreCase()`.
+================================================================================

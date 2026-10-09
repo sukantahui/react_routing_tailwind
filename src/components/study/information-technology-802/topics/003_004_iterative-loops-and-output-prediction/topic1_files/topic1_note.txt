@@ -1,0 +1,65 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 1: WHY DO-WHILE IS CALLED AN EXIT-CONTROLLED LOOP (GUARANTEED 1 EXECUTION)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE ARCHITECTURE OF DO-WHILE IN JAVA
+--------------------------------------------------------------------------------
+The `do-while` loop in Java is structured so that control enters the body of 
+the loop immediately upon reaching the `do` keyword. The statements within the 
+body execute unconditionally during the first pass.
+
+Only after reaching the bottom of the loop does Java evaluate the Boolean 
+expression specified within the `while (condition);` clause.
+
+2. SYNTAX AND ESSENTIAL RULES
+--------------------------------------------------------------------------------
+Syntax:
+    do {
+        // Loop body statements
+        // Update expression (e.g., x++, x--)
+    } while (boolean_condition);   <--- MANDATORY SEMICOLON (;)
+
+Key Rules:
+1. Guaranteed Execution: Executes at least 1 time, regardless of whether 
+   the condition evaluates to true or false on the initial pass.
+2. Semicolon Requirement: Unlike `for` and `while` loops, omitting the semicolon 
+   at the end of `while(condition);` causes a compilation error (';' expected).
+3. Variable Scope: Variables declared inside the `do { ... }` block are NOT 
+   visible inside the `while(...)` condition. The loop control variable must 
+   be declared before the `do` keyword.
+
+3. WHY DO-WHILE IS CALLED "EXIT-CONTROLLED"
+--------------------------------------------------------------------------------
+* Entry-Controlled: The guard/gatekeeper stands at the ENTRY. You cannot enter 
+  unless the password (condition) is true.
+* Exit-Controlled: You enter freely once. The guard/gatekeeper stands at the 
+  EXIT. You are only allowed to RE-ENTER if the condition remains true.
+
+4. REAL-WORLD USE CASE: INTERACTIVE MENU SYSTEMS
+--------------------------------------------------------------------------------
+In software development (such as ATM software, school billing systems, or 
+terminal menus), the user must see the options at least once before entering 
+a choice.
+
+Example:
+    int choice;
+    do {
+        System.out.println("1. Deposit Cash");
+        System.out.println("2. Withdraw Cash");
+        System.out.println("3. Exit");
+        System.out.print("Enter your choice: ");
+        choice = scanner.nextInt();
+    } while (choice != 3);
+
+5. CBSE BOARD EXAM TRAPS
+--------------------------------------------------------------------------------
+* Initial False Condition:
+    int k = 20;
+    do {
+        System.out.print(k + " ");
+    } while (k < 10);
+    Output: 20 (Executed exactly once, despite 20 < 10 being false).
+================================================================================

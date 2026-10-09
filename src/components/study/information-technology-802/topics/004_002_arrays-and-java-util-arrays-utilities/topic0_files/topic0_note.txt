@@ -1,0 +1,43 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 0: CONCEPT OF 1D ARRAYS & CONTIGUOUS MEMORY ALLOCATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A 1D ARRAY IN JAVA?
+--------------------------------------------------------------------------------
+A 1D (One-Dimensional) array is a linear data structure containing a fixed-size 
+sequence of elements of the same data type.
+
+Key Properties:
+* Homogeneous: All elements must share the identical data type (e.g. all ints, 
+  all doubles, or all Strings).
+* Contiguous Allocation: Elements are stored sequentially in contiguous heap 
+  memory blocks.
+* Fixed Size: Once created with a specified size, an array's length cannot grow 
+  or shrink dynamically.
+* 0-Based Indexing: The first element is at index `0`, and the last element is 
+  at index `length - 1`.
+
+2. ARRAY PROPERTY: `LENGTH`
+--------------------------------------------------------------------------------
+The capacity of an array is checked using the built-in final property `.length` 
+(WITHOUT parentheses):
+    int[] scores = new int[5];
+    System.out.println(scores.length); // Outputs 5
+
+Contrast with Strings:
+* Array: `arr.length` (Property / Field)
+* String: `str.length()` (Method call with parentheses)
+
+3. DEFAULT VALUES OF ARRAY ELEMENTS
+--------------------------------------------------------------------------------
+When an array is created using `new int[N]`, Java automatically fills elements 
+with default values:
+* `int`, `byte`, `short`, `long`: `0`
+* `float`, `double`: `0.0`
+* `boolean`: `false`
+* `char`: `\u0000` (null character)
+* Reference types / Objects / Strings: `null`
+================================================================================

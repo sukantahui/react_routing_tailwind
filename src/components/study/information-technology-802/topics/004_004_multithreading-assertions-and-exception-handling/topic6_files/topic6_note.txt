@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 6: Java Exception Handling (try, catch, finally, throw, throws)
+================================================================================
+
+1. WHAT IS AN EXCEPTION?
+------------------------
+- An exception is an abnormal event or condition that disrupts the normal sequential flow of program instructions at runtime.
+- Hierarchy: `java.lang.Throwable` -> `java.lang.Exception` & `java.lang.Error`.
+
+2. THE 5 KEYWORDS OF EXCEPTION HANDLING:
+----------------------------------------
+1. `try`: Encloses risky code that might throw an exception.
+2. `catch`: Catches and handles specific exception objects thrown in the try block.
+3. `finally`: Guaranteed execution block for closing resources (runs whether exception occurred or not).
+4. `throw`: Explicitly triggers and throws an exception instance (`throw new ArithmeticException("Divide by zero");`).
+5. `throws`: Declares the exceptions a method might throw in its signature (`public void readFile() throws IOException`).
+
+3. CONTROL FLOW OF TRY-CATCH-FINALLY:
+-------------------------------------
+Case 1: No Exception Thrown
+- `try` runs completely -> `catch` is skipped -> `finally` runs -> Program continues.
+
+Case 2: Exception Thrown and Caught
+- `try` runs up to failure line -> Jumps immediately to matching `catch` -> `finally` runs -> Program continues gracefully.
+
+Case 3: Exception Thrown and NOT Caught
+- `try` runs up to failure line -> `catch` fails to match -> `finally` runs -> Unhandled exception crashes thread.
+
+4. CBSE CLASS 12 KEY REVISION:
+------------------------------
+- The `finally` block ALWAYS executes, even if the try or catch block contains a `return` statement!
+- Only `System.exit(0)` stops the `finally` block from executing.
+================================================================================

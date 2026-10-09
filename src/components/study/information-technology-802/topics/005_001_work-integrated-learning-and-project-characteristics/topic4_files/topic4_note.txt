@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 4: What is NOT a Characteristic of a Project
+================================================================================
+
+1. WHAT A PROJECT IS *NOT* (FALSE CHARACTERISTICS):
+---------------------------------------------------
+In CBSE Board Objective and Case Study questions, you will be tested on identifying invalid project attributes:
+
+1. **NOT Perpetual (Never-Ending)**:
+   - Projects are temporary; they do NOT continue indefinitely.
+   - Any continuous, indefinite activity is an OPERATION, not a project.
+
+2. **NOT Boundary-less (No Scope Limits)**:
+   - Projects ALWAYS have distinct boundaries separating in-scope work from out-of-scope work.
+   - Lack of boundaries creates "Scope Creep" and project collapse.
+
+3. **NOT Infinite Resources**:
+   - Projects never possess unlimited time or infinite funds.
+   - Projects are constrained by finite budgets (₹), fixed developer team size, and rigid deadlines.
+
+4. **NOT Repetitive Output Generation**:
+   - Projects produce a UNIQUE deliverable, not thousands of identical cloned outputs (which is manufacturing / operations).
+
+2. COMPARISON SUMMARY TABLE FOR BOARD EXAM:
+-------------------------------------------
+| Statement | Valid Project Characteristic? | Rationale |
+| :--- | :--- | :--- |
+| "Projects have definite start and end dates" | YES (True) | Temporary nature |
+| "Projects create a unique deliverable" | YES (True) | Distinct outcome |
+| "Projects are perpetual and continuous" | NO (FALSE) | Ongoing activities are operations |
+| "Projects have no boundaries or scope limits"| NO (FALSE) | Distinct boundaries are mandatory |
+| "Projects operate with finite resources" | YES (True) | Constrained by time and budget |
+
+3. KEYWORD WARNING:
+-------------------
+- **Scope Creep**: Adding extra features to a project without client approval or extra budget/timeline adjustments.
+================================================================================

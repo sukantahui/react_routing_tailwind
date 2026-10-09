@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 0: Introduction to Multithreading & Thread Lifecycle
+================================================================================
+
+1. WHAT IS A THREAD?
+--------------------
+- A Thread is a lightweight sub-process and the smallest unit of execution in Java.
+- It shares common memory (Heap) with other threads of the same process while maintaining its own Call Stack, Program Counter (PC), and local variables.
+
+2. WHAT IS MULTITHREADING?
+--------------------------
+- Multithreading is the capability of Java to execute multiple threads concurrently within a single program.
+- Primary Objectives:
+  a) Maximize CPU core utilization (prevents idle CPU time during I/O operations).
+  b) Enhance application responsiveness (e.g. GUI remains responsive while downloading a file in the background).
+
+3. THREAD LIFECYCLE STATES (5 KEY PHASES):
+------------------------------------------
+1. New (Born State):
+   - Created with `Thread t = new MyThread();`
+   - Memory allocated, but thread has NOT started executing.
+
+2. Runnable State:
+   - Entered when `t.start()` is called.
+   - The thread is ready and waiting in the ready queue for CPU time slice from the Java Thread Scheduler.
+
+3. Running State:
+   - Thread Scheduler assigns CPU cycles to the thread.
+   - The statements inside `run()` are actively being executed.
+
+4. Blocked / Waiting / Timed Waiting State:
+   - Thread is temporarily inactive (e.g. sleeping via `Thread.sleep(ms)`, waiting for I/O, or blocked on a monitor lock).
+   - Once the wait expires or I/O completes, the thread returns to Runnable.
+
+5. Terminated (Dead State):
+   - Occurs when the `run()` method finishes execution or when an unhandled runtime error terminates the thread.
+   - A terminated thread cannot be restarted (`start()` cannot be called again).
+
+4. CBSE CLASS 12 KEY REVISION POINTS:
+-------------------------------------
+- Package: `java.lang.Thread` is automatically imported from `java.lang`.
+- Every Java program has at least one thread: the **Main Thread** (`main()`).
+- Multithreading achieves concurrency without the overhead of inter-process communication because threads share the same process memory space.
+================================================================================

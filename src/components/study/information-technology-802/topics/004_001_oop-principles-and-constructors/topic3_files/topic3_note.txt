@@ -1,0 +1,49 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 3: AUTOMATIC INVOCATION OF CONSTRUCTORS UPON OBJECT CREATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. AUTOMATIC INVOCATION LIFECYCLE
+--------------------------------------------------------------------------------
+In Java, you never explicitly call a constructor like a normal method. 
+Instead, the Java Virtual Machine (JVM) automatically invokes the constructor 
+during heap allocation whenever the `new` keyword is executed.
+
+Execution Sequence:
+1. JVM allocates memory in the Heap for instance variables.
+2. Default zero values (0, 0.0, false, null) are assigned to fields.
+3. The constructor matching the arguments is automatically invoked.
+4. User-defined initial values and setup logic execute.
+5. The memory address of the initialized object is returned to the reference variable.
+
+2. MULTIPLE OBJECT INSTANTIATION EXAMPLE
+--------------------------------------------------------------------------------
+class Counter {
+    static int totalCount = 0;
+
+    Counter() {
+        totalCount++;
+        System.out.println("Object #" + totalCount + " created automatically!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Counter c1 = new Counter(); // Constructor runs for c1
+        Counter c2 = new Counter(); // Constructor runs for c2
+        Counter c3 = new Counter(); // Constructor runs for c3
+    }
+}
+
+Output:
+Object #1 created automatically!
+Object #2 created automatically!
+Object #3 created automatically!
+
+3. KEY TAKEAWAYS FOR CBSE IT 802
+--------------------------------------------------------------------------------
+* Every time `new` is called, the constructor runs exactly once for that instance.
+* You cannot re-invoke a constructor on an existing object reference (e.g. `c1.Counter()` is illegal).
+================================================================================

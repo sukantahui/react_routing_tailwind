@@ -1,0 +1,43 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 8: CBSE BOARD CODE COMPLETION DRILLS (STATEMENTS 1 & 2)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. THE CLASSIC 4-MARK CODE COMPLETION BOARD QUESTION
+--------------------------------------------------------------------------------
+In CBSE Class XII IT (802), a standard Section B question provides an incomplete 
+program and asks students to write Statement-1 (the import statement) and 
+Statement-2 (the method invocation).
+
+Problem Template:
+    // Statement-1: Write statement to import the required array utility class
+    ...
+    public class Demo {
+        public static void main(String[] args) {
+            String[] langs = {"Java", "Python", "C++", "Ruby"};
+            Arrays.sort(langs);
+            
+            // Statement-2: Search for "Python" using the Arrays class
+            int pos = ________________________________;
+            System.out.println("Position: " + pos);
+        }
+    }
+
+2. EXACT SOLUTIONS
+--------------------------------------------------------------------------------
+Statement-1 Solution:
+    import java.util.Arrays;
+
+Statement-2 Solution:
+    Arrays.binarySearch(langs, "Python");
+
+3. STEP-BY-STEP TRACE
+--------------------------------------------------------------------------------
+Initial Array:  ["Java", "Python", "C++", "Ruby"]
+After `sort()`: ["C++", "Java", "Python", "Ruby"]
+Indices:          0       1        2         3
+
+`Arrays.binarySearch(langs, "Python")` locates "Python" at index `2`.
+================================================================================

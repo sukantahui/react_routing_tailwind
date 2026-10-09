@@ -1,0 +1,58 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 6: PREVENTING INFINITE LOOPS & TRACING DECREMENTING LOOP VARIABLES
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS AN INFINITE LOOP?
+--------------------------------------------------------------------------------
+An infinite loop is an execution cycle that never terminates naturally because 
+its continuation condition remains perpetually `true`.
+
+2. THE THREE MAJOR CAUSES OF UNINTENDED INFINITE LOOPS
+--------------------------------------------------------------------------------
+1. Omission of the Update Statement:
+   int i = 1;
+   while (i <= 5) {
+       System.out.println(i); // Forgetting i++ causes i to stay 1 forever.
+   }
+
+2. Updating in the Wrong Direction:
+   int i = 5;
+   while (i >= 1) {
+       System.out.println(i);
+       i++; // Incrementing instead of decrementing moves i away from termination.
+   }
+
+3. Premature Semicolon on Entry-Controlled Loops:
+   int k = 1;
+   while (k <= 5); // Empty body runs endlessly while k is 1
+   {
+       k++;
+   }
+
+3. INTENTIONAL INFINITE LOOPS WITH GUARD BREAKS
+--------------------------------------------------------------------------------
+In modern software engineering (event loops, server daemons, sensor polling), 
+infinite loops are created intentionally using `while (true)` or `for (;;)` 
+and terminated via internal guarded `break` conditions:
+
+    Scanner sc = new Scanner(System.in);
+    while (true) {
+        System.out.print("Enter command (or 'quit'): ");
+        String cmd = sc.next();
+        if (cmd.equalsIgnoreCase("quit")) {
+            System.out.println("Terminating session.");
+            break; // Guarded exit
+        }
+    }
+
+4. DECREMENTING CONTROL VARIABLE TRACING FORMULA
+--------------------------------------------------------------------------------
+When tracing loops with `x -= step` or `--x`:
+* Check the start value.
+* Determine step size (e.g. subtracting 3 each time).
+* Verify whether the condition is inclusive (`>=`) or exclusive (`>`).
+* Record the exact moment the variable drops below the threshold.
+================================================================================

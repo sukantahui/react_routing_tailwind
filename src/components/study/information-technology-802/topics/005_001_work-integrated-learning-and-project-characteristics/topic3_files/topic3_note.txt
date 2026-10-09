@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 3: Core Characteristics of a Project
+================================================================================
+
+1. THE 4 ESSENTIAL CHARACTERISTICS OF A PROJECT:
+------------------------------------------------
+1. **Definite Beginning and End (Time-Bound)**:
+   - Starts at a specific calendar date and concludes upon deliverable sign-off or target milestone achievement.
+   - It is never perpetual or infinite.
+
+2. **Defined Scope and Extent**:
+   - Outlines exactly what features, reports, database tables, and user interfaces must be built.
+   - Clearly documents both in-scope requirements and out-of-scope exclusions.
+
+3. **Finite Resources (Budget, Team, Infrastructure)**:
+   - Constrained by limited financial capital (e.g. ₹50,000 budget), developer headcount (e.g. 3 student developers), and equipment limits.
+
+4. **Distinct Boundaries**:
+   - Establishes a transparent boundary around project responsibilities to prevent "scope creep" (uncontrolled expansion of project scope).
+
+2. THE PROJECT MANAGEMENT TRIPLE CONSTRAINT (THE IRON TRIANGLE):
+----------------------------------------------------------------
+Every project is governed by the interdependence of three variables:
+- **Scope**: What work will be done?
+- **Time**: How long will it take?
+- **Cost**: What budget/resources are allocated?
+*Quality* sits at the center, constrained by balance across these three pillars.
+
+3. CBSE BOARD EXAMINATION REVISION SUMMARY:
+-------------------------------------------
+- When asked to list 3-4 characteristics of a project, write:
+  1. Temporary nature with a definite beginning and end.
+  2. Creates a unique product, service, or result.
+  3. Governed by a defined scope and distinct boundaries.
+  4. Executed using finite financial, human, and hardware resources.
+================================================================================

@@ -1,0 +1,17 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 10: PRACTICE YOUR SKILL HERE (INTERACTIVE CHALLENGE WORKSPACE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. PRACTICE EXERCISES
+--------------------------------------------------------------------------------
+Exercise 1:
+Write a Java program to check if an input string is a Palindrome (reads the same 
+forwards and backwards) using string indexing and loops.
+
+Exercise 2:
+Given a full name like `"Sukanta Hui"`, write statements to extract the first 
+name and last name using `indexOf(' ')` and `substring()`.
+================================================================================

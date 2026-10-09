@@ -1,0 +1,52 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 4: STEP-BY-STEP OUTPUT PREDICTION OF DO-WHILE LOOPS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. MASTERING DRY RUN & TRACE TABLES
+--------------------------------------------------------------------------------
+In CBSE Class XII IT 802 board examinations, output prediction questions test 
+your ability to perform an exact step-by-step dry run (manual trace) of variables 
+across each loop iteration.
+
+2. DETAILED TRACE OF THE CLASSIC CBSE QUESTION
+--------------------------------------------------------------------------------
+Code Snippet:
+    int num = 5;
+    do {
+        System.out.println(num + 2);
+        --num;
+    } while (num >= 2);
+
+Detailed Dry Run Matrix:
+--------------------------------------------------------------------------------
+Pass | Initial (num) | Printed Expression (num + 2) | Decrement (--num) | Condition (num >= 2)
+-----|---------------|------------------------------|-------------------|---------------------
+1    | 5             | 5 + 2 = 7                    | 4                 | 4 >= 2 -> TRUE (Loop repeats)
+2    | 4             | 4 + 2 = 6                    | 3                 | 3 >= 2 -> TRUE (Loop repeats)
+3    | 3             | 3 + 2 = 5                    | 2                 | 2 >= 2 -> TRUE (Loop repeats)
+4    | 2             | 2 + 2 = 4                    | 1                 | 1 >= 2 -> FALSE (Loop TERMINATES)
+
+Final Console Output:
+7
+6
+5
+4
+
+Final Value of variable `num`: 1
+
+3. DRY RUN METHODOLOGY FOR EXAM SUCCESS
+--------------------------------------------------------------------------------
+1. Always draw a 4-column trace table:
+   Column 1: Iteration / Pass Number
+   Column 2: Value of Variables at Start of Pass
+   Column 3: Value Printed by `System.out.print` / `println`
+   Column 4: Boolean Result of the Condition at Exit
+
+2. Pay special attention to:
+   - `println` vs `print`: `println` puts each output on a NEW line!
+   - Prefix vs Postfix: `--x` changes immediately; `x--` changes after.
+   - Exact relational operators: `>=` includes the boundary value; `>` excludes it.
+================================================================================

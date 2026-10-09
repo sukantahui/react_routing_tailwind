@@ -1,0 +1,74 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 5: LOOP CONTROL JUMP STATEMENTS: BREAK AND CONTINUE
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT ARE JUMP STATEMENTS?
+--------------------------------------------------------------------------------
+Jump statements in Java unconditionally alter the normal sequential flow of 
+execution within iterative structures and control blocks. The two primary jump 
+statements used inside loops are:
+1. `break` statement
+2. `continue` statement
+
+2. THE `BREAK` STATEMENT
+--------------------------------------------------------------------------------
+* Purpose: Terminate the loop immediately.
+* Behavior: When encountered, Java instantly breaks out of the innermost enclosing 
+  loop (or switch block) and passes control to the first statement outside.
+* Example:
+    for (int i = 1; i <= 10; i++) {
+        if (i == 4) break;
+        System.out.print(i + " ");
+    }
+    Output: 1 2 3 (Loop stops completely at i = 4).
+
+3. THE `CONTINUE` STATEMENT
+--------------------------------------------------------------------------------
+* Purpose: Skip the remaining statements in the current iteration only.
+* Behavior: When encountered, Java skips whatever code remains in the loop body 
+  for that specific pass and jumps directly to the next iteration:
+  - In a `for` loop: Jumps to the update expression (e.g. `i++`).
+  - In a `while` / `do-while` loop: Jumps to the condition evaluation.
+* Example:
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) continue;
+        System.out.print(i + " ");
+    }
+    Output: 1 2 4 5 (Only 3 is skipped).
+
+4. COMPARISON TABLE: BREAK VS CONTINUE
+--------------------------------------------------------------------------------
+Feature               | `break` Statement               | `continue` Statement
+----------------------|---------------------------------|--------------------------------
+Scope of Effect       | Terminates the ENTIRE loop      | Skips ONLY the CURRENT iteration
+Where it Jumps        | Outside the loop structure      | To the loop update/condition
+Applicability         | Valid in loops AND switch       | Valid ONLY inside loops
+Post-Jump Action      | Loop never runs again           | Next iteration begins
+
+5. THE CRITICAL WHILE-LOOP CONTINUE TRAP
+--------------------------------------------------------------------------------
+DANGER: In a `while` loop, if you place the increment statement `i++` AFTER 
+the `continue` statement, it will be skipped, causing an infinite loop!
+
+WRONG:
+    int i = 1;
+    while (i <= 5) {
+        if (i == 3) continue; // Infinite loop! i remains 3 forever!
+        System.out.println(i);
+        i++;
+    }
+
+CORRECT:
+    int i = 1;
+    while (i <= 5) {
+        if (i == 3) {
+            i++;              // Must increment BEFORE continue!
+            continue;
+        }
+        System.out.println(i);
+        i++;
+    }
+================================================================================

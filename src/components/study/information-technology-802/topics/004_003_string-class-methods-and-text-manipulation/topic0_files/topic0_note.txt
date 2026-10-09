@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 0: THE STRING CLASS & OBJECT IMMUTABILITY IN JAVA
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS A STRING IN JAVA?
+--------------------------------------------------------------------------------
+In Java, a String is NOT a primitive data type. It is an object belonging to 
+the `java.lang.String` class that encapsulates an immutable character sequence.
+
+2. THE CONCEPT OF IMMUTABILITY
+--------------------------------------------------------------------------------
+* Definition: Once instantiated on the Heap, the state/content of a `String` 
+  object cannot be altered.
+* What happens when you call a string method?
+  When you execute `str.toUpperCase()` or `str.replace(...)`, Java DOES NOT 
+  modify the existing object. It creates a brand-new `String` object with the 
+  new contents.
+* To keep the changed string, you must explicitly reassign the reference:
+  `str = str.concat(" World");`
+
+3. STRING CONSTANT POOL (SCP)
+--------------------------------------------------------------------------------
+Java maintains a special area in heap memory called the String Constant Pool (SCP). 
+String literals (e.g. `"Hello"`) with identical contents share the same memory 
+reference in the pool to conserve RAM.
+
+4. CBSE EXAM TRAP
+--------------------------------------------------------------------------------
+Code:
+    String msg = "Information";
+    msg.concat(" Technology");
+    System.out.println(msg);
+
+Output:
+    Information  (NOT "Information Technology", because `msg` was not reassigned!)
+================================================================================

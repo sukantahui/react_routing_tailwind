@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 2: Definition of a Project (Temporary & Unique Endeavor)
+================================================================================
+
+1. FORMAL DEFINITION OF A PROJECT:
+----------------------------------
+"A Project is a TEMPORARY endeavor undertaken to create a UNIQUE product, service, or result."
+(Project Management Body of Knowledge / CBSE Vocational Standard)
+
+2. DECONSTRUCTING THE DEFINITION:
+---------------------------------
+1. **Temporary**:
+   - Every project has a definite START date and a definite FINISH date.
+   - A project ends when its objectives are reached, or when it is determined that the objectives cannot be met.
+   - Temporary DOES NOT mean the product created is short-lived (e.g., a project to build the Indian Railways IRCTC portal is temporary, but the portal serves millions for decades).
+
+2. **Unique**:
+   - Creates a distinct deliverable that has not been identically created before.
+   - Even if two software systems are similar (e.g., two school fee management systems), differences in location, staff, database design, and fee structures make each project unique.
+
+3. **Endeavor**:
+   - Requires systematic effort, finite resources (time, budget, human developers), and structured coordination.
+
+3. PROJECT VS OPERATIONS (HIGH-YIELD BOARD EXAM DISTINCTION):
+-------------------------------------------------------------
+| Characteristic | Project | Operations |
+| :--- | :--- | :--- |
+| Duration | Temporary (Fixed start and end) | Ongoing / Perpetual |
+| Output | Unique product, service, or result | Repetitive / Standardized output |
+| Purpose | Attain specific goal & terminate | Sustain business day-to-day |
+| Team Structure | Dynamic, cross-functional team | Fixed functional departments |
+| Example | Developing a Library Java Swing GUI | Scanning barcodes at checkout desk daily |
+================================================================================

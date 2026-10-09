@@ -1,0 +1,30 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+MASTER REVISION SUMMARY & BOARD EXAMINATION CHEATSHEET
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FOUR PILLARS OF OOP
+--------------------------------------------------------------------------------
+* Abstraction: Hiding implementation details, showing essential interface.
+* Encapsulation: Binding data & methods into a class with `private` fields.
+* Inheritance: Code reusability and hierarchy via `extends`.
+* Polymorphism: Many forms (Overloading at compile-time, Overriding at runtime).
+
+2. CONSTRUCTOR GOLDEN RULES
+--------------------------------------------------------------------------------
+1. Must have the exact same name as the class.
+2. Must NOT specify any return type (not even `void`).
+3. Automatically invoked by the JVM when `new` is called.
+4. Cannot be called explicitly with dot notation (`obj.ClassName()` is illegal).
+
+3. CONSTRUCTOR TYPES & OVERLOADING
+--------------------------------------------------------------------------------
+* Default Constructor: Takes no parameters; initializes fields to default values.
+* Parameterized Constructor: Takes arguments to set custom initial states.
+* Compiler Rule: If any parameterized constructor is defined, the compiler stops 
+  providing the automatic default constructor.
+* Constructor Overloading: Multiple constructors in the same class with distinct 
+  parameter lists.
+================================================================================

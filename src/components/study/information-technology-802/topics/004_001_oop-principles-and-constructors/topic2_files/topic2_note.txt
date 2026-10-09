@@ -1,0 +1,54 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 2: WHAT IS A CONSTRUCTOR IN JAVA? (SAME NAME AS CLASS, NO RETURN TYPE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. FORMAL DEFINITION OF A CONSTRUCTOR
+--------------------------------------------------------------------------------
+A constructor is a special member function of a class designed specifically to 
+initialize the instance variables of a newly created object.
+
+2. THE THREE GOLDEN RULES OF CONSTRUCTORS
+--------------------------------------------------------------------------------
+Rule 1: Name Matching
+A constructor MUST have the exact same name as the class in which it is defined 
+(case-sensitive).
+
+Rule 2: No Return Type
+A constructor MUST NOT have any return type—not even `void`. 
+If you specify a return type (e.g. `void Student()`), the compiler treats it 
+as a normal method, and it will NOT be invoked automatically when `new` is called.
+
+Rule 3: Automatic Invocation
+A constructor cannot be called explicitly like normal methods (e.g. `obj.Student()` 
+is illegal). It is called implicitly and automatically when the `new` keyword 
+instantiates the object.
+
+3. JAVA CONSTRUCTOR CODE BLUEPRINT
+--------------------------------------------------------------------------------
+public class Book {
+    String title;
+    double price;
+
+    // CONSTRUCTOR (Same name as class, no return type)
+    public Book(String t, double p) {
+        title = t;
+        price = p;
+        System.out.println("Book initialized: " + title + " (₹" + price + ")");
+    }
+}
+
+Usage:
+    Book b1 = new Book("Information Technology 802", 450.0);
+
+4. CONSTRUCTOR VS METHOD QUICK SUMMARY
+--------------------------------------------------------------------------------
+Feature             | Constructor                  | Method
+--------------------|------------------------------|-----------------------------
+Name                | Must match class name        | Any valid Java identifier
+Return Type         | NO return type (not even void)| MUST specify return type/void
+Invocation          | Automatically upon `new`     | Explicitly called via `.` dot
+Primary Purpose     | Initialize object state      | Execute specific operations
+================================================================================

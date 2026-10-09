@@ -1,0 +1,63 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 5: CONSTRUCTOR OVERLOADING (MULTIPLE INITIALIZATION STRATEGIES)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS CONSTRUCTOR OVERLOADING?
+--------------------------------------------------------------------------------
+Constructor overloading is the practice of having more than one constructor 
+in the same class, each having a unique parameter list.
+
+It is an implementation of compile-time polymorphism (static binding) in Java.
+
+2. RULES FOR VALID CONSTRUCTOR OVERLOADING
+--------------------------------------------------------------------------------
+Overloaded constructors must differ in at least ONE of the following:
+1. Number of parameters: `Box()` vs `Box(int side)` vs `Box(int l, int w, int h)`
+2. Data types of parameters: `Student(int roll)` vs `Student(String regNo)`
+3. Order of parameters: `Account(int id, String name)` vs `Account(String name, int id)`
+
+3. CODE EXAMPLE: RECTANGLE / BOX CLASS
+--------------------------------------------------------------------------------
+public class Box {
+    int length, width, height;
+
+    // 1. Default constructor (Unit Cube)
+    public Box() {
+        length = width = height = 1;
+    }
+
+    // 2. Single-parameter constructor (Cube of size s)
+    public Box(int side) {
+        length = width = height = side;
+    }
+
+    // 3. Three-parameter constructor (Custom Cuboid)
+    public Box(int l, int w, int h) {
+        length = l;
+        width = w;
+        height = h;
+    }
+
+    public int getVolume() {
+        return length * width * height;
+    }
+}
+
+4. INSTANTIATION FLEXIBILITY
+--------------------------------------------------------------------------------
+Box b1 = new Box();              // Calls Constructor 1 -> Volume = 1
+Box b2 = new Box(5);             // Calls Constructor 2 -> Volume = 125
+Box b3 = new Box(4, 6, 8);       // Calls Constructor 3 -> Volume = 192
+
+5. CONSTRUCTOR CHAINING WITH `THIS()`
+--------------------------------------------------------------------------------
+Inside a constructor, you can delegate initialization to another constructor 
+using `this(...)`:
+    public Box(int side) {
+        this(side, side, side); // Calls 3-arg constructor
+    }
+* Rule: `this()` MUST be the first statement inside the constructor!
+================================================================================

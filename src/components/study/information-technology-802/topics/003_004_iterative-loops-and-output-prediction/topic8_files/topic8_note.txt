@@ -1,0 +1,32 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 8: PRACTICE YOUR SKILL HERE (INTERACTIVE CHALLENGE WORKSPACE)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. HANDS-ON CODING & DRILLS
+--------------------------------------------------------------------------------
+This practice lab contains interactive problem sets to test:
+1. Predicting exact outputs for complex nested while/do-while expressions.
+2. Converting between for, while, and do-while loops.
+3. Calculating sum of series, factorials, and digit counting.
+4. Implementing guard conditions with break and continue.
+
+2. LAB EXERCISE QUESTIONS
+--------------------------------------------------------------------------------
+Exercise 1:
+Write a program to display the sum of all even integers between 1 and 50 using 
+a while loop.
+
+Exercise 2:
+Write a program to count how many digits are present in an input integer N 
+using a while loop.
+
+Exercise 3:
+Trace the output of:
+    int x = 1, y = 5;
+    while (++x < --y) {
+        System.out.println(x + " " + y);
+    }
+================================================================================

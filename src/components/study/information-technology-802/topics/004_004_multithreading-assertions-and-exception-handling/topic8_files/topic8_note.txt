@@ -1,0 +1,24 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 8: Downloadable Documents & Revision Center
+================================================================================
+
+1. MODULE 004_004 MASTER REVISION CHECKLIST:
+--------------------------------------------
+1. Thread Definition: A lightweight sub-process with independent execution flow.
+2. 5 Lifecycle States: New, Runnable, Running, Blocked/Waiting, Terminated.
+3. Thread Creation #1: `class MyTask extends Thread` -> `new MyTask().start();`.
+4. Thread Creation #2: `class MyTask implements Runnable` -> `new Thread(new MyTask()).start();`.
+5. Runnable Advantage: Overcomes single class inheritance limitation.
+6. run() vs start(): `start()` creates a new call stack; direct `run()` executes sequentially on caller's stack.
+7. Assertions Purpose: Diagnostic invariants testing during development.
+8. Default State: Assertions disabled by default to preserve production CPU performance.
+9. JVM Flags: `-ea` / `-enableassertions` to enable; `-da` to disable.
+10. Exception Handling: `try` (risky code), `catch` (handling), `finally` (guaranteed cleanup).
+11. Big Three Runtime Exceptions: `NullPointerException`, `ArrayIndexOutOfBoundsException`, `NumberFormatException`.
+
+2. DOWNLOADABLE RESOURCES:
+--------------------------
+- `004_004_multithreading_assertions_master_summary.txt`: Full comprehensive notes, code examples, and board exam solutions.
+================================================================================

@@ -1,0 +1,64 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+COMPLETE MASTER REVISION SUMMARY: MULTITHREADING, ASSERTIONS & EXCEPTIONS
+MODULE CODE: 004_004
+AUTHOR: SUKANTA HUI (CODER & ACCOTAX)
+================================================================================
+
+PART 1: MULTITHREADING FUNDAMENTALS
+-----------------------------------
+1. Thread Definition:
+   - Smallest unit of execution within a program.
+   - Shares heap memory of the process; maintains isolated call stack and program counter.
+2. Lifecycle States:
+   - New: Created via `new Thread()`.
+   - Runnable: `start()` invoked; waiting in queue for CPU slice.
+   - Running: JVM scheduler assigns CPU core; statements in `run()` execute.
+   - Blocked / Timed Waiting: Sleeping (`Thread.sleep()`) or waiting for I/O.
+   - Terminated: `run()` execution complete or fatal unhandled error.
+3. Two Ways of Thread Creation:
+   - Method A: Extending `Thread` (`class MyThread extends Thread`).
+   - Method B: Implementing `Runnable` (`class MyRunnable implements Runnable`).
+   - Why Runnable is preferred: Java supports single class inheritance. Implementing Runnable leaves the class free to extend other classes (e.g. `extends JFrame implements Runnable`).
+4. Overriding `run()` vs Calling `start()`:
+   - `start()` spawns a new native thread and creates a new call stack before running `run()`.
+   - Direct `run()` call executes sequentially on current thread without multithreading.
+   - Calling `start()` on an already-started thread throws `IllegalThreadStateException`.
+
+PART 2: JAVA ASSERTIONS
+-----------------------
+1. Purpose:
+   - Testing assumptions and logical invariants during development and QA.
+2. Syntactic Forms:
+   - Simple: `assert boolean_condition;`
+   - Augmented: `assert boolean_condition : detail_message;`
+3. Why Disabled by Default:
+   - To eliminate CPU evaluation overhead in production and maintain maximum runtime speed.
+4. JVM Command-Line Flags:
+   - `-ea` / `-enableassertions`: Enables assertions in non-system classes.
+   - `-da` / `-disableassertions`: Disables assertions explicitly.
+   - `-esa` / `-enablesystemassertions`: Enables assertions in JVM system classes.
+   - Package-level: `java -ea:com.school.banking... MainClass`.
+5. Best Practice:
+   - Never use assertions for public method parameter validation (use standard `IllegalArgumentException`).
+   - Never cause side effects inside assertion conditions.
+
+PART 3: EXCEPTION HANDLING
+--------------------------
+1. 5 Core Keywords:
+   - `try`: Encloses code that may throw exceptions.
+   - `catch`: Catches and handles specific exception instances.
+   - `finally`: Executes unconditionally for resource cleanup.
+   - `throw`: Explicitly triggers an exception instance.
+   - `throws`: Declares potential checked exceptions in method header.
+2. Execution Guarantees:
+   - The `finally` block ALWAYS executes, even if try/catch contains `return`.
+   - Only `System.exit(0)` prevents finally execution.
+3. Big Three Runtime Exceptions:
+   - `NullPointerException`: Invoking method on null object reference.
+   - `ArrayIndexOutOfBoundsException`: Index < 0 or index >= array.length.
+   - `NumberFormatException`: Parsing non-numeric string via `Integer.parseInt()`.
+
+================================================================================
+END OF MASTER SUMMARY
+================================================================================

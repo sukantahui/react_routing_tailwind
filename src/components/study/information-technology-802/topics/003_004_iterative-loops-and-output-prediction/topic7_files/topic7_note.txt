@@ -1,0 +1,14 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 7: DOWNLOADABLE DOCUMENTS & REVISION PACK
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+This document provides printable materials and revision checklists for:
+1. Java Iterative Statements (while and do-while loops).
+2. Step-by-step output prediction dry-run tables.
+3. Common examiner traps, semicolon errors, and jump statement edge cases.
+
+Use the download buttons in Topic 7 to save these reference materials offline.
+================================================================================

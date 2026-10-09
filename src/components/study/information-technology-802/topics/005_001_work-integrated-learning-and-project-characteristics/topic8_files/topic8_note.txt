@@ -1,0 +1,21 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 8: Practice Your Skill Here (Challenge Arena)
+================================================================================
+
+1. SKILL PRACTICE HIGHLIGHTS:
+-----------------------------
+- Review the core concepts:
+  * WIL Definition: Academic theory + Workplace practice.
+  * Project Definition: Temporary endeavor to create a unique product/service.
+  * 4 Characteristics: Definite start/end, defined scope, finite resources, distinct boundaries.
+  * 6 SDLC Phases: Conception -> Requirements (SRS) -> Design -> Implementation -> Testing -> Deployment.
+  * Triple Constraint: Scope, Time, Cost determining Quality.
+  * Scope Creep: Uncontrolled expansion of features without resource adjustment.
+
+2. BOARD EXAM SUCCESS STRATEGY:
+-------------------------------
+- Answer definitions precisely using standard terminology.
+- In viva voce, be ready to describe your school capstone project architecture, database tables, and the SDLC phases you followed.
+================================================================================

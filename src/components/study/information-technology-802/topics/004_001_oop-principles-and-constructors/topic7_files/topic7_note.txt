@@ -1,0 +1,43 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 7: ENCAPSULATION IN ACTION: PRIVATE FIELDS & GETTERS/SETTERS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS ENCAPSULATION?
+--------------------------------------------------------------------------------
+Encapsulation is the OOP mechanism of binding data variables and methods together 
+into a class while restricting direct outside access.
+
+2. THE ENCAPSULATION RECIPE IN JAVA
+--------------------------------------------------------------------------------
+1. Private Data Fields:
+   Declare all internal attributes with the `private` access modifier:
+   `private int age;`
+   `private double balance;`
+
+2. Public Accessor (Getter):
+   Allows safe, read-only access to the variable:
+   `public int getAge() { return age; }`
+
+3. Public Mutator (Setter):
+   Allows controlled write access with data validation:
+   `public void setAge(int a) {`
+   `    if (a >= 5 && a <= 100) { age = a; }`
+   `}`
+
+3. WHY NOT MAKE FIELDS PUBLIC?
+--------------------------------------------------------------------------------
+If fields are public (`public int age;`), any external code can write:
+`obj.age = -500;` // Corrupts system state without any defense!
+
+With encapsulation:
+`obj.setAge(-500);` // Intercepted by setter validation rule and rejected!
+
+4. BENEFITS SUMMARY
+--------------------------------------------------------------------------------
+* Data Hiding: Internal state is invisible to outside classes.
+* Flexibility: Read-only (getter only) or Write-only (setter only) fields.
+* Maintainability: Internal implementation can change without breaking client code.
+================================================================================

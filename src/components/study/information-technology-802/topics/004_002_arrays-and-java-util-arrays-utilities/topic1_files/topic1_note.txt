@@ -1,0 +1,33 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 1: ARRAY DECLARATION & LITERAL INITIALIZATION
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WAYS TO DECLARE & INITIALIZE ARRAYS IN JAVA
+--------------------------------------------------------------------------------
+A. ARRAY LITERAL NOTATION (Single-Step):
+   When the values are already known at the time of writing code:
+   `double[] Marks = {93.0, 87.5, 97.5, 65.0, 70.0};`
+   `int[] ages = {17, 18, 17, 19, 18};`
+
+B. TWO-STEP INSTANTIATION (Dynamic Size):
+   When the size is known but values will be assigned later (e.g. from user input):
+   `int[] rollNumbers = new int[40];` // Allocates 40 ints with default 0s
+   `rollNumbers[0] = 101;`
+
+C. ANONYMOUS ARRAY CREATION:
+   `printScores(new double[]{90.0, 85.5, 92.0});`
+
+2. CRITICAL SYNTAX RULES
+--------------------------------------------------------------------------------
+* Never write size inside brackets during declaration:
+  INVALID: `int[5] a;` or `int a[5];`
+  VALID:   `int[] a;` or `int a[];`
+
+* Never specify size when using curly braces initializer list:
+  INVALID: `int[] arr = new int[3]{10, 20, 30};`
+  VALID:   `int[] arr = new int[]{10, 20, 30};`
+  VALID:   `int[] arr = {10, 20, 30};`
+================================================================================

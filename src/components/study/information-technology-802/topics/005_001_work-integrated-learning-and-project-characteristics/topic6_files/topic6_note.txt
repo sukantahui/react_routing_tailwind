@@ -1,0 +1,37 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 6: Role of Project Management in School IT Applications & Capstone Projects
+================================================================================
+
+1. WHY PROJECT MANAGEMENT IN SCHOOL IT PROJECTS?
+------------------------------------------------
+- Developing a capstone software application for a school (e.g. Student Fees, Library Manager, Report Card Generator) requires structured coordination.
+- Key Functions:
+  1. Work Breakdown Structure (WBS): Decomposing large modules into atomic tasks.
+  2. Milestone Scheduling: Setting intermediate deadlines (e.g. Database complete by Week 2, GUI by Week 4).
+  3. Risk Management: Anticipating hardware failures, data loss, or requirement changes.
+  4. Stakeholder Communication: Demonstrating prototypes to school staff.
+
+2. POPULAR CBSE IT 802 SCHOOL CAPSTONE PROJECT CASE STUDIES:
+------------------------------------------------------------
+1. School Library Management System:
+   - Frontend: Java NetBeans Swing GUI forms.
+   - Backend: MySQL (`BOOKS`, `MEMBERS`, `ISSUE_RECORD` tables).
+   - Core Features: Book search, issue/return timestamping, automatic fine calculation.
+
+2. Student Academic Performance Tracker:
+   - Frontend: Java GUI / Web Interface.
+   - Backend: MySQL (`STUDENT`, `SUBJECTS`, `EXAM_MARKS` with Equi-Joins).
+   - Core Features: Report card generation, percentage calculation, top rank discovery via `ORDER BY`.
+
+3. School Fee Collection & Receipt Generator:
+   - Frontend: Java Swing application.
+   - Backend: MySQL (`FEES_MASTER`, `PAYMENT_TRANSACTIONS`).
+   - Core Features: Dues lookup by Roll number, fee receipt printing, monthly summary via `GROUP BY`.
+
+3. BEST PRACTICES FOR CBSE CLASS XII PRACTICAL SUBMISSIONS:
+-----------------------------------------------------------
+- Maintain clear project documentation: Problem Statement, Feasibility, SRS, ER Diagram, Table Schema DDL, Java Source Code, and Sample Test Runs with Screenshots.
+- Conduct User Acceptance Testing (UAT) with real school clerks or teachers.
+================================================================================

@@ -1,0 +1,36 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 4: COUNTING CHARACTERS VIA STR.LENGTH()
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS STR.LENGTH()?
+--------------------------------------------------------------------------------
+The `str.length()` method returns the total number of characters in the calling 
+String object.
+
+Syntax:
+    public int length()
+
+2. COUNTING CHARACTERS ACCURATELY
+--------------------------------------------------------------------------------
+Example: `String str = "Information Technology";`
+- "Information" = 11 characters
+- Space (" ")   = 1 character
+- "Technology"  = 10 characters
+- Total Length  = 11 + 1 + 10 = 22 characters.
+
+3. INDEX RANGE VS LENGTH
+--------------------------------------------------------------------------------
+* Total Length: `22` (1-based total count)
+* First Index:  `0`
+* Last Index:   `21` (`str.length() - 1`)
+
+4. ARRAY LENGTH VS STRING LENGTH() (CBSE FAVORITE)
+--------------------------------------------------------------------------------
+Data Type  | Syntax                 | Type
+-----------|------------------------|-------------------------------------------
+Array      | `arr.length`           | Read-only instance field (NO parentheses)
+String     | `str.length()`         | Method call (WITH parentheses)
+================================================================================

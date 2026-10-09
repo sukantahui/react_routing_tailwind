@@ -1,0 +1,65 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 003_004: ITERATIVE LOOPS & OUTPUT PREDICTION
+TOPIC 3: WRITING JAVA PROGRAMS TO PRINT NUMBERS FROM N TO 1 (SCANNER INPUT)
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. PROBLEM SPECIFICATION
+--------------------------------------------------------------------------------
+Write a Java program to accept an integer N from the user via the keyboard 
+and display all natural numbers from N down to 1 in descending order using 
+a `while` loop.
+
+2. STEP-BY-STEP ALGORITHM
+--------------------------------------------------------------------------------
+Step 1: Import the `java.util.Scanner` package.
+Step 2: Create a Scanner object attached to `System.in`.
+Step 3: Prompt the user and read `N` using `sc.nextInt()`.
+Step 4: Initialize the loop counter variable `int i = N`.
+Step 5: Set up the while loop condition: `while (i >= 1)`.
+Step 6: Inside the loop, print the value of `i` followed by a space.
+Step 7: Decrement the counter variable: `i--` (or `i = i - 1`).
+Step 8: After the loop terminates, close the scanner object.
+
+3. JAVA SOURCE CODE BLUEPRINT
+--------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class PrintNto1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter positive number N: ");
+        int n = sc.nextInt();
+        
+        int current = n;
+        while (current >= 1) {
+            System.out.print(current + " ");
+            current--; // Decrement towards base condition
+        }
+        System.out.println();
+        sc.close();
+    }
+}
+
+4. TRACING TABLE FOR N = 5
+--------------------------------------------------------------------------------
+Iteration | Current Variable (i) | Test (i >= 1) | Printed Output | Updated (i--)
+----------|----------------------|---------------|----------------|---------------
+1         | 5                    | 5 >= 1 (True) | 5              | 4
+2         | 4                    | 4 >= 1 (True) | 4              | 3
+3         | 3                    | 3 >= 1 (True) | 3              | 2
+4         | 2                    | 2 >= 1 (True) | 2              | 1
+5         | 1                    | 1 >= 1 (True) | 1              | 0
+6         | 0                    | 0 >= 1 (False)| (Terminates)   | -
+
+Final Console Output: 5 4 3 2 1
+
+5. COMMON BOARD EXAM QUESTIONS
+--------------------------------------------------------------------------------
+* What happens if N <= 0?
+  The test `i >= 1` evaluates to false immediately on the first pass, resulting 
+  in 0 executions and no printed numbers.
+* Convert to for-loop:
+  for (int i = n; i >= 1; i--) { System.out.print(i + " "); }
+================================================================================

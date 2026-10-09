@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 5: Enabling Assertions using `-ea` / `-enableassertions` Flag
+================================================================================
+
+1. JVM COMMAND-LINE FLAGS FOR ASSERTIONS:
+-----------------------------------------
+To activate assertion evaluation at runtime, you must pass appropriate flags to the `java` interpreter command.
+
+2. SUMMARY OF ESSENTIAL FLAGS:
+------------------------------
+| Switch Flag | Full Flag Name | Action |
+| :--- | :--- | :--- |
+| `-ea` | `-enableassertions` | Enables assertions across all user application classes |
+| `-da` | `-disableassertions` | Explicitly disables assertions across all user classes |
+| `-esa` | `-enablesystemassertions`| Enables assertions in system/JVM core library classes |
+| `-dsa` | `-disablesystemassertions`| Disables assertions in system/JVM core library classes |
+
+3. GRANULAR CONTROL PATTERNS:
+-----------------------------
+1. Global Enablement:
+   `java -ea MainClass`
+
+2. Enable for a Specific Class Only:
+   `java -ea:com.school.StudentManager MainClass`
+
+3. Enable for a Package and Subpackages:
+   `java -ea:com.school.banking... MainClass`
+
+4. Enable Globally but Disable for One Specific Class:
+   `java -ea -da:com.school.LegacyHelper MainClass`
+
+4. CBSE CLASS 12 KEY BOARD TAKEAWAYS:
+-------------------------------------
+- Remember both short form (`-ea`) and long form (`-enableassertions`).
+- Syntax placement: The flag goes BEFORE the main class name in the terminal command:
+  `java [flags] ClassName [program arguments]`
+================================================================================

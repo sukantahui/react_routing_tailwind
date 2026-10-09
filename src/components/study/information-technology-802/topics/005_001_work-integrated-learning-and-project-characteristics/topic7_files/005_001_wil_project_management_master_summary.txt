@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+COMPLETE MASTER REVISION SUMMARY: WORK-INTEGRATED LEARNING & PROJECT MANAGEMENT
+MODULE CODE: 005_001
+AUTHOR: SUKANTA HUI (CODER & ACCOTAX)
+================================================================================
+
+PART 1: WORK-INTEGRATED LEARNING (WIL)
+--------------------------------------
+1. Definition:
+   - An educational approach that deliberately blends academic theoretical learning with authentic real-world workplace experience.
+2. Objectives:
+   - Bridge the gap between school curriculum and corporate software engineering.
+   - Develop technical competence (Java, MySQL, Web design) alongside professional soft skills.
+   - Instill workplace ethics, data privacy, and intellectual property awareness.
+3. Multi-Stakeholder Benefits:
+   - For Students: Employability, demonstrable portfolio, problem-solving confidence.
+   - For Schools: Modern, industry-aligned syllabus; enhanced institutional prestige.
+   - For Industry: Screened junior talent pipeline, reduced recruitment & onboarding costs.
+
+PART 2: DEFINITION & CHARACTERISTICS OF A PROJECT
+-------------------------------------------------
+1. Definition:
+   - "A Project is a temporary endeavor undertaken to create a unique product, service, or result."
+2. Key Characteristics:
+   - Temporary: Definite start date and definite completion date.
+   - Unique Deliverable: Distinct product, customized specification.
+   - Defined Scope: Fixed set of functional modules and clear boundaries.
+   - Finite Resources: Restricted budget (₹), designated developers, bounded time.
+   - Progressive Elaboration: Developed in stages, refined incrementally.
+3. What is NOT a Project:
+   - Ongoing / Perpetual operations (e.g. daily server backups, routine helpdesk).
+   - Infinite funding or unlimited resources.
+   - Boundary-less tasks without scope limits (causes Scope Creep).
+
+PART 3: THE TRIPLE CONSTRAINT (IRON TRIANGLE)
+---------------------------------------------
+- Every project balances:
+  1. Scope (Features & Deliverables)
+  2. Time (Schedule & Deadlines)
+  3. Cost (Budget & Resources)
+- Quality sits at the intersection; altering one factor inevitably affects the others.
+
+PART 4: THE 6 PROJECT LIFE CYCLE PHASES (SDLC)
+----------------------------------------------
+1. Conception: Problem identification & feasibility study (Charter).
+2. Requirement Definition: Gathering user needs, formulating the SRS document.
+3. Design: Creating ER diagrams, database relational schemas, UI wireframes.
+4. Implementation: Writing Java source code, creating MySQL DDL/DML scripts.
+5. Testing: Unit testing, integration testing, defect resolution.
+6. Deployment: Installation in school offices, user training, and maintenance.
+
+PART 5: SCHOOL CAPSTONE IT PROJECTS
+-----------------------------------
+- Library Management System (BOOKS, MEMBERS, ISSUE_RECORD tables).
+- Fee Collection System (STUDENT, FEE_STRUCTURE, PAYMENTS tables).
+- Report Card Generator (STUDENT, EXAM_MARKS tables with ranking queries).
+
+================================================================================
+END OF MASTER SUMMARY
+================================================================================

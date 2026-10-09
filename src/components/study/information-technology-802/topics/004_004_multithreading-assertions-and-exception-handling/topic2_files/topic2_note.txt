@@ -1,0 +1,55 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 2: Overriding run() vs Invoking start()
+================================================================================
+
+1. THE ROLE OF run() METHOD:
+----------------------------
+- The `run()` method contains the code that constitutes the thread's job/task.
+- Signature: `public void run()`
+- If you call `t.run()` directly:
+  * NO new thread is created.
+  * The code executes on the CURRENT caller thread (e.g. main thread) synchronously.
+  * The rest of the main program is BLOCKED until `run()` completes.
+
+2. THE ROLE OF start() METHOD:
+------------------------------
+- The `start()` method is defined in `java.lang.Thread`.
+- What happens internally when `t.start()` is called:
+  1. The JVM registers the thread with the OS thread scheduler.
+  2. The JVM allocates a NEW, isolated Call Stack for this thread.
+  3. The thread state transitions from New to Runnable.
+  4. The JVM automatically invokes the thread's `run()` method on the newly created call stack asynchronously.
+
+3. START() VS RUN() IN CBSE EXAMINATIONS:
+------------------------------------------
+| Aspect | Invoking `t.start()` | Direct Call to `t.run()` |
+| :--- | :--- | :--- |
+| New Thread Created? | YES (New call stack created) | NO (Executes on current caller thread stack) |
+| Execution Nature | Asynchronous / Concurrent | Synchronous / Sequential |
+| Number of Calls Allowed | Exactly ONCE (Calling again throws IllegalThreadStateException) | Multiple times (Acts like any standard method) |
+| Initiated By | Developer | Automatically by JVM after start() |
+
+4. CODE TRACE EXAMPLE:
+----------------------
+```java
+class Worker extends Thread {
+    public void run() {
+        System.out.println("Thread running: " + Thread.currentThread().getName());
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Worker w = new Worker();
+        
+        // Scenario A: Direct run() call
+        // w.run(); // Prints "Thread running: main" (NO multithreading!)
+        
+        // Scenario B: start() invocation
+        w.start(); // Prints "Thread running: Thread-0" (New thread active!)
+    }
+}
+```
+================================================================================

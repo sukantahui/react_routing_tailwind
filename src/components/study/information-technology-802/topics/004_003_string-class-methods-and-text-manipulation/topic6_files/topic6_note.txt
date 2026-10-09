@@ -1,0 +1,36 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 6: SUBSTRING EXTRACTION VIA STR.SUBSTRING()
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS STR.SUBSTRING()?
+--------------------------------------------------------------------------------
+The `substring()` method extracts a slice/portion of a string based on index 
+boundaries.
+
+2. THE TWO OVERLOADED SIGNATURES
+--------------------------------------------------------------------------------
+A. `public String substring(int startIndex)`
+   Extracts from `startIndex` (inclusive) to the end of the string.
+   Example: `"Barrackpore".substring(7)` -> `"pore"`
+
+B. `public String substring(int startIndex, int endIndex)`
+   Extracts from `startIndex` (inclusive) up to `endIndex` (EXCLUSIVE!).
+   Formula: Number of characters extracted = `endIndex - startIndex`.
+
+3. CBSE EXAM TRACE
+--------------------------------------------------------------------------------
+String: `"Information"`
+Index:    0 1 2 3 4 5 6 7 8 9 10
+Char:     I n f o r m a t i o n
+
+* `s.substring(3, 7)`:
+  - Takes index 3 ('o'), 4 ('r'), 5 ('m'), 6 ('a').
+  - Excludes index 7 ('t').
+  - Result: `"orma"` (Length = 7 - 3 = 4 chars).
+
+* `s.substring(0, 4)`:
+  - Takes index 0, 1, 2, 3 -> `"Info"`.
+================================================================================

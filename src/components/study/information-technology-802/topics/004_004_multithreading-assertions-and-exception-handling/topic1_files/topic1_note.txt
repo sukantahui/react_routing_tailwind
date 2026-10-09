@@ -1,0 +1,67 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 1: Two Ways of Creating Threads in Java (Thread Class vs Runnable Interface)
+================================================================================
+
+1. THE TWO APPROACHES:
+----------------------
+Java provides two ways to create custom threads:
+1. Extending the `java.lang.Thread` class.
+2. Implementing the `java.lang.Runnable` interface.
+
+2. APPROACH 1: EXTENDING THE THREAD CLASS
+-----------------------------------------
+Syntax:
+```java
+class TaskA extends Thread {
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Thread A: " + i);
+        }
+    }
+}
+
+// In main method:
+TaskA t1 = new TaskA();
+t1.start(); // Spawns new thread and executes run()
+```
+
+Pros & Cons:
+- Simple syntax for direct thread creation.
+- Disadvantage: Java does NOT support multiple class inheritance. If your class extends `Thread`, it cannot extend any other class (such as `JFrame`, `JPanel`, or `Employee`).
+
+3. APPROACH 2: IMPLEMENTING THE RUNNABLE INTERFACE (RECOMMENDED)
+----------------------------------------------------------------
+Syntax:
+```java
+class TaskB implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Runnable B: " + i);
+        }
+    }
+}
+
+// In main method:
+TaskB job = new TaskB();
+Thread t2 = new Thread(job); // Pass Runnable instance to Thread constructor
+t2.start();
+```
+
+Pros & Cons:
+- Flexible: Your class can extend another parent class (e.g., `class TaskB extends DatabaseService implements Runnable`).
+- Decouples the task logic (`Runnable`) from the thread execution engine (`Thread`).
+
+4. COMPARISON SUMMARY FOR CBSE BOARD EXAM:
+------------------------------------------
+| Criteria | Extending Thread Class | Implementing Runnable Interface |
+| :--- | :--- | :--- |
+| Keyword used | `extends Thread` | `implements Runnable` |
+| Multiple Inheritance | Locked out (cannot extend other classes) | Supported (can extend another class) |
+| Object Instantiation | `MyThread t = new MyThread(); t.start();` | `Thread t = new Thread(new MyRunnable()); t.start();` |
+| Design Principle | Inheritance (Tight Coupling) | Composition / Interface (Loose Coupling) |
+| Mandatory Method | `public void run()` | `public void run()` |
+================================================================================

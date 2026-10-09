@@ -1,0 +1,21 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 9: Practice Your Skill Here (Challenge Arena)
+================================================================================
+
+1. SKILL PRACTICE HIGHLIGHTS:
+-----------------------------
+- Test your ability to trace multithreaded outputs, assertion conditions with `-ea`, and try-catch-finally control flows.
+- Review error symptoms:
+  * `IllegalThreadStateException`: Multiple calls to `start()`.
+  * `AssertionError`: Failed invariant with `-ea`.
+  * `NumberFormatException`: Decimal strings or words passed to `Integer.parseInt()`.
+  * `NullPointerException`: Methods called on `null` object references.
+  * `ArrayIndexOutOfBoundsException`: Index < 0 or index >= array length.
+
+2. BOARD EXAM MASTER STRATEGY:
+------------------------------
+- Write answers clearly with proper Java syntax and exact naming conventions.
+- In viva voce, be ready to state the 5 lifecycle states of threads and the JVM assertion flag `-ea`.
+================================================================================

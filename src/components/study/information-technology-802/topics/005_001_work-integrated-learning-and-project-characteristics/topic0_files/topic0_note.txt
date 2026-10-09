@@ -1,0 +1,30 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 005_001: WORK-INTEGRATED LEARNING & PROJECT CHARACTERISTICS
+TOPIC 0: What is Work-Integrated Learning (WIL)?
+================================================================================
+
+1. DEFINITION OF WORK-INTEGRATED LEARNING (WIL):
+------------------------------------------------
+- Work-Integrated Learning (WIL) is an educational model that intentionally integrates academic curriculum and theoretical concepts with authentic, hands-on workplace or industry experience.
+- It provides a structured bridge between classroom learning and practical professional execution.
+
+2. CORE PILLARS OF WIL:
+-----------------------
+1. Academic Grounding: Theoretical knowledge acquired in schools/classrooms (e.g. Java OOP, MySQL RDBMS, Web Architecture).
+2. Authentic Workplace Practice: Practical application on real client requirements, school management systems, or industry internships.
+3. Structured Reflection & Evaluation: Students reflect on workplace challenges, receiving feedback from both academic teachers and industry mentors.
+
+3. FORMS OF WIL IN CBSE IT 802:
+-------------------------------
+- Industry Internships / Apprenticeships (Summer training).
+- Live Client Projects (Developing a Fee Collection system or Library Database).
+- Capstone School Projects (Building a multi-table Java Swing application for the school administration).
+- Field Visits and Industry Expert Workshops.
+
+4. THE TRIPARTITE WIL RELATIONSHIP:
+-----------------------------------
+- **Student**: Gains employability, technical competence, teamwork, and professional ethics.
+- **Educational Institute**: Keeps curriculum relevant, updated, and aligned with market demands.
+- **Industry Partner**: Accesses motivated junior talent and contributes to workforce readiness.
+================================================================================

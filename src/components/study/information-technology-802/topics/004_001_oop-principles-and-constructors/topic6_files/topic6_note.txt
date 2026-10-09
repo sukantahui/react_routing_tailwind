@@ -1,0 +1,33 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_001: OOP PRINCIPLES, CLASS DESIGN & CONSTRUCTORS
+TOPIC 6: DIFFERENCES BETWEEN METHODS AND CONSTRUCTORS IN JAVA
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. MASTER COMPARISON TABLE
+--------------------------------------------------------------------------------
+Feature               | Constructor                     | Method
+----------------------|---------------------------------|----------------------------------
+1. Name               | MUST match the class name       | Any valid Java identifier
+2. Return Type        | NO return type (not even void)  | MUST specify return type or `void`
+3. Primary Purpose    | Initialize instance variables   | Execute operations and actions
+4. Invocation Timing  | Automatically during `new`      | Explicitly called using dot (`.`)
+5. Inheritance        | NOT inherited by subclasses     | Inherited by subclasses
+6. Default Generation | Compiler provides default if none| Compiler NEVER generates methods
+7. Calling Mechanism  | Cannot be called on existing obj| Called repeatedly on object refs
+
+2. WHY CAN'T A CONSTRUCTOR HAVE A RETURN TYPE?
+--------------------------------------------------------------------------------
+The job of a constructor is exclusively to configure a newly allocated heap block. 
+The expression `new ClassName()` implicitly returns the reference address to 
+the new object. Specifying a return type would conflict with this memory model.
+
+3. COMMON CBSE BOARD QUESTIONS
+--------------------------------------------------------------------------------
+* Can a constructor be `static`? 
+  NO. A constructor belongs to an individual instance being created, so static 
+  constructors are illegal in Java.
+* Can a constructor be `final`? 
+  NO. Constructors cannot be overridden anyway, so `final` is not permissible.
+================================================================================

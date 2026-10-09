@@ -1,0 +1,37 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_004: MULTITHREADING, ASSERTIONS & EXCEPTION HANDLING
+TOPIC 4: Why Assertions are Disabled by Default (Production Performance)
+================================================================================
+
+1. DEFAULT JVM ASSERTION BEHAVIOR:
+----------------------------------
+- By default, the Java Virtual Machine (JVM) disables all assertion checks at runtime.
+- When running `java MainClass`, the JVM ignores all `assert` statements completely.
+
+2. WHY DISABLED BY DEFAULT? (THE 3 CORE REASONS):
+-------------------------------------------------
+1. **Zero Runtime Performance Overhead in Production**:
+   - Complex assertion boolean evaluations (e.g. checking if an array of 100,000 items is sorted) consume CPU time.
+   - Disabling assertions in production ensures zero execution penalty.
+
+2. **No Recompilation Needed**:
+   - The same compiled `.class` bytecode file can run with assertions enabled during testing (`java -ea Main`) and with assertions disabled in production (`java Main`).
+
+3. **Separation of Diagnostic Tests vs Business Logic**:
+   - Assertions are developer-facing diagnostic tools, not end-user input validation mechanisms.
+
+3. THE DEADLY "SIDE EFFECTS" TRAP (BOARD EXAM WARNING):
+--------------------------------------------------------
+- Never modify program state inside an assertion condition!
+- Example of BAD code:
+  `assert (count++ < 10); // Count only increments when assertions are ON!`
+- In development (assertions ON): `count` increments.
+- In production (assertions OFF): `count` NEVER increments, causing insidious bugs.
+
+4. CBSE CLASS 12 QUICK SUMMARY:
+-------------------------------
+- Default State: **Disabled**.
+- Reason: **Preserve maximum execution speed in production**.
+- Runtime Switch: Controlled via `-ea` / `-da` flags without recompiling.
+================================================================================

@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_002: ARRAYS & JAVA.UTIL.ARRAYS UTILITIES
+TOPIC 4: THE JAVA.UTIL.ARRAYS UTILITY CLASS & STATIC METHODS
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT IS THE `JAVA.UTIL.ARRAYS` CLASS?
+--------------------------------------------------------------------------------
+The `java.util.Arrays` class is part of the Java Collections Framework. It contains 
+various static utility methods for manipulating arrays (sorting, searching, 
+comparing, and filling).
+
+Import Requirement:
+    import java.util.Arrays;
+
+2. ESSENTIAL STATIC METHODS TESTED IN CBSE CLASS XII
+--------------------------------------------------------------------------------
+1. `Arrays.sort(arr)`:
+   Rearranges array elements in ascending natural order.
+
+2. `Arrays.binarySearch(arr, key)`:
+   Finds the index of a key element in $O(\log N)$ time. 
+   CRITICAL: Array MUST be sorted before calling binarySearch!
+
+3. `Arrays.equals(arr1, arr2)`:
+   Returns true if both arrays contain the same elements in the same order.
+
+4. `Arrays.fill(arr, value)`:
+   Assigns the specified value to every element of the array.
+
+5. `Arrays.toString(arr)`:
+   Returns a string representation of the array contents: `[10, 20, 30]`.
+
+3. WHY STATIC METHODS?
+--------------------------------------------------------------------------------
+All methods in `java.util.Arrays` are `static`. You invoke them directly on the 
+class name `Arrays.methodName(arr)` rather than `arr.methodName()`.
+================================================================================

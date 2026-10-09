@@ -1,0 +1,25 @@
+================================================================================
+CBSE CLASS XII INFORMATION TECHNOLOGY (SUBJECT CODE: 802)
+MODULE 004_003: STRING CLASS METHODS & TEXT MANIPULATION
+TOPIC 5: CASE CONVERSION: TOUPPERCASE() & TOLOWERCASE()
+INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. WHAT ARE CASE CONVERSION METHODS?
+--------------------------------------------------------------------------------
+Java provides two built-in String methods for modifying character casing:
+1. `public String toUpperCase()`: Converts all alphabetic letters to capital letters.
+2. `public String toLowerCase()`: Converts all alphabetic letters to small letters.
+
+2. NON-ALPHABETIC CHARACTERS
+--------------------------------------------------------------------------------
+Digits, punctuation, spaces, and symbols are unaffected:
+`"cbse-class12-it802".toUpperCase()` -> `"CBSE-CLASS12-IT802"`
+
+3. REASSIGNMENT REQUIREMENT
+--------------------------------------------------------------------------------
+Because Strings are immutable:
+    String city = "barrackpore";
+    city.toUpperCase(); // city is still "barrackpore"!
+    city = city.toUpperCase(); // city becomes "BARRACKPORE"
+================================================================================
