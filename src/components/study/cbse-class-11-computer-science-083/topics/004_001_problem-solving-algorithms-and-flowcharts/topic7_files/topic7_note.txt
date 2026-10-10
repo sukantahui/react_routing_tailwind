@@ -1,0 +1,57 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROBLEM SOLVING
+TOPIC 7: TRACING FLOWCHARTS AND ALGORITHMS WITH DRY-RUN EXECUTION TABLES
+================================================================================
+
+1. WHAT IS A DRY RUN (DESK CHECKING)?
+--------------------------------------------------------------------------------
+- Definition: A 'Dry Run' (also known as manual tracing or desk-checking) is the process of manually stepping through an algorithm or flowchart on paper without executing it on a computer.
+- Purpose:
+  * Verifies algorithmic logic correctness before writing code.
+  * Detects off-by-one errors (e.g. `<` vs `<=`).
+  * Identifies infinite loops or missing increment/decrement steps.
+  * Discovers uninitialized variables and unexpected edge-case failures.
+
+2. STRUCTURE OF A TRACE TABLE (DRY-RUN TABLE)
+--------------------------------------------------------------------------------
+A Trace Table is a structured grid used to record the state of every variable at each discrete execution step.
+Columns in a Standard Trace Table:
+1. Step / Line Number: Indicates the current instruction being executed.
+2. Condition Check (Boolean Test): Evaluates conditional expressions (e.g., `num > 0 -> True`).
+3. Variables Columns: A dedicated column for each variable (e.g., `num`, `digit`, `sum`, `rev`, `count`).
+4. Output / Display: Records any value printed to the screen during that step.
+
+3. METHODOLOGY FOR DRY-RUNNING AN ALGORITHM
+--------------------------------------------------------------------------------
+Step 1: Identify all variables, loop counters, accumulators, and input/output channels.
+Step 2: Create a column header for each variable and condition.
+Step 3: Choose representative test cases (including standard values, zero, boundary values, and edge cases).
+Step 4: Execute instructions one line at a time strictly in order, updating the values in the corresponding columns whenever an assignment occurs.
+Step 5: Record the final output and verify against expected theoretical results.
+
+4. COMMON ERRORS DETECTED BY TRACE TABLES
+--------------------------------------------------------------------------------
+1. Off-by-One Errors:
+   Loop running N-1 times or N+1 times instead of N times due to using `<` instead of `<=`.
+2. Variable Re-initialization Inside Loop:
+   Accidentally placing `sum = 0` inside the loop body, causing the accumulator to reset on every iteration.
+3. Unreachable Code:
+   Branches inside decision diamonds that can mathematically never be reached.
+4. Infinite Loops:
+   Loop counters updated in the wrong direction (e.g., `i = i - 1` when counting up to 10).
+
+5. CBSE EXAM MASTER TRACE EXAMPLE: PALINDROME NUMBER CHECK
+--------------------------------------------------------------------------------
+Given N = 121:
+Step | num | num > 0 | digit (num % 10) | rev = (rev * 10) + digit | num // 10
+-----+-----+---------+------------------+--------------------------+----------
+ 0   | 121 |    -    |        -         |            0             |    -
+ 1   | 121 |  True   |        1         | (0 * 10) + 1 = 1         |   12
+ 2   | 12  |  True   |        2         | (1 * 10) + 2 = 12        |   1
+ 3   | 1   |  True   |        1         | (12 * 10) + 1 = 121      |   0
+ 4   | 0   |  False  |      Exits       |        Final = 121       |   -
+
+Check: Original (121) == Reversed (121) -> True (Palindrome)
+
+================================================================================

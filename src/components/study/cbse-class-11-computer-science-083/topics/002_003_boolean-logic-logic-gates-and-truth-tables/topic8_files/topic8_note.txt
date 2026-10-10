@@ -1,0 +1,69 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: DUALITY PRINCIPLE IN BOOLEAN ALGEBRA
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. WHAT IS THE DUALITY PRINCIPLE?
+--------------------------------------------------------------------------------
+* Principle of Duality states:
+  "Every algebraic identity deducible from the postulates of Boolean algebra remains valid if the operators (+ and ·) and identity elements (0 and 1) are interchanged throughout the expression."
+
+* Why is Duality powerful?
+  - You only need to prove ONE identity in a pair. The dual identity is AUTOMATICALLY mathematically valid without requiring a separate proof.
+
+2. THE 4 GOLDEN RULES TO FIND THE DUAL OF AN EXPRESSION
+--------------------------------------------------------------------------------
+To obtain the Dual ($F^*$) of any Boolean expression or equation:
+  Rule 1: Change every Logical OR operator (+) to Logical AND (·).
+  Rule 2: Change every Logical AND operator (·) to Logical OR (+).
+  Rule 3: Change every constant 1 to 0.
+  Rule 4: Change every constant 0 to 1.
+
+* CRITICAL CAUTION (MOST COMMON STUDENT ERROR):
+  DO NOT COMPLEMENT THE LITERAL VARIABLES!
+  - Variable 'A' remains 'A' in the dual.
+  - Variable 'B'' (complemented) remains 'B'' in the dual.
+
+3. CRITICAL COMPARISON: DUAL (F*) vs COMPLEMENT (F')
+--------------------------------------------------------------------------------
+Given Boolean function: F(A, B, C) = AB + B'C + 0
+
+(A) Finding the DUAL (F*):
+    - Swap · with +
+    - Swap + with ·
+    - Swap 0 with 1
+    - Variables remain intact:
+    Dual F* = (A + B) · (B' + C) · 1 = (A + B)(B' + C)
+
+(B) Finding the COMPLEMENT (F'):
+    - Apply overall negation and use De Morgan's Laws:
+    F' = (AB + B'C + 0)' = (AB)' · (B'C)' = (A' + B') · (B + C')
+
+Comparison Summary:
+Operation  | Operators (+ / ·) | Constants (0 / 1) | Variables (A, B)
+-----------+-------------------+-------------------+-----------------
+Dual (F*)  | Interchanged      | Interchanged      | UNCHANGED
+Comp (F')  | Interchanged      | Interchanged      | COMPLEMENTED (A -> A')
+
+4. DUAL PAIRS OF MAJOR BOOLEAN THEOREMS
+--------------------------------------------------------------------------------
+Original Identity                     | Dual Identity
+--------------------------------------+-------------------------------------
+A + 0 = A                             | A · 1 = A
+A + 1 = 1                             | A · 0 = 0
+A + A = A                             | A · A = A
+A + A' = 1                            | A · A' = 0
+A + B = B + A                         | A · B = B · A
+A · (B + C) = AB + AC                 | A + (B · C) = (A + B)(A + C)
+A + AB = A                            | A · (A + B) = A
+A + A'B = A + B                       | A · (A' + B) = A · B
+(A + B)' = A' · B'                    | (A · B)' = A' + B'
+
+5. SELF-DUAL FUNCTIONS
+--------------------------------------------------------------------------------
+A Boolean function is called "Self-Dual" if its dual is algebraically identical to the function itself: F* = F.
+Example: F(A, B, C) = AB + BC + CA
+Dual F* = (A + B)(B + C)(C + A) = AB + BC + CA = F.
+================================================================================

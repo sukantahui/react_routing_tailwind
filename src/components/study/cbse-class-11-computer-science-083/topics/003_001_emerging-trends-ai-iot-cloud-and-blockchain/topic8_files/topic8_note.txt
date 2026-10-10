@@ -1,0 +1,53 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 8: CLOUD COMPUTING PARADIGM & SERVICE DELIVERY MODELS (IaaS, PaaS, SaaS)
+================================================================================
+
+1. WHAT IS CLOUD COMPUTING (NIST DEFINITION)?
+   - Cloud computing is a model for enabling ubiquitous, convenient, on-demand
+     network access to a shared pool of configurable computing resources (networks,
+     servers, storage, applications, and services) that can be rapidly provisioned
+     and released with minimal management effort or service provider interaction.
+
+2. FIVE ESSENTIAL CHARACTERISTICS OF CLOUD COMPUTING (NIST):
+   1. On-Demand Self-Service: Users can provision compute power/storage automatically
+      via web dashboards without human interaction with the cloud vendor.
+   2. Broad Network Access: Capabilities are accessible across standard network
+      protocols via heterogeneous thin/thick client devices (smartphones, laptops).
+   3. Resource Pooling: The provider's computing resources are pooled in multi-tenant
+      models to serve multiple consumers dynamically.
+   4. Rapid Elasticity: Resources can be elastically provisioned and released (scaled up
+      or down) rapidly and automatically to match fluctuating workload demands.
+   5. Measured Service: Resource usage is continuously monitored, controlled, and
+      billed on a metered pay-as-you-go utility basis.
+
+3. THE THREE MAJOR CLOUD SERVICE DELIVERY MODELS (SPI TIER):
+
+   A. Infrastructure as a Service (IaaS):
+      - Provides raw fundamental computing resources: virtual machines, bare metal servers,
+        storage disks, and virtual networks.
+      - Vendor Manages: Physical datacenter, power, cooling, network switches, hypervisor virtualization.
+      - Consumer Manages: Operating System (OS), patches, runtime environments, middleware, database, and applications.
+      - Examples: Amazon AWS EC2, Microsoft Azure VMs, Google Compute Engine (GCE).
+
+   B. Platform as a Service (PaaS):
+      - Provides a ready-made development and deployment platform with pre-configured
+        OS, programming language runtimes (Python, Node.js, Java), databases, and web servers.
+      - Developers focus purely on writing and deploying application code without worrying about server provisioning.
+      - Vendor Manages: Hardware, OS, runtime environments, security patches, scaling.
+      - Consumer Manages: Application source code and database data.
+      - Examples: Google App Engine, AWS Elastic Beanstalk, Heroku, Firebase.
+
+   C. Software as a Service (SaaS):
+      - End-user complete software applications hosted, managed, and delivered over the internet via web browsers.
+      - Vendor Manages: Complete technology stack (infrastructure, OS, code, databases, backups, high availability).
+      - Consumer Manages: User credentials, preferences, and personal files.
+      - Examples: Google Workspace (Gmail, Docs, Drive), Microsoft Office 365, Dropbox, Zoom, Netflix.
+
+4. SHARED RESPONSIBILITY SUMMARY (PIZZA AS A SERVICE ANALOGY):
+   - Traditional On-Premise : Making pizza entirely at home from scratch (Dough, toppings, oven, gas, table).
+   - IaaS                   : Take-and-bake pizza (Vendor provides pizza base; you bake it in your oven and serve).
+   - PaaS                   : Pizza delivery (Vendor bakes the pizza and delivers it; you set the table and eat).
+   - SaaS                   : Dining out at a restaurant (Vendor prepares, cooks, serves, and cleans up; you just eat).
+================================================================================

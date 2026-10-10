@@ -1,0 +1,52 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 2: COMPUTATIONAL THINKING & PROGRAMMING - 1
+TOPIC 4: FLOWCHART CONVENTIONS - STANDARD ANSI / ISO SYMBOLS & RULES
+================================================================================
+
+1. WHAT IS A FLOWCHART?
+   - A Flowchart is a standardized diagrammatic or graphical representation of an algorithm.
+   - It illustrates the sequence of operations, logical decisions, input/output points,
+     and data flow using standardized geometric shapes connected by directional arrows.
+
+2. STANDARD ANSI/ISO FLOWCHART SYMBOLS (MANDATORY FOR CBSE BOARD EXAMS):
+
+   1. TERMINAL SYMBOL (Oval / Rounded Rectangle):
+      - Function: Denotes the starting point ("START" / "BEGIN") and the termination
+        point ("STOP" / "END") of a flowchart.
+      - Rule: Start has only 1 outgoing arrow; Stop has only incoming arrows.
+
+   2. INPUT / OUTPUT (I/O) SYMBOL (Parallelogram):
+      - Function: Represents any input operation (e.g., "Read A, B", "Input Radius")
+        or output operation (e.g., "Print Sum", "Display Result").
+      - Rule: 1 incoming flowline, 1 outgoing flowline.
+
+   3. PROCESSING SYMBOL (Rectangle):
+      - Function: Represents arithmetic computations, data transformations, and variable assignments
+        (e.g., "Area = 3.14 * r * r", "Count = Count + 1", "Sum = A + B").
+      - Rule: 1 incoming flowline, 1 outgoing flowline.
+
+   4. DECISION SYMBOL (Rhombus / Diamond):
+      - Function: Represents a conditional check, boolean test, or relational comparison
+        (e.g., "Is A > B?", "Is N % 2 == 0?").
+      - Rule: Has 1 incoming flowline and AT LEAST TWO outgoing branches clearly labeled
+        with "YES / NO" or "TRUE / FALSE".
+
+   5. ON-PAGE CONNECTOR (Small Circle):
+      - Function: Connects disjointed flowlines on the same page to avoid messy, crisscrossing lines.
+      - Contains a matching alphanumeric character (e.g., 'A', '1').
+
+   6. OFF-PAGE CONNECTOR (Pentagon / Home-Plate Symbol):
+      - Function: Connects flowchart control flow across different sheets/pages of paper.
+
+   7. FLOW LINES (Directional Arrows):
+      - Function: Connects the symbols and indicates the precise direction of control flow.
+      - Standard Convention: Flow should strictly move from TOP TO BOTTOM or LEFT TO RIGHT.
+
+3. GOLDEN RULES FOR DRAWING FLOWCHARTS IN CBSE EXAMS:
+   - Always enclose text inside proper geometric shapes (never draw freehand clouds).
+   - Never forget directional arrowheads on flow lines.
+   - Every flowchart MUST have exactly one START and at least one STOP terminal.
+   - All branches coming out of a Diamond Decision box MUST be explicitly labeled (True/False).
+   - Avoid intersecting or crossing flow lines; use circular connectors instead.
+================================================================================

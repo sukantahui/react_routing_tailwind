@@ -1,0 +1,67 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 2: COMPUTATIONAL THINKING & PROGRAMMING - 1
+MODULE: 004_001_PROBLEM-SOLVING-ALGORITHMS-AND-FLOWCHARTS
+TOPIC 1: STEPS IN PROBLEM SOLVING - ANALYSIS, ALGORITHM, CODING, TESTING & DEBUGGING
+================================================================================
+
+1. WHAT IS PROBLEM SOLVING IN COMPUTER SCIENCE?
+   - Problem solving is the systematic, structured process of transforming a real-world
+     problem or human requirement into an exact, unambiguous sequence of computer-executable
+     instructions.
+   - Computers do not possess innate common sense; they require precise, formal steps.
+
+2. THE 5 STANDARD STAGES IN THE PROBLEM-SOLVING LIFECYCLE:
+
+   STAGE 1: ANALYZING THE PROBLEM (Requirement Specification)
+      - Understanding the exact nature of the problem before writing any code.
+      - Key Questions:
+        * What is the exact goal or expected output?
+        * What inputs are provided (data types, formats, constraints)?
+        * What boundary conditions, edge cases, and limitations exist?
+      - Outcome: Clear, formal Problem Statement and Input-Output Specifications.
+
+   STAGE 2: DEVELOPING AN ALGORITHM & FLOWCHART (Logical Design)
+      - Formulating a step-by-step, finite, and language-independent logical blueprint.
+      - Breaking complex monolithic problems into smaller sub-tasks (Decomposition).
+      - Tools:
+        * Natural Language Algorithms (numbered sequential steps).
+        * Flowcharts (graphical representation using ANSI/ISO symbols).
+        * Structured Pseudocode (informal high-level code structure).
+
+   STAGE 3: CODING (Implementation)
+      - Translating the algorithm/pseudocode into a specific high-level programming
+        language syntax (e.g., Python 3.12).
+      - Adhering to good coding standards:
+        * Meaningful identifier names (e.g., `total_bill` instead of `x`).
+        * Proper indentation, whitespace, and structural comments (`#`).
+        * Modular functions and error handling.
+
+   STAGE 4: TESTING (Verification & Validation)
+      - Systematically executing the program with diverse test datasets to verify that
+        it produces correct outputs for all scenarios.
+      - Test Case Categories:
+        * Normal / Nominal Data: Typical expected inputs (e.g., 50 units).
+        * Boundary / Extreme Data: Edge values (e.g., 0 units, 100 units, 200 units).
+        * Invalid / Erroneous Data: Unexpected inputs (e.g., negative numbers, strings).
+
+   STAGE 5: DEBUGGING (Defect Detection & Rectification)
+      - The iterative process of locating, isolating, and rectifying errors (bugs) found during testing.
+      - Classification of Bugs:
+        1. Syntax Errors: Violations of Python grammar (missing colons, misspelled keywords).
+           Caught during parsing before execution.
+        2. Runtime Errors: Exceptions that crash the program during execution
+           (e.g., `ZeroDivisionError`, `ValueError`, `IndexError`).
+        3. Logical Errors: The program runs without crashing but produces mathematically
+           incorrect results due to flawed algorithm logic. (Hardest to detect).
+
+3. SUMMARY COMPARISON: TESTING VS. DEBUGGING
+   -----------------------------------------------------------------------------------------
+   Parameter          Testing                             Debugging
+   -----------------------------------------------------------------------------------------
+   Definition         Process of finding errors (bugs)    Process of fixing and removing errors
+   Objective          To verify if software meets specs   To locate the root cause and correct code
+   Performed By       Testers / Quality Assurance / Devs  Software Developers / Programmers
+   When Done          After or during code implementation After a test fails or error is exposed
+   -----------------------------------------------------------------------------------------
+================================================================================

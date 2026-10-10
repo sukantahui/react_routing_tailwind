@@ -1,0 +1,72 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 9: CLOUD DEPLOYMENT MODELS - PUBLIC, PRIVATE, COMMUNITY & HYBRID CLOUD
+================================================================================
+
+1. WHAT IS A CLOUD DEPLOYMENT MODEL?
+   - A Cloud Deployment Model defines where the cloud infrastructure is located,
+     who owns and manages the physical hardware, and who has authorized access to it.
+   - The 4 standard deployment models are:
+     1. Public Cloud
+     2. Private Cloud
+     3. Community Cloud
+     4. Hybrid Cloud
+
+2. COMPREHENSIVE OVERVIEW OF THE 4 DEPLOYMENT MODELS:
+
+   A. PUBLIC CLOUD:
+      - Definition: Cloud infrastructure owned and operated by a third-party commercial
+        cloud service provider, accessible to the general public or multiple business tenants
+        over the open internet.
+      - Key Characteristics:
+        * Multi-tenant architecture (shared physical hardware).
+        * Zero upfront infrastructure setup cost (Pure OPEX pay-as-you-go).
+        * Highly scalable with massive global data centers.
+      - Examples: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP),
+        IBM Cloud, Oracle Cloud.
+
+   B. PRIVATE CLOUD (Internal / Corporate Cloud):
+      - Definition: Cloud infrastructure provisioned for exclusive use by a single organization
+        comprising multiple consumers (business units).
+      - Key Characteristics:
+        * Single-tenant architecture (dedicated physical hardware).
+        * Can be hosted on-premise (in company datacenter) or externally by a third party.
+        * Maximum security, physical isolation, and granular governance control.
+        * High capital expenditure (CAPEX) for hardware procurement and maintenance.
+      - Best For: Defense/military agencies, central banks, nuclear research institutes,
+        healthcare systems with strict privacy regulations (HIPAA/GDPR).
+
+   C. COMMUNITY CLOUD:
+      - Definition: Cloud infrastructure shared exclusively by several organizations that
+        have common concerns, compliance requirements, security standards, or industry missions.
+      - Key Characteristics:
+        * Managed jointly by member organizations or a specialized third party.
+        * Cost and administrative burden shared among member institutions.
+      - Best For:
+        * Nationalized banks adhering to central bank (RBI) financial compliance.
+        * Government departments sharing unified citizen identity records.
+        * University medical research consortiums.
+
+   D. HYBRID CLOUD:
+      - Definition: A computing environment that combines two or more distinct cloud
+        infrastructures (e.g., Private + Public) that remain unique entities but are bound
+        together by standardized technology enabling seamless data and application portability.
+      - Key Phenomenon - "Cloud Bursting":
+        * An application runs routinely on a secure private cloud.
+        * During extreme seasonal traffic spikes (e.g., festive shopping), excess demand
+          automatically "bursts" to the public cloud to maintain uptime without buying expensive hardware.
+      - Best For: E-commerce retailers, banks (sensitive core banking in private cloud;
+        customer front-end mobile app in public cloud).
+
+3. COMPARISON TABLE FOR CBSE EXAMINATIONS:
+   -----------------------------------------------------------------------------------------
+   Parameter          Public Cloud        Private Cloud       Community Cloud     Hybrid Cloud
+   -----------------------------------------------------------------------------------------
+   Ownership          Cloud Vendor        Single Organization Shared Consortium   Mixed (Vendor + Org)
+   Tenancy            Multi-tenant        Single-tenant       Multi-organization  Blended
+   Cost               Lowest (Pay-as-use) Highest (CapEx)     Shared among peers  Optimized
+   Security           Standard isolation  Maximum security    High (Shared rules) Tailored by tier
+   Elasticity         Near infinite       Limited to hardware High                High (Cloud Bursting)
+   -----------------------------------------------------------------------------------------
+================================================================================

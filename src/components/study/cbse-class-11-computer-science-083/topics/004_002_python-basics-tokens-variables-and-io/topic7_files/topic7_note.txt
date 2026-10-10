@@ -1,0 +1,60 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 7: ASSIGNMENT SEMANTICS: 'lvalue = rvalue' RULES & VARIATIONS
+================================================================================
+
+1. WHAT IS AN ASSIGNMENT STATEMENT?
+--------------------------------------------------------------------------------
+- Definition: An Assignment Statement binds an evaluated object reference (r-value) to an identifiable storage locator target (l-value).
+- Syntax: `variable_target = evaluated_expression`
+- The `=` operator in Python is NOT mathematical equality (which is `==`). It is a unidirectional binding operation that directs data from RIGHT to LEFT.
+
+2. THE 5 STATUTORY FORMS OF ASSIGNMENT IN PYTHON
+--------------------------------------------------------------------------------
+A) Simple Assignment:
+   `x = 25`
+   - Binds name `x` to integer object `25`.
+
+B) Chained Assignment (Multiple Target Binding):
+   `a = b = c = 50`
+   - Evaluates `50` once, and binds all three names (`a`, `b`, `c`) to point to that single shared object in memory (`id(a) == id(b) == id(c)`).
+
+C) Simultaneous / Tuple Unpacking Assignment:
+   `x, y = 10, 20`
+   - Evaluates the right-hand tuple `(10, 20)` and unpacks values into `x` and `y` respectively.
+   - Elegant Variable Swapping:
+     `x, y = y, x`
+     * Evaluates RHS `(y, x)` first as a temporary tuple in memory, then unpacks into LHS `x, y`.
+     * Completely eliminates the need for a temporary third variable!
+
+D) Augmented / In-Place Assignment:
+   `total += score`   (Equivalent to `total = total + score`)
+   `count *= 2`       (Equivalent to `count = count * 2`)
+   `val //= 3`        (Equivalent to `val = val // 3`)
+   * Note: For mutable objects (like lists), augmented assignment `+=` mutates in-place (calling `__iadd__`), whereas `lst = lst + [...]` creates a brand new list.
+
+E) Extended Starred Unpacking (PEP 3132):
+   `first, *rest = [10, 20, 30, 40]`
+   - `first` binds to `10`
+   - `rest` binds to the list `[20, 30, 40]`
+
+3. CBSE BOARD EXAM TRAPS: WHY ILLEGAL ASSIGNMENTS FAIL
+--------------------------------------------------------------------------------
+1. `10 = a`
+   --> Error: `SyntaxError: cannot assign to literal`
+   --> Reason: `10` is an immutable constant with no memory locator binding target.
+
+2. `a + b = c`
+   --> Error: `SyntaxError: cannot assign to expression`
+   --> Reason: `a + b` is an arithmetic calculation yielding a temporary r-value.
+
+3. `a, b = 1, 2, 3`
+   --> Error: `ValueError: too many values to unpack (expected 2)`
+   --> Reason: RHS has 3 values, but LHS provides only 2 targets.
+
+4. `a, b, c = 1, 2`
+   --> Error: `ValueError: not enough values to unpack (expected 3, got 2)`
+   --> Reason: LHS expects 3 targets, but RHS provides only 2 values.
+
+================================================================================

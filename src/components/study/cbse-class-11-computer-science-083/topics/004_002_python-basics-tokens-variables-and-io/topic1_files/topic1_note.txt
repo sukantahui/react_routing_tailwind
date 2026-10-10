@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 1: PYTHON CHARACTER SET: LETTERS, DIGITS, SPECIAL SYMBOLS, WHITESPACE, UNICODE
+================================================================================
+
+1. WHAT IS A CHARACTER SET?
+--------------------------------------------------------------------------------
+- Definition: A Character Set is a standardized collection of valid characters, symbols, and glyphs that a programming language's compiler or interpreter can recognize, parse, and process.
+- Python 3 Character Set Standard: Python 3 uses UNICODE (specifically UTF-8 as the default source code encoding). This means Python can recognize virtually all characters from all written languages on Earth (including Indian vernacular scripts like Bengali, Hindi, Tamil, Devanagari, as well as emojis), in addition to traditional ASCII characters.
+
+2. CLASSIFICATION OF THE PYTHON CHARACTER SET
+--------------------------------------------------------------------------------
+1. Letters:
+   - Uppercase Latin letters: A to Z (ASCII 65 to 90)
+   - Lowercase Latin letters: a to z (ASCII 97 to 122)
+   - Unicode alphabetic letters from global scripts (e.g. অ, আ, क, ख, α, β)
+
+2. Digits:
+   - Decimal Digits: 0 to 9 (ASCII 48 to 57)
+
+3. Special Symbols & Mathematical Operators:
+   - Arithmetic Operators: `+`, `-`, `*`, `/`, `//`, `%`, `**`
+   - Relational Operators: `<`, `>`, `<=`, `>=`, `==`, `!=`
+   - Assignment Operators: `=`, `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`
+   - Logical / Bitwise Operators: `&`, `|`, `^`, `~`, `<<`, `>>`
+   - Punctuators & Delimiters: `(`, `)`, `[`, `]`, `{`, `}`, `,`, `:`, `.`, `;`, `@`
+   - String & Identifier Quotes: `'`, `"`, `_` (Underscore is treated as a letter in identifier syntax)
+
+4. Whitespace Characters:
+   - Space (` `) - ASCII 32
+   - Horizontal Tab (`\t`) - ASCII 9
+   - Newline / Line Feed (`\n`) - ASCII 10
+   - Carriage Return (`\r`) - ASCII 13
+   - Form Feed (`\f`) - ASCII 12
+   - Vertical Tab (`\v`) - ASCII 11
+
+5. Other Characters (Unicode UTF-8 Universe):
+   - Python processes any valid Unicode character inside string literals, comments, and identifiers (Python 3 allows non-ASCII characters in identifiers, though ASCII naming is strongly recommended for standard PEP 8 compliance).
+
+3. CASE SENSITIVITY IN PYTHON
+--------------------------------------------------------------------------------
+- Python is strictly CASE-SENSITIVE.
+- Uppercase letters and lowercase letters have different ASCII / Unicode code points.
+  * 'A' (ASCII 65) != 'a' (ASCII 97)
+  * `totalMarks`, `TotalMarks`, and `TOTALMARKS` represent THREE DISTINCT variables in Python memory.
+  * Keywords like `True`, `False`, `None` must be capitalized exactly as specified. Writing `true` or `FALSE` raises a NameError.
+
+4. ESCAPE SEQUENCES IN PYTHON
+--------------------------------------------------------------------------------
+An escape sequence is a non-printable or special character preceded by a backslash `\`:
+  - `\n` : Newline (Line Break)
+  - `\t` : Horizontal Tab (4 or 8 space shift)
+  - `\\` : Backslash literal
+  - `\'` : Single quote literal
+  - `\"` : Double quote literal
+  - `\b` : Backspace
+  - `\a` : ASCII Bell / Alert
+  - `\r` : Carriage Return (returns cursor to beginning of current line)
+
+================================================================================

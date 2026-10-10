@@ -1,0 +1,78 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: PRIMARY LOGIC GATES (NOT, AND, OR)
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. DEFINITION OF A LOGIC GATE
+--------------------------------------------------------------------------------
+* A Logic Gate is a basic building block of digital integrated circuits (ICs).
+* It is an electronic circuit having one or more inputs and exactly one output.
+* The relationship between input signals and output signal is governed by Boolean logic.
+* High Voltage Level (typically 5V in TTL) corresponds to Logic 1 (True / HIGH).
+* Low Voltage Level (typically 0V / Ground in TTL) corresponds to Logic 0 (False / LOW).
+
+2. THE THREE PRIMARY LOGIC GATES
+--------------------------------------------------------------------------------
+Primary logic gates are the foundational elementary gates from which all combinational and sequential digital circuits are synthesized:
+
+(A) THE NOT GATE (INVERTER)
+* Function: Performs logical negation / inversion.
+* Inputs: Strictly 1 input.
+* Outputs: Exactly 1 output.
+* Boolean Equation: Y = A' (or Y = ~A)
+* Standard IEEE/ANSI Symbol: Triangle with an Inversion Bubble at the output tip.
+  * Note: The small circle (bubble) signifies inversion.
+* Truth Table:
+    Input (A) | Output (Y = A')
+    ----------+----------------
+        0     |       1
+        1     |       0
+* Standard TTL Integrated Circuit: 7404 (Hex Inverter - 6 NOT gates in one IC).
+
+(B) THE AND GATE
+* Function: Performs logical multiplication (conjunction).
+* Inputs: 2 or more inputs.
+* Outputs: Exactly 1 output.
+* Boolean Equation: Y = A · B (2-input) or Y = A · B · C (3-input)
+* Standard IEEE/ANSI Symbol: Flat vertical line on the input side, straight horizontal top and bottom lines, and a smooth semi-circular curved front on the output side.
+* Truth Table (2-Input):
+    A | B | Y = A · B
+    --+---+----------
+    0 | 0 |    0
+    0 | 1 |    0
+    1 | 0 |    0
+    1 | 1 |    1
+* Key Rule: Output is 1 ONLY if ALL inputs are 1. If any input is 0, the output is immediately 0.
+* Standard TTL Integrated Circuit: 7408 (Quad 2-input AND gate).
+
+(C) THE OR GATE
+* Function: Performs logical addition (disjunction).
+* Inputs: 2 or more inputs.
+* Outputs: Exactly 1 output.
+* Boolean Equation: Y = A + B (2-input) or Y = A + B + C (3-input)
+* Standard IEEE/ANSI Symbol: Inwardly curved concave back on the input side, convex top and bottom lines meeting at a pointed apex on the output side.
+* Truth Table (2-Input):
+    A | B | Y = A + B
+    --+---+----------
+    0 | 0 |    0
+    0 | 1 |    1
+    1 | 0 |    1
+    1 | 1 |    1
+* Key Rule: Output is 1 if AT LEAST ONE input is 1. Output is 0 ONLY when all inputs are 0.
+* Standard TTL Integrated Circuit: 7432 (Quad 2-input OR gate).
+
+3. MULTI-INPUT EXTENSIONS (3-INPUT GATES)
+--------------------------------------------------------------------------------
+* 3-Input AND Gate: Y = A · B · C (Output 1 only when A=1, B=1, C=1 - row 8 only).
+* 3-Input OR Gate: Y = A + B + C (Output 0 only when A=0, B=0, C=0 - row 1 only).
+
+4. COMPARISON SUMMARY TABLE
+--------------------------------------------------------------------------------
+Gate   | Min Inputs | Output Equation | Condition for Output = 1 | TTL IC
+-------+------------+-----------------+--------------------------+-------
+NOT    |     1      | Y = A'          | When Input is 0          | 7404
+AND    |     2      | Y = A · B       | When ALL inputs are 1    | 7408
+OR     |     2      | Y = A + B       | When ANY input is 1      | 7432
+================================================================================

@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: LOGIC CIRCUIT SYNTHESIS AND SCHEMATIC ANALYSIS
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. WHAT IS LOGIC CIRCUIT SYNTHESIS?
+--------------------------------------------------------------------------------
+* Logic Circuit Synthesis is the systematic process of translating a mathematical Boolean algebraic expression into an interconnected physical or schematic diagram of standard digital logic gates.
+* The reverse process (Circuit Analysis) involves inspecting a given schematic diagram and formulating its equivalent mathematical Boolean transfer function.
+
+2. FORWARD WORKFLOW: EXPRESSION -> CIRCUIT DIAGRAM
+--------------------------------------------------------------------------------
+To draw a clean, full-credit logic circuit for a Boolean expression:
+
+  Step 1: Identify Input Variables
+    - Draw vertical input buses on the left margin for all variables (e.g. A, B, C).
+
+  Step 2: Generate Inverted Literals
+    - If complemented variables (A', B', C') are needed, attach Inverter (NOT) gates to the corresponding input buses and run parallel dashed/solid inverted rails.
+
+  Step 3: Synthesize First-Level Gate Operations (Parentheses & Product/Sum terms)
+    - For SOP expressions: Draw AND gates for each product term (e.g. A'B, BC').
+    - For POS expressions: Draw OR gates for each sum term (e.g. A+B, B'+C).
+
+  Step 4: Synthesize Output Gate
+    - Feed the outputs of all first-level gates into a final combining gate (an OR gate for SOP, or an AND gate for POS).
+    - Label the output wire clearly with 'Y' or 'F' and write the full Boolean equation.
+
+3. REVERSE WORKFLOW: CIRCUIT DIAGRAM -> BOOLEAN EXPRESSION
+--------------------------------------------------------------------------------
+To determine the Boolean expression from a logic circuit diagram:
+  Step 1: Start at the leftmost input terminals.
+  Step 2: Trace signal flow from LEFT to RIGHT.
+  Step 3: At the output of every gate, write down the intermediate Boolean expression.
+  Step 4: Combine the inputs entering the final rightmost output gate to state the overall expression.
+
+4. STANDARD TWO-LEVEL LOGIC ARCHITECTURES
+--------------------------------------------------------------------------------
+(A) AND-OR Circuit Architecture:
+    - Implements Sum-of-Products (SOP) expressions.
+    - Level 1: Multiple AND gates (generating product terms).
+    - Level 2: Exactly ONE multi-input OR gate (summing product terms).
+
+(B) OR-AND Circuit Architecture:
+    - Implements Product-of-Sums (POS) expressions.
+    - Level 1: Multiple OR gates (generating sum terms).
+    - Level 2: Exactly ONE multi-input AND gate (multiplying sum terms).
+
+5. CBSE BOARD EXAM DRAWING RULES & BEST PRACTICES
+--------------------------------------------------------------------------------
+1. Clean Geometry:
+   - AND gate: Flat back, curved front.
+   - OR gate: Concave curved back, pointed crest.
+   - NOT gate: Triangle with output inversion bubble.
+2. Connection Nodes:
+   - When a branch wire taps into an existing signal line, place a solid black dot (•) at the junction.
+3. Signal Flow Direction:
+   - Standard schematic flow is strictly from LEFT (Inputs) to RIGHT (Outputs).
+================================================================================

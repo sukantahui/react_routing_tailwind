@@ -1,0 +1,53 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 3: PYTHON LITERALS: NUMERIC, STRING, BOOLEAN & SPECIAL LITERAL NONE
+================================================================================
+
+1. WHAT IS A LITERAL (CONSTANT)?
+--------------------------------------------------------------------------------
+- Definition: A Literal is a raw, fixed data value given directly in a program's source code. Literals represent immutable constant values whose contents are determined at write-time.
+
+2. NUMERIC LITERALS
+--------------------------------------------------------------------------------
+Python supports three distinct types of numeric literals:
+A) Integer Literals (int):
+   - Decimal: Standard base-10 digits (e.g., `45`, `-100`). Cannot begin with a leading 0 (e.g. `045` is invalid syntax).
+   - Binary: Base-2 digits (0 and 1) prefixed with `0b` or `0B` (e.g., `0b1010` = 10).
+   - Octal: Base-8 digits (0 to 7) prefixed with `0o` or `0O` (e.g., `0o17` = 15).
+   - Hexadecimal: Base-16 digits (0-9, A-F) prefixed with `0x` or `0X` (e.g., `0x1F` = 31).
+   - Underscores in Integers (PEP 515): Digits can be grouped using underscores for readability (e.g., `1_000_000` is identical to `1000000`).
+
+B) Floating-Point Literals (float):
+   - Fractional Form: Contains a decimal point (e.g., `3.14`, `-0.005`, `.5`, `5.`).
+   - Exponent / Scientific Notation Form: Expressed as `Mantissa E Exponent` (where E or e means 10^exponent).
+     * `1.5e3` = 1.5 * 10^3 = `1500.0`
+     * `2.5e-2` = 2.5 * 10^-2 = `0.025`
+     * The mantissa can be an integer or float, but the exponent MUST be an integer.
+
+C) Complex Number Literals (complex):
+   - Expressed as `RealPart + ImaginaryPart j` (or `J`).
+   - Example: `3 + 4j` (where `(3+4j).real` is `3.0` and `(3+4j).imag` is `4.0`).
+   - Note: Python uses `j` or `J`, NOT `i` (which is standard in pure mathematics).
+
+3. STRING LITERALS (str)
+--------------------------------------------------------------------------------
+- Single-line Strings: Enclosed in matching single quotes (`'...'`) or double quotes (`"..."`).
+- Multiline Strings: Enclosed in triple single quotes (`'''...'''`) or triple double quotes (`"""..."""`). Preserves line breaks and tabs verbatim.
+- Raw Strings: Prefixed with `r` or `R` (e.g., `r"C:\test\new"`), which prevents backslash escape character interpretation.
+
+4. BOOLEAN LITERALS (bool)
+--------------------------------------------------------------------------------
+- Python provides exactly TWO Boolean literals: `True` and `False`.
+- Internal Representation: The `bool` type is a subclass of `int`.
+  * `True` is numerically equivalent to `1` (e.g., `True + True == 2`).
+  * `False` is numerically equivalent to `0` (e.g., `False + 5 == 5`).
+
+5. SPECIAL LITERAL (None)
+--------------------------------------------------------------------------------
+- Python has one special literal: `None`.
+- It represents the absence of a value, void return, or null reference.
+- Its data type is `NoneType`.
+- Used to initialize optional variables or signify that a function does not return an explicit value.
+
+================================================================================

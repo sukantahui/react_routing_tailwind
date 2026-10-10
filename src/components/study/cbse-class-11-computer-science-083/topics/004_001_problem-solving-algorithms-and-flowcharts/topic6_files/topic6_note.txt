@@ -1,0 +1,97 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROBLEM SOLVING
+TOPIC 6: PSEUDOCODE: WRITING CLEAR, LANGUAGE-INDEPENDENT PSEUDOCODE
+================================================================================
+
+1. WHAT IS PSEUDOCODE?
+--------------------------------------------------------------------------------
+- Definition: "Pseudo" means false or imitation. Pseudocode is an informal, high-level description of an algorithm that combines English-like natural language phrases with standardized programming constructs (like IF, WHILE, FOR).
+- Key Purpose: Pseudocode is strictly LANGUAGE-INDEPENDENT. It allows software architects and programmers to concentrate on core problem-solving logic and algorithm correctness without worrying about the strict syntax rules, semicolons, curly braces, or type declarations of specific programming languages (Python, C++, Java).
+- Execution: Pseudocode CANNOT be executed directly by a computer compiler or CPU interpreter; it must first be translated into a formal programming language.
+
+2. CORE CHARACTERISTICS OF GOOD PSEUDOCODE
+--------------------------------------------------------------------------------
+1. Language-Independence: Uses universal structural keywords rather than language-specific APIs.
+2. Unambiguity: Every instruction has exactly one clear interpretation.
+3. Readability & Indentation: Uses consistent indentation (2 or 4 spaces) to clearly denote nested blocks of code.
+4. Capitalized Keywords: Standard keywords (INPUT, OUTPUT, IF, THEN, ELSE, WHILE, FOR, RETURN) are traditionally capitalized for visual clarity.
+5. Linear Top-to-Bottom Flow: Clear starting (BEGIN/START) and stopping (END/STOP) markers.
+
+3. STANDARD PSEUDOCODE KEYWORDS & CONVENTIONS
+--------------------------------------------------------------------------------
+a) Input / Output Statements:
+   - READ / INPUT / GET / PROMPT : Accept data from user or source.
+     Example: `INPUT num1, num2`
+   - PRINT / DISPLAY / OUTPUT / WRITE : Present results or messages.
+     Example: `OUTPUT "Result is: ", sum`
+
+b) Variable Assignment & Calculations:
+   - SET / ASSIGN / Compute with `=` or `<-`
+     Example: `SET total = total + itemPrice`
+
+c) Conditional Branching:
+   - IF condition THEN
+         statement(s)
+     ELSE IF condition THEN
+         statement(s)
+     ELSE
+         statement(s)
+     ENDIF
+
+d) Iterative Loops:
+   - Count-Controlled Loop (FOR):
+     FOR variable FROM start TO end STEP increment DO
+         statement(s)
+     ENDFOR
+
+   - Condition-Controlled Loop (WHILE / REPEAT-UNTIL):
+     WHILE condition DO
+         statement(s)
+     ENDWHILE
+
+     REPEAT
+         statement(s)
+     UNTIL condition
+
+e) Modular Subprograms (Functions / Procedures):
+   - FUNCTION functionName(param1, param2)
+         statement(s)
+         RETURN result
+     ENDFUNCTION
+
+4. COMPARATIVE TABLE: PSEUDOCODE VS FLOWCHART VS REAL CODE (PYTHON)
+--------------------------------------------------------------------------------
+Feature           | Pseudocode          | Flowchart           | Python Code
+------------------+---------------------+---------------------+------------------
+Medium            | Textual             | Graphical / Visual  | Textual Script
+Execution         | Non-executable      | Non-executable      | Executed by Python
+Portability       | Universal           | Universal           | Target Interpreter
+Ease of Editing   | Very Easy           | Hard (Redraw needed)| Very Easy
+Detail Level      | High Algorithmic    | High Structural     | Full Syntax Detail
+
+5. STANDARD CBSE ALGORITHMS EXPRESSED IN PSEUDOCODE
+--------------------------------------------------------------------------------
+Algorithm 1: Find Largest of Two Numbers
+  BEGIN
+      INPUT a, b
+      IF a > b THEN
+          OUTPUT "A is larger: ", a
+      ELSE
+          OUTPUT "B is larger: ", b
+      ENDIF
+  END
+
+Algorithm 2: Sum of First N Natural Numbers
+  BEGIN
+      INPUT N
+      SET sum = 0
+      SET i = 1
+      WHILE i <= N DO
+          SET sum = sum + i
+          SET i = i + 1
+      ENDWHILE
+      OUTPUT "Total Sum = ", sum
+  END
+
+================================================================================

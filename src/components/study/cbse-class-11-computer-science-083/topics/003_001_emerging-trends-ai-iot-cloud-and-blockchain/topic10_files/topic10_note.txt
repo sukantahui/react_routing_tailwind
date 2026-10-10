@@ -1,0 +1,63 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 10: GRID COMPUTING & BLOCKCHAIN TECHNOLOGY
+================================================================================
+
+1. WHAT IS GRID COMPUTING?
+   - Grid Computing is a distributed computing paradigm that aggregates geographically
+     dispersed, heterogeneous computer systems (PCs, servers, supercomputers) connected
+     over high-speed networks to work cooperatively as a unified virtual supercomputer
+     to solve massive computational problems.
+   - Analogy: Like an electric power grid where multiple power stations feed electricity
+     into a shared network, computing power is dynamically shared from multiple nodes.
+
+2. TYPES OF GRID COMPUTING:
+   A. Computational Grid:
+      - Aggregates CPU processing power across idle machines for complex mathematical
+        simulations, protein folding, astrophysics (e.g., SETI@home, Folding@home).
+   B. Data Grid:
+      - Aggregates distributed storage systems to manage and analyze massive distributed
+        datasets (e.g., CERN Large Hadron Collider particle data).
+
+3. CLOUD COMPUTING VS. GRID COMPUTING (KEY BOARD EXAM COMPARISON):
+   -----------------------------------------------------------------------------------------
+   Parameter            Grid Computing                     Cloud Computing
+   -----------------------------------------------------------------------------------------
+   Primary Goal         Collaborative massive computing    On-demand business services & storage
+   Architecture         Decentralized / Loosely coupled   Centralized datacenters (Virtualization)
+   Resource Type        Heterogeneous compute nodes        Homogeneous virtualized VMs / containers
+   Business Model       Collaborative / Research sharing   Commercial Pay-as-you-go Utility
+   -----------------------------------------------------------------------------------------
+
+4. WHAT IS BLOCKCHAIN TECHNOLOGY?
+   - Blockchain is a decentralized, distributed, and immutable cryptographic digital ledger
+     that securely records transactions across a peer-to-peer (P2P) network of computers.
+   - Once a block is verified and appended to the chain, its contents cannot be altered,
+     deleted, or overwritten without invalidating all subsequent blocks (Tamper-Resistance).
+
+5. KEY PILLARS & ARCHITECTURE OF BLOCKCHAIN:
+   A. Cryptographic Hash Functions (SHA-256):
+      - A one-way mathematical function that converts any input into a unique 256-bit
+        (64 hexadecimal character) hash digest. Even a 1-letter change completely alters
+        the entire hash (Avalanche Effect).
+   B. Structure of a Single Block:
+      - Block Header: Block Index, Timestamp, Nonce (Number used once for Proof of Work).
+      - Previous Block's Hash (The cryptographic link binding the chain).
+      - Block Data (Transaction records / Merkle Root).
+      - Current Block's SHA-256 Hash.
+   C. Genesis Block:
+      - The very first block in a blockchain (Block #0). Its previous hash is set to all zeros.
+   D. Distributed Consensus Mechanisms:
+      - Proof of Work (PoW): Miners solve intensive cryptographic puzzles (finding nonces) to validate blocks.
+      - Proof of Stake (PoS): Validators stake cryptocurrency tokens to verify blocks with low energy use.
+   E. Smart Contracts:
+      - Self-executing programs stored on the blockchain that automatically trigger
+        agreed actions when predefined logical conditions are satisfied (e.g., Ethereum).
+
+6. REAL-WORLD APPLICATIONS OF BLOCKCHAIN:
+   - Cryptocurrencies & Digital Assets (Bitcoin, Ethereum).
+   - Global Supply Chain Provenance (Tracking pharmaceutical authenticity and organic food origins).
+   - Digital Academic Credentials & Degree Verification (Tamper-proof CBSE/University certificates).
+   - Land Registry & Title Deeds (Eliminating property fraud through immutable records).
+================================================================================

@@ -1,0 +1,55 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 2: COMPUTATIONAL THINKING & PROGRAMMING - 1
+TOPIC 3: ALGORITHM FORMULATION - CHARACTERISTICS OF A GOOD ALGORITHM
+================================================================================
+
+1. WHAT IS AN ALGORITHM?
+   - An Algorithm is a finite, well-defined sequence of unambiguous steps or instructions
+     designed to solve a specific problem or perform a computation.
+   - Named after Persian mathematician Muhammad ibn Musa al-Khwarizmi.
+
+2. THE 5 ESSENTIAL CHARACTERISTICS OF A VALID ALGORITHM (Donald Knuth's Criteria):
+
+   1. FINITENESS:
+      - An algorithm MUST always terminate after a finite number of steps and execution time.
+      - A sequence of instructions that enters an endless infinite loop without terminating
+        is NOT a valid algorithm.
+
+   2. DEFINITENESS (Unambiguity):
+      - Each step of the algorithm must be precisely, clearly, and unambiguously defined.
+      - Every operation must carry only one possible interpretation.
+      - Vague instructions like "Add some sugar" or "Divide by a small number" violate definiteness.
+        It must be exact: "Add 10 grams of sugar" or "Divide by 0.05".
+
+   3. INPUT:
+      - An algorithm must accept ZERO or more well-defined external inputs supplied to it
+        prior to execution.
+      - Example: An algorithm to print the first 10 natural numbers requires 0 external inputs.
+        An algorithm to find the largest of two numbers requires 2 inputs.
+
+   4. OUTPUT:
+      - An algorithm MUST produce AT LEAST ONE or more well-defined outputs that have a
+        specified mathematical/logical relation to the inputs.
+      - An algorithm that produces zero output serves no computational utility.
+
+   5. EFFECTIVENESS (Feasibility):
+      - Every operation specified in the algorithm must be basic enough so that it can
+        in principle be carried out exactly and in a finite length of time by a human using pencil and paper.
+      - An impossible operation like "Find the largest integer in existence" or "Divide by zero" violates effectiveness.
+
+3. ADDITIONAL DESIRABLE QUALITIES OF PRODUCTION ALGORITHMS:
+   - Language Independence: An algorithm should be written in clean logic/English so it
+     can be implemented in Python, C++, Java, or JavaScript equally.
+   - Time & Space Efficiency: Consuming minimum CPU execution time (Time Complexity)
+     and minimum memory (Space Complexity).
+   - Generality: The algorithm should handle any valid input within the problem domain,
+     not just one hardcoded instance.
+
+4. STEP-BY-STEP ALGORITHM FORMULATION TEMPLATE:
+   Step 1: Start
+   Step 2: Read / Input required variables (e.g., A, B)
+   Step 3: Perform calculations or conditional checks (e.g., Sum = A + B)
+   Step 4: Output the result (e.g., Display Sum)
+   Step 5: Stop / End
+================================================================================

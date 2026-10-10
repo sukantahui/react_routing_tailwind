@@ -1,0 +1,89 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: FUNDAMENTAL LOGIC OPERATIONS (NOT, AND, OR)
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. INTRODUCTION TO BOOLEAN LOGIC & BINARY PROPOSITIONS
+--------------------------------------------------------------------------------
+* Boolean Logic is a branch of algebra named after English mathematician George Boole (1854).
+* It deals with binary variables (variables that can take only two values: True/1 or False/0).
+* A Proposition is a declarative statement that is definitely either True or False, but not both.
+  - Example: "Python is a programming language" -> TRUE (1)
+  - Example: "7 is an even integer" -> FALSE (0)
+  - Non-proposition: "Where are you going?" (Cannot be assigned True/False).
+
+2. THE THREE FUNDAMENTAL BOOLEAN OPERATIONS
+--------------------------------------------------------------------------------
+There are three fundamental operations upon which all Boolean algebra and digital computing are built:
+
+(A) LOGICAL NOT (Inversion / Complementation / Negation)
+* Unary Operator: Operates on a SINGLE binary variable.
+* Symbol: Overbar (A'), Apostrophe (A'), or Tilde (~A), or Exclamation mark (!A).
+* Boolean Equation: Y = A' (or Y = ~A)
+* Definition: Outputs 1 if input is 0; outputs 0 if input is 1.
+* Physical Equivalent: An inverter switch or normally closed relay.
+* Truth Table:
+    Input A | Output Y = A'
+    --------+--------------
+       0    |      1
+       1    |      0
+
+(B) LOGICAL AND (Conjunction / Boolean Multiplication)
+* Binary Operator: Operates on TWO or MORE variables.
+* Symbol: Dot (.) or juxtaposition (AB).
+* Boolean Equation: Y = A . B
+* Definition: Output is 1 (True) IF AND ONLY IF ALL inputs are 1. If any input is 0, the output is 0.
+* Physical Circuit Equivalent: Switches connected in SERIES.
+  (Current flows to light up the bulb only if BOTH Switch A AND Switch B are CLOSED).
+* Truth Table (2-Variable):
+    A | B | Y = A . B
+    --+---+----------
+    0 | 0 |    0
+    0 | 1 |    0
+    1 | 0 |    0
+    1 | 1 |    1
+
+(C) LOGICAL OR (Disjunction / Boolean Addition)
+* Binary Operator: Operates on TWO or MORE variables.
+* Symbol: Plus sign (+).
+* Boolean Equation: Y = A + B
+* Definition: Output is 1 (True) if AT LEAST ONE input is 1. Output is 0 only when ALL inputs are 0.
+* Physical Circuit Equivalent: Switches connected in PARALLEL.
+  (Current flows if EITHER Switch A OR Switch B is CLOSED).
+* Truth Table (2-Variable):
+    A | B | Y = A + B
+    --+---+----------
+    0 | 0 |    0
+    0 | 1 |    1
+    1 | 0 |    1
+    1 | 1 |    1
+  * CRITICAL NOTE: In Boolean Algebra, 1 + 1 = 1 (meaning True OR True is True), NOT 2 or 10_2.
+
+3. BOOLEAN OPERATOR PRECEDENCE (ORDER OF EVALUATION)
+--------------------------------------------------------------------------------
+When evaluating complex Boolean expressions without explicit parentheses:
+  1. Parentheses `( )`        - Highest priority (Inner to Outer)
+  2. NOT Operator (`'`)       - Highest operator precedence
+  3. AND Operator (`.`)       - Middle precedence
+  4. OR Operator (`+`)        - Lowest precedence
+
+Example: Evaluate Y = A + B . C' for A=0, B=1, C=1
+  Step 1: Evaluate NOT -> C' = 1' = 0
+  Step 2: Evaluate AND -> B . C' = 1 . 0 = 0
+  Step 3: Evaluate OR  -> A + 0 = 0 + 0 = 0 -> Final Y = 0.
+
+4. DIFFERENCE: LOGICAL VS BITWISE OPERATORS IN PYTHON
+--------------------------------------------------------------------------------
+* Logical Operators (`not`, `and`, `or`): Operate on truth values / boolean conditions. Short-circuit evaluation applies.
+* Bitwise Operators (`~`, `&`, `|`, `^`): Operate bit-by-bit on integer representations in binary.
+
+5. BOARD EXAM SUMMARY & GOLDEN RULES
+--------------------------------------------------------------------------------
+* Number of rows in an n-variable truth table = 2^n.
+* Series circuit switch connection represents AND operation.
+* Parallel circuit switch connection represents OR operation.
+* Complement of complement rule (Involution): (A')' = A.
+* Always apply operator precedence: NOT before AND, AND before OR.
+================================================================================

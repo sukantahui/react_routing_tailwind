@@ -1,0 +1,57 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 4: PYTHON PUNCTUATORS & DELIMITERS: (), [], {}, @, COMMA, COLON, DOT, =, ;
+================================================================================
+
+1. WHAT IS A PUNCTUATOR (DELIMITER)?
+--------------------------------------------------------------------------------
+- Definition: A Punctuator (also called a Delimiter or Separator) is a symbol that has syntactic and structural meaning in Python grammar, used to group expressions, delineate statements, index collections, and organize code block hierarchies.
+
+2. CLASSIFICATION & ROLES OF PYTHON PUNCTUATORS
+--------------------------------------------------------------------------------
+1. Parentheses `( )`:
+   - Tuple Literal: `t = (1, 2, 3)`
+   - Function Invocation / Calling: `print("Hello")`, `len(s)`
+   - Expression Precedence Grouping: `result = (a + b) * c`
+   - Function Definition Parameters: `def add(x, y):`
+
+2. Square Brackets `[ ]`:
+   - List Literal: `numbers = [10, 20, 30]`
+   - Sequence Indexing: `arr[0]`, `string[-1]`
+   - Sequence Slicing: `text[1:5:2]`
+   - List Comprehensions: `[x*2 for x in range(5)]`
+
+3. Curly Braces `{ }`:
+   - Dictionary Literal: `person = {"name": "Sita", "age": 16}`
+   - Set Literal: `unique_items = {1, 2, 3}`
+   - f-string Replacement Fields: `f"Hello, {name}!"`
+
+4. Colon `:`:
+   - Header Suite Initiator: Follows `if`, `elif`, `else`, `for`, `while`, `def`, `class`, `try`, `with` to denote the beginning of an indented block.
+   - Slicing Delimiter: `list[start:stop:step]`
+   - Dictionary Key-Value Delimiter: `{"key": "value"}`
+   - Variable Type Annotations (PEP 526): `age: int = 17`
+
+5. Comma `,`:
+   - Element Separator in Tuples, Lists, Sets, Dictionaries.
+   - Argument Separator in function calls (`print(a, b, c)`).
+   - Unpacking / Tuple Assignment: `x, y = 10, 20`
+   - Single-element Tuple Trailing Comma: `t = (5,)`
+
+6. Dot / Period `.`:
+   - Attribute and Method Access: `string.upper()`, `math.sqrt(25)`
+   - Floating-Point Fractional Point: `3.14159`
+
+7. Semicolon `;`:
+   - Statement Delimiter: Used to place multiple short statements on a single line (e.g. `a = 1; b = 2`). (Note: Discouraged by PEP 8 style guide).
+
+8. At Symbol `@`:
+   - Decorator Marker: Placed before function/class definitions (`@property`, `@staticmethod`).
+   - Matrix Multiplication Operator (PEP 465).
+
+9. Assignment & Augmented Assignment Operators:
+   - Simple Assignment: `=`
+   - Augmented / In-place Assignment: `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`, `&=`, `|=`, `^=`, `<<=`, `>>=`
+
+================================================================================

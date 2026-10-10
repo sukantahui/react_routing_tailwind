@@ -1,0 +1,49 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROBLEM SOLVING
+TOPIC 8: DOWNLOADABLE DOCUMENTS & REVISION MASTER HANDBOOK
+================================================================================
+
+1. COMPREHENSIVE REVISION SUMMARY FOR UNIT 2
+--------------------------------------------------------------------------------
+This module synthesizes the essential theoretical foundations, problem-solving
+lifecycles, flowchart conventions, pseudocode standards, and dry-run execution
+guidelines required for the CBSE Class 11 Computer Science (083) annual exam.
+
+2. PROBLEM-SOLVING PHASES QUICK RECAP
+--------------------------------------------------------------------------------
+Phase 1: Problem Analysis (Determine Input, Output, and Constraints)
+Phase 2: Algorithm Development (Step-by-step logic design)
+Phase 3: Flowchart & Pseudocode Representation (Visual & structured textual blueprint)
+Phase 4: Coding / Implementation (Translating logic into Python 3)
+Phase 5: Testing & Debugging (Dry run desk-checking and runtime testing)
+Phase 6: Documentation & Maintenance
+
+3. THE 4 PILLARS OF COMPUTATIONAL THINKING
+--------------------------------------------------------------------------------
+- Decomposition: Breaking complex problems into manageable sub-modules.
+- Pattern Recognition: Spotting shared structures, series, and repetitive behaviors.
+- Abstraction: Focusing on essential properties while ignoring low-level irrelevant noise.
+- Algorithm Design: Developing step-by-step unambiguous execution instructions.
+
+4. FLOWCHART ANSI SYMBOLS RECAP
+--------------------------------------------------------------------------------
+- Terminal (Oval / Stadium): Start / Stop
+- Input / Output (Parallelogram): Read / Print
+- Process (Rectangle): Arithmetic Calculation & Variable Assignments
+- Decision (Rhombus / Diamond): Conditional branching with labeled True/False flow lines
+- On-Page Connector (Circle): Links separate paths on the same page
+- Off-Page Connector (Pentagon): Links flowchart segments across page boundaries
+- Flow Line (Arrowed Line): Directional execution path (top-to-bottom, left-to-right)
+
+5. PSEUDOCODE KEYWORD CONVENTIONS
+--------------------------------------------------------------------------------
+- INPUT, READ, GET
+- OUTPUT, PRINT, DISPLAY
+- SET, ASSIGN
+- IF ... THEN ... ELSE ... ENDIF
+- WHILE ... DO ... ENDWHILE
+- FOR ... DO ... ENDFOR
+- REPEAT ... UNTIL
+
+================================================================================

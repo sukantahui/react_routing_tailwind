@@ -29,8 +29,8 @@ if exist "%LOCALAPPDATA%\Programs\Antigravity IDE\Antigravity IDE.exe" (
 )
 
 :: 4. Launch VS Code
-echo 💻 Launching VS Code...
-start "" code "%~dp0"
+:: echo 💻 Launching VS Code...
+:: start "" code "%~dp0"
 
 :: 5. Wait for Vite dev server to boot
 echo ⏳ Waiting 3 seconds for Vite server...

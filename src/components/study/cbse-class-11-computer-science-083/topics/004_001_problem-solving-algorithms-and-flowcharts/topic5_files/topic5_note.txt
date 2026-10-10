@@ -1,0 +1,71 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROBLEM SOLVING
+TOPIC 5: DEVELOPING FLOWCHARTS FOR SEQUENTIAL, DECISION-MAKING, AND ITERATIVE PROBLEMS
+================================================================================
+
+1. THE THREE FUNDAMENTAL CONTROL STRUCTURES (BÖHM-JACOPINI THEOREM)
+--------------------------------------------------------------------------------
+In 1966, mathematicians Corrado Böhm and Giuseppe Jacopini proved that ANY computable algorithm can be expressed using combinations of only three fundamental control structures:
+  1. Sequence (Sequential Execution)
+  2. Selection (Decision-Making / Conditional Branching)
+  3. Iteration (Repetition / Looping)
+
+2. SEQUENTIAL CONTROL STRUCTURE (SEQUENCE)
+--------------------------------------------------------------------------------
+- Definition: Instructions are executed linearly, one after another, in the exact order they appear, without jumping, skipping, or repeating any step.
+- In-degree / Out-degree: Every operational symbol (Input/Output parallelogram, Process rectangle) has exactly 1 entry line and 1 exit line.
+- Typical Problems:
+  * Sum, Difference, Product, and Quotient of two numbers.
+  * Area and Perimeter of a circle or rectangle.
+  * Simple Interest and Compound Interest calculation.
+  * Celsius to Fahrenheit temperature conversion (F = (C * 9/5) + 32).
+  * Swapping two variable values using a temporary third variable.
+
+3. DECISION-MAKING / SELECTION CONTROL STRUCTURE (SELECTION)
+--------------------------------------------------------------------------------
+- Definition: The execution path branches into two or more distinct streams depending on whether a conditional Boolean expression evaluates to True or False.
+- Standard Flowchart Representation:
+  * A Rhombus / Diamond symbol with 1 incoming flow line and 2 outgoing lines.
+  * Each outgoing branch MUST be explicitly annotated with 'True'/'False' or 'Yes'/'No'.
+- Types of Decision Structures:
+  a) Single Alternative (If-Then):
+     Action executed only if condition is True; otherwise bypassed.
+  b) Dual Alternative (If-Then-Else):
+     One action executed if True, alternate action executed if False.
+     (e.g., Check Even or Odd; Check Positive, Negative, or Zero).
+  c) Multiple Alternative / Nested Decision:
+     A decision diamond inside another branch.
+     (e.g., Find largest of three numbers A, B, C; Calculate Electricity Bill slabs; Leap Year testing).
+
+4. ITERATIVE CONTROL STRUCTURE (REPETITION / LOOPS)
+--------------------------------------------------------------------------------
+- Definition: A sequence of instructions is executed repeatedly until a specific termination condition is satisfied.
+- Essential Components of Every Iterative Loop:
+  1. Initialization: Setting the loop counter or accumulator variable to its starting value (e.g., i = 1, sum = 0).
+  2. Condition Test (Exit Condition): A decision diamond checking whether the loop should continue or terminate (e.g., is i <= N ?).
+  3. Body of Loop (Action/Process): The computations performed during each cycle.
+  4. Updation (Step Increment / Decrement): Modifying the loop variable (e.g., i = i + 1) to ensure the loop progresses towards the termination condition.
+- Classification by Test Position:
+  * Entry-Controlled Loop (Pre-test Loop): Condition tested BEFORE entering the loop body (e.g., Python `while` loop, `for` loop). If false initially, loop body executes 0 times.
+  * Exit-Controlled Loop (Post-test Loop): Condition tested AFTER executing the loop body at least once (e.g., `do-while` in C++/Java).
+
+5. CLASSIC BOARD EXAM FLOWCHART PATTERNS
+--------------------------------------------------------------------------------
+Pattern A: Factorial of N (N! = 1 * 2 * 3 * ... * N)
+  1. Start -> Read N
+  2. fact = 1, i = 1
+  3. Decision: is i <= N?
+     - True: fact = fact * i -> i = i + 1 -> Loop back to Decision
+     - False: Display fact -> Stop
+
+Pattern B: Check if N is Prime
+  1. Start -> Read N
+  2. If N <= 1 -> Display "Not Prime" -> Stop
+  3. d = 2, is_prime = True
+  4. Decision: is d * d <= N?
+     - True: If N % d == 0 -> is_prime = False -> Break loop
+             Else -> d = d + 1 -> Loop back
+     - False: If is_prime == True -> Display "Prime" Else Display "Not Prime" -> Stop
+
+================================================================================

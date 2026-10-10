@@ -1,0 +1,70 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: POSTULATES AND LAWS OF BOOLEAN LOGIC
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. POSTULATES OF BOOLEAN ALGEBRA (HUNTINGTON POSTULATES)
+--------------------------------------------------------------------------------
+Postulate 1 (Closure):
+  For any elements A, B in set K, both (A + B) and (A · B) belong to K.
+
+Postulate 2 (Identity Elements):
+  (a) Identity element for OR is 0:  A + 0 = A
+  (b) Identity element for AND is 1: A · 1 = A
+
+Postulate 3 (Commutative Laws):
+  (a) A + B = B + A
+  (b) A · B = B · A
+
+Postulate 4 (Distributive Laws):
+  (a) A · (B + C) = (A · B) + (A · C)   [AND distributes over OR]
+  (b) A + (B · C) = (A + B) · (A + C)   [OR distributes over AND - Note: Unique to Boolean Algebra!]
+
+Postulate 5 (Complement Laws):
+  For every element A, there exists a unique complement A' such that:
+  (a) A + A' = 1
+  (b) A · A' = 0
+
+2. FUNDAMENTAL THEOREMS OF BOOLEAN ALGEBRA
+--------------------------------------------------------------------------------
+(A) Idempotent Law:
+  (a) A + A = A
+  (b) A · A = A
+
+(B) Boundedness / Null / Dominance Law:
+  (a) A + 1 = 1
+  (b) A · 0 = 0
+
+(C) Involution Law (Double Inversion):
+  (A')' = A
+
+(D) Associative Law:
+  (a) (A + B) + C = A + (B + C)
+  (b) (A · B) · C = A · (B · C)
+
+(E) Absorption Laws (Crucial for Simplification):
+  (a) A + (A · B) = A
+      Proof: A + AB = A·1 + AB = A·(1 + B) = A·1 = A
+  (b) A · (A + B) = A
+      Proof: A·A + A·B = A + AB = A
+  (c) A + A'B = A + B
+      Proof: (A + A')(A + B) = 1 · (A + B) = A + B
+  (d) A · (A' + B) = AB
+      Proof: A·A' + A·B = 0 + AB = AB
+
+3. STEP-BY-STEP ALGEBRAIC REDUCTION EXAMPLE
+--------------------------------------------------------------------------------
+Simplify: F = AB + A(B + C) + B(B + C)
+  Step 1: Expand brackets using Distributive Law:
+          F = AB + AB + AC + BB + BC
+  Step 2: Apply Idempotent Law (AB + AB = AB, and BB = B):
+          F = AB + AC + B + BC
+  Step 3: Group terms containing B:
+          F = B(A + 1 + C) + AC
+  Step 4: Apply Null Law (A + 1 + C = 1):
+          F = B(1) + AC
+  Step 5: Apply Identity Law:
+          F = B + AC (Simplified Minimal SOP Expression).
+================================================================================

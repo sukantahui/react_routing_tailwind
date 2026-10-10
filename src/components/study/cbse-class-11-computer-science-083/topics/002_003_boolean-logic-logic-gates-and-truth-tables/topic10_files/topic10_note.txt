@@ -1,0 +1,67 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+MODULE 002: BOOLEAN LOGIC, POSTULATES, LOGIC GATES & CIRCUIT DESIGN
+COMPLETE REVISION HANDBOOK & FORMULA CHEAT SHEET
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. SYLLABUS OVERVIEW & MARKS DISTRIBUTION
+--------------------------------------------------------------------------------
+* Subject: Computer Science (083) - Class XI
+* Unit I: Computer Systems & Organisation (10 Marks Theory)
+* Weightage of Boolean Logic & Gates: ~3 to 5 Marks (MCQs, Proofs, Circuit Diagrams)
+
+2. CORE FORMULA & TRUTH TABLE SUMMARY
+--------------------------------------------------------------------------------
+Gate Name | Graphic Symbol Shape | Boolean Equation | Condition for Output = 1 | TTL IC
+----------+----------------------+------------------+--------------------------+-------
+NOT Gate  | Triangle + Bubble    | Y = A'           | Input is 0               | 7404
+AND Gate  | Flat back, curved    | Y = A · B        | ALL inputs are 1         | 7408
+OR Gate   | Curved back, pointed | Y = A + B        | AT LEAST ONE input is 1  | 7432
+NAND Gate | AND shape + Bubble   | Y = (A · B)'     | ANY input is 0           | 7400
+NOR Gate  | OR shape + Bubble    | Y = (A + B)'     | ALL inputs are 0         | 7402
+XOR Gate  | Arch + OR shape      | Y = A ⊕ B        | Inputs are DIFFERENT     | 7486
+XNOR Gate | Arch + OR + Bubble   | Y = (A ⊕ B)'     | Inputs are IDENTICAL     | 74266
+
+3. UNIVERSAL GATE REALIZATION CHEAT SHEET
+--------------------------------------------------------------------------------
+Target Gate | Realization using NAND (IC 7400)      | Realization using NOR (IC 7402)
+------------+---------------------------------------+----------------------------------
+NOT Gate    | 1 Gate : (A · A)' = A'                | 1 Gate : (A + A)' = A'
+AND Gate    | 2 Gates: ((A · B)')' = A · B          | 3 Gates: (A' + B')' = A · B
+OR Gate     | 3 Gates: (A' · B')' = A + B           | 2 Gates: ((A + B)')' = A + B
+XOR Gate    | 4 Gates: A'B + AB'                    | 5 Gates: (A+B)(A'+B')
+XNOR Gate   | 5 Gates: AB + A'B'                    | 4 Gates: (A+B')(A'+B)
+
+4. BOOLEAN POSTULATES & THEOREMS CATALOGUE
+--------------------------------------------------------------------------------
+1. Identity Laws:       A + 0 = A            | A · 1 = A
+2. Null / Boundedness:  A + 1 = 1            | A · 0 = 0
+3. Idempotent Laws:     A + A = A            | A · A = A
+4. Complement Laws:     A + A' = 1           | A · A' = 0
+5. Involution Law:      (A')' = A
+6. Commutative Laws:    A + B = B + A        | A · B = B · A
+7. Associative Laws:    (A+B)+C = A+(B+C)    | (A·B)·C = A·(B·C)
+8. Distributive Laws:   A(B+C) = AB + AC     | A + BC = (A+B)(A+C)
+9. Absorption Laws:     A + AB = A           | A(A+B) = A
+                        A + A'B = A + B      | A(A'+B) = AB
+10. De Morgan's 1st Law:(A + B)' = A' · B'   (NOR == Bubbled AND)
+11. De Morgan's 2nd Law:(A · B)' = A' + B'   (NAND == Bubbled OR)
+
+5. DUALITY PRINCIPLE RULES
+--------------------------------------------------------------------------------
+Rule 1: Interchange '+' (OR) and '·' (AND).
+Rule 2: Interchange constants '0' and '1'.
+Rule 3: Keep variable letters and their complements UNCHANGED!
+
+6. ARITHMETIC DIGITAL CIRCUITS
+--------------------------------------------------------------------------------
+(A) Half Adder (2 inputs: A, B):
+    - Sum   = A ⊕ B
+    - Carry = A · B
+
+(B) Full Adder (3 inputs: A, B, Cin):
+    - Sum  = A ⊕ B ⊕ Cin
+    - Cout = AB + Cin · (A ⊕ B)
+================================================================================

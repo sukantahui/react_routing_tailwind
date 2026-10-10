@@ -1,0 +1,54 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 8: DYNAMIC TYPING IN PYTHON: VARIABLE REBINDING ACROSS DATA TYPES
+================================================================================
+
+1. WHAT IS DYNAMIC TYPING?
+--------------------------------------------------------------------------------
+- Definition: Dynamic Typing is a language property where variable types are checked and resolved at RUNTIME rather than during compile time.
+- In Python, data types are attached strictly to the DATA OBJECTS in heap memory, NOT to the variable identifier names.
+- A variable does not have a fixed, static type declaration (e.g. no `int x;` is needed).
+- A variable can freely point to an integer at one moment, and later be rebound to a string, float, list, or dictionary during program execution.
+
+2. STATIC TYPING VS DYNAMIC TYPING COMPARISON
+--------------------------------------------------------------------------------
+Feature               | Static Typing (C, C++, Java)         | Dynamic Typing (Python)
+----------------------+--------------------------------------+-------------------------------------
+Type Declaration      | Mandatory (e.g. `int score = 90;`)    | None (e.g. `score = 90`)
+Type Bound To         | The Variable Container               | The Memory Object
+Rebinding to New Type | Illegal (Raises Compile Error)       | 100% Legal at Runtime
+Type Checking Time    | Compile-Time                         | Run-Time
+Flexibility           | Lower                                | Very High
+
+3. MEMORY REBINDING MECHANICS
+--------------------------------------------------------------------------------
+Example:
+  Line 1: `x = 10`
+          -> Memory creates an `<int 10>` object.
+          -> Tag `x` points to `<int 10>` (`type(x)` is `int`).
+  Line 2: `x = "Python"`
+          -> Memory creates a new `<str 'Python'>` object.
+          -> Tag `x` is detached from `<int 10>` and rebound to `<str 'Python'>`.
+          -> `type(x)` dynamically becomes `str`.
+          -> Old `<int 10>` reference count decreases by 1.
+
+4. TYPE INTROSPECTION FUNCTIONS
+--------------------------------------------------------------------------------
+1. `type(object)`:
+   - Returns the exact class type of the object currently bound to the variable.
+   - Example: `type(42)` -> `<class 'int'>`, `type(3.14)` -> `<class 'float'>`.
+
+2. `isinstance(object, class_or_tuple)`:
+   - Returns `True` if the object is an instance of the specified class (or a subclass).
+   - Example: `isinstance(42, int)` -> `True`, `isinstance(True, int)` -> `True` (since `bool` inherits from `int`).
+
+5. DYNAMIC TYPING PITFALLS (TYPE MISMATCHES)
+--------------------------------------------------------------------------------
+- Strong Typing: Python is dynamically typed, but it is also STRONGLY TYPED.
+  * Python does NOT automatically coerce incompatible types in operations.
+  * Attempting `"Score: " + 95` raises:
+    `TypeError: can only concatenate str (not "int") to str`.
+  * Fix: Explicit type conversion via `str(95)`: `"Score: " + str(95)`.
+
+================================================================================

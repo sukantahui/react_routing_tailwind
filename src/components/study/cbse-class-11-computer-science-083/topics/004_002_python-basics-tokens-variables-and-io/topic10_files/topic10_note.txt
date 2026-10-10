@@ -1,0 +1,59 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 10: STANDARD CONSOLE INPUT: input() FUNCTION & EXPLICIT TYPE CONVERSIONS
+================================================================================
+
+1. THE `input()` BUILT-IN FUNCTION
+--------------------------------------------------------------------------------
+- Definition: The `input([prompt])` function pauses program execution and accepts a line of text entered by the user from the standard input console (keyboard), terminating when the user presses the Enter key.
+- The `prompt` parameter is an optional string printed to screen before waiting for input (e.g. `name = input("Enter your name: ")`).
+- UNIVERSAL LAW OF PYTHON INPUT:
+  `input()` ALWAYS RETURNS A STRING (`<class 'str'>`), regardless of whether the user typed letters, digits, floats, or booleans!
+
+2. THE CLASSIC BOARD EXAM INPUT CONCATENATION TRAP
+--------------------------------------------------------------------------------
+Consider:
+  `num1 = input("Enter first number: ")`   # User types: 10 -> '10' (str)
+  `num2 = input("Enter second number: ")`  # User types: 20 -> '20' (str)
+  `print(num1 + num2)`                     # Output: '1020' (String Concatenation!)
+
+- Explanation: Because `num1` and `num2` are strings, the `+` operator acts as a String Concatenation operator rather than numeric addition.
+
+3. EXPLICIT TYPE CONVERSION (TYPECASTING) TECHNIQUES
+--------------------------------------------------------------------------------
+To perform mathematical computations, strings from `input()` must be explicitly converted:
+
+A) Converting to Integer:
+   `age = int(input("Enter age: "))`
+   - Raises `ValueError` if user inputs non-digit characters (e.g. `'abc'` or `'15.5'`).
+
+B) Converting to Floating-Point Number:
+   `price = float(input("Enter item price: "))`
+   - Accepts integers, floats, and scientific notation (e.g. `'45'`, `'99.50'`, `'1.5e2'`).
+
+C) Dynamic Expression Evaluation via `eval()`:
+   `val = eval(input("Enter expression or number: "))`
+   - Evaluates the input as a Python expression (e.g., `'10 + 5'` becomes `15`, `'[1, 2, 3]'` becomes a list).
+   - Note: Use with caution as `eval()` can execute arbitrary code.
+
+4. ACCEPTING MULTIPLE INPUTS ON A SINGLE LINE
+--------------------------------------------------------------------------------
+Technique 1: Using `split()` for multiple strings:
+  `first, last = input("Enter first and last name: ").split()`
+
+Technique 2: Using `map()` with `split()` for multiple numbers:
+  `a, b, c = map(int, input("Enter 3 integers separated by spaces: ").split())`
+
+Technique 3: Reading a space-separated list of numbers:
+  `num_list = [int(x) for x in input("Enter numbers: ").split()]`
+
+5. COMMON INPUT ERRORS
+--------------------------------------------------------------------------------
+1. `ValueError: invalid literal for int() with base 10: '12.5'`
+   - Attempting to pass a floating-point string directly to `int()`.
+   - Fix: Use `int(float(input()))` or `float(input())`.
+2. `ValueError: not enough values to unpack`
+   - User entered fewer items than the `split()` unpacking targets expected.
+
+================================================================================

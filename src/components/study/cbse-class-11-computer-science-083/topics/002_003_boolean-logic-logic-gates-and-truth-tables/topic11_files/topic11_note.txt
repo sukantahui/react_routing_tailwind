@@ -1,0 +1,59 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC 11: PRACTICE YOUR SKILL HERE - 30-MARK BOARD EXAMINATION CHALLENGE
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+SECTION A: HIGH-YIELD SUBJECTIVE QUESTIONS & MODEL ANSWERS (15 MARKS)
+--------------------------------------------------------------------------------
+
+[Q1] Prove algebraically that A + A'B = A + B. (2 Marks)
+Answer:
+  LHS = A + A'B
+      = (A + A')(A + B)       [By Distributive Law: X + YZ = (X + Y)(X + Z)]
+      = (1) · (A + B)         [By Complement Law: A + A' = 1]
+      = A + B                 [By Identity Law: 1 · X = X]
+      = RHS (Hence Proved).
+
+[Q2] Why are NAND and NOR gates called Universal Gates? Draw the logic circuit to realize an OR gate using only NAND gates. (3 Marks)
+Answer:
+  (a) Definition (1 Mark):
+      NAND and NOR gates are called universal gates because any other fundamental Boolean logic gate (NOT, AND, OR) and any combinational logic circuit can be constructed entirely using only NAND gates or only NOR gates without requiring any other gate type.
+  (b) Realization of OR gate using NAND (2 Marks):
+      - Gate 1: Invert A using NAND-1 -> A' = (A · A)'
+      - Gate 2: Invert B using NAND-2 -> B' = (B · B)'
+      - Gate 3: Feed A' and B' into NAND-3 -> Y = (A' · B')'
+      - Algebraic Proof: By De Morgan's Law, Y = (A')' + (B')' = A + B.
+
+[Q3] State and prove De Morgan's First Law using a truth table. (3 Marks)
+Answer:
+  (a) Statement (1 Mark):
+      "The complement of a Boolean sum is equal to the product of individual complements: (A + B)' = A' · B'."
+  (b) Truth Table Proof (2 Marks):
+      A | B | A+B | (A+B)' (LHS) | A' | B' | A'·B' (RHS)
+      --+---+-----+--------------+----+----+------------
+      0 | 0 |  0  |      1       | 1  | 1  |     1
+      0 | 1 |  1  |      0       | 1  | 0  |     0
+      1 | 0 |  1  |      0       | 0  | 1  |     0
+      1 | 1 |  1  |      0       | 0  | 0  |     0
+      Since the column for LHS is identical to the column for RHS for all rows, the law is proved by the Method of Perfect Induction.
+
+[Q4] Write the dual of the following Boolean expressions: (2 Marks)
+  (a) A + B' · C + 0
+  (b) (X + Y) · (X' + Z) = XZ + X'Y
+Answer:
+  (a) Dual = A · (B' + C) · 1 = A(B' + C)
+  (b) Dual = (X · Y) + (X' · Z) = (X + Z) · (X' + Y)
+
+[Q5] Draw the logic circuit diagram for the Boolean function: F(A, B, C) = (A + B') · (A' + C) · B (3 Marks)
+Answer:
+  - Level 1: Inverter 1 produces B', Inverter 2 produces A'.
+  - Level 2: OR Gate 1 combines (A, B') -> G1; OR Gate 2 combines (A', C) -> G2.
+  - Level 3: 3-Input AND Gate combines G1, G2, and B to produce output F.
+
+[Q6] Write the Boolean equation for the Sum and Carry of a binary Half Adder and draw its circuit diagram. (2 Marks)
+Answer:
+  - Sum   = A ⊕ B = A'B + AB'  (XOR Gate)
+  - Carry = A · B              (AND Gate)
+================================================================================

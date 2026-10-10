@@ -1,0 +1,58 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (SUBJECT CODE: 083)
+SEGMENT 3: EMERGING TRENDS IN COMPUTING [ENRICHMENT MODULE]
+TOPIC 1: ARTIFICIAL INTELLIGENCE (AI) - DEFINITION, HISTORY & TYPES
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. WHAT IS ARTIFICIAL INTELLIGENCE (AI)?
+--------------------------------------------------------------------------------
+* Artificial Intelligence (AI) is a branch of Computer Science dedicated to creating systems, algorithms, and machines capable of performing tasks that normally require human intelligence.
+* Key Cognitive Capabilities of AI:
+  - Perception (Computer Vision, Speech Recognition)
+  - Reasoning & Deductive Logic (Inference Engines, Expert Systems)
+  - Learning & Adaptation (Machine Learning, Neural Networks)
+  - Problem Solving & Planning (Search Algorithms, Game Theory)
+  - Natural Language Understanding (NLP, Sentiment Analysis)
+
+2. HISTORICAL MILESTONES IN AI
+--------------------------------------------------------------------------------
+* 1950 - Alan Turing: Proposed the famous "Turing Test" (Imitation Game) to evaluate whether a machine can exhibit indistinguishable human intelligence.
+* 1956 - John McCarthy: Coined the term "Artificial Intelligence" at the Dartmouth Summer Research Project on Artificial Intelligence. Known as the "Father of AI".
+* 1966 - ELIZA: First natural language conversational program (Joseph Weizenbaum).
+* 1997 - IBM Deep Blue: Defeated reigning World Chess Champion Garry Kasparov.
+* 2016 - Google DeepMind AlphaGo: Defeated World Go Champion Lee Sedol using Deep Reinforcement Learning.
+* 2022+ - Generative AI & Large Language Models: Transformer architectures powering modern conversational AI (ChatGPT, Gemini, Claude).
+
+3. THE THREE LEVELS OF ARTIFICIAL INTELLIGENCE
+--------------------------------------------------------------------------------
+(A) Artificial Narrow Intelligence (ANI / Weak AI):
+    - Dedicated to ONE specific task or narrow domain.
+    - Cannot generalize beyond its programmed domain.
+    - All currently existing AI systems are Weak / Narrow AI.
+    - Examples: Apple Siri, Google Maps navigation, Spam filters, Chess engines, Medical diagnostic scanners.
+
+(B) Artificial General Intelligence (AGI / Strong AI):
+    - Hypothetical future AI possessing human-level cognitive versatility.
+    - Can learn, reason, comprehend context, solve unfamiliar problems, and transfer knowledge across unrelated domains like a human brain.
+    - Currently in active global scientific research.
+
+(C) Artificial Superintelligence (ASI):
+    - Theoretical evolutionary stage where machine intelligence surpasses the collective intellectual capabilities of all human minds combined across every field (science, arts, emotional intelligence).
+
+4. COMPONENTS OF AN EXPERT SYSTEM
+--------------------------------------------------------------------------------
+An Expert System is an AI program that emulates the decision-making ability of a human specialist.
+Composed of three primary components:
+1. Knowledge Base: Repository of domain-specific facts, rules (IF-THEN statements), and heuristics provided by human domain experts.
+2. Inference Engine: The reasoning brain that applies logical rules to user-supplied facts to deduce conclusions.
+3. User Interface: Allows non-expert users to query the system and receive expert recommendations with explanations.
+* Examples: MYCIN (medical diagnosis for bacterial blood infections), DENDRAL (chemical structure analysis).
+
+5. REAL-WORLD APPLICATIONS OF AI
+--------------------------------------------------------------------------------
+* Healthcare: MRI/CT tumor detection, genomic drug discovery, robotic surgical assistants.
+* Transportation: Autonomous self-driving vehicles (Tesla, Waymo), automated air traffic management.
+* Finance: Algorithmic high-frequency trading, automated fraud transaction detection.
+* E-Commerce: Personalized product recommendation engines (Amazon, Netflix).
+================================================================================

@@ -1,0 +1,66 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 4: IMMERSIVE EXPERIENCES - AUGMENTED REALITY (AR), VIRTUAL REALITY (VR) & MIXED REALITY (MR)
+================================================================================
+
+1. WHAT ARE IMMERSIVE EXPERIENCES?
+   - Immersive technologies create synthetic, multi-sensory digital simulations
+     that alter or replace a user's perception of the physical environment.
+   - They leverage 3D computer graphics, spatial audio, haptic feedback,
+     accelerometers, gyroscopes, and depth sensors to give a sense of presence.
+
+2. THE REALITY-VIRTUALITY CONTINUUM (Milgram's Model):
+   Real Environment <---- Augmented Reality (AR) ---- Mixed Reality (MR) ---- Augmented Virtuality ----> Virtual Reality (VR)
+
+3. AUGMENTED REALITY (AR):
+   - Definition: A technology that overlays computer-generated digital visual/audio elements
+     (such as 3D graphics, text, animation) onto the real-world view in real time.
+   - Core Features:
+     * Real-world environment remains directly visible.
+     * Digital content is super-imposed onto the physical world.
+     * Accessible via standard smartphones, tablets, HUDs, or AR smart glasses.
+   - Examples & Use Cases:
+     * Pokémon GO (placing creatures on real roads/parks via camera).
+     * IKEA Place (previewing 3D furniture models inside living rooms before purchase).
+     * Google Lens (translating physical signboards in real time).
+
+4. VIRTUAL REALITY (VR):
+   - Definition: A completely synthetic, computer-generated 3D artificial environment
+     that totally shuts out the physical world and immerses the user inside a simulation.
+   - Core Features:
+     * User wears an opaque Head-Mounted Display (HMD) with dual high-refresh-rate displays.
+     * Total visual and auditory isolation from physical surroundings.
+     * Senses manipulated through spatial audio, motion controllers, and haptic gloves.
+   - Examples & Use Cases:
+     * Flight simulation and combat training for pilots and defense forces.
+     * Complex surgical rehearsals for medical doctors.
+     * Immersive 3D video gaming (Meta Quest, PlayStation VR, HTC Vive).
+
+5. MIXED REALITY (MR / EXTENDED REALITY - XR):
+   - Definition: An advanced hybrid state where physical and digital elements co-exist
+     and interact with each other in real time.
+   - Core Features:
+     * Digital objects are anchored to physical geometry (tables, walls, floors).
+     * Real objects can occlude (hide) virtual objects.
+     * Interactive physics: A virtual ball bounces realistically off an actual physical table.
+   - Examples: Microsoft HoloLens 2, Apple Vision Pro, Magic Leap.
+
+6. TRACKING CONCEPTS IN IMMERSIVE HARDWARE:
+   A. 3-DoF (Three Degrees of Freedom):
+      - Tracks rotational movements only: Pitch (up/down), Yaw (left/right), Roll (tilt).
+      - User can look around from a fixed stationary point, but cannot walk.
+   B. 6-DoF (Six Degrees of Freedom):
+      - Tracks 3 Rotational axes + 3 Translational axes (X: left/right, Y: up/down, Z: forward/backward).
+      - Allows true 'room-scale' movement where walking in reality translates into walking in 3D space.
+
+7. SUMMARY COMPARISON TABLE FOR BOARD EXAMINATIONS:
+   -----------------------------------------------------------------------------------------
+   Parameter            Augmented Reality (AR)    Virtual Reality (VR)     Mixed Reality (MR)
+   -----------------------------------------------------------------------------------------
+   Environment          Real world with overlays  100% synthetic artificial Hybrid physical & virtual
+   Visual Isolation     None (Real world visible) Complete isolation        Blended passthrough
+   Hardware Device      Smartphones, AR glasses   Opaque HMDs (Oculus/Vive) Spatial headsets (HoloLens)
+   Digital Interaction  Static overlay on screen  Interacts inside VR world Virtual interacts with physical
+   -----------------------------------------------------------------------------------------
+================================================================================

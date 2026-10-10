@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT 2
+TOPIC 13: PRACTICE YOUR SKILL HERE - BOARD EXAM ARENA & PRACTICAL DRILLS
+================================================================================
+Teacher & Author: Sukanta Hui
+
+SECTION A: COMMON PRACTICAL LAB ASSIGNMENTS
+--------------------------------------------------------------------------------
+1. Interactive Biodata Formatter:
+   - Accept student's name, grade, age, marks in 5 subjects using input().
+   - Cast numeric inputs with float() and int().
+   - Compute total, average, and percentage.
+   - Display a formatted grade sheet using print() with custom sep and end.
+
+2. Identifier and Keyword Analyzer:
+   - Given a list of arbitrary user-entered strings, classify each into:
+     (a) Valid Python Identifier
+     (b) Reserved Python Keyword
+     (c) Invalid Identifier (stating reason: starts with digit, special char, etc.)
+
+3. l-value and r-value Assignment Diagnostic:
+   - Identify syntax errors in code snippets without executing them:
+     * `a = 10` -> Valid
+     * `10 = a` -> Invalid (Literal cannot be l-value)
+     * `x + 5 = y` -> Invalid (Expression cannot be l-value)
+     * `p, q = 10, 20` -> Valid (Tuple unpacking)
+
+4. Console Separator Matrix:
+   - Predict the exact terminal output for nested print statements with custom
+     `sep` and `end` parameters.
+
+SECTION B: CBSE 70-MARK THEORY PAPER BREAKDOWN FOR UNIT 2
+--------------------------------------------------------------------------------
+- Section A (1-Mark MCQs): 4 to 6 questions directly on tokens, keywords, valid identifiers, output tracing of print(sep, end), and l-value rules.
+- Section B (2-Mark Short Answer): Explaining dynamic typing with id(), difference between interactive & script mode, or single-line comments vs docstrings.
+- Section C (3-Mark Questions): Tracing variable re-binding and memory references, finding and correcting syntax errors in assignment statements.
+- Practical Exam (30 Marks): Python script writing, viva voce on tokens & memory model, and practical record file maintenance.
+================================================================================

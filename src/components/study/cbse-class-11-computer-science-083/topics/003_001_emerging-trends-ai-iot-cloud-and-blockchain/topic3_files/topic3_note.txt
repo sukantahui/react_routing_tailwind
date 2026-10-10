@@ -1,0 +1,77 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 3: NATURAL LANGUAGE PROCESSING (NLP), SPEECH RECOGNITION & CHATBOTS
+================================================================================
+
+1. WHAT IS NATURAL LANGUAGE PROCESSING (NLP)?
+   - Natural Language Processing (NLP) is a branch of Artificial Intelligence (AI)
+     and computational linguistics that focuses on enabling computers to understand,
+     interpret, manipulate, and generate human languages (e.g., English, Hindi, Bengali).
+   - Natural language is inherently ambiguous, context-dependent, unstructured, and
+     rich in idioms, metaphors, slang, and cultural nuances.
+
+2. CORE SUB-FIELDS OF NLP:
+   A. Natural Language Understanding (NLU):
+      - Involves parsing raw natural human language input, determining intent,
+        extracting entities, resolving ambiguity, and understanding semantic meaning.
+   B. Natural Language Generation (NLG):
+      - Involves converting structured machine data and logic into coherent,
+        grammatically correct, and human-readable natural language text.
+
+3. THE STANDARD NLP PIPELINE / STAGES OF TEXT PROCESSING:
+   Stage 1: Sentence Segmentation
+      - Breaking a continuous paragraph into distinct sentences.
+   Stage 2: Lexical Tokenization
+      - Splitting sentences into individual words, symbols, or punctuation marks (tokens).
+   Stage 3: Stop-Word Removal
+      - Filtering out extremely frequent functional words (e.g., 'the', 'is', 'at', 'which')
+        that convey little distinctive semantic value.
+   Stage 4: Stemming and Lemmatization
+      - Stemming: Cutting suffixes/prefixes using crude heuristic rules (e.g., 'studying' -> 'study').
+      - Lemmatization: Converting words to their meaningful dictionary base root (lemma)
+        using morphological vocabulary analysis (e.g., 'better' -> 'good').
+   Stage 5: Part-of-Speech (POS) Tagging
+      - Assigning grammatical labels (Noun, Verb, Adjective, Adverb) to each token.
+   Stage 6: Named Entity Recognition (NER)
+      - Identifying and categorizing key entities (Names of persons, organizations,
+        locations, monetary figures, dates).
+   Stage 7: Sentiment Analysis & Semantic Interpretation
+      - Determining overall emotional polarity (Positive, Negative, Neutral) and intent.
+
+4. SPEECH RECOGNITION (AUTOMATIC SPEECH RECOGNITION - ASR):
+   - Definition: The capability of a computer system to convert spoken acoustic waveforms
+     into digital text.
+   - Key Steps:
+     1. Sound capture via microphone & analog-to-digital conversion (ADC).
+     2. Acoustic feature extraction (MFCC - Mel Frequency Cepstral Coefficients).
+     3. Phoneme classification using Acoustic and Language Models (Hidden Markov Models / Deep Neural Nets).
+   - Examples: Apple Siri, Google Assistant, Amazon Alexa, Microsoft Cortana.
+
+5. MACHINE TRANSLATION (MT):
+   - Automated conversion of text or speech from a source language to a target language
+     while preserving context and syntax.
+   - Evolution: Rule-based MT -> Statistical MT (SMT) -> Neural Machine Translation (NMT)
+     powered by Seq2Seq Transformer neural networks (e.g., Google Translate, Bhashini).
+
+6. SENTIMENT ANALYSIS:
+   - Also known as Opinion Mining.
+   - Identifies subjective attitudes, opinions, and emotional states in social media posts,
+     customer product reviews, customer support tickets, and surveys.
+   - Classification categories: Positive, Negative, Neutral, or Multi-dimensional (Joy, Anger, Sadness).
+
+7. CHATBOTS & VIRTUAL ASSISTANTS:
+   - Software applications designed to simulate conversational interactions with human users.
+   - Types of Chatbots:
+     1. Rule-Based / Scripted Bots: Follow predefined decision trees and keyword triggers.
+        Cannot handle queries outside programmed rules.
+     2. AI & NLP-Powered Conversational Agents: Use Large Language Models (LLMs) and
+        Transformer architectures to comprehend nuance, maintain conversational context,
+        and generate dynamic contextual replies (e.g., ChatGPT, Claude, Gemini).
+
+8. IMPORTANT BOARD EXAM KEY POINTS:
+   - NLP bridges the gap between unstructured human communication and structured binary code.
+   - Difference between Stemming (heuristic cutting) and Lemmatization (vocabulary/grammatical lookup).
+   - Real-world applications: Automated spam filtering, predictive autocorrect, grammar checkers
+     (Grammarly), voice assistants, multilingual translation, and conversational chatbots.
+================================================================================

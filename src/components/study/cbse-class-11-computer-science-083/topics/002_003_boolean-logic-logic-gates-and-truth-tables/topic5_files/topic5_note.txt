@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: TRUTH TABLE CONSTRUCTION FOR MULTI-VARIABLE EXPRESSIONS
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. THE 2^n ROW RULE OF TRUTH TABLES
+--------------------------------------------------------------------------------
+* In a Boolean expression with 'n' distinct binary input variables:
+  Total Number of Distinct Input Combinations (Rows) = 2^n
+  - 1 Variable  -> 2^1 = 2 rows (0, 1)
+  - 2 Variables -> 2^2 = 4 rows (00, 01, 10, 11)
+  - 3 Variables -> 2^3 = 8 rows (000, 001, 010, 011, 100, 101, 110, 111)
+  - 4 Variables -> 2^4 = 16 rows (0000 to 1111)
+
+2. SYSTEMATIC BINARY COUNTING METHODOLOGY
+--------------------------------------------------------------------------------
+To ensure NO combinations are omitted or duplicated:
+* For 3 Variables (A, B, C):
+  - Column A (MSB): Alternates in blocks of 4 (4 zeros, 4 ones)
+  - Column B (Mid): Alternates in blocks of 2 (2 zeros, 2 ones, 2 zeros, 2 ones)
+  - Column C (LSB): Alternates singly (0, 1, 0, 1, 0, 1, 0, 1)
+
+* Decimal Index / Minterm mapping:
+  Row 0: 0 0 0 -> m0
+  Row 1: 0 0 1 -> m1
+  Row 2: 0 1 0 -> m2
+  Row 3: 0 1 1 -> m3
+  Row 4: 1 0 0 -> m4
+  Row 5: 1 0 1 -> m5
+  Row 6: 1 1 0 -> m6
+  Row 7: 1 1 1 -> m7
+
+3. STEP-BY-STEP TRUTH TABLE CONSTRUCTION ALGORITHM
+--------------------------------------------------------------------------------
+When solving a question like: "Construct the truth table for F(A, B, C) = A'B + B'C":
+  Step 1: Write down input columns A, B, C in binary counting order.
+  Step 2: Create inverted columns for all complemented literals (A', B').
+  Step 3: Create separate columns for each product/conjunction term (Term 1 = A'B, Term 2 = B'C).
+  Step 4: Combine the product terms using the final OR operation (F = Term 1 + Term 2).
+
+4. CLASSIFICATION OF BOOLEAN EXPRESSIONS
+--------------------------------------------------------------------------------
+Based on the final output column of the truth table:
+(A) TAUTOLOGY:
+    - An expression that evaluates to 1 (True) for ALL possible combinations of input values.
+    - Example: A + A' = 1
+
+(B) FALLACY / CONTRADICTION:
+    - An expression that evaluates to 0 (False) for ALL possible combinations of input values.
+    - Example: A · A' = 0
+
+(C) CONTINGENCY:
+    - An expression whose truth table output contains a MIXTURE of 1s and 0s depending on input variables.
+    - Example: A + B, A · B, A'B + AC
+
+5. PROVING BOOLEAN THEOREMS VIA TRUTH TABLES (PERFECT INDUCTION)
+--------------------------------------------------------------------------------
+The Method of Perfect Induction proves that two Boolean expressions LHS and RHS are identical by demonstrating that their truth table output columns match identically row-for-row across all 2^n possible input states.
+================================================================================

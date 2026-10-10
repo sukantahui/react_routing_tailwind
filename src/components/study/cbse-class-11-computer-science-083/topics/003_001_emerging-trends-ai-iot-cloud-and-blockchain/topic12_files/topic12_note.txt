@@ -1,0 +1,34 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 12: FINAL BOARD EXAMINATION SIMULATOR & DESCRIPTIVE DRILLS
+================================================================================
+
+1. STRUCTURE OF THE FINAL EXAMINATION:
+   - Total Questions: 30 Multiple Choice Questions (MCQs)
+   - Syllabus Coverage:
+     * Questions 1 - 5   : Artificial Intelligence, Turing Test, Weak vs Strong AI
+     * Questions 6 - 9   : Machine Learning (Supervised, Unsupervised, Reinforcement) & Deep Learning
+     * Questions 10 - 13 : Natural Language Processing (NLP), Speech Recognition & Chatbots
+     * Questions 14 - 17 : Immersive Experiences (AR, VR, MR, 3-DoF vs 6-DoF)
+     * Questions 18 - 21 : Robotics Subsystems (Sensors, Actuators, Controllers, da Vinci Surgery)
+     * Questions 22 - 24 : Big Data 5 Vs (Volume, Velocity, Variety, Veracity, Value) & Storage Scale
+     * Questions 25 - 27 : Internet of Things (IoT Architecture, RFID FASTag, Smart Cities)
+     * Questions 28 - 29 : Cloud Computing Delivery (IaaS, PaaS, SaaS) & Deployment Models (Public, Private, Hybrid)
+     * Question 30       : Grid Computing & Cryptographic Blockchain (SHA-256, Proof of Work)
+
+2. SUBJECTIVE QUESTION PATTERNS FOR 2-MARK & 3-MARK BOARD QUESTIONS:
+   Q1. Differentiate between Supervised Learning and Unsupervised Learning with suitable examples.
+   Q2. Explain the 'Sense-Plan-Act' control cycle in an autonomous robot.
+   Q3. List and explain the 5 Vs of Big Data.
+   Q4. Contrast Augmented Reality (AR) with Virtual Reality (VR) across three parameters.
+   Q5. What is Cloud Bursting in a Hybrid Cloud deployment?
+   Q6. How does SHA-256 previous-hash chaining enforce immutability in a blockchain?
+   Q7. Explain the role of passive RFID technology in FASTag highway toll collection.
+
+3. GOLDEN RULES FOR MAXIMUM MARKS IN CBSE CLASS 11 CS (083):
+   - Never write single-line answers for 2-mark or 3-mark questions.
+   - Always mention the standard NIST definition for Cloud Computing.
+   - Use tabular layouts with clear column headers for distinction questions.
+   - Always accompany ML algorithms with classification vs regression distinctions.
+================================================================================

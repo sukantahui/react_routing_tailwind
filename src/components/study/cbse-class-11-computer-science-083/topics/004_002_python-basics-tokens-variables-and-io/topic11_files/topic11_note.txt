@@ -1,0 +1,97 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT 2
+TOPIC 11: STANDARD CONSOLE OUTPUT - THE print() FUNCTION, sep & end
+================================================================================
+Teacher & Author: Sukanta Hui
+
+1. OVERVIEW OF THE print() FUNCTION SIGNATURE
+--------------------------------------------------------------------------------
+In Python 3, `print()` is a built-in function with the formal signature:
+`print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)`
+
+- `*objects`: Positional arguments (zero or more objects to be printed).
+  Each object is converted to a string representation via `str(obj)`.
+- `sep=' '`: String inserted between positional objects. Default is a single space ' '.
+- `end='\n'`: String appended after the last object. Default is a newline '\n'.
+- `file=sys.stdout`: Target stream where output is directed (e.g., console or file object).
+- `flush=False`: Whether to forcibly flush the stream output buffer.
+
+2. THE 'sep' (SEPARATOR) PARAMETER
+--------------------------------------------------------------------------------
+When multiple items are passed to `print()` separated by commas:
+- Python prints each item and places `sep` between consecutive items.
+- If only one argument is provided, `sep` has no visible effect!
+
+Examples:
+>>> print("CBSE", "Class", 11)
+CBSE Class 11           (Default sep=' ')
+
+>>> print("CBSE", "Class", 11, sep="-")
+CBSE-Class-11
+
+>>> print("A", "B", "C", sep=" -> ")
+A -> B -> C
+
+>>> print("2026", "10", "10", sep="/")
+2026/10/10
+
+>>> print("Single")
+Single                  (sep is not inserted because there is only 1 object)
+
+3. THE 'end' (ENDING) PARAMETER
+--------------------------------------------------------------------------------
+By default, after printing all items, `print()` appends a newline character `\n`,
+causing subsequent `print()` calls to begin on the next line.
+Overriding `end` controls what character(s) follow the output:
+
+Examples:
+>>> print("Hello", end=" ")
+>>> print("World")
+Hello World
+
+>>> for i in range(1, 6):
+...     print(i, end=", ")
+1, 2, 3, 4, 5, 
+
+>>> print("Loading", end="...")
+>>> print("Done")
+Loading...Done
+
+4. COMBINING 'sep' AND 'end'
+--------------------------------------------------------------------------------
+>>> print(10, 20, 30, sep=":", end=" | ")
+>>> print(40, 50, sep=":")
+10:20:30 | 40:50
+
+5. ESCAPE SEQUENCES IN OUTPUT
+--------------------------------------------------------------------------------
+- `\n`: Linefeed / Newline
+- `\t`: Horizontal Tab (advances to next tab stop)
+- `\\`: Literal Backslash
+- `\'`: Literal Single Quote
+- `\"`: Literal Double Quote
+- `\r`: Carriage Return (moves cursor back to start of current line)
+
+6. MODERN STRING FORMATTING (PEP 498 f-strings)
+--------------------------------------------------------------------------------
+Introduced in Python 3.6+, f-strings provide clean, readable interpolation:
+>>> item = "Pen"
+>>> price = 15.5
+>>> qty = 4
+>>> print(f"Purchased {qty} {item}s @ Rs. {price:.2f} each. Total: Rs. {qty*price:.2f}")
+Purchased 4 Pens @ Rs. 15.50 each. Total: Rs. 62.00
+
+Format Specifiers:
+- `:.2f`: Fixed-point float with 2 decimal places.
+- `:>10`: Right-align in a field of width 10.
+- `:<10`: Left-align in a field of width 10.
+- `:^10`: Center-align in a field of width 10.
+- `:05d`: Zero-padded integer of width 5 (e.g., 00042).
+
+7. COMMON BOARD EXAM TRAPS
+--------------------------------------------------------------------------------
+Trap 1: Providing sep or end as non-string values.
+        `print(1, 2, sep=0)` -> TypeError: sep must be None or a string, not int.
+Trap 2: `print()` with no arguments prints a single blank line (`\n`).
+Trap 3: Modifying sep when only 1 item is passed produces no change in output.
+================================================================================

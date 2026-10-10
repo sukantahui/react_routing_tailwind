@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROBLEM SOLVING
+TOPIC 9: PRACTICE YOUR SKILL HERE - BOARD EXAM SIMULATOR & DRILLS
+================================================================================
+
+1. CBSE CLASS 11 BOARD EXAMINATION MARKING SCHEME INSIGHTS
+--------------------------------------------------------------------------------
+In the annual CBSE Computer Science theory paper, questions from Problem Solving
+and Algorithm Design typically appear as:
+- 1-mark Multiple Choice Questions (MCQs) & Assertion-Reasoning
+- 2-mark Conceptual Questions (Characteristics of an algorithm, Flowchart symbols)
+- 3-mark Flowchart Construction & Dry Run Trace Table questions
+- 5-mark Algorithmic Problem Solving (Algorithm + Flowchart + Pseudocode)
+
+2. COMMON BOARD EXAM TRAPS & HOW TO AVOID THEM
+--------------------------------------------------------------------------------
+Trap 1: Confusing Process (Rectangle) and Input/Output (Parallelogram)
+  -> Writing `print(x)` or `read y` inside a rectangle causes immediate deduction of 0.5 to 1 mark.
+
+Trap 2: Forgetting Arrowheads on Flow Lines
+  -> Drawing plain lines without arrowheads makes the direction of execution ambiguous. Always include clear arrows!
+
+Trap 3: Unlabeled Decision Outgoing Lines
+  -> Every line leaving a diamond must be labeled with "True"/"False" or "Yes"/"No".
+
+Trap 4: Off-by-One Loop Boundary Errors in Dry Runs
+  -> Carefully observe whether a loop uses `<` or `<=`.
+  -> Trace tables must document the exact terminating step where the condition fails.
+
+Trap 5: Accumulator Reset Bug
+  -> Accumulators (e.g. `sum = 0`, `fact = 1`) must ALWAYS be initialized OUTSIDE and BEFORE the loop begins.
+
+3. SUBJECTIVE PRACTICE PROBLEMS CHECKLIST
+--------------------------------------------------------------------------------
+Problem 1: Write an algorithm, draw a flowchart, and create pseudocode to calculate the roots of a Quadratic Equation (ax^2 + bx + c = 0).
+Problem 2: Draw a flowchart to check whether a given 4-digit number is an Armstrong Number (e.g., 153 = 1^3 + 5^3 + 3^3).
+Problem 3: Construct a trace table for the Euclidean GCD algorithm given inputs A = 72, B = 48.
+Problem 4: Write pseudocode to perform a Linear Search on an array of N numbers.
+
+================================================================================

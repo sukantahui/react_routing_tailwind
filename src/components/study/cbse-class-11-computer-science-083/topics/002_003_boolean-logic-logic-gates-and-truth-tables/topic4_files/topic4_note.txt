@@ -1,0 +1,65 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: SPECIAL LOGIC GATES (XOR AND XNOR GATES)
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. THE XOR GATE (EXCLUSIVE-OR)
+--------------------------------------------------------------------------------
+* Definition: Outputs 1 (HIGH) if and only if the inputs are DIFFERENT (one is 0, the other is 1).
+* Also known as:
+  - Inequality Detector (outputs 1 when A != B).
+  - Odd-1s Detector (in multi-input XOR, outputs 1 when the total number of 1s is ODD).
+* Boolean Operator Symbol: Encircled Plus sign ($\oplus$).
+* Boolean Equation:
+    Y = A ⊕ B = A'B + AB'
+* Graphic Symbol: Standard OR gate shape preceded by an additional curved arch line on the input side.
+* Truth Table (2-Input):
+    A | B | Y = A ⊕ B | Explanation
+    --+---+-----------+-------------------------------
+    0 | 0 |     0     | Inputs identical -> Output 0
+    0 | 1 |     1     | Inputs different -> Output 1
+    1 | 0 |     1     | Inputs different -> Output 1
+    1 | 1 |     0     | Inputs identical -> Output 0
+* Standard TTL Integrated Circuit: IC 7486 (Quad 2-input XOR Gate).
+
+2. THE XNOR GATE (EXCLUSIVE-NOR / EQUIVALENCE / COINCIDENCE)
+--------------------------------------------------------------------------------
+* Definition: The complement of the XOR gate. Outputs 1 (HIGH) if and only if the inputs are IDENTICAL (both 0 or both 1).
+* Also known as:
+  - Equivalence Gate / Coincidence Detector (outputs 1 when A == B).
+  - Even-1s Detector (in multi-input XNOR, outputs 1 when the total number of 1s is EVEN).
+* Boolean Operator Symbol: Encircled Dot sign ($\odot$).
+* Boolean Equation:
+    Y = (A ⊕ B)' = A ⊙ B = AB + A'B'
+* Graphic Symbol: XOR gate shape with an Inversion Bubble at the output tip.
+* Truth Table (2-Input):
+    A | B | Y = A ⊙ B | Explanation
+    --+---+-----------+-------------------------------
+    0 | 0 |     1     | Inputs identical (0,0) -> Output 1
+    0 | 1 |     0     | Inputs different (0,1) -> Output 0
+    1 | 0 |     0     | Inputs different (1,0) -> Output 0
+    1 | 1 |     1     | Inputs identical (1,1) -> Output 1
+* Standard TTL Integrated Circuit: IC 74266 (Quad 2-input XNOR Gate).
+
+3. KEY ALGEBRAIC IDENTITIES FOR XOR & XNOR
+--------------------------------------------------------------------------------
+* A ⊕ 0 = A           (XOR with 0 passes variable unchanged - Buffer mode)
+* A ⊕ 1 = A'          (XOR with 1 inverts variable - Inverter mode / Controlled Inverter)
+* A ⊕ A = 0           (XOR with self is always 0)
+* A ⊕ A' = 1          (XOR with complement is always 1)
+* (A ⊕ B)' = A ⊙ B = A ⊕ B' = A' ⊕ B = AB + A'B'
+
+4. MAJOR REAL-WORLD APPLICATIONS
+--------------------------------------------------------------------------------
+(A) Binary Arithmetic Adders (Half Adder & Full Adder):
+    - Sum bit in binary addition: Sum = A ⊕ B
+    - Carry bit in binary addition: Carry = A · B
+
+(B) Parity Bit Generators and Error Detectors:
+    - Transmitting digital data across networks requires parity checking to detect single-bit transmission corruption. XOR chains generate odd/even parity bits.
+
+(C) Two-Way Staircase Switch (Controlled Inverter):
+    - Toggling either the bottom or top staircase switch changes the light state regardless of previous switch positions.
+================================================================================

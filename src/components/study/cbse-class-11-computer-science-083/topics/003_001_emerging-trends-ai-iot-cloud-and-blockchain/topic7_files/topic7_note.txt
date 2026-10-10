@@ -1,0 +1,61 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 7: INTERNET OF THINGS (IoT), SENSORS, ACTUATORS, RFID & SMART CITIES
+================================================================================
+
+1. WHAT IS THE INTERNET OF THINGS (IoT)?
+   - The Internet of Things (IoT) refers to a vast interconnected network of physical
+     objects ("things") embedded with sensors, software, actuators, and network
+     connectivity that enable them to collect, exchange, and act upon data over the internet
+     without requiring direct human-to-human or human-to-computer intervention.
+   - Term popularized by Kevin Ashton in 1999 (initially linked with RFID).
+
+2. THE 3-TIER / 4-TIER ARCHITECTURE OF IoT:
+   Tier 1: Perception (Sensing) Layer:
+      - Physical hardware collecting data: Sensors (Temperature, Humidity, Light LDR,
+        Gas/Smoke, Pressure), Actuators, and RFID tags.
+   Tier 2: Network / Transport Layer:
+      - Transmits captured sensory data to cloud gateways securely.
+      - Protocols: Wi-Fi, Bluetooth Low Energy (BLE), Zigbee, LoRaWAN, Cellular (4G/5G), MQTT, CoAP.
+   Tier 3: Middleware / Processing Layer:
+      - Cloud servers, edge gateways, stream processors, and databases storing and analyzing telemetry.
+   Tier 4: Application Layer:
+      - User interfaces, smart home mobile dashboards, automated alerts, and analytics dashboards.
+
+3. SENSORS VS. ACTUATORS IN IoT:
+   - SENSORS (Data In): Devices that detect environmental physical changes (heat, light, moisture)
+     and convert them into electrical analog/digital signals.
+   - ACTUATORS (Physical Action Out): Devices that receive electrical control signals and perform
+     mechanical actions (e.g., turning on an AC motor, opening an electronic door lock, turning on a water valve).
+
+4. RADIO FREQUENCY IDENTIFICATION (RFID):
+   - Definition: A wireless contactless communication technology that uses radio frequency
+     electromagnetic waves to automatically identify and track tags attached to objects.
+   - RFID Components:
+     1. RFID Tag: Contains a microchip (stores unique ID/data) and an antenna.
+        - Passive RFID Tag: Has no internal battery; powered by the electromagnetic field of the reader.
+        - Active RFID Tag: Contains an onboard battery for long-range transmission (up to 100 meters).
+     2. RFID Reader: Emits radio signals to power passive tags and reads the reflected data.
+   - Prominent Use Case in India: FASTag for electronic toll collection across national highways.
+
+5. MAJOR REAL-WORLD DOMAINS OF IoT:
+   A. Smart Homes:
+      - Automated lighting (turns on when motion is detected), smart thermostats (adjusts AC based on room occupancy),
+        voice-activated appliances, smart door locks with biometric security.
+   B. Smart Agriculture (Precision Farming):
+      - Soil moisture sensors automatically trigger drip irrigation pumps, saving water.
+      - Drone crop monitoring and weather prediction sensors.
+   C. Smart Cities:
+      - Smart Street Lighting: Streetlights dim during low traffic and brighten when cars approach.
+      - Smart Waste Management: Trash bins equipped with ultrasonic level sensors alert municipal trucks when full.
+      - Intelligent Traffic Management: Traffic signals adjust green light duration dynamically based on live vehicle density.
+   D. Smart Healthcare (Internet of Medical Things - IoMT):
+      - Wearable fitness trackers (smartwatches monitoring heart rate, SpO2, sleep).
+      - Remote patient monitoring devices transmitting vitals directly to hospital doctors.
+
+6. CHALLENGES IN IoT:
+   - Security & Privacy: Vulnerability to hacking and unauthorized surveillance.
+   - Interoperability & Standards: Multi-vendor devices using differing protocols.
+   - Power & Bandwidth: Billions of devices require low-power long-range communication.
+================================================================================

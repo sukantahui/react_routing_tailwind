@@ -1,0 +1,54 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT 2
+MODULE 004_002: PYTHON BASICS, LEXICAL TOKENS, VARIABLES & I/O
+MASTER REVISION CHEAT SHEET & COMPLETE FORMULA SUMMARY
+================================================================================
+Teacher & Author: Sukanta Hui
+
+[1] PYTHON EXECUTION MODES
+- Interactive Mode (REPL): Instant feedback, line-by-line execution, transient memory.
+- Script Mode (.py): Saved on disk, reproducible, executed top-to-bottom.
+
+[2] CHARACTER SET & UNICODE
+- Source files default to UTF-8 encoding.
+- Supports ASCII (English letters, digits, punctuation) + international Unicode characters.
+
+[3] LEXICAL TOKENS (SMALLEST INDIVIDUAL UNITS)
+- 1. Keywords: 35 reserved words in Python 3.12+ (e.g. False, None, True, and, def, if, return, etc.).
+- 2. Identifiers: Variable, function, and class names.
+     Rules: Must start with [A-Za-z_]; followed by letters, digits, underscores. CANNOT start with digit, CANNOT be a keyword, NO special chars (except _), CASE SENSITIVE.
+- 3. Literals: Fixed values (Int, Float, Complex, String, Bool, None).
+- 4. Operators: +, -, *, /, //, %, **, ==, !=, is, in, and, or, not, etc.
+- 5. Punctuators / Delimiters: (), [], {}, :, ,, ., =, ;, +=, @, etc.
+
+[4] MEMORY MODEL & VARIABLES AS OBJECT REFERENCES
+- Variables in Python are NOT memory storage boxes; they are NAMED LABELS (references) pointing to dynamically allocated objects in heap memory.
+- `id(obj)`: Returns the unique integer memory address of an object.
+- `type(obj)`: Returns the data type class of the object.
+- Small Integer Caching: Python pre-allocates integers from -5 to 256 for performance.
+
+[5] l-value vs r-value & ASSIGNMENT RULES
+- l-value (Locator Value): Must be a valid mutable/assignable storage reference on the LEFT of '=' (e.g., variable name, list index `arr[0]`, object attribute).
+- r-value (Read Value): Any valid expression that yields a value on the RIGHT of '='.
+- RULE: `lvalue = rvalue`
+  * `10 = a`    -> SyntaxError: cannot assign to literal
+  * `x + 2 = y` -> SyntaxError: cannot assign to expression
+  * `a = 10`    -> VALID
+  * `a = b = c = 0` -> Chained assignment (VALID)
+  * `a, b = b, a`   -> Tuple unpacking swap (VALID)
+
+[6] DYNAMIC TYPING
+- Variables do not have fixed types; objects have types.
+- A variable can be rebound to an integer, then to a string, then to a list during runtime without declaring types.
+
+[7] COMMENTS & PEP 257 DOCSTRINGS
+- Single-line: `# comment` (completely ignored by parser).
+- Docstrings: `"""Docstring summary"""` placed as the FIRST statement inside a module, class, or function. Accessible at runtime via `func.__doc__` and `help()`.
+
+[8] CONSOLE INPUT & OUTPUT
+- `input(prompt)`: Always returns a string (`str`). Must explicitly cast: `int(input())`, `float(input())`.
+- `print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)`:
+  * `sep`: Inter-argument separator (default space ' ').
+  * `end`: Output terminator (default newline '\n').
+
+================================================================================

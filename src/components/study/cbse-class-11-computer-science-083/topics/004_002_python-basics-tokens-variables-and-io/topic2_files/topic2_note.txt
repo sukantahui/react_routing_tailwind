@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 2: PYTHON LEXICAL TOKENS: KEYWORDS & IDENTIFIERS
+================================================================================
+
+1. WHAT IS A TOKEN (LEXICAL UNIT)?
+--------------------------------------------------------------------------------
+- Definition: A Token is the smallest individual lexical unit in a Python program that is meaningful to the compiler/interpreter.
+- The 5 Categories of Python Tokens:
+  1. Keywords (Reserved Words)
+  2. Identifiers (User-Defined Names)
+  3. Literals (Constant Data Values)
+  4. Operators (Symbols for computations)
+  5. Punctuators / Delimiters (Formatting and grouping symbols)
+
+2. PYTHON KEYWORDS (35 RESERVED WORDS IN PYTHON 3.12+)
+--------------------------------------------------------------------------------
+- Definition: Keywords are predefined reserved words that possess special, intrinsic syntactic meaning to the Python compiler/interpreter.
+- Critical Rule: Keywords CANNOT be used as identifier names for variables, functions, classes, or objects.
+- Case Sensitivity in Keywords:
+  * Exactly THREE keywords start with a CAPITAL letter: `True`, `False`, `None`.
+  * All remaining 32 keywords are written in STRICT LOWERCASE.
+
+Complete List of 35 Keywords:
+  False    None     True     and      as       assert   async    await
+  break    class    continue def      del      elif     else     except
+  finally  for      from     global   if       import   in       is
+  lambda   nonlocal not      or       pass     raise    return   try
+  while    with     yield
+
+3. IDENTIFIERS (NAMING RULES & CONVENTIONS)
+--------------------------------------------------------------------------------
+- Definition: An Identifier is a user-defined name given to a variable, function, class, module, or other object in a program.
+
+Statutory Lexical Rules for Python Identifiers (CBSE Board Exam Must-Know):
+1. Allowed Characters: Only uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and the underscore (`_`).
+2. Starting Character Rule: An identifier MUST begin with an alphabetic letter (A-Z or a-z) or an underscore (`_`). It CANNOT start with a numeric digit (0-9).
+   - Valid: `_count`, `student1`, `total_marks`
+   - Invalid: `1student`, `2nd_rank`
+3. No Special Characters or Spaces: Punctuation marks and special symbols (`$`, `@`, `#`, `%`, `!`, `-`, ` `, `*`) are strictly FORBIDDEN.
+   - Invalid: `total-marks`, `student name`, `user$name`, `roll#no`
+4. Keyword Restriction: An identifier CANNOT be any of the 35 reserved Python keywords.
+   - Invalid: `def = 10`, `for = "loop"`, `class = 11`, `True = 5`
+5. Unlimited Length: Python places no statutory limit on identifier length, but concise, meaningful names are recommended (PEP 8 standard).
+6. Case Sensitivity: `Score`, `score`, and `SCORE` are three completely different identifiers.
+
+================================================================================

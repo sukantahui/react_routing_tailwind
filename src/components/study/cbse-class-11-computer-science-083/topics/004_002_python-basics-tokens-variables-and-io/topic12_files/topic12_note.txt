@@ -1,0 +1,50 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083) - UNIT 2
+TOPIC 12: DOWNLOADABLE DOCUMENTS & 10-POINT CBSE EXAM GOLDEN CHECKLIST
+================================================================================
+Teacher & Author: Sukanta Hui
+
+TOP 10 CBSE BOARD EXAM GOLDEN RULES FOR PYTHON BASICS & TOKENS
+--------------------------------------------------------------------------------
+1. KEYWORD CASE SENSITIVITY:
+   Remember that in Python 3, three keywords start with uppercase letters:
+   `True`, `False`, `None`. All other 32 keywords are entirely lowercase.
+
+2. IDENTIFIER NAMING CONSTRAINTS:
+   An identifier can only contain alphabets (A-Z, a-z), digits (0-9), and
+   underscore (_). It CANNOT start with a digit (e.g. `2var` is illegal).
+   No special characters like `@`, `$`, `-`, `#` are permitted.
+
+3. l-value vs r-value ASSIGNMENT INTEGRITY:
+   In `lvalue = rvalue`, the left-hand side MUST be a modifiable variable reference.
+   Statements like `100 = score` or `a + b = c` produce immediate SyntaxErrors.
+
+4. DYNAMIC TYPING & MEMORY LABELS:
+   Variables do not hold data boxes; they hold references to objects created in
+   memory. When `x = 10` then `x = "Ten"`, `x` is simply rebound to a new string object.
+
+5. THE input() FUNCTION STRING TRAP:
+   `input()` ALWAYS returns a string. `a = input()` + `b = input()` where user enters
+   `5` and `5` results in `'55'`, NOT `10`. Always use `int(input())` for numeric arithmetic.
+
+6. print() sep vs end BEHAVIOR:
+   `sep` controls inter-item spacing (default `' '`). `end` controls line termination
+   (default `'\n'`). If only one object is passed to `print()`, `sep` is ignored.
+
+7. NUMERIC LITERAL FORMS:
+   - Binary literals start with `0b` or `0B` (e.g., `0b1010` = 10)
+   - Octal literals start with `0o` or `0O` (e.g., `0o12` = 10)
+   - Hexadecimal literals start with `0x` or `0X` (e.g., `0xA` = 10)
+   - Floating point exponential form: `1.5e3` = `1500.0`
+
+8. COMPLEX NUMBERS:
+   The imaginary unit in Python is `j` or `J`, NOT `i` (e.g., `z = 3 + 4j`).
+
+9. DOCSTRINGS vs COMMENTS:
+   Single-line comments `#` are stripped by the compiler. PEP 257 Docstrings
+   `"""..."""` placed at the top of functions are retained and accessible via `.__doc__`.
+
+10. MUTABILITY & id() FUNCTION:
+    Use `id(variable)` to check memory address uniqueness and observe object
+    re-binding across variable mutations.
+================================================================================

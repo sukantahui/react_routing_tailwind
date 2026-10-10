@@ -1,0 +1,64 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 3: EMERGING TRENDS IN COMPUTING
+TOPIC 5: ROBOTICS - COMPONENTS, SENSORS, ACTUATORS & APPLICATIONS
+================================================================================
+
+1. WHAT IS A ROBOT & ROBOTICS?
+   - Robotics is an interdisciplinary branch of engineering and computer science
+     involving the design, construction, operation, and programming of robots.
+   - A Robot is an electro-mechanical machine capable of carrying out a complex
+     series of actions automatically, guided by computer programs and sensor feedback.
+
+2. THE "SENSE - PLAN - ACT" AUTONOMOUS CONTROL LOOP:
+   +-------------------------------------------------------------------+
+   |  1. SENSE: Gather environmental data via sensors (vision, distance) |
+   |  2. PLAN: Microcontroller / CPU processes data & decides action     |
+   |  3. ACT: Actuators (motors, servos, grippers) execute physical move |
+   +-------------------------------------------------------------------+
+
+3. PRIMARY STRUCTURAL & FUNCTIONAL COMPONENTS OF A ROBOT:
+   A. The Controller (The "Brain"):
+      - The central microprocessor / microcontroller (e.g., Arduino, Raspberry Pi, ARM)
+        that runs the control algorithms, reads sensor inputs, and issues actuation commands.
+   B. Sensors (The "Senses"):
+      - Convert physical environmental phenomena into electrical signals.
+      - Types of Robot Sensors:
+        * Ultrasonic / LiDAR Sensors: Measure distance by emitting sound / laser pulses.
+        * Infrared (IR) Proximity Sensors: Obstacle detection and line following.
+        * Cameras / Vision Sensors: Object classification, facial recognition, SLAM.
+        * Gyroscope & Accelerometer (IMU): Measure orientation, tilt, and balance.
+        * Tactile / Touch Sensors: Detect physical contact and grip pressure.
+   C. Actuators (The "Muscles"):
+      - Convert electrical, hydraulic, or pneumatic energy into mechanical motion.
+      - Types of Actuators:
+        * DC Motors & Stepper Motors: Drive wheels and rotational joints with precision.
+        * Servo Motors: Provide angular position control for robot arms and steering.
+        * Hydraulic Actuators: Use pressurized liquid for heavy-duty industrial lifting.
+        * Pneumatic Actuators: Use compressed air for rapid, clean linear movements.
+   D. End Effectors (The "Hands / Tools"):
+      - The device attached to the wrist/tip of a robotic arm to interact with objects.
+      - Examples: Mechanical grippers, vacuum suction cups, welding torches, laser cutters.
+   E. Power Supply:
+      - Rechargeable Lithium-ion batteries, solar panels, or tethered AC power.
+
+4. MAJOR CLASSIFICATIONS & APPLICATIONS OF ROBOTS:
+   A. Industrial Automation & Manufacturing:
+      - Automotive assembly lines: High-speed spot welding, spray painting, precision milling.
+      - Pick-and-place robots in automated e-commerce sorting warehouses (e.g., Amazon Kiva).
+   B. Healthcare & Medical Robotics:
+      - Robotic Surgery (e.g., da Vinci Surgical System): Provides sub-millimeter precision,
+        smaller incisions, minimal blood loss, and faster patient recovery.
+      - Robotic prosthetics and rehabilitation exoskeletons.
+   C. Hazardous & Extreme Environments:
+      - Space Exploration: NASA Mars Rovers (Curiosity, Perseverance) and ISRO Moon Rovers (Pragyan).
+      - Bomb disposal (EOD) and deep-sea underwater exploration (ROVs / AUVs).
+   D. Domestic & Service Robots:
+      - Autonomous robotic vacuum cleaners (Roomba), lawn mowers, delivery drones.
+   E. Agricultural Robotics:
+      - Autonomous crop harvesting, drone pesticide spraying, soil quality inspection.
+
+5. ADVANTAGES & LIMITATIONS IN SOCIETY:
+   - Advantages: High repeatability, 24x7 continuous operation, precision, human safety in hazardous zones.
+   - Limitations: High initial capital cost, lack of true creative intuition, displacement of repetitive manual jobs.
+================================================================================

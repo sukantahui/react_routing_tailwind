@@ -1,0 +1,59 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 9: COMMENTS IN PYTHON: SINGLE-LINE (#) & MULTILINE DOCSTRINGS ("""...""")
+================================================================================
+
+1. WHAT ARE COMMENTS?
+--------------------------------------------------------------------------------
+- Definition: Comments are human-readable explanatory notes written inside source code to describe what the code does, why specific decisions were made, and how algorithms work.
+- Execution Behavior: Comments are COMPLETELY IGNORED by the Python compiler and interpreter during bytecode compilation and execution. They have ZERO impact on program runtime performance or memory footprint.
+
+2. SINGLE-LINE COMMENTS (HASH `#`)
+--------------------------------------------------------------------------------
+- Syntax: Begins with the hash / pound character `#`.
+- Scope: Extends from the `#` symbol to the end of that physical line.
+- Types of Single-Line Comments:
+  1. Full-Line Comment:
+     `# Calculate compound interest with annual compounding`
+     `amount = principal * (1 + rate / 100) ** time`
+  2. Inline Comment (placed at the end of an executable statement):
+     `total = price + tax  # Add 18% GST`
+
+3. MULTILINE COMMENTS IN PYTHON
+--------------------------------------------------------------------------------
+Python does not have a dedicated multiline comment syntax like C++ (`/* ... */`).
+Standard approaches for writing multiline explanations:
+1. Consecutive Single-Line Hashes:
+   `# Step 1: Initialize counters`
+   `# Step 2: Traverse list from left to right`
+   `# Step 3: Compare adjacent items`
+2. Unassigned Multiline String Literals:
+   `"""`
+   `This multiline string is not assigned to any variable,`
+   `so Python evaluates it as a constant and discards it.`
+   `"""`
+
+4. DOCSTRINGS (DOCUMENTATION STRINGS - PEP 257)
+--------------------------------------------------------------------------------
+- Definition: A Docstring is a string literal that occurs as the VERY FIRST statement inside a module, function, class, or method definition.
+- Delimiter: Standardly enclosed in triple double quotes `"""..."""`.
+- Key Difference from Normal Comments:
+  * Normal `#` comments are discarded during parsing and cannot be accessed at runtime.
+  * Docstrings are RETAINED by Python and stored in the `__doc__` special attribute of the object.
+  * They can be inspected at runtime via `function_name.__doc__` or the interactive `help(function_name)` tool.
+
+Example:
+  def greet(name):
+      """Displays a personalized greeting to the user."""
+      print(f"Hello, {name}!")
+
+  print(greet.__doc__)  # Outputs: Displays a personalized greeting to the user.
+
+5. BEST PRACTICES FOR WRITING EFFECTIVE COMMENTS (PEP 8)
+--------------------------------------------------------------------------------
+1. Explain "WHY", not "WHAT": Avoid stating the obvious (e.g. `i = i + 1  # Add 1 to i` is redundant). Instead write `i = i + 1  # Advance pointer to next student record`.
+2. Keep Comments Up-to-Date: An outdated comment is worse than no comment.
+3. Use PEP 257 Conventions: Write one-line summary docstrings or multi-line docstrings with parameters and return value specifications.
+
+================================================================================

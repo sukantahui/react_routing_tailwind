@@ -1,0 +1,74 @@
+================================================================================
+CBSE CLASS XI COMPUTER SCIENCE (083) REVISION NOTE
+UNIT 1: COMPUTER SYSTEMS AND ORGANISATION (CSO)
+TOPIC: DE MORGAN'S LAWS (ALGEBRAIC AND TRUTH TABLE PROOFS)
+Educator: Sukanta Hui (Coder & AccoTax, Barrackpore, Kolkata)
+================================================================================
+
+1. INTRODUCTION TO DE MORGAN'S LAWS
+--------------------------------------------------------------------------------
+* Formulated by British mathematician Augustus De Morgan.
+* These two fundamental laws relate the basic operations (NOT, AND, OR) and provide the mathematical basis for converting between POS and SOP forms, as well as transforming NAND and NOR circuits.
+* Golden Rule Mnemonic: "BREAK THE LINE, CHANGE THE SIGN!"
+  - If the overbar spans across a sum, break the bar and change '+' to '·'.
+  - If the overbar spans across a product, break the bar and change '·' to '+'.
+
+2. DE MORGAN'S FIRST LAW
+--------------------------------------------------------------------------------
+* Statement: "The complement of a logical sum (OR) of two or more variables is equal to the logical product (AND) of their individual complements."
+* Equation:
+    (A + B)' = A' · B'
+* Graphic Equivalence:
+    NOR Gate == Bubbled AND Gate (AND gate with inverters at inputs).
+
+* Proof 1: By Truth Table (Method of Perfect Induction):
+    A | B | A + B | (A + B)' (LHS) | A' | B' | A' · B' (RHS)
+    --+---+-------+----------------+----+----+--------------
+    0 | 0 |   0   |       1        | 1  | 1  |      1
+    0 | 1 |   1   |       0        | 1  | 0  |      0
+    1 | 0 |   1   |       0        | 0  | 1  |      0
+    1 | 1 |   1   |       0        | 0  | 0  |      0
+    * Since LHS column matches RHS column row-for-row, First Law is proved.
+
+* Proof 2: By Algebraic Proof (Using Huntington's Complement Postulates):
+  To prove that X' = Y, we must satisfy two conditions: (1) X + Y = 1, and (2) X · Y = 0.
+  Here, let X = (A + B) and Y = (A' · B').
+  - Part 1 (Show X + Y = 1):
+    (A + B) + (A' · B') = ((A + B) + A') · ((A + B) + B')   [Distributive Law]
+                        = (B + (A + A')) · (A + (B + B'))   [Commutative & Associative]
+                        = (B + 1) · (A + 1)                 [Complement Law: A + A' = 1]
+                        = 1 · 1 = 1                         [Null Law: B + 1 = 1]
+  - Part 2 (Show X · Y = 0):
+    (A + B) · (A' · B') = (A · (A' · B')) + (B · (A' · B')) [Distributive Law]
+                        = ((A · A') · B') + (A' · (B · B')) [Associative & Commutative]
+                        = (0 · B') + (A' · 0)               [Complement Law: A · A' = 0]
+                        = 0 + 0 = 0                         [Null Law: 0 · B' = 0]
+  Since both X + Y = 1 and X · Y = 0 hold true, Y is indeed the complement of X: (A + B)' = A' · B'.
+
+3. DE MORGAN'S SECOND LAW
+--------------------------------------------------------------------------------
+* Statement: "The complement of a logical product (AND) of two or more variables is equal to the logical sum (OR) of their individual complements."
+* Equation:
+    (A · B)' = A' + B'
+* Graphic Equivalence:
+    NAND Gate == Bubbled OR Gate (OR gate with inverters at inputs).
+
+* Proof 1: By Truth Table (Method of Perfect Induction):
+    A | B | A · B | (A · B)' (LHS) | A' | B' | A' + B' (RHS)
+    --+---+-------+----------------+----+----+--------------
+    0 | 0 |   0   |       1        | 1  | 1  |      1
+    0 | 1 |   0   |       1        | 1  | 0  |      1
+    1 | 0 |   0   |       1        | 0  | 1  |      1
+    1 | 1 |   1   |       0        | 0  | 0  |      0
+    * Since LHS column matches RHS column row-for-row, Second Law is proved.
+
+4. MULTI-VARIABLE GENERALIZATION
+--------------------------------------------------------------------------------
+* First Law (n-variables):  (A + B + C + ... + N)' = A' · B' · C' · ... · N'
+* Second Law (n-variables): (A · B · C · ... · N)' = A' + B' + C' + ... + N'
+
+5. DUALITY RELATIONSHIP
+--------------------------------------------------------------------------------
+Notice that De Morgan's First Law and Second Law are exact DUALS of each other!
+Replacing '+' with '.' and '.' with '+' transforms First Law directly into Second Law.
+================================================================================

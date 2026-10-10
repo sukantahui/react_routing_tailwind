@@ -1,0 +1,57 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (083)
+UNIT 2: COMPUTATIONAL THINKING & PROGRAMMING - 1
+TOPIC 2: THE 4 PILLARS OF COMPUTATIONAL THINKING
+================================================================================
+
+1. WHAT IS COMPUTATIONAL THINKING (CT)?
+   - Computational Thinking is a fundamental thought process involved in formulating
+     problems and their solutions in such a way that the solutions can be effectively
+     carried out by an information-processing agent (such as a computer).
+   - Term pioneered by Jeannette Wing (2006).
+
+2. THE FOUR PILLARS OF COMPUTATIONAL THINKING:
+
+   PILLAR 1: DECOMPOSITION (Breaking Down)
+      - Definition: Breaking down a complex problem, system, or dataset into smaller,
+        more manageable, and independently solvable parts (sub-problems).
+      - Why it Matters: Large monolithic tasks are overwhelming; solving smaller sub-tasks
+        one by one reduces cognitive load and allows modular team collaboration.
+      - Example: Building a School Management System is decomposed into:
+        * Student Admission Module
+        * Fee Collection Module
+        * Examination & Grading Module
+        * Library Management Module
+
+   PILLAR 2: PATTERN RECOGNITION (Finding Similarities)
+      - Definition: Looking for recurring patterns, similarities, trends, and shared
+        characteristics among decomposed problems or past solved problems.
+      - Why it Matters: Allows reusing proven existing algorithms and formulas rather
+        than reinventing the wheel.
+      - Example: Recognizing that calculating the area of a circle, sphere surface area,
+        and cylinder volume all require multiplication by Pi (π * r^2).
+
+   PILLAR 3: ABSTRACTION (Filtering Irrelevant Details)
+      - Definition: Focusing exclusively on the essential, high-level features necessary
+        for solving the problem while filtering out and ignoring unnecessary, distracting details.
+      - Why it Matters: Reduces complexity by creating clean models.
+      - Example: A Google Maps navigation app shows only roads, turns, and real-time traffic;
+        it deliberately hides roadside trees, building interior layouts, and street lamp locations.
+
+   PILLAR 4: ALGORITHM DESIGN (Step-by-Step Instructions)
+      - Definition: Developing a step-by-step, ordered set of precise rules or instructions
+        to solve the problem or achieve the desired outcome every single time.
+      - Why it Matters: Provides a deterministic, repeatable recipe that can be automated
+        in Python or any other programming language.
+      - Example: The exact sequence of steps to compute Prime Numbers or Sort an Array.
+
+3. SUMMARY TABLE FOR BOARD EXAMINATIONS:
+   -----------------------------------------------------------------------------------------
+   Pillar                 Core Action                      Key Benefit
+   -----------------------------------------------------------------------------------------
+   1. Decomposition       Divide complex into simple parts Simplifies management & modularity
+   2. Pattern Recognition Identify recurring similarities  Enables reuse of existing solutions
+   3. Abstraction         Filter out irrelevant noise      Focuses on essential characteristics
+   4. Algorithm Design    Create step-by-step recipe       Enables automated computer execution
+   -----------------------------------------------------------------------------------------
+================================================================================

@@ -1,0 +1,54 @@
+================================================================================
+CBSE CLASS 11 COMPUTER SCIENCE (CODE: 083)
+UNIT 2: COMPUTATIONAL THINKING AND PROGRAMMING - 1
+TOPIC 5: VARIABLES AS OBJECT REFERENCES, id() FUNCTION & GARBAGE COLLECTION
+================================================================================
+
+1. PYTHON'S OBJECT REFERENCE MEMORY MODEL
+--------------------------------------------------------------------------------
+- In traditional compiled languages (like C/C++), a variable is a named fixed memory location ("a storage box") where raw bytes are placed.
+- In Python, EVERYTHING IS AN OBJECT.
+- A Python variable is NOT a storage box; it is a NAME TAG (REFERENCE / POINTER) that points to an object created in heap memory.
+- Example: `a = 10`
+  1. Python allocates an integer object with value `10` in heap memory.
+  2. The name `a` is bound to reference that object's memory address.
+  3. If we do `b = a`, a new integer object is NOT created. Instead, the name `b` is simply tagged to point to the EXACT SAME object as `a`.
+
+2. THE `id()` BUILT-IN FUNCTION
+--------------------------------------------------------------------------------
+- Definition: `id(object)` returns the unique integer identity (memory address) of an object during its lifetime.
+- In CPython, `id(x)` corresponds to the physical memory address in RAM where object `x` resides.
+- Two variables referring to the exact same object will have identical `id()` values:
+  `a = 500; b = a; print(id(a) == id(b))` -> Outputs `True`.
+
+3. OBJECT IDENTITY (`is`) VS VALUE EQUALITY (`==`)
+--------------------------------------------------------------------------------
+1. Equality Operator (`==`):
+   - Compares the DATA VALUES or CONTENTS of two objects.
+   - Evaluates to `True` if both objects contain identical data.
+
+2. Identity Operator (`is`):
+   - Compares the MEMORY ADDRESSES (`id()`) of two objects.
+   - Evaluates to `True` ONLY IF both variables refer to the exact same object in RAM.
+
+Example:
+  `list1 = [1, 2, 3]`
+  `list2 = [1, 2, 3]`
+  `list1 == list2` -> `True`  (Contents are identical)
+  `list1 is list2` -> `False` (Two separate list objects created in memory)
+  `list3 = list1`
+  `list1 is list3` -> `True`  (Both point to the same list object)
+
+4. SMALL INTEGER CACHING (INTERNING OPTIMIZATION)
+--------------------------------------------------------------------------------
+- In CPython, integers in the range `-5` to `256` are pre-allocated and cached when the interpreter starts.
+- Any integer variable assigned a value between -5 and 256 points to the single shared cached singleton in memory:
+  `x = 100; y = 100; x is y` -> Evaluates to `True`!
+
+5. REFERENCE COUNTING & AUTOMATIC GARBAGE COLLECTION
+--------------------------------------------------------------------------------
+- Reference Count: Python internally tracks how many variable names/data structures currently point to each object.
+- Rebinding: If `x = 10` and later `x = "Hello"`, the reference count for object `10` decreases by 1.
+- Garbage Collector (GC): When an object's reference count drops to `0` (no variables point to it), it becomes unreachable orphan data. Python's automatic Garbage Collector deallocates its memory, returning it to the system.
+
+================================================================================
