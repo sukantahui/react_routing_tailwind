@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_002_inheritance
+TOPIC 2: Method Overriding Overview
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Detailed introduction to method overriding. Dynamic method dispatch, overriding vs overloading differences, rules on access modifiers, and @Override annotation.
+
+2. SIGNATURE & CONVENTIONS:
+   @Override <accessModifier> <returnType> <methodName>(<params>)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Debangshu override a calculateFee() method in ScholarshipStudent at Naihati.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

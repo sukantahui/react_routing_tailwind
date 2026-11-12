@@ -1,0 +1,16 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_002: BASIC STRING METHODS
+TOPIC 4: trim() Method Deep Dive
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SPECIFICATION
+--------------------------------------------------------------------------------
+Prototype   : public String trim()
+Package     : java.lang.String
+Return Type : String
+Parameters  : None
+Function    : Removes leading and trailing whitespace (ASCII <= 32).
+Note        : Internal spaces are NEVER removed!
+================================================================================

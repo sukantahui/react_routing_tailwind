@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 004_002_user-defined-methods
+TOPIC 1: Method Definition and Body
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Constructing method bodies. Local variable declarations, mathematical processing, single return statements, and avoiding unreachable code errors.
+
+2. SIGNATURE & CONVENTIONS:
+   <methodHeader> { /* method body statements */ return <value>; }
+
+3. CLASSROOM APPLICATION:
+   Abhronila and Debangshu compute compound interest and loan EMI in Shyamnagar.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

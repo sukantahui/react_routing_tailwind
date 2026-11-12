@@ -1,0 +1,16 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_002: BASIC STRING METHODS
+TOPIC 5: toLowerCase() Method Deep Dive
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SPECIFICATION
+--------------------------------------------------------------------------------
+Prototype   : public String toLowerCase()
+Package     : java.lang.String
+Return Type : String
+Parameters  : None
+Function    : Converts all uppercase characters ('A'-'Z') to lowercase ('a'-'z').
+ASCII Shift : Adds 32 to ASCII value of uppercase letters (e.g. 'A' 65 + 32 = 97 'a').
+================================================================================

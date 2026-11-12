@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_003: ADVANCED STRING METHODS
+TOPIC 4: substring() METHOD (SINGLE & DUAL ARGUMENT)
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. METHOD SIGNATURES:
+   Form 1: public String substring(int beginIndex)
+     - Extracts from beginIndex (inclusive) to str.length() - 1.
+   Form 2: public String substring(int beginIndex, int endIndex)
+     - Extracts from beginIndex (inclusive) up to endIndex - 1 (exclusive).
+
+2. THE GOLDEN ICSE SUBSTRING FORMULAS:
+   - Number of characters extracted = (endIndex - beginIndex)
+   - beginIndex must satisfy: 0 <= beginIndex <= length()
+   - endIndex must satisfy: beginIndex <= endIndex <= length()
+   - If beginIndex < 0 OR endIndex > length() OR beginIndex > endIndex:
+     The JVM throws: java.lang.StringIndexOutOfBoundsException!
+
+3. EXTREMELY COMMON ICSE TRAPS:
+   - Trap 1: Thinking endIndex is inclusive.
+     "COMPUTER".substring(3, 6) -> Indices 3, 4, 5 (characters 'P', 'U', 'T').
+     Length = 6 - 3 = 3 characters.
+   - Trap 2: substring(k, k) returns empty string "", NOT null!
+   - Trap 3: substring(k, k+1) returns the single character at index k as a String.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

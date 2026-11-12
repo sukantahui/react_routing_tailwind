@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 1: String Creation Using Literals vs New Keyword
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. TWO WAYS TO CREATE STRINGS IN JAVA
+--------------------------------------------------------------------------------
+Method A: String Literal
+  Syntax: String s = "Barrackpore";
+  Memory: Stored in String Constant Pool (SCP) inside Heap.
+  Behavior: JVM checks SCP first. If literal exists, existing reference is returned.
+            No duplicate string objects are created in SCP!
+
+Method B: 'new' Keyword
+  Syntax: String s = new String("Barrackpore");
+  Memory: Two objects created:
+          1) One on general Heap memory (referenced by 's').
+          2) One literal in SCP for future reuse (if not already present).
+
+2. REFERENCE (==) VS CONTENT (.equals())
+--------------------------------------------------------------------------------
+- '==' checks memory addresses (references).
+- '.equals()' checks character-by-character value equality.
+  Example:
+  String a = "ICSE";
+  String b = "ICSE";
+  String c = new String("ICSE");
+  a == b      -> true  (pointing to identical SCP object)
+  a == c      -> false (a is SCP, c is general Heap)
+  a.equals(c) -> true  (same characters "ICSE")
+
+3. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] String literals share memory in SCP, saving RAM.
+[✓] 'new String()' always forces a new object on Heap.
+[✓] char[] can be converted using new String(charArr).
+[✓] Always use .equals() for checking student names or inputs!
+================================================================================

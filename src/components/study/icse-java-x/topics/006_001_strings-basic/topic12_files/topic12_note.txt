@@ -1,0 +1,23 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 12: String Replacement and Modification Techniques
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPES
+--------------------------------------------------------------------------------
+1. public String replace(char oldChar, char newChar)
+   - Replaces ALL occurrences of oldChar with newChar.
+   - If oldChar does not occur, original string reference is returned.
+
+2. public String replace(CharSequence target, CharSequence replacement)
+   - Replaces each substring matching target with replacement.
+   - Operates from left to right.
+
+2. ICSE OUTPUT OBSERVATION
+--------------------------------------------------------------------------------
+- "MALAYALAM".replace('A', '*') -> "M*L*Y*L*M"
+- Original string is NOT modified (immutability).
+- Method chaining is supported: s.replace('A','*').replace('E','*')
+================================================================================

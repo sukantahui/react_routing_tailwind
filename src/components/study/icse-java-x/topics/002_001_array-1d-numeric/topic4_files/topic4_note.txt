@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 4
+TITLE: INPUT USING SCANNER FOR ARRAYS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+Array size and individual element values are frequently accepted from the user via the java.util.Scanner class. A loop prompts the user and populates each sequential index from 0 to length - 1 using sc.nextInt() or sc.nextDouble().
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Import java.util.Scanner: Required to instantiate the Scanner object reading from System.in.
+[2] Dynamic Size Input: Read array length 'n' first, then allocate: 'int[] arr = new int[n];'.
+[3] Loop Bound: Always loop from index 0 strictly less than array length (i < n).
+[4] Scanner Methods: Use sc.nextInt() for integers, sc.nextDouble() for doubles, and sc.next() for words.
+[5] Prompt Clarity: Provide descriptive prompts so the user knows which index or value is requested.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Using '<=' instead of '<' in the input loop condition causing ArrayIndexOutOfBoundsException on last iteration.
+[!] Pitfall 2: Entering non-numeric characters when nextInt() is expected, throwing InputMismatchException.
+[!] Pitfall 3: Forgetting to clear the newline buffer with sc.nextLine() if reading strings after numbers.
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: ArrayInputScanner.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

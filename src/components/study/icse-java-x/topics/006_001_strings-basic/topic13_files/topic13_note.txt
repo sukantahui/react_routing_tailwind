@@ -1,0 +1,28 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 13: Searching Within Strings
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. INDEXOF METHODS
+--------------------------------------------------------------------------------
+1. public int indexOf(int ch)
+   - Returns index of first occurrence of character 'ch'. Returns -1 if not found.
+2. public int indexOf(int ch, int fromIndex)
+   - Starts scanning forward from 'fromIndex'.
+3. public int indexOf(String str)
+   - Returns starting index of first occurrence of substring 'str'.
+4. public int indexOf(String str, int fromIndex)
+
+2. LASTINDEXOF METHODS
+--------------------------------------------------------------------------------
+1. public int lastIndexOf(int ch)
+   - Scans backward; returns index of last occurrence. Returns -1 if not found.
+
+3. BOOLEAN SEARCH METHODS
+--------------------------------------------------------------------------------
+- public boolean contains(CharSequence s): Checks if substring is present anywhere.
+- public boolean startsWith(String prefix): Checks if string begins with prefix.
+- public boolean endsWith(String suffix): Checks if string concludes with suffix.
+================================================================================

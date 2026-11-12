@@ -58,10 +58,19 @@ import {
   Navigation,
   HelpCircle,
   ChevronDown,
+  ChevronUp,
+  ArrowUpDown,
+  ArrowUp,
+  ArrowDown,
+  BarChart3,
+  PieChart,
+  Activity,
+  Cake,
 } from "lucide-react";
 import { authService } from "../api/auth.service";
 import { loginService } from "../services/loginService";
 import LinkPhoneGroupModal from "../components/bijoya/LinkPhoneGroupModal";
+import BijoyaDemographics from "../components/bijoya/BijoyaDemographics";
 import qr from "../assets/google_review_QR.png";
 import maitriLogo from "../assets/maitri-mahotsav-27.png";
 
@@ -144,8 +153,25 @@ export default function Bijoya() {
   const [editGuestId, setEditGuestId] = useState(null);
   const [storedPin, setStoredPin] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeFilter, setActiveFilter] = useState("all"); // 'all' | 'veg' | 'non-veg' | 'present'
-  const [viewMode, setViewMode] = useState("grid"); // 'grid' | 'table'
+  const [activeFilter, setActiveFilter] = useState("all"); // 'all' | 'veg' | 'non-veg' | 'present' | 'male' | 'female' | 'duplicates'
+  const [selectedAgeGroup, setSelectedAgeGroup] = useState(null); // null | 'under18' | '18-25' | '26-40' | '41-60' | '60plus' | 'unspecified'
+  const [sortBy, setSortBy] = useState("sequence"); // 'sequence' | 'name' | 'gender' | 'age' | 'food' | 'attendance'
+  const [sortOrder, setSortOrder] = useState("asc"); // 'asc' | 'desc'
+  const [viewMode, setViewModeState] = useState(() => {
+    try {
+      return localStorage.getItem("bijoya_guest_view_mode") || "table";
+    } catch {
+      return "table";
+    }
+  });
+  const setViewMode = (mode) => {
+    setViewModeState(mode);
+    try {
+      localStorage.setItem("bijoya_guest_view_mode", mode);
+    } catch {
+      // ignore
+    }
+  };
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedToken, setCopiedToken] = useState(false);
@@ -592,6 +618,40 @@ export default function Bijoya() {
       (String(g.foodPreferenceName || "").toLowerCase().includes("veg") &&
         !String(g.foodPreferenceName || "").toLowerCase().includes("non"))
     );
+  };
+
+  // Helper to determine female gender
+  const checkIsFemale = (g) => {
+    if (!g) return false;
+    return (
+      g.genderId === "2" ||
+      g.genderId === 2 ||
+      String(g.genderName || "").trim().toLowerCase() === "female"
+    );
+  };
+
+  // Helper to extract numeric registration sequence for sorting
+  const getRegistrationSequence = (guest) => {
+    if (!guest) return 0;
+    if (guest.token) {
+      const str = String(guest.token).replace(/^#/, "");
+      const matches = str.match(/\d+/g);
+      if (matches && matches.length > 0) {
+        const seq = matches.find((m) => m !== "2026" && m !== "2025" && m !== "2027");
+        if (seq) return parseInt(seq, 10);
+        return parseInt(matches[0], 10);
+      }
+    }
+    if (guest.guestId != null && !isNaN(Number(guest.guestId))) {
+      return Number(guest.guestId);
+    }
+    if (guest.id != null && !isNaN(Number(guest.id))) {
+      return Number(guest.id);
+    }
+    if (guest.createdAt) {
+      return new Date(guest.createdAt).getTime();
+    }
+    return 0;
   };
 
   // Helper to format token as #CNAT-1002-2026 (#CNAT-{num}-year)
@@ -1519,11 +1579,12 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
       "SL",
       "Token",
       "Guest Name",
-      "Mobile",
-      "WhatsApp",
+      "Age",
       "Gender",
       "Food Preference",
       "Attending",
+      "Mobile",
+      "WhatsApp",
       "Address",
       "Comment",
     ];
@@ -1532,11 +1593,12 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
       idx + 1,
       formatToken(guest),
       guest.guestName || "",
-      guest.mobile || "",
-      guest.wpNumber || "",
-      guest.genderName || (guest.genderId === "1" ? "Male" : "Female"),
+      guest.age !== undefined && guest.age !== null ? guest.age : "",
+      checkIsFemale(guest) ? "Female" : "Male",
       guest.foodPreferenceName || (guest.foodPreferenceId === "1" ? "Vegetarian" : "Non-Vegetarian"),
       checkIsAttending(guest) ? "Yes" : "No",
+      guest.mobile || "",
+      guest.wpNumber || "",
       guest.address || "",
       guest.comment || "",
     ]);
@@ -1838,9 +1900,9 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
     URL.revokeObjectURL(url);
   };
 
-  // Filtered Guests computation
+  // Filtered & Sorted Guests computation
   const filteredGuests = useMemo(() => {
-    return guests.filter((guest) => {
+    const list = guests.filter((guest) => {
       const q = searchQuery.toLowerCase().trim();
       const nameMatch = guest.guestName?.toLowerCase().includes(q);
       const mobileMatch = guest.mobile?.includes(q) || guest.wpNumber?.includes(q);
@@ -1852,22 +1914,110 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
       if (!matchesSearch) return false;
 
       if (activeFilter === "veg") {
-        return checkIsVeg(guest);
-      }
-      if (activeFilter === "non-veg") {
-        return !checkIsVeg(guest);
-      }
-      if (activeFilter === "present") {
-        return checkIsAttending(guest);
-      }
-      if (activeFilter === "duplicates") {
+        if (!checkIsVeg(guest)) return false;
+      } else if (activeFilter === "non-veg") {
+        if (checkIsVeg(guest)) return false;
+      } else if (activeFilter === "present") {
+        if (!checkIsAttending(guest)) return false;
+      } else if (activeFilter === "male") {
+        if (checkIsFemale(guest)) return false;
+      } else if (activeFilter === "female") {
+        if (!checkIsFemale(guest)) return false;
+      } else if (activeFilter === "duplicates") {
         const gId = String(guest.guestId || guest.id || guest._id || guest.token);
-        return duplicateAnalysis.duplicateGuestIds.has(gId);
+        if (!duplicateAnalysis.duplicateGuestIds.has(gId)) return false;
+      }
+
+      // Filter by selectedAgeGroup
+      if (selectedAgeGroup) {
+        const age =
+          guest.age !== undefined && guest.age !== null && guest.age !== "" && !isNaN(Number(guest.age))
+            ? Number(guest.age)
+            : null;
+
+        if (selectedAgeGroup === "under18") {
+          if (age === null || age < 0 || age >= 18) return false;
+        } else if (selectedAgeGroup === "18-25") {
+          if (age === null || age < 18 || age > 25) return false;
+        } else if (selectedAgeGroup === "26-40") {
+          if (age === null || age < 26 || age > 40) return false;
+        } else if (selectedAgeGroup === "41-60") {
+          if (age === null || age < 41 || age > 60) return false;
+        } else if (selectedAgeGroup === "60plus") {
+          if (age === null || age <= 60) return false;
+        } else if (selectedAgeGroup === "unspecified") {
+          if (age !== null && age > 0) return false;
+        }
       }
 
       return true;
     });
-  }, [guests, searchQuery, activeFilter, duplicateAnalysis]);
+
+    // User-controlled sorting
+    list.sort((a, b) => {
+      let comparison = 0;
+
+      if (sortBy === "sequence") {
+        const seqA = getRegistrationSequence(a);
+        const seqB = getRegistrationSequence(b);
+        comparison = seqA - seqB;
+      } else if (sortBy === "name") {
+        const nameA = (a.guestName || "").trim().toLowerCase();
+        const nameB = (b.guestName || "").trim().toLowerCase();
+        comparison = nameA.localeCompare(nameB);
+      } else if (sortBy === "gender") {
+        const isFemA = checkIsFemale(a) ? 1 : 0;
+        const isFemB = checkIsFemale(b) ? 1 : 0;
+        comparison = isFemA - isFemB;
+        if (comparison === 0) {
+          comparison = (a.guestName || "").trim().localeCompare((b.guestName || "").trim());
+        }
+      } else if (sortBy === "age") {
+        const ageA =
+          a.age !== undefined && a.age !== null && a.age !== "" && !isNaN(Number(a.age))
+            ? Number(a.age)
+            : null;
+        const ageB =
+          b.age !== undefined && b.age !== null && b.age !== "" && !isNaN(Number(b.age))
+            ? Number(b.age)
+            : null;
+
+        if (ageA !== null && ageB !== null) {
+          comparison = ageA - ageB;
+        } else if (ageA !== null) {
+          comparison = -1;
+        } else if (ageB !== null) {
+          comparison = 1;
+        } else {
+          comparison = 0;
+        }
+
+        if (comparison === 0) {
+          comparison = (a.guestName || "").trim().localeCompare((b.guestName || "").trim());
+        }
+      } else if (sortBy === "food") {
+        const vegA = checkIsVeg(a) ? 1 : 0;
+        const vegB = checkIsVeg(b) ? 1 : 0;
+        comparison = vegA - vegB;
+      } else if (sortBy === "attendance") {
+        const attA = checkIsAttending(a) ? 1 : 0;
+        const attB = checkIsAttending(b) ? 1 : 0;
+        comparison = attB - attA;
+      }
+
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+
+    return list;
+  }, [
+    guests,
+    searchQuery,
+    activeFilter,
+    selectedAgeGroup,
+    duplicateAnalysis,
+    sortBy,
+    sortOrder,
+  ]);
 
   // Dynamic Statistics
   const stats = useMemo(() => {
@@ -1875,12 +2025,29 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
     const veg = guests.filter((g) => checkIsVeg(g)).length;
     const nonVeg = guests.filter((g) => !checkIsVeg(g)).length;
     const present = guests.filter((g) => checkIsAttending(g)).length;
+    const males = guests.filter((g) => !checkIsFemale(g)).length;
+    const females = guests.filter((g) => checkIsFemale(g)).length;
     const duplicates = duplicateAnalysis.totalDuplicates;
     const vegPct = total > 0 ? Math.round((veg / total) * 100) : 0;
     const nonVegPct = total > 0 ? Math.round((nonVeg / total) * 100) : 0;
     const presentPct = total > 0 ? Math.round((present / total) * 100) : 0;
+    const malePct = total > 0 ? Math.round((males / total) * 100) : 0;
+    const femalePct = total > 0 ? Math.round((females / total) * 100) : 0;
 
-    return { total, veg, nonVeg, present, duplicates, vegPct, nonVegPct, presentPct };
+    return {
+      total,
+      veg,
+      nonVeg,
+      present,
+      males,
+      females,
+      duplicates,
+      vegPct,
+      nonVegPct,
+      presentPct,
+      malePct,
+      femalePct,
+    };
   }, [guests, duplicateAnalysis]);
 
   const handleCopyToken = () => {
@@ -2156,7 +2323,9 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
               </div>
               <span className="text-2xl sm:text-3xl font-black text-white">{stats.total}</span>
               <span className="text-xs text-purple-200/80 font-semibold mt-0.5">Total Registered</span>
-              <span className="text-[10px] text-purple-300/60 font-mono mt-0.5">Live Guest Count</span>
+              <span className="text-[10px] text-purple-300/80 font-mono mt-0.5">
+                {stats.males} Male • {stats.females} Female
+              </span>
             </motion.div>
 
             {/* Non-Vegetarian Feast */}
@@ -3551,60 +3720,162 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
               {/* View Toggle */}
               <div className="p-1 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-1">
                 <button
-                  onClick={() => setViewMode("grid")}
-                  className={`p-1.5 rounded-lg text-xs transition cursor-pointer ${
-                    viewMode === "grid"
-                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
-                      : "text-slate-400 hover:text-white"
-                  }`}
-                  title="Grid View"
-                >
-                  <LayoutGrid className="w-3.5 h-3.5" />
-                </button>
-                <button
                   onClick={() => setViewMode("table")}
-                  className={`p-1.5 rounded-lg text-xs transition cursor-pointer ${
-                    viewMode === "table"
-                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                    viewMode === "table" || viewMode === "list"
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20 font-bold"
                       : "text-slate-400 hover:text-white"
                   }`}
-                  title="Table View"
+                  title="List / Table View"
                 >
                   <List className="w-3.5 h-3.5" />
+                  <span className="text-xs">List View</span>
+                </button>
+                <button
+                  onClick={() => setViewMode("grid")}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer flex items-center gap-1.5 ${
+                    viewMode === "grid"
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20 font-bold"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                  title="Grid Cards View"
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span className="text-xs">Grid</span>
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Filters & Search Toolbar */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
-            {/* Search Box */}
-            <div className="sm:col-span-6 relative">
-              <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by name, mobile, or #token..."
-                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
-              />
-              {searchQuery && (
+          {/* ============================================================== */}
+          {/* DEMOGRAPHICS: AGE & SEX ANALYTICS PANEL                       */}
+          {/* ============================================================== */}
+          <BijoyaDemographics
+            guests={guests}
+            checkIsFemale={checkIsFemale}
+            selectedAgeGroup={selectedAgeGroup}
+            onSelectAgeGroup={setSelectedAgeGroup}
+            activeFilter={activeFilter}
+            onSelectFilter={setActiveFilter}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
+            onSetSort={(field, order) => {
+              setSortBy(field);
+              setSortOrder(order);
+            }}
+            ManLogo={ManLogo}
+            WomanLogo={WomanLogo}
+          />
+
+          {/* Search, Sort & Filters Toolbar */}
+          <div className="space-y-3">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
+              {/* Search Box */}
+              <div className="lg:col-span-5 relative">
+                <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search by name, mobile, or #token..."
+                  className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-0.5 rounded cursor-pointer"
+                    title="Clear search"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+
+              {/* Sort Controls Bar */}
+              <div className="lg:col-span-7 flex flex-wrap items-center gap-1.5 justify-start lg:justify-end">
+                <div className="flex items-center gap-1 text-xs text-slate-400 font-semibold mr-1">
+                  <ArrowUpDown className="w-3.5 h-3.5 text-purple-400" />
+                  <span>Sort by:</span>
+                </div>
+
+                {[
+                  { id: "sequence", label: "Reg. Sequence", icon: "🔢" },
+                  { id: "name", label: "Name", icon: "🔤" },
+                  { id: "gender", label: "Gender (Sex)", icon: "👥" },
+                  { id: "age", label: "Age", icon: "🎂" },
+                ].map((opt) => (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => {
+                      if (sortBy === opt.id) {
+                        setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                      } else {
+                        setSortBy(opt.id);
+                        setSortOrder("asc");
+                      }
+                    }}
+                    className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer flex items-center gap-1 ${
+                      sortBy === opt.id
+                        ? "bg-purple-600/30 border-purple-500 text-purple-200 shadow-md shadow-purple-600/10 font-bold"
+                        : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+                    }`}
+                    title={`Sort by ${opt.label} (${sortBy === opt.id ? (sortOrder === "asc" ? "Ascending - click for Descending" : "Descending - click for Ascending") : "Click to select"})`}
+                  >
+                    <span>{opt.icon}</span>
+                    <span>{opt.label}</span>
+                    {sortBy === opt.id && (
+                      <span className="ml-0.5">
+                        {sortOrder === "asc" ? (
+                          <ArrowUp className="w-3 h-3 text-purple-300 inline" />
+                        ) : (
+                          <ArrowDown className="w-3 h-3 text-purple-300 inline" />
+                        )}
+                      </span>
+                    )}
+                  </button>
+                ))}
+
+                {/* Direction Toggle Button */}
                 <button
                   type="button"
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-0.5 rounded cursor-pointer"
-                  title="Clear search"
+                  onClick={() => setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))}
+                  className="px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-500/40 text-slate-300 hover:text-white text-xs font-semibold transition cursor-pointer flex items-center gap-1"
+                  title={`Toggle Sort Direction: currently ${sortOrder === "asc" ? "Ascending" : "Descending"}`}
                 >
-                  <X className="w-3.5 h-3.5" />
+                  {sortOrder === "asc" ? (
+                    <>
+                      <ArrowUp className="w-3 h-3 text-emerald-400" />
+                      <span className="hidden sm:inline">Asc (1→N / A→Z)</span>
+                      <span className="sm:hidden">Asc</span>
+                    </>
+                  ) : (
+                    <>
+                      <ArrowDown className="w-3 h-3 text-rose-400" />
+                      <span className="hidden sm:inline">Desc (N→1 / Z→A)</span>
+                      <span className="sm:hidden">Desc</span>
+                    </>
+                  )}
                 </button>
-              )}
+              </div>
             </div>
 
             {/* Filter Pills */}
-            <div className="sm:col-span-6 flex flex-wrap items-center gap-1.5">
+            <div className="flex flex-wrap items-center gap-1.5 pt-1">
               {[
                 { id: "all", label: `All (${stats.total})` },
                 { id: "present", label: `Attending (${stats.present})` },
+                {
+                  id: "male",
+                  label: `Male (${stats.males})`,
+                  icon: <ManLogo className="w-3.5 h-3.5 text-sky-400" />,
+                },
+                {
+                  id: "female",
+                  label: `Female (${stats.females})`,
+                  icon: <WomanLogo className="w-3.5 h-3.5 text-pink-400" />,
+                },
                 { id: "veg", label: `Veg (${stats.veg})` },
                 { id: "non-veg", label: `Non-Veg (${stats.nonVeg})` },
                 ...(isAdmin
@@ -3624,16 +3895,47 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                     activeFilter === filter.id
                       ? filter.isAdminPill
                         ? "bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-md shadow-amber-500/10"
-                        : "bg-purple-500/20 border-purple-500/40 text-purple-200"
+                        : filter.id === "male"
+                        ? "bg-sky-500/20 border-sky-500/40 text-sky-200 shadow-md shadow-sky-500/10 font-bold"
+                        : filter.id === "female"
+                        ? "bg-pink-500/20 border-pink-500/40 text-pink-200 shadow-md shadow-pink-500/10 font-bold"
+                        : "bg-purple-500/20 border-purple-500/40 text-purple-200 shadow-md shadow-purple-500/10 font-bold"
                       : filter.isAdminPill
                         ? "bg-slate-900/80 border-slate-800 text-amber-400/80 hover:text-amber-300 hover:border-amber-500/30"
                         : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200"
                   }`}
                 >
+                  {filter.icon}
                   {filter.isAdminPill && <GitCompare className="w-3 h-3 text-amber-400" />}
                   <span>{filter.label}</span>
                 </button>
               ))}
+
+              {/* Active Age Filter Pill */}
+              {selectedAgeGroup && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedAgeGroup(null)}
+                  className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center gap-1.5 shadow-md shadow-purple-600/20 transition cursor-pointer"
+                  title="Click to clear age bracket filter"
+                >
+                  <span>
+                    Age:{" "}
+                    {selectedAgeGroup === "under18"
+                      ? "<18 yrs"
+                      : selectedAgeGroup === "18-25"
+                      ? "18–25 yrs"
+                      : selectedAgeGroup === "26-40"
+                      ? "26–40 yrs"
+                      : selectedAgeGroup === "41-60"
+                      ? "41–60 yrs"
+                      : selectedAgeGroup === "60plus"
+                      ? "60+ yrs"
+                      : "Unspecified"}
+                  </span>
+                  <X className="w-3 h-3" />
+                </button>
+              )}
             </div>
           </div>
 
@@ -3779,7 +4081,7 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                         </span>
 
                         <span className="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 inline-flex items-center gap-1">
-                          {(guest.genderId === "2" || guest.genderName === "Female") ? (
+                          {checkIsFemale(guest) ? (
                             <>
                               <WomanLogo className="w-3.5 h-3.5 text-pink-400" />
                               <span>Female</span>
@@ -3791,6 +4093,13 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                             </>
                           )}
                         </span>
+
+                        {guest.age !== undefined && guest.age !== null && guest.age !== "" && (
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 font-mono inline-flex items-center gap-1 font-semibold">
+                            <span>🎂</span>
+                            <span>{guest.age} yrs</span>
+                          </span>
+                        )}
 
                         {/* Attendance Status & Admin 1-Click Toggle */}
                         {isAdmin ? (
@@ -3900,13 +4209,182 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
               <table className="min-w-full text-left text-sm text-slate-200">
                 <thead className="bg-slate-950/80 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800">
                   <tr>
-                    <th className="px-4 py-3.5 font-semibold">#</th>
-                    <th className="px-4 py-3.5 font-semibold">Token</th>
-                    <th className="px-4 py-3.5 font-semibold">Guest Name</th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "sequence") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("sequence");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort by registration order"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>#</span>
+                        {sortBy === "sequence" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-amber-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-amber-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "sequence") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("sequence");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort by token / registration sequence"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Token</span>
+                        {sortBy === "sequence" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-amber-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-amber-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "name") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("name");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort alphabetically by name"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Guest Name</span>
+                        {sortBy === "name" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-purple-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-purple-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "age") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("age");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort by attendee age"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Age</span>
+                        {sortBy === "age" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-amber-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-amber-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "gender") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("gender");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort by sex / gender (Male / Female)"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Gender</span>
+                        {sortBy === "gender" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-pink-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-pink-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "food") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("food");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort by food preference"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Food</span>
+                        {sortBy === "food" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-emerald-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-emerald-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
                     <th className="px-4 py-3.5 font-semibold">Mobile</th>
-                    <th className="px-4 py-3.5 font-semibold">Food</th>
-                    <th className="px-4 py-3.5 font-semibold">Gender</th>
-                    <th className="px-4 py-3.5 font-semibold">Attendance</th>
+                    <th
+                      onClick={() => {
+                        if (sortBy === "attendance") {
+                          setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+                        } else {
+                          setSortBy("attendance");
+                          setSortOrder("asc");
+                        }
+                      }}
+                      className="px-4 py-3.5 font-semibold cursor-pointer hover:text-white transition select-none group"
+                      title="Click to sort by attendance"
+                    >
+                      <div className="flex items-center gap-1">
+                        <span>Attendance</span>
+                        {sortBy === "attendance" ? (
+                          sortOrder === "asc" ? (
+                            <ArrowUp className="w-3 h-3 text-cyan-400" />
+                          ) : (
+                            <ArrowDown className="w-3 h-3 text-cyan-400" />
+                          )
+                        ) : (
+                          <ArrowUpDown className="w-3 h-3 text-slate-600 group-hover:text-slate-400" />
+                        )}
+                      </div>
+                    </th>
                     <th className="px-4 py-3.5 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
@@ -3926,6 +4404,41 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
                           {guest.address && (
                             <div className="text-xs text-slate-400 font-normal">{guest.address}</div>
                           )}
+                        </td>
+                        <td className="px-4 py-3">
+                          {guest.age !== undefined && guest.age !== null && guest.age !== "" ? (
+                            <span className="px-2 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-mono text-xs font-semibold">
+                              {guest.age} yrs
+                            </span>
+                          ) : (
+                            <span className="text-slate-600 text-xs italic">-</span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3 text-xs text-slate-300">
+                          <span className="inline-flex items-center gap-1.5">
+                            {checkIsFemale(guest) ? (
+                              <>
+                                <WomanLogo className="w-3.5 h-3.5 text-pink-400" />
+                                <span className="text-pink-300 font-medium">Female</span>
+                              </>
+                            ) : (
+                              <>
+                                <ManLogo className="w-3.5 h-3.5 text-sky-400" />
+                                <span className="text-sky-300 font-medium">Male</span>
+                              </>
+                            )}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3">
+                          <span
+                            className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${
+                              isVeg
+                                ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                                : "bg-rose-500/15 text-rose-300 border border-rose-500/30"
+                            }`}
+                          >
+                            {isVeg ? "🌱 Veg" : "🍗 Non-Veg"}
+                          </span>
                         </td>
                         <td className="px-4 py-3 font-mono text-xs text-slate-300">
                           <div>{guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "-"}</div>
@@ -3967,32 +4480,6 @@ Coder & AccoTax পরিবারের সঙ্গে থাকার জন�
 
                             return null;
                           })()}
-                        </td>
-                        <td className="px-4 py-3">
-                          <span
-                            className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${
-                              isVeg
-                                ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
-                                : "bg-rose-500/15 text-rose-300 border border-rose-500/30"
-                            }`}
-                          >
-                            {isVeg ? "🌱 Veg" : "🍗 Non-Veg"}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3 text-xs text-slate-300">
-                          <span className="inline-flex items-center gap-1.5">
-                            {(guest.genderId === "2" || guest.genderName === "Female") ? (
-                              <>
-                                <WomanLogo className="w-3.5 h-3.5 text-pink-400" />
-                                <span>Female</span>
-                              </>
-                            ) : (
-                              <>
-                                <ManLogo className="w-3.5 h-3.5 text-sky-400" />
-                                <span>Male</span>
-                              </>
-                            )}
-                          </span>
                         </td>
                         <td className="px-4 py-3">
                           {isAdmin ? (

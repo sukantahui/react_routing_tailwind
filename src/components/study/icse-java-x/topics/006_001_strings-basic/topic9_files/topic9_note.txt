@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 9: Lexicographical Comparison Using compareTo()
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPE
+--------------------------------------------------------------------------------
+public int compareTo(String anotherString)
+- Returns a negative integer, zero, or a positive integer:
+  * Negative (< 0): Current string comes BEFORE anotherString alphabetically.
+  * Zero (== 0): Both strings are identical.
+  * Positive (> 0): Current string comes AFTER anotherString alphabetically.
+
+2. MATHEMATICAL CALCULATION RULES (ICSE SECTION A)
+--------------------------------------------------------------------------------
+Rule 1 (Different characters):
+  Finds the first index 'i' where characters differ:
+  Result = (int)s1.charAt(i) - (int)s2.charAt(i)
+  Example: "Cat".compareTo("Car") -> 't'(116) - 'r'(114) = +2
+
+Rule 2 (One string is prefix of another):
+  If all characters match up to shorter string length:
+  Result = s1.length() - s2.length()
+  Example: "Java".compareTo("JavaScript") -> 4 - 10 = -6
+
+3. BUBBLE / SELECTION SORTING STRINGS IN ICSE
+--------------------------------------------------------------------------------
+if (names[i].compareTo(names[j]) > 0) {
+    // Swap strings for alphabetical order
+}
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 008_001_pre-selection-exam
+TOPIC 0: Chapters from March to August Syllabus Review
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Systematic revision of core ICSE Class X syllabus. Java primitives, operators, library classes, wrapper methods, arrays (1D & 2D), and comprehensive string handling fundamentals.
+
+2. SIGNATURE & CONVENTIONS:
+   Comprehensive ICSE Syllabus Review (March - August)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina review the entire First Term syllabus scope at Barrackpore before the Pre-Selection trial.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

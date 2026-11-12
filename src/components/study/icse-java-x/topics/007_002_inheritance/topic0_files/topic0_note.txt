@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_002_inheritance
+TOPIC 0: Base Class (Superclass) and Derived Class (Subclass)
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Foundational concepts of Java inheritance. Generalization, specialization, superclass and subclass terminology, and code reusability across class hierarchies.
+
+2. SIGNATURE & CONVENTIONS:
+   class <SubClass> extends <SuperClass>
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina model a Person superclass extended by a Student subclass at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

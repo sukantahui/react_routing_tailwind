@@ -1,0 +1,26 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 003_001 · TOPIC 6
+TITLE: 2D ARRAY OUTPUT PREDICTION & DRY RUN TESTS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT & OBJECTIVE
+----------------------------------------------------------------------
+Output prediction and dry running form the core of Section A in ICSE Class 10.
+Students must accurately track row index (i) and column index (j) through nested loops.
+
+2. KEY RULES FOR DRY RUNNING MATRIX LOOPS
+----------------------------------------------------------------------
+[1] Trace table columns: Outer loop variable (i), Inner loop variable (j), Condition check, Array element accessed, Printed output.
+[2] Row-major traversal: Outer loop represents row, inner loop represents column.
+[3] Diagonal checks: Primary diagonal satisfies (i == j); Secondary diagonal satisfies (i + j == n - 1).
+[4] Boundary checks: Boundary elements reside on row 0, row n-1, col 0, or col m-1.
+[5] Matrix transpose: arr[i][j] swaps with arr[j][i].
+
+3. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always draw a small 3x3 grid on your rough paper when solving 2D array output questions in Section A.
+Fill in the cell values step by step to guarantee 100% accuracy!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

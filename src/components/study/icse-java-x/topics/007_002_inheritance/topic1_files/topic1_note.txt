@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_002_inheritance
+TOPIC 1: Extends Keyword Syntax and Rules
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Syntax rules and language constraints of the extends keyword. Single class inheritance, prohibited multiple inheritance, and inheritance scope in Java.
+
+2. SIGNATURE & CONVENTIONS:
+   class Child extends Parent { /* child body */ }
+
+3. CLASSROOM APPLICATION:
+   Abhronila and Debangshu extend an Account class into SavingsAccount with interest calculation in Shyamnagar.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

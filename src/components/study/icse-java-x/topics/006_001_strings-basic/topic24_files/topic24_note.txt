@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 24: Common Errors (== Misuse, Index Errors, Null Issues)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. TOP 5 STRING TRAPS IN ICSE BOARD EXAMS
+--------------------------------------------------------------------------------
+TRAP 1: Using '==' instead of '.equals()'
+  Problem: Tests memory addresses, not characters.
+  Solution: Always use s1.equals(s2) or "CONSTANT".equals(s1).
+
+TRAP 2: Forgetting Immutability
+  Problem: Writing s.trim(); or s.toUpperCase(); without reassignment.
+  Solution: Reassign: s = s.trim();
+
+TRAP 3: Loop Boundary (IndexOutOfBoundsException)
+  Problem: for (int i = 0; i <= s.length(); i++)
+  Solution: Use '<' strictly: for (int i = 0; i < s.length(); i++)
+
+TRAP 4: NullPointerException
+  Problem: Calling methods on null: s.length() when s is null.
+  Solution: Check if (s != null && s.length() > 0)
+
+TRAP 5: Using Square Brackets []
+  Problem: char c = str[0]; (C++ habit)
+  Solution: char c = str.charAt(0);
+================================================================================

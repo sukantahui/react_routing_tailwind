@@ -1,0 +1,22 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_002: BASIC STRING METHODS
+TOPIC 0: length() Method Deep Dive
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SPECIFICATION
+--------------------------------------------------------------------------------
+Prototype   : public int length()
+Package     : java.lang.String
+Return Type : int
+Parameters  : None
+Throws      : None (NullPointerException if invoked on null reference)
+
+2. CORE RULES
+--------------------------------------------------------------------------------
+- Counts the number of 16-bit Unicode characters in the string.
+- Valid indices are ALWAYS 0 to length() - 1.
+- Never write s.length without parentheses; it is a method!
+- Escape sequences like '\n' or '\t' count as exactly 1 character each.
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_001_wrapper-class-methods
+TOPIC 4: valueOf() Method in Wrapper Classes
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Comprehensive guide to static valueOf() across wrapper classes. Difference between parseInt() (returns primitive int) and Integer.valueOf() (returns Integer object), and the Integer Cache (-128 to 127).
+
+2. SIGNATURE & CONVENTIONS:
+   public static Integer valueOf(String s) / public static Integer valueOf(int i)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina explore the Integer Cache (-128 to 127) and wrapper object instantiation at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

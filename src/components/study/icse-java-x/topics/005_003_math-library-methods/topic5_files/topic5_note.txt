@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 5
+TITLE: MATH.RANDOM() AND RANGE SCALING
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Math.random() generates a pseudorandom double value greater than or equal to 0.0 and strictly less than 1.0 [0.0, 1.0). To generate integers in an arbitrary range [min, max], developers scale and shift the formula: (int)(Math.random() * (max - min + 1)) + min.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Range: Returns a double value in the half-open range: 0.0 <= Math.random() < 1.0.
+[2] Never Returns 1.0: The upper bound 1.0 is exclusive; it will never return exactly 1.0.
+[3] Integer Scaling Formula: (int)(Math.random() * (max - min + 1)) + min generates integers between min and max inclusive.
+[4] Dice Roll Example: (int)(Math.random() * 6) + 1 yields random integers from 1 to 6.
+[5] Parentheses Precedence: Casting '(int) Math.random() * 6' ALWAYS evaluates to 0 because (int) casts the [0, 1) decimal to 0 first! Must write: (int)(Math.random() * 6).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: The classic cast precedence bug: (int) Math.random() * 10 evaluates to 0 * 10 = 0 every time!
+[!] Pitfall 2: Assuming Math.random() can return 1.0.
+[!] Pitfall 3: Missing the '+ 1' in range size causing upper bound exclusion.
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathRandomDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

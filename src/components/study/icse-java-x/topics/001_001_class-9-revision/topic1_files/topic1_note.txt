@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 001_001 · TOPIC 1
+TITLE: CONDITIONAL STATEMENTS (IF, IF-ELSE, SWITCH-CASE)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Conditional branching directs program execution along alternative paths based on boolean evaluation. Java provides 'if', 'if-else', 'nested if', 'if-else-if' ladders, the multi-way 'switch-case' selection structure, and the concise ternary operator (? :).
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Boolean Condition: In Java, 'if' requires a strictly boolean expression (e.g. if (x > 0)); non-zero integers are NOT boolean.
+[2] Equality vs Assignment: Never confuse == (comparison) with = (assignment).
+[3] Switch Supported Types: switch supports byte, short, char, int, String, and enums (floating point float/double are NOT allowed).
+[4] Break in Switch: The 'break' statement prevents intentional or accidental 'fall-through' to subsequent case statements.
+[5] Ternary Operator: 'condition ? expr1 : expr2' evaluates and returns one of two expressions conditionally.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Using '=' instead of '==' in conditions like: if (flag = true) which reassigns instead of checking.
+[!] Pitfall 2: Omitting 'break' statements in switch cases leading to fall-through execution.
+[!] Pitfall 3: Using double or float values in switch expressions resulting in compile-time errors.
+
+4. ICSE REVISION CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: ConditionalStatementsDemo.java
+Standard Class Structure:
+  - Class definition matching filename
+  - Proper data types and clear variable naming
+  - Execution flow adhering to ICSE standards
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"A strong foundation in Class IX fundamentals guarantees high scores in Class X.
+Always master variable types, if-else ladders, loops, and BlueJ execution
+before diving into complex array and string algorithms!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 0
+TITLE: ARRAYS IN JAVA: CONCEPT & MEMORY REPRESENTATION
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+An array in Java is a dynamically allocated object stored in heap memory that holds a fixed number of homogeneous elements in contiguous memory locations. A reference variable on the stack points to the base memory address of the array in the heap.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Zero-Based Indexing: The first element is always at index 0, and the last is at index (length - 1).
+[2] Contiguous Allocation: Elements are stored in continuous adjacent bytes in heap memory.
+[3] Homogeneous Elements: All elements in an array must share the exact same declared data type.
+[4] Fixed Size: Once created, the physical size of an array cannot be expanded or shrunk.
+[5] Direct O(1) Access: Any element can be accessed instantaneously via base address + (index * element_size).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Accessing index arr[arr.length] results in runtime ArrayIndexOutOfBoundsException.
+[!] Pitfall 2: Treating an array reference variable as the actual array data rather than an address pointer.
+[!] Pitfall 3: Attempting to store different data types in the same primitive array.
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: ArrayConcept.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

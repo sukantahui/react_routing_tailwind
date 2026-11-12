@@ -1,0 +1,21 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 11: Whitespace Handling Using trim()
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPE
+--------------------------------------------------------------------------------
+public String trim()
+- Returns a copy of the string with leading and trailing whitespace omitted.
+- Characters with ASCII <= 32 (' ', '\t', '\n', '\r') are stripped from front and back.
+- CRUCIAL: Intermediate spaces between words are NOT removed!
+  Example: "  Hello   World  ".trim() -> "Hello   World"
+
+2. WHY USE TRIM() IN ICSE BOARD PROGRAMS?
+--------------------------------------------------------------------------------
+- When accepting input via Scanner:
+  String word = in.nextLine().trim();
+- Prevents extra spaces from causing incorrect word counts or failed equality tests!
+================================================================================

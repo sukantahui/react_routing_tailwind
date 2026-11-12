@@ -1,0 +1,23 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 15: Introduction to StringBuilder and StringBuffer
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHY DO WE NEED MUTABLE STRING CLASSES?
+--------------------------------------------------------------------------------
+- String concatenation inside tight loops creates thousands of unused temporary
+  objects on the Heap, wasting memory and slowing down execution.
+- StringBuffer and StringBuilder provide MUTABLE character buffers that can grow
+  and modify characters in-place without creating new objects!
+
+2. KEY METHODS IN STRINGBUFFER / STRINGBUILDER
+--------------------------------------------------------------------------------
+1. append(data): Appends data to end of buffer.
+2. insert(offset, data): Inserts data at specified index.
+3. reverse(): Reverses the sequence of characters in place.
+4. delete(start, end): Removes characters from start to (end - 1).
+5. setCharAt(index, ch): Overwrites character at index.
+6. capacity(): Returns current total buffer capacity (default = length + 16).
+================================================================================

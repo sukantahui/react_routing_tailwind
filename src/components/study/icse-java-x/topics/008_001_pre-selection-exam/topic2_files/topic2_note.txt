@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 008_001_pre-selection-exam
+TOPIC 2: Output Prediction & Snippet Analysis Practice
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Precision output prediction techniques. Constructing dry-run trace tables, evaluating operator precedence, handling short-circuit evaluation, Math class methods, and string edge cases.
+
+2. SIGNATURE & CONVENTIONS:
+   Snippet Evaluation & Trace Table Analysis
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Debangshu trace tricky loop and Math snippets on paper in Naihati, comparing expected outputs.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

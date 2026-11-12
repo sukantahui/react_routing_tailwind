@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_001_wrapper-class-methods
+TOPIC 5: toString() Method in Wrapper Classes
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Detailed review of toString() in wrapper classes. Converting primitive numbers to String, base radix conversions (binary, octal, hex), and string concatenation mechanics.
+
+2. SIGNATURE & CONVENTIONS:
+   public static String toString(int i) / public String toString()
+
+3. CLASSROOM APPLICATION:
+   Abhronila and Debangshu convert numbers to binary strings with Integer.toBinaryString() in Shyamnagar.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

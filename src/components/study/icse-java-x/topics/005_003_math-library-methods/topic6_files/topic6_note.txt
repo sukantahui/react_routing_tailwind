@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 6
+TITLE: WRITING MATHEMATICAL EXPRESSIONS IN JAVA
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+In ICSE Section A, questions consistently ask students to write Java expressions for algebraic, trigonometric, and geometric formulas. This requires correctly applying Math library methods, explicit multiplication operators (*), and parentheses to preserve mathematical precedence.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Explicit Multiplication: In algebra, '2ab' is implicit multiplication; in Java, you MUST write '2 * a * b'.
+[2] Quadratic Root Formula: (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a).
+[3] Denominator Parentheses: Writing '/ 2 * a' divides by 2 then multiplies by a; must write '/ (2 * a)'.
+[4] Powers and Roots: Replace a^3 with Math.pow(a, 3) or a * a * a; replace square roots with Math.sqrt().
+[5] Absolute Expression: |x^2 - y^2| translates to Math.abs(Math.pow(x, 2) - Math.pow(y, 2)) or Math.abs(x * x - y * y).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Omitting the * operator: writing 2a instead of 2 * a causes compile error.
+[!] Pitfall 2: Denominator precedence error: writing a + b / c + d instead of (a + b) / (c + d).
+[!] Pitfall 3: Using ^ operator for exponentiation: in Java, ^ is bitwise XOR, NOT power (use Math.pow).
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathExpressionsDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

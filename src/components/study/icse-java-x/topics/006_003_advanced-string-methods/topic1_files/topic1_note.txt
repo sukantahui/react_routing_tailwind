@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_003: ADVANCED STRING METHODS
+TOPIC 1: equals() VS equalsIgnoreCase()
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. METHOD SPECIFICATIONS:
+   - public boolean equals(Object anObject)
+     Compares this string to the specified object. Returns true iff the argument
+     is not null and represents the exact same sequence of characters. Case sensitive!
+   - public boolean equalsIgnoreCase(String anotherString)
+     Compares two strings ignoring case considerations. Two characters are considered
+     equal if Character.toLowerCase() or Character.toUpperCase() produce identical characters.
+
+2. EQUALS() VS '==' OPERATOR (CRITICAL ICSE TOPIC):
+   - '==' compares memory addresses (object identity / references).
+   - '.equals()' compares character contents inside the string instances.
+   - For string literals in String Constant Pool, '==' might return true, but when
+     strings come from user input (Scanner) or 'new String()', '==' ALWAYS returns false!
+
+3. NULL-SAFE CODING TECHNIQUE:
+   - If variable 'userInput' can be null, writing:
+     userInput.equalsIgnoreCase("yes") -> Throws NullPointerException!
+   - Best practice:
+     "yes".equalsIgnoreCase(userInput) -> Evaluates cleanly to false!
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

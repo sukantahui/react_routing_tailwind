@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 7
+TITLE: DISPLAYING ARRAY ELEMENTS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+Displaying array contents is a core component of every ICSE Section B program. Output can be formatted on a single line separated by spaces, on multiple lines with index markers, or cleanly in tabular format using escape characters like '\t'.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Horizontal Output: Use System.out.print(arr[i] + ' '); to print elements separated by spaces on one line.
+[2] Vertical Output: Use System.out.println(arr[i]); to print each element on a new line.
+[3] Indexed Format: Print 'Index ' + i + ': ' + arr[i] for detailed debug or trace outputs.
+[4] Avoid Direct Object Print: Printing 'System.out.println(arr);' displays internal type hash (e.g. [I@15db9742), not contents.
+[5] Arrays.toString(): Utility method java.util.Arrays.toString(arr) provides standard bracketed representation.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Printing the array reference directly (System.out.println(arr)) instead of looping through elements.
+[!] Pitfall 2: Printing a trailing separator (comma or comma-space) after the very last element.
+[!] Pitfall 3: Forgetting a final System.out.println() after a horizontal print loop, causing subsequent output to run together.
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: DisplayArrayElements.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

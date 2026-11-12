@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 6
+TITLE: TRAVERSING USING LENGTH PROPERTY
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+Every array in Java has a built-in public final integer field called 'length'. Using arr.length rather than a hardcoded number ensures code adaptability, robustness, and eliminates index errors if the array dimension changes.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Field, Not Method: 'arr.length' is a public instance field, NOT a method (do NOT write arr.length()).
+[2] Immutable Property: The length field is constant and read-only; attempting to reassign 'arr.length = 10;' is a compile error.
+[3] Safe Boundary: Valid indices are strictly in the range [0, arr.length - 1].
+[4] Generalization: Functions taking array parameters should always use the array's own length property.
+[5] Comparison: For strings it is str.length(), for arrays it is arr.length without parentheses.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Adding parentheses to array length (arr.length()) causing compiler error: cannot find symbol method length().
+[!] Pitfall 2: Hardcoding numeric limits (e.g. i < 10) that fail when passed arrays of different lengths.
+[!] Pitfall 3: Checking arr.length when the array reference is null, causing NullPointerException.
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: TraverseLengthProperty.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

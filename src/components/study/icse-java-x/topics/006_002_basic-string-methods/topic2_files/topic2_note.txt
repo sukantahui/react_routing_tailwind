@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_002: BASIC STRING METHODS
+TOPIC 2: indexOf() Method Deep Dive
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPES
+--------------------------------------------------------------------------------
+1. public int indexOf(int ch)
+2. public int indexOf(int ch, int fromIndex)
+3. public int indexOf(String str)
+4. public int indexOf(String str, int fromIndex)
+
+2. RETURN VALUES
+--------------------------------------------------------------------------------
+- Found     : Returns 0-based index of FIRST occurrence.
+- Not Found : Returns -1.
+================================================================================

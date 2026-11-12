@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 1
+TITLE: DECLARATION & INITIALIZATION OF ARRAYS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+Array declaration specifies the element type and variable name (e.g. int[] arr). Declaration alone creates only a reference variable initialized to null on the stack; initialization allocates heap memory either dynamically with 'new' or statically with an array initializer list.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Preferred Syntax: 'int[] arr;' is strongly preferred over C-style 'int arr[];'.
+[2] Static Initializer: 'int[] arr = {10, 20, 30};' declares, creates, and initializes in one step.
+[3] Anonymous Array: 'new int[]{1, 2, 3}' can be passed directly as method arguments.
+[4] No Size in Declaration: 'int[5] arr;' is a compile-time syntax error in Java.
+[5] Uninitialized Reference: Accessing elements of an uninitialized array reference causes compile or runtime errors.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Specifying array dimension during reference declaration (e.g., int[10] a;).
+[!] Pitfall 2: Using static initializer syntax after declaration without 'new int[]' (e.g., arr = {1, 2}; is illegal).
+[!] Pitfall 3: Leaving reference as null and attempting element access.
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: ArrayDeclarationInit.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

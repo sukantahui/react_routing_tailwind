@@ -1,0 +1,28 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 17: Performance Considerations in String Operations
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE LOOP CONCATENATION DISASTER
+--------------------------------------------------------------------------------
+Consider:
+String s = "";
+for (int i = 0; i < N; i++) {
+    s = s + "A";
+}
+- Iteration 1: creates "A" (length 1)
+- Iteration 2: copies "A", creates "AA" (length 2)
+- Iteration N: copies N-1 chars, creates "AA...A" (length N)
+- Total characters copied = 1 + 2 + 3 + ... + N = O(N^2)
+- For N = 50,000, program will freeze for several seconds!
+
+2. THE STRINGBUILDER SOLUTION
+--------------------------------------------------------------------------------
+StringBuilder sb = new StringBuilder();
+for (int i = 0; i < N; i++) {
+    sb.append("A");
+}
+- Runs in O(N) linear time. Finishes in milliseconds.
+================================================================================

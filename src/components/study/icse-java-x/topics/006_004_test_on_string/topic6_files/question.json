@@ -1,0 +1,75 @@
+{
+  "paperId": "ICSE-STR-PAPER-07",
+  "title": "String Geometric Pattern Printing & Cipher Test Paper (ICSE Class X)",
+  "duration": "1 Hour",
+  "totalMarks": 35,
+  "prerequisites": "ICSE Class X String handling methods, Scanner input, conditional branching, and loops",
+  "instructions": [
+    "All questions are compulsory as per ICSE examination standards.",
+    "Write complete Java code for Section B problems including Variable Description Tables.",
+    "Pay strict attention to case sensitivity, loop bounds, and array indexing.",
+    "Each question carries marks as indicated."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Answer & Output Tracing Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer in one or two sentences or evaluate the code output.",
+      "questions": [
+        {
+          "q": "What will be printed by the following loop?\n```java\nString s = \"BLUEJ\";\nfor (int i = 1; i <= s.length(); i++) {\n    System.out.println(s.substring(0, i));\n}\n```",
+          "marks": 2,
+          "answer": "Output:\n```\nB\nBL\nBLU\nBLUE\nBLUEJ\n```\nExplanation: Substring takes prefixes of increasing lengths 1 through 5.",
+          "hint": "Increasing prefix lengths."
+        },
+        {
+          "q": "What arithmetic expression wraps an uppercase letter 'Z' cyclically to 'B' with a shift of 2?",
+          "marks": 2,
+          "answer": "```java\nchar shifted = (char)((ch - 'A' + 2) % 26 + 'A');\n```\n'Z' (90) - 'A' (65) = 25. (25 + 2) % 26 = 1. 1 + 65 = 66 ('B').",
+          "hint": "Subtract base 'A', add shift, modulo 26, then add base 'A'."
+        },
+        {
+          "q": "What character is produced by `(char)('Z' + 1)` in Java without cyclic modulo wrapping?",
+          "marks": 2,
+          "answer": "Output: `'['` (ASCII 91)\nExplanation: Java evaluates char addition as integer 90 + 1 = 91, which casts to '[' in ASCII/Unicode.",
+          "hint": "ASCII 91 is the open bracket '['."
+        },
+        {
+          "q": "Write the loop condition to print a word of length n in decreasing substring order: `BLUEJ`, `BLUE`, `BLU`, `BL`, `B`.",
+          "marks": 2,
+          "answer": "```java\nfor (int i = s.length(); i >= 1; i--) {\n    System.out.println(s.substring(0, i));\n}\n```",
+          "hint": "Count down from length down to 1."
+        },
+        {
+          "q": "What is the output of `\"ICSE\".charAt(i)` repeated `i + 1` times for index 0 to 3?",
+          "marks": 2,
+          "answer": "Output:\n```\nI\nC C\nS S S\nE E E E\n```",
+          "hint": "Character at index i repeated i + 1 times."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Programming Problems (15 & 10 Marks)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 2,
+      "description": "Write complete Java programs with class declaration, main method, and Variable Description Table.",
+      "questions": [
+        {
+          "q": "Write a program to input a word and display the following pattern (ICSE 2016 Pattern):\nFor word = \"BLUEJ\":\nB\nL L\nU U U\nE E E E\nJ J J J J\nInclude a Variable Description Table.",
+          "marks": 15,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class StringPatternTriangle {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a word: \");\n        String word = sc.next().toUpperCase();\n        \n        for (int i = 0; i < word.length(); i++) {\n            char ch = word.charAt(i);\n            for (int j = 0; j <= i; j++) {\n                System.out.print(ch + \" \");\n            }\n            System.out.println();\n        }\n    }\n}\n/*\nVARIABLE DESCRIPTION TABLE:\nVariable Name | Data Type | Purpose\nword          | String    | Input word\ni             | int       | Outer loop row counter (0 to length - 1)\nj             | int       | Inner loop column repeat counter (0 to i)\nch            | char      | Extracted character at index i\n*/\n```",
+          "hint": "Outer loop runs through indices; inner loop prints charAt(i) i + 1 times."
+        },
+        {
+          "q": "Write a program to accept a message in uppercase. Encrypt it using Caesar Cipher by replacing each letter with the letter 2 positions ahead (e.g. 'A' becomes 'C', 'Y' becomes 'A', 'Z' becomes 'B'). Non-alphabetic characters remain unchanged.",
+          "marks": 10,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class CaesarCipher {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"Enter message to encrypt:\");\n        String msg = sc.nextLine().toUpperCase();\n        \n        String cipher = \"\";\n        for (int i = 0; i < msg.length(); i++) {\n            char ch = msg.charAt(i);\n            if (ch >= 'A' && ch <= 'Z') {\n                char enc = (char)((ch - 'A' + 2) % 26 + 'A');\n                cipher = cipher + enc;\n            } else {\n                cipher = cipher + ch;\n            }\n        }\n        System.out.println(\"Encrypted Ciphertext: \" + cipher);\n    }\n}\n```",
+          "hint": "Apply (ch - 'A' + 2) % 26 + 'A' to letters."
+        }
+      ]
+    }
+  ]
+}

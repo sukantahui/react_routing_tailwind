@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_001_wrapper-class-methods
+TOPIC 3: parseDouble(String s) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Detailed examination of Double.parseDouble(String s). Parsing fractional amounts, percentage calculations, tariff slabs, and ICSE Section B billing programs.
+
+2. SIGNATURE & CONVENTIONS:
+   public static double parseDouble(String s) throws NumberFormatException
+
+3. CLASSROOM APPLICATION:
+   Tuhina and Abhronila parse electric bill meter units and salary deductions at Ichapur.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

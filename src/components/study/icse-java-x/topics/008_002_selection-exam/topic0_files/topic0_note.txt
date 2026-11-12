@@ -1,0 +1,39 @@
+================================================================================
+ICSE CLASS X COMPUTER APPLICATIONS (JAVA WITH BLUEJ) - STUDY NOTES
+TOPIC: ICSE CLASS X SELECTION EXAMINATION FULL MOCK PAPER (100 MARKS)
+INSTITUTE: Coder & AccoTax, Barrackpore
+EDUCATOR: Sukanta Hui (Contact: +91 7003756860 | www.codernaccotax.co.in)
+================================================================================
+
+1. SYLLABUS OVERVIEW & BLUEPRINT:
+--------------------------------------------------------------------------------
+Full syllabus trial examination following exact CISCE board format: Section A (40 Marks compulsory) and Section B (60 Marks - attempt 4 out of 6).
+
+2. CORE EXAM PRINCIPLES & ICSE BOARD TIPS:
+--------------------------------------------------------------------------------
+1. Section A Q1: 20 MCQs covering primitives, operators, wrapper classes, Math methods, and String methods.
+2. Section A Q2: Short answer questions covering outputs, conversions, syntax errors, and difference tables.
+3. Section B Q3 to Q8: 15 marks each with Encapsulation class design, Array search/sort, String manipulation, Overloading, and Number logic.
+4. Strict 2-hour time management: 45 minutes for Section A, 70 minutes for Section B, 5 minutes final review.
+
+3. COMMON BOARD TRAPS & MISTAKES:
+--------------------------------------------------------------------------------
+- Off-by-one errors in loop boundaries (using <= length instead of < length).
+- Omitting Variable Description Table in Section B programs (-2 marks penalty).
+- Confusing String reference equality (==) with content equality (.equals()).
+- Writing Java library shortcut methods like Arrays.sort() which score ZERO marks.
+  Pure algorithmic loops (Bubble / Selection) are strictly required.
+
+4. VARIABLE DESCRIPTION TABLE TEMPLATE (MANDATORY IN SECTION B):
+--------------------------------------------------------------------------------
+Variable Name   Data Type   Purpose / Description
+--------------------------------------------------------------------------------
+arr[]           int[]       Stores input integers from the user
+n               int         Stores the number of elements in array
+temp            int         Temporary swap variable during sorting
+found           boolean     Flag to track if search key is located
+--------------------------------------------------------------------------------
+
+================================================================================
+Copyright (c) Sukanta Hui - Coder & AccoTax, Barrackpore. All Rights Reserved.
+================================================================================

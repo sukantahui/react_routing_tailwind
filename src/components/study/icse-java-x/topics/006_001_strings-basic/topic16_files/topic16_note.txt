@@ -1,0 +1,23 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 16: Mutable vs Immutable String Handling
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. COMPREHENSIVE COMPARISON TABLE
+--------------------------------------------------------------------------------
+Feature           | String              | StringBuffer        | StringBuilder
+--------------------------------------------------------------------------------
+Mutability        | Immutable           | Mutable             | Mutable
+Thread Safety     | Thread-safe         | Thread-safe (sync)  | Not thread-safe
+Performance       | Slower on changes   | Medium (sync locks) | Fastest
+Storage           | SCP + Heap          | Heap only           | Heap only
+Introduced        | Java 1.0            | Java 1.0            | Java 1.5
+
+2. ARCHITECTURAL DECISION MATRIX
+--------------------------------------------------------------------------------
+- Use String: Constant text, keys in maps, security tokens, infrequent updates.
+- Use StringBuilder: Heavy loop concatenation in single-threaded applications.
+- Use StringBuffer: Multi-threaded logging and shared concurrent text building.
+================================================================================

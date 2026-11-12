@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 2
+TITLE: ARRAY CREATION USING NEW KEYWORD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+In Java, arrays are true objects created dynamically on the JVM heap using the 'new' keyword. The expression 'new int[n]' asks the memory allocator to reserve contiguous space for n integers and returns the starting memory reference.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Keyword 'new': Allocates heap memory for the array object and zeros all elements.
+[2] Dynamic Size: The size passed inside brackets can be an expression, variable, or literal evaluated at runtime.
+[3] Non-negative Size: Passing a negative integer size throws NegativeArraySizeException at runtime.
+[4] Zero-Length Arrays: An array of size 0 ('new int[0]') is valid in Java and has length 0.
+[5] Garbage Collection: When no references point to an array object, it becomes eligible for automatic garbage collection.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Supplying negative size variables resulting in NegativeArraySizeException.
+[!] Pitfall 2: Re-instantiating an array with 'new' believing it resizes the original; it creates a brand new object losing previous contents.
+[!] Pitfall 3: Running out of heap memory when creating excessively large arrays (OutOfMemoryError).
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: ArrayCreationNewKeyword.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

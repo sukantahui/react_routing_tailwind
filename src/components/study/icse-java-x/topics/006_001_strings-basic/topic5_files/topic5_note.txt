@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 5: String Length and Character Access Methods
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPES
+--------------------------------------------------------------------------------
+1. public int length()
+   - Returns the total count of characters in the string.
+   - Requires parentheses ()!
+   - Example: "Java".length() -> 4
+
+2. public char charAt(int index)
+   - Returns the character at index 'index'.
+   - Index ranges from 0 to (length() - 1).
+   - If index < 0 or index >= length():
+     throws java.lang.StringIndexOutOfBoundsException.
+
+2. STANDARD STRING TRAVERSAL LOOP IN ICSE EXAMS
+--------------------------------------------------------------------------------
+for (int i = 0; i < str.length(); i++) {
+    char ch = str.charAt(i);
+    // Process character 'ch'
+}
+
+3. VITAL ICSE BOARD REMINDERS
+--------------------------------------------------------------------------------
+[✓] str.length() has parentheses; arr.length does NOT.
+[✓] First character is at charAt(0).
+[✓] Last character is at charAt(str.length() - 1).
+================================================================================

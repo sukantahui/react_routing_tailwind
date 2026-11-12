@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 0
+TITLE: MATH.POW(A, B) AND MATH.SQRT(X)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Math.pow(double a, double b) computes a raised to the power b (a^b). Math.sqrt(double x) computes the positive square root of x. Both methods belong to java.lang.Math, are static, and ALWAYS return a double value.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Return Type: Both Math.pow() and Math.sqrt() ALWAYS return a double, even if arguments are integers.
+[2] Syntax: double res = Math.pow(2, 3); // returns 8.0, not integer 8.
+[3] Negative Square Root: Math.sqrt(negativeNumber) returns Double.NaN (Not a Number), not an exception.
+[4] Zero Power: Math.pow(x, 0) always returns 1.0 for any x.
+[5] Explicit Casting: To store in an integer, explicit cast is mandatory: int p = (int) Math.pow(2, 3);
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming Math.pow(2, 3) returns int 8; it returns double 8.0, causing type mismatch compile errors.
+[!] Pitfall 2: Expecting Math.sqrt(-25) to throw an arithmetic exception; it returns NaN.
+[!] Pitfall 3: Writing 'pow(a, b)' without the class prefix 'Math.'.
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathPowSqrtDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

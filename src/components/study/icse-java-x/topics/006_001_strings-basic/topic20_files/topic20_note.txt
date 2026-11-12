@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 20: Word Count in a Sentence
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHY NOT USE split() IN ICSE?
+--------------------------------------------------------------------------------
+- Regex utilities like str.split(" ") or java.util.StringTokenizer are strictly
+  DISCOURAGED or prohibited in ICSE Board examinations.
+- Examiners look for manual character-by-character parsing using charAt(i).
+
+2. THE BULLETPROOF ICSE ALGORITHM
+--------------------------------------------------------------------------------
+1. Trim sentence: sent = sent.trim();
+2. If sent is empty, count = 0.
+3. Otherwise, append single space: sent = sent + " ";
+4. Loop through characters:
+   for (int i = 0; i < sent.length(); i++) {
+       char ch = sent.charAt(i);
+       if (ch == ' ' && sent.charAt(i - 1) != ' ') {
+           count++;
+       }
+   }
+================================================================================

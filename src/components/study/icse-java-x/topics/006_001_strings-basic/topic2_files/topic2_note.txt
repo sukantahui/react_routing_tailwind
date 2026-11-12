@@ -1,0 +1,27 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 2: String Constant Pool and Memory Management
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE STRING CONSTANT POOL (SCP)?
+--------------------------------------------------------------------------------
+- The String Constant Pool is a special storage area inside the JVM Heap memory.
+- In Java 7 and newer, SCP is located in the standard Heap (not PermGen).
+- It caches String literals so that duplicate textual sequences share one instance.
+
+2. HOW DOES INTERNING WORK?
+--------------------------------------------------------------------------------
+- String.intern() is a native method.
+- When s.intern() is invoked:
+  * If the pool already contains a string equal to 's', the pooled reference is returned.
+  * If not, 's' is added to the pool and returned.
+- Enables lightning-fast reference equality checks (==) on interned strings.
+
+3. GC (GARBAGE COLLECTION) ON SCP
+--------------------------------------------------------------------------------
+- Objects in the SCP are eligible for garbage collection if they are no longer
+  reachable, but they are retained much longer by the JVM for fast lookup.
+
+================================================================================

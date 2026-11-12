@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_001_encapsulation
+TOPIC 3: Real Life Class Examples & ICSE Board Specifications
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. OVERVIEW:
+   Step-by-step construction of full ICSE Class X standard classes. Salary calculation, Library fine computation, and complete encapsulation models as per board question formats.
+
+2. SIGNATURE & CONVENTIONS:
+   class <ClassName> { /* private fields, constructors, methods */ }
+
+3. CLASSROOM INSIGHT:
+   Abhronila and Debangshu implement an Employee salary slip generator for a Barrackpore textile company.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

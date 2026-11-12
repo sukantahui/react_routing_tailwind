@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 10
+TITLE: BUBBLE SORT - ASCENDING ORDER
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Bubble sort repeatedly steps through the array, compares adjacent elements, and swaps them if they are in the wrong order (arr[j] > arr[j+1]). After each complete outer pass, the largest remaining element bubbles to its final rightmost position.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Adjacent Swapping: Compare arr[j] with arr[j+1]; swap if arr[j] > arr[j+1] for ascending order.
+[2] Outer Loop Bounds: Runs (n - 1) passes from i = 0 to i < n - 1.
+[3] Inner Loop Optimization: Runs from j = 0 to j < n - 1 - i to skip already sorted end elements.
+[4] Temporary Variable Swap: Swap requires a temporary variable: int temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp;.
+[5] Quadratic Complexity: Performs O(n^2) comparisons in average and worst cases.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Inner loop bound error (j < n instead of j < n - 1 - i) causing ArrayIndexOutOfBoundsException when checking arr[j+1].
+[!] Pitfall 2: Overwriting values during swap without using a temporary variable.
+[!] Pitfall 3: Confusing ascending condition (>) with descending condition (<).
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: BubbleSortBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

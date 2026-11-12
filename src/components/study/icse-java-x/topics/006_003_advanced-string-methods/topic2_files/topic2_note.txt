@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_003: ADVANCED STRING METHODS
+TOPIC 2: compareTo() AND compareToIgnoreCase()
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. METHOD SPECIFICATION:
+   - public int compareTo(String anotherString)
+   - public int compareToIgnoreCase(String str)
+   - Return Type: int (32-bit signed integer)
+
+2. MATHEMATICAL CALCULATION RULES:
+   Rule A: First Mismatch Character
+     - Compares characters from left to right.
+     - At first index 'k' where s1.charAt(k) != s2.charAt(k):
+       Result = (int)s1.charAt(k) - (int)s2.charAt(k)
+     - Example: "CAT".compareTo("CAR") -> 'T' (84) - 'R' (82) = +2.
+
+   Rule B: Prefix String (No character mismatch found)
+     - If one string is a prefix of the other:
+       Result = s1.length() - s2.length()
+     - Example: "Cat".compareTo("Caterpillar") -> 3 - 11 = -8.
+
+   Rule C: Identical Strings
+     - Result = 0.
+
+3. INTERPRETATION FOR SORTING (BUBBLE SORT / SELECTION SORT):
+   - if (str1.compareTo(str2) > 0) -> str1 comes AFTER str2 alphabetically. Swap needed for ascending!
+   - if (str1.compareTo(str2) < 0) -> str1 comes BEFORE str2.
+   - if (str1.compareTo(str2) == 0) -> Both strings have identical content.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

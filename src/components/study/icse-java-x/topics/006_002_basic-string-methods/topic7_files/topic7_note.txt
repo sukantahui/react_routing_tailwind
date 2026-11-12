@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 7
+TITLE: CONCAT(STRING STR) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The concat(String str) method appends the specified string to the end of the invoking string. Because String objects are immutable in Java, concat() never modifies the original string; instead, it returns a reference to a newly created String object in heap memory.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Immutability: Does not alter invoking string; always returns a new String instance.
+[2] Syntax: String s3 = s1.concat(s2);
+[3] Null Handling: Unlike the '+' operator (which turns null into 'null'), calling s1.concat(null) throws a NullPointerException.
+[4] Zero-Length Optimization: If the argument string length is 0, concat() returns the original invoking string reference without new allocation.
+[5] Chaining: Can be chained consecutively: s1.concat(s2).concat(s3).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming str.concat('!') modifies str in-place without re-assigning: str = str.concat('!').
+[!] Pitfall 2: Passing null to concat() causing runtime NullPointerException.
+[!] Pitfall 3: Using concat() in tight loops instead of StringBuilder, creating unnecessary heap garbage.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: ConcatMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

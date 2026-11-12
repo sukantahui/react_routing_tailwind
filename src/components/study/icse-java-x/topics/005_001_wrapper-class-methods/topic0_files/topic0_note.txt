@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_001_wrapper-class-methods
+TOPIC 0: parseInt(String s) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Complete guide to Integer.parseInt(String s). Parsing digit strings into primitive int, radix parameters, and handling NumberFormatException.
+
+2. SIGNATURE & CONVENTIONS:
+   public static int parseInt(String s) throws NumberFormatException
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina parse student roll numbers and test scores from Scanner inputs at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

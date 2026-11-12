@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_001_encapsulation
+TOPIC 1: Getter (Accessor) and Setter (Mutator) Methods
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. OVERVIEW:
+   Comprehensive study of Accessor (getter) and Mutator (setter) methods. JavaBeans naming conventions, data validation inside mutators, and read-only / write-only properties.
+
+2. SIGNATURE & CONVENTIONS:
+   public <Type> get<Field>() / public void set<Field>(<Type> val)
+
+3. CLASSROOM INSIGHT:
+   Tuhina and Abhronila at Shyamnagar validate student exam percentages (0 to 100) before saving.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

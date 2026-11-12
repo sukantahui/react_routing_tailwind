@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_002_character-class-methods
+TOPIC 1: isLetter(char ch) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   In-depth analysis of Character.isLetter(char ch). Alphabetical character validation, Unicode letters, and distinguishing letters from digits, spaces, and punctuation.
+
+2. SIGNATURE & CONVENTIONS:
+   public static boolean isLetter(char ch)
+
+3. CLASSROOM APPLICATION:
+   Abhronila and Debangshu filter out special symbols and numbers to extract words in Shyamnagar.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

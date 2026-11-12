@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 004_002_user-defined-methods
+TOPIC 3: Parameter Passing Mechanisms (Pass by Value)
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Deep dive into Pass by Value in Java. Proving that swapping two primitive ints inside a method has zero effect on the caller variables.
+
+2. SIGNATURE & CONVENTIONS:
+   Pass by Value: actual arguments copied into formal parameters
+
+3. CLASSROOM APPLICATION:
+   Tuhina and Abhronila demonstrate why a primitive swap(a, b) method fails to swap caller values in Ichapur.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

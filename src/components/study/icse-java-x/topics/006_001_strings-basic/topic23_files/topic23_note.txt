@@ -1,0 +1,20 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 23: String to Array and Array to String Conversion
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. STRING TO CHAR ARRAY: toCharArray()
+--------------------------------------------------------------------------------
+- Prototype: public char[] toCharArray()
+- Allocates a newly created char array whose length equals string length() and
+  whose contents are copied from the string.
+- Example: "Java".toCharArray() -> {'J', 'a', 'v', 'a'}
+
+2. CHAR ARRAY TO STRING
+--------------------------------------------------------------------------------
+- Method 1: new String(charArr)
+- Method 2: String.valueOf(charArr)
+- Both methods create a new immutable String initialized with the array's characters.
+================================================================================

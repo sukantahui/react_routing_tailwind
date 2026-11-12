@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 3: Immutability of String Objects and Its Advantages
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS IMMUTABILITY?
+--------------------------------------------------------------------------------
+- 'Immutable' means unchangeable / unmodifiable after object creation.
+- Once a java.lang.String object is instantiated in memory, its character sequence
+  can never be changed, lengthened, or truncated.
+- Any method that seems to modify a String (e.g. toUpperCase, replace, trim, concat)
+  actually returns a BRAND NEW String object leaving the original untouched.
+
+2. WHY DID JAVA DESIGNERS MAKE STRINGS IMMUTABLE?
+--------------------------------------------------------------------------------
+1. Security: File paths, network sockets, database URLs, and passwords are
+   passed as strings. If strings were mutable, malicious code could change
+   destinations after authentication checks.
+2. Thread Safety: Immutable objects are inherently thread-safe. Multiple threads
+   can read strings concurrently without synchronization locks.
+3. String Constant Pool: Sharing literals is only safe because no client can
+   modify the shared object.
+4. HashCode Caching: String caches its hashCode upon first computation, enabling
+   fast lookup in HashMap / HashSet.
+
+3. COMMON ICSE BOARD QUESTION
+--------------------------------------------------------------------------------
+Q: String s = "Good"; s.concat(" Day"); System.out.println(s);
+Output: "Good" (NOT "Good Day", because concat returns a new string which was discarded!)
+================================================================================

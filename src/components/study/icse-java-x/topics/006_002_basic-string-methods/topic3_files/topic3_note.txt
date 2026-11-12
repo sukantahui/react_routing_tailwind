@@ -1,0 +1,21 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_002: BASIC STRING METHODS
+TOPIC 3: lastIndexOf() Method Deep Dive
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPES
+--------------------------------------------------------------------------------
+1. public int lastIndexOf(int ch)
+2. public int lastIndexOf(int ch, int fromIndex)
+3. public int lastIndexOf(String str)
+4. public int lastIndexOf(String str, int fromIndex)
+
+2. CORE USAGE IN ICSE EXAMS
+--------------------------------------------------------------------------------
+- Scans backwards from right to left.
+- Returns the index of the LAST occurrence.
+- Returns -1 if character/substring is absent.
+- Essential for extracting surnames: s.substring(s.lastIndexOf(' ') + 1)
+================================================================================

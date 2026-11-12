@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 10: Case Conversion Methods (toUpperCase, toLowerCase)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPES
+--------------------------------------------------------------------------------
+1. public String toUpperCase()
+   - Converts all lowercase characters ('a'-'z') to uppercase ('A'-'Z').
+   - Digits, symbols, and whitespace are unaltered.
+   - Returns a NEW String object.
+
+2. public String toLowerCase()
+   - Converts all uppercase characters ('A'-'Z') to lowercase ('a'-'z').
+   - Digits, symbols, and whitespace are unaltered.
+   - Returns a NEW String object.
+
+2. CRITICAL REASSIGNMENT RULE
+--------------------------------------------------------------------------------
+Because Strings are immutable:
+  String s = "hello";
+  s.toUpperCase(); // Wasted! 's' is STILL "hello"
+  s = s.toUpperCase(); // Correct! 's' is now "HELLO"
+================================================================================

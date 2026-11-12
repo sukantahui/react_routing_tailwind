@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 15
+TITLE: FINDING THE SMALLEST ELEMENT IN AN ARRAY
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Finding the smallest element assumes arr[0] is the minimum, then sequentially scans indices 1 to length - 1. If any element is strictly less than the current minimum, it replaces the minimum value.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Safe Initialization: Always initialize min = arr[0] (or Integer.MAX_VALUE). Never initialize min = 0.
+[2] Linear Scan: Loop from i = 1 to i < arr.length.
+[3] Comparison Condition: If arr[i] < min, update min = arr[i].
+[4] Position Retention: Record 'minIdx = i' whenever a new smaller value is encountered.
+[5] Universal Applicability: Works seamlessly with positive, negative, and zero values.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Initializing min = 0: If all numbers are positive (e.g. 10, 20, 30), min remains 0 which was never in the array!
+[!] Pitfall 2: Initializing min to a small positive constant like 999 which fails if array contains larger numbers.
+[!] Pitfall 3: Using '<=' instead of '<' unnecessarily overwriting minIdx on duplicate minimums.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: FindSmallestBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

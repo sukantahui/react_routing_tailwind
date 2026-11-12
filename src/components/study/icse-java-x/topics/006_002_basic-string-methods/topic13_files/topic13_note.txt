@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 13
+TITLE: SUBSTRING(INT BEGININDEX [, INT ENDINDEX]) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The substring() method extracts a sub-sequence of characters from a string. In its single-argument form, it extracts from beginIndex to the end. In its dual-argument form, it extracts from beginIndex inclusive up to endIndex EXCLUSIVE.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Single Parameter: str.substring(beginIndex) extracts from beginIndex to length().
+[2] Dual Parameter: str.substring(beginIndex, endIndex) extracts from beginIndex up to endIndex - 1.
+[3] Length Formula: The number of extracted characters is exactly: (endIndex - beginIndex).
+[4] Bound Rules: 0 <= beginIndex <= endIndex <= str.length().
+[5] ICSE Syllabus Pillar: The primary method used in Pig Latin, palindrome extraction, word extraction, and string slicing.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Off-by-one error: Forgetting that endIndex is EXCLUSIVE, missing the final desired character.
+[!] Pitfall 2: StringIndexOutOfBoundsException when beginIndex < 0 or endIndex > length().
+[!] Pitfall 3: IllegalArgumentException / Index error when beginIndex > endIndex.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: SubstringMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

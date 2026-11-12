@@ -1,0 +1,22 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 26: Practice Problems (MCQ and Coding)
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE 4 ESSENTIAL ICSE SECTION B STRING PROGRAMS
+--------------------------------------------------------------------------------
+1. Palindrome Word / Sentence: Check if string reads identical backward.
+2. Piglatin Converter: Locate first vowel, slice substring, append "AY".
+3. Title Case: Capitalize first letter of every word in sentence.
+4. Word Extraction & Alphabetical Sort: Extract words, sort using compareTo().
+
+2. FINAL EXAM PREPARATION CHECKLIST
+--------------------------------------------------------------------------------
+[✓] String is a class in java.lang (auto-imported).
+[✓] length() has parentheses; charAt() takes 0 to length() - 1.
+[✓] substring(begin, end) excludes endIndex!
+[✓] Always use .equals() for string contents.
+[✓] Strings are immutable: any change returns a NEW object.
+================================================================================

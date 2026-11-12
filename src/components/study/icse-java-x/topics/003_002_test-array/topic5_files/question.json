@@ -1,0 +1,73 @@
+{
+  "paperId": "ICSE-FULL-ARRAY-PRACTICE-05",
+  "title": "Full Array Section Practice Paper",
+  "duration": "2 Hours",
+  "totalMarks": 60,
+  "prerequisites": "Complete ICSE Class 10 Array Syllabus",
+  "instructions": [
+    "Section A (20 Marks) consists of 10 dry-run and conceptual questions.",
+    "Section B (40 Marks) consists of classic board array algorithms."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Dry Run & Output",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "description": "Answer each question concisely.",
+      "questions": [
+        {
+          "q": "What exception occurs if `arr[arr.length]` is accessed?",
+          "marks": 2,
+          "answer": "`java.lang.ArrayIndexOutOfBoundsException`.",
+          "hint": "Valid index stops at length - 1."
+        },
+        {
+          "q": "What is the default value of numeric array elements upon allocation (`new int[5]`)?",
+          "marks": 2,
+          "answer": "`0` (zero). For double arrays, default is `0.0`. For boolean arrays, default is `false`.",
+          "hint": "JVM default initialization."
+        },
+        {
+          "q": "What is the time complexity of Binary Search?",
+          "marks": 2,
+          "answer": "`O(log N)` logarithmic time.",
+          "hint": "Halving search space at each step."
+        },
+        {
+          "q": "What is the time complexity of Bubble Sort in the worst case?",
+          "marks": 2,
+          "answer": "`O(N^2)` quadratic time.",
+          "hint": "Nested comparisons."
+        },
+        {
+          "q": "How do you copy elements from one array to another in Java?",
+          "marks": 2,
+          "answer": "Using a loop, or `System.arraycopy()`, or `arr.clone()`.",
+          "hint": "Element-by-element or System.arraycopy."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Comprehensive Programs",
+      "marksPerQuestion": 20,
+      "totalQuestions": 2,
+      "description": "Full programs with variable description tables.",
+      "questions": [
+        {
+          "q": "Write a program to input 10 student names and their respective marks. Sort the names alphabetically using Bubble Sort while simultaneously maintaining the alignment of their marks.",
+          "marks": 20,
+          "answer": "Parallel array sorting: whenever `names[j].compareTo(names[j+1]) > 0` swaps names, swap `marks[j]` and `marks[j+1]` as well.",
+          "hint": "Simultaneous swapping in parallel arrays."
+        },
+        {
+          "q": "Write a program to accept a 4x4 integer matrix and find: (a) Sum of boundary elements, (b) Sum of non-boundary (inner) elements.",
+          "marks": 20,
+          "answer": "Boundary condition: `i == 0 || i == 3 || j == 0 || j == 3`. Otherwise non-boundary.",
+          "hint": "Check outer row/column indices for boundary."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 008_001_pre-selection-exam
+TOPIC 3: Important ICSE Board Questions Walkthrough
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Deep walkthrough of classic ICSE Section B programs: Special numbers, Automorphic numbers, Spy numbers, Neon numbers, Armstrong numbers, and complete variable tables.
+
+2. SIGNATURE & CONVENTIONS:
+   Classic Board Question Patterns (Special, Automorphic, Spy, Neon, Armstrong)
+
+3. CLASSROOM APPLICATION:
+   Tuhina and Abhronila code and verify Special and Automorphic number programs in Ichapur.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

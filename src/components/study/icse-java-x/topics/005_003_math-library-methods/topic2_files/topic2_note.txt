@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 2
+TITLE: MATH.ROUND(X) VS MATH.RINT(X)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Math.round() returns the closest long (for double) or int (for float) by adding 0.5 and taking the floor. Math.rint() rounds to the nearest double value; if two integers are equally close (e.g. .5), it rounds to the EVEN integer (Banker's rounding).
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Return Types: Math.round(double) returns long; Math.round(float) returns int; Math.rint(double) returns double.
+[2] Math.round Formula: Math.round(x) = (long) Math.floor(x + 0.5f).
+[3] Math.round(4.5): Returns 5; Math.round(-4.5): Evaluates to floor(-4.5 + 0.5) = floor(-4.0) = -4.
+[4] Math.rint Banker's Rounding: If tie, rounds to nearest EVEN integer: Math.rint(2.5) returns 2.0; Math.rint(3.5) returns 4.0.
+[5] ICSE Golden Question: Board papers frequently ask the output of Math.round(-3.5) vs Math.rint(-3.5).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Negative rounding trap: Math.round(-4.5) evaluates to -4 (NOT -5).
+[!] Pitfall 2: Return type trap: Math.rint(4.2) returns double 4.0, while Math.round(4.2) returns long 4.
+[!] Pitfall 3: Banker's tie trap: Math.rint(1.5) is 2.0, but Math.rint(2.5) is 2.0 (nearest even number!).
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathRoundRintDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

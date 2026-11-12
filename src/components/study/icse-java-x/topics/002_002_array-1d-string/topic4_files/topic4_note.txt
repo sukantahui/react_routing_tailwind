@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 002_002_array-1d-string
+TOPIC 4: Board Type String Array Programs
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Full solutions to 10-year recurring ICSE board string array questions: Telephone Directory search, Merit List sorting, Country-Capital quiz, and complete Variable Description Tables.
+
+2. SIGNATURE & CONVENTIONS:
+   Parallel Arrays: String[] names, long[] phone, double[] marks
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina code a complete 15-mark Telephone Directory program with Variable Description Table at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

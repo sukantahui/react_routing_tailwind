@@ -1,381 +1,159 @@
 import React from "react";
 import clsx from "clsx";
 import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
-// Import raw Java files
-import traverseForLoopRaw from "./topic5_files/TraverseForLoop.java?raw";
+import demoCode from "./topic5_files/TraverseForLoop.java?raw";
+import noteText from "./topic5_files/topic5_note.txt?raw";
+import questions from "./topic5_files/topic5_questions";
 
-/**
- * Topic5: Traversing an Array Using for Loop
- *
- * This component explains:
- * - What array traversal means
- * - Using a standard for loop to access each element by index
- * - The role of the index variable
- * - Common traversal patterns (printing, summing, searching)
- *
- * Animations:
- * - Section reveal (fade + slide‑up)
- * - Staggered appearance using arbitrary delays
- * - Hover emphasis on cards, SVG steps, teacher note
- *
- * Dark mode is forced by a wrapping `dark` class.
- */
+const InstructionalSVG = () => (
+  <svg viewBox="0 0 500 150" className="w-full h-auto max-w-xl mx-auto my-4" aria-label="Loop Pointer Progression Across Array Memory Cells">
+    <rect x="20" y="20" width="460" height="110" rx="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
+    <text x="250" y="55" textAnchor="middle" fill="#38bdf8" fontSize="15" fontWeight="bold">Loop Pointer Progression Across Array Memory Cells</text>
+    <rect x="60" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="95" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[0]</text>
+    <rect x="150" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="185" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[1]</text>
+    <rect x="240" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="275" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[2]</text>
+    <rect x="330" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="365" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[3]</text>
+    <line x1="410" y1="92" x2="440" y2="92" stroke="#fbbf24" strokeWidth="2" strokeDasharray="3" />
+  </svg>
+);
+
 const Topic5 = () => {
   return (
-    <>
-      {/* Inline keyframes for reveal animation */}
+    <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
-        @keyframes fadeInSlideUp {
-          0% { opacity: 0; transform: translateY(12px); }
-          100% { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.5s ease-out forwards;
         }
       `}</style>
 
-      {/* Force dark mode by adding 'dark' class to the root container */}
-      <div className="dark">
-        {/* Main container: soft background, soothing typography */}
-        <div
-          className={clsx(
-            "max-w-5xl mx-auto px-4 py-8 md:px-6 lg:px-8",
-            "bg-slate-900",
-            "text-slate-200",
-            "leading-relaxed"
-          )}
-        >
-          {/* HEADER with reveal animation */}
-          <div
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-8"
-            style={{ animationFillMode: "both" }}
-          >
-            <h1 className="text-3xl md:text-4xl font-light tracking-tight mb-2 text-white">
-              🔄 Traversing an Array Using <code className="text-3xl">for</code> Loop
-            </h1>
-            <p className="text-lg text-slate-400">
-              Walking through each element, one index at a time.
+      {/* 1. Header Section */}
+      <header className="space-y-4 border-b border-slate-800 pb-6 animate-fade-in">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Module 002_001 · Topic 5
+          </span>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            1D Array Numeric
+          </span>
+        </div>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+          Traversing an Array Using for Loop
+        </h1>
+        <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
+          Systematic linear element access, forward and reverse iteration, and accumulator patterns
+        </p>
+      </header>
+
+      {/* 2. Concept Overview Section */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-3">
+          <span className="w-2.5 h-6 bg-sky-500 rounded-full" />
+          Concept Breakdown & Architecture
+        </h2>
+        <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+          Array traversal is the systematic process of visiting each element of an array exactly once to inspect, process, or accumulate values. The standard for-loop with an index counter variable (i) provides complete control over iteration direction and step size.
+        </p>
+        <InstructionalSVG />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-sky-400 mb-2">Core Rules & Syntax</h3>
+            <ul className="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Forward Traversal: Initialize i = 0; loop while i &lt; arr.length; increment i++.</li>
+              <li>Reverse Traversal: Initialize i = arr.length - 1; loop while i >= 0; decrement i--.</li>
+              <li>Step Sizing: Modify increment expression (e.g. i += 2) to visit alternate or even/odd indexed elements.</li>
+              <li>Accumulator Pattern: Initialize running sum or count variable before loop; update inside loop body.</li>
+              <li>In-Place Transformation: Modify array elements directly inside loop using arr[i] = transformedValue.</li>
+            </ul>
+          </div>
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-emerald-400 mb-2">BlueJ Workflow & Practice</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Compile and test this concept in BlueJ's interactive environment. Verify memory structures and inspect array elements directly on the object workbench.
             </p>
           </div>
-
-          {/* INTRODUCTION (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              What is Array Traversal?
-            </h2>
-            <div className="space-y-3 text-slate-300">
-              <p>
-                <strong>Traversal</strong> means visiting each element of an array exactly once, usually to perform some operation like printing, summing, or searching.
-              </p>
-              <p>
-                The most common way to traverse an array in Java is with a <code className="text-sm bg-gray-200 dark:bg-gray-700 px-1 rounded">for</code> loop, using an index variable that runs from <code className="text-sm">0</code> to <code className="text-sm">array.length - 1</code>.
-              </p>
-              <p>
-                Think of it like a teacher taking attendance in a class at Barrackpore: you start with student in seat 0 (Swadeep), then move to seat 1 (Tuhina), then seat 2 (Abhronila), and so on until you’ve checked every seat.
-              </p>
-            </div>
-          </section>
-
-          {/* TRAVERSAL DIAGRAM SVG (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.2s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              🧭 Walking Through the Array
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md">
-              <svg
-                width="100%"
-                height="180"
-                viewBox="0 0 600 180"
-                preserveAspectRatio="xMidYMid meet"
-                className="max-w-full h-auto"
-              >
-                {/* Array cells */}
-                <rect x="50" y="40" width="500" height="60" fill="#2d3748" rx="8" />
-                <rect x="50" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="150" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="250" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="350" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="450" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-
-                {/* Index labels */}
-                <text x="90" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">0</text>
-                <text x="190" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">1</text>
-                <text x="290" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">2</text>
-                <text x="390" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">3</text>
-                <text x="490" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">4</text>
-
-                {/* Loop arrow (moving) */}
-                <path
-                  d="M 90 120 Q 190 140 290 120 Q 390 100 490 120"
-                  stroke="#fbbf24"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeDasharray="5 5"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    values="0;30"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-
-                {/* Arrowheads */}
-                <defs>
-                  <marker
-                    id="arrowheadLoop"
-                    markerWidth="10"
-                    markerHeight="10"
-                    refX="9"
-                    refY="5"
-                    orient="auto"
-                  >
-                    <polygon points="0 0, 10 5, 0 10" fill="#fbbf24" />
-                  </marker>
-                </defs>
-                <line
-                  x1="470"
-                  y1="125"
-                  x2="490"
-                  y2="123"
-                  stroke="#fbbf24"
-                  strokeWidth="2"
-                  markerEnd="url(#arrowheadLoop)"
-                />
-
-                <text x="250" y="150" fill="#a0aec0" fontSize="12" textAnchor="middle">
-                 <code> {`for (int i = 0; i < length; i++) { visit arr[i]; }`}</code>
-                </text>
-              </svg>
-            </div>
-          </section>
-
-          {/* JAVA CODE EXAMPLE (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.3s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              💻 Java Code: Traversing with for Loop
-            </h2>
-            <div className="transition-all duration-300 hover:scale-[1.01]">
-              <JavaFileLoader
-                fileModule={traverseForLoopRaw}
-                title="TraverseForLoop.java"
-                highlightLines={[]}
-              />
-            </div>
-            <p className="mt-3 text-slate-400 text-sm">
-              The program demonstrates printing elements, summing them, and finding a maximum – all using a standard for loop.
-            </p>
-          </section>
-
-          {/* PROTOTYPE / SIGNATURE (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.4s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              📐 The for Loop Structure for Arrays
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 rounded-lg p-5 border-l-4 border-indigo-500 shadow-sm">
-              <dl className="space-y-3">
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Basic pattern
-                  </dt>
-                  <dd>
-                    <code className="text-sm bg-slate-950 border border-slate-800 text-amber-300 px-2 py-1 rounded block">
-                      {`for (int i = 0; i < array.length; i++) {
-    // access array[i]
-}`}
-                    </code>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Purpose
-                  </dt>
-                  <dd>
-                    To perform an operation on each element sequentially. The loop variable <code className="text-sm">i</code> acts as the current index.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Return type
-                  </dt>
-                  <dd>
-                    The loop itself does not return a value, but the operations inside may produce results (like sum).
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </section>
-
-          {/* COMMON PITFALLS (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.5s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              ⚠️ Common Pitfalls (Beginners)
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Off‑by‑one errors
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  Using <code className="text-xs">&lt;= array.length</code> leads to <code className="text-xs">ArrayIndexOutOfBoundsException</code>. Valid indices are 0 to length‑1.
-                </p>
-              </div>
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Hard‑coding array length
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  Writing <code className="text-xs">for (int i = 0; i &lt; 5; i++)</code> breaks if array size changes. Always use <code className="text-xs">array.length</code>.
-                </p>
-              </div>
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Modifying the index inside loop
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  Changing <code className="text-xs">i</code> inside the loop can cause skipped elements or infinite loops.
-                </p>
-              </div>
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Forgetting to initialize the loop variable
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  All parts of the for loop are optional, but omitting initialization may lead to unexpected behavior.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* BEST PRACTICES & TIPS (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.6s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              ✅ Best Practices & Pro Tips
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 p-5 rounded-lg space-y-3 shadow-sm transition-all duration-300 hover:shadow-md">
-              <ul className="list-disc pl-5 space-y-2 text-slate-300">
-                <li>
-                  <strong>Always use <code className="text-xs">array.length</code></strong> – never hard‑code size.
-                </li>
-                <li>
-                  <strong>Choose meaningful loop variable names</strong> – <code className="text-xs">i</code> is conventional for index, but for nested loops use <code className="text-xs">j</code>, <code className="text-xs">k</code>.
-                </li>
-                <li>
-                  <strong>Keep loop bodies focused</strong> – if the operation is complex, extract it to a method.
-                </li>
-                <li>
-                  <strong>For read‑only traversal, consider enhanced for loop</strong> (future topic), but understand the index‑based version first.
-                </li>
-                <li className="text-sm bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded">
-                  💡 <span className="font-medium">Pro tip:</span> Use the loop index when you need to know the position (e.g., printing “Element at index i is …”). For pure values, enhanced for is cleaner.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* HINT SECTION (subtle guidance) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.7s", animationFillMode: "both" }}
-          >
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800">
-              <h3 className="text-lg font-medium text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2">
-                <span>💭 Think about…</span>
-              </h3>
-              <ul className="space-y-2 text-blue-700 dark:text-blue-200">
-                <li>
-                  • What would happen if you set the loop condition to <code className="text-xs">i &lt;= array.length</code>? Try it mentally with an array of size 3.
-                </li>
-                <li>
-                  • If you want to traverse the array backwards, how would you change the for loop?
-                </li>
-                <li>
-                  • How would you compute the product of all elements using a for loop?
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* TEACHER'S NOTE */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
-          >
-            <div className="bg-amber-50 dark:bg-amber-900/20 p-5 rounded-lg border border-amber-200 dark:border-amber-800 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
-              <h3 className="text-lg font-medium text-amber-800 dark:text-amber-300 mb-3 flex items-center gap-2">
-                <span>👩‍🏫 Teacher’s Note</span>
-              </h3>
-              <div className="space-y-3 text-amber-700 dark:text-amber-200">
-                <p>
-                  <strong>Sukanta Hui</strong> (27 years of experience) shares:
-                </p>
-                <p>
-                  “Traversal is the most fundamental operation on arrays. Master the off‑by‑one logic early – it will save you hours of debugging. I tell my students in Naihati: ‘The first locker is number 0, not 1. If you have 5 lockers, the last is number 4.’ Use <code className="text-xs">array.length</code> religiously. And remember, the loop variable gives you both the value and its position – use that power wisely.”
-                </p>
-                <p className="text-sm">
-                  📧 sukantahui@codernaccotax.co.in | 📞 7003756860
-                  <br />
-                  Skills: Programming Languages, RDBMS, OS, Web Development
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* MINI CHECKLIST */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-6"
-            style={{ animationDelay: "0.9s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              ✅ Checklist – What to Remember
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 p-5 rounded-lg shadow-sm">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Indices: 0 to length‑1
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Use <code className="text-xs">array.length</code> in condition
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Loop variable <code className="text-xs">i</code> is the current index
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Access element with <code className="text-xs">array[i]</code>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Be careful with <code className="text-xs">&lt;=</code>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Don’t modify <code className="text-xs">i</code> inside loop
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* FOOTER */}
-          <footer className="text-xs text-center text-slate-400 dark:text-slate-400 mt-12 pt-4 border-t border-slate-800">
-            Topic 5 – Traversing using for loop | Next: Traversing using length property
-          </footer>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* 3. Java Demo Simulation */}
+      <section className="space-y-5">
+        <div className="border-b border-slate-800 pb-3">
+          <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-3">
+            <span className="w-2.5 h-6 bg-emerald-500 rounded-full" />
+            Runnable Java Implementation
+          </h2>
+          <p className="text-sm text-slate-400 mt-1">
+            Demonstrating forward iteration, reverse iteration, and sum/product accumulators over arrays.
+          </p>
+        </div>
+        <JavaFileLoader
+          fileName="TraverseForLoop.java"
+          code={demoCode}
+        />
+      </section>
+
+      {/* 4. Common Pitfalls & Best Practices */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-3">
+          <span className="w-2.5 h-6 bg-amber-500 rounded-full" />
+          Board Examination Tips & Pitfalls
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-rose-300 mb-2">Common Board Exam Pitfall</h3>
+            <ul className="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
+              <li>Off-by-one error: Starting loop at i = 1 skips the first element at index 0.</li>
+              <li>Ending reverse loop at i > 0 skips the first element at index 0.</li>
+              <li>Modifying the loop counter variable arbitrarily inside the loop body causing skipped elements or infinite loops.</li>
+            </ul>
+          </div>
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-emerald-300 mb-2">ICSE Best Practice</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Always maintain clean Variable Description Tables (VDT), comment key logic statements, and verify boundary conditions for index 0 and length - 1.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Comprehensive FAQ Section */}
+      <section className="space-y-5">
+        <FAQTemplate
+          title="Traversing an Array Using for Loop FAQs"
+          questions={questions}
+        />
+      </section>
+
+      {/* 6. Plain Text Printable Note Section */}
+      <section className="space-y-5">
+        <PlainTextPrint
+          content={noteText}
+          title="Module 002_001 Topic 5: Traversing an Array Using for Loop"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="002_001_topic5_note.txt"
+        />
+      </section>
+
+      {/* 7. Teacher's Note Section */}
+      <section className="space-y-5">
+        <Teacher
+          note="Practice dry running this algorithm on paper with a trace table before writing Java code in BlueJ. — Sukanta Hui"
+        />
+      </section>
+    </div>
   );
 };
 

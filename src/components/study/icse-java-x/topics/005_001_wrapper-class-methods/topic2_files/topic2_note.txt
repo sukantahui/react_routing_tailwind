@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_001_wrapper-class-methods
+TOPIC 2: parseFloat(String s) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Complete guide to Float.parseFloat(String s). 32-bit IEEE 754 floating point numbers, single precision decimals, and science calculation values.
+
+2. SIGNATURE & CONVENTIONS:
+   public static float parseFloat(String s) throws NumberFormatException
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Debangshu parse physics sensor values and temperature readings in Naihati.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

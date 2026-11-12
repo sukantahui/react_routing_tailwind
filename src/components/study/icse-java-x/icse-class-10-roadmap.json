@@ -676,10 +676,11 @@
             "isLowerCase(char ch)",
             "isUpperCase(char ch)",
             "toLowerCase(char ch)",
-            "toUpperCase(char ch)"
+            "toUpperCase(char ch)",
+            "isWhitespace(char ch)"
           ],
           "learningOutcomes": [
-            "Validate individual character types (digit, letter, letter or digit)",
+            "Validate individual character types (digit, letter, letter or digit, whitespace)",
             "Check and modify character casing using java.lang.Character static methods",
             "Apply character testing in string analysis and text filtering algorithms"
           ],
@@ -719,6 +720,80 @@
           ],
           "badge": "Character Master",
           "previousModule": "005_001_wrapper-class-methods",
+          "nextModule": "005_003_math-library-methods"
+        },
+        {
+          "moduleId": "math-library-methods",
+          "slug": "005_003_math-library-methods",
+          "title": "Mathematical Library Methods (java.lang.Math)",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 10,
+          "estimatedHours": 8,
+          "summary": "Master java.lang.Math methods prescribed in the ICSE syllabus: Math.pow(), sqrt(), cbrt(), abs(), round(), floor(), ceil(), rint(), max(), min(), random(), and converting algebraic formulas to Java expressions.",
+          "tags": [
+            "math-methods",
+            "icse-syllabus",
+            "pow",
+            "sqrt",
+            "round",
+            "floor",
+            "ceil",
+            "rint"
+          ],
+          "topics": [
+            "Math.pow(a, b) and Math.sqrt(x)",
+            "Math.cbrt(x) and Math.abs(x)",
+            "Math.round(x) vs Math.rint(x)",
+            "Math.floor(x) vs Math.ceil(x)",
+            "Math.max(a, b) and Math.min(a, b)",
+            "Math.random() and Range Scaling",
+            "Writing Mathematical Expressions in Java"
+          ],
+          "learningOutcomes": [
+            "Evaluate outputs of Math library methods with positive and negative decimal arguments",
+            "Differentiate between round(), rint(), floor(), and ceil() return types and behaviors",
+            "Translate complex algebraic, quadratic, and geometric expressions into syntactically valid Java code",
+            "Generate random integers within custom ranges using Math.random() and scaling"
+          ],
+          "prerequisites": [
+            "005_002_character-class-methods"
+          ],
+          "miniProjects": [
+            "Mathematical Formula Evaluator & Dice Game Simulator"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "ICSE Math Library Methods & Section A Output Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "Section A output prediction, scientific calculations, and coordinate geometry"
+          ],
+          "careerSkills": [
+            "Numeric algorithms",
+            "Mathematical expression evaluation"
+          ],
+          "commonMistakes": [
+            "Assuming Math.sqrt(-x) throws an exception instead of returning NaN",
+            "Confusing Math.round(-4.5) which gives -4 with Math.rint(-4.5) which gives -4.0",
+            "Forgetting that Math.pow and Math.sqrt always return double"
+          ],
+          "references": [
+            "Java API Documentation - java.lang.Math"
+          ],
+          "teachingTips": [
+            "Draw a number line on the board to illustrate how floor always moves left (smaller) and ceil always moves right (larger)."
+          ],
+          "preReading": [
+            "005_002_character-class-methods"
+          ],
+          "badge": "Math Library Master",
+          "previousModule": "005_002_character-class-methods",
           "nextModule": "006_001_strings-basic"
         }
       ]
@@ -827,14 +902,15 @@
           "difficulty": "Easy-Medium",
           "difficultyIndex": 11,
           "estimatedHours": 7,
-          "summary": "Detailed exploration of fundamental String class methods: length(), charAt(), indexOf(), lastIndexOf(), trim(), toLowerCase(), toUpperCase().",
+          "summary": "Comprehensive coverage of all 17 official ICSE Board syllabus String methods: length(), charAt(), indexOf(), lastIndexOf(), trim(), toLowerCase(), toUpperCase(), concat(), equals(), equalsIgnoreCase(), compareTo(), compareToIgnoreCase(), replace(), substring(), startsWith(), endsWith(), valueOf().",
           "tags": [
-            "basic-string-methods",
-            "length",
+            "string-methods",
+            "icse-syllabus",
             "charat",
             "indexof",
-            "lastindexof",
-            "trim"
+            "substring",
+            "equals",
+            "compareto"
           ],
           "topics": [
             "length()",
@@ -843,12 +919,24 @@
             "lastIndexOf(int ch / String str)",
             "trim()",
             "toLowerCase()",
-            "toUpperCase()"
+            "toUpperCase()",
+            "concat(String str)",
+            "equals(Object obj)",
+            "equalsIgnoreCase(String str)",
+            "compareTo(String str)",
+            "compareToIgnoreCase(String str)",
+            "replace(char oldChar, char newChar)",
+            "substring(int beginIndex [, int endIndex])",
+            "startsWith(String prefix)",
+            "endsWith(String suffix)",
+            "valueOf(primitive data)"
           ],
           "learningOutcomes": [
             "Extract individual characters and find character indices in Strings",
-            "Trim leading/trailing whitespace and normalize case",
-            "Solve ICSE board output-based questions involving basic String methods"
+            "Trim leading/trailing whitespace, normalize case, and replace characters",
+            "Execute lexicographical comparison using compareTo() and equality validation with equals()",
+            "Extract sub-sequences using single and dual argument substring()",
+            "Solve ICSE board output-based questions involving all 17 prescribed String methods"
           ],
           "prerequisites": [
             "006_001_strings-basic"
@@ -955,6 +1043,87 @@
           ],
           "badge": "String Master Badge",
           "previousModule": "006_002_basic-string-methods",
+          "nextModule": "006_004_test_on_string"
+        },
+        {
+          "moduleId": "test-on-string",
+          "slug": "006_004_test_on_string",
+          "title": "String Mastery Test Papers (ICSE Board Pattern)",
+          "level": "Intermediate",
+          "difficulty": "Medium-Hard",
+          "difficultyIndex": 13,
+          "estimatedHours": 10,
+          "summary": "Comprehensive examination practice papers on Strings strictly as per ICSE Class 10 Board exam question patterns: Character analysis, Word extraction, Palindromes & Special Words, Piglatin transformation, Title Case, String sorting/searching, Pattern printing, and Section B full program simulations with Variable Description Tables.",
+          "tags": [
+            "test-on-string",
+            "icse-board-string-tests",
+            "piglatin",
+            "palindrome-string",
+            "title-case",
+            "word-extraction",
+            "string-bubble-sort"
+          ],
+          "topics": [
+            "Character Analysis & Frequency Counting Test Paper",
+            "Word Extraction, Sentence Parsing & Longest Word Test Paper",
+            "Palindrome, Special Words & Symmetry Test Paper",
+            "Piglatin Word Transformation & Syllable Encoding Test Paper",
+            "Word Reversal, Title Case & Sentence Formatting Test Paper",
+            "String Array Alphabetical Sorting & Searching Test Paper",
+            "String Geometric Pattern Printing & Cipher Test Paper",
+            "Full ICSE Board String Section B Final Simulation Paper"
+          ],
+          "learningOutcomes": [
+            "Solve ICSE Section A String output tracing and method signature questions with 100% accuracy",
+            "Design robust Section B 15-mark programs with standard Scanner input and class structures",
+            "Master character classification using Character methods and vowel indexing algorithms",
+            "Construct clean word extraction loops using trailing spaces and StringBuilder or charAt",
+            "Write mandatory Variable Description Tables adhering strictly to CISCE marking schemes"
+          ],
+          "prerequisites": [
+            "006_001_strings-basic",
+            "006_002_basic-string-methods",
+            "006_003_advanced-string-methods"
+          ],
+          "miniProjects": [
+            "ICSE Board String Question Paper Generator & Automated Evaluator"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Full ICSE Board String Mastery Examination",
+            "passScore": 80
+          },
+          "useCases": [
+            "Class 10 Pre-Board and Final Board Examination Preparation"
+          ],
+          "careerSkills": [
+            "Algorithmic text processing",
+            "Exam time management",
+            "Variable tracing and documentation"
+          ],
+          "commonMistakes": [
+            "StringIndexOutOfBoundsException due to loop running up to <= s.length() instead of < s.length()",
+            "Forgetting to append trailing space before word extraction loop",
+            "Omitting Variable Description Table in Section B programs",
+            "Comparing String objects using == instead of .equals() or .compareTo()"
+          ],
+          "references": [
+            "CISCE ICSE Class X Computer Applications 10-Year Question Papers",
+            "Understanding Computer Applications with BlueJ Class X"
+          ],
+          "teachingTips": [
+            "Emphasize dry run trace tables and mandatory Variable Description Tables for all Section B practice problems."
+          ],
+          "preReading": [
+            "006_002_basic-string-methods",
+            "006_003_advanced-string-methods"
+          ],
+          "badge": "String Board Champion",
+          "previousModule": "006_003_advanced-string-methods",
           "nextModule": "007_001_encapsulation"
         }
       ]
@@ -994,7 +1163,7 @@
             "Explain the benefits of data hiding in software design"
           ],
           "prerequisites": [
-            "006_003_advanced-string-methods"
+            "006_004_test_on_string"
           ],
           "miniProjects": [
             "Encapsulated Employee Payroll & Data Integrity Engine"
@@ -1026,10 +1195,10 @@
             "Show how validation inside a setAge(int age) method prevents invalid negative values."
           ],
           "preReading": [
-            "006_003_advanced-string-methods"
+            "006_004_test_on_string"
           ],
           "badge": "Encapsulation Expert",
-          "previousModule": "006_003_advanced-string-methods",
+          "previousModule": "006_004_test_on_string",
           "nextModule": "007_002_inheritance"
         },
         {

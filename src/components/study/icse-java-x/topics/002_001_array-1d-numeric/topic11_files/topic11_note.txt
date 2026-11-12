@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 11
+TITLE: BUBBLE SORT - DESCENDING ORDER
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Descending bubble sort arranges elements from largest to smallest by swapping adjacent pairs whenever arr[j] < arr[j+1]. After each pass, the smallest unsorted element settles at the end of the array.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Descending Condition: Swap elements if arr[j] < arr[j+1].
+[2] Pass Structure: Outer loop runs n - 1 passes, ensuring every element is systematically settled.
+[3] Stable Sorting: Preserves relative order of duplicate elements because equal items are not swapped.
+[4] Early Exit Optimization: Use a boolean 'swapped' flag to terminate early if no swaps occur in a pass.
+[5] ICSE Syllabus Favorite: Frequently asked in Section B to sort marks, temperatures, or scores high-to-low.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Swapping when arr[j] <= arr[j+1], which breaks sort stability on duplicate values.
+[!] Pitfall 2: Mixing up inner loop bound resulting in ArrayIndexOutOfBoundsException.
+[!] Pitfall 3: Failing to reset the swap tracking flag at the start of each outer pass.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: BubbleSortDescending.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

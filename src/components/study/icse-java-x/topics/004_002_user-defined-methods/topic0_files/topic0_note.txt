@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 004_002_user-defined-methods
+TOPIC 0: Method Declaration and Signature
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Complete breakdown of method syntax. Understanding access specifiers, non-access modifiers, return types, and why return type is not part of the signature.
+
+2. SIGNATURE & CONVENTIONS:
+   <accessModifier> <static/non-static> <returnType> <methodName>(<paramList>)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina design calculation methods with formal parameters at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

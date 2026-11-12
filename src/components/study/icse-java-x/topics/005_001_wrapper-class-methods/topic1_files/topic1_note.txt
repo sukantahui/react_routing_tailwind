@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_001_wrapper-class-methods
+TOPIC 1: parseLong(String s) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Detailed analysis of Long.parseLong(String s). Handling large numbers, mobile phone numbers, Aadhaar numbers, and 64-bit arithmetic boundaries.
+
+2. SIGNATURE & CONVENTIONS:
+   public static long parseLong(String s) throws NumberFormatException
+
+3. CLASSROOM APPLICATION:
+   Abhronila and Debangshu parse 10-digit mobile phone numbers and account balances in Shyamnagar.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

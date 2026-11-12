@@ -1,0 +1,23 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 8: Case-Sensitive and Case-Insensitive Comparison
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD PROTOTYPES
+--------------------------------------------------------------------------------
+1. public boolean equals(Object anObject)
+   - Exact case-sensitive match.
+   - 'A' and 'a' are treated as DIFFERENT characters ('A' = 65, 'a' = 97).
+
+2. public boolean equalsIgnoreCase(String anotherString)
+   - Case-insensitive comparison.
+   - Treats 'A' and 'a' as identical.
+   - Returns true if length is same and corresponding characters match ignoring case.
+
+2. WHEN TO USE WHICH IN ICSE EXAMS?
+--------------------------------------------------------------------------------
+- Use equals(): Passwords, case-sensitive identifiers, exact tokens.
+- Use equalsIgnoreCase(): Menu answers (YES/NO), city names, search queries.
+================================================================================

@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 002_002_array-1d-string
+TOPIC 3: Case Insensitive Comparison in String Array
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Solving the ASCII case disparity in String arrays. Why uppercase letters precede lowercase in ASCII (65 vs 97), and using compareToIgnoreCase() for natural dictionary order.
+
+2. SIGNATURE & CONVENTIONS:
+   arr[j].compareToIgnoreCase(arr[j+1]) > 0
+
+3. CLASSROOM APPLICATION:
+   Tuhina and Abhronila sort mixed-case names (e.g. 'ananya', 'Barrackpore') without uppercase bias at Ichapur.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

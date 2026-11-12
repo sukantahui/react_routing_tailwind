@@ -1,0 +1,25 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 4: Working with String Class and Object Behavior
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. STRING CLASS INHERITANCE HIERARCHY
+--------------------------------------------------------------------------------
+- java.lang.Object (Root Superclass)
+    └── java.lang.String (final class - cannot be extended!)
+
+2. INTERFACES IMPLEMENTED BY STRING
+--------------------------------------------------------------------------------
+1. java.lang.CharSequence: Represents readable sequence of char values.
+   (Implemented by String, StringBuilder, StringBuffer).
+2. java.lang.Comparable<String>: Implements compareTo() for natural ordering.
+3. java.io.Serializable: Enables converting String objects to byte streams.
+
+3. FINAL CLASS RESTRICTION
+--------------------------------------------------------------------------------
+- String is declared 'public final class String'.
+- Why final? To prevent subclasses from breaking immutability or modifying
+  security-sensitive string methods!
+================================================================================

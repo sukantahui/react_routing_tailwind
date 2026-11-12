@@ -1,0 +1,24 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 7: String Comparison Using == and equals()
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE '==' OPERATOR (REFERENCE COMPARISON)
+--------------------------------------------------------------------------------
+- Compares whether two reference variables point to the exact same memory address.
+- Returns true IF AND ONLY IF both references point to the same object.
+- Never use '==' to compare string contents in ICSE programs!
+
+2. THE 'equals()' METHOD (CONTENT COMPARISON)
+--------------------------------------------------------------------------------
+- Prototype: public boolean equals(Object anObject)
+- Overridden in java.lang.String to compare character-by-character.
+- Returns true if the argument is a String with the identical sequence of chars.
+
+3. GOLDEN ICSE RULES
+--------------------------------------------------------------------------------
+[✓] Always use .equals() for input validation, password checks, and menu choices.
+[✓] "literal".equals(variable) avoids NullPointerException if variable is null.
+================================================================================

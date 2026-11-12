@@ -1,0 +1,75 @@
+{
+  "paperId": "ICSE-STR-FULL-08",
+  "title": "Full ICSE Board String Section B Final Simulation Paper (ICSE Class X)",
+  "duration": "2 Hours",
+  "totalMarks": 60,
+  "prerequisites": "ICSE Class X String handling methods, Scanner input, conditional branching, and loops",
+  "instructions": [
+    "All questions are compulsory as per ICSE examination standards.",
+    "Write complete Java code for Section B problems including Variable Description Tables.",
+    "Pay strict attention to case sensitivity, loop bounds, and array indexing.",
+    "Each question carries marks as indicated."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Answer & Output Tracing Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer in one or two sentences or evaluate the code output.",
+      "questions": [
+        {
+          "q": "Write the prototype of a method named 'checkVowel' that accepts a String and returns an integer count of vowels.",
+          "marks": 2,
+          "answer": "```java\npublic int checkVowel(String str)\n```",
+          "hint": "Return type int, parameter String."
+        },
+        {
+          "q": "Differentiate between `equals()` and `compareTo()` methods of String class.",
+          "marks": 2,
+          "answer": "`equals()` returns a boolean (`true` or `false`) indicating exact character-by-character equality. `compareTo()` returns an `int` (0, negative, or positive) indicating lexicographical difference.",
+          "hint": "Boolean vs integer return."
+        },
+        {
+          "q": "Give the output of `\"AMRITSAR\".substring(2, 6)`.",
+          "marks": 2,
+          "answer": "Output: `\"RITS\"`\nExplanation: Indices 2:'R', 3:'I', 4:'T', 5:'S'. Index 6 ('A') is excluded.",
+          "hint": "Index 2 to 5 inclusive."
+        },
+        {
+          "q": "What is the return type of `String.valueOf(12.5)` and what does it return?",
+          "marks": 2,
+          "answer": "Return type is `String`, and it returns `\"12.5\"`.",
+          "hint": "valueOf converts primitive to String representation."
+        },
+        {
+          "q": "Identify the error in: `String s = 'JAVA';`",
+          "marks": 2,
+          "answer": "Error: Single quotes `'` represent a single `char` literal. Multiple characters must be enclosed in double quotes `\"` (`\"JAVA\"`).",
+          "hint": "Single quote vs double quote in Java."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Programming Problems (15 & 10 Marks)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 2,
+      "description": "Write complete Java programs with class declaration, main method, and Variable Description Table.",
+      "questions": [
+        {
+          "q": "Define a class WordWise with the following specifications:\n- Data Members: String str (to store a sentence)\n- Member Methods:\n  * WordWise(): default constructor to initialize str to \"\"\n  * void readSent(): to accept a sentence from user\n  * void freqVowel(): to count and display frequency of vowels in the sentence\n  * void display(): to display original sentence and results\nWrite a main() method to create an object and call methods.",
+          "marks": 15,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class WordWise {\n    private String str;\n    \n    public WordWise() {\n        str = \"\";\n    }\n    \n    public void readSent() {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"Enter a sentence:\");\n        str = sc.nextLine();\n    }\n    \n    public void freqVowel() {\n        int count = 0;\n        String vowels = \"AEIOUaeiou\";\n        for (int i = 0; i < str.length(); i++) {\n            if (vowels.indexOf(str.charAt(i)) != -1) {\n                count++;\n            }\n        }\n        System.out.println(\"Total vowels present: \" + count);\n    }\n    \n    public void display() {\n        System.out.println(\"Original Sentence: \" + str);\n        freqVowel();\n    }\n    \n    public static void main(String[] args) {\n        WordWise obj = new WordWise();\n        obj.readSent();\n        obj.display();\n    }\n}\n/*\nVARIABLE DESCRIPTION TABLE:\nVariable Name | Data Type | Purpose\nstr           | String    | Instance variable storing input sentence\ncount         | int       | Tally of vowels encountered\nvowels        | String    | Constant string containing all vowels\ni             | int       | Loop index for sentence traversal\nobj           | WordWise  | Object instance created in main method\n*/\n```",
+          "hint": "Class with instance variable, constructor, readSent, freqVowel, display, and main."
+        },
+        {
+          "q": "Define a class StringSort to store names of 10 students and arrange them in alphabetical order using Selection Sort. Include input(), sort(), display(), and main(). Include Variable Description Table.",
+          "marks": 15,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class StringSort {\n    private String[] names;\n    \n    public StringSort() {\n        names = new String[10];\n    }\n    \n    public void input() {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"Enter 10 student names:\");\n        for (int i = 0; i < names.length; i++) {\n            names[i] = sc.nextLine().trim();\n        }\n    }\n    \n    public void sort() {\n        // Selection Sort on String array\n        for (int i = 0; i < names.length - 1; i++) {\n            int minIdx = i;\n            for (int j = i + 1; j < names.length; j++) {\n                if (names[j].compareToIgnoreCase(names[minIdx]) < 0) {\n                    minIdx = j;\n                }\n            }\n            String temp = names[i];\n            names[i] = names[minIdx];\n            names[minIdx] = temp;\n        }\n    }\n    \n    public void display() {\n        System.out.println(\"\\nAlphabetically Sorted Names:\");\n        for (int i = 0; i < names.length; i++) {\n            System.out.println((i + 1) + \". \" + names[i]);\n        }\n    }\n    \n    public static void main(String[] args) {\n        StringSort obj = new StringSort();\n        obj.input();\n        obj.sort();\n        obj.display();\n    }\n}\n/*\nVARIABLE DESCRIPTION TABLE:\nVariable Name | Data Type | Purpose\nnames         | String[]  | Array holding 10 student names\nminIdx        | int       | Index of alphabetically smallest string in unsorted part\ntemp          | String    | Temporary variable for swap\ni             | int       | Outer selection loop counter\nj             | int       | Inner loop comparison index\nobj           | StringSort| Object created in main method\n*/\n```",
+          "hint": "Selection sort tracks minIdx and swaps with names[i]."
+        }
+      ]
+    }
+  ]
+}

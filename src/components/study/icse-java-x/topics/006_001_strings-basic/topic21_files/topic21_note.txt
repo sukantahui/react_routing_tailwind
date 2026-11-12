@@ -1,0 +1,24 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 21: Frequency of Characters in a String
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE FREQUENCY ARRAY TRICK: int[] freq = new int[26];
+--------------------------------------------------------------------------------
+- Characters 'A' through 'Z' have ASCII codes 65 to 90.
+- Subtracting 'A' (65) maps them to array indices 0 to 25:
+  'A' - 'A' = 0
+  'B' - 'A' = 1
+  'Z' - 'A' = 25
+- freq[ch - 'A']++ directly tracks counts in O(N) time!
+
+2. AVOIDING DUPLICATE PRINTING IN NESTED LOOPS
+--------------------------------------------------------------------------------
+- When scanning "SUCCESSFUL", letter 'S' appears at index 0, 4, and 5.
+- To prevent printing 'S' three separate times:
+  if (text.indexOf(ch) == i) {
+      // First time seeing character; count and print!
+  }
+================================================================================

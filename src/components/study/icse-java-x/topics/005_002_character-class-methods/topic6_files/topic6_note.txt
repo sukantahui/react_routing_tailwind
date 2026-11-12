@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_002_character-class-methods
+TOPIC 6: toUpperCase(char ch) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Exploration of Character.toUpperCase(char ch). Character transformation, ASCII shift (-32 for 'a'-'z'), and toggling character case.
+
+2. SIGNATURE & CONVENTIONS:
+   public static char toUpperCase(char ch)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina capitalize the first letter of every word (Title Case) at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

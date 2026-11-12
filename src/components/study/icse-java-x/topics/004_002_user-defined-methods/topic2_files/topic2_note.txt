@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 004_002_user-defined-methods
+TOPIC 2: Method Calling and Execution Flow
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Tracing execution flow during method invocation. Call stack push and pop mechanics, caller-callee relationship, and dot operator resolution.
+
+2. SIGNATURE & CONVENTIONS:
+   objectRef.methodName(actualParameters); / ClassName.staticMethod(args);
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Debangshu trace method call stacks in BlueJ debugger at Naihati.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

@@ -1,0 +1,22 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 14: String Concatenation Using + and concat()
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. '+' OPERATOR VS CONCAT()
+--------------------------------------------------------------------------------
+Feature               | '+' Operator              | concat() Method
+--------------------------------------------------------------------------------
+Operands              | String + Any type         | String.concat(String only)
+Null handling         | Converts to "null"        | Throws NullPointerException
+Internal mechanism    | Uses StringBuilder.append | Allocates new char array
+
+2. PRECEDENCE RULES IN ICSE EXAMS
+--------------------------------------------------------------------------------
+Rule: Addition evaluates LEFT-TO-RIGHT.
+- "Val: " + 5 + 6  -> ("Val: " + 5) + 6  -> "Val: 5" + 6  -> "Val: 56"
+- "Val: " + (5 + 6)-> "Val: " + (11)    -> "Val: 11"
+- 5 + 6 + " Val"   -> (5 + 6) + " Val"   -> 11 + " Val"   -> "11 Val"
+================================================================================

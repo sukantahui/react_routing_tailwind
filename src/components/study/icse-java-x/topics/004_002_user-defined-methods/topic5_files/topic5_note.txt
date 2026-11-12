@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 004_002_user-defined-methods
+TOPIC 5: Scope of Variables (Local vs Instance Variables)
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Comprehensive guide to variable scope. Distinguishing instance variables (object scope, default initialization) from local variables (stack scope, no defaults).
+
+2. SIGNATURE & CONVENTIONS:
+   Scope Hierarchy: Block -> Method (Local) -> Class (Instance/Static)
+
+3. CLASSROOM APPLICATION:
+   Abhronila and Debangshu trace variable shadowing and the 'this' keyword in Shyamnagar.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

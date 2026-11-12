@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 10
+TITLE: COMPARETO(STRING STR) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The compareTo(String str) method compares two strings lexicographically (based on the Unicode/ASCII values of characters). It returns 0 if strings are equal, a negative integer if the calling string precedes the argument, and a positive integer if it follows.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Return Values: Returns 0 if equal, < 0 if this < str, > 0 if this > str.
+[2] ASCII Calculation: At the first differing character at index k, returns: this.charAt(k) - str.charAt(k).
+[3] Prefix Length Rule: If one string is a prefix of another, returns: this.length() - str.length().
+[4] Case Sensitivity: Uppercase letters have smaller ASCII values than lowercase ('A' is 65, 'a' is 97).
+[5] Sorting Foundation: The mandatory comparison operator used in Bubble sort and Selection sort on String arrays.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming compareTo() returns only -1, 0, or 1; it returns the actual ASCII difference (e.g. 'A'.compareTo('D') is -3).
+[!] Pitfall 2: Passing null to compareTo() resulting in runtime NullPointerException.
+[!] Pitfall 3: Misinterpreting the return sign when sorting arrays in ascending vs descending order.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: CompareToMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

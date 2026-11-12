@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 004_002_user-defined-methods
+TOPIC 4: Return Type and Void Return
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Return statements in Java. Early exit in void methods using 'return;', returning primitive vs object references, and return type matching rules.
+
+2. SIGNATURE & CONVENTIONS:
+   return <expression>; / return; (in void methods)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina use early return statements for guard clauses in student admission screening at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

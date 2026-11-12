@@ -1,0 +1,39 @@
+================================================================================
+ICSE CLASS X COMPUTER APPLICATIONS (JAVA WITH BLUEJ) - STUDY NOTES
+TOPIC: 1D ARRAY BUBBLE & SELECTION SORT TEST PAPER
+INSTITUTE: Coder & AccoTax, Barrackpore
+EDUCATOR: Sukanta Hui (Contact: +91 7003756860 | www.codernaccotax.co.in)
+================================================================================
+
+1. SYLLABUS OVERVIEW & BLUEPRINT:
+--------------------------------------------------------------------------------
+Examination practice paper covering ICSE Section B array questions with step-by-step mark distribution.
+
+2. CORE EXAM PRINCIPLES & ICSE BOARD TIPS:
+--------------------------------------------------------------------------------
+1. Always write class declarations and initialize Scanner in main().
+2. Linear search checks unsorted items sequentially; Binary search requires sorted array.
+3. Bubble sort pushes the largest element to the end per pass; Selection sort picks the smallest.
+4. Variable description table is strictly mandatory for full 15 marks per program.
+
+3. COMMON BOARD TRAPS & MISTAKES:
+--------------------------------------------------------------------------------
+- Off-by-one errors in loop boundaries (using <= length instead of < length).
+- Omitting Variable Description Table in Section B programs (-2 marks penalty).
+- Confusing String reference equality (==) with content equality (.equals()).
+- Writing Java library shortcut methods like Arrays.sort() which score ZERO marks.
+  Pure algorithmic loops (Bubble / Selection) are strictly required.
+
+4. VARIABLE DESCRIPTION TABLE TEMPLATE (MANDATORY IN SECTION B):
+--------------------------------------------------------------------------------
+Variable Name   Data Type   Purpose / Description
+--------------------------------------------------------------------------------
+arr[]           int[]       Stores input integers from the user
+n               int         Stores the number of elements in array
+temp            int         Temporary swap variable during sorting
+found           boolean     Flag to track if search key is located
+--------------------------------------------------------------------------------
+
+================================================================================
+Copyright (c) Sukanta Hui - Coder & AccoTax, Barrackpore. All Rights Reserved.
+================================================================================

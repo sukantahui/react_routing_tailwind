@@ -1,0 +1,18 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 25: Interview Questions and Output-Based Problems
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. STEP-BY-STEP TRACING PROTOCOL FOR ICSE SECTION A
+--------------------------------------------------------------------------------
+Step 1: Write down the 0-based indices directly above the string:
+        0 1 2 3 4 5 6 7
+        C O M P U T E R
+Step 2: For substring(begin, end), write down the exact indices:
+        substring(2, 6) -> indices 2, 3, 4, 5 -> "MPUT"
+Step 3: For compareTo(s1, s2), find the FIRST differing index 'i':
+        Result = (int)s1.charAt(i) - (int)s2.charAt(i)
+Step 4: Check if any arithmetic operators precede strings.
+================================================================================

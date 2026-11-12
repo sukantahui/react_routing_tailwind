@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 0: Introduction to Strings in Java and Real-Life Applications
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A STRING IN JAVA?
+--------------------------------------------------------------------------------
+- In Java, a String is NOT a primitive data type (unlike int, float, char, boolean).
+- A String is a reference data type: an instance/object of the java.lang.String class.
+- It represents an ordered, immutable sequence of 16-bit Unicode characters.
+- String literals are enclosed within double quotes ("..."). Single quotes ('...') 
+  are reserved exclusively for primitive char literals.
+
+2. MEMORY AND INDEXING RULES
+--------------------------------------------------------------------------------
+- Zero-Indexed: The first character is always at index 0.
+- Valid Index Range: 0 to (length() - 1).
+- String length is obtained via the method: int length()  [Parentheses required!]
+  (Compare with array: arr.length [NO parentheses for arrays]).
+- Accessing an index outside 0 to (length() - 1) throws:
+  java.lang.StringIndexOutOfBoundsException
+
+3. REAL-LIFE APPLICATIONS IN COMPUTING
+--------------------------------------------------------------------------------
+- User Authentication: Validating usernames, emails, and masked passwords.
+- Text Processing & Search Engines: Tokenizing sentences, word counting, search filters.
+- Data Formatting & Reports: Generating student marksheets, invoices, and bank statements.
+- Network Protocols & JSON APIs: Exchanging textual payloads between client and server.
+- Security & Cryptography: Palindrome checks, hashing, Caesar cipher encryption.
+
+4. ICSE BOARD EXAM GOLDEN RULES
+--------------------------------------------------------------------------------
+[✓] String is a class located in java.lang package (automatically imported).
+[✓] Characters are stored as 16-bit Unicode values (e.g. 'A' = 65, 'a' = 97, '0' = 48).
+[✓] Never confuse 'A' (char literal, 2 bytes) with "A" (String object with methods).
+[✓] length() has parentheses; array length does not have parentheses!
+[✓] Strings in Java are immutable: any modification creates a NEW string object.
+
+================================================================================
+Generated for Coder & AccoTax Students: Swadeep, Tuhina, Abhronila, Debangshu
+Classroom Centers: Barrackpore, Shyamnagar, Ichapur, Naihati
+================================================================================

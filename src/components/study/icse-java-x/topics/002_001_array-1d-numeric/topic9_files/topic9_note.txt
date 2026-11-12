@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 9
+TITLE: BINARY SEARCH IN SORTED ARRAYS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Binary search repeatedly divides a sorted search interval in half. By comparing the target with the middle element (mid = (low + high) / 2), it eliminates half the remaining elements each step, achieving fast O(log n) performance.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Prerequisite Condition: The array MUST be sorted in ascending or descending order prior to search.
+[2] Three Pointers: Maintain 'low = 0', 'high = length - 1', and calculate 'mid = (low + high) / 2'.
+[3] Branch Logic: If arr[mid] == target, found; if target < arr[mid], high = mid - 1; else low = mid + 1.
+[4] Termination Condition: Loop continues while low <= high; terminates when low > high if not found.
+[5] Logarithmic Efficiency: Halves the search space every iteration, taking at most log2(n) comparisons.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Applying binary search on an unsorted array leading to unpredictable incorrect results.
+[!] Pitfall 2: Updating pointers incorrectly (e.g. high = mid instead of high = mid - 1 causing infinite loops).
+[!] Pitfall 3: Using loop condition 'low < high' instead of 'low <= high', missing single-element matches.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: BinarySearchBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_001_encapsulation
+TOPIC 0: Private Data Members & Access Control
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. OVERVIEW:
+   In-depth analysis of the private access specifier. Preventing direct unauthorized modification of instance variables from external classes and BlueJ object workbenches.
+
+2. SIGNATURE & CONVENTIONS:
+   private <dataType> <variableName>;
+
+3. CLASSROOM INSIGHT:
+   Swadeep and Debangshu design a BankAccount class at Barrackpore where the account balance cannot be tampered with directly.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

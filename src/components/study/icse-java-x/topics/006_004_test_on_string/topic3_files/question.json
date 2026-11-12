@@ -1,0 +1,75 @@
+{
+  "paperId": "ICSE-STR-PAPER-04",
+  "title": "Piglatin Word Transformation & Syllable Encoding Test Paper (ICSE Class X)",
+  "duration": "1 Hour",
+  "totalMarks": 35,
+  "prerequisites": "ICSE Class X String handling methods, Scanner input, conditional branching, and loops",
+  "instructions": [
+    "All questions are compulsory as per ICSE examination standards.",
+    "Write complete Java code for Section B problems including Variable Description Tables.",
+    "Pay strict attention to case sensitivity, loop bounds, and array indexing.",
+    "Each question carries marks as indicated."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Answer & Output Tracing Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer in one or two sentences or evaluate the code output.",
+      "questions": [
+        {
+          "q": "Define a Piglatin word according to ICSE Board examination specifications.",
+          "marks": 2,
+          "answer": "A Piglatin word is formed by locating the first vowel ('A','E','I','O','U') in a word. The substring from this vowel to the end of the word is placed first, followed by the prefix preceding the vowel, and finally appended with \"AY\". (e.g. \"LONDON\" -> \"ONDON\" + \"L\" + \"AY\" = \"ONDONLAY\").",
+          "hint": "Find the index of the first vowel, slice into two parts, and append AY."
+        },
+        {
+          "q": "If an entered word begins with a vowel (e.g., \"APPLE\"), what is its Piglatin translation?",
+          "marks": 2,
+          "answer": "Output: `\"APPLEAY\"`\nExplanation: The first vowel is at index 0. `s.substring(0)` is \"APPLE\", prefix `s.substring(0, 0)` is \"\", so result is \"APPLE\" + \"\" + \"AY\" = \"APPLEAY\".",
+          "hint": "The prefix before the vowel is empty."
+        },
+        {
+          "q": "What is the return value of `\"AEIOU\".indexOf('B')`?",
+          "marks": 2,
+          "answer": "Output: `-1`\nExplanation: 'B' does not exist in \"AEIOU\".",
+          "hint": "Missing chars always yield -1 in indexOf."
+        },
+        {
+          "q": "What must a programmer do if an input word contains no vowels (e.g., \"MYTH\", \"RHYTHM\") in Piglatin logic?",
+          "marks": 2,
+          "answer": "Check if the vowel index remained `-1`. If no vowel is found, the word is either printed unchanged or appended with \"AY\" (`word + \"AY\"`) as specified in the question rubric.",
+          "hint": "Always check if vIdx == -1 to prevent StringIndexOutOfBoundsException."
+        },
+        {
+          "q": "Trace the Piglatin conversion of \"CLEAR\":",
+          "marks": 2,
+          "answer": "First vowel is 'E' at index 2.\n`s.substring(2)` = \"EAR\"\n`s.substring(0, 2)` = \"CL\"\nResult = \"EAR\" + \"CL\" + \"AY\" = `\"EARCLAY\"`.",
+          "hint": "Vowel index is 2."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Programming Problems (15 & 10 Marks)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 2,
+      "description": "Write complete Java programs with class declaration, main method, and Variable Description Table.",
+      "questions": [
+        {
+          "q": "Write a program to accept a word in uppercase. Convert it into a Piglatin word. If the word contains no vowels, display an appropriate message. Include a Variable Description Table.",
+          "marks": 15,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class PiglatinWordConverter {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a word in uppercase: \");\n        String str = sc.next().toUpperCase();\n        \n        int vIdx = -1;\n        for (int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            if (\"AEIOU\".indexOf(ch) != -1) {\n                vIdx = i;\n                break;\n            }\n        }\n        \n        if (vIdx != -1) {\n            String piglatin = str.substring(vIdx) + str.substring(0, vIdx) + \"AY\";\n            System.out.println(\"Original Word: \" + str);\n            System.out.println(\"Piglatin Form: \" + piglatin);\n        } else {\n            System.out.println(\"No vowels found in \" + str + \" - cannot convert to Piglatin.\");\n        }\n    }\n}\n/*\nVARIABLE DESCRIPTION TABLE:\nVariable Name | Data Type | Purpose\nstr           | String    | Stores input word in uppercase\nvIdx          | int       | Index of first occurrence of a vowel (-1 if none)\ni             | int       | Traversal loop counter\nch            | char      | Extracted character at index i\npiglatin      | String    | Converted Piglatin word\n*/\n```",
+          "hint": "Use break immediately upon detecting the first vowel."
+        },
+        {
+          "q": "Write a program to accept a sentence. Convert each individual word into its Piglatin form and print the transformed sentence.",
+          "marks": 10,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class SentencePiglatin {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"Enter a sentence:\");\n        String s = sc.nextLine().toUpperCase().trim() + \" \";\n        \n        String word = \"\";\n        String result = \"\";\n        \n        for (int i = 0; i < s.length(); i++) {\n            char ch = s.charAt(i);\n            if (ch != ' ') {\n                word = word + ch;\n            } else {\n                int vIdx = -1;\n                for (int j = 0; j < word.length(); j++) {\n                    if (\"AEIOU\".indexOf(word.charAt(j)) != -1) {\n                        vIdx = j;\n                        break;\n                    }\n                }\n                if (vIdx != -1) {\n                    result = result + word.substring(vIdx) + word.substring(0, vIdx) + \"AY \";\n                } else {\n                    result = result + word + \"AY \";\n                }\n                word = \"\";\n            }\n        }\n        System.out.println(\"Piglatin Sentence: \" + result.trim());\n    }\n}\n```",
+          "hint": "Extract words sequentially and apply the Piglatin formula to each."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 4
+TITLE: MATH.MAX(A, B) AND MATH.MIN(A, B)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Math.max(a, b) returns the greater of two values; Math.min(a, b) returns the smaller of two values. Both methods are overloaded for int, long, float, and double types, returning a result matching the type of the arguments.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Overloaded Types: Overloaded for int, long, float, and double.
+[2] Two Arguments: Accepts exactly two arguments; to find max of three, nest calls: Math.max(a, Math.max(b, c)).
+[3] Type Promotion: If comparing int and double, int is widened to double and the result is double: Math.max(5, 7.5) returns 7.5.
+[4] Negative Comparison: Math.max(-10, -5) returns -5 (since -5 is greater than -10).
+[5] Clamping Pattern: Restricting values within range: int clamped = Math.max(minVal, Math.min(val, maxVal));.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Attempting to pass three arguments: Math.max(a, b, c) causes compile error; must nest calls.
+[!] Pitfall 2: Mixing up negative values: Math.min(-10, -5) is -10.
+[!] Pitfall 3: Assuming result is always integer when one parameter is double.
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathMaxMinDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 001_001 · TOPIC 3
+TITLE: BASIC CLASS STRUCTURE & MAIN IN BLUEJ
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Every executable Java program is encapsulated inside a class definition matching the source filename. The 'public static void main(String[] args)' method serves as the standard entry point invoked by the Java Virtual Machine. In BlueJ, classes compile into bytecode and can be interacted with directly on the visual workbench.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Class Declaration: 'public class ClassName' matches 'ClassName.java' on disk.
+[2] Main Signature: 'public static void main(String[] args)' is the exact mandatory signature for JVM execution.
+[3] Keyword 'public': Makes the class or method accessible from outside the package by the JVM.
+[4] Keyword 'static': Allows the JVM to invoke main() without having to create an object of the class first.
+[5] System.out.println: Standard console output stream in java.lang package that outputs text followed by newline.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Mismatched filename and class name causing compile-time error in Java.
+[!] Pitfall 2: Altering the main method signature (e.g. omitting 'static' or 'String[] args').
+[!] Pitfall 3: Confusing System.out.print() (no newline) with System.out.println() (appends newline).
+
+4. ICSE REVISION CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: ClassStructureAndMainDemo.java
+Standard Class Structure:
+  - Class definition matching filename
+  - Proper data types and clear variable naming
+  - Execution flow adhering to ICSE standards
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"A strong foundation in Class IX fundamentals guarantees high scores in Class X.
+Always master variable types, if-else ladders, loops, and BlueJ execution
+before diving into complex array and string algorithms!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

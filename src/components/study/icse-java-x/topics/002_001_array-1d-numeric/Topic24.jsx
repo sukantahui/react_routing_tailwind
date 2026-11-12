@@ -89,12 +89,12 @@ const Topic24 = () => {
         </h2>
         <div className="bg-slate-950/60 p-6 rounded-xl border border-slate-800 space-y-3 text-slate-300">
           <p className="font-semibold text-sky-300">Step-by-Step ICSE Execution Logic:</p>
-          <ol className="list-decimal pl-5 space-y-2 text-sm text-slate-300">
+          &lt;ol className="list-decimal pl-5 space-y-2 text-sm text-slate-300">
             <li>Initialize array boundaries from index <code className="text-amber-300 font-mono">0</code> to <code className="text-amber-300 font-mono">arr.length - 1</code>.</li>
             <li>Iterate through the elements using a standard manual <code className="text-amber-300 font-mono">for</code> loop.</li>
             <li>Apply conditional checks or variable updates inside the loop.</li>
             <li>Output the calculated values cleanly using <code className="text-amber-300 font-mono">System.out.println()</code>.</li>
-          </ol>
+          &lt;/ol>
         </div>
       </section>
 

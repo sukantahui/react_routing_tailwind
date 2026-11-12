@@ -1,389 +1,159 @@
 import React from "react";
 import clsx from "clsx";
 import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
-// Import raw Java files
-import traverseLengthRaw from "./topic6_files/TraverseLengthProperty.java?raw";
+import demoCode from "./topic6_files/TraverseLengthProperty.java?raw";
+import noteText from "./topic6_files/topic6_note.txt?raw";
+import questions from "./topic6_files/topic6_questions";
 
-/**
- * Topic6: Traversing Using length Property
- *
- * This component explains:
- * - What the `length` property is
- * - Why it's a property, not a method
- * - Using `length` in for loops for safe traversal
- * - Common mistakes when using `length`
- *
- * Animations:
- * - Section reveal (fade + slide‑up)
- * - Staggered appearance using arbitrary delays
- * - Hover emphasis on cards, SVG steps, teacher note
- *
- * Dark mode is forced by a wrapping `dark` class.
- */
+const InstructionalSVG = () => (
+  <svg viewBox="0 0 500 150" className="w-full h-auto max-w-xl mx-auto my-4" aria-label="Dynamic Bound Control with arr.length Field">
+    <rect x="20" y="20" width="460" height="110" rx="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
+    <text x="250" y="55" textAnchor="middle" fill="#38bdf8" fontSize="15" fontWeight="bold">Dynamic Bound Control with arr.length Field</text>
+    <rect x="60" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="95" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[0]</text>
+    <rect x="150" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="185" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[1]</text>
+    <rect x="240" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="275" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[2]</text>
+    <rect x="330" y="75" width="70" height="35" rx="5" fill="#1e293b" stroke="#34d399" strokeWidth="1.5" />
+    <text x="365" y="97" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">arr[3]</text>
+    <line x1="410" y1="92" x2="440" y2="92" stroke="#fbbf24" strokeWidth="2" strokeDasharray="3" />
+  </svg>
+);
+
 const Topic6 = () => {
   return (
-    <>
-      {/* Inline keyframes for reveal animation */}
+    <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 md:px-6 lg:px-8 space-y-12">
       <style>{`
-        @keyframes fadeInSlideUp {
-          0% { opacity: 0; transform: translateY(12px); }
-          100% { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.5s ease-out forwards;
         }
       `}</style>
 
-      {/* Force dark mode by adding 'dark' class to the root container */}
-      <div className="dark">
-        {/* Main container: soft background, soothing typography */}
-        <div
-          className={clsx(
-            "max-w-5xl mx-auto px-4 py-8 md:px-6 lg:px-8",
-            "bg-slate-900",
-            "text-slate-200",
-            "leading-relaxed"
-          )}
-        >
-          {/* HEADER with reveal animation */}
-          <div
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-8"
-            style={{ animationFillMode: "both" }}
-          >
-            <h1 className="text-3xl md:text-4xl font-light tracking-tight mb-2 text-white">
-              📏 Traversing Using <code className="text-3xl">length</code> Property
-            </h1>
-            <p className="text-lg text-slate-400">
-              The built‑in guardian that keeps your loops safe.
+      {/* 1. Header Section */}
+      <header className="space-y-4 border-b border-slate-800 pb-6 animate-fade-in">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Module 002_001 · Topic 6
+          </span>
+          <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+            1D Array Numeric
+          </span>
+        </div>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+          Traversing Using length Property
+        </h1>
+        <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
+          Dynamic bound checking, defensive array iteration, and avoiding hardcoded size limits
+        </p>
+      </header>
+
+      {/* 2. Concept Overview Section */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
+        <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-3">
+          <span className="w-2.5 h-6 bg-sky-500 rounded-full" />
+          Concept Breakdown & Architecture
+        </h2>
+        <p className="text-slate-300 leading-relaxed text-sm md:text-base">
+          Every array in Java has a built-in public final integer field called 'length'. Using arr.length rather than a hardcoded number ensures code adaptability, robustness, and eliminates index errors if the array dimension changes.
+        </p>
+        <InstructionalSVG />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-sky-400 mb-2">Core Rules & Syntax</h3>
+            <ul className="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+              <li>Field, Not Method: 'arr.length' is a public instance field, NOT a method (do NOT write arr.length()).</li>
+              <li>Immutable Property: The length field is constant and read-only; attempting to reassign 'arr.length = 10;' is a compile error.</li>
+              <li>Safe Boundary: Valid indices are strictly in the range [0, arr.length - 1].</li>
+              <li>Generalization: Functions taking array parameters should always use the array's own length property.</li>
+              <li>Comparison: For strings it is str.length(), for arrays it is arr.length without parentheses.</li>
+            </ul>
+          </div>
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-emerald-400 mb-2">BlueJ Workflow & Practice</h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Compile and test this concept in BlueJ's interactive environment. Verify memory structures and inspect array elements directly on the object workbench.
             </p>
           </div>
-
-          {/* INTRODUCTION (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              What is the <code className="text-2xl">length</code> Property?
-            </h2>
-            <div className="space-y-3 text-slate-300">
-              <p>
-                Every array in Java has a public final field called <code className="text-sm bg-gray-200 dark:bg-gray-700 px-1 rounded">length</code>. 
-                It stores the number of elements the array can hold – its capacity. 
-                This value is set when the array is created and cannot be changed.
-              </p>
-              <p>
-                Unlike <code className="text-sm">String</code>‘s <code className="text-sm">length()</code> method, array <code className="text-sm">length</code> is a <strong>property</strong> (not a method), 
-                so you use it without parentheses: <code className="text-sm">array.length</code>.
-              </p>
-              <p>
-                In the analogy of a row of lockers in Barrackpore, <code className="text-sm">length</code> is the total number of lockers 
-                built. Swadeep can only access lockers 0 through length‑1; going beyond would be like trying 
-                to open a locker that doesn’t exist.
-              </p>
-            </div>
-          </section>
-
-          {/* LENGTH ILLUSTRATION SVG (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.2s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              🧮 <code className="text-2xl">length</code> in Action
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md">
-              <svg
-                width="100%"
-                height="180"
-                viewBox="0 0 600 180"
-                preserveAspectRatio="xMidYMid meet"
-                className="max-w-full h-auto"
-              >
-                {/* Array cells */}
-                <rect x="50" y="40" width="500" height="60" fill="#2d3748" rx="8" />
-                <rect x="50" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="150" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="250" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="350" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="450" y="40" width="100" height="60" fill="#4a5568" rx="8" />
-
-                {/* Index labels */}
-                <text x="90" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">0</text>
-                <text x="190" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">1</text>
-                <text x="290" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">2</text>
-                <text x="390" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">3</text>
-                <text x="490" y="75" textAnchor="middle" fill="#f7fafc" fontSize="14">4</text>
-
-                {/* Length indicator */}
-                <line x1="50" y1="110" x2="550" y2="110" stroke="#fbbf24" strokeWidth="2" />
-                <text x="300" y="130" textAnchor="middle" fill="#fbbf24" fontSize="16" fontWeight="bold">
-                  length = 5
-                </text>
-
-                {/* Animated brackets showing length */}
-                <path d="M50 30 L50 110" stroke="#fbbf24" strokeWidth="3" fill="none" strokeDasharray="4 4">
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    values="0;20"
-                    dur="1.5s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-                <path d="M550 30 L550 110" stroke="#fbbf24" strokeWidth="3" fill="none" strokeDasharray="4 4">
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    values="0;20"
-                    dur="1.5s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-
-                <defs>
-                  <marker
-                    id="arrowhead"
-                    markerWidth="10"
-                    markerHeight="10"
-                    refX="9"
-                    refY="5"
-                    orient="auto"
-                  >
-                    <polygon points="0 0, 10 5, 0 10" fill="#fbbf24" />
-                  </marker>
-                </defs>
-              </svg>
-              <p className="text-sm text-slate-400 mt-4">
-                <code className="text-xs">array.length</code> gives the total capacity – here 5. Valid indices are 0…4.
-              </p>
-            </div>
-          </section>
-
-          {/* JAVA CODE EXAMPLE (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.3s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              💻 Java Code: Using <code className="text-2xl">length</code> for Traversal
-            </h2>
-            <div className="transition-all duration-300 hover:scale-[1.01]">
-              <JavaFileLoader
-                fileModule={traverseLengthRaw}
-                title="TraverseLengthProperty.java"
-                highlightLines={[]}
-              />
-            </div>
-            <p className="mt-3 text-slate-400 text-sm">
-              The program shows safe forward and backward traversal using <code>length</code>.
-            </p>
-          </section>
-
-          {/* PROTOTYPE / SIGNATURE (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.4s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              📐 The <code className="text-2xl">length</code> Property
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 rounded-lg p-5 border-l-4 border-indigo-500 shadow-sm">
-              <dl className="space-y-3">
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Signature
-                  </dt>
-                  <dd>
-                    <code className="text-sm bg-slate-950 border border-slate-800 text-amber-300 px-2 py-1 rounded">
-                      public final int length;
-                    </code>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Purpose
-                  </dt>
-                  <dd>
-                    To know the number of elements an array can hold. Essential for loop conditions to avoid index errors.
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Usage
-                  </dt>
-                  <dd>
-                    <code className="text-sm">for (int i = 0; i &lt; arr.length; i++)</code>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Note
-                  </dt>
-                  <dd>
-                    It is a <em>field</em>, not a method – no parentheses.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </section>
-
-          {/* COMMON PITFALLS (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.5s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              ⚠️ Common Pitfalls (Beginners)
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Using parentheses: <code className="text-xs">length()</code>
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  Because <code className="text-xs">String</code> uses <code className="text-xs">length()</code>, beginners often add parentheses to array <code className="text-xs">length</code>, causing a compilation error.
-                </p>
-              </div>
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Forgetting that <code className="text-xs">length</code> is final
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  Attempting to assign <code className="text-xs">array.length = 10;</code> results in a compiler error – it’s read‑only.
-                </p>
-              </div>
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Misunderstanding <code className="text-xs">length</code> for 2D arrays
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  For a 2D array <code className="text-xs">int[][] matrix = new int[3][4];</code>, <code className="text-xs">matrix.length</code> is 3 (rows). To get columns, use <code className="text-xs">matrix[0].length</code>.
-                </p>
-              </div>
-              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Using <code className="text-xs">length</code> as the last index
-                </h3>
-                <p className="text-sm text-slate-400 dark:text-gray-300">
-                  <code className="text-xs">arr[arr.length]</code> is always out of bounds. The last index is <code className="text-xs">arr.length - 1</code>.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* BEST PRACTICES & TIPS (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.6s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              ✅ Best Practices & Pro Tips
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 p-5 rounded-lg space-y-3 shadow-sm transition-all duration-300 hover:shadow-md">
-              <ul className="list-disc pl-5 space-y-2 text-slate-300">
-                <li>
-                  <strong>Always use <code className="text-xs">array.length</code> in loop conditions</strong> – never hard‑code the size.
-                </li>
-                <li>
-                  <strong>Remember it’s a property</strong> – no parentheses. This is a common interview question.
-                </li>
-                <li>
-                  <strong>For multi‑dimensional arrays</strong>, use nested loops with <code className="text-xs">.length</code> for each dimension.
-                </li>
-                <li>
-                  <strong>If you need the number of elements actually filled</strong> (not capacity), maintain a separate counter.
-                </li>
-                <li className="text-sm bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded">
-                  💡 <span className="font-medium">Pro tip:</span> When passing an array to a method, you can always rely on its <code className="text-xs">length</code> inside the method – it travels with the array.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* HINT SECTION (subtle guidance) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.7s", animationFillMode: "both" }}
-          >
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800">
-              <h3 className="text-lg font-medium text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2">
-                <span>💭 Think about…</span>
-              </h3>
-              <ul className="space-y-2 text-blue-700 dark:text-blue-200">
-                <li>
-                  • What does <code className="text-xs">int[] arr = new int[0];</code> give for <code className="text-xs">arr.length</code>? Can you traverse it?
-                </li>
-                <li>
-                  • How would you traverse a 2D array using <code className="text-xs">length</code> for both dimensions?
-                </li>
-                <li>
-                  • If you have an array of size 5, what is the result of <code className="text-xs">arr[5]</code>? Why?
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* TEACHER'S NOTE */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
-          >
-            <div className="bg-amber-50 dark:bg-amber-900/20 p-5 rounded-lg border border-amber-200 dark:border-amber-800 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
-              <h3 className="text-lg font-medium text-amber-800 dark:text-amber-300 mb-3 flex items-center gap-2">
-                <span>👩‍🏫 Teacher’s Note</span>
-              </h3>
-              <div className="space-y-3 text-amber-700 dark:text-amber-200">
-                <p>
-                  <strong>Sukanta Hui</strong> (27 years of experience) reminds:
-                </p>
-                <p>
-                  “The <code className="text-xs">length</code> property is your best friend when looping. I’ve seen students in Shyamnagar waste hours debugging because they wrote <code className="text-xs">&lt;= arr.length</code>. Remember: array indices are zero‑based, so the condition is <code className="text-xs">i &lt; arr.length</code>. And never try to change <code className="text-xs">length</code> – it’s final for a reason. The array size is fixed at birth, like the number of seats in a classroom.”
-                </p>
-                <p className="text-sm">
-                  📧 sukantahui@codernaccotax.co.in | 📞 7003756860
-                  <br />
-                  Skills: Programming Languages, RDBMS, OS, Web Development
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* MINI CHECKLIST */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-6"
-            style={{ animationDelay: "0.9s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-white">
-              ✅ Checklist – What to Remember
-            </h2>
-            <div className="bg-slate-800/40 border border-slate-800 p-5 rounded-lg shadow-sm">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> <code className="text-xs">array.length</code> gives total capacity
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> It’s a property, not a method (no parentheses)
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Valid indices: 0 to <code className="text-xs">length - 1</code>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Use in loop: <code className="text-xs">i &lt; arr.length</code>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> For 2D: <code className="text-xs">arr.length</code> = rows, <code className="text-xs">arr[0].length</code> = columns
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Cannot change <code className="text-xs">length</code> (final)
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* FOOTER */}
-          <footer className="text-xs text-center text-slate-400 dark:text-slate-400 mt-12 pt-4 border-t border-slate-800">
-            Topic 6 – Traversing using length property | Next: Displaying array elements
-          </footer>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* 3. Java Demo Simulation */}
+      <section className="space-y-5">
+        <div className="border-b border-slate-800 pb-3">
+          <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-3">
+            <span className="w-2.5 h-6 bg-emerald-500 rounded-full" />
+            Runnable Java Implementation
+          </h2>
+          <p className="text-sm text-slate-400 mt-1">
+            Comparing hardcoded loop limits against flexible arr.length loops across varied array instances.
+          </p>
+        </div>
+        <JavaFileLoader
+          fileName="TraverseLengthProperty.java"
+          code={demoCode}
+        />
+      </section>
+
+      {/* 4. Common Pitfalls & Best Practices */}
+      <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg">
+        <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-3">
+          <span className="w-2.5 h-6 bg-amber-500 rounded-full" />
+          Board Examination Tips & Pitfalls
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-rose-300 mb-2">Common Board Exam Pitfall</h3>
+            <ul className="text-sm text-slate-400 space-y-1.5 list-disc list-inside">
+              <li>Adding parentheses to array length (arr.length()) causing compiler error: cannot find symbol method length().</li>
+              <li>Hardcoding numeric limits (e.g. i &lt; 10) that fail when passed arrays of different lengths.</li>
+              <li>Checking arr.length when the array reference is null, causing NullPointerException.</li>
+            </ul>
+          </div>
+          <div className="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+            <h3 className="font-semibold text-emerald-300 mb-2">ICSE Best Practice</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Always maintain clean Variable Description Tables (VDT), comment key logic statements, and verify boundary conditions for index 0 and length - 1.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Comprehensive FAQ Section */}
+      <section className="space-y-5">
+        <FAQTemplate
+          title="Traversing Using length Property FAQs"
+          questions={questions}
+        />
+      </section>
+
+      {/* 6. Plain Text Printable Note Section */}
+      <section className="space-y-5">
+        <PlainTextPrint
+          content={noteText}
+          title="Module 002_001 Topic 6: Traversing Using length Property"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Printable Note"
+          downloadFileName="002_001_topic6_note.txt"
+        />
+      </section>
+
+      {/* 7. Teacher's Note Section */}
+      <section className="space-y-5">
+        <Teacher
+          note="Practice dry running this algorithm on paper with a trace table before writing Java code in BlueJ. — Sukanta Hui"
+        />
+      </section>
+    </div>
   );
 };
 

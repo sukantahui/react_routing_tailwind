@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 002_002_array-1d-string
+TOPIC 0: String Array Declaration and Initialization
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Foundational concepts of 1D String arrays. Understanding reference storage, null default initialization, array size vs string length, and traversing with for loops.
+
+2. SIGNATURE & CONVENTIONS:
+   String[] arr = new String[size]; / String[] arr = {"A", "B"};
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina initialize an array of city names: Barrackpore, Shyamnagar, Ichapur, Naihati.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

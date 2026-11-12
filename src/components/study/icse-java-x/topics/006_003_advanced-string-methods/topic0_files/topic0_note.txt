@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_003: ADVANCED STRING METHODS
+TOPIC 0: concat(String str) METHOD
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. METHOD SIGNATURE & SPECIFICATION:
+   - Prototype: public String concat(String str)
+   - Belongs to: java.lang.String
+   - Parameters: String str (the string to append to the calling object)
+   - Return Type: String (returns a newly allocated String on Heap)
+   - Throws: NullPointerException if str is null.
+
+2. CORE BEHAVIOR & IMMUTABILITY:
+   - Java Strings are IMMUTABLE. Calling s1.concat(s2) does NOT modify s1.
+   - It constructs a new char array combining characters of s1 followed by s2,
+     and returns a reference to that new String instance.
+   - If str has length 0, the method returns the original calling String reference
+     without allocating a new object.
+
+3. CONCAT() VS '+' OPERATOR:
+   Feature               concat() Method                  '+' Operator
+   -----------------------------------------------------------------------------
+   Parameters            Strictly String only             String + ANY type (int, etc.)
+   Null argument         Throws NullPointerException      Converts null to "null"
+   Internal mechanism    Character array copying          StringBuilder.append()
+   Efficiency            Fast for 2 strings               Convenient for multi-type
+
+4. ICSE BOARD EXAM QUESTIONS:
+   Q: String s = "Good"; s.concat(" Day"); System.out.println(s);
+   A: Prints "Good" because Strings are immutable and the result was discarded!
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

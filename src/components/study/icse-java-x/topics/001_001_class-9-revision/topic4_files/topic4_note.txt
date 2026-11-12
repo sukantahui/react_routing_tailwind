@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 001_001 · TOPIC 4
+TITLE: USER DEFINED METHODS (INTRODUCTION)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+A method is a named block of code that performs a specific task and executes only when called. Modular design breaks large programs into smaller, reusable, testable sub-problems. Understanding method headers, return types, parameter lists, and Java's strict pass-by-value argument passing is essential for Class X OOP.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Method Signature: Composed of the method name and the ordered list of parameter data types.
+[2] Return Statement: A method declaring a non-void return type MUST return a value of matching type using 'return'.
+[3] Void Return Type: Methods that perform actions (like printing) without returning a computed value use 'void'.
+[4] Actual vs Formal Parameters: Actual parameters are values passed in the call; formal parameters are variables in header.
+[5] Pass-by-Value: Java always passes copies of primitive values; changes made inside the method do not affect the original caller.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Missing return statement in a non-void method resulting in compile-time error.
+[!] Pitfall 2: Writing statements after a return statement creating unreachable code error.
+[!] Pitfall 3: Expecting a method to alter primitive actual arguments passed from caller.
+
+4. ICSE REVISION CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: UserDefinedMethodsIntroDemo.java
+Standard Class Structure:
+  - Class definition matching filename
+  - Proper data types and clear variable naming
+  - Execution flow adhering to ICSE standards
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"A strong foundation in Class IX fundamentals guarantees high scores in Class X.
+Always master variable types, if-else ladders, loops, and BlueJ execution
+before diving into complex array and string algorithms!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

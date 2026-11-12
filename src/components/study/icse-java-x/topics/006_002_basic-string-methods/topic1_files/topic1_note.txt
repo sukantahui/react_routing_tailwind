@@ -1,0 +1,21 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_002: BASIC STRING METHODS
+TOPIC 1: charAt(int index) Method Deep Dive
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. METHOD SPECIFICATION
+--------------------------------------------------------------------------------
+Prototype   : public char charAt(int index)
+Package     : java.lang.String
+Return Type : char
+Parameters  : int index (0-based)
+Throws      : java.lang.StringIndexOutOfBoundsException if index < 0 or index >= length()
+
+2. GOLDEN BOARD RULES
+--------------------------------------------------------------------------------
+- First character is ALWAYS at charAt(0).
+- Last character is ALWAYS at charAt(s.length() - 1).
+- Never use s[i] to read characters from a String in Java!
+================================================================================

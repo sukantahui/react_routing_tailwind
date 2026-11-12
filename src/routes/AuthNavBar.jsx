@@ -408,13 +408,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-mortarboard-fill",
           badge: "All-in-One",
         },
-        {
-          to: "/bijoya",
-          label: "Manage Guests (Bijoya 2026)",
-          desc: "Maitri Mahotsav guests, digital passes, edit & WhatsApp",
-          icon: "bi-person-lines-fill",
-          badge: "Event",
-        },
         ...(isAdmin
           ? [
               {
@@ -1326,22 +1319,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 </AnimatePresence>
               </div>
 
-              {/* SPECIAL FESTIVE LINK: BIJOYA 2026 GUEST MANAGEMENT */}
-              <NavLink
-                to="/bijoya"
-                onClick={closeAllDropdowns}
-                className={({ isActive }) =>
-                  `inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-150 ${
-                    isActive
-                      ? "text-amber-200 bg-amber-500/25 border border-amber-400/40 shadow-sm shadow-amber-500/10"
-                      : "text-amber-300 hover:text-amber-100 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20"
-                  }`
-                }
-                title="Maitri Mahotsav 2026 - Manage Guests, Passes &amp; WhatsApp Invites"
-              >
-                <span>🌸</span>
-                <span>Bijoya 2026</span>
-              </NavLink>
 
             </nav>
 
@@ -1516,14 +1493,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                             <span>Admin Control Panel</span>
                           </NavLink>
                         )}
-                        <NavLink
-                          to="/bijoya"
-                          onClick={closeAllDropdowns}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-amber-300 hover:text-amber-100 hover:bg-amber-500/10 border border-transparent hover:border-amber-500/20 transition"
-                        >
-                          <i className="bi bi-person-lines-fill text-amber-400 text-sm"></i>
-                          <span>Manage Guests (Bijoya 2026)</span>
-                        </NavLink>
                         {isAdmin && (
                           <NavLink
                             to="/admin/backups"
@@ -1901,36 +1870,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                     </NavLink>
                   )}
 
-                  {/* SPECIAL BIJOYA 2026 GUEST MANAGEMENT TILE */}
-                  {(mobileTab === "all" || (!isStudent && mobileTab === "master")) && (
-                    <NavLink
-                      to="/bijoya"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={({ isActive }) =>
-                        `flex items-center justify-between p-3 rounded-2xl border transition-all duration-150 ${
-                          isActive
-                            ? "bg-amber-500/20 text-amber-200 border-amber-500/40 shadow-sm"
-                            : "bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-purple-500/15 text-slate-300 hover:text-white border-amber-500/30"
-                        }`
-                      }
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-base">
-                          <span>🌸</span>
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <p className="text-xs font-bold text-amber-300">Bijoya 2026 Guests</p>
-                            <span className="text-[9px] px-1.5 py-0.2 rounded-full font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                              Admin
-                            </span>
-                          </div>
-                          <p className="text-[10px] text-slate-400">Manage guests, passes, edit, delete & WhatsApp</p>
-                        </div>
-                      </div>
-                      <i className="bi bi-chevron-right text-amber-400 text-xs"></i>
-                    </NavLink>
-                  )}
 
                   {/* 2. MASTER SECTION (CARDS & GROUPS) (Hidden for students) */}
                   {!isStudent && (mobileTab === "all" || mobileTab === "master") && (

@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 001_001 · TOPIC 0
+TITLE: DATA TYPES & VARIABLES IN JAVA
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Java is a strongly typed language where every variable must be declared with a data type. The 8 primitive data types (byte, short, int, long, float, double, char, boolean) store raw binary values directly in stack memory frames. Understanding widening (implicit) and narrowing (explicit) type casting is fundamental to avoiding precision loss.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] 8 Primitives: byte (1B), short (2B), int (4B), long (8B), float (4B), double (8B), char (2B Unicode), boolean (1 bit logical).
+[2] Widening Conversion: Automatic implicit type casting from smaller to larger data types (e.g., int to double).
+[3] Narrowing Conversion: Explicit type casting required with cast operator: (int) 5.99 truncates to 5.
+[4] Char and ASCII/Unicode: char occupies 2 bytes (16 bits) in Java to support 65,536 Unicode characters; 'A' is 65, 'a' is 97, '0' is 48.
+[5] Variable Scope: Local variables exist only within their enclosing block { } and receive NO default values.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Using uninitialized local variables causing compile-time error: 'variable might not have been initialized'.
+[!] Pitfall 2: Integer division truncation: 5 / 2 evaluates to 2, not 2.5, unless cast to double: (double) 5 / 2.
+[!] Pitfall 3: Assigning double literals (5.5) to float variables without 'f' suffix (float f = 5.5f;).
+
+4. ICSE REVISION CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: DataTypesAndVariablesDemo.java
+Standard Class Structure:
+  - Class definition matching filename
+  - Proper data types and clear variable naming
+  - Execution flow adhering to ICSE standards
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"A strong foundation in Class IX fundamentals guarantees high scores in Class X.
+Always master variable types, if-else ladders, loops, and BlueJ execution
+before diving into complex array and string algorithms!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

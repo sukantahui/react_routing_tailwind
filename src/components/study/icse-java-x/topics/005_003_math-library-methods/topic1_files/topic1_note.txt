@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 1
+TITLE: MATH.CBRT(X) AND MATH.ABS(X)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Math.cbrt(double x) returns the cube root of a double value, correctly preserving sign (cube root of negative is negative). Math.abs(x) returns the absolute (positive) magnitude of an argument and is overloaded for int, long, float, and double.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Cube Root of Negative: Unlike Math.sqrt, Math.cbrt(-27) is valid and returns -3.0.
+[2] Math.cbrt Return Type: Always returns double.
+[3] Math.abs Overloading: Returns the SAME data type as passed: Math.abs(-5) returns int 5, Math.abs(-5.5) returns double 5.5.
+[4] Absolute Value: Distance from zero on the number line; never returns negative (except for Integer.MIN_VALUE overflow edge case).
+[5] Common ICSE Application: Calculating absolute differences in geometric distance and currency change.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Believing Math.cbrt(-8) returns NaN; it returns -2.0.
+[!] Pitfall 2: Assuming Math.abs() always returns an int; it preserves parameter type (abs(-3.5) is double 3.5).
+[!] Pitfall 3: Confusing Math.cbrt with square root.
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathCbrtAbsDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

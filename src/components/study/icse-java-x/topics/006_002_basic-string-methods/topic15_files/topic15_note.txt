@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 15
+TITLE: ENDSWITH(STRING SUFFIX) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The endsWith(String suffix) method tests whether a string ends with the specified suffix. It returns true if the character sequence represented by the argument is a suffix of the character sequence represented by this object.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Suffix Match: Returns true if the string ends with the specified suffix.
+[2] Case Sensitivity: Strictly case-sensitive: 'Report.PDF'.endsWith('.pdf') returns false.
+[3] Empty String Rule: Every string ends with empty string '': str.endsWith('') is always true.
+[4] Safe Comparison: Returns false without exception if suffix length is greater than string length.
+[5] ICSE Syllabus Utility: Commonly tested for file extension verification (.java, .txt) and email domain filtering (@gmail.com).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Case mismatch when checking file extensions (e.g. .jpg vs .JPG).
+[!] Pitfall 2: Passing null resulting in NullPointerException.
+[!] Pitfall 3: Overlooking trailing whitespace: 'document.pdf '.endsWith('.pdf') returns false due to trailing space.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: EndsWithMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

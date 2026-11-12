@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 12
+TITLE: REPLACE(CHAR OLDCHAR, CHAR NEWCHAR) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The replace(char oldChar, char newChar) method returns a new string resulting from replacing all occurrences of oldChar in the string with newChar. Because strings are immutable, the original string remains untouched.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] All Occurrences: Replaces EVERY occurrence of oldChar with newChar throughout the string.
+[2] Immutability: Returns a newly constructed String object; original string is never mutated.
+[3] No Match Behavior: If oldChar does not occur in the string, returns a reference to the original string.
+[4] CharSequence Overload: Also supports replacing substring sequences: str.replace('bad', 'good').
+[5] Case Sensitive: 'Java'.replace('j', 'k') leaves 'Java' unchanged because 'j' != 'J'.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Believing replace() mutates the original string in place without reassigning.
+[!] Pitfall 2: Case mismatch: expecting replace('a', 'x') to replace uppercase 'A'.
+[!] Pitfall 3: Using double quotes for characters: replace('a', 'b') takes char literals, not strings.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: ReplaceMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

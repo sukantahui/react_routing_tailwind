@@ -1,39 +1,403 @@
 const questions = [
   {
-    id: 1,
-    question: "In an ICSE 15-mark Section B class design question, what is the penalty for omitting the constructor?",
-    options: [
-      "No penalty, Java automatically supplies everything",
-      "Deduction of 2 to 3 marks from the constructor marking rubric",
-      "Immediate cancellation of the entire answer",
-      "Only 1 mark deduction if main() is present"
+    "id": 1,
+    "question": "What is the core purpose of Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #1 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
     ],
-    correctAnswer: 1,
-    explanation: "Omitted or incorrectly named constructors lose 2-3 marks under the official ICSE marking scheme."
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
   },
   {
-    id: 2,
-    question: "What is the recommended modifier for instance variables in an ICSE class definition?",
-    options: [
-      "public",
-      "private",
-      "static",
-      "abstract"
+    "id": 2,
+    "question": "How does the Java compiler handle Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #2 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
     ],
-    correctAnswer: 1,
-    explanation: "Instance variables should be declared private (Encapsulation) and accessed via constructors/methods."
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
   },
   {
-    id: 3,
-    question: "Why do we pass primitive arguments (like double balance) into parameterized constructors rather than hardcoding values?",
-    options: [
-      "To allow dynamic instantiation of multiple distinct objects with unique starting state",
-      "Because Java forbids hardcoded numbers inside constructor bodies",
-      "To speed up JVM garbage collection",
-      "To prevent inheritance by subclasses"
+    "id": 3,
+    "question": "What is the syntax specification for Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #3 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
     ],
-    correctAnswer: 0,
-    explanation: "Passing arguments allows each object to be created with its own custom initial values."
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 4,
+    "question": "Which common error occurs in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #4 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 5,
+    "question": "How does variable scope relate to Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #5 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 6,
+    "question": "What is the memory behavior in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #6 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 7,
+    "question": "How do you call another constructor in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #7 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 8,
+    "question": "Can access specifiers be used with Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #8 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "basic",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 9,
+    "question": "What is the difference between methods and constructors in Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #9 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 10,
+    "question": "How does BlueJ visualize Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #10 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 11,
+    "question": "Can exception handling be added to Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #11 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 12,
+    "question": "What is constructor chaining in the context of Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #12 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 13,
+    "question": "How are default values affected by Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #13 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 14,
+    "question": "What role does the 'this' keyword play in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #14 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 15,
+    "question": "What role does the 'super' keyword play in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #15 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 16,
+    "question": "Can Constructor Topic 5 be declared static?",
+    "shortAnswer": "Constructor Topic 5: Core principle #16 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 17,
+    "question": "Can Constructor Topic 5 be declared final?",
+    "shortAnswer": "Constructor Topic 5: Core principle #17 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 18,
+    "question": "Can Constructor Topic 5 be declared abstract?",
+    "shortAnswer": "Constructor Topic 5: Core principle #18 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "intermediate",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 19,
+    "question": "How does inheritance affect Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #19 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 20,
+    "question": "What happens during object creation in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #20 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 21,
+    "question": "How does parameter matching work in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #21 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 22,
+    "question": "What is defensive copying in Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #22 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 23,
+    "question": "How do you write a VDT entry for Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #23 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 24,
+    "question": "What is the ICSE marking breakdown for Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #24 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
+  },
+  {
+    "id": 25,
+    "question": "What is Sukanta Hui's golden rule for Constructor Topic 5?",
+    "shortAnswer": "Constructor Topic 5: Core principle #25 regarding constructor mechanics in ICSE Class 10.",
+    "explanation": "Detailed explanation for Topic 5: Constructors in Java are specialized routines responsible for safe object creation and instance variable initialization. Adheres to ICSE board standards.",
+    "hint": "Focus on OOP initialization rules, memory allocation, and class syntax.",
+    "level": "advanced",
+    "options": [
+      "A constructor must match the class name exactly and have no return type",
+      "A constructor must have a void return type",
+      "A constructor can be called explicitly on an object anytime using dot notation",
+      "Constructors are inherited by all subclasses automatically"
+    ],
+    "correctAnswer": 0,
+    "codeExample": "// Constructor standard code:\nclass Demo {\n  Demo() { /* initialization */ }\n}"
   }
 ];
 

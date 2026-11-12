@@ -1,0 +1,42 @@
+================================================================================
+ICSE CLASS X COMPUTER APPLICATIONS (JAVA WITH BLUEJ) - STUDY NOTES
+TEST MODULE: 006_004_test_on_string
+TOPIC 6: STRING GEOMETRIC PATTERN PRINTING & CIPHER TEST PAPER
+PAPER ID: ICSE-STR-PAPER-07 | DURATION: 1 Hour | TOTAL MARKS: 35
+INSTITUTE: Coder & AccoTax, Barrackpore
+EDUCATOR: Sukanta Hui (Contact: +91 7003756860 | www.codernaccotax.co.in)
+================================================================================
+
+1. TEST PAPER OVERVIEW:
+--------------------------------------------------------------------------------
+ICSE Board pattern test paper on triangular word patterns (BLUEJ), reverse pyramid substrings, and Caesar cipher character encoding.
+
+2. CORE ALGORITHMIC PRINCIPLES TESTED:
+--------------------------------------------------------------------------------
+1. Zero-indexing boundary rule: 0 to s.length() - 1. Loop must use '< s.length()'.
+2. Trailing space convention: 's = s + " "' ensures final word extraction in loops.
+3. Content equality: Always use .equals() or .equalsIgnoreCase() rather than '=='.
+4. Lexicographical comparisons: compareTo() returns ASCII differences at first mismatch.
+5. Case conversion: toUpperCase() / toLowerCase() returns a brand new String object.
+
+3. SECTION B VARIABLE DESCRIPTION TABLE (MANDATORY FOR FULL 15 MARKS):
+--------------------------------------------------------------------------------
+Variable Name   Data Type   Purpose / Description
+--------------------------------------------------------------------------------
+s               String      Input sentence accepted from the user
+word            String      Temporary accumulator holding extracted word
+i               int         Loop control variable for character traversal
+ch              char        Character extracted at index i using charAt()
+count           int         Tally of matching characters/words found
+--------------------------------------------------------------------------------
+
+4. COMMON BOARD EXAM TRAPS:
+--------------------------------------------------------------------------------
+- Writing Arrays.sort() in string array sorting questions (scores 0 marks).
+- Forgetting to reset 'word = ""' after extracting space in word parsing loops.
+- StringIndexOutOfBoundsException when charAt() reaches length().
+- Omitting Scanner import: 'import java.util.Scanner;'.
+
+================================================================================
+Copyright (c) Sukanta Hui - Coder & AccoTax, Barrackpore. All Rights Reserved.
+================================================================================

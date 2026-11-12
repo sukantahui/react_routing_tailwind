@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 8
+TITLE: LINEAR SEARCH IN UNSORTED ARRAYS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Linear search sequentially compares a search key against each array element from index 0 to length - 1 until a match is found or the array ends. It works on both unsorted and sorted arrays with O(n) worst-case time complexity.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Sequential Inspection: Compares search target element by element starting from index 0.
+[2] Early Break: When target is found, record the index, set flag = true, and break immediately to save iterations.
+[3] Search Flag Pattern: Initialize 'boolean found = false;' or 'int pos = -1;' prior to the search loop.
+[4] Unsorted Support: Does NOT require the array to be sorted, unlike binary search.
+[5] Worst-Case Complexity: Visits all n elements when the key is at the end or absent (O(n)).
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Printing 'Element Not Found' inside the loop body instead of after loop termination.
+[!] Pitfall 2: Continuing to loop after finding the search key without executing a break statement.
+[!] Pitfall 3: Off-by-one errors when reporting 1-based position versus 0-based index.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: LinearSearchBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

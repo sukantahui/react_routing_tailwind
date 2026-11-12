@@ -1,0 +1,28 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 19: Palindrome Checking Program
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A PALINDROME STRING?
+--------------------------------------------------------------------------------
+- A string that reads identically forward and backward.
+- Examples: "MADAM", "RACECAR", "ROTATOR", "12321", "MALAYALAM".
+
+2. STANDARD ICSE BOARD CODING STEPS
+--------------------------------------------------------------------------------
+Step 1: Input word: String s = in.next();
+Step 2: Convert to uniform case: s = s.toUpperCase();
+Step 3: Reverse using backward loop:
+        String rev = "";
+        for (int i = s.length() - 1; i >= 0; i--) {
+            rev = rev + s.charAt(i);
+        }
+Step 4: Compare using .equals():
+        if (s.equals(rev)) {
+            System.out.println("Palindrome string");
+        } else {
+            System.out.println("Not a palindrome string");
+        }
+================================================================================

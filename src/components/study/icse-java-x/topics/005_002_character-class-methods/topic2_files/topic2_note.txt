@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_002_character-class-methods
+TOPIC 2: isLetterOrDigit(char ch) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Exploration of Character.isLetterOrDigit(char ch). Alphanumeric validation, stripping punctuation, sanitizing usernames, and ICSE palindrome sentence programs.
+
+2. SIGNATURE & CONVENTIONS:
+   public static boolean isLetterOrDigit(char ch)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Debangshu clean a sentence of punctuation to check palindromes at Naihati.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

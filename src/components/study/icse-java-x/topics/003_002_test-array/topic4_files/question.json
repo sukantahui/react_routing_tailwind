@@ -1,0 +1,74 @@
+{
+  "paperId": "ICSE-ARRAY-PRACTICE-04",
+  "title": "ICSE Board Pattern Array Question Practice",
+  "duration": "1.5 Hours",
+  "totalMarks": 40,
+  "prerequisites": "1D & 2D Arrays, Linear Search, Binary Search, Bubble Sort, Selection Sort",
+  "instructions": [
+    "All questions are compulsory.",
+    "Section A carries 10 marks (short questions & outputs).",
+    "Section B carries 30 marks (two 15-mark programming problems with variable description tables)."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Objective & Output",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer concisely.",
+      "questions": [
+        {
+          "q": "What is the prerequisite condition before executing Binary Search on an array?",
+          "marks": 2,
+          "answer": "The elements of the array MUST be sorted in either ascending or descending order.",
+          "hint": "Array ordering requirement."
+        },
+        {
+          "q": "What is the maximum number of comparisons in Linear Search for an array of N elements?",
+          "marks": 2,
+          "answer": "N comparisons (in the worst case when the element is at the last index or absent).",
+          "hint": "Worst case scenario."
+        },
+        {
+          "q": "What is the output of: int[][] m = {{1, 2}, {3, 4}}; System.out.println(m.length + \",\" + m[0].length);?",
+          "marks": 2,
+          "answer": "Output: `2,2`.\nReason: `m.length` gives the number of rows (2), and `m[0].length` gives the number of columns in row 0 (2).",
+          "hint": "Row count vs column count."
+        },
+        {
+          "q": "How many elements can be stored in `double[] scores = new double[15];`?",
+          "marks": 2,
+          "answer": "15 elements, indexed from 0 to 14.",
+          "hint": "Valid indices 0 to length - 1."
+        },
+        {
+          "q": "What is the return value of `java.util.Arrays.binarySearch(new int[]{10, 20, 30}, 25)`?",
+          "marks": 2,
+          "answer": "A negative integer (`-3`), indicating the insertion point `-(insertion_point + 1)`.",
+          "hint": "Negative insertion point when absent."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Programs",
+      "marksPerQuestion": 15,
+      "totalQuestions": 2,
+      "description": "Write complete programs with variable description tables.",
+      "questions": [
+        {
+          "q": "Write a program to accept 15 integer elements into a 1D array. Perform **Selection Sort** to arrange them in ascending order and display the sorted array.",
+          "marks": 15,
+          "answer": "Standard Selection Sort: find minimum element in unsorted subarray and swap with current index.",
+          "hint": "Find minIndex in inner loop, then swap."
+        },
+        {
+          "q": "Write a program to input a 3x3 square matrix. Calculate and display the sum of the **Left Diagonal** and **Right Diagonal** elements.",
+          "marks": 15,
+          "answer": "Left diagonal condition: `i == j`. Right diagonal condition: `i + j == 2`.",
+          "hint": "Nested loop checking diagonal index conditions."
+        }
+      ]
+    }
+  ]
+}

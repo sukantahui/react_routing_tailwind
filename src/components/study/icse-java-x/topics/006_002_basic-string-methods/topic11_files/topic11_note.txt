@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 11
+TITLE: COMPARETOIGNORECASE(STRING STR) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The compareToIgnoreCase(String str) method compares two strings lexicographically while ignoring case distinctions. It eliminates the 32-value ASCII gap between uppercase and lowercase characters, ensuring true dictionary ordering.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Case Insensitive: Eliminates case differences: 'apple'.compareToIgnoreCase('APPLE') returns 0.
+[2] Return Values: Returns 0 if case-insensitively equal, negative if this precedes str, positive if this succeeds str.
+[3] Prefix Length Rule: If characters match regardless of case, returns difference in lengths.
+[4] Non-Mutating: Does not alter original string objects.
+[5] ICSE Sorting Benchmark: Used in Section B when sorting names alphabetically without case formatting bias.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming compareToIgnoreCase() modifies the string case in memory.
+[!] Pitfall 2: Passing null resulting in NullPointerException.
+[!] Pitfall 3: Confusing return type int with equalsIgnoreCase() boolean return type.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: CompareToIgnoreCaseMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

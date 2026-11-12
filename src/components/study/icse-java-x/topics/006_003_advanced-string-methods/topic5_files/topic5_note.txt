@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_003: ADVANCED STRING METHODS
+TOPIC 5: startsWith() AND endsWith() METHODS
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. METHOD PROTOTYPES:
+   - public boolean startsWith(String prefix)
+   - public boolean startsWith(String prefix, int toffset)
+   - public boolean endsWith(String suffix)
+   - Return Type: boolean (true or false)
+
+2. BEHAVIOR RULES:
+   - Case Sensitive: "Teacher".startsWith("tea") is FALSE!
+   - Empty String Rule: s.startsWith("") and s.endsWith("") ALWAYS return true
+     for any non-null string!
+   - If argument is longer than calling string, method returns false without error.
+   - If argument is null, throws NullPointerException.
+
+3. TYPICAL ICSE BOARD EXAM APPLICATIONS:
+   - Finding names starting with a specific letter ('A' or 'S').
+   - Validating website URLs starting with "http://" or "https://".
+   - Verifying email domain suffixes like "@gmail.com" or ".edu.in".
+   - Checking whether a sentence ends with a punctuation mark ('.', '?', '!').
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

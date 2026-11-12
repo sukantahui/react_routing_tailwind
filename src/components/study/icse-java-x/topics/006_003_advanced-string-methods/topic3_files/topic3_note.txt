@@ -1,0 +1,27 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_003: ADVANCED STRING METHODS
+TOPIC 3: replace() METHOD
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. METHOD SPECIFICATIONS:
+   - public String replace(char oldChar, char newChar)
+   - public String replace(CharSequence target, CharSequence replacement)
+   - Return Type: String (new String containing substituted characters)
+
+2. BEHAVIOR HIGHLIGHTS:
+   - Replaces ALL occurrences of oldChar with newChar, not just the first one!
+   - Case-sensitive: replace('a', 'x') will NOT touch uppercase 'A'.
+   - If oldChar does not occur in the string, Java returns a reference to the
+     calling string object without allocating memory.
+   - Preserves string immutability: the original string remains untouched.
+
+3. COMMON ICSE CLASS X PROGRAM APPLICATIONS:
+   - Encrypting text: replacing vowels with specific digits or symbols (*, $, #).
+   - Sanitizing input: replacing multiple spaces with single spaces or commas.
+   - Removing characters: word.replace(" ", "") removes all spaces!
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

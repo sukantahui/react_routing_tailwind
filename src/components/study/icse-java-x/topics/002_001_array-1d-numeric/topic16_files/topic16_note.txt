@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 16
+TITLE: FINDING THE SECOND LARGEST ELEMENT
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Finding the second largest value without full sorting is an essential ICSE Section B problem. In a single pass, two variables (max1 and max2) are maintained: when a new maximum is found, max1 shifts to max2; otherwise, if an element is between max2 and max1, max2 is updated.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Dual Variable Initialization: Initialize max1 = Integer.MIN_VALUE and max2 = Integer.MIN_VALUE.
+[2] Primary Update: If arr[i] > max1, shift max2 = max1 and update max1 = arr[i].
+[3] Secondary Update: Else if arr[i] > max2 and arr[i] != max1, update max2 = arr[i].
+[4] Duplicate Handling: The condition arr[i] != max1 ensures duplicate maximums do not corrupt the second distinct largest.
+[5] Optimal O(n) Efficiency: Solves the problem in a single pass without the O(n log n) overhead of sorting.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming second largest is at index (length - 2) after sorting without checking for duplicate maximums.
+[!] Pitfall 2: Forgetting to update max2 when arr[i] > max1.
+[!] Pitfall 3: Failing to handle arrays where all elements are identical.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: SecondLargestBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

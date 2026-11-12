@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_001_encapsulation
+TOPIC 2: Data Hiding & Security Architecture
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. OVERVIEW:
+   Architectural significance of data hiding in Java. Preventing accidental corruption of internal state, defensive programming, and separation of interface from implementation.
+
+2. SIGNATURE & CONVENTIONS:
+   Data Hiding = Private State + Controlled Public Interface
+
+3. CLASSROOM INSIGHT:
+   Swadeep and Tuhina simulate an ATM PIN verification system where the internal PIN hash is hidden.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 9
+TITLE: EQUALSIGNORECASE(STRING STR) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The equalsIgnoreCase(String str) method compares two strings for content equality, ignoring differences between uppercase and lowercase letters. Two characters are considered equal if they are identical or if converting both to uppercase (or lowercase) produces identical characters.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Case Insensitive: Compares strings character-by-character ignoring case: 'ICSE'.equalsIgnoreCase('icse') is true.
+[2] Non-Alphabetic Accuracy: Digits, spaces, and punctuation must still match exactly.
+[3] Return Type: Returns boolean (true if strings match in length and characters, false otherwise).
+[4] Null Handling: Returns false if the argument string is null.
+[5] ICSE Syllabus Favorite: The standard method used in Section B search queries, yes/no confirmation, and menu options.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming equalsIgnoreCase() ignores spaces or punctuation; 'A B'.equalsIgnoreCase('AB') is false.
+[!] Pitfall 2: Using == with toLowerCase() instead of simply calling equalsIgnoreCase().
+[!] Pitfall 3: Forgetting to check if input string is null before invoking equalsIgnoreCase().
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: EqualsIgnoreCaseMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

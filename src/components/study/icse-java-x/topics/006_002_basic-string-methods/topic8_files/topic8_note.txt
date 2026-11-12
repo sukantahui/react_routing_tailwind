@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 8
+TITLE: EQUALS(OBJECT OBJ) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The equals(Object obj) method compares the actual character contents of two strings for exact equality in a case-sensitive manner. It overrides Object.equals() to provide logical value comparison rather than reference identity (memory address comparison).
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Value Comparison: Compares character-by-character sequence; returns true only if lengths and all characters match exactly.
+[2] Case-Sensitivity: Strictly case-sensitive: 'Java'.equals('java') evaluates to false.
+[3] Contrast with ==: '==' compares object memory addresses (references), while '.equals()' compares text content.
+[4] Null Safety: str.equals(null) safely returns false without throwing an exception.
+[5] Equivalence Relation: Satisfies reflexive (x.equals(x)), symmetric, and transitive mathematical properties.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Using '==' instead of '.equals()' to compare user input strings in ICSE Section B programs.
+[!] Pitfall 2: Calling null.equals(str) which causes NullPointerException (use 'Constant'.equals(variable) for Yoda condition safety).
+[!] Pitfall 3: Confusing boolean return value (true/false) with compareTo() integer return value (0).
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: EqualsMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

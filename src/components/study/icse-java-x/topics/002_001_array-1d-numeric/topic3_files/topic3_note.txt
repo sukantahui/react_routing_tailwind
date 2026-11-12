@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 3
+TITLE: DEFAULT VALUES OF NUMERIC ARRAYS
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+When an array is created using 'new', the JVM automatically initializes every element to a predictable default value before any user code runs. For all integer types, the default is 0; for floating-point types, 0.0.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Integer Types (byte, short, int, long): Automatically initialized to 0 (or 0L).
+[2] Floating-Point Types (float, double): Automatically initialized to 0.0 (or 0.0f).
+[3] Character Type (char): Initialized to '\u0000' (null character, decimal 0).
+[4] Boolean Type (boolean): Initialized to false.
+[5] Reference Types (String, Object, Arrays): Initialized to null.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming elements contain random garbage values like in C/C++; Java guarantees clean zero initialization.
+[!] Pitfall 2: Checking reference array elements without verifying if they are null before calling methods.
+[!] Pitfall 3: Confusing char default '\u0000' with character '0' (ASCII 48).
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: DefaultValuesNumericArrays.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_002_character-class-methods
+TOPIC 4: isUpperCase(char ch) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Detailed review of Character.isUpperCase(char ch). Testing uppercase letters (ASCII 65 to 90), counting capital letters, and extracting initials.
+
+2. SIGNATURE & CONVENTIONS:
+   public static boolean isUpperCase(char ch)
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Tuhina count capital letters in newspaper headlines at Barrackpore.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

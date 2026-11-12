@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 006_002 · TOPIC 14
+TITLE: STARTSWITH(STRING PREFIX) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. METHOD SPECIFICATION & OBJECTIVE
+----------------------------------------------------------------------
+The startsWith(String prefix) method tests whether a string begins with the specified prefix sequence. It returns true if the character sequence represented by the argument is a prefix of the character sequence represented by this string, taking case into account.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Prefix Match: Returns true if the string begins with the specified prefix.
+[2] Case Sensitivity: Strictly case-sensitive: 'ICSE'.startsWith('icse') returns false.
+[3] Empty String Rule: Every string starts with empty string '': str.startsWith('') is always true.
+[4] Offset Overload: str.startsWith(prefix, toffset) tests if the prefix begins at index toffset.
+[5] Safe Length Handling: If prefix length exceeds string length, returns false safely without throwing errors.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Assuming startsWith() is case-insensitive; use str.toLowerCase().startsWith() for case-insensitive checks.
+[!] Pitfall 2: Passing null resulting in NullPointerException.
+[!] Pitfall 3: Confusing startsWith() with contains(); startsWith() matches only at index 0.
+
+4. ICSE METHOD TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: StartsWithMethodDemo.java
+Standard Board Usage:
+  - Verify method signature and exact return type
+  - Store returned value in matching data type variable
+  - Check boundary indices and null references
+  - Variable Description Table (VDT) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Never forget that Strings are immutable in Java!
+Methods like replace, concat, toLowerCase, and substring return BRAND NEW strings.
+Always assign the result back: str = str.replace(...) or your code will have no effect!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

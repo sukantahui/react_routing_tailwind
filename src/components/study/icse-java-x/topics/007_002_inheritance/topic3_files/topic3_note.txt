@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 007_002_inheritance
+TOPIC 3: Use of super Keyword in Constructors & Methods
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Comprehensive breakdown of the super keyword. Calling parent constructors via super(), mandatory first-statement rule, accessing hidden fields, and calling overridden methods.
+
+2. SIGNATURE & CONVENTIONS:
+   super(<arguments>); / super.<methodName>(<arguments>);
+
+3. CLASSROOM APPLICATION:
+   Tuhina and Abhronila chain constructors using super(name, age) in the GraduateStudent class at Ichapur.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

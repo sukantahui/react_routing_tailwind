@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 14
+TITLE: FINDING THE LARGEST ELEMENT IN AN ARRAY
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Finding the largest element requires assuming the first element arr[0] is the maximum, then linearly comparing all subsequent elements arr[1] to arr[length-1]. Whenever an element exceeds the current maximum, the maximum is updated.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Correct Initialization: Always initialize max = arr[0] (or Integer.MIN_VALUE). Never initialize max to 0 if negative numbers can exist.
+[2] Loop Bound: Start scan from index 1 (i = 1 to i < length) since arr[0] is already the baseline.
+[3] Comparison Check: If arr[i] > max, update max = arr[i].
+[4] Index Tracking: Optionally maintain 'int maxIdx = 0' if the position of the largest element is required.
+[5] Linear Complexity: Completes in exactly n - 1 comparisons, giving O(n) optimal time complexity.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Initializing max = 0: Fails completely if all elements in the array are negative numbers.
+[!] Pitfall 2: Starting loop from index 0 instead of 1 (redundant comparison, though harmless).
+[!] Pitfall 3: Resetting max variable inside the loop body on every iteration.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: FindLargestBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

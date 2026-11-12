@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 005_002_character-class-methods
+TOPIC 3: isLowerCase(char ch) Method Deep Dive
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Detailed review of Character.isLowerCase(char ch). Testing lowercase letters (ASCII 97 to 122), counting lowercase letters in a sentence, and casing diagnostics.
+
+2. SIGNATURE & CONVENTIONS:
+   public static boolean isLowerCase(char ch)
+
+3. CLASSROOM APPLICATION:
+   Tuhina and Abhronila count lowercase letters in student password inputs at Ichapur.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

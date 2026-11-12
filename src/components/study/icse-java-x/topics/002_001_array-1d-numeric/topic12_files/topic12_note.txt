@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 12
+TITLE: SELECTION SORT - ASCENDING ORDER
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & ALGORITHM OBJECTIVE
+----------------------------------------------------------------------
+Selection sort divides the array into a sorted and unsorted region. In each pass, it finds the index of the minimum element in the unsorted region and swaps it with the first unsorted element, performing only one swap per pass.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Index Tracking: Assume min_idx = i at the start of pass i; scan unsorted part j = i + 1 to n - 1.
+[2] Update Minimum Index: If arr[j] < arr[min_idx], update min_idx = j (do NOT swap inside inner loop).
+[3] Single Swap Per Pass: Perform exactly one swap between arr[i] and arr[min_idx] after inner loop finishes.
+[4] Pass Count: Requires exactly n - 1 passes to sort an array of size n.
+[5] Comparison Complexity: Performs n(n - 1)/2 comparisons, resulting in O(n^2) time complexity.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Swapping inside the inner loop instead of waiting until the minimum index is found.
+[!] Pitfall 2: Initializing min_idx to 0 instead of the current pass index i.
+[!] Pitfall 3: Tracking the minimum value instead of the minimum index, making subsequent swapping impossible.
+
+4. ICSE CODE TEMPLATE & DRY RUN CHECKLIST
+----------------------------------------------------------------------
+Refer to companion Java simulation: SelectionSortBasic.java
+Standard Class Structure:
+  - Input reading via Scanner (array size and elements)
+  - Core algorithm loop execution with trace variables
+  - Output display with clear labeling
+  - Variable Description Table (VDT)
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section B programming questions, write out a 3-iteration trace table
+with pencil on your rough sheet before finalizing your code.
+Verify index 0 and length - 1 bounds to guarantee 15/15 marks!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

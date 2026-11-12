@@ -43,11 +43,6 @@ const NavBar = () => {
   const isDev = Boolean(import.meta.env?.DEV);
   const isHome = location.pathname === "/";
 
-  // Validity of Bijoya guest registration link: upto 1st November 2026 23:59:59 IST
-  const isBijoyaValid = useMemo(() => {
-    const expiryDate = new Date("2026-11-01T23:59:59.999+05:30");
-    return new Date() <= expiryDate;
-  }, []);
 
   // Tools Items Grouped (4 Categories)
   const toolsGroups = useMemo(() => [
@@ -381,17 +376,6 @@ const NavBar = () => {
       { to: "/certificates", label: "Certificate Verification", group: "VERIFY", desc: "Online verification for official certificates", icon: "bi-patch-check-fill" },
       { to: "/#contact", label: "Contact & Location", group: "SECTION", desc: "Get in touch, location map & inquiries", icon: "bi-envelope" },
       { to: "/login", label: "Student & Faculty Login", group: "PORTAL", desc: "Access authenticated student and teacher portal", icon: "bi-box-arrow-in-right" },
-      ...(isBijoyaValid
-        ? [
-            {
-              to: "/bijoya",
-              label: "Bijoya 2026 - Maitri Mahotsav Guest Registration",
-              group: "EVENT",
-              desc: "Official guest registration for 27th Maitri Mahotsav (Valid upto 1 Nov 2026)",
-              icon: "bi-stars",
-            },
-          ]
-        : []),
     ];
 
     // Add all tool items
@@ -419,7 +403,7 @@ const NavBar = () => {
     });
 
     return list;
-  }, [toolsGroups, tutorialsItems, isBijoyaValid]);
+  }, [toolsGroups, tutorialsItems]);
 
   // Results of Command Palette
   const searchResults = useMemo(() => {
@@ -919,23 +903,7 @@ const NavBar = () => {
                 </AnimatePresence>
               </div>
 
-              {/* SPECIAL FESTIVE LINK: BIJOYA 2026 */}
-              {isBijoyaValid && (
-                <NavLink
-                  to="/bijoya"
-                  onClick={closeAllDropdowns}
-                  className={({ isActive }) =>
-                    `inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-150 ${
-                      isActive
-                        ? "text-amber-200 bg-amber-500/25 border border-amber-400/40 shadow-sm shadow-amber-500/10"
-                        : "text-amber-300 hover:text-amber-100 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20"
-                    }`
-                  }
-                >
-                  <span>🌸</span>
-                  <span>Bijoya 2026</span>
-                </NavLink>
-              )}
+
             </nav>
 
             {/* 3. RIGHT CONTROLS: SEARCH & SIGN IN BUTTON */}
@@ -1267,49 +1235,6 @@ const NavBar = () => {
                 {/* Scrollable Navigation Body */}
                 <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3">
                   
-                  {/* Special Festive Event Card: Bijoya 2026 (Valid upto 1st Nov 2026) */}
-                  {isBijoyaValid && (
-                    <NavLink
-                      to="/bijoya"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="relative block overflow-hidden rounded-2xl p-3.5 bg-gradient-to-br from-amber-950/70 via-slate-900/95 to-purple-950/70 border border-amber-500/40 shadow-xl shadow-amber-500/10 group hover:border-amber-400 transition-all duration-300"
-                    >
-                      <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-gradient-to-br from-amber-500/20 to-rose-500/20 rounded-full blur-xl pointer-events-none" />
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="flex h-2 w-2 relative">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
-                          </span>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/30">
-                            Special Event • 1st Nov 2026
-                          </span>
-                        </div>
-                        <span className="text-base select-none">🌸</span>
-                      </div>
-                      
-                      <div className="mt-2.5">
-                        <h4 className="text-xs font-bold text-white group-hover:text-amber-200 transition flex items-center gap-1.5">
-                          ২৭ তম মৈত্রী মহোৎসব ২০২৬
-                        </h4>
-                        <p className="text-[11px] text-amber-300 font-medium">
-                          Bijoya Sammelani • Guest Registration
-                        </p>
-                        <p className="text-[10px] text-slate-400 mt-0.5">
-                          Register guest entry & generate your digital event ticket pass.
-                        </p>
-                      </div>
-
-                      <div className="mt-3 flex items-center justify-between text-xs font-semibold text-amber-300 group-hover:text-amber-200">
-                        <span className="flex items-center gap-1.5">
-                          <i className="bi bi-ticket-perforated-fill text-amber-400"></i>
-                          Register Guest Pass
-                        </span>
-                        <i className="bi bi-arrow-right transform group-hover:translate-x-1 transition duration-200 text-amber-400"></i>
-                      </div>
-                    </NavLink>
-                  )}
 
                   {/* 1. EXPLORE & INSTITUTE SECTIONS */}
                   {(mobileTab === "all" || mobileTab === "explore") && (

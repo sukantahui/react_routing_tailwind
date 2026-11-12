@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 006_001: STRINGS BASIC & CORE CONCEPTS
+TOPIC 6: Substring Extraction and String Slicing
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. THE TWO SUBSTRING OVERLOADS
+--------------------------------------------------------------------------------
+Method 1: public String substring(int beginIndex)
+- Returns substring from beginIndex to the end of string.
+- Example: "Kolkata".substring(3) -> "kata"
+
+Method 2: public String substring(int beginIndex, int endIndex)
+- Extracts characters starting at beginIndex up to (endIndex - 1).
+- GOLDEN RULE: beginIndex is INCLUSIVE, endIndex is EXCLUSIVE!
+- Total extracted characters = (endIndex - beginIndex).
+- Example: "Kolkata".substring(0, 3) -> "Kol" (Indices 0, 1, 2)
+
+2. ICSE OUTPUT TRACE FORMULA
+--------------------------------------------------------------------------------
+Given s = "DEVELOPER";
+s.substring(2, 5) -> characters at indices 2, 3, 4 -> "VEL"
+s.substring(4)    -> characters from index 4 to end  -> "LOPER"
+s.substring(3, 3) -> empty string "" (endIndex - beginIndex = 0)
+
+3. EXCEPTIONS TO WATCH FOR
+--------------------------------------------------------------------------------
+StringIndexOutOfBoundsException occurs if:
+- beginIndex < 0
+- endIndex > length()
+- beginIndex > endIndex
+================================================================================

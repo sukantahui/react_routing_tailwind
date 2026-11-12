@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_002 · TOPIC 7
+TITLE: ISWHITESPACE(CHAR CH) METHOD
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Character.isWhitespace(char ch) is a static method of the java.lang.Character class that determines if the specified character is white space according to Java. It identifies standard spaces (' '), tab characters ('\t'), newline ('\n'), carriage return ('\r'), and form feed ('\f').
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Static Invocation: Called as Character.isWhitespace(ch); cannot be called on primitive char directly.
+[2] Recognized Whitespace: Returns true for space (' '), horizontal tab ('\t'), line feed ('\n'), form feed ('\f'), and carriage return ('\r').
+[3] Return Type: boolean (true if ch is whitespace, false otherwise).
+[4] ASCII Space vs Whitespace: Space has ASCII code 32, tab is 9, newline is 10, carriage return is 13; all evaluate to true.
+[5] ICSE Word Counting: The standard robust approach to count words in a sentence by detecting transitions between whitespace and non-whitespace characters.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Invoking as ch.isWhitespace() which is illegal on primitive char variables.
+[!] Pitfall 2: Assuming isWhitespace() only checks for the standard space (' ') character; it checks all Unicode whitespace characters.
+[!] Pitfall 3: Multiple consecutive spaces causing multiple word counts if not skipping redundant whitespace.
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: IsWhitespaceMethodDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

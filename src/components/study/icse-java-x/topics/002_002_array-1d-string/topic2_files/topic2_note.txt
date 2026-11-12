@@ -1,0 +1,19 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X COMPUTER APPLICATIONS (JAVA)
+MODULE 002_002_array-1d-string
+TOPIC 2: Sorting String Array Alphabetically (Bubble / Selection Sort)
+EDUCATOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL
+================================================================================
+
+1. TOPIC OVERVIEW:
+   Alphabetical sorting using compareTo(). Implementing Bubble Sort and Selection Sort on String arrays, swapping object references, and preserving parallel data arrays.
+
+2. SIGNATURE & CONVENTIONS:
+   Alphabetical Sorting using compareTo() > 0
+
+3. CLASSROOM APPLICATION:
+   Swadeep and Debangshu sort an array of student names in ascending dictionary order at Naihati.
+
+================================================================================
+Coder & AccoTax | Sukanta Hui | Barrackpore | 7003756860
+================================================================================

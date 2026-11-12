@@ -1,0 +1,43 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "Coder & AccoTax Coder&AccoTax Portal Management & Learning Suite" [ref=e9] [cursor=pointer]:
+        - /url: /dashboard
+        - img "Coder & AccoTax" [ref=e11]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: Coder&AccoTax
+            - generic [ref=e15]: Portal
+          - generic [ref=e17]: Management & Learning Suite
+      - navigation [ref=e18]:
+        - link "Dashboard" [ref=e19] [cursor=pointer]:
+          - /url: /dashboard
+        - button "Master " [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: Master
+          - generic [ref=e23]: 
+        - button "Tools " [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: Tools
+          - generic [ref=e27]: 
+        - button "Tutorials " [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: Tutorials
+          - generic [ref=e31]: 
+        - link "🌸 Bijoya 2026" [ref=e32] [cursor=pointer]:
+          - /url: /bijoya
+          - generic [ref=e33]: 🌸
+          - generic [ref=e34]: Bijoya 2026
+      - generic [ref=e35]:
+        - button " Quick Jump... ⌘K" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: 
+          - generic [ref=e38]: Quick Jump...
+          - generic [ref=e39]: ⌘K
+        - button "User Account Menu" [ref=e41] [cursor=pointer]:
+          - img "Avatar" [ref=e43]
+          - generic [ref=e45]:
+            - generic [ref=e46]: Sukanta Hui
+            - generic [ref=e47]: Admin
+          - generic [ref=e48]: 
+        - button "Logout" [ref=e49] [cursor=pointer]:
+          - generic [ref=e50]: 
+        - text:  
+  - main [ref=e51]:
+    - paragraph [ref=e55]: Loading page...

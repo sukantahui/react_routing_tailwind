@@ -1,0 +1,41 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 002_001 · TOPIC 5
+TITLE: TRAVERSING AN ARRAY USING FOR LOOP
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW
+----------------------------------------------------------------------
+Array traversal is the systematic process of visiting each element of an array exactly once to inspect, process, or accumulate values. The standard for-loop with an index counter variable (i) provides complete control over iteration direction and step size.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Forward Traversal: Initialize i = 0; loop while i < arr.length; increment i++.
+[2] Reverse Traversal: Initialize i = arr.length - 1; loop while i >= 0; decrement i--.
+[3] Step Sizing: Modify increment expression (e.g. i += 2) to visit alternate or even/odd indexed elements.
+[4] Accumulator Pattern: Initialize running sum or count variable before loop; update inside loop body.
+[5] In-Place Transformation: Modify array elements directly inside loop using arr[i] = transformedValue.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Off-by-one error: Starting loop at i = 1 skips the first element at index 0.
+[!] Pitfall 2: Ending reverse loop at i > 0 skips the first element at index 0.
+[!] Pitfall 3: Modifying the loop counter variable arbitrarily inside the loop body causing skipped elements or infinite loops.
+
+4. ICSE CODE TEMPLATE
+----------------------------------------------------------------------
+Refer to companion Java simulation: TraverseForLoop.java
+Standard Class Structure:
+  - Package import: java.util.Scanner
+  - Array definition and allocation
+  - Input, processing, and output traversal
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"Always dry run your loop bounds on paper before typing in BlueJ.
+Check index 0 and index (length - 1) specifically to ensure you never
+trigger an ArrayIndexOutOfBoundsException during ICSE examinations!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

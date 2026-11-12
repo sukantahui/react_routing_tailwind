@@ -1,0 +1,43 @@
+======================================================================
+CODER & ACCOTAX - COMPUTER APPLICATIONS (ICSE CLASS X)
+STUDY NOTE: MODULE 005_003 · TOPIC 3
+TITLE: MATH.FLOOR(X) VS MATH.CEIL(X)
+AUTHOR: Sukanta Hui (Barrackpore, Kolkata · 7003756860)
+======================================================================
+
+1. CONCEPT OVERVIEW & OBJECTIVES
+----------------------------------------------------------------------
+Math.floor(double a) returns the largest double value that is less than or equal to the argument (rounds down toward negative infinity). Math.ceil(double a) returns the smallest double value that is greater than or equal to the argument (rounds up toward positive infinity). Both ALWAYS return double.
+
+2. KEY RULES & BOARD SYLLABUS SPECIFICATIONS
+----------------------------------------------------------------------
+[1] Return Type: Both Math.floor() and Math.ceil() ALWAYS return a double.
+[2] Math.floor Direction: Always rounds DOWN (leftward on the number line): Math.floor(4.7) = 4.0; Math.floor(-4.7) = -5.0.
+[3] Math.ceil Direction: Always rounds UP (rightward on the number line): Math.ceil(4.2) = 5.0; Math.ceil(-4.2) = -4.0.
+[4] Exact Integer: If the argument is already an exact integer, both return the identical double: Math.floor(5.0) = 5.0, Math.ceil(5.0) = 5.0.
+[5] High Frequency ICSE Traps: Output prediction questions constantly test negative decimals with floor and ceil.
+
+3. COMMON BOARD EXAM PITFALLS TO AVOID
+----------------------------------------------------------------------
+[!] Pitfall 1: Negative floor trap: Math.floor(-3.2) is -4.0 (NOT -3.0).
+[!] Pitfall 2: Negative ceil trap: Math.ceil(-3.8) is -3.0 (NOT -4.0).
+[!] Pitfall 3: Expecting an integer return: Math.floor(4.5) returns double 4.0, NOT int 4.
+
+4. ICSE METHOD TEMPLATE & CODE SNIPPET
+----------------------------------------------------------------------
+Refer to companion Java simulation: MathFloorCeilDemo.java
+Standard Board Usage:
+  - Check static invocation via Math.method()
+  - Verify exact return type (double vs long vs int)
+  - Ensure explicit casting when storing in integer variables
+  - Parenthesize denominators and compound expressions
+  - VDT (Variable Description Table) columns: Name | Type | Purpose
+
+5. TEACHER'S GOLDEN ADVICE
+----------------------------------------------------------------------
+"In Section A, always check the RETURN TYPE of Math functions!
+Math.sqrt and Math.pow always return DOUBLE.
+Math.round with double returns LONG.
+Never miss these easy 2 marks in your ICSE board examination!"
+— Sukanta Hui, Coder & AccoTax, Barrackpore
+======================================================================

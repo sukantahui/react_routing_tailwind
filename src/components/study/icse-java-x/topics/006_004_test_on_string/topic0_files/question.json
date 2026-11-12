@@ -1,0 +1,75 @@
+{
+  "paperId": "ICSE-STR-PAPER-01",
+  "title": "Character Analysis & Frequency Counting Test Paper (ICSE Class X)",
+  "duration": "1 Hour",
+  "totalMarks": 35,
+  "prerequisites": "ICSE Class X String handling methods, Scanner input, conditional branching, and loops",
+  "instructions": [
+    "All questions are compulsory as per ICSE examination standards.",
+    "Write complete Java code for Section B problems including Variable Description Tables.",
+    "Pay strict attention to case sensitivity, loop bounds, and array indexing.",
+    "Each question carries marks as indicated."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Answer & Output Tracing Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer in one or two sentences or evaluate the code output.",
+      "questions": [
+        {
+          "q": "What is the return type and value of Character.isLetterOrDigit('@') in Java?",
+          "marks": 2,
+          "answer": "Return type is `boolean`, and the return value is `false` because '@' is a special punctuation character, not an alphabet letter or numerical digit.",
+          "hint": "Recall that symbols like @, #, $ are neither letters nor digits."
+        },
+        {
+          "q": "State the difference between s.length() and arr.length in Java.",
+          "marks": 2,
+          "answer": "`s.length()` is a method call belonging to the java.lang.String class that returns the number of characters in a string. `arr.length` is an immutable field (attribute) of an array object that returns the capacity of the array.",
+          "hint": "Notice the parentheses () on the String version."
+        },
+        {
+          "q": "What will be the output of the following statement?\n```java\nString s = \"COMPUTER\";\nSystem.out.println(s.charAt(4));\n```",
+          "marks": 2,
+          "answer": "Output: `U`\nExplanation: Indices are 0:'C', 1:'O', 2:'M', 3:'P', 4:'U'.",
+          "hint": "Strings are 0-indexed in Java."
+        },
+        {
+          "q": "Write a boolean condition to test if character variable 'ch' contains an uppercase alphabet without using any Character class methods.",
+          "marks": 2,
+          "answer": "```java\nif (ch >= 'A' && ch <= 'Z')\n```\nThis uses the Unicode/ASCII range 65 to 90 directly.",
+          "hint": "Use relational comparisons between 'A' and 'Z'."
+        },
+        {
+          "q": "What integer value is returned by \"AEIOUaeiou\".indexOf('k')?",
+          "marks": 2,
+          "answer": "Output: `-1`\nExplanation: When the character or substring is not found inside the calling string, indexOf() always returns -1.",
+          "hint": "When a search character is missing, indexOf returns a negative constant."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Programming Problems (15 & 10 Marks)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 2,
+      "description": "Write complete Java programs with class declaration, main method, and Variable Description Table.",
+      "questions": [
+        {
+          "q": "Write a program in Java to accept a sentence from the user. Count and display:\n(i) Number of uppercase letters\n(ii) Number of lowercase letters\n(iii) Number of digits\n(iv) Number of special characters\nInclude a Variable Description Table.",
+          "marks": 15,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class CharacterCounter {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"Enter a sentence:\");\n        String str = sc.nextLine();\n        \n        int upper = 0, lower = 0, digits = 0, special = 0;\n        \n        for (int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            if (Character.isUpperCase(ch)) {\n                upper++;\n            } else if (Character.isLowerCase(ch)) {\n                lower++;\n            } else if (Character.isDigit(ch)) {\n                digits++;\n            } else if (!Character.isWhitespace(ch)) {\n                special++;\n            }\n        }\n        \n        System.out.println(\"Uppercase letters: \" + upper);\n        System.out.println(\"Lowercase letters: \" + lower);\n        System.out.println(\"Digits: \" + digits);\n        System.out.println(\"Special characters: \" + special);\n    }\n}\n/*\nVARIABLE DESCRIPTION TABLE:\nVariable Name | Data Type | Purpose\nstr           | String    | Stores input sentence\nupper         | int       | Frequency count of uppercase characters\nlower         | int       | Frequency count of lowercase characters\ndigits        | int       | Frequency count of numerical digits\nspecial       | int       | Frequency count of special symbols\ni             | int       | Loop index for character traversal\nch            | char      | Extracted character at index i\n*/\n```",
+          "hint": "Loop through length(), check with Character methods, and maintain 4 separate counters."
+        },
+        {
+          "q": "Write a program to accept a string in uppercase and count the individual frequency of each vowel (A, E, I, O, U) present in the string.",
+          "marks": 10,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class VowelFrequency {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a string in uppercase: \");\n        String s = sc.nextLine().toUpperCase();\n        \n        int cA = 0, cE = 0, cI = 0, cO = 0, cU = 0;\n        \n        for (int i = 0; i < s.length(); i++) {\n            char ch = s.charAt(i);\n            switch (ch) {\n                case 'A': cA++; break;\n                case 'E': cE++; break;\n                case 'I': cI++; break;\n                case 'O': cO++; break;\n                case 'U': cU++; break;\n            }\n        }\n        \n        System.out.println(\"Frequency of A: \" + cA);\n        System.out.println(\"Frequency of E: \" + cE);\n        System.out.println(\"Frequency of I: \" + cI);\n        System.out.println(\"Frequency of O: \" + cO);\n        System.out.println(\"Frequency of U: \" + cU);\n    }\n}\n```",
+          "hint": "Use a switch-case statement inside the traversal loop to tally each vowel."
+        }
+      ]
+    }
+  ]
+}
