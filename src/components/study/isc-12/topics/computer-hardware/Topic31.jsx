@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic31_faqs";
 
 const Topic31 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
@@ -44,7 +46,8 @@ const Topic31 = () => {
               { id: "equations", label: "2. Boolean Equations & Routing" },
               { id: "truthTable", label: "3. Truth Table & Circuit Diagrams" },
               { id: "interactive", label: "4. Interactive 1:8 DEMUX Sandbox" },
-              { id: "examTips", label: "5. ISC Board Exam Focus" }
+              { id: "examTips", label: "5. ISC Board Exam Focus" },
+              { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -352,7 +355,27 @@ const Topic31 = () => {
         </section>
       )}
 
-      {/* TEACHER NOTE */}
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+{/* TEACHER NOTE */}
       <Teacher
         topicId="topic-31-demux"
         headline="Sukanta Hui's Board Strategy for 1:8 DEMUX"

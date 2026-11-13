@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic21_faqs";
 
 const Topic21 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
@@ -42,7 +44,8 @@ const Topic21 = () => {
               { id: "equations", label: "2. Boolean Equation & Proof" },
               { id: "truthTable", label: "3. Truth Table & Circuit Diagrams" },
               { id: "interactive", label: "4. Interactive Circuit Simulator" },
-              { id: "examTips", label: "5. ISC Board Exam Focus" }
+              { id: "examTips", label: "5. ISC Board Exam Focus" },
+              { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -277,7 +280,27 @@ const Topic21 = () => {
         </section>
       )}
 
-      <section>
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+<section>
         <Teacher note="The 2:1 MUX is the atomic unit of data selection. Master this circuit and you can build any higher-order multiplexer (4:1, 8:1, 16:1) by simple recursive expansion!" />
       </section>
     </div>

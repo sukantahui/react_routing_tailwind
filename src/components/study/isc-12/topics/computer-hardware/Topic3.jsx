@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic3_faqs";
 
 const Topic3 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
@@ -48,7 +50,8 @@ const Topic3 = () => {
               { id: "equations", label: "2. Boolean Equations & K-Map" },
               { id: "truthTable", label: "3. Truth Table & Circuit Diagrams" },
               { id: "interactive", label: "4. Interactive Circuit Simulator" },
-              { id: "examTips", label: "5. ISC Board Exam Focus" }
+              { id: "examTips", label: "5. ISC Board Exam Focus" },
+              { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -348,7 +351,27 @@ const Topic3 = () => {
         </section>
       )}
 
-      {/* TEACHER NOTE */}
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+{/* TEACHER NOTE */}
       <section>
         <Teacher note="A Full Adder is essentially two Half Adders joined by an OR gate. Remember that the Carry output is known as the 'Majority Function'—whenever at least two of the three inputs are 1, Cout is guaranteed to be 1!" />
       </section>

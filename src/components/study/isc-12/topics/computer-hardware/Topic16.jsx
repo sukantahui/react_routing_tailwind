@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic16_faqs";
 
 const Topic16 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
@@ -44,7 +46,8 @@ const Topic16 = () => {
               { id: "equations", label: "2. Minterm Equations (m0-m7)" },
               { id: "truthTable", label: "3. Truth Table & Circuit Diagrams" },
               { id: "interactive", label: "4. Interactive 3:8 Simulator" },
-              { id: "examTips", label: "5. ISC Board Exam Focus" }
+              { id: "examTips", label: "5. ISC Board Exam Focus" },
+              { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -293,7 +296,27 @@ const Topic16 = () => {
         </section>
       )}
 
-      <section>
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+<section>
         <Teacher note="Master the 3-to-8 decoder because it serves as the building block for memory address decoding in computer hardware, and for synthesizing arbitrary Boolean functions with OR gates." />
       </section>
     </div>

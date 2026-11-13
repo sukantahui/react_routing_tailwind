@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic10_faqs";
 
 const Topic10 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
@@ -43,7 +45,8 @@ const Topic10 = () => {
               { id: "equations", label: "2. Boolean Equations & Proof" },
               { id: "truthTable", label: "3. Truth Table & Circuit Diagrams" },
               { id: "interactive", label: "4. Interactive Octal Keypad" },
-              { id: "examTips", label: "5. ISC Board Exam Focus" }
+              { id: "examTips", label: "5. ISC Board Exam Focus" },
+              { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -309,7 +312,27 @@ const Topic10 = () => {
         </section>
       )}
 
-      {/* TEACHER NOTE */}
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+{/* TEACHER NOTE */}
       <section>
         <Teacher note="In octal-to-binary encoding, 8 lines are compressed into 3 lines because 2^3 = 8. Pay attention to D0—never connect it to any OR gate! Doing so will produce erroneous 1s when 0 is pressed." />
       </section>

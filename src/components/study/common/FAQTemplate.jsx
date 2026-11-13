@@ -80,6 +80,13 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
                     </div>
                   )}
 
+                  {(q.answer || q.shortAnswer) && (!q.options || q.options.length === 0) && (
+                    <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/30 text-emerald-200 text-xs sm:text-sm leading-relaxed space-y-1">
+                      <div className="font-bold text-emerald-400 text-[11px] uppercase tracking-wider">Answer:</div>
+                      <p>{renderFormattedText(q.answer || q.shortAnswer)}</p>
+                    </div>
+                  )}
+
                   {q.explanation && (
                     <div className="p-3 rounded-lg bg-slate-950 border border-slate-800/80 text-slate-300 text-xs leading-relaxed space-y-1">
                       <div className="font-bold text-sky-400 text-[11px] uppercase tracking-wider">Detailed Technical Explanation:</div>

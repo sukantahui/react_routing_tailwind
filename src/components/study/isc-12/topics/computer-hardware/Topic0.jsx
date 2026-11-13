@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic0_faqs";
 
 const Topic0 = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -45,7 +47,8 @@ const Topic0 = () => {
               { id: "overview", label: "1. Core Concept & Definition" },
               { id: "comparison", label: "2. Combinational vs Sequential" },
               { id: "blocks", label: "3. The 4 ISC Building Blocks" },
-              { id: "interactive", label: "4. Interactive Logic Gate Sandbox" }
+              { id: "interactive", label: "4. Interactive Logic Gate Sandbox" },
+              { id: "faqs", label: "5. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -353,7 +356,27 @@ const Topic0 = () => {
         </section>
       )}
 
-      {/* TEACHER SUKANTA HUI MENTOR NOTE */}
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+{/* TEACHER SUKANTA HUI MENTOR NOTE */}
       <section>
         <Teacher
           note="In ISC Class 12 Computer Science, Computer Hardware is not about PC motherboards or hard drives—it is strictly digital logic engineering! You will be tested on truth tables, algebraic derivations, and drawing gate-level circuits for Encoders, Decoders, Multiplexers, Demultiplexers, and Adders. Always remember the fundamental rules: an Encoder compresses 2^n lines to n lines with OR gates, a Decoder expands n lines to 2^n lines using AND gates, and a Multiplexer uses select lines to funnel multiple data streams into one output. Master these circuits and you secure guaranteed full marks in Section A!"

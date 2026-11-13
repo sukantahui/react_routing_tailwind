@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../common/FAQTemplate";
+import faqs from "./faqs/topic8_faqs";
 
 const Topic8 = () => {
   const [activeTab, setActiveTab] = useState("truthTable"); // Default to truthTable tab as requested
@@ -50,7 +52,8 @@ const Topic8 = () => {
               { id: "equations", label: "2. Boolean Equations & Proof" },
               { id: "truthTable", label: "3. Truth Table & Circuit Diagrams" },
               { id: "interactive", label: "4. Interactive Circuit Simulator" },
-              { id: "examTips", label: "5. ISC Board Exam Focus" }
+              { id: "examTips", label: "5. ISC Board Exam Focus" },
+              { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -812,7 +815,27 @@ const Topic8 = () => {
         </section>
       )}
 
-      {/* TEACHER SUKANTA HUI MENTOR NOTE */}
+            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {activeTab === "faqs" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+      {/* SECTION: 15 ESSENTIAL FAQS (ACCORDION AT BOTTOM OF LESSON) */}
+      {activeTab !== "faqs" && (
+        <section className="pt-6 border-t border-slate-800">
+          <FAQTemplate
+            title="15 Essential ISC Board FAQs & Practical Derivations"
+            questions={faqs}
+          />
+        </section>
+      )}
+
+{/* TEACHER SUKANTA HUI MENTOR NOTE */}
       <section>
         <Teacher
           note="Whenever you tackle an Encoder question in your ISC examination, remember the 'Compression Principle'. An encoder is an information squeezer: it takes 4 or 8 individual wires and squeezes them into a compact binary address using OR gates. The most common pitfall I see in Barrackpore board prep papers is students forgetting that only ONE wire can be active at a time! If two wires are pressed at once, standard encoders get confused—which is exactly why Priority Encoders were invented. Practice drawing the 4-to-2 circuit until you can sketch it with proper OR gates and junction dots in under 90 seconds!"
