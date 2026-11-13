@@ -271,6 +271,36 @@ const Topic7 = () => {
         { id: "rawAcc", label: "Raw Classification Accuracy", isCorrect: false, explanation: "Incorrect. If only 0.1% of patients have the infection, a dummy model that predicts 'Healthy' for everyone gets 99.9% accuracy while letting all infected patients slip through." },
         { id: "r2", label: "R² Score", isCorrect: false, explanation: "Incorrect. R² Score is an evaluation metric for continuous Regression, not disease Classification." }
       ]
+    },
+    {
+      id: 2,
+      title: "Diagnostic 3: Outlier Sensitivity in House Price Regression",
+      scenario: "Debangshu trains a flat valuation model in Rajarhat. The dataset contains 5 billionaire mansions priced 50x higher than typical apartments. His model reports an RMSE of ₹45 Lakhs, but an MAE of only ₹3.2 Lakhs. Why did this disparity occur?",
+      options: [
+        { id: "rmseOutliers", label: "RMSE squares errors, penalizing the 5 mansion outlier blunders drastically; MAE gives a linear average of typical flat error", isCorrect: true, explanation: "Exactly right! Because RMSE squares each residual (y - ŷ)², a few huge outliers explode the total score. MAE gives a robust reflection of typical error on standard apartments." },
+        { id: "maeCorrupt", label: "MAE only works for binary 0/1 classifications", isCorrect: false, explanation: "Incorrect. MAE is a foundational continuous regression metric." },
+        { id: "classifierSwitch", label: "The regression model silently switched into a classifier", isCorrect: false, explanation: "Incorrect. Model architecture does not alter based on evaluation metrics." }
+      ]
+    },
+    {
+      id: 3,
+      title: "Diagnostic 4: Severe Class Imbalance Trap (ROC-AUC vs PR-AUC)",
+      scenario: "A FinTech firm in Kolkata analyzes 1,000,000 daily credit card transactions where only 50 (0.005%) are fraudulent. An engineer reports ROC-AUC = 0.98, yet the system flags 500 false alarms for every real fraud caught. Why is ROC-AUC deceiving?",
+      options: [
+        { id: "rocDeception", label: "ROC-AUC uses FPR = FP / (FP + TN); huge TN (999,950 clean records) dilutes the denominator, masking high false alarms. PR-AUC is required.", isCorrect: true, explanation: "Spot on! When negatives vastly outnumber positives, huge True Negative counts make FPR look negligible even when hundreds of false alarms occur. Precision-Recall AUC (PR-AUC) focuses strictly on the minority positive class." },
+        { id: "badCpu", label: "The server CPU failed floating point IEEE 754 division", isCorrect: false, explanation: "Incorrect. This is a mathematical statistical property of ROC curves on imbalanced datasets." },
+        { id: "rocRegression", label: "ROC-AUC is only valid for continuous regression", isCorrect: false, explanation: "Incorrect. ROC-AUC is strictly a classification metric." }
+      ]
+    },
+    {
+      id: 4,
+      title: "Diagnostic 5: Multiclass vs Multilabel Classification",
+      scenario: "Susmita is building an image tagger for a boutique in Barrackpore. An image can simultaneously contain 'Silk Saree', 'Golden Border', and 'Bridal Wear'. How should she formulate this task?",
+      options: [
+        { id: "multilabel", label: "Multilabel Classification with independent sigmoid outputs per attribute (labels are non-mutually exclusive)", isCorrect: true, explanation: "Correct! In Multiclass, classes are mutually exclusive (softmax sums to 1.0). In Multilabel, an instance can possess multiple tags simultaneously, requiring independent binary sigmoid heads for each tag." },
+        { id: "softmaxForced", label: "Multiclass Softmax forcing exactly one tag per photo", isCorrect: false, explanation: "Incorrect. Softmax forces the probabilities to sum to 1.0, making it impossible to assign all 3 true tags." },
+        { id: "linearMse", label: "Single-target Linear Regression with MSE loss", isCorrect: false, explanation: "Incorrect. Tag presence is discrete binary categorization, not continuous regression." }
+      ]
     }
   ];
 
@@ -776,7 +806,7 @@ const Topic7 = () => {
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Regression Objective (L2 Squared Loss)</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Minimizes continuous residual variance between ground truth $y \in \mathbb{R}$ and hypothesis $h(x)$:
+              Minimizes continuous residual variance between continuous target <span className="font-mono text-cyan-300">y &isin; &reals;</span> and hypothesis <span className="font-mono text-cyan-300">h(x)</span>:
             </p>
             <div className="text-xs font-mono text-cyan-300 bg-slate-900 p-3 rounded border border-slate-800 overflow-x-auto">
               {"L_{MSE}(w) = (1/N) ∑_{i=1}^N (wᵀ x_i + b - y_i)²"}
@@ -786,7 +816,7 @@ const Topic7 = () => {
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-indigo-400 uppercase">Classification Objective (Binary Cross-Entropy)</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Minimizes negative log likelihood over Bernoulli probability output $\hat{y} = \sigma(w^\top x)$:
+              Minimizes negative log likelihood over Bernoulli probability output <span className="font-mono text-indigo-300">ŷ = &sigma;(wᵀ x)</span>:
             </p>
             <div className="text-xs font-mono text-indigo-300 bg-slate-900 p-3 rounded border border-slate-800 overflow-x-auto">
               {"L_{BCE}(w) = -(1/N) ∑_{i=1}^N [ y_i log(ŷ_i) + (1 - y_i) log(1 - ŷ_i) ]"}
@@ -992,7 +1022,7 @@ const Topic7 = () => {
               Executable Python Laboratory Simulation
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Interactive standalone lab script executing regression and classification pipelines
+              Interactive standalone lab script executing comparative pipelines: Binary Credit Default Classification vs Salt Lake Property OLS Regression
             </p>
           </div>
         </div>
@@ -1000,7 +1030,7 @@ const Topic7 = () => {
         <PythonFileLoader
           fileModule={labCode}
           title="classification_and_regression_overview_lab.py"
-          highlightLines={[25, 26, 35, 45]}
+          highlightLines={[25, 70, 110, 145, 195, 235]}
         />
       </section>
 
