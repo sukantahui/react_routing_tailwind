@@ -807,13 +807,137 @@
         {
           "moduleId": "hardware",
           "slug": "computer-hardware",
-          "title": "Computer Hardware",
-          "topics": [
-            "Basic hardware components",
-            "CPU, Memory, I/O devices",
-            "Secondary storage"
+          "title": "Computer Hardware & Combinational Circuits",
+          "level": "Intermediate",
+          "estimatedHours": 16,
+          "tags": [
+            "hardware",
+            "combinational-circuits",
+            "encoder",
+            "decoder",
+            "multiplexer",
+            "demultiplexer",
+            "half-adder",
+            "full-adder",
+            "digital-logic",
+            "isc-class-12",
+            "cisce"
           ],
-          "difficulty": "Easy"
+          "topics": [
+            "Introduction to Combinational Logic Circuits (Definition, Characteristics, Combinational vs Sequential)",
+            "Elementary & Universal Logic Gates Revision (AND, OR, NOT, NAND, NOR, XOR, XNOR)",
+            "Half Adder: Operating Principle, Truth Table, Sum (A ⊕ B) and Carry (A · B) Derivations, Logic Circuit",
+            "Full Adder: Concept of 3-bit Addition, Truth Table, Sum and Carry-out Derivations, Logic Circuit",
+            "Implementation of Full Adder using two Half Adders and an OR gate (Algebraic Proof & Circuit)",
+            "Half Subtractor: Truth Table, Difference (A ⊕ B) and Borrow (A' · B) Derivations, Circuit Diagram",
+            "Full Subtractor: Truth Table, Difference and Borrow-out Derivations, Logic Circuit Diagram",
+            "Construction of Full Subtractor using two Half Subtractors and an OR gate",
+            "Encoders: Definition, Operating Principle, and Line Compression (2^n Inputs to n Outputs)",
+            "4-to-2 Line Binary Encoder: Truth Table, Boolean Output Equations, Logic Circuit using OR Gates",
+            "8-to-3 Line Octal-to-Binary Encoder: Inputs (D0-D7), Outputs (X, Y, Z), Truth Table, Circuit Diagram",
+            "Decimal-to-BCD Encoder: Concept, Truth Table, Boolean Equations, Logic Circuit Implementation",
+            "Priority Encoder: Working Principle, Priority Assignment, and Practical Applications",
+            "Decoders: Definition, Operating Principle, and Line Expansion (n Inputs to 2^n Outputs)",
+            "2-to-4 Line Binary Decoder: Truth Table, Output Minterms, AND Gate Circuit with Active-HIGH Enable",
+            "2-to-4 Line Decoder with Active-LOW Enable & NAND Gate Realization",
+            "3-to-8 Line Binary Decoder: Inputs, Outputs, Complete Truth Table, Circuit Diagram using AND Gates",
+            "Higher-Order Decoder Construction: Designing 3-to-8 Decoder using two 2-to-4 Decoders with Enable",
+            "Higher-Order Decoder Construction: Designing 4-to-16 Line Decoder using two 3-to-8 Decoders",
+            "Decoder as a Universal Minterm Generator for Realizing Arbitrary Boolean Functions",
+            "Multiplexers (MUX): Definition, Concept of Data Selector, Inputs, Selection Lines (2^n to 1), Output",
+            "2-to-1 Multiplexer: Function Table, Boolean Equation Y = S'I0 + SI1, Gate-Level Logic Circuit",
+            "4-to-1 Multiplexer: Function Table, Boolean Equation, Logic Gate Diagram, Block Diagram",
+            "8-to-1 Multiplexer: Function Table, Select Line Combinations (S2, S1, S0), Logic Circuit Diagram",
+            "16-to-1 Multiplexer: Block Diagram, Selection Logic, and IC Implementation Concepts",
+            "Cascading Multiplexer Trees: Implementing 8-to-1 MUX using two 4-to-1 MUXes and an OR Gate",
+            "Cascading Multiplexer Trees: Implementing 16-to-1 MUX using two 8-to-1 MUXes and an Inverter",
+            "Realization of Boolean Functions using 4-to-1 Multiplexer (Truth Table Mapping & Implementation Table)",
+            "Realization of Boolean Functions using 8-to-1 Multiplexer (Variable Mapping & Minterm Selection)",
+            "Demultiplexers (DEMUX): Definition, Concept of Data Distributor, Single Input, Select Lines (1 to 2^n)",
+            "1-to-2 and 1-to-4 Demultiplexer: Function Table, Boolean Equations, Gate-Level Logic Circuit",
+            "1-to-8 Demultiplexer: Function Table, Output Routing Logic, Complete Circuit Diagram",
+            "Relationship & Equivalence: Using a Decoder with an Enable Input as a Demultiplexer",
+            "Comparative Analysis: Encoder vs Multiplexer (Input/Output Ratios, Select Lines & Applications)",
+            "Comparative Analysis: Decoder vs Demultiplexer (Operational Differences, Truth Table Comparison)",
+            "ISC Board Examination Analysis: 2-Mark and 4-Mark Circuit Design, Derivations, and Previous Years Questions"
+          ],
+          "learningOutcomes": [
+            "Differentiate between combinational and sequential logic circuits.",
+            "Design and draw truth tables, Boolean expressions, and logic circuits for Half Adder and Full Adder.",
+            "Construct a Full Adder using two Half Adders and an OR gate with algebraic proof.",
+            "Understand the concept, working principle, truth table, and circuit of Encoders (4-to-2, 8-to-3 octal-to-binary, decimal-to-BCD).",
+            "Understand the concept, working principle, truth table, and circuit of Decoders (2-to-4, 3-to-8) with active-HIGH and active-LOW enable lines.",
+            "Construct higher-order decoders using lower-order decoders with enable inputs.",
+            "Design and analyze Multiplexers (2:1, 4:1, 8:1, 16:1) as data selectors with selection lines.",
+            "Implement arbitrary Boolean logic functions using 4:1 and 8:1 Multiplexers.",
+            "Design and analyze Demultiplexers (1:2, 1:4, 1:8) as data distributors.",
+            "Explain how a decoder with an enable line operates as a demultiplexer.",
+            "Distinguish between Encoders vs Multiplexers and Decoders vs Demultiplexers.",
+            "Confidently solve ISC Class 12 board examination theory and circuit design problems."
+          ],
+          "prerequisites": [
+            "Basic Logic Gates (AND, OR, NOT, NAND, NOR, XOR, XNOR)",
+            "Truth Tables and Boolean Algebra Laws",
+            "Minterms, Maxterms, and SOP Expressions"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 3,
+          "summary": "This module covers the complete ISC Class 12 Computer Hardware and Combinational Logic Circuits syllabus mandated by CISCE. Students will master arithmetic circuits (Half Adder, Full Adder, Subtractors) and data routing / code conversion circuits: Encoders (4-to-2, 8-to-3, Decimal-to-BCD), Decoders (2-to-4, 3-to-8 with enable), Multiplexers (2:1, 4:1, 8:1, 16:1, function realization), and Demultiplexers (1:2, 1:4, 1:8). The module emphasizes board-pattern truth tables, Boolean derivations, logic gate drawings, and cascading building blocks.",
+          "miniProjects": [
+            "Virtual 4:1 Multiplexer & Boolean Function Realizer (Interactive Simulator)",
+            "3-to-8 Binary Decoder with Enable Line Logic Inspector",
+            "Full Adder from Two Half Adders Circuit Simulator",
+            "8-to-3 Octal-to-Binary Encoder Truth Table Verifier"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "shortAnswer": 25,
+            "longAnswer": 15,
+            "numerical": 20,
+            "circuitDesign": 25
+          },
+          "assessment": {
+            "type": "Worksheet + ISC Board Pattern Circuit Design Test + Viva",
+            "passScore": 70
+          },
+          "teachingFlow": [
+            "Introduction to Combinational Circuits vs Sequential Circuits",
+            "Half Adder and Full Adder (Truth Table, Equations, Circuit)",
+            "Full Adder Implementation using two Half Adders and an OR gate",
+            "Encoders: 4-to-2, 8-to-3, and Decimal-to-BCD (OR gate circuits)",
+            "Decoders: 2-to-4 and 3-to-8 (AND/NAND gate circuits and Enable lines)",
+            "Higher-order Decoder Construction using Enable inputs",
+            "Multiplexers: 2:1, 4:1, 8:1, 16:1 (Function Tables, Select Lines, Circuits)",
+            "Realizing Boolean Functions using 4:1 and 8:1 Multiplexers",
+            "Demultiplexers: 1:2, 1:4, 1:8 (Data Distributors, Decoder-Demux Equivalence)",
+            "Comparison between Encoder vs MUX and Decoder vs DEMUX",
+            "ISC Board Previous Years Question Discussion and Mock Test"
+          ],
+          "commonMistakes": [
+            "Confusing Encoders (2^n inputs to n outputs) with Decoders (n inputs to 2^n outputs).",
+            "Confusing Multiplexers (data selector with select lines) with Encoders (code converter without select lines).",
+            "Forgetting the Enable line while designing 3-to-8 Decoder from two 2-to-4 Decoders.",
+            "Drawing incorrect Carry-out equation for Full Adder (missing terms or incorrect factoring).",
+            "Incorrect select line assignments when implementing Boolean functions using Multiplexers.",
+            "Confusing active-HIGH enable (E=1 enables circuit) with active-LOW enable (E'=0 enables circuit)."
+          ],
+          "examTips": [
+            "Always draw the block diagram first before drawing the detailed gate-level circuit diagram.",
+            "For Full Adder using Half Adders, clearly label HA-1 (Sum1, Carry1), HA-2 (Sum, Carry2), and the final OR gate (Carry = Carry1 + Carry2).",
+            "For Encoders, remember that only one input line can be active at a time, and the output is synthesized using OR gates.",
+            "For Decoders, remember each output line represents one specific minterm (AND gate of all inputs in true or complemented form).",
+            "For 4:1 MUX, output Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3. Always write this equation before drawing the circuit.",
+            "To implement an n-variable function using a (n-1) select line MUX, construct the implementation table with input variables mapped to 0, 1, variable, or complement.",
+            "Practice ISC previous years questions on 3:8 decoder with enable and 4:1 multiplexer — they appear almost every year in Section A."
+          ],
+          "realLifeApplications": [
+            "Arithmetic Logic Unit (ALU) design inside microprocessors (Adders and Subtractors)",
+            "Memory Address Decoding in RAM/ROM chips (Decoders)",
+            "Keyboard and keypad input processing (Encoders)",
+            "Time-division multiplexing in telecommunications and data buses (Multiplexers)",
+            "Serial-to-parallel converters and display routing in digital systems (Demultiplexers)"
+          ],
+          "badge": "Combinational Logic & Hardware Master"
         },
         {
           "moduleId": "expression-conversion",
