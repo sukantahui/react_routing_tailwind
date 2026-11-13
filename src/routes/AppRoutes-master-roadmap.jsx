@@ -1044,6 +1044,19 @@ export default function AppRoutes() {
                 />
               }
             />
+            {/* Fallback route when topicIndex is omitted: defaults to Topic 0 */}
+            <Route
+              path={track.topicRoute.replace('/:topicIndex', '')}
+              element={
+                <StudyTrackRoute
+                  loadRoadmap={track.loadRoadmap}
+                  getTopics={track.getTopics}
+                  subjectKey={track.key}
+                  topicBasePath={track.topicBasePath}
+                  view="topic"
+                />
+              }
+            />
           </React.Fragment>
         ))}
 

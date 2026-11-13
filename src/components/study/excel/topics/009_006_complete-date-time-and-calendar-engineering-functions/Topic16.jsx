@@ -46,6 +46,16 @@ export default function Topic16() {
   const [inpNetEnd, setInpNetEnd] = useState("2026-11-30");
   const [excludeNovHoliday, setExcludeNovHoliday] = useState(true);
   const [dailyRate, setDailyRate] = useState(15000);
+  const [selectedMask, setSelectedMask] = useState("0000011");
+
+  const weekendMaskOptions = [
+    { mask: "0000011", name: "Standard 5-Day (NETWORKDAYS Default)", desc: "Saturday & Sunday non-working (Western & Indian Corporate)" },
+    { mask: "0000110", name: "Middle East GCC Trade Corridor", desc: "Friday & Saturday non-working (Sunday-Thursday workweek)" },
+    { mask: "0000001", name: "Indian 6-Day Manufacturing / Plant", desc: "Sunday only non-working (Monday-Saturday factory shift)" },
+    { mask: "0000100", name: "Islamic Port & Friday Off", desc: "Friday only non-working (Saturday-Thursday workweek)" },
+    { mask: "0101011", name: "Part-Time Consultant (Mon/Wed/Fri)", desc: "Tuesday, Thursday, Saturday & Sunday non-working" },
+    { mask: "0000000", name: "24/7 Mission-Critical Continuous Operations", desc: "Zero weekend days (All 7 days operational)" }
+  ];
 
   const sampleHolidaysNov = ["2026-11-18"];
 
@@ -72,35 +82,54 @@ export default function Topic16() {
     let holidayCount = 0;
     let totalCalendarDays = 0;
 
+    // Custom mask counting
+    let maskNetCount = 0;
+    let maskWeekendCount = 0;
+
     while (curr <= targetEnd) {
       totalCalendarDays++;
-      const jsDay = curr.getDay();
+      const jsDay = curr.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
       const isoStr = curr.toISOString().slice(0, 10);
+      const isHol = holidays.includes(isoStr);
 
+      // Standard NETWORKDAYS (Sat=6, Sun=0)
       if (jsDay === 0 || jsDay === 6) {
         weekendCount++;
-      } else if (holidays.includes(isoStr)) {
+      } else if (isHol) {
         holidayCount++;
       } else {
         netCount++;
       }
+
+      // Custom mask evaluation (pos 0=Mon ... pos 6=Sun)
+      const maskIdx = jsDay === 0 ? 6 : jsDay - 1;
+      const isMaskWeekend = selectedMask.charAt(maskIdx) === "1";
+      if (isMaskWeekend) {
+        maskWeekendCount++;
+      } else if (!isHol) {
+        maskNetCount++;
+      }
+
       curr.setDate(curr.getDate() + 1);
     }
 
     const finalNet = isReverse ? -netCount : netCount;
+    const finalMaskNet = isReverse ? -maskNetCount : maskNetCount;
     const totalBillableHours = finalNet * 8;
     const totalBillingAmount = finalNet * dailyRate;
 
     return {
       isError: false,
       finalNet,
+      finalMaskNet,
       totalCalendarDays,
       weekendCount,
+      maskWeekendCount,
       holidayCount,
       totalBillableHours,
       totalBillingAmount: totalBillingAmount.toLocaleString("en-IN")
     };
-  }, [inpNetStart, inpNetEnd, excludeNovHoliday, dailyRate]);
+  }, [inpNetStart, inpNetEnd, excludeNovHoliday, dailyRate, selectedMask]);
 
   const applyPreset = (preset) => {
     if (preset === "full_nov") {
@@ -228,7 +257,7 @@ export default function Topic16() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
           <label className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
             <span>Start Date</span>
@@ -255,16 +284,38 @@ export default function Topic16() {
           />
         </div>
 
+        <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+          <label className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+            <span>Weekend Mask Mode</span>
+            <span className="text-[10px] text-amber-400 font-mono">e.g. ('0000011')</span>
+          </label>
+          <select
+            value={selectedMask}
+            onChange={(e) => setSelectedMask(e.target.value)}
+            className="w-full px-3 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+          >
+            {weekendMaskOptions.map((opt) => (
+              <option key={opt.mask} value={opt.mask}>
+                {opt.mask} — {opt.name}
+              </option>
+            ))}
+          </select>
+          <p className="text-[10px] text-slate-400 truncate">
+            {weekendMaskOptions.find((o) => o.mask === selectedMask)?.desc}
+          </p>
+        </div>
+
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between">
           <label className="text-xs font-bold text-slate-300 uppercase tracking-wider">
-            Daily Consultant Billing Rate (₹)
+            Daily Rate & Holiday Filter
           </label>
           <input
             type="number"
             step="1000"
             value={dailyRate}
             onChange={(e) => setDailyRate(parseFloat(e.target.value) || 0)}
-            className="w-full px-3.5 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 mt-1"
+            className="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-mono text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            placeholder="Daily rate ₹"
           />
           <label className="flex items-center gap-2 cursor-pointer mt-1 text-[11px] text-slate-400">
             <input
@@ -279,23 +330,56 @@ export default function Topic16() {
       </div>
 
       <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="font-mono text-xs text-indigo-300">
-            Formula Evaluated:{" "}
-            <span className="text-white font-bold text-sm bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">
+        {/* Comparison Header: Default NETWORKDAYS vs Custom Weekend String */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 border-b border-slate-800">
+          <div className="p-4 rounded-xl bg-slate-900/90 border border-indigo-900/50 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-indigo-400 uppercase tracking-wider">
+                1. Classic NETWORKDAYS (Sat & Sun Hardcoded)
+              </span>
+              <span className="px-2 py-0.5 rounded text-[10px] bg-indigo-950 text-indigo-300 border border-indigo-800">
+                Default
+              </span>
+            </div>
+            <div className="font-mono text-xs text-slate-300 break-all">
               =NETWORKDAYS("{inpNetStart}", "{inpNetEnd}"{excludeNovHoliday ? ', {"2026-11-18"}' : ""})
-            </span>
+            </div>
+            <div className="flex items-baseline gap-2 pt-1">
+              <span className="text-xs text-slate-400">Result:</span>
+              <span className="font-mono text-xl font-black text-indigo-300">
+                {netDaysResult.isError ? netDaysResult.error : `${netDaysResult.finalNet} Working Days`}
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-400">Net Working Days:</span>
-            <span className="font-mono text-xl sm:text-2xl font-black px-4 py-1 rounded-xl bg-emerald-950 text-emerald-300 border border-emerald-700">
-              {netDaysResult.isError ? netDaysResult.error : `${netDaysResult.finalNet} Days`}
-            </span>
+
+          <div className="p-4 rounded-xl bg-slate-900/90 border border-amber-900/50 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
+                2. Equivalent Weekend String Syntax ('{selectedMask}')
+              </span>
+              <span className="px-2 py-0.5 rounded text-[10px] bg-amber-950 text-amber-300 border border-amber-800">
+                {selectedMask === "0000011" ? "Identical Match" : "Custom Schedule"}
+              </span>
+            </div>
+            <div className="font-mono text-xs text-slate-300 break-all">
+              =NETWORKDAYS.INTL("{inpNetStart}", "{inpNetEnd}", <span className="text-amber-300 font-bold">"{selectedMask}"</span>{excludeNovHoliday ? ', {"2026-11-18"}' : ""})
+            </div>
+            <div className="flex items-baseline gap-2 pt-1">
+              <span className="text-xs text-slate-400">Result:</span>
+              <span className="font-mono text-xl font-black text-amber-300">
+                {netDaysResult.isError ? netDaysResult.error : `${netDaysResult.finalMaskNet} Working Days`}
+              </span>
+              {selectedMask === "0000011" && (
+                <span className="text-[11px] text-emerald-400 font-semibold ml-2">
+                  ✓ Exactly equals NETWORKDAYS
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
         {!netDaysResult.isError && (
-          <div className="pt-3 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
               <span className="text-slate-400 block mb-0.5">Billable Labor Hours:</span>
               <span className="text-emerald-300 font-semibold font-mono text-base">
@@ -311,7 +395,7 @@ export default function Topic16() {
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
               <span className="text-slate-400 block mb-0.5">Weekend Days Excluded:</span>
               <span className="text-purple-300 font-semibold font-mono text-base">
-                {netDaysResult.weekendCount} Days
+                {selectedMask === "0000011" ? netDaysResult.weekendCount : netDaysResult.maskWeekendCount} Days
               </span>
             </div>
             <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
@@ -420,6 +504,217 @@ export default function Topic16() {
     
               </tbody>
             </table>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 4B: 7-CHARACTER BINARY WEEKEND MASK ARCHITECTURE ('0000011')
+        ========================================================================= */}
+        <section
+          className="reveal-section rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-slate-900 via-indigo-950/20 to-slate-900 border border-indigo-900/40 shadow-xl space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  Global Calendar Engineering
+                </span>
+                <span className="text-xs text-slate-400 font-mono">NETWORKDAYS Equivalent</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
+                <span className="text-amber-400">🌍</span> The 7-Character Binary Weekend String Architecture: Understanding <code className="text-amber-300 font-mono text-lg font-bold">('0000011')</code>
+              </h2>
+            </div>
+            <span className="font-mono text-xs text-emerald-400 bg-emerald-950/80 px-3 py-1.5 rounded-xl border border-emerald-800 shrink-0">
+              0 = Working · 1 = Non-Working
+            </span>
+          </div>
+
+          <div className="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+            <p>
+              In classic Excel, <code className="text-indigo-300 font-mono font-bold">NETWORKDAYS(start, end, [holidays])</code> has a <strong>permanently hardcoded weekend definition</strong>: Saturday and Sunday are always non-working days.
+            </p>
+            <p>
+              To support global enterprise supply chains and diverse labor schedules, Excel introduced the <strong>7-character binary weekend string mask</strong>. In this system, exactly 7 digits represent <strong>Monday through Sunday in sequential order</strong>. A <code className="text-emerald-400 font-mono font-bold">0</code> indicates an operational working day, while a <code className="text-rose-400 font-mono font-bold">1</code> marks a non-working weekend day.
+            </p>
+            <p className="p-3.5 rounded-xl bg-slate-950/80 border border-indigo-900/50 text-indigo-200 font-medium">
+              💡 <strong>Core Architectural Fact:</strong> Calling <code className="text-white font-mono font-bold">=NETWORKDAYS(A1, B1, Holidays)</code> is 100% mathematically and computationally identical to writing <code className="text-amber-300 font-mono font-bold">=NETWORKDAYS.INTL(A1, B1, "0000011", Holidays)</code>. The string <code className="text-amber-300 font-mono font-bold">'0000011'</code> explicitly defines Monday through Friday as working days (five zeros) and Saturday and Sunday as non-working days (two ones).
+            </p>
+          </div>
+
+          {/* VISUAL 7-DIGIT MASK BREAKDOWN */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
+            <div className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+              <span>Anatomy of Weekend String: <code className="text-amber-300 font-mono text-sm">"0000011"</code></span>
+              <span className="text-[11px] text-slate-400 font-mono">Position 1 (Mon) → Position 7 (Sun)</span>
+            </div>
+
+            <div className="grid grid-cols-7 gap-2 text-center font-mono">
+              <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 1</span>
+                <span className="text-sm font-bold text-white block">Mon</span>
+                <span className="text-lg font-black text-emerald-400">0</span>
+                <span className="text-[9px] text-emerald-300 block mt-0.5">Work</span>
+              </div>
+              <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 2</span>
+                <span className="text-sm font-bold text-white block">Tue</span>
+                <span className="text-lg font-black text-emerald-400">0</span>
+                <span className="text-[9px] text-emerald-300 block mt-0.5">Work</span>
+              </div>
+              <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 3</span>
+                <span className="text-sm font-bold text-white block">Wed</span>
+                <span className="text-lg font-black text-emerald-400">0</span>
+                <span className="text-[9px] text-emerald-300 block mt-0.5">Work</span>
+              </div>
+              <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 4</span>
+                <span className="text-sm font-bold text-white block">Thu</span>
+                <span className="text-lg font-black text-emerald-400">0</span>
+                <span className="text-[9px] text-emerald-300 block mt-0.5">Work</span>
+              </div>
+              <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 5</span>
+                <span className="text-sm font-bold text-white block">Fri</span>
+                <span className="text-lg font-black text-emerald-400">0</span>
+                <span className="text-[9px] text-emerald-300 block mt-0.5">Work</span>
+              </div>
+              <div className="p-3 rounded-xl bg-rose-950/60 border border-rose-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 6</span>
+                <span className="text-sm font-bold text-white block">Sat</span>
+                <span className="text-lg font-black text-rose-400">1</span>
+                <span className="text-[9px] text-rose-300 block mt-0.5">Weekend</span>
+              </div>
+              <div className="p-3 rounded-xl bg-rose-950/60 border border-rose-700/60">
+                <span className="text-[10px] text-slate-400 block mb-1">Pos 7</span>
+                <span className="text-sm font-bold text-white block">Sun</span>
+                <span className="text-lg font-black text-rose-400">1</span>
+                <span className="text-[9px] text-rose-300 block mt-0.5">Weekend</span>
+              </div>
+            </div>
+          </div>
+
+          {/* INTERNATIONAL WEEKEND MASK COMPARISON MATRIX */}
+          <div className="space-y-3">
+            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+              <span>🌐</span> Master Weekend Mask Comparison Matrix
+            </h3>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
+                <thead>
+                  <tr className="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider bg-slate-950/60">
+                    <th className="py-3 px-3.5">Weekend Mask</th>
+                    <th className="py-3 px-3.5">Workweek Schedule</th>
+                    <th className="py-3 px-3.5">Days Off</th>
+                    <th className="py-3 px-3.5">Target Industry / Regional Corridor</th>
+                    <th className="py-3 px-3.5">Production Excel Formula</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800/60 font-mono text-xs">
+                  <tr className="hover:bg-slate-900/40 bg-indigo-950/20">
+                    <td className="py-3 px-3.5 text-amber-300 font-bold">"0000011"</td>
+                    <td className="py-3 px-3.5 text-white font-sans">Mon – Fri (5-Day)</td>
+                    <td className="py-3 px-3.5 text-rose-300">Sat & Sun</td>
+                    <td className="py-3 px-3.5 text-slate-300 font-sans">Western / Indian IT Corporate (Default NETWORKDAYS)</td>
+                    <td className="py-3 px-3.5 text-emerald-300 font-bold">=NETWORKDAYS.INTL(B4, C4, "0000011", Holidays)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-900/40">
+                    <td className="py-3 px-3.5 text-amber-300 font-bold">"0000110"</td>
+                    <td className="py-3 px-3.5 text-white font-sans">Sun – Thu (5-Day)</td>
+                    <td className="py-3 px-3.5 text-rose-300">Fri & Sat</td>
+                    <td className="py-3 px-3.5 text-slate-300 font-sans">Middle East GCC (Dubai, Riyadh, Doha Cargo Customs)</td>
+                    <td className="py-3 px-3.5 text-emerald-300 font-bold">=NETWORKDAYS.INTL(B4, C4, "0000110", Holidays)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-900/40">
+                    <td className="py-3 px-3.5 text-amber-300 font-bold">"0000001"</td>
+                    <td className="py-3 px-3.5 text-white font-sans">Mon – Sat (6-Day)</td>
+                    <td className="py-3 px-3.5 text-rose-300">Sun Only</td>
+                    <td className="py-3 px-3.5 text-slate-300 font-sans">Indian Manufacturing Plants, EPC Site Construction, Retail</td>
+                    <td className="py-3 px-3.5 text-emerald-300 font-bold">=NETWORKDAYS.INTL(B4, C4, "0000001", Holidays)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-900/40">
+                    <td className="py-3 px-3.5 text-amber-300 font-bold">"0000100"</td>
+                    <td className="py-3 px-3.5 text-white font-sans">Sat – Thu (6-Day)</td>
+                    <td className="py-3 px-3.5 text-rose-300">Fri Only</td>
+                    <td className="py-3 px-3.5 text-slate-300 font-sans">Traditional Islamic Port Customs & Municipal Offices</td>
+                    <td className="py-3 px-3.5 text-emerald-300 font-bold">=NETWORKDAYS.INTL(B4, C4, "0000100", Holidays)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-900/40">
+                    <td className="py-3 px-3.5 text-amber-300 font-bold">"0101011"</td>
+                    <td className="py-3 px-3.5 text-white font-sans">Mon, Wed, Fri (3-Day)</td>
+                    <td className="py-3 px-3.5 text-rose-300">Tue, Thu, Sat, Sun</td>
+                    <td className="py-3 px-3.5 text-slate-300 font-sans">Part-Time Consultant, Hospital Visiting Surgeon, Job-Share</td>
+                    <td className="py-3 px-3.5 text-emerald-300 font-bold">=NETWORKDAYS.INTL(B4, C4, "0101011", Holidays)</td>
+                  </tr>
+                  <tr className="hover:bg-slate-900/40">
+                    <td className="py-3 px-3.5 text-amber-300 font-bold">"0000000"</td>
+                    <td className="py-3 px-3.5 text-white font-sans">All 7 Days (24/7)</td>
+                    <td className="py-3 px-3.5 text-emerald-400 font-sans">None (0 Days)</td>
+                    <td className="py-3 px-3.5 text-slate-300 font-sans">24/7 Cloud Data Centers, ICU Hospital Wards, Power Grid</td>
+                    <td className="py-3 px-3.5 text-emerald-300 font-bold">=NETWORKDAYS.INTL(B4, C4, "0000000", Holidays)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* 5 CONCRETE REAL-WORLD CODE EXAMPLES */}
+          <div className="space-y-4 pt-2">
+            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+              <span>💻</span> 5 Practical Production Formula Examples
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-indigo-400 block">
+                  Example 1: Standard Indian/US Corporate 5-Day SLA
+                </span>
+                <p className="text-xs text-slate-400">
+                  Calculates net operational days using the standard Saturday/Sunday weekend string, exactly matching NETWORKDAYS.
+                </p>
+                <div className="p-3 rounded-xl bg-slate-900 font-mono text-xs text-emerald-300">
+                  =NETWORKDAYS.INTL(B4, C4, "0000011", tblHolidays[Date])
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-amber-400 block">
+                  Example 2: Middle East Gulf Cargo Transit SLA
+                </span>
+                <p className="text-xs text-slate-400">
+                  For shipments clearing Jebel Ali (Dubai) or Dammam (Saudi Arabia) where customs offices take Friday and Saturday off.
+                </p>
+                <div className="p-3 rounded-xl bg-slate-900 font-mono text-xs text-amber-300">
+                  =NETWORKDAYS.INTL(B4, C4, "0000110", MiddleEastHolidays)
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-sky-400 block">
+                  Example 3: Manufacturing Plant 6-Day Production Shift
+                </span>
+                <p className="text-xs text-slate-400">
+                  In Indian factory plants operating Monday through Saturday with only Sunday as the statutory rest day.
+                </p>
+                <div className="p-3 rounded-xl bg-slate-900 font-mono text-xs text-sky-300">
+                  =NETWORKDAYS.INTL(B4, C4, "0000001", FactoryShutdownDates)
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-purple-400 block">
+                  Example 4: Part-Time Senior Consultant Capacity
+                </span>
+                <p className="text-xs text-slate-400">
+                  For contracted specialists who work strictly on Mondays, Wednesdays, and Fridays (Tuesday, Thursday, Saturday, Sunday off).
+                </p>
+                <div className="p-3 rounded-xl bg-slate-900 font-mono text-xs text-purple-300">
+                  =NETWORKDAYS.INTL(MonthStart, MonthEnd, "0101011", Holidays) * 8
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -788,6 +1083,8 @@ export default function Topic16() {
             </table>
           </div>
         </section>
+
+        
 
         {/* =========================================================================
             SECTION 11: PRO TIPS & ARCHITECTURAL INSIGHTS

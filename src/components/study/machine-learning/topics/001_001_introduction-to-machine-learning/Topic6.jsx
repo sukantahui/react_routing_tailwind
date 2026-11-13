@@ -20,8 +20,19 @@ const Topic6 = () => {
   const [userAnswer, setUserAnswer] = useState(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
-  // Interactive Label Propagation Wave Studio State
+  // Interactive Label Propagation & Self-Training Studio State
+  const [studioMode, setStudioMode] = useState("graph");
   const [propagationStep, setPropagationStep] = useState(1);
+  const [pseudoThreshold, setPseudoThreshold] = useState(0.85);
+
+  const pseudoCandidates = [
+    { id: "SCAN-101", patient: "P. Mukherjee (Kolkata)", feature: "High infiltrates (0.92)", modelProb: 0.96, predictedClass: "Pneumonia", trueClass: "Pneumonia" },
+    { id: "SCAN-102", patient: "S. Roy (Barrackpore)", feature: "Clear lung fields (0.15)", modelProb: 0.94, predictedClass: "Healthy", trueClass: "Healthy" },
+    { id: "SCAN-103", patient: "A. Ganguly (Ichapur)", feature: "Consolidation (0.84)", modelProb: 0.88, predictedClass: "Pneumonia", trueClass: "Pneumonia" },
+    { id: "SCAN-104", patient: "D. Banerjee (Naihati)", feature: "Mild bronchial marking (0.35)", modelProb: 0.78, predictedClass: "Healthy", trueClass: "Healthy" },
+    { id: "SCAN-105", patient: "M. Das (Shyamnagar)", feature: "Ambiguous shadow (0.54)", modelProb: 0.64, predictedClass: "Pneumonia", trueClass: "Healthy (Error Trap!)" },
+    { id: "SCAN-106", patient: "R. Ghosh (Titagarh)", feature: "Borderline texture (0.48)", modelProb: 0.55, predictedClass: "Pneumonia", trueClass: "Healthy (Error Trap!)" }
+  ];
 
   const svgId = useId();
 
@@ -252,6 +263,36 @@ const Topic6 = () => {
         { id: "errorAccumulation", label: "Error Accumulation & Confirmation Bias (Model trains on its own false guesses)", isCorrect: true, explanation: "Spot on! If the threshold is low (50%), the model will make wrong guesses, treat those wrong guesses as official ground-truth, and reinforce its own mistakes on the next training iteration." },
         { id: "underfitting", label: "Instant High-Bias Underfitting", isCorrect: false, explanation: "Incorrect. The issue is not high bias; it is toxic error accumulation from noisy false labels." },
         { id: "hardwareCrash", label: "GPU hardware memory failure", isCorrect: false, explanation: "Incorrect. This is a mathematical statistical failure, not a hardware fault." }
+      ]
+    },
+    {
+      id: 2,
+      title: "Diagnostic 3: Cluster Assumption Breakdown",
+      scenario: "An engineer in Salt Lake City tests Semi-Supervised Learning on fraud detection, but PCA shows fraudulent and legitimate transactions overlap completely in the high-density center with no low-density separating valley. What will occur?",
+      options: [
+        { id: "degradation", label: "Performance degrades; semi-supervised model may perform worse than purely supervised baseline", isCorrect: true, explanation: "Exactly right! When the Cluster Assumption fails (no low-density valley between classes), unannotated points will spread incorrect labels across the boundary, causing negative transfer." },
+        { id: "magicFix", label: "The algorithm will invent a new low-density valley automatically", isCorrect: false, explanation: "Incorrect. Algorithms cannot alter genuine data distribution geometry." },
+        { id: "instantConvergence", label: "Graph Laplacian converges in 0 iterations", isCorrect: false, explanation: "Incorrect. Convergence still requires graph diffusion." }
+      ]
+    },
+    {
+      id: 3,
+      title: "Diagnostic 4: Transductive vs Inductive Deployment",
+      scenario: "A pathology lab in Kolkata needs to process incoming patient blood samples arriving every 10 minutes in real time. Why is standard Graph-based Label Propagation inconvenient for this streaming deployment?",
+      options: [
+        { id: "transductiveLimit", label: "It is transductive; it only predicts nodes present in the initial graph and lacks an explicit parametric function f(x)", isCorrect: true, explanation: "Spot on! Transductive methods require rebuilding or inverting the graph for new out-of-sample points. For live streaming, inductive methods (like neural pseudo-labeling or manifold SVM) are preferred." },
+        { id: "textOnly", label: "Graph algorithms only operate on NLP text strings", isCorrect: false, explanation: "Incorrect. Graph algorithms operate on numeric affinity matrices." },
+        { id: "cpuLock", label: "Operating systems block transductive algorithms from networking", isCorrect: false, explanation: "Incorrect. This is an algorithmic property, not an OS restriction." }
+      ]
+    },
+    {
+      id: 4,
+      title: "Diagnostic 5: Multi-View Co-Training Pre-requisite",
+      scenario: "Susmita wants to use Blum & Mitchell's Co-Training algorithm for web document classification. What property must her feature set exhibit?",
+      options: [
+        { id: "condIndependence", label: "Features must split into two redundant views that are conditionally independent given the class label", isCorrect: true, explanation: "Correct! Co-training requires two views (e.g. Page Body Text vs Inbound Hyperlink Anchor Text). Each view alone must be sufficient to train a good predictor, and the two views must be conditionally independent." },
+        { id: "singleScalar", label: "The feature set must consist of exactly 1 scalar float", isCorrect: false, explanation: "Incorrect. Co-training strictly requires multi-view splits." },
+        { id: "allZeroes", label: "The covariance matrix must be completely filled with zeroes", isCorrect: false, explanation: "Incorrect. Zero covariance across all features would mean no predictive information." }
       ]
     }
   ];
@@ -580,82 +621,256 @@ const Topic6 = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 1: INTERACTIVE LABEL PROPAGATION WAVE STUDIO */}
+      {/* SECTION 1: INTERACTIVE LABEL PROPAGATION & SELF-TRAINING WAVE STUDIO */}
       {/* ========================================================================= */}
       <section id="interactiveStudio" className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6 scroll-mt-6">
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
-            01
-          </div>
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-white">
-              Interactive Label Propagation Wave Studio
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-400">
-              Live simulation showing how 2 seed nodes annotate an entire unannotated network in 3 sequential propagation waves
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-6">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 p-4 rounded-xl border border-slate-800">
-            <div>
-              <span className="text-xs font-mono font-bold text-purple-400 uppercase">Propagation Wave Progress:</span>
-              <p className="text-xs text-slate-400">Step through the wave to see affinity-based label dissemination</p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
+              01
             </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white">
+                Interactive Semi-Supervised Simulation Studio
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-400">
+                Explore dual mechanics: Graph Diffusion Waves vs. Confidence-Gated Pseudo-Labeling
+              </p>
+            </div>
+          </div>
+
+          {/* Mode Switcher */}
+          <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800">
             <button
-              onClick={() => setPropagationStep((prev) => (prev >= 3 ? 1 : prev + 1))}
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs rounded-lg transition-all shadow-lg shadow-purple-600/30 cursor-pointer"
+              onClick={() => setStudioMode("graph")}
+              className={clsx(
+                "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                studioMode === "graph"
+                  ? "bg-purple-600 text-white shadow-md shadow-purple-600/30 font-bold"
+                  : "text-slate-400 hover:text-white"
+              )}
             >
-              Execute Next Propagation Wave (Step {propagationStep}/3)
+              🕸️ Graph Label Propagation
+            </button>
+            <button
+              onClick={() => setStudioMode("pseudo")}
+              className={clsx(
+                "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer",
+                studioMode === "pseudo"
+                  ? "bg-cyan-600 text-white shadow-md shadow-cyan-600/30 font-bold"
+                  : "text-slate-400 hover:text-white"
+              )}
+            >
+              🤖 Self-Training & Threshold
             </button>
           </div>
-
-          <svg viewBox="0 0 500 200" className="w-full h-56 bg-slate-900 rounded-xl p-2 border border-slate-800">
-            {/* Seed Node 1 (Blue - Clean Transaction) */}
-            <circle cx="80" cy="100" r="12" fill="#3b82f6" stroke="#ffffff" strokeWidth="2.5" />
-            <text x="80" y="75" textAnchor="middle" fill="#93c5fd" fontSize="10" fontWeight="bold">Seed 1 (Legitimate)</text>
-
-            {/* Seed Node 2 (Red - Fraud Transaction) */}
-            <circle cx="420" cy="100" r="12" fill="#f43f5e" stroke="#ffffff" strokeWidth="2.5" />
-            <text x="420" y="75" textAnchor="middle" fill="#fda4af" fontSize="10" fontWeight="bold">Seed 2 (Fraud Attack)</text>
-
-            {/* Connecting Graph Edges */}
-            <line x1="80" y1="100" x2="170" y2="60" stroke="#475569" strokeWidth="2" />
-            <line x1="80" y1="100" x2="170" y2="140" stroke="#475569" strokeWidth="2" />
-            <line x1="170" y1="60" x2="250" y2="100" stroke="#475569" strokeWidth="2" />
-            <line x1="170" y1="140" x2="250" y2="100" stroke="#475569" strokeWidth="2" />
-
-            <line x1="420" y1="100" x2="330" y2="100" stroke="#475569" strokeWidth="2" />
-
-            {/* Unlabeled Wave 1 Nodes */}
-            <circle cx="170" cy="60" r="10" fill={propagationStep >= 2 ? "#3b82f6" : "#64748b"} />
-            <text x="170" y="42" textAnchor="middle" fill={propagationStep >= 2 ? "#93c5fd" : "#94a3b8"} fontSize="9">
-              {propagationStep >= 2 ? "Propagated (Clean)" : "Unlabeled Node A"}
-            </text>
-
-            <circle cx="170" cy="140" r="10" fill={propagationStep >= 2 ? "#3b82f6" : "#64748b"} />
-            <text x="170" y="162" textAnchor="middle" fill={propagationStep >= 2 ? "#93c5fd" : "#94a3b8"} fontSize="9">
-              {propagationStep >= 2 ? "Propagated (Clean)" : "Unlabeled Node B"}
-            </text>
-
-            {/* Unlabeled Wave 2 Node */}
-            <circle cx="250" cy="100" r="10" fill={propagationStep >= 3 ? "#3b82f6" : "#64748b"} />
-            <text x="250" y="80" textAnchor="middle" fill={propagationStep >= 3 ? "#93c5fd" : "#94a3b8"} fontSize="9">
-              {propagationStep >= 3 ? "Propagated (Clean)" : "Unlabeled Node C"}
-            </text>
-
-            {/* Unlabeled Wave 1 (Right Fraud) */}
-            <circle cx="330" cy="100" r="10" fill={propagationStep >= 2 ? "#f43f5e" : "#64748b"} />
-            <text x="330" y="80" textAnchor="middle" fill={propagationStep >= 2 ? "#fda4af" : "#94a3b8"} fontSize="9">
-              {propagationStep >= 2 ? "Propagated (Fraud)" : "Unlabeled Node D"}
-            </text>
-          </svg>
-
-          <p className="text-xs text-slate-400">
-            Notice how knowledge from 2 labeled seed nodes flows through the graph structure, automatically annotating all 4 unannotated gray nodes without human intervention.
-          </p>
         </div>
+
+        {studioMode === "graph" ? (
+          <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-slate-900 p-4 rounded-xl border border-slate-800">
+              <div>
+                <span className="text-xs font-mono font-bold text-purple-400 uppercase">Propagation Wave Progress:</span>
+                <p className="text-xs text-slate-400">
+                  Step {propagationStep} of 3: {propagationStep === 1 ? "Ground Truth Seeds Only (|D_L| = 2)" : propagationStep === 2 ? "Wave 1: Direct Neighbors Labeled (|D_L| + 3)" : "Wave 2: Full Network Convergence (100% Annotated)"}
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setPropagationStep(1)}
+                  className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs rounded-lg transition-all border border-slate-700 cursor-pointer"
+                >
+                  Reset
+                </button>
+                <button
+                  onClick={() => setPropagationStep((prev) => (prev >= 3 ? 1 : prev + 1))}
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs rounded-lg transition-all shadow-lg shadow-purple-600/30 cursor-pointer"
+                >
+                  {propagationStep >= 3 ? "Restart Propagation Wave" : `Execute Next Wave (Step ${propagationStep}/3)`}
+                </button>
+              </div>
+            </div>
+
+            <svg viewBox="0 0 500 200" className="w-full h-56 bg-slate-900 rounded-xl p-2 border border-slate-800">
+              {/* Seed Node 1 (Blue - Clean Transaction) */}
+              <circle cx="80" cy="100" r="14" fill="#3b82f6" stroke="#60a5fa" strokeWidth="3" />
+              <text x="80" y="72" textAnchor="middle" fill="#93c5fd" fontSize="10" fontWeight="bold">Seed 1 (Legitimate)</text>
+              <text x="80" y="104" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="bold">D_L</text>
+
+              {/* Seed Node 2 (Red - Fraud Transaction) */}
+              <circle cx="420" cy="100" r="14" fill="#f43f5e" stroke="#fb7185" strokeWidth="3" />
+              <text x="420" y="72" textAnchor="middle" fill="#fda4af" fontSize="10" fontWeight="bold">Seed 2 (Fraud Attack)</text>
+              <text x="420" y="104" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="bold">D_L</text>
+
+              {/* Connecting Graph Edges with dynamic color highlighting */}
+              <line x1="80" y1="100" x2="170" y2="60" stroke={propagationStep >= 2 ? "#3b82f6" : "#475569"} strokeWidth={propagationStep >= 2 ? "2.5" : "1.5"} />
+              <line x1="80" y1="100" x2="170" y2="140" stroke={propagationStep >= 2 ? "#3b82f6" : "#475569"} strokeWidth={propagationStep >= 2 ? "2.5" : "1.5"} />
+              <line x1="170" y1="60" x2="250" y2="100" stroke={propagationStep >= 3 ? "#3b82f6" : "#475569"} strokeWidth={propagationStep >= 3 ? "2.5" : "1.5"} />
+              <line x1="170" y1="140" x2="250" y2="100" stroke={propagationStep >= 3 ? "#3b82f6" : "#475569"} strokeWidth={propagationStep >= 3 ? "2.5" : "1.5"} />
+              <line x1="420" y1="100" x2="330" y2="100" stroke={propagationStep >= 2 ? "#f43f5e" : "#475569"} strokeWidth={propagationStep >= 2 ? "2.5" : "1.5"} />
+
+              {/* Unlabeled Wave 1 Nodes */}
+              <circle cx="170" cy="60" r="12" fill={propagationStep >= 2 ? "#2563eb" : "#475569"} stroke={propagationStep >= 2 ? "#93c5fd" : "#334155"} strokeWidth="2" />
+              <text x="170" y="40" textAnchor="middle" fill={propagationStep >= 2 ? "#bfdbfe" : "#94a3b8"} fontSize="9">
+                {propagationStep >= 2 ? "Node A: Legitimate (94%)" : "Unlabeled Node A"}
+              </text>
+
+              <circle cx="170" cy="140" r="12" fill={propagationStep >= 2 ? "#2563eb" : "#475569"} stroke={propagationStep >= 2 ? "#93c5fd" : "#334155"} strokeWidth="2" />
+              <text x="170" y="164" textAnchor="middle" fill={propagationStep >= 2 ? "#bfdbfe" : "#94a3b8"} fontSize="9">
+                {propagationStep >= 2 ? "Node B: Legitimate (92%)" : "Unlabeled Node B"}
+              </text>
+
+              {/* Unlabeled Wave 2 Node */}
+              <circle cx="250" cy="100" r="12" fill={propagationStep >= 3 ? "#1d4ed8" : "#475569"} stroke={propagationStep >= 3 ? "#93c5fd" : "#334155"} strokeWidth="2" />
+              <text x="250" y="78" textAnchor="middle" fill={propagationStep >= 3 ? "#bfdbfe" : "#94a3b8"} fontSize="9">
+                {propagationStep >= 3 ? "Node C: Legitimate (89%)" : "Unlabeled Node C"}
+              </text>
+
+              {/* Unlabeled Wave 1 (Right Fraud) */}
+              <circle cx="330" cy="100" r="12" fill={propagationStep >= 2 ? "#e11d48" : "#475569"} stroke={propagationStep >= 2 ? "#fecdd3" : "#334155"} strokeWidth="2" />
+              <text x="330" y="78" textAnchor="middle" fill={propagationStep >= 2 ? "#fecdd3" : "#94a3b8"} fontSize="9">
+                {propagationStep >= 2 ? "Node D: Fraud (96%)" : "Unlabeled Node D"}
+              </text>
+            </svg>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
+                <span className="text-[11px] font-mono text-purple-400 block font-bold">1. Seed Anchoring</span>
+                <p className="text-[11px] text-slate-300">Ground truth verified instances ($D_L$) remain hard-clamped throughout all diffusion iterations.</p>
+              </div>
+              <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
+                <span className="text-[11px] font-mono text-cyan-400 block font-bold">2. Gaussian Affinity Matrix</span>
+                <p className="text-[11px] text-slate-300">Edge weights <span className="font-mono text-cyan-300">W_ij = exp(-&gamma; ||x_i - x_j||&sup2;)</span> measure probability of random walk transition.</p>
+              </div>
+              <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
+                <span className="text-[11px] font-mono text-emerald-400 block font-bold">3. Harmonic Convergence</span>
+                <p className="text-[11px] text-slate-300">Solution <span className="font-mono text-emerald-300">f_u = (D_uu - W_uu)⁻¹ W_ul y_l</span> minimizes total Dirichlet energy across the graph manifold.</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          /* Pseudo-Labeling / Self-Training Simulator */
+          <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-6">
+            <div className="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Confidence Cutoff Threshold (&tau; - Tau):</span>
+                  <p className="text-xs text-slate-400">Drag to observe how strictness protects against confirmation bias</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-lg font-mono font-bold text-white px-3 py-1 bg-slate-950 rounded border border-slate-700">
+                    &tau; = {pseudoThreshold.toFixed(2)} ({(pseudoThreshold * 100).toFixed(0)}%)
+                  </span>
+                </div>
+              </div>
+
+              <input
+                type="range"
+                min="0.50"
+                max="0.98"
+                step="0.02"
+                value={pseudoThreshold}
+                onChange={(e) => setPseudoThreshold(parseFloat(e.target.value))}
+                className="w-full accent-cyan-500 cursor-pointer"
+              />
+
+              {/* Dynamic Warning Alert on Confirmation Bias */}
+              {pseudoThreshold < 0.75 ? (
+                <div className="p-3 rounded-lg bg-rose-950/60 border border-rose-500/60 text-rose-200 text-xs space-y-1">
+                  <div className="font-bold flex items-center gap-1.5 text-rose-300">
+                    <span>⚠️ CRITICAL RISK: CONFIRMATION BIAS TRIGGERED!</span>
+                  </div>
+                  <p>
+                    Because &tau; is set low ({pseudoThreshold.toFixed(2)}), erroneous predictions like SCAN-105 ({pseudoCandidates[4].modelProb * 100}%) and SCAN-106 ({pseudoCandidates[5].modelProb * 100}%) are erroneously accepted as pseudo-labels. The model will reinforce its own mistakes in future iterations, destroying clinical accuracy!
+                  </p>
+                </div>
+              ) : (
+                <div className="p-3 rounded-lg bg-emerald-950/60 border border-emerald-500/60 text-emerald-200 text-xs space-y-1">
+                  <div className="font-bold flex items-center gap-1.5 text-emerald-300">
+                    <span>✅ ROBUST BOOTSTRAPPING (CLEAN PSEUDO-POOL)</span>
+                  </div>
+                  <p>
+                    Threshold &tau; &ge; 0.75 safely rejects ambiguous scans, preventing toxic error accumulation. Only crystal-clear predictions are accepted as pseudo-labels.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Candidate Samples Table */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+                <span>Unlabeled Patient Candidates (Hospital Cohort)</span>
+                <span>
+                  Promoted to Pseudo-Labels:{" "}
+                  <strong className="text-emerald-400">
+                    {pseudoCandidates.filter((c) => c.modelProb >= pseudoThreshold).length}
+                  </strong>{" "}
+                  / {pseudoCandidates.length}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {pseudoCandidates.map((c) => {
+                  const isAccepted = c.modelProb >= pseudoThreshold;
+                  const isMistake = isAccepted && c.trueClass.includes("Error");
+                  return (
+                    <div
+                      key={c.id}
+                      className={clsx(
+                        "p-4 rounded-xl border transition-all text-xs space-y-2",
+                        isMistake
+                          ? "bg-rose-950/40 border-rose-500 ring-1 ring-rose-500"
+                          : isAccepted
+                          ? "bg-emerald-950/40 border-emerald-500"
+                          : "bg-slate-900 border-slate-800 opacity-60"
+                      )}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <span className="font-mono font-bold text-white block">{c.id}</span>
+                          <span className="text-[11px] text-slate-400">{c.patient}</span>
+                        </div>
+                        <span
+                          className={clsx(
+                            "px-2 py-0.5 rounded text-[10px] font-bold font-mono",
+                            isAccepted
+                              ? isMistake
+                                ? "bg-rose-900 text-rose-200"
+                                : "bg-emerald-900 text-emerald-200"
+                              : "bg-slate-800 text-slate-400"
+                          )}
+                        >
+                          {isAccepted ? "PROMOTED ✔" : "HELD BACK ⏳"}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1 pt-1 border-t border-slate-800">
+                        <div className="flex justify-between text-[11px]">
+                          <span className="text-slate-400">Feature:</span>
+                          <span className="text-slate-200">{c.feature}</span>
+                        </div>
+                        <div className="flex justify-between text-[11px]">
+                          <span className="text-slate-400">Model Conf:</span>
+                          <span className="font-bold text-cyan-300">{(c.modelProb * 100).toFixed(0)}%</span>
+                        </div>
+                        <div className="flex justify-between text-[11px]">
+                          <span className="text-slate-400">Predicted:</span>
+                          <span className="font-bold text-white">{c.predictedClass}</span>
+                        </div>
+                        <div className="flex justify-between text-[11px]">
+                          <span className="text-slate-400">True State:</span>
+                          <span className={clsx("font-bold", c.trueClass.includes("Error") ? "text-rose-400" : "text-emerald-400")}>
+                            {c.trueClass}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ========================================================================= */}
@@ -686,7 +901,7 @@ const Topic6 = () => {
               {"min_f [ ∑_{i=1}^l L(f(x_i), y_i) + γ_I ∑_{i,j=1}^{l+u} W_{ij} (f(x_i) - f(x_j))² + γ_A ||f||_K² ]"}
             </div>
             <p className="text-[11px] text-slate-400">
-              Where $W_{ij}$ is the graph edge weight reflecting geometric similarity between points $x_i$ and $x_j$.
+              Where <span className="font-mono text-purple-300">W_ij</span> is the graph edge weight reflecting geometric similarity between points <span className="font-mono text-purple-300">x_i</span> and <span className="font-mono text-purple-300">x_j</span>.
             </p>
           </div>
 
@@ -903,7 +1118,7 @@ const Topic6 = () => {
               Executable Python Laboratory Simulation
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Interactive standalone lab script executing label propagation across student cohorts
+              Interactive standalone lab script executing comparative benchmarks: Supervised Baseline vs Self-Training vs Graph Label Propagation
             </p>
           </div>
         </div>
@@ -911,7 +1126,7 @@ const Topic6 = () => {
         <PythonFileLoader
           fileModule={labCode}
           title="semi_supervised_learning_basic_idea_lab.py"
-          highlightLines={[25, 26, 35, 45]}
+          highlightLines={[25, 68, 115, 160, 215, 275]}
         />
       </section>
 

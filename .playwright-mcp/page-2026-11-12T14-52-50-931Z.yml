@@ -1,0 +1,1043 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001 Premier Coding & IT Institute" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=e11]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: Coder&AccoTax
+            - generic [ref=e15]: ISO 9001
+          - generic [ref=e17]: Premier Coding & IT Institute
+      - navigation [ref=e18]:
+        - link "Courses" [ref=e19] [cursor=pointer]:
+          - /url: /#courses
+        - button "Tools " [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: Tools
+          - generic [ref=e23]: 
+        - button "Tutorials " [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: Tutorials
+          - generic [ref=e27]: 
+        - button "About " [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: About
+          - generic [ref=e31]: 
+        - link "🌸 Bijoya 2026" [ref=e32] [cursor=pointer]:
+          - /url: /bijoya
+          - generic [ref=e33]: 🌸
+          - generic [ref=e34]: Bijoya 2026
+      - generic [ref=e35]:
+        - button " Quick Jump... ⌘K" [ref=e36] [cursor=pointer]:
+          - generic [ref=e37]: 
+          - generic [ref=e38]: Quick Jump...
+          - generic [ref=e39]: ⌘K
+        - link "Portal Sign In" [ref=e40] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=e41]: 
+          - generic [ref=e42]: Sign In
+        - text:   
+  - main [ref=e43]:
+    - generic [ref=e48]:
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - link "Overview" [ref=e52] [cursor=pointer]:
+            - /url: /excel/module/009_006_complete-date-time-and-calendar-engineering-functions
+          - generic [ref=e57]: Complete Date, Time & Calendar Engineering Functions
+          - link "Next Module" [ref=e63] [cursor=pointer]:
+            - /url: /excel/topic/009_007_advanced-financial-bond-and-investment-functions/0
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e71]: 17/28
+            - generic [ref=e74]: 14%
+          - button "Hide Topics" [ref=e75]
+          - button "Workspace" [ref=e78]
+          - button "Annotate" [ref=e82]
+          - button "Dictionary" [ref=e89]
+          - button "Math" [ref=e94]
+          - button "Focus Mode (Hide sidebars & clutter)" [ref=e98]
+          - button "A+" [ref=e104]
+          - button "Bookmark topic" [ref=e105]
+          - button "Copy topic link" [ref=e108]
+          - button "Done" [ref=e112]
+          - generic [ref=e117]:
+            - link "Prev" [ref=e118] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/15
+            - link "Next" [ref=e122] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/17
+      - generic [ref=e127]:
+        - complementary [ref=e128]:
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - generic [ref=e131]: Module Progress
+              - generic [ref=e132]: 4/28 (14%)
+            - generic [ref=e135]:
+              - generic [ref=e136]: 9 hrs
+              - generic [ref=e137]: Hard
+          - textbox "Filter topics..." [ref=e142]
+          - generic [ref=e143]:
+            - link "01.NOW Function — Current Date and Time" [ref=e144] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/0
+              - generic [ref=e148]:
+                - generic [ref=e149]: "01."
+                - text: NOW Function — Current Date and Time
+            - link "02.DATE Function — Date Construction" [ref=e150] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/1
+              - generic [ref=e152]:
+                - generic [ref=e153]: "02."
+                - text: DATE Function — Date Construction
+            - link "03.DATEVALUE Function — Text-to-Date Conversion" [ref=e154] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/2
+              - generic [ref=e156]:
+                - generic [ref=e157]: "03."
+                - text: DATEVALUE Function — Text-to-Date Conversion
+            - link "04.TIME Function — Time Construction" [ref=e158] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/3
+              - generic [ref=e160]:
+                - generic [ref=e161]: "04."
+                - text: TIME Function — Time Construction
+            - link "05.TIMEVALUE Function — Text-to-Time Conversion" [ref=e162] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/4
+              - generic [ref=e164]:
+                - generic [ref=e165]: "05."
+                - text: TIMEVALUE Function — Text-to-Time Conversion
+            - link "06.DAY, MONTH and YEAR Functions — Date Component Extraction" [ref=e166] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/5
+              - generic [ref=e168]:
+                - generic [ref=e169]: "06."
+                - text: DAY, MONTH and YEAR Functions — Date Component Extraction
+            - link "07.HOUR, MINUTE and SECOND Functions — Time Component Extraction" [ref=e170] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/6
+              - generic [ref=e172]:
+                - generic [ref=e173]: "07."
+                - text: HOUR, MINUTE and SECOND Functions — Time Component Extraction
+            - link "08.DAYS Function — Date Difference" [ref=e174] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/7
+              - generic [ref=e176]:
+                - generic [ref=e177]: "08."
+                - text: DAYS Function — Date Difference
+            - link "09.DAYS360 Function — 360-Day Calendar Difference" [ref=e178] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/8
+              - generic [ref=e180]:
+                - generic [ref=e181]: "09."
+                - text: DAYS360 Function — 360-Day Calendar Difference
+            - link "10.EDATE Function — Month Offset" [ref=e182] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/9
+              - generic [ref=e184]:
+                - generic [ref=e185]: "10."
+                - text: EDATE Function — Month Offset
+            - link "11.EOMONTH Function — Month-End Calculation" [ref=e186] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/10
+              - generic [ref=e188]:
+                - generic [ref=e189]: "11."
+                - text: EOMONTH Function — Month-End Calculation
+            - link "12.WEEKDAY Function — Day-of-Week Calculation" [ref=e190] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/11
+              - generic [ref=e192]:
+                - generic [ref=e193]: "12."
+                - text: WEEKDAY Function — Day-of-Week Calculation
+            - link "13.WEEKNUM Function — Week Number Calculation" [ref=e194] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/12
+              - generic [ref=e196]:
+                - generic [ref=e197]: "13."
+                - text: WEEKNUM Function — Week Number Calculation
+            - link "14.ISOWEEKNUM Function — ISO Week Number Calculation" [ref=e198] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/13
+              - generic [ref=e200]:
+                - generic [ref=e201]: "14."
+                - text: ISOWEEKNUM Function — ISO Week Number Calculation
+            - link "15.WORKDAY Function — Business-Day Calculation" [ref=e202] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/14
+              - generic [ref=e204]:
+                - generic [ref=e205]: "15."
+                - text: WORKDAY Function — Business-Day Calculation
+            - link "16.WORKDAY.INTL Function — International Business-Day Calculation" [ref=e206] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/15
+              - generic [ref=e208]:
+                - generic [ref=e209]: "16."
+                - text: WORKDAY.INTL Function — International Business-Day Calculation
+            - link "17.NETWORKDAYS Function — Working-Day Count" [ref=e210] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/16
+              - generic [ref=e214]:
+                - generic [ref=e215]: "17."
+                - text: NETWORKDAYS Function — Working-Day Count
+            - link "18.NETWORKDAYS.INTL Function — International Working-Day Count" [ref=e216] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/17
+              - generic [ref=e218]:
+                - generic [ref=e219]: "18."
+                - text: NETWORKDAYS.INTL Function — International Working-Day Count
+            - link "19.YEARFRAC Function — Fractional Year Calculation" [ref=e220] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/18
+              - generic [ref=e222]:
+                - generic [ref=e223]: "19."
+                - text: YEARFRAC Function — Fractional Year Calculation
+            - link "20.DATEDIF Function — Date Difference Analysis" [ref=e224] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/19
+              - generic [ref=e228]:
+                - generic [ref=e229]: "20."
+                - text: DATEDIF Function — Date Difference Analysis
+            - link "21.Serial Date Architecture" [ref=e230] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/20
+              - generic [ref=e232]:
+                - generic [ref=e233]: "21."
+                - text: Serial Date Architecture
+            - link "22.1900 vs 1904 Date Systems" [ref=e234] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/21
+              - generic [ref=e236]:
+                - generic [ref=e237]: "22."
+                - text: 1900 vs 1904 Date Systems
+            - link "23.Business Calendar Engineering" [ref=e238] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/22
+              - generic [ref=e240]:
+                - generic [ref=e241]: "23."
+                - text: Business Calendar Engineering
+            - link "24.International Weekend Definitions" [ref=e242] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/23
+              - generic [ref=e244]:
+                - generic [ref=e245]: "24."
+                - text: International Weekend Definitions
+            - link "25.Holiday Calendar Architecture" [ref=e246] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/24
+              - generic [ref=e248]:
+                - generic [ref=e249]: "25."
+                - text: Holiday Calendar Architecture
+            - link "26.SLA and Working-Hour Calculations" [ref=e250] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/25
+              - generic [ref=e252]:
+                - generic [ref=e253]: "26."
+                - text: SLA and Working-Hour Calculations
+            - link "27.Fiscal Calendar Engineering" [ref=e254] [cursor=pointer]:
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/26
+              - generic [ref=e256]:
+                - generic [ref=e257]: "27."
+                - text: Fiscal Calendar Engineering
+            - 'link "28.Project Work: Real-World Application of Date, Time & Calendar Engineering" [ref=e258] [cursor=pointer]':
+              - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/27
+              - generic [ref=e262]:
+                - generic [ref=e263]: "28."
+                - text: "Project Work: Real-World Application of Date, Time & Calendar Engineering"
+          - generic [ref=e264]:
+            - link "Next Module Advanced Financial, Bond & Investment Functions" [ref=e265] [cursor=pointer]:
+              - /url: /excel/topic/009_007_advanced-financial-bond-and-investment-functions/0
+              - generic [ref=e266]: Next Module
+              - generic [ref=e270]: Advanced Financial, Bond & Investment Functions
+            - link "← Module Overview" [ref=e271] [cursor=pointer]:
+              - /url: /excel/module/009_006_complete-date-time-and-calendar-engineering-functions
+            - link "📍 Course Roadmap" [ref=e272] [cursor=pointer]:
+              - /url: /excel/roadmap
+        - main [ref=e273]:
+          - generic [ref=e274]:
+            - generic [ref=e277]:
+              - generic [ref=e278]:
+                - generic [ref=e279]:
+                  - generic [ref=e280]: ⚡ Date & Calendar Engineering · Topic 16
+                  - generic [ref=e281]: Core Utilization · Capacity Planning
+                  - generic [ref=e282]: "Bloom's Taxonomy: Analyze & Quantify"
+                - heading "NETWORKDAYS Function — Net Working Days & Billable Hours Engine" [level=1] [ref=e283]
+                - generic [ref=e284]:
+                  - paragraph [ref=e285]:
+                    - text: The
+                    - code [ref=e286]: NETWORKDAYS(start_date, end_date, [holidays])
+                    - text: function returns the exact number of whole working days between a starting date and an ending date, automatically excluding Saturdays, Sundays, and optional statutory holidays.
+                  - paragraph [ref=e287]:
+                    - text: In corporate workforce utilization, IT professional services billing, HR payroll capacity planning, and SLA resolution tracking, billing clients by total calendar days is contractually prohibited. A calendar month of 31 days contains only 20 to 22 actual billable working days.
+                    - code [ref=e288]: NETWORKDAYS()
+                    - text: counts the net operational days
+                    - strong [ref=e289]: inclusively
+                    - text: (both start_date and end_date are evaluated and counted if they are working days), making it the definitive engine for calculating gross billable consultant hours and employee attendance quotas.
+                - generic [ref=e290]:
+                  - generic [ref=e291]:
+                    - generic [ref=e292]: ✓
+                    - generic [ref=e293]:
+                      - strong [ref=e294]: "Syntax:"
+                      - code [ref=e295]: =NETWORKDAYS(start_date, end_date, [holidays])
+                  - generic [ref=e296]:
+                    - generic [ref=e297]: ✓
+                    - generic [ref=e298]:
+                      - strong [ref=e299]: "Domain:"
+                      - text: Consultant Billable Hours, Workforce Capacity & Monthly Utilization
+                  - generic [ref=e300]:
+                    - generic [ref=e301]: ✓
+                    - generic [ref=e302]:
+                      - strong [ref=e303]: "Production Pattern:"
+                      - text: =NETWORKDAYS(MonthStart, MonthEnd, Holidays) * 8 (Monthly Billable Hours)
+              - generic [ref=e304]:
+                - generic [ref=e305]:
+                  - generic [ref=e306]:
+                    - heading "🧪 Interactive NETWORKDAYS Utilization Workbench" [level=2] [ref=e307]:
+                      - generic [ref=e308]: 🧪
+                      - text: Interactive NETWORKDAYS Utilization Workbench
+                    - paragraph [ref=e309]: Calculate gross billable working days, inspect inclusive boundary counting, and project billing revenue.
+                  - generic [ref=e310]:
+                    - generic [ref=e311]: "Presets:"
+                    - button "Full Month (Nov 2026)" [ref=e312] [cursor=pointer]
+                    - button "5-Day Week (40h)" [ref=e313] [cursor=pointer]
+                    - button "Full Q4 Quarter (65d)" [ref=e314] [cursor=pointer]
+                    - button "Sat-Sun Span (0 Days)" [ref=e315] [cursor=pointer]
+                - generic [ref=e316]:
+                  - generic [ref=e317]:
+                    - generic [ref=e318]:
+                      - generic [ref=e319]: Start Date
+                      - generic [ref=e320]: Inclusive Boundary
+                    - textbox [ref=e321]: 2026-11-01
+                  - generic [ref=e322]:
+                    - generic [ref=e323]:
+                      - generic [ref=e324]: End Date
+                      - generic [ref=e325]: Inclusive Boundary
+                    - textbox [ref=e326]: 2026-11-30
+                  - generic [ref=e327]:
+                    - generic [ref=e328]:
+                      - generic [ref=e329]: Weekend Mask Mode
+                      - generic [ref=e330]: e.g. ('0000011')
+                    - combobox [ref=e331] [cursor=pointer]:
+                      - option "0000011 — Standard 5-Day (NETWORKDAYS Default)" [selected]
+                      - option "0000110 — Middle East GCC Trade Corridor"
+                      - option "0000001 — Indian 6-Day Manufacturing / Plant"
+                      - option "0000100 — Islamic Port & Friday Off"
+                      - option "0101011 — Part-Time Consultant (Mon/Wed/Fri)"
+                      - option "0000000 — 24/7 Mission-Critical Continuous Operations"
+                    - paragraph [ref=e332]: Saturday & Sunday non-working (Western & Indian Corporate)
+                  - generic [ref=e333]:
+                    - generic [ref=e334]: Daily Rate & Holiday Filter
+                    - spinbutton "Daily rate ₹" [ref=e335]: "15000"
+                    - generic [ref=e336] [cursor=pointer]:
+                      - checkbox "Exclude Holiday (18-Nov)" [checked] [ref=e337]
+                      - generic [ref=e338]: Exclude Holiday (18-Nov)
+                - generic [ref=e339]:
+                  - generic [ref=e340]:
+                    - generic [ref=e341]:
+                      - generic [ref=e342]:
+                        - generic [ref=e343]: 1. Classic NETWORKDAYS (Sat & Sun Hardcoded)
+                        - generic [ref=e344]: Default
+                      - generic [ref=e345]: "=NETWORKDAYS(\"2026-11-01\", \"2026-11-30\", {\"2026-11-18\"})"
+                      - generic [ref=e346]:
+                        - generic [ref=e347]: "Result:"
+                        - generic [ref=e348]: 20 Working Days
+                    - generic [ref=e349]:
+                      - generic [ref=e350]:
+                        - generic [ref=e351]: 2. Equivalent Weekend String Syntax ('0000011')
+                        - generic [ref=e352]: Identical Match
+                      - generic [ref=e353]:
+                        - text: =NETWORKDAYS.INTL("2026-11-01", "2026-11-30",
+                        - generic [ref=e354]: "\"0000011\""
+                        - text: ", {\"2026-11-18\"})"
+                      - generic [ref=e355]:
+                        - generic [ref=e356]: "Result:"
+                        - generic [ref=e357]: 20 Working Days
+                        - generic [ref=e358]: ✓ Exactly equals NETWORKDAYS
+                  - generic [ref=e359]:
+                    - generic [ref=e360]:
+                      - generic [ref=e361]: "Billable Labor Hours:"
+                      - generic [ref=e362]: 160 Hours (x 8h)
+                    - generic [ref=e363]:
+                      - generic [ref=e364]: "Consulting Revenue:"
+                      - generic [ref=e365]: ₹3,00,000
+                    - generic [ref=e366]:
+                      - generic [ref=e367]: "Weekend Days Excluded:"
+                      - generic [ref=e368]: 9 Days
+                    - generic [ref=e369]:
+                      - generic [ref=e370]: "Total Calendar Days:"
+                      - generic [ref=e371]: 30 Days
+              - generic [ref=e372]:
+                - generic [ref=e373]:
+                  - heading "⚡ Formula Anatomy & Parameter Specifications" [level=2] [ref=e374]:
+                    - generic [ref=e375]: ⚡
+                    - text: Formula Anatomy & Parameter Specifications
+                  - generic [ref=e376]: Inclusive Business Day Counter
+                - generic [ref=e377]:
+                  - generic [ref=e378]: // Canonical NETWORKDAYS Formula Signature
+                  - generic [ref=e379]: =NETWORKDAYS(start_date, end_date, [holidays])
+                  - generic [ref=e380]:
+                    - generic [ref=e381]:
+                      - text: •
+                      - strong [ref=e382]: "start_date:"
+                      - text: Required. The beginning date of the evaluated period.
+                    - generic [ref=e383]:
+                      - text: •
+                      - strong [ref=e384]: "end_date:"
+                      - text: Required. The ending date of the evaluated period. If end_date is earlier than start_date, the function returns a negative value.
+                    - generic [ref=e385]:
+                      - text: •
+                      - strong [ref=e386]: "holidays:"
+                      - text: Optional. A cell range or array constant containing dates to exclude from the working calendar.
+                    - generic [ref=e387]:
+                      - text: •
+                      - strong [ref=e388]: "Inclusive Counting Rule:"
+                      - text: Both start_date and end_date are counted if they are valid working days. Monday to Monday yields 6 working days!
+              - generic [ref=e389]:
+                - generic [ref=e390]:
+                  - heading "📊 NETWORKDAYS Inclusive Counting & Horizon Matrix" [level=2] [ref=e391]:
+                    - generic [ref=e392]: 📊
+                    - text: NETWORKDAYS Inclusive Counting & Horizon Matrix
+                  - paragraph [ref=e393]: Observe how NETWORKDAYS counts working days and handles weekends and holidays.
+                - table [ref=e395]:
+                  - rowgroup [ref=e396]:
+                    - row [ref=e397]:
+                      - columnheader "Start Date" [ref=e398]
+                      - columnheader "End Date" [ref=e399]
+                      - columnheader "Total Calendar Days" [ref=e400]
+                      - columnheader "Excluded Holidays" [ref=e401]
+                      - columnheader "NETWORKDAYS Result" [ref=e402]
+                  - rowgroup [ref=e403]:
+                    - row [ref=e404]:
+                      - cell "2026-11-02 (Mon)" [ref=e405]
+                      - cell "2026-11-06 (Fri)" [ref=e406]
+                      - cell "5 Days" [ref=e407]
+                      - cell "None" [ref=e408]
+                      - cell "5 Working Days (40 Billable Hours)" [ref=e409]
+                    - row [ref=e410]:
+                      - cell "2026-11-02 (Mon)" [ref=e411]
+                      - cell "2026-11-09 (Mon)" [ref=e412]
+                      - cell "8 Days (Incl)" [ref=e413]
+                      - cell "None" [ref=e414]
+                      - cell "6 Working Days (Skips Sat & Sun)" [ref=e415]
+                    - row [ref=e416]:
+                      - cell "2026-11-01 (Sun)" [ref=e417]
+                      - cell "2026-11-30 (Mon)" [ref=e418]
+                      - cell "30 Days" [ref=e419]
+                      - cell "None" [ref=e420]
+                      - cell "21 Working Days (Full Month Nov 2026)" [ref=e421]
+                    - row [ref=e422]:
+                      - cell "2026-11-01 (Sun)" [ref=e423]
+                      - cell "2026-11-30 (Mon)" [ref=e424]
+                      - cell "30 Days" [ref=e425]
+                      - cell "2026-11-18 (Wed)" [ref=e426]
+                      - cell "20 Working Days (Minus 1 Holiday)" [ref=e427]
+                    - row [ref=e428]:
+                      - cell "2026-11-14 (Sat)" [ref=e429]
+                      - cell "2026-11-15 (Sun)" [ref=e430]
+                      - cell "2 Days" [ref=e431]
+                      - cell "None" [ref=e432]
+                      - cell "0 Working Days (Pure Weekend Span)" [ref=e433]
+              - generic [ref=e434]:
+                - generic [ref=e435]:
+                  - generic [ref=e436]:
+                    - generic [ref=e437]:
+                      - generic [ref=e438]: Global Calendar Engineering
+                      - generic [ref=e439]: NETWORKDAYS Equivalent
+                    - 'heading "🌍 The 7-Character Binary Weekend String Architecture: Understanding (''0000011'')" [level=2] [ref=e440]':
+                      - generic [ref=e441]: 🌍
+                      - text: "The 7-Character Binary Weekend String Architecture: Understanding"
+                      - code [ref=e442]: ('0000011')
+                  - generic [ref=e443]: 0 = Working · 1 = Non-Working
+                - generic [ref=e444]:
+                  - paragraph [ref=e445]:
+                    - text: In classic Excel,
+                    - code [ref=e446]: NETWORKDAYS(start, end, [holidays])
+                    - text: has a
+                    - strong [ref=e447]: permanently hardcoded weekend definition
+                    - text: ": Saturday and Sunday are always non-working days."
+                  - paragraph [ref=e448]:
+                    - text: To support global enterprise supply chains and diverse labor schedules, Excel introduced the
+                    - strong [ref=e449]: 7-character binary weekend string mask
+                    - text: . In this system, exactly 7 digits represent
+                    - strong [ref=e450]: Monday through Sunday in sequential order
+                    - text: . A
+                    - code [ref=e451]: "0"
+                    - text: indicates an operational working day, while a
+                    - code [ref=e452]: "1"
+                    - text: marks a non-working weekend day.
+                  - paragraph [ref=e453]:
+                    - text: 💡
+                    - strong [ref=e454]: "Core Architectural Fact:"
+                    - text: Calling
+                    - code [ref=e455]: =NETWORKDAYS(A1, B1, Holidays)
+                    - text: is 100% mathematically and computationally identical to writing
+                    - code [ref=e456]: =NETWORKDAYS.INTL(A1, B1, "0000011", Holidays)
+                    - text: . The string
+                    - code [ref=e457]: "'0000011'"
+                    - text: explicitly defines Monday through Friday as working days (five zeros) and Saturday and Sunday as non-working days (two ones).
+                - generic [ref=e458]:
+                  - generic [ref=e459]:
+                    - generic [ref=e460]:
+                      - text: "Anatomy of Weekend String:"
+                      - code [ref=e461]: "\"0000011\""
+                    - generic [ref=e462]: Position 1 (Mon) → Position 7 (Sun)
+                  - generic [ref=e463]:
+                    - generic [ref=e464]:
+                      - generic [ref=e465]: Pos 1
+                      - generic [ref=e466]: Mon
+                      - text: "0"
+                      - generic [ref=e467]: Work
+                    - generic [ref=e468]:
+                      - generic [ref=e469]: Pos 2
+                      - generic [ref=e470]: Tue
+                      - text: "0"
+                      - generic [ref=e471]: Work
+                    - generic [ref=e472]:
+                      - generic [ref=e473]: Pos 3
+                      - generic [ref=e474]: Wed
+                      - text: "0"
+                      - generic [ref=e475]: Work
+                    - generic [ref=e476]:
+                      - generic [ref=e477]: Pos 4
+                      - generic [ref=e478]: Thu
+                      - text: "0"
+                      - generic [ref=e479]: Work
+                    - generic [ref=e480]:
+                      - generic [ref=e481]: Pos 5
+                      - generic [ref=e482]: Fri
+                      - text: "0"
+                      - generic [ref=e483]: Work
+                    - generic [ref=e484]:
+                      - generic [ref=e485]: Pos 6
+                      - generic [ref=e486]: Sat
+                      - text: "1"
+                      - generic [ref=e487]: Weekend
+                    - generic [ref=e488]:
+                      - generic [ref=e489]: Pos 7
+                      - generic [ref=e490]: Sun
+                      - text: "1"
+                      - generic [ref=e491]: Weekend
+                - generic [ref=e492]:
+                  - heading "🌐 Master Weekend Mask Comparison Matrix" [level=3] [ref=e493]:
+                    - generic [ref=e494]: 🌐
+                    - text: Master Weekend Mask Comparison Matrix
+                  - table [ref=e496]:
+                    - rowgroup [ref=e497]:
+                      - row [ref=e498]:
+                        - columnheader "Weekend Mask" [ref=e499]
+                        - columnheader "Workweek Schedule" [ref=e500]
+                        - columnheader "Days Off" [ref=e501]
+                        - columnheader "Target Industry / Regional Corridor" [ref=e502]
+                        - columnheader "Production Excel Formula" [ref=e503]
+                    - rowgroup [ref=e504]:
+                      - row [ref=e505]:
+                        - cell "\"0000011\"" [ref=e506]
+                        - cell "Mon – Fri (5-Day)" [ref=e507]
+                        - cell "Sat & Sun" [ref=e508]
+                        - cell "Western / Indian IT Corporate (Default NETWORKDAYS)" [ref=e509]
+                        - cell "=NETWORKDAYS.INTL(B4, C4, \"0000011\", Holidays)" [ref=e510]
+                      - row [ref=e511]:
+                        - cell "\"0000110\"" [ref=e512]
+                        - cell "Sun – Thu (5-Day)" [ref=e513]
+                        - cell "Fri & Sat" [ref=e514]
+                        - cell "Middle East GCC (Dubai, Riyadh, Doha Cargo Customs)" [ref=e515]
+                        - cell "=NETWORKDAYS.INTL(B4, C4, \"0000110\", Holidays)" [ref=e516]
+                      - row [ref=e517]:
+                        - cell "\"0000001\"" [ref=e518]
+                        - cell "Mon – Sat (6-Day)" [ref=e519]
+                        - cell "Sun Only" [ref=e520]
+                        - cell "Indian Manufacturing Plants, EPC Site Construction, Retail" [ref=e521]
+                        - cell "=NETWORKDAYS.INTL(B4, C4, \"0000001\", Holidays)" [ref=e522]
+                      - row [ref=e523]:
+                        - cell "\"0000100\"" [ref=e524]
+                        - cell "Sat – Thu (6-Day)" [ref=e525]
+                        - cell "Fri Only" [ref=e526]
+                        - cell "Traditional Islamic Port Customs & Municipal Offices" [ref=e527]
+                        - cell "=NETWORKDAYS.INTL(B4, C4, \"0000100\", Holidays)" [ref=e528]
+                      - row [ref=e529]:
+                        - cell "\"0101011\"" [ref=e530]
+                        - cell "Mon, Wed, Fri (3-Day)" [ref=e531]
+                        - cell "Tue, Thu, Sat, Sun" [ref=e532]
+                        - cell "Part-Time Consultant, Hospital Visiting Surgeon, Job-Share" [ref=e533]
+                        - cell "=NETWORKDAYS.INTL(B4, C4, \"0101011\", Holidays)" [ref=e534]
+                      - row [ref=e535]:
+                        - cell "\"0000000\"" [ref=e536]
+                        - cell "All 7 Days (24/7)" [ref=e537]
+                        - cell "None (0 Days)" [ref=e538]
+                        - cell "24/7 Cloud Data Centers, ICU Hospital Wards, Power Grid" [ref=e539]
+                        - cell "=NETWORKDAYS.INTL(B4, C4, \"0000000\", Holidays)" [ref=e540]
+                - generic [ref=e541]:
+                  - heading "💻 5 Practical Production Formula Examples" [level=3] [ref=e542]:
+                    - generic [ref=e543]: 💻
+                    - text: 5 Practical Production Formula Examples
+                  - generic [ref=e544]:
+                    - generic [ref=e545]:
+                      - generic [ref=e546]: "Example 1: Standard Indian/US Corporate 5-Day SLA"
+                      - paragraph [ref=e547]: Calculates net operational days using the standard Saturday/Sunday weekend string, exactly matching NETWORKDAYS.
+                      - generic [ref=e548]: =NETWORKDAYS.INTL(B4, C4, "0000011", tblHolidays[Date])
+                    - generic [ref=e549]:
+                      - generic [ref=e550]: "Example 2: Middle East Gulf Cargo Transit SLA"
+                      - paragraph [ref=e551]: For shipments clearing Jebel Ali (Dubai) or Dammam (Saudi Arabia) where customs offices take Friday and Saturday off.
+                      - generic [ref=e552]: =NETWORKDAYS.INTL(B4, C4, "0000110", MiddleEastHolidays)
+                    - generic [ref=e553]:
+                      - generic [ref=e554]: "Example 3: Manufacturing Plant 6-Day Production Shift"
+                      - paragraph [ref=e555]: In Indian factory plants operating Monday through Saturday with only Sunday as the statutory rest day.
+                      - generic [ref=e556]: =NETWORKDAYS.INTL(B4, C4, "0000001", FactoryShutdownDates)
+                    - generic [ref=e557]:
+                      - generic [ref=e558]: "Example 4: Part-Time Senior Consultant Capacity"
+                      - paragraph [ref=e559]: For contracted specialists who work strictly on Mondays, Wednesdays, and Fridays (Tuesday, Thursday, Saturday, Sunday off).
+                      - generic [ref=e560]: =NETWORKDAYS.INTL(MonthStart, MonthEnd, "0101011", Holidays) * 8
+              - generic [ref=e561]:
+                - generic [ref=e562]:
+                  - generic [ref=e563]: ⚙️
+                  - generic [ref=e564]:
+                    - heading "The Inclusive Off-By-One Accounting Quirk" [level=2] [ref=e565]
+                    - paragraph [ref=e566]: Why NETWORKDAYS(Mon, Mon) returns 1, while simple subtraction returns 0.
+                - generic [ref=e567]:
+                  - paragraph [ref=e568]:
+                    - text: A vital mathematical distinction that every financial auditor must grasp is that
+                    - code [ref=e569]: NETWORKDAYS()
+                    - text: performs
+                    - strong [ref=e570]: inclusive boundary counting
+                    - text: .
+                  - paragraph [ref=e571]:
+                    - text: In standard algebra, subtracting identical dates (
+                    - code [ref=e572]: 2026-11-16 minus 2026-11-16
+                    - text: ) yields
+                    - code [ref=e573]: "0"
+                    - text: . However,
+                    - code [ref=e574]: =NETWORKDAYS("2026-11-16", "2026-11-16")
+                    - text: returns
+                    - code [ref=e575]: "1"
+                    - text: "! Why? Because Monday is a valid working day, and an employee working on that Monday delivered 1 billable day of labor. When subtracting days for durations where the start day should be exclusive, analysts must account for this boundary behavior."
+                  - generic [ref=e576]:
+                    - generic [ref=e577]:
+                      - generic [ref=e578]: The Gross Calendar Day Billing Trap
+                      - generic [ref=e579]: =(End - Start) * 8 * HourlyRate
+                      - paragraph [ref=e580]: Bills clients for weekend days when no work occurred, violating Master Services Agreements (MSAs).
+                    - generic [ref=e581]:
+                      - generic [ref=e582]: Production Net Billable Hours Pattern
+                      - generic [ref=e583]: =NETWORKDAYS(Start, End, tblHolidays[Date]) * 8 * HourlyRate
+                      - paragraph [ref=e584]: Calculates genuine operational working days and multiplies by standard 8-hour billable shift.
+              - generic [ref=e585]:
+                - heading "📐 Visual Semantic Architecture & Flow Diagram" [level=2] [ref=e586]:
+                  - generic [ref=e587]: 📐
+                  - text: Visual Semantic Architecture & Flow Diagram
+                - paragraph [ref=e588]: "Inclusive working day evaluation: evaluating each day between Start and End."
+                - img [ref=e590]:
+                  - generic [ref=e592]: Mon (Start)
+                  - generic [ref=e593]: INCLUDED (1)
+                  - generic [ref=e595]: Tue
+                  - generic [ref=e596]: INCLUDED (2)
+                  - generic [ref=e598]: Wed
+                  - generic [ref=e599]: INCLUDED (3)
+                  - generic [ref=e601]: Thu
+                  - generic [ref=e602]: INCLUDED (4)
+                  - generic [ref=e604]: Fri (End)
+                  - generic [ref=e605]: INCLUDED (5)
+                  - generic [ref=e607]: Sat
+                  - generic [ref=e608]: EXCLUDED (0)
+                  - generic [ref=e610]: Total Net Days
+                  - generic [ref=e611]: "5.0"
+                  - generic [ref=e612]: 40 Billable Hours
+              - generic [ref=e613]:
+                - generic [ref=e614]:
+                  - generic [ref=e615]:
+                    - heading "📥 Interactive Master Spreadsheet Practice" [level=2] [ref=e616]:
+                      - generic [ref=e617]: 📥
+                      - text: Interactive Master Spreadsheet Practice
+                    - paragraph [ref=e618]: Explore real NETWORKDAYS formula calculations, live audits, and calculated outputs in the embedded worksheet.
+                  - button "Download Workbook (.xlsx)" [ref=e619] [cursor=pointer]
+                - generic [ref=e623]:
+                  - generic [ref=e624]:
+                    - generic [ref=e625]:
+                      - 'heading "Topic 16: NETWORKDAYS Master Practice Grid" [level=3] [ref=e626]'
+                      - generic [ref=e627]:
+                        - generic [ref=e628]: "Sheet:"
+                        - combobox "Sheet:" [ref=e629]:
+                          - option "Overview"
+                          - option "Topic0"
+                          - option "Topic1"
+                          - option "Topic2"
+                          - option "Topic3"
+                          - option "Topic4"
+                          - option "Topic5"
+                          - option "Topic6"
+                          - option "Topic7"
+                          - option "Topic8"
+                          - option "Topic9"
+                          - option "Topic10"
+                          - option "Topic11"
+                          - option "Topic12"
+                          - option "Topic13"
+                          - option "Topic14"
+                          - option "Topic15"
+                          - option "Topic16" [selected]
+                          - option "Topic17"
+                          - option "Topic18"
+                          - option "Topic19"
+                          - option "Topic20"
+                          - option "Topic21"
+                          - option "Topic22"
+                          - option "Topic23"
+                          - option "Topic24"
+                          - option "Topic25"
+                          - option "Topic26"
+                          - option "Topic27"
+                    - generic [ref=e630]:
+                      - textbox "Search all columns..." [ref=e631]
+                      - button "Export CSV" [ref=e632]
+                  - generic [ref=e633]:
+                    - generic [ref=e634]:
+                      - generic [ref=e635]: Total rows (original)
+                      - generic [ref=e636]: "12"
+                    - generic [ref=e637]:
+                      - generic [ref=e638]: Filtered rows
+                      - generic [ref=e639]: "12"
+                    - generic [ref=e640]:
+                      - generic [ref=e641]: Columns
+                      - generic [ref=e642]: "6"
+                    - generic [ref=e643]:
+                      - generic [ref=e644]: Active sheet
+                      - generic [ref=e645]: Topic16
+                  - table [ref=e647]:
+                    - rowgroup [ref=e648]:
+                      - row [ref=e649]:
+                        - columnheader "#" [ref=e650]
+                        - 'columnheader "Audit # ↕️" [ref=e651] [cursor=pointer]'
+                        - columnheader "Client Engagement ↕️" [ref=e652] [cursor=pointer]
+                        - columnheader "Period Start ↕️" [ref=e653] [cursor=pointer]
+                        - columnheader "Period End ↕️" [ref=e654] [cursor=pointer]
+                        - columnheader "=NETWORKDAYS(Start, End) ↕️" [ref=e655] [cursor=pointer]
+                        - columnheader "Billable Hours (8h/day) ↕️" [ref=e656] [cursor=pointer]
+                    - rowgroup [ref=e657]:
+                      - row [ref=e658]:
+                        - cell "1" [ref=e659]
+                        - cell "AUD-1700" [ref=e660]
+                        - cell "Swadeep Hui" [ref=e661]
+                        - cell "2026-11-01" [ref=e662]
+                        - cell "2026-11-30" [ref=e663]
+                        - cell "21" [ref=e664]
+                        - cell "168" [ref=e665]
+                      - row [ref=e666]:
+                        - cell "2" [ref=e667]
+                        - cell "AUD-1701" [ref=e668]
+                        - cell "Tuhina Das" [ref=e669]
+                        - cell "2026-11-01" [ref=e670]
+                        - cell "2026-11-30" [ref=e671]
+                        - cell "21" [ref=e672]
+                        - cell "168" [ref=e673]
+                      - row [ref=e674]:
+                        - cell "3" [ref=e675]
+                        - cell "AUD-1702" [ref=e676]
+                        - cell "Susmita Sen" [ref=e677]
+                        - cell "2026-11-01" [ref=e678]
+                        - cell "2026-11-30" [ref=e679]
+                        - cell "21" [ref=e680]
+                        - cell "168" [ref=e681]
+                      - row [ref=e682]:
+                        - cell "4" [ref=e683]
+                        - cell "AUD-1703" [ref=e684]
+                        - cell "Debangshu Roy" [ref=e685]
+                        - cell "2026-11-01" [ref=e686]
+                        - cell "2026-11-30" [ref=e687]
+                        - cell "21" [ref=e688]
+                        - cell "168" [ref=e689]
+                      - row [ref=e690]:
+                        - cell "5" [ref=e691]
+                        - cell "AUD-1704" [ref=e692]
+                        - cell "Susmita Roy" [ref=e693]
+                        - cell "2026-11-01" [ref=e694]
+                        - cell "2026-11-30" [ref=e695]
+                        - cell "21" [ref=e696]
+                        - cell "168" [ref=e697]
+                      - row [ref=e698]:
+                        - cell "6" [ref=e699]
+                        - cell "AUD-1705" [ref=e700]
+                        - cell "Abhronila Ray" [ref=e701]
+                        - cell "2026-11-01" [ref=e702]
+                        - cell "2026-11-30" [ref=e703]
+                        - cell "21" [ref=e704]
+                        - cell "168" [ref=e705]
+                      - row [ref=e706]:
+                        - cell "7" [ref=e707]
+                        - cell "AUD-1706" [ref=e708]
+                        - cell "Rahul Kumar" [ref=e709]
+                        - cell "2026-11-01" [ref=e710]
+                        - cell "2026-11-30" [ref=e711]
+                        - cell "21" [ref=e712]
+                        - cell "168" [ref=e713]
+                      - row [ref=e714]:
+                        - cell "8" [ref=e715]
+                        - cell "AUD-1707" [ref=e716]
+                        - cell "Priya Sharma" [ref=e717]
+                        - cell "2026-11-01" [ref=e718]
+                        - cell "2026-11-30" [ref=e719]
+                        - cell "21" [ref=e720]
+                        - cell "168" [ref=e721]
+                      - row [ref=e722]:
+                        - cell "9" [ref=e723]
+                        - cell "AUD-1708" [ref=e724]
+                        - cell "Aniket Verma" [ref=e725]
+                        - cell "2026-11-01" [ref=e726]
+                        - cell "2026-11-30" [ref=e727]
+                        - cell "21" [ref=e728]
+                        - cell "168" [ref=e729]
+                      - row [ref=e730]:
+                        - cell "10" [ref=e731]
+                        - cell "AUD-1709" [ref=e732]
+                        - cell "Sneha Ghosh" [ref=e733]
+                        - cell "2026-11-01" [ref=e734]
+                        - cell "2026-11-30" [ref=e735]
+                        - cell "21" [ref=e736]
+                        - cell "168" [ref=e737]
+                      - row [ref=e738]:
+                        - cell "11" [ref=e739]
+                        - cell "AUD-1710" [ref=e740]
+                        - cell "Arpan Dey" [ref=e741]
+                        - cell "2026-11-01" [ref=e742]
+                        - cell "2026-11-30" [ref=e743]
+                        - cell "21" [ref=e744]
+                        - cell "168" [ref=e745]
+                      - row [ref=e746]:
+                        - cell "12" [ref=e747]
+                        - cell "AUD-1711" [ref=e748]
+                        - cell "Subhajit Pal" [ref=e749]
+                        - cell "2026-11-01" [ref=e750]
+                        - cell "2026-11-30" [ref=e751]
+                        - cell "21" [ref=e752]
+                        - cell "168" [ref=e753]
+              - generic [ref=e754]:
+                - generic [ref=e755]:
+                  - heading "🏢 Real-World Enterprise Business Scenarios" [level=2] [ref=e756]:
+                    - generic [ref=e757]: 🏢
+                    - text: Real-World Enterprise Business Scenarios
+                  - paragraph [ref=e758]: Industrial grade case studies from West Bengal IT hubs, banking institutes, and multinational supply chains.
+                - generic [ref=e759]:
+                  - generic [ref=e760]:
+                    - generic [ref=e761]:
+                      - generic [ref=e762]: "Scenario 1: IT Professional Services Billing"
+                      - generic [ref=e763]: Salt Lake Sector V IT Hub
+                    - heading "Monthly Consultant Time & Materials Billing Audit" [level=3] [ref=e764]
+                    - paragraph [ref=e765]: Enterprise client contracts bill IT senior architects at INR 25,000 per billable working day. Calculate total monthly billing for month span in A2 to B2.
+                    - generic [ref=e766]:
+                      - generic [ref=e767]: // Calculate net working days and multiply by daily billing rate
+                      - generic [ref=e768]: =NETWORKDAYS(A2, B2, tblHolidays[Date]) * DailyConsultantRate
+                      - generic [ref=e769]: "Yields: INR 5,00,000.00 (for 20 working days in Nov 2026)"
+                  - generic [ref=e770]:
+                    - generic [ref=e771]:
+                      - generic [ref=e772]: "Scenario 2: HR Attendance & Capacity Planning"
+                      - generic [ref=e773]: Kolkata Corporate Operations
+                    - heading "Employee Expected Monthly Attendance Target" [level=3] [ref=e774]
+                    - paragraph [ref=e775]: HR requires establishing the maximum possible working days an employee could have attended in any calendar month from month start date in C2.
+                    - generic [ref=e776]:
+                      - generic [ref=e777]: // Combine EOMONTH with NETWORKDAYS for full-month capacity
+                      - generic [ref=e778]: =NETWORKDAYS(C2, EOMONTH(C2, 0), CompanyHolidays)
+                      - generic [ref=e779]: "Yields: 20 Days Expected Capacity"
+                  - generic [ref=e780]:
+                    - generic [ref=e781]:
+                      - generic [ref=e782]: "Scenario 3: Customer Support & SLA Penalties"
+                      - generic [ref=e783]: Barrackpore Enterprise Support Desk
+                    - heading "Severity-2 Incident Business Day Resolution Time" [level=3] [ref=e784]
+                    - paragraph [ref=e785]: SLA contract allows 5 business days for bug resolution. Given ticket opened on date D2 and resolved on date E2, calculate actual business days taken.
+                    - generic [ref=e786]:
+                      - generic [ref=e787]: // Measure business days elapsed inclusively
+                      - generic [ref=e788]: =NETWORKDAYS(D2, E2, SupportHolidays) - 1
+                      - generic [ref=e789]: "Yields: 4 Business Days (within 5-day SLA)"
+                  - generic [ref=e790]:
+                    - generic [ref=e791]:
+                      - generic [ref=e792]: "Scenario 4: Manufacturing Plant Capacity"
+                      - generic [ref=e793]: Titagarh Industrial Engineering
+                    - heading "Quarterly Production Plant Throughput Model" [level=3] [ref=e794]
+                    - paragraph [ref=e795]: Manufacturing plant produces 25 rail bogies per working day. Project quarterly production output for Q4 from F2 to G2.
+                    - generic [ref=e796]:
+                      - generic [ref=e797]: // Multiply net working days by daily manufacturing capacity
+                      - generic [ref=e798]: =NETWORKDAYS(F2, G2, PlantHolidays) * 25
+                      - generic [ref=e799]: "Yields: 1,600 Bogies (for 64 working days)"
+                  - generic [ref=e800]:
+                    - generic [ref=e801]:
+                      - generic [ref=e802]: "Scenario 5: Civil Construction & Infrastructure"
+                      - generic [ref=e803]: Naihati Flyover Project
+                    - heading "Contractor Weather Delay Working Day Deduction" [level=3] [ref=e804]
+                    - paragraph [ref=e805]: Contractor is granted deadline extensions only for unworkable weather days that fell on scheduled working days (excluding weekends).
+                    - generic [ref=e806]:
+                      - generic [ref=e807]: // Verify working day overlap for monsoon delay
+                      - generic [ref=e808]: =NETWORKDAYS(RainStart, RainEnd, Holidays)
+                      - generic [ref=e809]: "Yields: 7 Valid Working Days Extension"
+                  - generic [ref=e810]:
+                    - generic [ref=e811]:
+                      - generic [ref=e812]: "Scenario 6: Academic & University Administration"
+                      - generic [ref=e813]: Kalyani University Faculty
+                    - heading "Semester Mandated 90 Instructional Days Audit" [level=3] [ref=e814]
+                    - paragraph [ref=e815]: University Grants Commission (UGC) mandates at least 90 instructional teaching days per semester between term start in H2 and term end in I2.
+                    - generic [ref=e816]:
+                      - generic [ref=e817]: // Audit academic calendar for 90-day UGC compliance
+                      - generic [ref=e818]: =IF(NETWORKDAYS(H2, I2, AcademicHolidays) >= 90, "UGC COMPLIANT", "DEFICIT - SCHEDULE EXTRA CLASSES")
+                      - generic [ref=e819]: "Yields: \"UGC COMPLIANT\" (94 teaching days)"
+              - generic [ref=e820]:
+                - heading "📝 Step-by-Step Execution Walkthrough" [level=2] [ref=e821]:
+                  - generic [ref=e822]: 📝
+                  - text: Step-by-Step Execution Walkthrough
+                - generic [ref=e823]:
+                  - generic [ref=e824]:
+                    - text: "Step 1: Understand Inclusive Counting"
+                    - paragraph [ref=e825]: NETWORKDAYS counts both start and end dates. Monday to Friday evaluates to 5, not 4.
+                    - generic [ref=e826]: =NETWORKDAYS('2026-11-09', '2026-11-13') -> 5
+                  - generic [ref=e827]:
+                    - text: "Step 2: Provide Clean Holiday Ranges"
+                    - paragraph [ref=e828]: Always supply holidays as an authentic table or range to prevent billing for national holidays.
+                    - generic [ref=e829]: =NETWORKDAYS(Start, End, tblHolidays[Date])
+                  - generic [ref=e830]:
+                    - text: "Step 3: Convert Days to Hours"
+                    - paragraph [ref=e831]: Multiply the resulting net days by your corporate daily shift hours (typically 8.0 or 7.5).
+                    - generic [ref=e832]: "Billable Hours: =NETWORKDAYS(A2, B2, Holidays) * 8"
+                  - generic [ref=e833]:
+                    - text: "Step 4: Handle Negative Spans"
+                    - paragraph [ref=e834]: If end_date is before start_date, NETWORKDAYS returns a negative number, enabling automated variance tracking.
+                    - generic [ref=e835]: =NETWORKDAYS('2026-11-20', '2026-11-10') -> -9
+              - generic [ref=e836]:
+                - heading "⚠️ Error & Troubleshooting Matrix" [level=2] [ref=e837]:
+                  - generic [ref=e838]: ⚠️
+                  - text: Error & Troubleshooting Matrix
+                - table [ref=e840]:
+                  - rowgroup [ref=e841]:
+                    - row [ref=e842]:
+                      - columnheader "Error Code / Bug" [ref=e843]
+                      - columnheader "Root Cause" [ref=e844]
+                      - columnheader "Demonstration Trigger" [ref=e845]
+                      - columnheader "Professional Remedy" [ref=e846]
+                  - rowgroup [ref=e847]:
+                    - row [ref=e848]:
+                      - cell "Inclusive Boundary Off-By-One" [ref=e849]
+                      - cell "Assuming NETWORKDAYS calculates elapsed duration rather than inclusive headcount." [ref=e850]
+                      - cell "Expecting NETWORKDAYS(Mon, Mon) to return 0" [ref=e851]
+                      - 'cell "Subtract 1 if you require exclusive elapsed duration: =NETWORKDAYS(Start, End) - 1." [ref=e852]'
+                    - row [ref=e853]:
+                      - cell "Wrong Weekend in Middle East" [ref=e854]
+                      - cell "NETWORKDAYS is hardcoded for Saturday/Sunday weekends. It cannot evaluate Middle East Friday/Saturday weekends." [ref=e855]
+                      - cell "Using NETWORKDAYS in Saudi Arabia or UAE" [ref=e856]
+                      - cell "Upgrade to NETWORKDAYS.INTL specifying weekend code 7." [ref=e857]
+                    - row [ref=e858]:
+                      - cell "#VALUE! on Text Date" [ref=e859]
+                      - cell "Start date, end date, or a holiday entry is formatted as text." [ref=e860]
+                      - cell "=NETWORKDAYS('2026-11-01', 'text')" [ref=e861]
+                      - cell "Sanitize all dates with DATEVALUE() or DATE(YYYY, MM, DD)." [ref=e862]
+              - generic [ref=e863]:
+                - heading "💡 Pro Tips & Secret Heritage Insights" [level=2] [ref=e864]:
+                  - generic [ref=e865]: 💡
+                  - text: Pro Tips & Secret Heritage Insights
+                - generic [ref=e866]:
+                  - generic [ref=e867]:
+                    - text: Full Month Working Days Idiom
+                    - paragraph [ref=e868]: "Calculate total working days in the current month dynamically: =NETWORKDAYS(EOMONTH(TODAY(), -1) + 1, EOMONTH(TODAY(), 0), Holidays)."
+                  - generic [ref=e869]:
+                    - text: Working Days Remaining in the Month
+                    - paragraph [ref=e870]: "Track monthly sprint runway: =NETWORKDAYS(TODAY(), EOMONTH(TODAY(), 0), Holidays)."
+                  - generic [ref=e871]:
+                    - text: Billable Utilization Percentage
+                    - paragraph [ref=e872]: "Calculate consultant utilization: =ActualHoursBilled / (NETWORKDAYS(MonthStart, MonthEnd, Holidays) * 8)."
+                  - generic [ref=e873]:
+                    - text: Array Constant Holidays
+                    - paragraph [ref=e874]: "For quick ad-hoc analysis: =NETWORKDAYS(A2, B2, {'2026-11-18', '2026-12-25'})."
+              - generic [ref=e875]:
+                - heading "🤔 Socratic Analytical Questions" [level=2] [ref=e876]:
+                  - generic [ref=e877]: 🤔
+                  - text: Socratic Analytical Questions
+                - generic [ref=e878]:
+                  - paragraph [ref=e879]:
+                    - text: •
+                    - strong [ref=e880]: "Accounting Mechanics:"
+                    - text: Why does NETWORKDAYS count both the start date and end date inclusively, whereas standard day subtraction (B2 - A2) counts exclusively?
+                  - paragraph [ref=e881]:
+                    - text: •
+                    - strong [ref=e882]: "Contract Law:"
+                    - text: If a consulting contract stipulates billing 'per billable business day', what financial risk arises from calculating fees via simple subtraction divided by 7 times 5?
+              - generic [ref=e884]:
+                - generic [ref=e885]:
+                  - generic [ref=e886]:
+                    - generic [ref=e887]:
+                      - 'heading "❓ Topic 16: NETWORKDAYS Function — Frequently Asked Questions" [level=2] [ref=e888]':
+                        - generic [ref=e889]: ❓
+                        - text: "Topic 16: NETWORKDAYS Function — Frequently Asked Questions"
+                      - paragraph [ref=e890]: Test your understanding with these domain mastery questions
+                      - generic [ref=e891]:
+                        - generic [ref=e892]: 📝 10 Questions
+                        - generic [ref=e893]: ✅ 0 Answered
+                    - generic [ref=e894]:
+                      - button "🖨️ Print" [ref=e895]
+                      - button "📖 Expand All" [ref=e896]
+                      - button "📝 Collapse All" [ref=e897]
+                  - generic [ref=e899]:
+                    - generic [ref=e900]: Mastery Progress
+                    - generic [ref=e901]: 0% (0/10)
+                - generic [ref=e903]:
+                  - generic [ref=e904]:
+                    - generic: 🔍
+                    - textbox "Filter questions by keyword or formula..." [ref=e905]
+                  - generic [ref=e906]:
+                    - generic [ref=e907]: "Shortcuts:"
+                    - generic [ref=e908]: Ctrl+E
+                    - generic [ref=e909]: Ctrl+C
+                    - generic [ref=e910]: Ctrl+P
+                - generic [ref=e912]:
+                  - button "Q01. What is the primary objective of NETWORKDAYS Function — Working-Day Count? ▼" [ref=e914]:
+                    - generic [ref=e915]:
+                      - generic [ref=e916]: Q01.
+                      - generic [ref=e917]: What is the primary objective of NETWORKDAYS Function — Working-Day Count?
+                    - generic [ref=e918]: ▼
+                  - button "Q02. How does Excel evaluate underlying dates in NETWORKDAYS? ▼" [ref=e921]:
+                    - generic [ref=e922]:
+                      - generic [ref=e923]: Q02.
+                      - generic [ref=e924]: How does Excel evaluate underlying dates in NETWORKDAYS?
+                    - generic [ref=e925]: ▼
+                  - button "Q03. What error typically occurs if an invalid date argument is passed to NETWORKDAYS? ▼" [ref=e928]:
+                    - generic [ref=e929]:
+                      - generic [ref=e930]: Q03.
+                      - generic [ref=e931]: What error typically occurs if an invalid date argument is passed to NETWORKDAYS?
+                    - generic [ref=e932]: ▼
+                  - button "Q04. Why should analysts avoid dividing day deltas by 365 or 30? ▼" [ref=e935]:
+                    - generic [ref=e936]:
+                      - generic [ref=e937]: Q04.
+                      - generic [ref=e938]: Why should analysts avoid dividing day deltas by 365 or 30?
+                    - generic [ref=e939]: ▼
+                  - button "Q05. How do you safeguard NETWORKDAYS formulas against unexpected user inputs? ▼" [ref=e942]:
+                    - generic [ref=e943]:
+                      - generic [ref=e944]: Q05.
+                      - generic [ref=e945]: How do you safeguard NETWORKDAYS formulas against unexpected user inputs?
+                    - generic [ref=e946]: ▼
+                  - button "Q06. Can NETWORKDAYS handle cell references as arguments? ▼" [ref=e949]:
+                    - generic [ref=e950]:
+                      - generic [ref=e951]: Q06.
+                      - generic [ref=e952]: Can NETWORKDAYS handle cell references as arguments?
+                    - generic [ref=e953]: ▼
+                  - button "Q07. What is the best practice for documenting complex date formulas? ▼" [ref=e956]:
+                    - generic [ref=e957]:
+                      - generic [ref=e958]: Q07.
+                      - generic [ref=e959]: What is the best practice for documenting complex date formulas?
+                    - generic [ref=e960]: ▼
+                  - button "Q08. How does Excel's recalculation engine treat NETWORKDAYS? ▼" [ref=e963]:
+                    - generic [ref=e964]:
+                      - generic [ref=e965]: Q08.
+                      - generic [ref=e966]: How does Excel's recalculation engine treat NETWORKDAYS?
+                    - generic [ref=e967]: ▼
+                  - button "Q09. Which shortcut toggles showing formulas instead of values in Excel? ▼" [ref=e970]:
+                    - generic [ref=e971]:
+                      - generic [ref=e972]: Q09.
+                      - generic [ref=e973]: Which shortcut toggles showing formulas instead of values in Excel?
+                    - generic [ref=e974]: ▼
+                  - button "Q10. In Coder & AccoTax training, what is the core rule for calendar engineering? ▼" [ref=e977]:
+                    - generic [ref=e978]:
+                      - generic [ref=e979]: Q10.
+                      - generic [ref=e980]: In Coder & AccoTax training, what is the core rule for calendar engineering?
+                    - generic [ref=e981]: ▼
+              - generic [ref=e984]:
+                - generic [ref=e985]:
+                  - generic [ref=e986]:
+                    - generic [ref=e987]: 👨‍🏫
+                    - generic [ref=e988]: "Sukanta Hui's Master Mentor Advice:"
+                  - generic [ref=e989]: "In IT consulting and corporate billing, NETWORKDAYS is the foundation of revenue recognition. Memorize the full-month capacity idiom: =NETWORKDAYS(EOMONTH(A2,-1)+1, EOMONTH(A2,0), Holidays). Always verify whether your client agreement requires inclusive or exclusive counting to prevent billing disputes."
+                - img "Sukanta Hui" [ref=e991]
+                - heading "Sukanta Hui" [level=2] [ref=e992]
+                - link "github.com/sukantahui" [ref=e997] [cursor=pointer]:
+                  - /url: https://github.com/sukantahui
+                - generic [ref=e998]: "Corporate & Academic Experience: 28+ Years"
+                - paragraph [ref=e999]: Senior Lead Software Architect & Corporate Instructor with 28+ years of industry experience across enterprise architecture, advanced analytics, financial modeling, and engineering systems.
+            - generic [ref=e1000]:
+              - heading "Have a Question About This Topic?" [level=3] [ref=e1004]
+              - paragraph [ref=e1005]: Ask your calculation, formulation, or theorem doubt directly to instructor Sukanta Hui.
+              - textbox "Type your question or problem statement here..." [ref=e1006]
+              - button "Send Query via WhatsApp" [ref=e1007]
+            - generic [ref=e1011]:
+              - generic [ref=e1018]:
+                - generic [ref=e1019]: "Same Segment: Segment 9 - Excel Complete Function Library & Advanced Function Engineering (Ultra Expert)"
+                - generic [ref=e1020]: Advanced Financial, Bond & Investment Functions
+              - link "Go to Next Module" [ref=e1021] [cursor=pointer]:
+                - /url: /excel/topic/009_007_advanced-financial-bond-and-investment-functions/0
+            - navigation [ref=e1025]:
+              - link "Previous Topic WORKDAY.INTL Function — International Business-Day Calculation" [ref=e1026] [cursor=pointer]:
+                - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/15
+                - generic [ref=e1029]:
+                  - generic [ref=e1030]: Previous Topic
+                  - generic [ref=e1031]: WORKDAY.INTL Function — International Business-Day Calculation
+              - link "Next Topic NETWORKDAYS.INTL Function — International Working-Day Count" [ref=e1032] [cursor=pointer]:
+                - /url: /excel/topic/009_006_complete-date-time-and-calendar-engineering-functions/17
+                - generic [ref=e1033]:
+                  - generic [ref=e1034]: Next Topic
+                  - generic [ref=e1035]: NETWORKDAYS.INTL Function — International Working-Day Count
+      - generic [ref=e1039]:
+        - button "CNAT Mam Ask CNAT Mam AI Mentor" [ref=e1040] [cursor=pointer]:
+          - generic [ref=e1044]:
+            - img "CNAT Mam" [ref=e1046]
+            - generic [ref=e1047]: Ask CNAT Mam
+          - generic [ref=e1048]: AI Mentor
+        - button "Close AI Assistant" [ref=e1049] [cursor=pointer]
