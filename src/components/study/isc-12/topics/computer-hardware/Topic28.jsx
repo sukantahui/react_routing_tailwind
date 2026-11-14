@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle, Table } from "lucide-react";
+import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle, Table, Check, BookOpen } from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../common/FAQTemplate";
-import faqs from "./faqs/topic28_faqs";
+import { faqs } from "./faqs/topic28_faqs";
 
 const Topic28 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
 
-  // Selected minterms for 4-variable function F(A, B, C, D)
-  // Default: F(A, B, C, D) = Σ(0, 1, 3, 4, 8, 9, 15)
+  // Default: Textbook Page 109 Example 2.13
+  // F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15)
   const [minterms, setMinterms] = useState([0, 1, 3, 4, 8, 9, 15]);
 
-  const [valA, setValA] = useState(false);
-  const [valB, setValB] = useState(false);
-  const [valC, setValC] = useState(false);
-  const [valD, setValD] = useState(false);
+  // Live input test signals
+  const [inA, setInA] = useState(false);
+  const [inB, setInB] = useState(false);
+  const [inC, setInC] = useState(false);
+  const [inD, setInD] = useState(false);
 
   const toggleMinterm = (m) => {
     if (minterms.includes(m)) {
@@ -25,26 +26,41 @@ const Topic28 = () => {
     }
   };
 
-  // 8-to-1 MUX Implementation Table:
-  // Select lines: S2=A, S1=B, S0=C
-  // Residual: D (Row 1: D'=0, Row 2: D=1)
-  // Col k: m(2k) and m(2k+1)
-  const getCol = (colIdx) => {
-    const m0 = colIdx * 2;
-    const m1 = colIdx * 2 + 1;
-    const has0 = minterms.includes(m0);
-    const has1 = minterms.includes(m1);
-    if (!has0 && !has1) return { val: "0", desc: "Ground (0)" };
-    if (has0 && has1) return { val: "1", desc: "Vcc (1)" };
-    if (has0 && !has1) return { val: "D'", desc: "Inverted D" };
-    return { val: "D", desc: "Direct D" };
+  // Implementation Table Analysis for 8:1 MUX (Textbook Example 2.13):
+  // Ordered Sequence: a b c d
+  // Singled out variable: a (MSB)
+  // Select lines: S2 = b, S1 = c, S0 = d
+  // Row 1: a' (minterms 0 to 7)
+  // Row 2: a  (minterms 8 to 15)
+  // Column Ik contains (k, k + 8)
+  const getColAnalysis = (topM, botM) => {
+    const isTop = minterms.includes(topM);
+    const isBot = minterms.includes(botM);
+
+    if (!isTop && !isBot) {
+      return { val: "0", rule: "Rule 1", desc: "Neither minterm circled -> Apply 0 (GND)" };
+    }
+    if (isTop && isBot) {
+      return { val: "1", rule: "Rule 2", desc: "Both minterms circled -> Apply 1 (VCC)" };
+    }
+    if (!isTop && isBot) {
+      return { val: "a", rule: "Rule 3", desc: "Bottom circled, top not -> Apply a" };
+    }
+    return { val: "a'", rule: "Rule 4", desc: "Top circled, bottom not -> Apply a' (Inverter)" };
   };
 
-  const currentMinterm = (valA ? 8 : 0) + (valB ? 4 : 0) + (valC ? 2 : 0) + (valD ? 1 : 0);
+  const columns = Array.from({ length: 8 }, (_, k) => getColAnalysis(k, k + 8));
+
+  // Current minterm and output
+  const currentMinterm = (inA ? 8 : 0) + (inB ? 4 : 0) + (inC ? 2 : 0) + (inD ? 1 : 0);
   const currentOutput = minterms.includes(currentMinterm) ? 1 : 0;
+
+  // Selected MUX line index: S2=b, S1=c, S0=d
+  const selectedChannel = (inB ? 4 : 0) + (inC ? 2 : 0) + (inD ? 1 : 0);
 
   return (
     <div className="space-y-8 text-slate-200 leading-relaxed max-w-5xl mx-auto pb-12">
+      {/* HEADER HERO */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 sm:p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 space-y-3">
@@ -55,25 +71,25 @@ const Topic28 = () => {
             <span className="px-3 py-1 text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-full">
               Computer Hardware &amp; Combinational Circuits
             </span>
-            <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">
-              CISCE Syllabus 868
+            <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full flex items-center gap-1.5">
+              <BookOpen size={12} /> Textbook Page 109 Example 2.13
             </span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Realization of Boolean Functions using 8-to-1 Multiplexer
+            Realization of Boolean Functions using $8 \times 1$ Multiplexer
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Implementation Table Method for 4-Variable Functions F(A, B, C, D) using Select Lines S2=A, S1=B, S0=C and Residual D
+            Textbook Page 109 Example 2.13: Implementing 4-Variable Function $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ with Singled-Out Variable $a$ and Select Lines $S_2 = b, S_1 = c, S_0 = d$.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
             {[
-              { id: "theory", label: "1. Core Theory & Concept" },
-              { id: "equations", label: "2. Implementation Table Method" },
-              { id: "truthTable", label: "3. Implementation Table & Circuit" },
-              { id: "interactive", label: "4. Dynamic Minterm Synthesizer" },
+              { id: "truthTable", label: "1. Page 109 Circuit & Table" },
+              { id: "theory", label: "2. Example 2.13 Theory" },
+              { id: "equations", label: "3. Step-by-Step Derivation" },
+              { id: "interactive", label: "4. Interactive MUX Synthesizer" },
               { id: "examTips", label: "5. ISC Board Exam Focus" },
               { id: "faqs", label: "6. 15 Essential FAQs" }
             ].map((tab) => (
@@ -94,211 +110,304 @@ const Topic28 = () => {
         </div>
       </header>
 
-      {/* TAB 1: THEORY */}
-      {activeTab === "theory" && (
-        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">4-Variable Realization via 8:1 MUX</h2>
-              <p className="text-xs text-slate-400">Implementing functions of 4 variables (16 minterms) with an 8-input selector</p>
-            </div>
-          </div>
-
-          <div className="text-sm text-slate-300 space-y-4 leading-relaxed">
-            <p>
-              To implement any 4-variable function <span className="font-mono text-cyan-400 font-bold">F(A, B, C, D)</span> using an 8-to-1 Multiplexer:
-            </p>
-
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">Select Lines (3)</span>
-                <div className="text-base font-mono font-bold text-white">S2=A, S1=B, S0=C</div>
-                <p className="text-xs text-slate-400">Connected to the three most significant variables.</p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Residual Variable (1)</span>
-                <div className="text-base font-mono font-bold text-white">Variable D</div>
-                <p className="text-xs text-slate-400">Used to feed 0, 1, D, or D&apos; into inputs I0 to I7.</p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Output</span>
-                <div className="text-base font-mono font-bold text-white">1 Pin Realization</div>
-                <p className="text-xs text-slate-400">The MUX output Y produces the exact function F(A, B, C, D).</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* TAB 2: EQUATIONS */}
-      {activeTab === "equations" && (
-        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">02</div>
-            <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">16-Minterm Implementation Table Mechanics</h2>
-              <p className="text-xs text-slate-400">Dividing 16 minterms across 8 data channels</p>
-            </div>
-          </div>
-
-          <div className="space-y-4 text-sm text-slate-300">
-            <p>
-              In an 8:1 MUX implementation table, row 1 holds even minterms (where D=0, hence <span className="font-mono text-cyan-400">D&apos;</span>) and row 2 holds odd minterms (where D=1, hence <span className="font-mono text-cyan-400">D</span>):
-            </p>
-
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-              <div className="font-bold text-amber-400">Column Pairing Table:</div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-slate-300">
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I0: m0 (D&apos;), m1 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I1: m2 (D&apos;), m3 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I2: m4 (D&apos;), m5 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I3: m6 (D&apos;), m7 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I4: m8 (D&apos;), m9 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I5: m10 (D&apos;), m11 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I6: m12 (D&apos;), m13 (D)</div>
-                <div className="p-2 rounded bg-slate-900 border border-slate-800">I7: m14 (D&apos;), m15 (D)</div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* TAB 3: TRUTH TABLE & CIRCUIT */}
+      {/* TAB 1: CIRCUIT & TABLE (DEFAULT TAB) */}
       {activeTab === "truthTable" && (
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-8">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">03</div>
+            <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Implementation Table &amp; Realization Circuit</h2>
-              <p className="text-xs text-slate-400">Solution for F(A, B, C, D) = Σ(0, 1, 3, 4, 8, 9, 15)</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Textbook Page 109 Example 2.13 Implementation</h2>
+              <p className="text-xs text-slate-400">Complete Implementation Table and Circuit for $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$</p>
             </div>
           </div>
 
-          {/* TABLE */}
+          {/* IMPLEMENTATION TABLE (PAGE 109) */}
           <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-cyan-400">
-              1. 8-to-1 MUX Implementation Table
-            </h3>
-            <div className="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950 shadow-inner">
-              <table className="w-full text-center text-xs font-mono">
-                <thead className="bg-slate-900/90 text-slate-300 border-b border-slate-800">
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-slate-300 uppercase tracking-wider text-xs">
+                Implementation Table (Textbook Page 109)
+              </span>
+              <span className="text-[11px] font-mono text-cyan-400">
+                Inputs: I₀ through I₇ | Rows: a&apos; and a
+              </span>
+            </div>
+
+            <div className="overflow-x-auto border border-indigo-900/60 rounded-xl bg-slate-950 shadow-md">
+              <table className="w-full text-center font-mono text-xs">
+                <thead className="bg-indigo-950/60 text-slate-200 border-b border-indigo-800">
                   <tr>
-                    <th className="p-2.5 text-left text-amber-400">Term</th>
-                    {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
-                      <th key={i} className="p-2.5 text-indigo-400 font-bold">I{i}</th>
+                    <th className="p-2.5 text-left text-amber-400">Row</th>
+                    {Array.from({ length: 8 }, (_, k) => (
+                      <th key={k} className="p-2.5 text-cyan-300 font-bold">I{k}</th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60">
+                <tbody className="divide-y divide-slate-800 text-slate-300">
+                  {/* Row a' */}
                   <tr>
-                    <td className="p-2.5 text-left font-bold text-slate-400">D&apos;</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m0</td>
-                    <td className="p-2.5 text-slate-500">m2</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m4</td>
-                    <td className="p-2.5 text-slate-500">m6</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m8</td>
-                    <td className="p-2.5 text-slate-500">m10</td>
-                    <td className="p-2.5 text-slate-500">m12</td>
-                    <td className="p-2.5 text-slate-500">m14</td>
+                    <td className="p-2.5 text-left font-bold text-indigo-400">a&apos; (a=0)</td>
+                    {[0, 1, 2, 3, 4, 5, 6, 7].map((m) => {
+                      const isCircled = minterms.includes(m);
+                      return (
+                        <td
+                          key={m}
+                          className={clsx(
+                            "p-2.5",
+                            isCircled
+                              ? "font-bold text-emerald-300 bg-emerald-950/50 rounded"
+                              : "text-slate-500"
+                          )}
+                        >
+                          {isCircled ? `⓿${m}`.slice(-2) : m}
+                        </td>
+                      );
+                    })}
                   </tr>
+
+                  {/* Row a */}
                   <tr>
-                    <td className="p-2.5 text-left font-bold text-slate-400">D</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m1</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m3</td>
-                    <td className="p-2.5 text-slate-500">m5</td>
-                    <td className="p-2.5 text-slate-500">m7</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m9</td>
-                    <td className="p-2.5 text-slate-500">m11</td>
-                    <td className="p-2.5 text-slate-500">m13</td>
-                    <td className="p-2.5 font-bold text-emerald-400 bg-emerald-950/30">m15</td>
+                    <td className="p-2.5 text-left font-bold text-indigo-400">a (a=1)</td>
+                    {[8, 9, 10, 11, 12, 13, 14, 15].map((m) => {
+                      const isCircled = minterms.includes(m);
+                      return (
+                        <td
+                          key={m}
+                          className={clsx(
+                            "p-2.5",
+                            isCircled
+                              ? "font-bold text-emerald-300 bg-emerald-950/50 rounded"
+                              : "text-slate-500"
+                          )}
+                        >
+                          {isCircled ? `⓿${m}`.slice(-2) : m}
+                        </td>
+                      );
+                    })}
                   </tr>
-                  <tr className="bg-slate-900/90 font-bold text-emerald-300">
-                    <td className="p-2.5 text-left text-white">Input:</td>
-                    <td className="p-2.5 text-emerald-400 font-bold">1</td>
-                    <td className="p-2.5 text-emerald-400 font-bold">D</td>
-                    <td className="p-2.5 text-emerald-400 font-bold">D&apos;</td>
-                    <td className="p-2.5 text-slate-400 font-bold">0</td>
-                    <td className="p-2.5 text-emerald-400 font-bold">1</td>
-                    <td className="p-2.5 text-slate-400 font-bold">0</td>
-                    <td className="p-2.5 text-slate-400 font-bold">0</td>
-                    <td className="p-2.5 text-emerald-400 font-bold">D</td>
+
+                  {/* Applied Inputs Row */}
+                  <tr className="bg-slate-900 font-bold text-[13px]">
+                    <td className="p-2.5 text-left text-amber-400">Input Applied:</td>
+                    {columns.map((col, idx) => (
+                      <td
+                        key={idx}
+                        className={clsx(
+                          "p-2.5",
+                          col.val === "1" && "text-emerald-400",
+                          col.val === "0" && "text-rose-400",
+                          col.val === "a" && "text-cyan-400",
+                          col.val === "a'" && "text-amber-400"
+                        )}
+                      >
+                        {col.val}
+                      </td>
+                    ))}
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            {/* DEDUCTIONS ACCORDING TO RULES 1-4 */}
+            <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1.5">
+              <span className="font-bold text-indigo-300 block mb-1">Deductions per Textbook Page 109:</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 font-mono">
+                <div className="p-2 rounded bg-slate-950 border border-slate-800">
+                  <span className="text-emerald-400 font-bold">I₀, I₁ applied 1</span>
+                  <div className="text-[10px] text-slate-400 font-sans">Rule 2: Both circled</div>
+                </div>
+                <div className="p-2 rounded bg-slate-950 border border-slate-800">
+                  <span className="text-rose-400 font-bold">I₂, I₅, I₆ applied 0</span>
+                  <div className="text-[10px] text-slate-400 font-sans">Rule 1: Neither circled</div>
+                </div>
+                <div className="p-2 rounded bg-slate-950 border border-slate-800">
+                  <span className="text-amber-400 font-bold">I₃, I₄ applied a&apos;</span>
+                  <div className="text-[10px] text-slate-400 font-sans">Rule 4: Top circled (m3, m4)</div>
+                </div>
+                <div className="p-2 rounded bg-slate-950 border border-slate-800">
+                  <span className="text-cyan-400 font-bold">I₇ applied a</span>
+                  <div className="text-[10px] text-slate-400 font-sans">Rule 3: Bottom circled (m15)</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* CIRCUIT SVG */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-indigo-400">
-              2. 8-to-1 MUX Realization Circuit Diagram
-            </h3>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex justify-center">
-              <svg viewBox="0 0 700 350" className="w-full max-w-2xl h-auto select-none font-mono text-xs">
-                {/* 8:1 MUX Trapezoid */}
-                <polygon points="260,30 460,70 460,250 260,290" fill="#0f172a" stroke="#6366f1" strokeWidth="2.5" />
-                <text x="360" y="150" fill="#e0e7ff" textAnchor="middle" fontWeight="bold" fontSize="16">8-to-1</text>
-                <text x="360" y="172" fill="#a5b4fc" textAnchor="middle" fontSize="12">MULTIPLEXER</text>
+          {/* SVG SCHEMATIC FROM TEXTBOOK PAGE 109 */}
+          <div className="space-y-3 pt-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
+                Textbook Page 109: 8 &times; 1 Multiplexer Realization Circuit
+              </span>
+              <span className="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                1 &times; 8:1 MUX + 1 NOT Gate
+              </span>
+            </div>
 
-                {/* Select Lines S2=A, S1=B, S0=C */}
-                <line x1="310" y1="280" x2="310" y2="330" stroke="#f59e0b" strokeWidth="2" />
-                <circle cx="310" cy="330" r="3.5" fill="#f59e0b" />
-                <text x="310" y="345" fill="#fcd34d" textAnchor="middle" fontSize="10" fontWeight="bold">S2 = A</text>
+            <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex justify-center">
+              <svg viewBox="0 0 560 300" className="w-full max-w-xl h-auto font-mono text-xs select-none">
+                {/* 1 (VCC) feeding I0, I1 */}
+                <text x="25" y="45" fill="#10b981" fontWeight="bold">1</text>
+                <line x1="45" y1="41" x2="160" y2="41" stroke="#10b981" strokeWidth="2" />
+                <path d="M 120 41 L 120 66 L 160 66" fill="none" stroke="#10b981" strokeWidth="2" />
+                <circle cx="120" cy="41" r="3" fill="#10b981" />
 
-                <line x1="360" y1="270" x2="360" y2="330" stroke="#f59e0b" strokeWidth="2" />
-                <circle cx="360" cy="330" r="3.5" fill="#f59e0b" />
-                <text x="360" y="345" fill="#fcd34d" textAnchor="middle" fontSize="10" fontWeight="bold">S1 = B</text>
+                {/* 0 (GND) feeding I2, I5, I6 */}
+                <text x="25" y="95" fill="#ef4444" fontWeight="bold">0</text>
+                <line x1="45" y1="91" x2="160" y2="91" stroke="#ef4444" strokeWidth="2" />
+                <path d="M 100 91 L 100 166 L 160 166" fill="none" stroke="#ef4444" strokeWidth="2" />
+                <path d="M 100 166 L 100 191 L 160 191" fill="none" stroke="#ef4444" strokeWidth="2" />
+                <circle cx="100" cy="91" r="3" fill="#ef4444" />
+                <circle cx="100" cy="166" r="3" fill="#ef4444" />
 
-                <line x1="410" y1="260" x2="410" y2="330" stroke="#f59e0b" strokeWidth="2" />
-                <circle cx="410" cy="330" r="3.5" fill="#f59e0b" />
-                <text x="410" y="345" fill="#fcd34d" textAnchor="middle" fontSize="10" fontWeight="bold">S0 = C</text>
+                {/* a' (Inverter on a) feeding I3, I4 */}
+                <text x="20" y="125" fill="#f59e0b" fontWeight="bold">a&apos;</text>
+                {/* NOT Gate on a */}
+                <line x1="38" y1="121" x2="58" y2="121" stroke="#f59e0b" strokeWidth="1.5" />
+                <polygon points="58,114 75,121 58,128" fill="#1e1b4b" stroke="#f59e0b" strokeWidth="1.5" />
+                <circle cx="78" cy="121" r="3" fill="#1e1b4b" stroke="#f59e0b" strokeWidth="1.5" />
+                <line x1="81" y1="121" x2="160" y2="121" stroke="#f59e0b" strokeWidth="2" />
+                <path d="M 130 121 L 130 141 L 160 141" fill="none" stroke="#f59e0b" strokeWidth="2" />
+                <circle cx="130" cy="121" r="3" fill="#f59e0b" />
 
-                {/* Left Rails: 1(Vcc), 0(GND), D, D' */}
-                <text x="40" y="25" fill="#10b981" fontSize="10" fontWeight="bold">1 (Vcc)</text>
-                <line x1="55" y1="35" x2="55" y2="280" stroke="#10b981" strokeWidth="1.5" />
+                {/* a feeding I7 */}
+                <text x="25" y="220" fill="#38bdf8" fontWeight="bold">a</text>
+                <line x1="45" y1="216" x2="160" y2="216" stroke="#38bdf8" strokeWidth="2" />
 
-                <text x="90" y="25" fill="#64748b" fontSize="10" fontWeight="bold">0 (GND)</text>
-                <line x1="105" y1="35" x2="105" y2="280" stroke="#64748b" strokeWidth="1.5" />
+                {/* 8:1 MUX Block */}
+                <polygon
+                  points="160,25 290,45 290,235 160,255"
+                  fill="#1e1b4b"
+                  stroke="#6366f1"
+                  strokeWidth="2.5"
+                />
+                <text x="225" y="130" fill="#ffffff" fontWeight="bold" fontSize="16" textAnchor="middle">8 &times; 1</text>
+                <text x="225" y="152" fill="#a5b4fc" fontWeight="bold" fontSize="13" textAnchor="middle">MUX</text>
 
-                <text x="140" y="25" fill="#38bdf8" fontSize="10" fontWeight="bold">D</text>
-                <line x1="150" y1="35" x2="150" y2="280" stroke="#38bdf8" strokeWidth="1.5" />
+                {/* Channel Labels */}
+                <text x="175" y="45" fill="#94a3b8" fontSize="10">I₀</text>
+                <text x="175" y="70" fill="#94a3b8" fontSize="10">I₁</text>
+                <text x="175" y="95" fill="#94a3b8" fontSize="10">I₂</text>
+                <text x="175" y="125" fill="#94a3b8" fontSize="10">I₃</text>
+                <text x="175" y="145" fill="#94a3b8" fontSize="10">I₄</text>
+                <text x="175" y="170" fill="#94a3b8" fontSize="10">I₅</text>
+                <text x="175" y="195" fill="#94a3b8" fontSize="10">I₆</text>
+                <text x="175" y="220" fill="#94a3b8" fontSize="10">I₇</text>
 
-                <text x="180" y="25" fill="#a78bfa" fontSize="10" fontWeight="bold">D&apos;</text>
-                <line x1="190" y1="35" x2="190" y2="280" stroke="#a78bfa" strokeWidth="1.5" />
+                {/* Select Lines S2, S1, S0 (b, c, d) */}
+                <line x1="200" y1="280" x2="200" y2="248" stroke="#06b6d4" strokeWidth="2" />
+                <text x="200" y="240" fill="#06b6d4" textAnchor="middle" fontSize="10">S₂</text>
+                <text x="200" y="295" fill="#06b6d4" textAnchor="middle" fontWeight="bold" fontSize="12">b</text>
 
-                {/* Inverter connecting D to D' */}
-                <line x1="150" y1="50" x2="165" y2="50" stroke="#38bdf8" strokeWidth="1.5" />
-                <polygon points="165,45 178,50 165,55" fill="#1e1b4b" stroke="#a78bfa" strokeWidth="1" />
-                <circle cx="182" cy="50" r="2.5" fill="#020617" stroke="#a78bfa" strokeWidth="1" />
-                <line x1="184" y1="50" x2="190" y2="50" stroke="#a78bfa" strokeWidth="1.5" />
+                <line x1="230" y1="280" x2="230" y2="244" stroke="#06b6d4" strokeWidth="2" />
+                <text x="230" y="236" fill="#06b6d4" textAnchor="middle" fontSize="10">S₁</text>
+                <text x="230" y="295" fill="#06b6d4" textAnchor="middle" fontWeight="bold" fontSize="12">c</text>
 
-                {/* 8 Inputs */}
-                {[
-                  { name: "I0", y: 60, srcX: 55, color: "#10b981" },
-                  { name: "I1", y: 85, srcX: 150, color: "#38bdf8" },
-                  { name: "I2", y: 110, srcX: 190, color: "#a78bfa" },
-                  { name: "I3", y: 135, srcX: 105, color: "#64748b" },
-                  { name: "I4", y: 160, srcX: 55, color: "#10b981" },
-                  { name: "I5", y: 185, srcX: 105, color: "#64748b" },
-                  { name: "I6", y: 210, srcX: 105, color: "#64748b" },
-                  { name: "I7", y: 235, srcX: 150, color: "#38bdf8" }
-                ].map((inp, idx) => (
-                  <g key={idx}>
-                    <circle cx={inp.srcX} cy={inp.y} r="3" fill={inp.color} />
-                    <line x1={inp.srcX} y1={inp.y} x2="260" y2={inp.y} stroke={inp.color} strokeWidth="1.5" />
-                    <text x="240" y={inp.y - 3} fill="#cbd5e1" fontSize="9">{inp.name}</text>
-                  </g>
-                ))}
+                <line x1="260" y1="280" x2="260" y2="240" stroke="#06b6d4" strokeWidth="2" />
+                <text x="260" y="232" fill="#06b6d4" textAnchor="middle" fontSize="10">S₀</text>
+                <text x="260" y="295" fill="#06b6d4" textAnchor="middle" fontWeight="bold" fontSize="12">d</text>
 
-                {/* Output */}
-                <line x1="460" y1="160" x2="600" y2="160" stroke="#10b981" strokeWidth="2.5" />
-                <circle cx="600" cy="160" r="4" fill="#10b981" />
-                <text x="615" y="164" fill="#6ee7b7" fontWeight="bold" fontSize="13">F(A,B,C,D)</text>
+                {/* Output F */}
+                <line x1="290" y1="140" x2="390" y2="140" stroke="#10b981" strokeWidth="2.5" />
+                <circle cx="390" cy="140" r="3.5" fill="#10b981" />
+                <text x="405" y="145" fill="#10b981" fontWeight="bold" fontSize="15">F (Output)</text>
               </svg>
             </div>
+
+            {/* EQUATION OF 8x1 MUX FROM PAGE 109 */}
+            <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
+              <div className="font-bold text-amber-400">Equation of $8 \times 1$ MUX (Textbook Page 109):</div>
+              <div className="p-3 rounded-lg bg-slate-950 font-mono text-center text-[11px] text-cyan-300 border border-slate-800 overflow-x-auto">
+                F = S̄₂S̄₁S̄₀ I₀ + S̄₂S̄₁S₀ I₁ + S̄₂S₁S̄₀ I₂ + S̄₂S₁S₀ I₃ + S₂S̄₁S̄₀ I₄ + S₂S̄₁S₀ I₅ + S₂S₁S̄₀ I₆ + S₂S₁S₀ I₇
+              </div>
+              <p className="text-slate-400 text-[11px]">
+                Substituting select lines $(S_2=b, S_1=c, S_0=d)$ and inputs $(I_0=1, I_1=1, I_2=0, I_3=a&apos;, I_4=a&apos;, I_5=0, I_6=0, I_7=a)$:
+              </p>
+              <div className="font-mono text-emerald-400 text-center font-bold text-xs">
+                F = b&apos;c&apos;d&apos;(1) + b&apos;c&apos;d(1) + b&apos;cd(a&apos;) + bc&apos;d&apos;(a&apos;) + bcd(a) &equiv; &Sigma;(0, 1, 3, 4, 8, 9, 15)
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* TAB 2: THEORY */}
+      {activeTab === "theory" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">02</div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white">4-Variable Realization via $8 \times 1$ Multiplexer</h2>
+              <p className="text-xs text-slate-400">Textbook Page 109 Example 2.13 core design methodology</p>
+            </div>
+          </div>
+
+          <div className="text-sm text-slate-300 space-y-4 leading-relaxed">
+            <div className="p-4 rounded-xl bg-indigo-950/40 border border-indigo-800/40 space-y-2">
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Zap size={14} /> Problem Formulation (Example 2.13)
+              </span>
+              <p className="text-sm text-slate-200">
+                <strong>Implement $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ with a multiplexer.</strong>
+              </p>
+              <p className="text-xs text-slate-400">
+                It is a four-variable function ($n = 4$). Thus it will be implemented using a $2^{"{n-1}"} \text{ to } 1 = 2^3 \text{ to } 1 = 8 \text{ to } 1$ multiplexer with $4 - 1 = 3$ selection lines.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-4 text-xs">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Ordered Sequence</span>
+                <div className="text-base font-mono font-bold text-white">a b c d</div>
+                <p className="text-slate-400">The 4 input variables in canonical order.</p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Singled-Out Variable</span>
+                <div className="text-base font-mono font-bold text-cyan-400">Variable &lsquo;a&rsquo; (Leftmost)</div>
+                <p className="text-slate-400">Leftmost variable forms the 2 rows: $a&apos;$ and $a$.</p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider">Selection Lines (3)</span>
+                <div className="text-base font-mono font-bold text-white">S₂=b, S₁=c, S₀=d</div>
+                <p className="text-slate-400">Lower 3 variables connected to the select bus.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* TAB 3: STEP-BY-STEP DERIVATION */}
+      {activeTab === "equations" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">03</div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Step-by-Step Column Analysis for Example 2.13</h2>
+              <p className="text-xs text-slate-400">Evaluating each of the 8 multiplexer channels $I_0$ through $I_7$</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs font-mono">
+            {[
+              { ch: "I₀ (bcd=000)", pair: "(0, 8)", circled: "Both 0 & 8", rule: "Rule 2", res: "1" },
+              { ch: "I₁ (bcd=001)", pair: "(1, 9)", circled: "Both 1 & 9", rule: "Rule 2", res: "1" },
+              { ch: "I₂ (bcd=010)", pair: "(2, 10)", circled: "Neither", rule: "Rule 1", res: "0" },
+              { ch: "I₃ (bcd=011)", pair: "(3, 11)", circled: "Top (3) only", rule: "Rule 4", res: "a'" },
+              { ch: "I₄ (bcd=100)", pair: "(4, 12)", circled: "Top (4) only", rule: "Rule 4", res: "a'" },
+              { ch: "I₅ (bcd=101)", pair: "(5, 13)", circled: "Neither", rule: "Rule 1", res: "0" },
+              { ch: "I₆ (bcd=110)", pair: "(6, 14)", circled: "Neither", rule: "Rule 1", res: "0" },
+              { ch: "I₇ (bcd=111)", pair: "(7, 15)", circled: "Bottom (15) only", rule: "Rule 3", res: "a" }
+            ].map((item, idx) => (
+              <div key={idx} className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <span className="font-bold text-indigo-400 block font-sans">{item.ch}</span>
+                <div className="text-slate-400 text-[11px]">Minterms: {item.pair}</div>
+                <div className="text-slate-300 font-sans text-[11px]">{item.circled}</div>
+                <div className="pt-1 flex items-center justify-between border-t border-slate-800/80">
+                  <span className="text-[10px] text-amber-400 font-sans">{item.rule}</span>
+                  <span className="font-bold text-white text-sm">{item.res}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
@@ -307,95 +416,144 @@ const Topic28 = () => {
       {activeTab === "interactive" && (
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 font-bold text-lg">04</div>
+            <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">04</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Dynamic 8:1 MUX Function Synthesizer</h2>
-              <p className="text-xs text-slate-400">Select any minterms from m0 to m15 to see real-time table synthesis</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Interactive 4-Variable $8 \times 1$ MUX Synthesizer</h2>
+              <p className="text-xs text-slate-400">Toggle input signals $a, b, c, d$ to verify live multiplexer channel steering</p>
             </div>
           </div>
 
-          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 space-y-6">
-            <div className="space-y-2">
-              <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                Toggle Minterms (0 to 15):
-              </span>
-              <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
-                {Array.from({ length: 16 }).map((_, m) => {
-                  const active = minterms.includes(m);
+          {/* INPUT SWITCHES */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { id: "a", name: "Data (a)", val: inA, set: setInA, color: "indigo" },
+              { id: "b", name: "Select S₂ (b)", val: inB, set: setInB, color: "cyan" },
+              { id: "c", name: "Select S₁ (c)", val: inC, set: setInC, color: "emerald" },
+              { id: "d", name: "Select S₀ (d)", val: inD, set: setInD, color: "amber" }
+            ].map((pin) => (
+              <div
+                key={pin.id}
+                onClick={() => pin.set(!pin.val)}
+                className={clsx(
+                  "p-3 rounded-xl border cursor-pointer transition-all flex items-center justify-between",
+                  pin.val
+                    ? `bg-${pin.color}-950/40 border-${pin.color}-500/50 shadow-lg shadow-${pin.color}-500/10`
+                    : "bg-slate-950/60 border-slate-800 hover:border-slate-700"
+                )}
+              >
+                <div>
+                  <span className="text-[10px] text-slate-400 font-mono">Pin {pin.id}</span>
+                  <div className="text-xs font-bold text-white">{pin.name}</div>
+                </div>
+                <div
+                  className={clsx(
+                    "w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs",
+                    pin.val ? "bg-emerald-500 text-white" : "bg-slate-800 text-slate-400"
+                  )}
+                >
+                  {pin.val ? "1" : "0"}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* SIMULATOR CHANNEL PROBER */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+              <h3 className="text-sm font-bold text-slate-200">8-Channel Multiplexer Internal Status</h3>
+
+              <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 text-xs font-mono text-center">
+                {columns.map((col, idx) => {
+                  const isSel = selectedChannel === idx;
+                  const liveBit =
+                    col.val === "1" ? 1 : col.val === "0" ? 0 : col.val === "a" ? (inA ? 1 : 0) : inA ? 0 : 1;
                   return (
-                    <button
-                      key={m}
-                      onClick={() => toggleMinterm(m)}
+                    <div
+                      key={idx}
                       className={clsx(
-                        "py-2 rounded font-mono font-bold text-xs border transition-all",
-                        active ? "bg-indigo-600 text-white border-indigo-400" : "bg-slate-900 text-slate-500 border-slate-800"
+                        "p-2 rounded-lg border transition-all",
+                        isSel
+                          ? "bg-indigo-950 border-indigo-400 shadow-md shadow-indigo-500/30"
+                          : "bg-slate-900/60 border-slate-800 opacity-60"
                       )}
                     >
-                      m{m}
-                    </button>
+                      <div className="text-[10px] text-slate-400">I{idx}</div>
+                      <div className="text-sm font-bold text-white my-0.5">{liveBit}</div>
+                      <div className="text-[9px] text-amber-400">{isSel ? "ACTIVE" : col.val}</div>
+                    </div>
                   );
                 })}
               </div>
+
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
+                <div>
+                  <strong className="text-white">Active Select Code: </strong>
+                  <span className="font-mono text-cyan-300">
+                    S₂=b ({inB ? 1 : 0}), S₁=c ({inC ? 1 : 0}), S₀=d ({inD ? 1 : 0}) &rarr; Routes Pin I{selectedChannel}
+                  </span>
+                </div>
+                <div className="text-slate-400">
+                  Input vector: $a={inA ? 1 : 0}, b={inB ? 1 : 0}, c={inC ? 1 : 0}, d={inD ? 1 : 0} \implies$ Minterm{" "}
+                  <span className="font-mono text-white font-bold">m{currentMinterm}</span>.
+                </div>
+              </div>
             </div>
 
-            {/* DEDUCED INPUT VALUES */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
-              {Array.from({ length: 8 }).map((_, idx) => {
-                const col = getCol(idx);
-                return (
-                  <div key={idx} className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-center">
-                    <div className="text-[10px] font-mono text-slate-400">I{idx}</div>
-                    <div className="text-lg font-mono font-bold text-emerald-400 my-0.5">{col.val}</div>
-                    <div className="text-[9px] text-slate-500">{col.desc}</div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* LIVE VERIFICATION */}
-            <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400">Inputs:</span>
-                <button onClick={() => setValA(!valA)} className="px-2 py-1 rounded bg-slate-800 font-mono text-indigo-300">A={valA ? "1" : "0"}</button>
-                <button onClick={() => setValB(!valB)} className="px-2 py-1 rounded bg-slate-800 font-mono text-indigo-300">B={valB ? "1" : "0"}</button>
-                <button onClick={() => setValC(!valC)} className="px-2 py-1 rounded bg-slate-800 font-mono text-indigo-300">C={valC ? "1" : "0"}</button>
-                <button onClick={() => setValD(!valD)} className="px-2 py-1 rounded bg-slate-800 font-mono text-indigo-300">D={valD ? "1" : "0"}</button>
+            {/* LIVE OUTPUT DISPLAY */}
+            <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 flex flex-col justify-between items-center text-center space-y-4">
+              <div>
+                <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Realized Function Output</span>
+                <div className="text-sm font-bold text-slate-300 mt-1">F(a, b, c, d)</div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <span className="text-slate-400">State: <strong className="text-white font-mono">m{currentMinterm}</strong></span>
-                <span className="text-slate-400">Output F: <strong className={clsx("font-mono font-bold text-sm", currentOutput === 1 ? "text-emerald-400" : "text-rose-400")}>{currentOutput}</strong></span>
+              <div
+                className={clsx(
+                  "w-24 h-24 rounded-2xl flex items-center justify-center font-extrabold text-4xl border transition-all",
+                  currentOutput
+                    ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/50 shadow-xl shadow-emerald-500/20"
+                    : "bg-rose-500/20 text-rose-400 border-rose-500/50 shadow-xl shadow-rose-500/20"
+                )}
+              >
+                {currentOutput ? "1" : "0"}
+              </div>
+
+              <div className="text-xs text-slate-400">
+                Minterm: <span className="font-mono font-bold text-white">m{currentMinterm}</span>
+                <div className="text-[11px] text-emerald-400 font-semibold mt-1">
+                  {currentOutput ? "✓ High (1) [Member of Σ]" : "✗ Low (0) [Absent from Σ]"}
+                </div>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* TAB 5: EXAM FOCUS */}
+      {/* TAB 5: ISC BOARD EXAM FOCUS */}
       {activeTab === "examTips" && (
-        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-5">
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-400 font-bold text-lg">05</div>
+            <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 font-bold text-lg">05</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">ISC Board Exam Focus: 4-Variable 8:1 MUX</h2>
-              <p className="text-xs text-slate-400">Exam preparation tips and common mistakes</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">ISC Board Exam Focus: Scoring Full Marks on Example 2.13</h2>
+              <p className="text-xs text-slate-400">Key step marks awarded by CISCE examiners</p>
             </div>
           </div>
 
-          <div className="space-y-4 text-xs text-slate-300">
+          <div className="space-y-4 text-xs text-slate-300 leading-relaxed">
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <div className="font-bold text-amber-400 uppercase tracking-wider">CISCE 5-Mark Marking Scheme</div>
-              <ul className="list-disc list-inside space-y-1 text-slate-400">
-                <li><strong className="text-white">Implementation Table (2 Marks):</strong> Showing 8 columns with circled minterms.</li>
-                <li><strong className="text-white">Values of I0–I7 (1 Mark):</strong> Correctly identifying constants (0, 1) and literals (D, D&apos;).</li>
-                <li><strong className="text-white">Logic Circuit Diagram (2 Marks):</strong> Correctly connected 8:1 MUX block diagram with select lines S2=A, S1=B, S0=C and inputs.</li>
+              <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
+              <ul className="list-disc list-inside space-y-1.5 text-slate-400">
+                <li><strong className="text-white">State Variable Partitioning:</strong> Write: <em>&ldquo;Four-variable function $n=4 \implies$ implemented using $2^{"{n-1}"} \to 1 = 8 \to 1$ MUX. Singled-out variable is $a$. Select lines are $b, c, d$.&rdquo;</em></li>
+                <li><strong className="text-white">Draw the 8-Column Implementation Table:</strong> Carefully draw the 8 columns ($I_0..I_7$) and 2 rows ($a&apos;, a$), circling minterms $0, 1, 3, 4, 8, 9, 15$.</li>
+                <li><strong className="text-white">State the Input Rules Applied:</strong> Mention which rule determined each input: $I_0, I_1 \to$ Rule 2; $I_2, I_5, I_6 \to$ Rule 1; $I_3, I_4 \to$ Rule 4; $I_7 \to$ Rule 3.</li>
+                <li><strong className="text-white">Draw the Circuit with 1 Inverter:</strong> Point out that only 1 NOT gate on $a$ is needed to feed both $I_3$ and $I_4$.</li>
               </ul>
             </div>
           </div>
         </section>
       )}
 
-            {/* TAB CONTENT: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {/* TAB 6: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
       {activeTab === "faqs" && (
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
           <FAQTemplate
@@ -415,11 +573,11 @@ const Topic28 = () => {
         </section>
       )}
 
-{/* TEACHER NOTE */}
+      {/* TEACHER NOTE */}
       <Teacher
-        topicId="topic-28-realization"
-        headline="Sukanta Hui's Advice for 4-Variable Realization"
-        note="Remember the order: S2 gets A, S1 gets B, S0 gets C! The leftover variable D is distributed among the inputs. When drawing the circuit, draw four vertical lines on the left for 1, 0, D, and D' (via an inverter). Then connect each of the eight inputs I0 through I7 to the appropriate vertical wire. It looks super professional and CISCE examiners love it!"
+        topicId="topic-28-mux-example-2-13"
+        headline="Sukanta Hui's Master Guide to Example 2.13 (Page 109)"
+        note="Example 2.13 from page 109 of your textbook is the classic 4-variable multiplexer question in ISC board examinations! Notice how singling out variable 'a' splits the 16 minterms cleanly into row a' (0-7) and row a (8-15). The remaining three variables b, c, d wire directly to S2, S1, S0. Only one single NOT gate is needed for the entire circuit to supply a' to inputs I3 and I4. Master this table and you are guaranteed full marks!"
       />
     </div>
   );
