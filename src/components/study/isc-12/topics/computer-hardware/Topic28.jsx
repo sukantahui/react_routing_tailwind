@@ -349,7 +349,7 @@ const Topic28 = () => {
                 <strong>Implement $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ with a multiplexer.</strong>
               </p>
               <p className="text-xs text-slate-400">
-                It is a four-variable function ($n = 4$). Thus it will be implemented using a $2^{"{n-1}"} \text{ to } 1 = 2^3 \text{ to } 1 = 8 \text{ to } 1$ multiplexer with $4 - 1 = 3$ selection lines.
+                It is a four-variable function ($n = 4$). Thus it will be implemented using an 8-to-1 ($2^{"{n-1}"} \to 1 = 8 \to 1$) multiplexer with $4 - 1 = 3$ selection lines.
               </p>
             </div>
 

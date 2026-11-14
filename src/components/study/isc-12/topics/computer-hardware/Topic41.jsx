@@ -351,7 +351,7 @@ const Topic41 = () => {
                 3. Arbitrary Combinational Logic Generation (LUT)
               </span>
               <p className="text-slate-300">
-                Any $n$-variable Boolean function can be implemented directly on a $2^n \times 1$ MUX by placing the truth table values directly onto data inputs $I_0..I_{2^n-1}$, or on a $2^{n-1} \times 1$ MUX using singling-out rules.
+                Any $n$-variable Boolean function can be implemented directly on a $2^n \times 1$ MUX by placing the truth table values directly onto data inputs $I_0..I_{"{"}2^n-1{"}"}$, or on a $2^{"{"}n-1{"}"} \times 1$ MUX using singling-out rules.
               </p>
               <p className="text-slate-400">
                 This exact multiplexer structure forms the fundamental building block of modern <strong>Field Programmable Gate Arrays (FPGAs)</strong>, known as configurable Look-Up Tables (LUTs).

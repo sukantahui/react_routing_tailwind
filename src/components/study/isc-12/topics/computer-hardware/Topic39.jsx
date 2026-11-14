@@ -421,11 +421,11 @@ const Topic39 = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                 <span className="font-bold text-slate-200">Column $I_0$ &amp; $I_2$: Rule 2 (Both Circled)</span>
-                <p className="text-slate-400">Minterms $(0, 4)$ and $(2, 6)$ are both circled in their columns $\implies$ Tied permanently to High ($V_{CC} = 1$).</p>
+                <p className="text-slate-400">Minterms $(0, 4)$ and $(2, 6)$ are both circled in their columns $\implies$ Tied permanently to High (VCC = 1).</p>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                 <span className="font-bold text-slate-200">Column $I_1$: Rule 1 (None Circled)</span>
-                <p className="text-slate-400">Neither minterm 1 nor 5 is present in function $F \implies$ Tied permanently to Low ($\text{Ground} = 0$).</p>
+                <p className="text-slate-400">Neither minterm 1 nor 5 is present in function $F \implies$ Tied permanently to Low (Ground = 0).</p>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1 sm:col-span-2">
                 <span className="font-bold text-slate-200">Column $I_3$: Rule 3 (Bottom Row Circled)</span>
@@ -494,7 +494,7 @@ const Topic39 = () => {
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
                 <span className="font-bold text-slate-200">Column $I_3$: Rule 2 (Both Circled)</span>
-                <p className="text-slate-400">Both minterms 6 and 7 are circled $\implies$ Tied permanently to High ($V_{CC} = 1$).</p>
+                <p className="text-slate-400">Both minterms 6 and 7 are circled $\implies$ Tied permanently to High (VCC = 1).</p>
               </div>
             </div>
           </div>
@@ -699,7 +699,7 @@ const Topic39 = () => {
                 <li><strong className="text-white">State Chosen Select Lines:</strong> Always begin your answer by explicitly defining which variables drive $S_1$ and $S_0$. Example: <em>&ldquo;Singling out variable $A$, we connect $S_1 = B$ and $S_0 = C$.&rdquo;</em></li>
                 <li><strong className="text-white">Draw the Implementation Table:</strong> Never write the input assignments directly without drawing the 2-row implementation table and circling the active minterms. Evaluators allot specific step marks for the table!</li>
                 <li><strong className="text-white">Highlight Logic Simplification:</strong> If singling out $A$ yields 0 inverters while singling out $C$ needs 1 inverter, mention this design advantage in your concluding sentence.</li>
-                <li><strong className="text-white">Label Vcc and Ground Clearly:</strong> Clearly indicate logic 1 as $V_{CC}$ and logic 0 as Ground ($GND$) on your MUX pin connections.</li>
+                <li><strong className="text-white">Label Vcc and Ground Clearly:</strong> Clearly indicate logic 1 as VCC and logic 0 as Ground ($GND$) on your MUX pin connections.</li>
               </ul>
             </div>
           </div>

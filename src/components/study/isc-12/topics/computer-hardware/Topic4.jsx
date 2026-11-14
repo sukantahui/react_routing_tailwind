@@ -96,7 +96,7 @@ const Topic4 = () => {
             <ul className="space-y-1.5 text-xs text-slate-400 list-disc list-inside">
               <li><strong>HA-1</strong> adds inputs $A$ and $B$, generating partial sum $S_1 = A oplus B$ and partial carry $C_1 = A cdot B$.</li>
               <li><strong>HA-2</strong> adds $S_1$ and $Cin$, generating final sum $S = S_1 oplus Cin = A oplus B oplus Cin$ and second partial carry $C_2 = S_1 cdot Cin$.</li>
-              <li>The <strong>OR Gate</strong> combines the two carry bits: $C_{out} = C_1 + C_2$. (Notice $C_1$ and $C_2$ can NEVER both be 1 simultaneously!).</li>
+              <li>The <strong>OR Gate</strong> combines the two carry bits: $C_{"{"}out{"}"} = C_1 + C_2$. (Notice $C_1$ and $C_2$ can NEVER both be 1 simultaneously!).</li>
             </ul>
           </div>
         </section>

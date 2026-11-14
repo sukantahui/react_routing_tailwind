@@ -96,7 +96,7 @@ const Topic7 = () => {
             <ul className="space-y-1.5 text-xs text-slate-400 list-disc list-inside">
               <li><strong>HS-1</strong> subtracts $B$ from $A$, yielding partial difference $D_1 = A oplus B$ and partial borrow $B_1 = A'B$.</li>
               <li><strong>HS-2</strong> subtracts $Bin$ from $D_1$, yielding final difference $Diff = D_1 oplus Bin = A oplus B oplus Bin$ and second partial borrow $B_2 = D_1' cdot Bin$.</li>
-              <li>The <strong>OR gate</strong> produces the overall borrow-out: $B_{out} = B_1 + B_2$.</li>
+              <li>The <strong>OR gate</strong> produces the overall borrow-out: $B_{"{"}out{"}"} = B_1 + B_2$.</li>
             </ul>
           </div>
         </section>
