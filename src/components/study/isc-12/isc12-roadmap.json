@@ -859,7 +859,8 @@
             "Relationship & Equivalence: Using a Decoder with an Enable Input as a Demultiplexer",
             "Comparative Analysis: Encoder vs Multiplexer (Input/Output Ratios, Select Lines & Applications)",
             "Comparative Analysis: Decoder vs Demultiplexer (Operational Differences, Truth Table Comparison)",
-            "ISC Board Examination Analysis: 2-Mark and 4-Mark Circuit Design, Derivations, and Previous Years Questions"
+            "ISC Board Examination Analysis: 2-Mark and 4-Mark Circuit Design, Derivations, and Previous Years Questions",
+            "Boolean Function Implementation using MUX: Implementation Table Method (Singled-Out Variable & Rules 1-4), Scaled-Down MUX, and Applications (6 Worked Examples)"
           ],
           "learningOutcomes": [
             "Differentiate between combinational and sequential logic circuits.",
