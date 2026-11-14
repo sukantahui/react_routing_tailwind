@@ -1,6 +1,23 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import { Zap, Cpu, CheckCircle2, Sliders, Activity, HelpCircle, Table, ArrowRight, ToggleLeft, Layers } from "lucide-react";
+import {
+  Zap,
+  Cpu,
+  CheckCircle2,
+  Sliders,
+  Activity,
+  HelpCircle,
+  Table,
+  ArrowRight,
+  ToggleLeft,
+  Layers,
+  Scale,
+  Check,
+  AlertTriangle,
+  Lightbulb,
+  GitBranch,
+  BookOpen
+} from "lucide-react";
 import Teacher from "../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../common/FAQTemplate";
 import { faqs } from "./faqs/topic39_faqs";
@@ -8,11 +25,11 @@ import { faqs } from "./faqs/topic39_faqs";
 const Topic39 = () => {
   const [activeTab, setActiveTab] = useState("truthTable");
 
-  // Interactive Simulator inputs
+  // Interactive Simulator inputs: A, B, C
   const [inA, setInA] = useState(false);
   const [inB, setInB] = useState(false);
   const [inC, setInC] = useState(false);
-  const [activeMethod, setActiveMethod] = useState("leftmost"); // "leftmost" or "rightmost"
+  const [activeMethod, setActiveMethod] = useState("leftmost"); // "leftmost", "rightmost", or "middle"
 
   // Evaluation for F(A, B, C) = Σ(0, 2, 4, 6, 7)
   const isMintermHigh = (a, b, c) => {
@@ -20,17 +37,23 @@ const Topic39 = () => {
     return [0, 2, 4, 6, 7].includes(m);
   };
 
+  const currentMintermNum = (inA ? 4 : 0) + (inB ? 2 : 0) + (inC ? 1 : 0);
   const outputF = isMintermHigh(inA, inB, inC);
 
-  // Method A (Leftmost: A singled out, S1=B, S0=C)
+  // Method A (Leftmost: A singled out, S1 = B, S0 = C)
   // I0 = 1, I1 = 0, I2 = 1, I3 = A
   const selIndexA = (inB ? 2 : 0) + (inC ? 1 : 0);
   const inputLinesMethodA = [1, 0, 1, inA ? 1 : 0];
 
-  // Method B (Rightmost: C singled out, S1=A, S0=B)
+  // Method B (Rightmost: C singled out, S1 = A, S0 = B)
   // I0 = C', I1 = C', I2 = C', I3 = 1
   const selIndexB = (inA ? 2 : 0) + (inB ? 1 : 0);
   const inputLinesMethodB = [inC ? 0 : 1, inC ? 0 : 1, inC ? 0 : 1, 1];
+
+  // Method C (Middle: B singled out, S1 = A, S0 = C)
+  // I0 = 1, I1 = 0, I2 = 1, I3 = B
+  const selIndexC = (inA ? 2 : 0) + (inC ? 1 : 0);
+  const inputLinesMethodC = [1, 0, 1, inB ? 1 : 0];
 
   return (
     <div className="space-y-8 text-slate-200 leading-relaxed max-w-5xl mx-auto pb-12">
@@ -43,10 +66,10 @@ const Topic39 = () => {
               ISC Class 12 • Topic 39
             </span>
             <span className="px-3 py-1 text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-full">
-              Computer Hardware &amp; Combinational Logic
+              Computer Hardware &amp; Combinational Circuits
             </span>
-            <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">
-              Synthesis Optimization Strategy
+            <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full flex items-center gap-1.5">
+              <Scale size={12} /> Optimization Strategy Masterclass
             </span>
           </div>
 
@@ -55,24 +78,26 @@ const Topic39 = () => {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Comparative analysis of implementation conventions for F(A, B, C) = Σ(0, 2, 4, 6, 7) on a 4 × 1 MUX: Contrasting CISCE syllabus standards (A data) against classical engineering literature (C data), gate counts, and inverter overhead.
+            Exhaustive comparative analysis and step-by-step mathematical derivation for F(A, B, C) = Σ(0, 2, 4, 6, 7) on a 4 × 1 MUX: Contrasting the CISCE syllabus standard (leftmost variable A) against engineering digital design literature (rightmost variable C), including gate count, inverter overhead, and signal propagation latency.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
             {[
-              { id: "truthTable", label: "1. Circuit Diagrams & Truth Tables" },
-              { id: "theory", label: "2. Core Theory & Convention Comparison" },
-              { id: "methodA", label: "3. Method A: Leftmost (A)" },
-              { id: "methodB", label: "4. Method B: Rightmost (C)" },
-              { id: "interactive", label: "5. Dual-Method MUX Simulator" },
-              { id: "examTips", label: "6. ISC Board Exam Focus" },
-              { id: "faqs", label: "7. 15 Essential FAQs" }
+              { id: "truthTable", label: "1. Comparative Schematics & Truth Table" },
+              { id: "theory", label: "2. Strategic Architectural Theory" },
+              { id: "methodA", label: "3. Method A: Leftmost (A) Steps" },
+              { id: "methodB", label: "4. Method B: Rightmost (C) Steps" },
+              { id: "methodC", label: "5. Method C: Middle (B) Bonus" },
+              { id: "comparison", label: "6. Engineering Comparison Matrix" },
+              { id: "interactive", label: "7. 3-Way Interactive Simulator" },
+              { id: "examTips", label: "8. ISC Board Exam Guide" },
+              { id: "faqs", label: "9. 15 Essential FAQs" }
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={clsx(
-                  "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all border",
+                  "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border",
                   activeTab === tab.id
                     ? "bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-600/30"
                     : "bg-slate-900/80 text-slate-300 border-slate-700/80 hover:bg-slate-800 hover:text-white"
@@ -101,9 +126,13 @@ const Topic39 = () => {
             <div className="p-5 rounded-xl bg-slate-950/80 border border-indigo-900/50 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                 <span className="font-bold text-sm text-indigo-400">Method A: Leftmost Singled Out (A)</span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">0 Inverters (Optimal)</span>
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  0 Inverters (Optimal Design)
+                </span>
               </div>
-              <p className="text-xs text-slate-400">CISCE Preferred: S₁ = B, S₀ = C, Data: I₀=1, I₁=0, I₂=1, I₃=A</p>
+              <p className="text-xs text-slate-400">
+                CISCE Preferred: Select lines S₁ = B, S₀ = C; Data inputs: I₀=1, I₁=0, I₂=1, I₃=A.
+              </p>
 
               {/* SVG METHOD A */}
               <div className="w-full bg-slate-900/90 rounded-lg p-3 flex justify-center items-center border border-slate-800">
@@ -152,8 +181,11 @@ const Topic39 = () => {
                 </svg>
               </div>
 
-              <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-slate-300">
-                <span className="font-bold text-emerald-400">Zero Inverter Advantage:</span> Notice how I₃ is tied directly to variable A. No external logic gates or inverters are required whatsoever!
+              <div className="p-3.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-slate-300 space-y-1">
+                <span className="font-bold text-emerald-400 block">Hardware Efficiency Advantage:</span>
+                <p className="text-slate-400">
+                  Notice that input I₃ is wired directly to variable A. Not a single NOT gate or logic IC is required. The entire circuit is realized using exactly <strong>1 single 4 × 1 MUX IC</strong> (e.g. 74153).
+                </p>
               </div>
             </div>
 
@@ -161,9 +193,13 @@ const Topic39 = () => {
             <div className="p-5 rounded-xl bg-slate-950/80 border border-cyan-900/50 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                 <span className="font-bold text-sm text-cyan-400">Method B: Rightmost Singled Out (C)</span>
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">1 Inverter Required</span>
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                  1 Inverter Required
+                </span>
               </div>
-              <p className="text-xs text-slate-400">Engineering Textbook: S₁ = A, S₀ = B, Data: I₀=C&apos;, I₁=C&apos;, I₂=C&apos;, I₃=1</p>
+              <p className="text-xs text-slate-400">
+                Engineering Textbook: Select lines S₁ = A, S₀ = B; Data inputs: I₀=C&apos;, I₁=C&apos;, I₂=C&apos;, I₃=1.
+              </p>
 
               {/* SVG METHOD B */}
               <div className="w-full bg-slate-900/90 rounded-lg p-3 flex justify-center items-center border border-slate-800">
@@ -212,8 +248,11 @@ const Topic39 = () => {
                 </svg>
               </div>
 
-              <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-slate-300">
-                <span className="font-bold text-amber-400">Extra Inverter Overhead:</span> Method B requires 1 external NOT gate to generate C&apos;, which then fans out to three input pins (I₀, I₁, I₂).
+              <div className="p-3.5 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-slate-300 space-y-1">
+                <span className="font-bold text-amber-400 block">Inverter Overhead:</span>
+                <p className="text-slate-400">
+                  Method B requires 1 external NOT gate (7404 hex inverter package) to create C&apos;. This introduces an additional propagation delay of ~10ns and increases the component footprint on the printed circuit board.
+                </p>
               </div>
             </div>
           </div>
@@ -233,8 +272,8 @@ const Topic39 = () => {
                     <th className="py-2.5 px-2 text-center text-cyan-300 font-bold">B</th>
                     <th className="py-2.5 px-2 text-center text-emerald-300 font-bold">C</th>
                     <th className="py-2.5 px-3 text-center bg-slate-900 font-bold text-amber-300">F (Output)</th>
-                    <th className="py-2.5 px-3 text-center text-indigo-400">Method A Active Line (BC)</th>
-                    <th className="py-2.5 px-3 text-center text-cyan-400">Method B Active Line (AB)</th>
+                    <th className="py-2.5 px-3 text-center text-indigo-400">Method A Active Channel (BC)</th>
+                    <th className="py-2.5 px-3 text-center text-cyan-400">Method B Active Channel (AB)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800 font-mono">
@@ -293,6 +332,24 @@ const Topic39 = () => {
             </div>
           </div>
 
+          <div className="p-4 rounded-xl bg-indigo-950/40 border border-indigo-800/40 space-y-2 text-xs">
+            <span className="font-bold text-indigo-300 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+              <Lightbulb size={14} className="text-indigo-400" />
+              Why Does the Choice of Singled-Out Variable Exist?
+            </span>
+            <p className="text-slate-200">
+              For any 3-variable function F(A, B, C), Shannon&apos;s expansion allows decomposing the Boolean expression around <strong>any</strong> of the 3 variables:
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-slate-300 pl-2">
+              <li>Around A: F = A&apos; · F(0, B, C) + A · F(1, B, C) &rarr; S₁ = B, S₀ = C</li>
+              <li>Around C: F = C&apos; · F(A, B, 0) + C · F(A, B, 1) &rarr; S₁ = A, S₀ = B</li>
+              <li>Around B: F = B&apos; · F(A, 0, C) + B · F(A, 1, C) &rarr; S₁ = A, S₀ = C</li>
+            </ul>
+            <p className="text-slate-400">
+              Mathematically, all 3 expansions yield 100% identical logical outputs. But in digital hardware synthesis, the choice dictates how many external NOT gates are needed and how the printed circuit board traces are routed!
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 rounded-xl bg-slate-950 border border-indigo-900/40 space-y-3 text-xs">
               <span className="font-bold text-indigo-300 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
@@ -324,46 +381,6 @@ const Topic39 = () => {
               </ul>
             </div>
           </div>
-
-          <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
-            <h3 className="font-bold text-amber-400 text-sm">Gate Optimization &amp; Silicon Efficiency Comparison</h3>
-            <p className="text-slate-300">
-              Both methods are logically equivalent and generate identical truth table outputs. However, the choice of singled-out variable dramatically affects the <strong>external gate count</strong>:
-            </p>
-            <div className="overflow-x-auto rounded-lg border border-slate-800 mt-2">
-              <table className="w-full text-left font-mono">
-                <thead className="bg-slate-900 text-slate-300">
-                  <tr>
-                    <th className="p-2.5">Metric</th>
-                    <th className="p-2.5 text-indigo-300">Method A (Leftmost A)</th>
-                    <th className="p-2.5 text-cyan-300">Method B (Rightmost C)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
-                  <tr>
-                    <td className="p-2 font-sans font-bold">Select Lines</td>
-                    <td className="p-2 text-indigo-300">S₁=B, S₀=C</td>
-                    <td className="p-2 text-cyan-300">S₁=A, S₀=B</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 font-sans font-bold">Data Inputs (I₀, I₁, I₂, I₃)</td>
-                    <td className="p-2 text-emerald-400 font-bold">1, 0, 1, A</td>
-                    <td className="p-2 text-amber-400 font-bold">C&apos;, C&apos;, C&apos;, 1</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 font-sans font-bold">Inverters Required</td>
-                    <td className="p-2 text-emerald-400 font-bold">0 Inverters (Tied to Vcc/Gnd/A)</td>
-                    <td className="p-2 text-amber-400 font-bold">1 Inverter (for C&apos;)</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 font-sans font-bold">Hardware IC Count</td>
-                    <td className="p-2 text-emerald-400 font-bold">1 Chip (Only 4 × 1 MUX)</td>
-                    <td className="p-2 text-amber-400 font-bold">2 Chips (4 × 1 MUX + 7404 NOT Gate)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </section>
       )}
 
@@ -378,59 +395,118 @@ const Topic39 = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-950 border border-indigo-900/40 space-y-4">
-            <h3 className="text-sm font-bold text-indigo-300">Implementation Table for F(A, B, C) = Σ(0, 2, 4, 6, 7)</h3>
-            
-            <div className="overflow-x-auto rounded-lg border border-slate-800">
-              <table className="w-full text-xs text-center font-mono">
-                <thead className="bg-indigo-950/60 text-slate-300">
-                  <tr>
-                    <th className="py-2.5 px-4 text-left">Variable Row</th>
-                    <th className="py-2.5 px-4">I₀ (BC = 00)</th>
-                    <th className="py-2.5 px-4">I₁ (BC = 01)</th>
-                    <th className="py-2.5 px-4">I₂ (BC = 10)</th>
-                    <th className="py-2.5 px-4">I₃ (BC = 11)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800">
-                  <tr>
-                    <td className="py-2.5 px-4 text-left font-bold text-indigo-300 font-sans">Row A&apos; (A = 0)</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">⓿</td>
-                    <td className="py-2.5 px-4 text-slate-500">1</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❷</td>
-                    <td className="py-2.5 px-4 text-slate-500">3</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2.5 px-4 text-left font-bold text-indigo-300 font-sans">Row A (A = 1)</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❹</td>
-                    <td className="py-2.5 px-4 text-slate-500">5</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❻</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❼</td>
-                  </tr>
-                  <tr className="bg-slate-900 font-bold font-sans text-amber-300 text-[13px]">
-                    <td className="py-3 px-4 text-left text-white">MUX Input Assigned</td>
-                    <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
-                    <td className="py-3 px-4 text-rose-400">0 (Rule 1)</td>
-                    <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
-                    <td className="py-3 px-4 text-cyan-400">A (Rule 3)</td>
-                  </tr>
-                </tbody>
-              </table>
+          {/* STEP 1 TO STEP 5 CARDS */}
+          <div className="space-y-4 text-xs">
+            {/* STEP 1 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-indigo-400 font-bold">
+                <span className="text-sm font-sans">Step 1: Order Variables &amp; Assign Select Lines</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-500/20 font-mono">Step 1</span>
+              </div>
+              <p className="text-slate-300 font-sans">
+                Given variables in alphabetical order: <strong>A, B, C</strong>.
+                We single out the leftmost variable <strong>A</strong> as the data literal.
+                The remaining two variables are assigned to the multiplexer select lines in decreasing order of significance:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-cyan-300 text-center">
+                Select Line S₁ = B &nbsp;|&nbsp; Select Line S₀ = C
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Column I₀ &amp; I₂: Rule 2 (Both Circled)</span>
-                <p className="text-slate-400">Minterms (0, 4) and (2, 6) are both circled in their columns → Tied permanently to High (VCC = 1).</p>
+            {/* STEP 2 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-indigo-400 font-bold">
+                <span className="text-sm font-sans">Step 2: Construct the 2-Row Implementation Table</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-500/20 font-mono">Step 2</span>
               </div>
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Column I₁: Rule 1 (None Circled)</span>
-                <p className="text-slate-400">Neither minterm 1 nor 5 is present in function F → Tied permanently to Low (Ground = 0).</p>
+              <p className="text-slate-300 font-sans">
+                Since variable A is 0 for minterms 0 to 3, row 1 represents <strong>A&apos;</strong>.
+                Since A is 1 for minterms 4 to 7, row 2 represents <strong>A</strong>.
+                Column Iₖ pairs minterms (k, k + 4):
+              </p>
+              <div className="overflow-x-auto rounded-lg border border-slate-800">
+                <table className="w-full text-xs text-center font-mono">
+                  <thead className="bg-indigo-950/60 text-slate-300">
+                    <tr>
+                      <th className="py-2.5 px-4 text-left">Variable Row</th>
+                      <th className="py-2.5 px-4">I₀ (BC = 00)</th>
+                      <th className="py-2.5 px-4">I₁ (BC = 01)</th>
+                      <th className="py-2.5 px-4">I₂ (BC = 10)</th>
+                      <th className="py-2.5 px-4">I₃ (BC = 11)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800">
+                    <tr>
+                      <td className="py-2.5 px-4 text-left font-bold text-indigo-300 font-sans">Row A&apos; (A = 0)</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">⓿</td>
+                      <td className="py-2.5 px-4 text-slate-500">1</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❷</td>
+                      <td className="py-2.5 px-4 text-slate-500">3</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-4 text-left font-bold text-indigo-300 font-sans">Row A (A = 1)</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❹</td>
+                      <td className="py-2.5 px-4 text-slate-500">5</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❻</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❼</td>
+                    </tr>
+                    <tr className="bg-slate-900 font-bold font-sans text-amber-300 text-[13px]">
+                      <td className="py-3 px-4 text-left text-white">MUX Input Assigned</td>
+                      <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
+                      <td className="py-3 px-4 text-rose-400">0 (Rule 1)</td>
+                      <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
+                      <td className="py-3 px-4 text-cyan-400">A (Rule 3)</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1 sm:col-span-2">
-                <span className="font-bold text-slate-200">Column I₃: Rule 3 (Bottom Row Circled)</span>
-                <p className="text-slate-400">Only minterm 7 is circled (in Row A), while minterm 3 is absent → Tied directly to non-inverted literal A.</p>
+            </div>
+
+            {/* STEP 3 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-indigo-400 font-bold">
+                <span className="text-sm font-sans">Step 3: Column Inspection &amp; Rule Deductions</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-500/20 font-mono">Step 3</span>
               </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                  <span className="font-bold text-slate-200">Columns I₀ &amp; I₂: Both Circled (Rule 2)</span>
+                  <p className="text-slate-400">
+                    Minterms (0, 4) in I₀ and (2, 6) in I₂ are both circled &rarr; Tied to High (VCC = 1).
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                  <span className="font-bold text-slate-200">Column I₁: Neither Circled (Rule 1)</span>
+                  <p className="text-slate-400">
+                    Neither 1 nor 5 is present in function F &rarr; Tied to Low (Ground = 0).
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1 sm:col-span-2">
+                  <span className="font-bold text-slate-200">Column I₃: Bottom Circled Only (Rule 3)</span>
+                  <p className="text-slate-400">
+                    Only minterm 7 (row A) is circled, while minterm 3 is absent &rarr; Tied directly to variable line A.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* STEP 4 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-indigo-400 font-bold">
+                <span className="text-sm font-sans">Step 4: Algebraic Expansion &amp; Functional Proof</span>
+                <span className="px-2 py-0.5 rounded bg-indigo-500/20 font-mono">Step 4</span>
+              </div>
+              <p className="text-slate-300 font-sans">
+                Substituting inputs I₀=1, I₁=0, I₂=1, I₃=A and select lines S₁=B, S₀=C into the standard 4 × 1 MUX equation:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs space-y-1 text-slate-300">
+                <div>F = S₁&apos;S₀&apos;·I₀ + S₁&apos;S₀·I₁ + S₁S₀&apos;·I₂ + S₁S₀·I₃</div>
+                <div className="text-cyan-300">F = B&apos;C&apos;(1) + B&apos;C(0) + BC&apos;(1) + BC(A)</div>
+                <div className="text-emerald-400 font-bold">F = B&apos;C&apos; + BC&apos; + ABC = C&apos;(B&apos; + B) + ABC = C&apos; + ABC = C&apos; + AB</div>
+              </div>
+              <p className="text-slate-400 text-[11px] font-sans">
+                Canonical minterms for C&apos; + AB: C&apos; covers m₀, m₂, m₄, m₆, while AB covers m₆, m₇. Union = {"{0, 2, 4, 6, 7}"} &#10004;.
+              </p>
             </div>
           </div>
         </section>
@@ -447,68 +523,254 @@ const Topic39 = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-slate-950 border border-cyan-900/40 space-y-4">
-            <h3 className="text-sm font-bold text-cyan-300">Implementation Table for F(A, B, C) = Σ(0, 2, 4, 6, 7)</h3>
-
-            <div className="overflow-x-auto rounded-lg border border-slate-800">
-              <table className="w-full text-xs text-center font-mono">
-                <thead className="bg-cyan-950/60 text-slate-300">
-                  <tr>
-                    <th className="py-2.5 px-4 text-left">Variable Row</th>
-                    <th className="py-2.5 px-4">I₀ (AB = 00)</th>
-                    <th className="py-2.5 px-4">I₁ (AB = 01)</th>
-                    <th className="py-2.5 px-4">I₂ (AB = 10)</th>
-                    <th className="py-2.5 px-4">I₃ (AB = 11)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800">
-                  <tr>
-                    <td className="py-2.5 px-4 text-left font-bold text-cyan-300 font-sans">Row C&apos; (C = 0)</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">⓿</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❷</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❹</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❻</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2.5 px-4 text-left font-bold text-cyan-300 font-sans">Row C (C = 1)</td>
-                    <td className="py-2.5 px-4 text-slate-500">1</td>
-                    <td className="py-2.5 px-4 text-slate-500">3</td>
-                    <td className="py-2.5 px-4 text-slate-500">5</td>
-                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❼</td>
-                  </tr>
-                  <tr className="bg-slate-900 font-bold font-sans text-amber-300 text-[13px]">
-                    <td className="py-3 px-4 text-left text-white">MUX Input Assigned</td>
-                    <td className="py-3 px-4 text-amber-400">C&apos; (Rule 4)</td>
-                    <td className="py-3 px-4 text-amber-400">C&apos; (Rule 4)</td>
-                    <td className="py-3 px-4 text-amber-400">C&apos; (Rule 4)</td>
-                    <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
-                  </tr>
-                </tbody>
-              </table>
+          <div className="space-y-4 text-xs">
+            {/* STEP 1 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-cyan-400 font-bold">
+                <span className="text-sm font-sans">Step 1: Order Variables &amp; Assign Select Lines</span>
+                <span className="px-2 py-0.5 rounded bg-cyan-500/20 font-mono">Step 1</span>
+              </div>
+              <p className="text-slate-300 font-sans">
+                We single out the rightmost variable <strong>C</strong> (LSB) as the data literal.
+                The remaining higher variables A and B connect to the multiplexer select lines:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-cyan-300 text-center">
+                Select Line S₁ = A &nbsp;|&nbsp; Select Line S₀ = B
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Columns I₀, I₁, I₂: Rule 4 (Top Row Circled)</span>
-                <p className="text-slate-400">Minterms 0, 2, and 4 are circled in Row C&apos;, while 1, 3, 5 are absent → All three inputs require inverted literal C&apos;.</p>
+            {/* STEP 2 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-cyan-400 font-bold">
+                <span className="text-sm font-sans">Step 2: Construct the 2-Row Implementation Table</span>
+                <span className="px-2 py-0.5 rounded bg-cyan-500/20 font-mono">Step 2</span>
               </div>
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Column I₃: Rule 2 (Both Circled)</span>
-                <p className="text-slate-400">Both minterms 6 and 7 are circled → Tied permanently to High (VCC = 1).</p>
+              <p className="text-slate-300 font-sans">
+                Row 1 represents <strong>C&apos;</strong> (even minterms 0, 2, 4, 6 where C = 0).
+                Row 2 represents <strong>C</strong> (odd minterms 1, 3, 5, 7 where C = 1).
+                Column Iₖ pairs adjacent minterms (2k, 2k + 1):
+              </p>
+              <div className="overflow-x-auto rounded-lg border border-slate-800">
+                <table className="w-full text-xs text-center font-mono">
+                  <thead className="bg-cyan-950/60 text-slate-300">
+                    <tr>
+                      <th className="py-2.5 px-4 text-left">Variable Row</th>
+                      <th className="py-2.5 px-4">I₀ (AB = 00)</th>
+                      <th className="py-2.5 px-4">I₁ (AB = 01)</th>
+                      <th className="py-2.5 px-4">I₂ (AB = 10)</th>
+                      <th className="py-2.5 px-4">I₃ (AB = 11)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800">
+                    <tr>
+                      <td className="py-2.5 px-4 text-left font-bold text-cyan-300 font-sans">Row C&apos; (C = 0)</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">⓿</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❷</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❹</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❻</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-4 text-left font-bold text-cyan-300 font-sans">Row C (C = 1)</td>
+                      <td className="py-2.5 px-4 text-slate-500">1</td>
+                      <td className="py-2.5 px-4 text-slate-500">3</td>
+                      <td className="py-2.5 px-4 text-slate-500">5</td>
+                      <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❼</td>
+                    </tr>
+                    <tr className="bg-slate-900 font-bold font-sans text-amber-300 text-[13px]">
+                      <td className="py-3 px-4 text-left text-white">MUX Input Assigned</td>
+                      <td className="py-3 px-4 text-amber-400">C&apos; (Rule 4)</td>
+                      <td className="py-3 px-4 text-amber-400">C&apos; (Rule 4)</td>
+                      <td className="py-3 px-4 text-amber-400">C&apos; (Rule 4)</td>
+                      <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+            </div>
+
+            {/* STEP 3 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-cyan-400 font-bold">
+                <span className="text-sm font-sans">Step 3: Column Inspection &amp; Rule Deductions</span>
+                <span className="px-2 py-0.5 rounded bg-cyan-500/20 font-mono">Step 3</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                  <span className="font-bold text-slate-200">Columns I₀, I₁, I₂: Top Circled Only (Rule 4)</span>
+                  <p className="text-slate-400">
+                    Minterms 0, 2, and 4 are circled in Row C&apos; while 1, 3, 5 are absent &rarr; All three inputs require inverted literal C&apos;.
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                  <span className="font-bold text-slate-200">Column I₃: Both Circled (Rule 2)</span>
+                  <p className="text-slate-400">
+                    Both minterms 6 and 7 are circled &rarr; Tied to High (VCC = 1).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* STEP 4 */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <div className="flex items-center justify-between text-cyan-400 font-bold">
+                <span className="text-sm font-sans">Step 4: Algebraic Expansion &amp; Functional Proof</span>
+                <span className="px-2 py-0.5 rounded bg-cyan-500/20 font-mono">Step 4</span>
+              </div>
+              <p className="text-slate-300 font-sans">
+                Substituting inputs I₀=C&apos;, I₁=C&apos;, I₂=C&apos;, I₃=1 and select lines S₁=A, S₀=B into the standard 4 × 1 MUX equation:
+              </p>
+              <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs space-y-1 text-slate-300">
+                <div>F = S₁&apos;S₀&apos;·I₀ + S₁&apos;S₀·I₁ + S₁S₀&apos;·I₂ + S₁S₀·I₃</div>
+                <div className="text-cyan-300">F = A&apos;B&apos;(C&apos;) + A&apos;B(C&apos;) + AB&apos;(C&apos;) + AB(1)</div>
+                <div className="text-emerald-400 font-bold">F = C&apos;(A&apos;B&apos; + A&apos;B + AB&apos;) + AB = C&apos;((A+A&apos;)B&apos; + A&apos;B) = C&apos;(B&apos; + A&apos;) + AB = C&apos; + AB</div>
+              </div>
+              <p className="text-slate-400 text-[11px] font-sans">
+                Resulting function C&apos; + AB is completely identical to Method A &#10004;.
+              </p>
             </div>
           </div>
         </section>
       )}
 
-      {/* TAB 5: INTERACTIVE SIMULATOR */}
+      {/* TAB 5: METHOD C (MIDDLE VARIABLE BONUS) */}
+      {activeTab === "methodC" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-400 font-bold text-lg">05</div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Method C: Middle Variable Singled-Out (B) Deep Dive</h2>
+              <p className="text-xs text-slate-400">Exploring the third possible permutation: Singling out middle literal B</p>
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-slate-950 border border-purple-900/40 space-y-4 text-xs">
+            <h3 className="text-sm font-bold text-purple-300">Implementation Table with Select Lines S₁ = A, S₀ = C</h3>
+            <p className="text-slate-300">
+              When middle variable B is singled out, select lines are S₁ = A and S₀ = C.
+              Row 1 represents B&apos; (minterms 0, 1, 4, 5 where B = 0).
+              Row 2 represents B (minterms 2, 3, 6, 7 where B = 1):
+            </p>
+
+            <div className="overflow-x-auto rounded-lg border border-slate-800">
+              <table className="w-full text-xs text-center font-mono">
+                <thead className="bg-purple-950/60 text-slate-300">
+                  <tr>
+                    <th className="py-2.5 px-4 text-left">Variable Row</th>
+                    <th className="py-2.5 px-4">I₀ (AC = 00)</th>
+                    <th className="py-2.5 px-4">I₁ (AC = 01)</th>
+                    <th className="py-2.5 px-4">I₂ (AC = 10)</th>
+                    <th className="py-2.5 px-4">I₃ (AC = 11)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800">
+                  <tr>
+                    <td className="py-2.5 px-4 text-left font-bold text-purple-300 font-sans">Row B&apos; (B = 0)</td>
+                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">⓿</td>
+                    <td className="py-2.5 px-4 text-slate-500">1</td>
+                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❹</td>
+                    <td className="py-2.5 px-4 text-slate-500">5</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2.5 px-4 text-left font-bold text-purple-300 font-sans">Row B (B = 1)</td>
+                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❷</td>
+                    <td className="py-2.5 px-4 text-slate-500">3</td>
+                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❻</td>
+                    <td className="py-2.5 px-4 font-bold text-emerald-400 bg-emerald-950/30">❼</td>
+                  </tr>
+                  <tr className="bg-slate-900 font-bold font-sans text-amber-300 text-[13px]">
+                    <td className="py-3 px-4 text-left text-white">MUX Input Assigned</td>
+                    <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
+                    <td className="py-3 px-4 text-rose-400">0 (Rule 1)</td>
+                    <td className="py-3 px-4 text-emerald-400">1 (Rule 2)</td>
+                    <td className="py-3 px-4 text-cyan-400">B (Rule 3)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="p-3.5 rounded-lg bg-emerald-950/30 border border-emerald-800/40 space-y-1">
+              <span className="font-bold text-emerald-400">Remarkable Discovery:</span>
+              <p className="text-slate-300">
+                Notice that Method C (B singled-out) yields inputs <strong>{"{1, 0, 1, B}"}</strong>, which also requires <strong>0 inverters</strong>!
+                Both Method A and Method C achieve zero gate overhead, whereas Method B requires an inverter.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* TAB 6: COMPARISON MATRIX */}
+      {activeTab === "comparison" && (
+        <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">06</div>
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Full Engineering &amp; Cost Trade-Off Matrix</h2>
+              <p className="text-xs text-slate-400">Comparative metrics across all three variable selection strategies</p>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full text-xs text-left font-mono">
+              <thead className="bg-slate-950 text-slate-300 uppercase tracking-wider text-[11px] border-b border-slate-800">
+                <tr>
+                  <th className="py-3 px-4 font-sans font-bold">Metric / Parameter</th>
+                  <th className="py-3 px-4 text-indigo-300 font-bold">Method A (Singled-Out A)</th>
+                  <th className="py-3 px-4 text-cyan-300 font-bold">Method B (Singled-Out C)</th>
+                  <th className="py-3 px-4 text-purple-300 font-bold">Method C (Singled-Out B)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800 text-slate-300">
+                <tr>
+                  <td className="py-2.5 px-4 font-sans font-bold text-white">Select Bus Inputs</td>
+                  <td className="py-2.5 px-4 text-indigo-400">S₁ = B, S₀ = C</td>
+                  <td className="py-2.5 px-4 text-cyan-400">S₁ = A, S₀ = B</td>
+                  <td className="py-2.5 px-4 text-purple-400">S₁ = A, S₀ = C</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-4 font-sans font-bold text-white">MUX Input Vector (I₀, I₁, I₂, I₃)</td>
+                  <td className="py-2.5 px-4 text-emerald-400 font-bold">{"{1, 0, 1, A}"}</td>
+                  <td className="py-2.5 px-4 text-amber-400 font-bold">{"{C', C', C', 1}"}</td>
+                  <td className="py-2.5 px-4 text-emerald-400 font-bold">{"{1, 0, 1, B}"}</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-4 font-sans font-bold text-white">External Inverters Required</td>
+                  <td className="py-2.5 px-4 text-emerald-400 font-bold">0 Inverters</td>
+                  <td className="py-2.5 px-4 text-rose-400 font-bold">1 Inverter (for C&apos;)</td>
+                  <td className="py-2.5 px-4 text-emerald-400 font-bold">0 Inverters</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-4 font-sans font-bold text-white">IC Chip Count</td>
+                  <td className="py-2.5 px-4 text-emerald-400">1 Chip (74153 only)</td>
+                  <td className="py-2.5 px-4 text-rose-400">2 Chips (74153 + 7404)</td>
+                  <td className="py-2.5 px-4 text-emerald-400">1 Chip (74153 only)</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-4 font-sans font-bold text-white">Propagation Delay (t_pd)</td>
+                  <td className="py-2.5 px-4 text-emerald-400">t_MUX (~15 ns)</td>
+                  <td className="py-2.5 px-4 text-rose-400">t_NOT + t_MUX (~25 ns)</td>
+                  <td className="py-2.5 px-4 text-emerald-400">t_MUX (~15 ns)</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-4 font-sans font-bold text-white">Syllabus Convention</td>
+                  <td className="py-2.5 px-4 text-indigo-300 font-bold">CISCE ISC Class 12 Standard</td>
+                  <td className="py-2.5 px-4 text-slate-400">B.Tech / US Engineering</td>
+                  <td className="py-2.5 px-4 text-slate-400">Advanced Competitive Logic</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {/* TAB 7: 3-WAY INTERACTIVE SIMULATOR */}
       {activeTab === "interactive" && (
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">05</div>
+            <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">07</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Dual-Method Interactive MUX Prober</h2>
-              <p className="text-xs text-slate-400">Toggle inputs and switch live between Method A and Method B to verify functional equivalence</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">3-Way Interactive MUX Prober &amp; Method Switcher</h2>
+              <p className="text-xs text-slate-400">Toggle inputs and switch live between Method A, Method B, and Method C to verify functional equivalence</p>
             </div>
           </div>
 
@@ -517,10 +779,12 @@ const Topic39 = () => {
             <div>
               <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Active Realization Method</span>
               <span className="text-sm font-bold text-white">
-                {activeMethod === "leftmost" ? "Method A: Leftmost Singled-Out (A)" : "Method B: Rightmost Singled-Out (C)"}
+                {activeMethod === "leftmost" && "Method A: Leftmost Singled-Out (A) [0 Inverters]"}
+                {activeMethod === "rightmost" && "Method B: Rightmost Singled-Out (C) [1 Inverter]"}
+                {activeMethod === "middle" && "Method C: Middle Singled-Out (B) [0 Inverters]"}
               </span>
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setActiveMethod("leftmost")}
                 className={clsx(
@@ -530,7 +794,7 @@ const Topic39 = () => {
                     : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                 )}
               >
-                Method A (A Singled-Out)
+                Method A (A)
               </button>
               <button
                 onClick={() => setActiveMethod("rightmost")}
@@ -541,7 +805,18 @@ const Topic39 = () => {
                     : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
                 )}
               >
-                Method B (C Singled-Out)
+                Method B (C)
+              </button>
+              <button
+                onClick={() => setActiveMethod("middle")}
+                className={clsx(
+                  "px-3 py-1.5 rounded-lg text-xs font-bold transition-all border",
+                  activeMethod === "middle"
+                    ? "bg-purple-600 text-white border-purple-400 shadow-md shadow-purple-600/30"
+                    : "bg-slate-900 text-slate-400 border-slate-800 hover:text-white"
+                )}
+              >
+                Method C (B)
               </button>
             </div>
           </div>
@@ -583,18 +858,29 @@ const Topic39 = () => {
 
           {/* SIMULATOR DIAGRAM & OUTPUT */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* DETAILS */}
             <div className="lg:col-span-2 p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
               <h3 className="text-sm font-bold text-slate-200">
                 Internal Multiplexer State Analysis:{" "}
-                <span className="text-indigo-400">
-                  {activeMethod === "leftmost" ? "Method A" : "Method B"}
+                <span className="text-indigo-400 font-mono">
+                  {activeMethod === "leftmost" && "Method A (S₁=B, S₀=C)"}
+                  {activeMethod === "rightmost" && "Method B (S₁=A, S₀=B)"}
+                  {activeMethod === "middle" && "Method C (S₁=A, S₀=C)"}
                 </span>
               </h3>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-                {(activeMethod === "leftmost" ? inputLinesMethodA : inputLinesMethodB).map((val, idx) => {
-                  const isSelected = (activeMethod === "leftmost" ? selIndexA : selIndexB) === idx;
+                {(activeMethod === "leftmost"
+                  ? inputLinesMethodA
+                  : activeMethod === "rightmost"
+                  ? inputLinesMethodB
+                  : inputLinesMethodC
+                ).map((val, idx) => {
+                  const isSelected =
+                    (activeMethod === "leftmost"
+                      ? selIndexA
+                      : activeMethod === "rightmost"
+                      ? selIndexB
+                      : selIndexC) === idx;
                   return (
                     <div
                       key={idx}
@@ -615,36 +901,28 @@ const Topic39 = () => {
                 })}
               </div>
 
-              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
+              <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-1">
                 <div>
-                  <strong className="text-white">Active Selection Code: </strong>
-                  {activeMethod === "leftmost" ? (
+                  <strong className="text-white">Active Selection Bus: </strong>
+                  {activeMethod === "leftmost" && (
                     <span className="text-indigo-300 font-mono">
-                      S₁=B ({inB ? 1 : 0}), S₀=C ({inC ? 1 : 0}) → Index {selIndexA} selected
+                      S₁=B ({inB ? 1 : 0}), S₀=C ({inC ? 1 : 0}) &rarr; Channel I{selIndexA} selected
                     </span>
-                  ) : (
+                  )}
+                  {activeMethod === "rightmost" && (
                     <span className="text-cyan-300 font-mono">
-                      S₁=A ({inA ? 1 : 0}), S₀=B ({inB ? 1 : 0}) → Index {selIndexB} selected
+                      S₁=A ({inA ? 1 : 0}), S₀=B ({inB ? 1 : 0}) &rarr; Channel I{selIndexB} selected
+                    </span>
+                  )}
+                  {activeMethod === "middle" && (
+                    <span className="text-purple-300 font-mono">
+                      S₁=A ({inA ? 1 : 0}), S₀=C ({inC ? 1 : 0}) &rarr; Channel I{selIndexC} selected
                     </span>
                   )}
                 </div>
-                <div>
-                  <strong className="text-white">Active Input Equation: </strong>
-                  {activeMethod === "leftmost" ? (
-                    <span className="text-slate-300">
-                      {selIndexA === 0 && "I₀ = 1"}
-                      {selIndexA === 1 && "I₁ = 0"}
-                      {selIndexA === 2 && "I₂ = 1"}
-                      {selIndexA === 3 && `I₃ = A = ${inA ? 1 : 0}`}
-                    </span>
-                  ) : (
-                    <span className="text-slate-300">
-                      {selIndexB === 0 && `I₀ = C' = ${inC ? 0 : 1}`}
-                      {selIndexB === 1 && `I₁ = C' = ${inC ? 0 : 1}`}
-                      {selIndexB === 2 && `I₂ = C' = ${inC ? 0 : 1}`}
-                      {selIndexB === 3 && "I₃ = 1"}
-                    </span>
-                  )}
+                <div className="text-slate-400">
+                  Input vector: A={inA ? 1 : 0}, B={inB ? 1 : 0}, C={inC ? 1 : 0} &rarr; Minterm{" "}
+                  <span className="font-mono text-white font-bold">m{currentMintermNum}</span>.
                 </div>
               </div>
             </div>
@@ -669,9 +947,7 @@ const Topic39 = () => {
 
               <div className="text-xs text-slate-400">
                 Current Minterm:{" "}
-                <span className="font-mono font-bold text-white">
-                  m{(inA ? 4 : 0) + (inB ? 2 : 0) + (inC ? 1 : 0)}
-                </span>
+                <span className="font-mono font-bold text-white">m{currentMintermNum}</span>
                 <div className="text-[11px] text-emerald-400 font-semibold mt-1">
                   {outputF ? "✓ Member of Σ(0, 2, 4, 6, 7)" : "✗ Absent from Σ(0, 2, 4, 6, 7)"}
                 </div>
@@ -681,11 +957,11 @@ const Topic39 = () => {
         </section>
       )}
 
-      {/* TAB 6: ISC BOARD EXAM FOCUS */}
+      {/* TAB 8: ISC BOARD EXAM FOCUS */}
       {activeTab === "examTips" && (
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 font-bold text-lg">06</div>
+            <div className="p-2.5 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 font-bold text-lg">08</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">ISC Board Exam Focus &amp; Marking Rubric</h2>
               <p className="text-xs text-slate-400">Essential pointers for CISCE theory examinations and practical paper evaluations</p>
@@ -698,7 +974,7 @@ const Topic39 = () => {
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
                 <li><strong className="text-white">State Chosen Select Lines:</strong> Always begin your answer by explicitly defining which variables drive S₁ and S₀. Example: <em>&ldquo;Singling out variable A, we connect S₁ = B and S₀ = C.&rdquo;</em></li>
                 <li><strong className="text-white">Draw the Implementation Table:</strong> Never write the input assignments directly without drawing the 2-row implementation table and circling the active minterms. Evaluators allot specific step marks for the table!</li>
-                <li><strong className="text-white">Highlight Logic Simplification:</strong> If singling out A yields 0 inverters while singling out C needs 1 inverter, mention this design advantage in your concluding sentence.</li>
+                <li><strong className="text-white">Highlight Logic Simplification:</strong> If singling out A yields 0 inverters while singling out C needs 1 inverter, mention this design advantage in your concluding sentence to demonstrate mastery.</li>
                 <li><strong className="text-white">Label Vcc and Ground Clearly:</strong> Clearly indicate logic 1 as VCC and logic 0 as Ground (GND) on your MUX pin connections.</li>
               </ul>
             </div>
@@ -706,7 +982,7 @@ const Topic39 = () => {
         </section>
       )}
 
-      {/* TAB 7: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
+      {/* TAB 9: 15 ESSENTIAL FAQS (STANDALONE FULL-SCREEN TAB) */}
       {activeTab === "faqs" && (
         <section className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
           <FAQTemplate
