@@ -80,11 +80,11 @@ const Topic37 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Boolean Function Implementation: 4-Variable Realization using $8 \times 1$ MUX
+            Boolean Function Implementation: 4-Variable Realization using 8 × 1 MUX
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Textbook Example 2.13: Singled-Out Variable Method &amp; Rules 1–4 for $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ using Select Lines $S_2 = b, S_1 = c, S_0 = d$
+            Textbook Example 2.13: Singled-Out Variable Method &amp; Rules 1–4 for F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) using Select Lines S₂ = b, S₁ = c, S₀ = d
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -129,7 +129,7 @@ const Topic37 = () => {
               <Zap size={14} /> Multiplexer Sizing Formula for 4 Variables
             </div>
             <p className="text-sm text-slate-200">
-              For a 4-variable Boolean function ($n = 4$):
+              For a 4-variable Boolean function (n = 4):
             </p>
             <div className="p-3 rounded-lg bg-slate-950 font-mono text-cyan-300 text-xs">
               MUX Size = 2^(n-1) to 1 = 2^(4-1) to 1 = 2^3 to 1 = 8 to 1 Multiplexer.
@@ -137,7 +137,7 @@ const Topic37 = () => {
               Selection Lines Required = 4 - 1 = 3 selection lines (S2, S1, S0).
             </div>
             <p className="text-xs text-slate-400">
-              In ordered sequence $a, b, c, d$, the leftmost variable <strong>$a$</strong> is singled out. The remaining 3 variables ($b, c, d$) are connected to the selection lines: $b \to S_2$, $c \to S_1$, and $d \to S_0$.
+              In ordered sequence a, b, c, d, the leftmost variable <strong>a</strong> is singled out. The remaining 3 variables (b, c, d) are connected to the selection lines: b \to S₂, c \to S₁, and d \to S₀.
             </p>
           </div>
         </section>
@@ -150,14 +150,14 @@ const Topic37 = () => {
             <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">02</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Step-by-Step Solution of Example 2.13</h2>
-              <p className="text-xs text-slate-400">Textbook Page 109: $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$</p>
+              <p className="text-xs text-slate-400">Textbook Page 109: F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15)</p>
             </div>
           </div>
 
           <div className="space-y-4 text-xs text-slate-300">
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <span className="font-bold text-cyan-400 uppercase tracking-wider">Given Problem Specification:</span>
-              <p>Implement the 4-variable function $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ with a multiplexer.</p>
+              <p>Implement the 4-variable function F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) with a multiplexer.</p>
               <div className="grid sm:grid-cols-3 gap-2 font-mono text-[11px] pt-1">
                 <div className="p-2 rounded bg-slate-900">Ordered Sequence: abcd</div>
                 <div className="p-2 rounded bg-slate-900">Singled out: a</div>
@@ -186,7 +186,7 @@ const Topic37 = () => {
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">03</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Implementation Table &amp; Realization Circuit</h2>
-              <p className="text-xs text-slate-400">Textbook Page 109: Graphical implementation of $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$</p>
+              <p className="text-xs text-slate-400">Textbook Page 109: Graphical implementation of F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15)</p>
             </div>
           </div>
 
@@ -458,9 +458,9 @@ const Topic37 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">CISCE 5-Mark Marking Breakdown</h3>
               <ul className="list-disc list-inside space-y-1 text-slate-400">
-                <li><strong className="text-white">1 Mark:</strong> Specifying MUX size ($8 \times 1$) and select line assignments ($S_2=b, S_1=c, S_0=d$).</li>
+                <li><strong className="text-white">1 Mark:</strong> Specifying MUX size (8 × 1) and select line assignments (S₂=b, S₁=c, S₀=d).</li>
                 <li><strong className="text-white">2 Marks:</strong> Neatly drawn 8-column implementation table with circled minterms.</li>
-                <li><strong className="text-white">1 Mark:</strong> Listing the derived input equations $I_0$ through $I_7$ with rule references.</li>
+                <li><strong className="text-white">1 Mark:</strong> Listing the derived input equations I₀ through I₇ with rule references.</li>
                 <li><strong className="text-white">1 Mark:</strong> Clean 8:1 MUX block schematic with input pins, select lines, and inverter gate.</li>
               </ul>
             </div>

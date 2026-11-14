@@ -75,11 +75,11 @@ const Topic36 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Boolean Function Implementation: 3-Variable Realization using $4 \times 1$ MUX
+            Boolean Function Implementation: 3-Variable Realization using 4 × 1 MUX
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Textbook Page 108 (Section 2.3.4A): Leftmost Singled-Out Variable Method, Steps IV–VI &amp; Rules 1–4 for $F(x, y, z) = \Sigma(1, 3, 5, 6)$ using $S_1 = y, S_0 = z$ with Figure 2.25
+            Textbook Page 108 (Section 2.3.4A): Leftmost Singled-Out Variable Method, Steps IV–VI &amp; Rules 1–4 for F(x, y, z) = Σ(1, 3, 5, 6) using S₁ = y, S₀ = z with Figure 2.25
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -114,7 +114,7 @@ const Topic36 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">The $2^{"{"}n-1{"}"}$ to 1 Multiplexer Theorem &amp; Rules 1–4</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-white">The 2^(n-1) to 1 Multiplexer Theorem &amp; Rules 1–4</h2>
               <p className="text-xs text-slate-400">Section 2.3.4A: Synthesizing any 3-variable logic function with a 4:1 multiplexer</p>
             </div>
           </div>
@@ -124,10 +124,10 @@ const Topic36 = () => {
               <Zap size={14} /> Fundamental Theorem (CISCE Textbook Page 107)
             </div>
             <p className="text-sm text-slate-200">
-              <strong className="text-emerald-400">Any boolean function of $n$ variables can be implemented with a $2^{"{"}n-1{"}"}$ to 1 multiplexer with $(n - 1)$ selection lines.</strong>
+              <strong className="text-emerald-400">Any boolean function of n variables can be implemented with a 2^(n-1) to 1 multiplexer with (n - 1) selection lines.</strong>
             </p>
             <p className="text-xs text-slate-400">
-              A multiplexer is essentially a decoder with the OR gate already available. For a 3-variable function ($n=3$), we take $(n - 1) = 2$ variables and connect them to the selection lines ($S_1, S_0$). The remaining single variable ($x$) is used for the inputs of the multiplexer in one of four states: $0, 1, x$, or $x&apos;$.
+              A multiplexer is essentially a decoder with the OR gate already available. For a 3-variable function (n=3), we take (n - 1) = 2 variables and connect them to the selection lines (S₁, S₀). The remaining single variable (x) is used for the inputs of the multiplexer in one of four states: 0, 1, x, or x&apos;.
             </p>
           </div>
 
@@ -162,13 +162,13 @@ const Topic36 = () => {
                     <td className="p-3 font-bold text-amber-400">Rule 3</td>
                     <td className="p-3">If bottom minterm is circled and top is NOT circled</td>
                     <td className="p-3 font-bold text-emerald-400">x (uncomplemented)</td>
-                    <td className="p-3 text-slate-400">Connect directly to variable line $x$</td>
+                    <td className="p-3 text-slate-400">Connect directly to variable line x</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-bold text-amber-400">Rule 4</td>
                     <td className="p-3">If top minterm is circled and bottom is NOT circled</td>
                     <td className="p-3 font-bold text-emerald-400">x&apos; (complemented)</td>
-                    <td className="p-3 text-slate-400">Connect through a NOT gate (inverter) from $x$</td>
+                    <td className="p-3 text-slate-400">Connect through a NOT gate (inverter) from x</td>
                   </tr>
                 </tbody>
               </table>
@@ -193,7 +193,7 @@ const Topic36 = () => {
               <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono font-bold">Step I</span>
               <h3 className="font-bold text-white text-sm">Sum-of-Minterms Form</h3>
               <p className="text-slate-400">
-                Express the function in its canonical sum-of-minterms: $F(x, y, z) = \Sigma(1, 3, 5, 6)$.
+                Express the function in its canonical sum-of-minterms: F(x, y, z) = Σ(1, 3, 5, 6).
               </p>
             </div>
 
@@ -201,7 +201,7 @@ const Topic36 = () => {
               <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono font-bold">Step II</span>
               <h3 className="font-bold text-white text-sm">Single Out Leftmost Variable</h3>
               <p className="text-slate-400">
-                In ordered sequence $x, y, z$, the leftmost variable is <strong>$x$</strong>. Variable $x$ is singled out as the data literal.
+                In ordered sequence x, y, z, the leftmost variable is <strong>x</strong>. Variable x is singled out as the data literal.
               </p>
             </div>
 
@@ -209,7 +209,7 @@ const Topic36 = () => {
               <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono font-bold">Step III</span>
               <h3 className="font-bold text-white text-sm">Connect Selection Lines</h3>
               <p className="text-slate-400">
-                Connect the $(n - 1) = 2$ variables to select lines: higher-order $y$ to $S_1$, lowest-order $z$ to $S_0$.
+                Connect the (n - 1) = 2 variables to select lines: higher-order y to S₁, lowest-order z to S₀.
               </p>
             </div>
 
@@ -217,7 +217,7 @@ const Topic36 = () => {
               <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono font-bold">Step IV &amp; V</span>
               <h3 className="font-bold text-white text-sm">Partition Minterms &amp; Table</h3>
               <p className="text-slate-400">
-                $x$ is 0 for minterms 0 to 3 ($x&apos;$), and 1 for minterms 4 to 7 ($x$). List minterms in 2 rows under $I_0, I_1, I_2, I_3$.
+                x is 0 for minterms 0 to 3 (x&apos;), and 1 for minterms 4 to 7 (x). List minterms in 2 rows under I₀, I₁, I₂, I₃.
               </p>
             </div>
           </div>
@@ -231,7 +231,7 @@ const Topic36 = () => {
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">03</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Truth Table, Implementation Table &amp; Realization Circuit</h2>
-              <p className="text-xs text-slate-400">Complete graphical solution for Textbook Example $F(x, y, z) = \Sigma(1, 3, 5, 6)$</p>
+              <p className="text-xs text-slate-400">Complete graphical solution for Textbook Example F(x, y, z) = Σ(1, 3, 5, 6)</p>
             </div>
           </div>
 
@@ -491,10 +491,10 @@ const Topic36 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">CISCE 4-Mark Question Rubric</h3>
               <ul className="list-disc list-inside space-y-1 text-slate-400">
-                <li><strong className="text-white">1 Mark:</strong> Correct variable assignment (MSB $x$ singled out, $y \to S_1, z \to S_0$).</li>
-                <li><strong className="text-white">1 Mark:</strong> Clean implementation table showing rows $x&apos;$ and $x$ with accurately circled minterms.</li>
-                <li><strong className="text-white">1 Mark:</strong> Correct application of Rules 1, 2, 3, 4 with explicit values listed for $I_0, I_1, I_2, I_3$.</li>
-                <li><strong className="text-white">1 Mark:</strong> Properly drawn $4 \times 1$ MUX block diagram with inputs, select lines, and inverter gate on $x$.</li>
+                <li><strong className="text-white">1 Mark:</strong> Correct variable assignment (MSB x singled out, y \to S₁, z \to S₀).</li>
+                <li><strong className="text-white">1 Mark:</strong> Clean implementation table showing rows x&apos; and x with accurately circled minterms.</li>
+                <li><strong className="text-white">1 Mark:</strong> Correct application of Rules 1, 2, 3, 4 with explicit values listed for I₀, I₁, I₂, I₃.</li>
+                <li><strong className="text-white">1 Mark:</strong> Properly drawn 4 × 1 MUX block diagram with inputs, select lines, and inverter gate on x.</li>
               </ul>
             </div>
 

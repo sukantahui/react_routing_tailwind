@@ -51,11 +51,11 @@ const Topic39 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            MUX Variable Selection Strategy: Leftmost Singled-Out ($A$) vs Rightmost Singled-Out ($C$)
+            MUX Variable Selection Strategy: Leftmost Singled-Out (A) vs Rightmost Singled-Out (C)
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Comparative analysis of implementation conventions for $F(A, B, C) = \Sigma(0, 2, 4, 6, 7)$ on a $4 \times 1$ MUX: Contrasting CISCE syllabus standards ($A$ data) against classical engineering literature ($C$ data), gate counts, and inverter overhead.
+            Comparative analysis of implementation conventions for F(A, B, C) = Σ(0, 2, 4, 6, 7) on a 4 × 1 MUX: Contrasting CISCE syllabus standards (A data) against classical engineering literature (C data), gate counts, and inverter overhead.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -92,7 +92,7 @@ const Topic39 = () => {
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Side-by-Side Architectural Schematics</h2>
-              <p className="text-xs text-slate-400">Comparing hardware realization circuits for $F(A, B, C) = \Sigma(0, 2, 4, 6, 7)$</p>
+              <p className="text-xs text-slate-400">Comparing hardware realization circuits for F(A, B, C) = Σ(0, 2, 4, 6, 7)</p>
             </div>
           </div>
 
@@ -100,10 +100,10 @@ const Topic39 = () => {
             {/* SCHEMATIC 1: METHOD A */}
             <div className="p-5 rounded-xl bg-slate-950/80 border border-indigo-900/50 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <span className="font-bold text-sm text-indigo-400">Method A: Leftmost Singled Out ($A$)</span>
+                <span className="font-bold text-sm text-indigo-400">Method A: Leftmost Singled Out (A)</span>
                 <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">0 Inverters (Optimal)</span>
               </div>
-              <p className="text-xs text-slate-400">CISCE Preferred: $S_1 = B$, $S_0 = C$, Data: $I_0=1, I_1=0, I_2=1, I_3=A$</p>
+              <p className="text-xs text-slate-400">CISCE Preferred: S₁ = B, S₀ = C, Data: I₀=1, I₁=0, I₂=1, I₃=A</p>
 
               {/* SVG METHOD A */}
               <div className="w-full bg-slate-900/90 rounded-lg p-3 flex justify-center items-center border border-slate-800">
@@ -153,17 +153,17 @@ const Topic39 = () => {
               </div>
 
               <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-800/40 text-xs text-slate-300">
-                <span className="font-bold text-emerald-400">Zero Inverter Advantage:</span> Notice how $I_3$ is tied directly to variable $A$. No external logic gates or inverters are required whatsoever!
+                <span className="font-bold text-emerald-400">Zero Inverter Advantage:</span> Notice how I₃ is tied directly to variable A. No external logic gates or inverters are required whatsoever!
               </div>
             </div>
 
             {/* SCHEMATIC 2: METHOD B */}
             <div className="p-5 rounded-xl bg-slate-950/80 border border-cyan-900/50 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <span className="font-bold text-sm text-cyan-400">Method B: Rightmost Singled Out ($C$)</span>
+                <span className="font-bold text-sm text-cyan-400">Method B: Rightmost Singled Out (C)</span>
                 <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/20 text-amber-400 border border-amber-500/30">1 Inverter Required</span>
               </div>
-              <p className="text-xs text-slate-400">Engineering Textbook: $S_1 = A$, $S_0 = B$, Data: $I_0=C&apos;, I_1=C&apos;, I_2=C&apos;, I_3=1$</p>
+              <p className="text-xs text-slate-400">Engineering Textbook: S₁ = A, S₀ = B, Data: I₀=C&apos;, I₁=C&apos;, I₂=C&apos;, I₃=1</p>
 
               {/* SVG METHOD B */}
               <div className="w-full bg-slate-900/90 rounded-lg p-3 flex justify-center items-center border border-slate-800">
@@ -213,7 +213,7 @@ const Topic39 = () => {
               </div>
 
               <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-slate-300">
-                <span className="font-bold text-amber-400">Extra Inverter Overhead:</span> Method B requires 1 external NOT gate to generate $C&apos;$, which then fans out to three input pins ($I_0, I_1, I_2$).
+                <span className="font-bold text-amber-400">Extra Inverter Overhead:</span> Method B requires 1 external NOT gate to generate C&apos;, which then fans out to three input pins (I₀, I₁, I₂).
               </div>
             </div>
           </div>
@@ -297,30 +297,30 @@ const Topic39 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-indigo-900/40 space-y-3 text-xs">
               <span className="font-bold text-indigo-300 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
                 <CheckCircle2 size={14} className="text-indigo-400" />
-                Convention 1: Leftmost Variable Singled Out ($A$)
+                Convention 1: Leftmost Variable Singled Out (A)
               </span>
               <p className="text-slate-300">
-                In Indian and CISCE board textbooks (e.g., Sumita Arora, D.K. Sen, Ghosh), the <strong>leftmost variable</strong> (Most Significant Bit, $A$) is selected as the data literal.
+                In Indian and CISCE board textbooks (e.g., Sumita Arora, D.K. Sen, Ghosh), the <strong>leftmost variable</strong> (Most Significant Bit, A) is selected as the data literal.
               </p>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-                <li><strong className="text-slate-200">Select Lines:</strong> Remaining lower variables $B$ and $C$ ($S_1=B, S_0=C$).</li>
-                <li><strong className="text-slate-200">Table Rows:</strong> Row 1 is $A&apos;$ (minterms $0, 1, 2, 3$), Row 2 is $A$ (minterms $4, 5, 6, 7$).</li>
-                <li><strong className="text-slate-200">Pairing Logic:</strong> Pairs are separated by $2^{"{n-1}"} = 4$ units: $(0, 4), (1, 5), (2, 6), (3, 7)$.</li>
+                <li><strong className="text-slate-200">Select Lines:</strong> Remaining lower variables B and C (S₁=B, S₀=C).</li>
+                <li><strong className="text-slate-200">Table Rows:</strong> Row 1 is A&apos; (minterms 0, 1, 2, 3), Row 2 is A (minterms 4, 5, 6, 7).</li>
+                <li><strong className="text-slate-200">Pairing Logic:</strong> Pairs are separated by 2^(n-1) = 4 units: (0, 4), (1, 5), (2, 6), (3, 7).</li>
               </ul>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-950 border border-cyan-900/40 space-y-3 text-xs">
               <span className="font-bold text-cyan-300 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
                 <CheckCircle2 size={14} className="text-cyan-400" />
-                Convention 2: Rightmost Variable Singled Out ($C$)
+                Convention 2: Rightmost Variable Singled Out (C)
               </span>
               <p className="text-slate-300">
-                In classical US/international engineering textbooks (e.g., Morris Mano, Roth, Tocci), the <strong>rightmost variable</strong> (Least Significant Bit, $C$) is singled out.
+                In classical US/international engineering textbooks (e.g., Morris Mano, Roth, Tocci), the <strong>rightmost variable</strong> (Least Significant Bit, C) is singled out.
               </p>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-                <li><strong className="text-slate-200">Select Lines:</strong> Higher variables $A$ and $B$ ($S_1=A, S_0=B$).</li>
-                <li><strong className="text-slate-200">Table Rows:</strong> Row 1 is $C&apos;$ (even minterms $0, 2, 4, 6$), Row 2 is $C$ (odd minterms $1, 3, 5, 7$).</li>
-                <li><strong className="text-slate-200">Pairing Logic:</strong> Adjacent minterm pairs: $(0, 1), (2, 3), (4, 5), (6, 7)$.</li>
+                <li><strong className="text-slate-200">Select Lines:</strong> Higher variables A and B (S₁=A, S₀=B).</li>
+                <li><strong className="text-slate-200">Table Rows:</strong> Row 1 is C&apos; (even minterms 0, 2, 4, 6), Row 2 is C (odd minterms 1, 3, 5, 7).</li>
+                <li><strong className="text-slate-200">Pairing Logic:</strong> Adjacent minterm pairs: (0, 1), (2, 3), (4, 5), (6, 7).</li>
               </ul>
             </div>
           </div>
@@ -335,30 +335,30 @@ const Topic39 = () => {
                 <thead className="bg-slate-900 text-slate-300">
                   <tr>
                     <th className="p-2.5">Metric</th>
-                    <th className="p-2.5 text-indigo-300">Method A (Leftmost $A$)</th>
-                    <th className="p-2.5 text-cyan-300">Method B (Rightmost $C$)</th>
+                    <th className="p-2.5 text-indigo-300">Method A (Leftmost A)</th>
+                    <th className="p-2.5 text-cyan-300">Method B (Rightmost C)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800 text-slate-300">
                   <tr>
                     <td className="p-2 font-sans font-bold">Select Lines</td>
-                    <td className="p-2 text-indigo-300">$S_1=B, S_0=C$</td>
-                    <td className="p-2 text-cyan-300">$S_1=A, S_0=B$</td>
+                    <td className="p-2 text-indigo-300">S₁=B, S₀=C</td>
+                    <td className="p-2 text-cyan-300">S₁=A, S₀=B</td>
                   </tr>
                   <tr>
-                    <td className="p-2 font-sans font-bold">Data Inputs ($I_0, I_1, I_2, I_3$)</td>
-                    <td className="p-2 text-emerald-400 font-bold">$1, 0, 1, A$</td>
-                    <td className="p-2 text-amber-400 font-bold">$C&apos;, C&apos;, C&apos;, 1$</td>
+                    <td className="p-2 font-sans font-bold">Data Inputs (I₀, I₁, I₂, I₃)</td>
+                    <td className="p-2 text-emerald-400 font-bold">1, 0, 1, A</td>
+                    <td className="p-2 text-amber-400 font-bold">C&apos;, C&apos;, C&apos;, 1</td>
                   </tr>
                   <tr>
                     <td className="p-2 font-sans font-bold">Inverters Required</td>
                     <td className="p-2 text-emerald-400 font-bold">0 Inverters (Tied to Vcc/Gnd/A)</td>
-                    <td className="p-2 text-amber-400 font-bold">1 Inverter (for $C&apos;$)</td>
+                    <td className="p-2 text-amber-400 font-bold">1 Inverter (for C&apos;)</td>
                   </tr>
                   <tr>
                     <td className="p-2 font-sans font-bold">Hardware IC Count</td>
-                    <td className="p-2 text-emerald-400 font-bold">1 Chip (Only $4 \times 1$ MUX)</td>
-                    <td className="p-2 text-amber-400 font-bold">2 Chips ($4 \times 1$ MUX + 7404 NOT Gate)</td>
+                    <td className="p-2 text-emerald-400 font-bold">1 Chip (Only 4 × 1 MUX)</td>
+                    <td className="p-2 text-amber-400 font-bold">2 Chips (4 × 1 MUX + 7404 NOT Gate)</td>
                   </tr>
                 </tbody>
               </table>
@@ -373,13 +373,13 @@ const Topic39 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">03</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Method A: Leftmost Singled-Out ($A$) Step-by-Step</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Method A: Leftmost Singled-Out (A) Step-by-Step</h2>
               <p className="text-xs text-slate-400">CISCE Curriculum Standard Implementation Method</p>
             </div>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-950 border border-indigo-900/40 space-y-4">
-            <h3 className="text-sm font-bold text-indigo-300">Implementation Table for $F(A, B, C) = \Sigma(0, 2, 4, 6, 7)$</h3>
+            <h3 className="text-sm font-bold text-indigo-300">Implementation Table for F(A, B, C) = Σ(0, 2, 4, 6, 7)</h3>
             
             <div className="overflow-x-auto rounded-lg border border-slate-800">
               <table className="w-full text-xs text-center font-mono">
@@ -420,16 +420,16 @@ const Topic39 = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Column $I_0$ &amp; $I_2$: Rule 2 (Both Circled)</span>
-                <p className="text-slate-400">Minterms $(0, 4)$ and $(2, 6)$ are both circled in their columns $\implies$ Tied permanently to High (VCC = 1).</p>
+                <span className="font-bold text-slate-200">Column I₀ &amp; I₂: Rule 2 (Both Circled)</span>
+                <p className="text-slate-400">Minterms (0, 4) and (2, 6) are both circled in their columns → Tied permanently to High (VCC = 1).</p>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Column $I_1$: Rule 1 (None Circled)</span>
-                <p className="text-slate-400">Neither minterm 1 nor 5 is present in function $F \implies$ Tied permanently to Low (Ground = 0).</p>
+                <span className="font-bold text-slate-200">Column I₁: Rule 1 (None Circled)</span>
+                <p className="text-slate-400">Neither minterm 1 nor 5 is present in function F → Tied permanently to Low (Ground = 0).</p>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1 sm:col-span-2">
-                <span className="font-bold text-slate-200">Column $I_3$: Rule 3 (Bottom Row Circled)</span>
-                <p className="text-slate-400">Only minterm 7 is circled (in Row $A$), while minterm 3 is absent $\implies$ Tied directly to non-inverted literal $A$.</p>
+                <span className="font-bold text-slate-200">Column I₃: Rule 3 (Bottom Row Circled)</span>
+                <p className="text-slate-400">Only minterm 7 is circled (in Row A), while minterm 3 is absent → Tied directly to non-inverted literal A.</p>
               </div>
             </div>
           </div>
@@ -442,13 +442,13 @@ const Topic39 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">04</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Method B: Rightmost Singled-Out ($C$) Step-by-Step</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Method B: Rightmost Singled-Out (C) Step-by-Step</h2>
               <p className="text-xs text-slate-400">Classical Digital Engineering Literature Implementation Method</p>
             </div>
           </div>
 
           <div className="p-4 rounded-xl bg-slate-950 border border-cyan-900/40 space-y-4">
-            <h3 className="text-sm font-bold text-cyan-300">Implementation Table for $F(A, B, C) = \Sigma(0, 2, 4, 6, 7)$</h3>
+            <h3 className="text-sm font-bold text-cyan-300">Implementation Table for F(A, B, C) = Σ(0, 2, 4, 6, 7)</h3>
 
             <div className="overflow-x-auto rounded-lg border border-slate-800">
               <table className="w-full text-xs text-center font-mono">
@@ -489,12 +489,12 @@ const Topic39 = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs pt-2">
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Columns $I_0, I_1, I_2$: Rule 4 (Top Row Circled)</span>
-                <p className="text-slate-400">Minterms 0, 2, and 4 are circled in Row $C&apos;$, while 1, 3, 5 are absent $\implies$ All three inputs require inverted literal $C&apos;$.</p>
+                <span className="font-bold text-slate-200">Columns I₀, I₁, I₂: Rule 4 (Top Row Circled)</span>
+                <p className="text-slate-400">Minterms 0, 2, and 4 are circled in Row C&apos;, while 1, 3, 5 are absent → All three inputs require inverted literal C&apos;.</p>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
-                <span className="font-bold text-slate-200">Column $I_3$: Rule 2 (Both Circled)</span>
-                <p className="text-slate-400">Both minterms 6 and 7 are circled $\implies$ Tied permanently to High (VCC = 1).</p>
+                <span className="font-bold text-slate-200">Column I₃: Rule 2 (Both Circled)</span>
+                <p className="text-slate-400">Both minterms 6 and 7 are circled → Tied permanently to High (VCC = 1).</p>
               </div>
             </div>
           </div>
@@ -620,11 +620,11 @@ const Topic39 = () => {
                   <strong className="text-white">Active Selection Code: </strong>
                   {activeMethod === "leftmost" ? (
                     <span className="text-indigo-300 font-mono">
-                      S₁=B ({inB ? 1 : 0}), S₀=C ({inC ? 1 : 0}) $\implies$ Index {selIndexA} selected
+                      S₁=B ({inB ? 1 : 0}), S₀=C ({inC ? 1 : 0}) → Index {selIndexA} selected
                     </span>
                   ) : (
                     <span className="text-cyan-300 font-mono">
-                      S₁=A ({inA ? 1 : 0}), S₀=B ({inB ? 1 : 0}) $\implies$ Index {selIndexB} selected
+                      S₁=A ({inA ? 1 : 0}), S₀=B ({inB ? 1 : 0}) → Index {selIndexB} selected
                     </span>
                   )}
                 </div>
@@ -696,10 +696,10 @@ const Topic39 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-                <li><strong className="text-white">State Chosen Select Lines:</strong> Always begin your answer by explicitly defining which variables drive $S_1$ and $S_0$. Example: <em>&ldquo;Singling out variable $A$, we connect $S_1 = B$ and $S_0 = C$.&rdquo;</em></li>
+                <li><strong className="text-white">State Chosen Select Lines:</strong> Always begin your answer by explicitly defining which variables drive S₁ and S₀. Example: <em>&ldquo;Singling out variable A, we connect S₁ = B and S₀ = C.&rdquo;</em></li>
                 <li><strong className="text-white">Draw the Implementation Table:</strong> Never write the input assignments directly without drawing the 2-row implementation table and circling the active minterms. Evaluators allot specific step marks for the table!</li>
-                <li><strong className="text-white">Highlight Logic Simplification:</strong> If singling out $A$ yields 0 inverters while singling out $C$ needs 1 inverter, mention this design advantage in your concluding sentence.</li>
-                <li><strong className="text-white">Label Vcc and Ground Clearly:</strong> Clearly indicate logic 1 as VCC and logic 0 as Ground ($GND$) on your MUX pin connections.</li>
+                <li><strong className="text-white">Highlight Logic Simplification:</strong> If singling out A yields 0 inverters while singling out C needs 1 inverter, mention this design advantage in your concluding sentence.</li>
+                <li><strong className="text-white">Label Vcc and Ground Clearly:</strong> Clearly indicate logic 1 as VCC and logic 0 as Ground (GND) on your MUX pin connections.</li>
               </ul>
             </div>
           </div>

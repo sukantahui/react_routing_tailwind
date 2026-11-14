@@ -241,7 +241,7 @@ const Topic41 = () => {
                 <span className="font-bold text-sm text-cyan-400">Textbook Fig 2.28: Parallel-to-Serial Serializer</span>
                 <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">8:1 MUX + 3-Bit Counter</span>
               </div>
-              <p className="text-xs text-slate-400">Converts an 8-bit parallel byte ($D_0..D_7$) into a single serial bit stream on wire $Z$.</p>
+              <p className="text-xs text-slate-400">Converts an 8-bit parallel byte (D_0..D_7) into a single serial bit stream on wire Z.</p>
 
               {/* SVG FIG 2.28 */}
               <div className="w-full bg-slate-900/90 rounded-lg p-3 flex justify-center items-center border border-slate-800">
@@ -295,8 +295,8 @@ const Topic41 = () => {
               <div className="p-3 rounded-lg bg-cyan-950/30 border border-cyan-800/40 text-xs text-slate-300 space-y-1.5">
                 <span className="font-bold text-cyan-400">Sequential Transmission Cycle:</span>
                 <p className="text-slate-400">
-                  With each clock pulse, the counter increments: $000 \to 001 \to 010 \to \dots \to 111$.
-                  The MUX routes $D_0 \to D_1 \to D_2 \to \dots \to D_7$ sequentially onto the single wire $Z$.
+                  With each clock pulse, the counter increments: 000 \to 001 \to 010 \to \dots \to 111.
+                  The MUX routes D_0 \to D_1 \to D_2 \to \dots \to D_7 sequentially onto the single wire Z.
                 </p>
               </div>
             </div>
@@ -326,7 +326,7 @@ const Topic41 = () => {
                 A <strong>bus</strong> is a collection of signal lines that accept inputs from several hardware devices and distribute data to one or more destinations.
               </p>
               <p className="text-slate-400">
-                If every register had dedicated physical wires to every other register, an $n$-register CPU would require $O(n^2)$ connections. Multiplexers eliminate this chaos: registers feed into a MUX array, and the CPU control unit uses select lines to grant bus access to one register at a time.
+                If every register had dedicated physical wires to every other register, an n-register CPU would require O(n^2) connections. Multiplexers eliminate this chaos: registers feed into a MUX array, and the CPU control unit uses select lines to grant bus access to one register at a time.
               </p>
             </div>
 
@@ -351,7 +351,7 @@ const Topic41 = () => {
                 3. Arbitrary Combinational Logic Generation (LUT)
               </span>
               <p className="text-slate-300">
-                Any $n$-variable Boolean function can be implemented directly on a $2^n \times 1$ MUX by placing the truth table values directly onto data inputs $I_0..I_{"{"}2^n-1{"}"}$, or on a $2^{"{"}n-1{"}"} \times 1$ MUX using singling-out rules.
+                Any n-variable Boolean function can be implemented directly on a 2ⁿ × 1 MUX by placing the truth table values directly onto data inputs I₀ to I_(2ⁿ-1), or on a 2^(n-1) × 1 MUX using singling-out rules.
               </p>
               <p className="text-slate-400">
                 This exact multiplexer structure forms the fundamental building block of modern <strong>Field Programmable Gate Arrays (FPGAs)</strong>, known as configurable Look-Up Tables (LUTs).
@@ -382,7 +382,7 @@ const Topic41 = () => {
             <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">03</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Interactive Register Bus Router (Textbook Fig 2.27)</h2>
-              <p className="text-xs text-slate-400">Configure 4-bit register words and manipulate select lines $S_1, S_0$ to route data into Register D</p>
+              <p className="text-xs text-slate-400">Configure 4-bit register words and manipulate select lines S₁, S₀ to route data into Register D</p>
             </div>
           </div>
 
@@ -540,7 +540,7 @@ const Topic41 = () => {
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">04</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Interactive Parallel-to-Serial Data Serializer (Textbook Fig 2.28)</h2>
-              <p className="text-xs text-slate-400">Configure 8-bit parallel byte ($D_0..D_7$) and step the 3-bit binary counter to stream serial bits on line $Z$</p>
+              <p className="text-xs text-slate-400">Configure 8-bit parallel byte (D_0..D_7) and step the 3-bit binary counter to stream serial bits on line Z</p>
             </div>
           </div>
 
@@ -673,8 +673,8 @@ const Topic41 = () => {
               <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
                 <li><strong className="text-white">Definition of a Bus:</strong> Memorize the standard textbook definition verbatim: <em>&ldquo;A bus is a wire or group of wires that accepts inputs from several sources and distributes the resultant logic level to a destination.&rdquo;</em></li>
-                <li><strong className="text-white">Draw Fig 2.27 Clearly:</strong> Practice drawing the 3 source registers ($A, B, C$), the all-zeros clear line, the multiplexer block, the select bus ($S_1, S_0$), and destination Register $D$.</li>
-                <li><strong className="text-white">Serializer Architecture (Fig 2.28):</strong> Remember to state that an 8-to-1 MUX requires a <strong>3-bit binary counter</strong> driven by a clock pulse to generate the sequential selection states $000$ through $111$.</li>
+                <li><strong className="text-white">Draw Fig 2.27 Clearly:</strong> Practice drawing the 3 source registers (A, B, C), the all-zeros clear line, the multiplexer block, the select bus (S₁, S₀), and destination Register D.</li>
+                <li><strong className="text-white">Serializer Architecture (Fig 2.28):</strong> Remember to state that an 8-to-1 MUX requires a <strong>3-bit binary counter</strong> driven by a clock pulse to generate the sequential selection states 000 through 111.</li>
                 <li><strong className="text-white">Parallel vs Serial Contrast:</strong> In viva or 2-mark questions, explain that parallel buses are faster inside the CPU chip, but serial transmission requires far fewer physical wires over long distances.</li>
               </ul>
             </div>

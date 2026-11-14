@@ -77,11 +77,11 @@ const Topic28 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Realization of Boolean Functions using $8 \times 1$ Multiplexer
+            Realization of Boolean Functions using 8 × 1 Multiplexer
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Textbook Page 109 Example 2.13: Implementing 4-Variable Function $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ with Singled-Out Variable $a$ and Select Lines $S_2 = b, S_1 = c, S_0 = d$.
+            Textbook Page 109 Example 2.13: Implementing 4-Variable Function F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) with Singled-Out Variable a and Select Lines S₂ = b, S₁ = c, S₀ = d.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -117,7 +117,7 @@ const Topic28 = () => {
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Textbook Page 109 Example 2.13 Implementation</h2>
-              <p className="text-xs text-slate-400">Complete Implementation Table and Circuit for $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$</p>
+              <p className="text-xs text-slate-400">Complete Implementation Table and Circuit for F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15)</p>
             </div>
           </div>
 
@@ -314,12 +314,12 @@ const Topic28 = () => {
 
             {/* EQUATION OF 8x1 MUX FROM PAGE 109 */}
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
-              <div className="font-bold text-amber-400">Equation of $8 \times 1$ MUX (Textbook Page 109):</div>
+              <div className="font-bold text-amber-400">Equation of 8 × 1 MUX (Textbook Page 109):</div>
               <div className="p-3 rounded-lg bg-slate-950 font-mono text-center text-[11px] text-cyan-300 border border-slate-800 overflow-x-auto">
                 F = S̄₂S̄₁S̄₀ I₀ + S̄₂S̄₁S₀ I₁ + S̄₂S₁S̄₀ I₂ + S̄₂S₁S₀ I₃ + S₂S̄₁S̄₀ I₄ + S₂S̄₁S₀ I₅ + S₂S₁S̄₀ I₆ + S₂S₁S₀ I₇
               </div>
               <p className="text-slate-400 text-[11px]">
-                Substituting select lines $(S_2=b, S_1=c, S_0=d)$ and inputs $(I_0=1, I_1=1, I_2=0, I_3=a&apos;, I_4=a&apos;, I_5=0, I_6=0, I_7=a)$:
+                Substituting select lines (S₂=b, S₁=c, S₀=d) and inputs (I₀=1, I₁=1, I₂=0, I₃=a&apos;, I₄=a&apos;, I₅=0, I₆=0, I₇=a):
               </p>
               <div className="font-mono text-emerald-400 text-center font-bold text-xs">
                 F = b&apos;c&apos;d&apos;(1) + b&apos;c&apos;d(1) + b&apos;cd(a&apos;) + bc&apos;d&apos;(a&apos;) + bcd(a) &equiv; &Sigma;(0, 1, 3, 4, 8, 9, 15)
@@ -335,7 +335,7 @@ const Topic28 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">02</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">4-Variable Realization via $8 \times 1$ Multiplexer</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-white">4-Variable Realization via 8 × 1 Multiplexer</h2>
               <p className="text-xs text-slate-400">Textbook Page 109 Example 2.13 core design methodology</p>
             </div>
           </div>
@@ -346,10 +346,10 @@ const Topic28 = () => {
                 <Zap size={14} /> Problem Formulation (Example 2.13)
               </span>
               <p className="text-sm text-slate-200">
-                <strong>Implement $F(a, b, c, d) = \Sigma(0, 1, 3, 4, 8, 9, 15)$ with a multiplexer.</strong>
+                <strong>Implement F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) with a multiplexer.</strong>
               </p>
               <p className="text-xs text-slate-400">
-                It is a four-variable function ($n = 4$). Thus it will be implemented using an 8-to-1 ($2^{"{n-1}"} \to 1 = 8 \to 1$) multiplexer with $4 - 1 = 3$ selection lines.
+                It is a four-variable function (n = 4). Thus it will be implemented using an 8-to-1 (2^{"{n-1}"} \to 1 = 8 \to 1) multiplexer with 4 - 1 = 3 selection lines.
               </p>
             </div>
 
@@ -363,7 +363,7 @@ const Topic28 = () => {
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Singled-Out Variable</span>
                 <div className="text-base font-mono font-bold text-cyan-400">Variable &lsquo;a&rsquo; (Leftmost)</div>
-                <p className="text-slate-400">Leftmost variable forms the 2 rows: $a&apos;$ and $a$.</p>
+                <p className="text-slate-400">Leftmost variable forms the 2 rows: a&apos; and a.</p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
@@ -383,7 +383,7 @@ const Topic28 = () => {
             <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">03</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Step-by-Step Column Analysis for Example 2.13</h2>
-              <p className="text-xs text-slate-400">Evaluating each of the 8 multiplexer channels $I_0$ through $I_7$</p>
+              <p className="text-xs text-slate-400">Evaluating each of the 8 multiplexer channels I₀ through I₇</p>
             </div>
           </div>
 
@@ -418,8 +418,8 @@ const Topic28 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">04</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Interactive 4-Variable $8 \times 1$ MUX Synthesizer</h2>
-              <p className="text-xs text-slate-400">Toggle input signals $a, b, c, d$ to verify live multiplexer channel steering</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Interactive 4-Variable 8 × 1 MUX Synthesizer</h2>
+              <p className="text-xs text-slate-400">Toggle input signals a, b, c, d to verify live multiplexer channel steering</p>
             </div>
           </div>
 
@@ -493,7 +493,7 @@ const Topic28 = () => {
                   </span>
                 </div>
                 <div className="text-slate-400">
-                  Input vector: $a={inA ? 1 : 0}, b={inB ? 1 : 0}, c={inC ? 1 : 0}, d={inD ? 1 : 0} \implies$ Minterm{" "}
+                  Input vector: a={inA ? 1 : 0}, b={inB ? 1 : 0}, c={inC ? 1 : 0}, d={inD ? 1 : 0} → Minterm{" "}
                   <span className="font-mono text-white font-bold">m{currentMinterm}</span>.
                 </div>
               </div>
@@ -543,10 +543,10 @@ const Topic28 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-                <li><strong className="text-white">State Variable Partitioning:</strong> Write: <em>&ldquo;Four-variable function $n=4 \implies$ implemented using $2^{"{n-1}"} \to 1 = 8 \to 1$ MUX. Singled-out variable is $a$. Select lines are $b, c, d$.&rdquo;</em></li>
-                <li><strong className="text-white">Draw the 8-Column Implementation Table:</strong> Carefully draw the 8 columns ($I_0..I_7$) and 2 rows ($a&apos;, a$), circling minterms $0, 1, 3, 4, 8, 9, 15$.</li>
-                <li><strong className="text-white">State the Input Rules Applied:</strong> Mention which rule determined each input: $I_0, I_1 \to$ Rule 2; $I_2, I_5, I_6 \to$ Rule 1; $I_3, I_4 \to$ Rule 4; $I_7 \to$ Rule 3.</li>
-                <li><strong className="text-white">Draw the Circuit with 1 Inverter:</strong> Point out that only 1 NOT gate on $a$ is needed to feed both $I_3$ and $I_4$.</li>
+                <li><strong className="text-white">State Variable Partitioning:</strong> Write: <em>&ldquo;Four-variable function n=4 → implemented using 2^(n-1) → 1 = 8 → 1 MUX. Singled-out variable is a. Select lines are b, c, d.&rdquo;</em></li>
+                <li><strong className="text-white">Draw the 8-Column Implementation Table:</strong> Carefully draw the 8 columns (I₀..I₇) and 2 rows (a&apos;, a), circling minterms 0, 1, 3, 4, 8, 9, 15.</li>
+                <li><strong className="text-white">State the Input Rules Applied:</strong> Mention which rule determined each input: I₀, I₁ \to Rule 2; I₂, I₅, I₆ \to Rule 1; I₃, I₄ \to Rule 4; I₇ \to Rule 3.</li>
+                <li><strong className="text-white">Draw the Circuit with 1 Inverter:</strong> Point out that only 1 NOT gate on a is needed to feed both I₃ and I₄.</li>
               </ul>
             </div>
           </div>

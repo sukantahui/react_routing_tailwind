@@ -46,11 +46,11 @@ const Topic40 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Realizing 3-Variable Logic using a Scaled-Down $2 \times 1$ Multiplexer
+            Realizing 3-Variable Logic using a Scaled-Down 2 × 1 Multiplexer
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Textbook Section 2.3.4B (Pages 109–110): Implementing $F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;$ on a $2 \times 1$ MUX via Boolean factoring and Shannon&apos;s expansion with external logic gates.
+            Textbook Section 2.3.4B (Pages 109–110): Implementing F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos; on a 2 × 1 MUX via Boolean factoring and Shannon&apos;s expansion with external logic gates.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -85,8 +85,8 @@ const Topic40 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Textbook Fig 2.26: Scaled-Down $2 \times 1$ MUX Realization</h2>
-              <p className="text-xs text-slate-400">Complete schematic diagram with external NOT and OR gates realizing $F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;$</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Textbook Fig 2.26: Scaled-Down 2 × 1 MUX Realization</h2>
+              <p className="text-xs text-slate-400">Complete schematic diagram with external NOT and OR gates realizing F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;</p>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ const Topic40 = () => {
             <div className="flex flex-wrap items-center justify-between border-b border-slate-800 pb-3 gap-2">
               <span className="font-bold text-sm text-indigo-400">Hardware Schematic (Textbook Fig 2.26)</span>
               <span className="px-2.5 py-0.5 rounded text-[11px] font-semibold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
-                1 × $2:1$ MUX + 1 × NOT Gate + 1 × OR Gate
+                1 × 2:1 MUX + 1 × NOT Gate + 1 × OR Gate
               </span>
             </div>
 
@@ -165,15 +165,15 @@ const Topic40 = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                <span className="font-bold text-cyan-400 block mb-1">When Select Line $a = 0$ ($a&apos;$ active):</span>
+                <span className="font-bold text-cyan-400 block mb-1">When Select Line a = 0 (a&apos; active):</span>
                 <span className="text-slate-300">
-                  Input $I_0$ is routed to output $F$. Since $I_0 = c&apos;$, output $F = c&apos;$.
+                  Input I₀ is routed to output F. Since I₀ = c&apos;, output F = c&apos;.
                 </span>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                <span className="font-bold text-indigo-400 block mb-1">When Select Line $a = 1$ ($a$ active):</span>
+                <span className="font-bold text-indigo-400 block mb-1">When Select Line a = 1 (a active):</span>
                 <span className="text-slate-300">
-                  Input $I_1$ is routed to output $F$. Since $I_1 = b + c&apos;$, output $F = b + c&apos;$.
+                  Input I₁ is routed to output F. Since I₁ = b + c&apos;, output F = b + c&apos;.
                 </span>
               </div>
             </div>
@@ -183,7 +183,7 @@ const Topic40 = () => {
           <div className="space-y-3">
             <h3 className="text-sm font-bold text-slate-200 flex items-center gap-2">
               <Table size={16} className="text-cyan-400" />
-              Complete Truth Table &amp; Sub-Function Tracking for $F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;$
+              Complete Truth Table &amp; Sub-Function Tracking for F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;
             </h3>
             <div className="overflow-x-auto rounded-xl border border-slate-800">
               <table className="w-full text-xs text-left">
@@ -266,10 +266,10 @@ const Topic40 = () => {
               What is a Scaled-Down Multiplexer?
             </span>
             <p className="text-slate-200">
-              In standard multiplexer implementation (Section 2.3.4A), an $n$-variable Boolean function is implemented with a $2^{"{n-1}"} \times 1$ multiplexer where $n-1$ variables drive the select lines, and each data input receives a simple single literal ($0, 1, X$, or $X&apos;$).
+              In standard multiplexer implementation (Section 2.3.4A), an n-variable Boolean function is implemented with a 2^(n-1) × 1 multiplexer where n-1 variables drive the select lines, and each data input receives a simple single literal (0, 1, X, or X&apos;).
             </p>
             <p className="text-slate-300">
-              However, when cost, pin count, or board space prohibits using a large MUX, we can use a <strong>scaled-down multiplexer</strong> (e.g., using a $2 \times 1$ MUX with only 1 select line for a 3-variable function).
+              However, when cost, pin count, or board space prohibits using a large MUX, we can use a <strong>scaled-down multiplexer</strong> (e.g., using a 2 × 1 MUX with only 1 select line for a 3-variable function).
             </p>
             <p className="text-slate-400">
               Because fewer selection lines are available, the data inputs must receive <strong>sub-functions of the remaining variables</strong> realized using external logic gates (such as AND, OR, and NOT gates).
@@ -279,18 +279,18 @@ const Topic40 = () => {
           <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3 text-xs">
             <h3 className="font-bold text-cyan-400 text-sm">Shannon&apos;s Expansion Theorem</h3>
             <p className="text-slate-300 leading-relaxed">
-              Any Boolean function $F(x_1, x_2, \dots, x_n)$ can be decomposed around any variable $x_1$ into two sub-functions:
+              Any Boolean function F(x_1, x_2, \dots, x_n) can be decomposed around any variable x_1 into two sub-functions:
             </p>
             <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-center text-sm text-amber-300">
               F(x₁, x₂, ..., xₙ) = x₁&apos; · F(0, x₂, ..., xₙ) + x₁ · F(1, x₂, ..., xₙ)
             </div>
             <p className="text-slate-400">
-              Comparing this directly to the $2 \times 1$ multiplexer equation $F = S_0&apos; \cdot I_0 + S_0 \cdot I_1$, we see that:
+              Comparing this directly to the 2 × 1 multiplexer equation F = S₀&apos; · I₀ + S₀ · I₁, we see that:
             </p>
             <ul className="list-disc list-inside space-y-1 text-slate-300 pl-2">
-              <li>Selection Line $S_0 = x_1$</li>
-              <li>Input $I_0 = F(0, x_2, \dots, x_n)$ (the sub-function when $x_1 = 0$)</li>
-              <li>Input $I_1 = F(1, x_2, \dots, x_n)$ (the sub-function when $x_1 = 1$)</li>
+              <li>Selection Line S₀ = x_1</li>
+              <li>Input I₀ = F(0, x_2, \dots, x_n) (the sub-function when x_1 = 0)</li>
+              <li>Input I₁ = F(1, x_2, \dots, x_n) (the sub-function when x_1 = 1)</li>
             </ul>
           </div>
         </section>
@@ -303,7 +303,7 @@ const Topic40 = () => {
             <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">03</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Step-by-Step Algebraic Factoring Derivation</h2>
-              <p className="text-xs text-slate-400">Exact mathematical proof from textbook page 109 for $F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;$</p>
+              <p className="text-xs text-slate-400">Exact mathematical proof from textbook page 109 for F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;</p>
             </div>
           </div>
 
@@ -315,7 +315,7 @@ const Topic40 = () => {
                 <span className="text-[11px] px-2 py-0.5 rounded bg-indigo-500/20">Initial State</span>
               </div>
               <p className="text-slate-300 font-sans">
-                Given function: $F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;$. We choose variable $a$ for selection line $S_0$.
+                Given function: F(a, b, c) = ab + b&apos;c&apos; + c&apos;a&apos;. We choose variable a for selection line S₀.
               </p>
               <div className="p-2.5 rounded bg-slate-900 text-slate-200">
                 F = a&apos; · I₀ + a · I₁
@@ -329,7 +329,7 @@ const Topic40 = () => {
                 <span className="text-[11px] px-2 py-0.5 rounded bg-cyan-500/20">Boolean Identity</span>
               </div>
               <p className="text-slate-300 font-sans">
-                Notice that the term $b&apos;c&apos;$ does not contain variable $a$. By the Boolean identity $(a + a&apos;) = 1$:
+                Notice that the term b&apos;c&apos; does not contain variable a. By the Boolean identity (a + a&apos;) = 1:
               </p>
               <div className="p-2.5 rounded bg-slate-900 text-cyan-300">
                 b&apos;c&apos; = (a + a&apos;) · b&apos;c&apos; = a · b&apos;c&apos; + a&apos; · b&apos;c&apos;
@@ -355,8 +355,8 @@ const Topic40 = () => {
                 Apply Boolean absorption and consensus reduction laws:
               </p>
               <ul className="list-disc list-inside space-y-1 text-slate-400 font-sans pl-2">
-                <li>By Rule of Absorption: <strong className="text-white">$b + b&apos;c&apos; = b + c&apos;$</strong></li>
-                <li>By Consensus / Distributive extraction: <strong className="text-white">$b&apos;c&apos; + c&apos; = c&apos;(b&apos; + 1) = c&apos; \cdot 1 = c&apos;$</strong></li>
+                <li>By Rule of Absorption: <strong className="text-white">b + b&apos;c&apos; = b + c&apos;</strong></li>
+                <li>By Consensus / Distributive extraction: <strong className="text-white">b&apos;c&apos; + c&apos; = c&apos;(b&apos; + 1) = c&apos; · 1 = c&apos;</strong></li>
               </ul>
               <p className="text-slate-300 font-sans">
                 Substituting these simplifications yields the factored form:
@@ -399,7 +399,7 @@ const Topic40 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">04</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Interactive Scaled-Down $2 \times 1$ MUX Simulator</h2>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Interactive Scaled-Down 2 × 1 MUX Simulator</h2>
               <p className="text-xs text-slate-400">Toggle input signals to probe sub-circuits, MUX pin states, and final function output</p>
             </div>
           </div>
@@ -487,7 +487,7 @@ const Topic40 = () => {
                   </span>
                 </div>
                 <div className="text-slate-400">
-                  Direct Boolean evaluation $F = ab + b&apos;c&apos; + c&apos;a&apos; = $
+                  Direct Boolean evaluation F = ab + b&apos;c&apos; + c&apos;a&apos; = 
                   <span className="font-bold text-emerald-400 font-mono ml-1">{directF ? "1" : "0"}</span>
                   {" "}(matches MUX output <span className="font-bold text-emerald-400 font-mono">{muxOutput ? "1" : "0"}</span> 100%).
                 </div>
@@ -541,10 +541,10 @@ const Topic40 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-                <li><strong className="text-white">Show Factoring Steps:</strong> Never skip algebraic factorization! Write $(a + a&apos;)b&apos;c&apos;$ and show grouping by $a$ and $a&apos;$. Evaluators award 2 marks purely for this algebraic reduction.</li>
-                <li><strong className="text-white">State Multiplexer Equation:</strong> State the canonical $2 \times 1$ MUX formula: $F = S_0&apos; I_0 + S_0 I_1$.</li>
-                <li><strong className="text-white">Pin Correspondence:</strong> Clearly declare: $S_0 = a$, $I_0 = c&apos;$, $I_1 = b + c&apos;$.</li>
-                <li><strong className="text-white">Draw External Gates Accurately:</strong> Remember to draw the inverter on input line $c$, and the 2-input OR gate receiving inputs $b$ and $c&apos;$ feeding into $I_1$.</li>
+                <li><strong className="text-white">Show Factoring Steps:</strong> Never skip algebraic factorization! Write (a + a&apos;)b&apos;c&apos; and show grouping by a and a&apos;. Evaluators award 2 marks purely for this algebraic reduction.</li>
+                <li><strong className="text-white">State Multiplexer Equation:</strong> State the canonical 2 × 1 MUX formula: F = S₀&apos; I₀ + S₀ I₁.</li>
+                <li><strong className="text-white">Pin Correspondence:</strong> Clearly declare: S₀ = a, I₀ = c&apos;, I₁ = b + c&apos;.</li>
+                <li><strong className="text-white">Draw External Gates Accurately:</strong> Remember to draw the inverter on input line c, and the 2-input OR gate receiving inputs b and c&apos; feeding into I₁.</li>
               </ul>
             </div>
           </div>

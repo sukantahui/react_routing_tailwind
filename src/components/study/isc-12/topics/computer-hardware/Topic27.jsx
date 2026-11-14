@@ -74,11 +74,11 @@ const Topic27 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Realization of Boolean Functions using $4 \times 1$ Multiplexer
+            Realization of Boolean Functions using 4 × 1 Multiplexer
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Textbook Page 108 (Section 2.3.4A): Implementation of $F(x, y, z) = \Sigma(1, 3, 5, 6)$ on a $4 \times 1$ MUX using Steps IV, V, VI, Rules 1–4, and Figure 2.25.
+            Textbook Page 108 (Section 2.3.4A): Implementation of F(x, y, z) = Σ(1, 3, 5, 6) on a 4 × 1 MUX using Steps IV, V, VI, Rules 1–4, and Figure 2.25.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -114,7 +114,7 @@ const Topic27 = () => {
             <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">01</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Textbook Page 108: Implementation Table &amp; Figure 2.25</h2>
-              <p className="text-xs text-slate-400">Exact reproduction and interactive derivation of Example $F(x, y, z) = \Sigma(1, 3, 5, 6)$</p>
+              <p className="text-xs text-slate-400">Exact reproduction and interactive derivation of Example F(x, y, z) = Σ(1, 3, 5, 6)</p>
             </div>
           </div>
 
@@ -122,7 +122,7 @@ const Topic27 = () => {
             {/* TRUTH TABLE (FROM PAGE 107) */}
             <div className="space-y-2">
               <span className="font-bold text-slate-300 uppercase tracking-wider">
-                1. Truth Table for $F(x, y, z)$ (Textbook Page 107)
+                1. Truth Table for F(x, y, z) (Textbook Page 107)
               </span>
               <div className="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950">
                 <table className="w-full text-center font-mono">
@@ -194,7 +194,7 @@ const Topic27 = () => {
 
               {/* DEDUCTIONS FROM PAGE 108 */}
               <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5 text-[11px]">
-                <div className="font-bold text-indigo-300">Values applied to inputs $I_0, I_1, I_2, I_3$ (Page 108):</div>
+                <div className="font-bold text-indigo-300">Values applied to inputs I₀, I₁, I₂, I₃ (Page 108):</div>
                 <div className="text-slate-300 font-mono space-y-0.5">
                   <div>&bull; <strong className="text-rose-400">I₀ is applied 0</strong> (Rule 1: neither minterm 0 nor 4 is circled)</div>
                   <div>&bull; <strong className="text-emerald-400">I₁ is applied 1</strong> (Rule 2: both minterms 1 and 5 are circled)</div>
@@ -209,7 +209,7 @@ const Topic27 = () => {
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-                Figure 2.25: Multiplexer Implementation of $F(x, y, z) = \Sigma(1, 3, 5, 6)$ (Textbook Page 108)
+                Figure 2.25: Multiplexer Implementation of F(x, y, z) = Σ(1, 3, 5, 6) (Textbook Page 108)
               </span>
               <span className="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                 4 &times; 1 MUX + 1 NOT Gate
@@ -271,12 +271,12 @@ const Topic27 = () => {
 
             {/* 4x1 MUX EQUATION (EXACTLY AS PRINTED ON PAGE 108) */}
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
-              <div className="font-bold text-amber-400">The equation for a $4 \times 1$ MUX (Textbook Page 108):</div>
+              <div className="font-bold text-amber-400">The equation for a 4 × 1 MUX (Textbook Page 108):</div>
               <div className="p-3 rounded-lg bg-slate-950 font-mono text-center text-sm text-cyan-300 border border-slate-800">
                 F = S̄₁ S̄₀ I₀ + S̄₁ S₀ I₁ + S₁ S̄₀ I₂ + S₁ S₀ I₃
               </div>
               <p className="text-slate-400 text-[11px]">
-                Substituting the inputs $I_0 = 0$, $I_1 = 1$, $I_2 = x$, $I_3 = x&apos;$ with $S_1 = y$ and $S_0 = z$:
+                Substituting the inputs I₀ = 0, I₁ = 1, I₂ = x, I₃ = x&apos; with S₁ = y and S₀ = z:
               </p>
               <div className="font-mono text-emerald-400 text-center font-bold">
                 F = y&apos;z&apos;(0) + y&apos;z(1) + yz&apos;(x) + yz(x&apos;) = y&apos;z + xyz&apos; + x&apos;yz &equiv; &Sigma;(1, 3, 5, 6)
@@ -305,7 +305,7 @@ const Topic27 = () => {
                 <span className="px-2 py-0.5 rounded bg-indigo-500/20 font-mono">Page 108</span>
               </div>
               <p className="text-slate-300 leading-relaxed font-sans">
-                Now, consider the single variable (highest-order variable) which in our case is $x$. If you have a look at the truth table of $F(x, y, z)$, $x$ is 0 for the first half of the minterms (i.e., for $m_0, m_1, m_2, m_3$, $x$ is 0) and it is 1 for the second half of the minterms (i.e., $m_4, m_5, m_6, m_7$).
+                Now, consider the single variable (highest-order variable) which in our case is x. If you have a look at the truth table of F(x, y, z), x is 0 for the first half of the minterms (i.e., for m₀, m₁, m₂, m₃, x is 0) and it is 1 for the second half of the minterms (i.e., m₄, m₅, m₆, m₇).
               </p>
               <div className="p-3 rounded-lg bg-slate-900 font-mono text-cyan-300 space-y-1">
                 <div>&bull; x is complemented in minterms 0 to (2^n/2 - 1) &rarr; 0 to (2^3/2 - 1) = 0 to 3 (m₀, m₁, m₂, m₃)</div>
@@ -320,8 +320,8 @@ const Topic27 = () => {
                 <span className="px-2 py-0.5 rounded bg-cyan-500/20 font-mono">Page 108</span>
               </div>
               <p className="text-slate-300 leading-relaxed font-sans">
-                List the inputs of the multiplexer ($I_0, I_1, I_2, I_3$) and under them list all minterms in two rows.
-                The first row lists all those minterms where $x$ is complemented ($x&apos;$), and the second row all the minterms with $x$ uncomplemented ($x$):
+                List the inputs of the multiplexer (I₀, I₁, I₂, I₃) and under them list all minterms in two rows.
+                The first row lists all those minterms where x is complemented (x&apos;), and the second row all the minterms with x uncomplemented (x):
               </p>
               <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900 font-mono text-center p-2">
                 <table className="w-full text-xs">
@@ -353,7 +353,7 @@ const Topic27 = () => {
                 </table>
               </div>
               <p className="text-slate-400 font-sans">
-                Circle all the minterms of the given function $F(x, y, z) = \Sigma(1, 3, 5, 6)$ and inspect each column separately.
+                Circle all the minterms of the given function F(x, y, z) = Σ(1, 3, 5, 6) and inspect each column separately.
               </p>
             </div>
 
@@ -410,25 +410,25 @@ const Topic27 = () => {
                     <td className="p-3 font-bold text-amber-400">Rule 3</td>
                     <td className="p-3">If the bottom minterm is circled and top is NOT circled</td>
                     <td className="p-3 font-bold text-cyan-400">x (uncomplemented)</td>
-                    <td className="p-3 text-slate-400">Connect directly to input variable line $x$</td>
+                    <td className="p-3 text-slate-400">Connect directly to input variable line x</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-bold text-amber-400">Rule 4</td>
                     <td className="p-3">If the top minterm is circled and bottom is NOT circled</td>
                     <td className="p-3 font-bold text-indigo-400">x&apos; (complemented)</td>
-                    <td className="p-3 text-slate-400">Connect through a NOT gate (inverter) from $x$</td>
+                    <td className="p-3 text-slate-400">Connect through a NOT gate (inverter) from x</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-1.5">
-              <span className="font-bold text-amber-400 block">Application to $F(x, y, z) = \Sigma(1, 3, 5, 6)$:</span>
+              <span className="font-bold text-amber-400 block">Application to F(x, y, z) = Σ(1, 3, 5, 6):</span>
               <ul className="list-disc list-inside space-y-1 text-slate-400 pl-2">
-                <li><strong className="text-white">Column I₀:</strong> Neither 0 nor 4 is circled $\implies$ <strong className="text-rose-400">I₀ = 0 (Rule 1)</strong></li>
-                <li><strong className="text-white">Column I₁:</strong> Both 1 and 5 are circled $\implies$ <strong className="text-emerald-400">I₁ = 1 (Rule 2)</strong></li>
-                <li><strong className="text-white">Column I₂:</strong> Bottom minterm 6 circled, top 2 not $\implies$ <strong className="text-cyan-400">I₂ = x (Rule 3)</strong></li>
-                <li><strong className="text-white">Column I₃:</strong> Top minterm 3 circled, bottom 7 not $\implies$ <strong className="text-indigo-400">I₃ = x&apos; (Rule 4)</strong></li>
+                <li><strong className="text-white">Column I₀:</strong> Neither 0 nor 4 is circled → <strong className="text-rose-400">I₀ = 0 (Rule 1)</strong></li>
+                <li><strong className="text-white">Column I₁:</strong> Both 1 and 5 are circled → <strong className="text-emerald-400">I₁ = 1 (Rule 2)</strong></li>
+                <li><strong className="text-white">Column I₂:</strong> Bottom minterm 6 circled, top 2 not → <strong className="text-cyan-400">I₂ = x (Rule 3)</strong></li>
+                <li><strong className="text-white">Column I₃:</strong> Top minterm 3 circled, bottom 7 not → <strong className="text-indigo-400">I₃ = x&apos; (Rule 4)</strong></li>
               </ul>
             </div>
           </div>
@@ -442,7 +442,7 @@ const Topic27 = () => {
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">04</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Interactive Textbook Page 108 MUX Simulator</h2>
-              <p className="text-xs text-slate-400">Toggle inputs $x, y, z$ to verify real-time routing through the $4 \times 1$ MUX</p>
+              <p className="text-xs text-slate-400">Toggle inputs x, y, z to verify real-time routing through the 4 × 1 MUX</p>
             </div>
           </div>
 
@@ -523,7 +523,7 @@ const Topic27 = () => {
                   </span>
                 </div>
                 <div className="text-slate-400">
-                  Current input vector: $x={valX ? 1 : 0}, y={valY ? 1 : 0}, z={valZ ? 1 : 0} \implies$ Minterm{" "}
+                  Current input vector: x={valX ? 1 : 0}, y={valY ? 1 : 0}, z={valZ ? 1 : 0} → Minterm{" "}
                   <span className="font-mono text-white font-bold">m{(valX ? 4 : 0) + (valY ? 2 : 0) + (valZ ? 1 : 0)}</span>.
                 </div>
               </div>
@@ -576,10 +576,10 @@ const Topic27 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
               <ul className="list-disc list-inside space-y-1.5 text-slate-400">
-                <li><strong className="text-white">Always Draw the 2-Row Implementation Table:</strong> In ISC board marking schemes, 2 marks out of 4 or 5 are reserved purely for the table showing rows $x&apos;$ and $x$ with the correct minterm circles.</li>
-                <li><strong className="text-white">State Rules 1 to 4 by Name:</strong> When listing values applied to $I_0..I_3$, write the rule numbers explicitly: <em>&ldquo;I₀ is applied 0 (Rule 1), I₁ is applied 1 (Rule 2), I₂ is applied x (Rule 3), I₃ is applied x&apos; (Rule 4).&rdquo;</em></li>
-                <li><strong className="text-white">Label Selection Lines Clearly:</strong> Explicitly state: $S_1 = y$ and $S_0 = z$.</li>
-                <li><strong className="text-white">Write the 4x1 MUX Equation:</strong> Conclude by writing the canonical multiplexer equation: $F = S_1&apos;S_0&apos; I_0 + S_1&apos;S_0 I_1 + S_1 S_0&apos; I_2 + S_1 S_0 I_3$.</li>
+                <li><strong className="text-white">Always Draw the 2-Row Implementation Table:</strong> In ISC board marking schemes, 2 marks out of 4 or 5 are reserved purely for the table showing rows x&apos; and x with the correct minterm circles.</li>
+                <li><strong className="text-white">State Rules 1 to 4 by Name:</strong> When listing values applied to I₀..I₃, write the rule numbers explicitly: <em>&ldquo;I₀ is applied 0 (Rule 1), I₁ is applied 1 (Rule 2), I₂ is applied x (Rule 3), I₃ is applied x&apos; (Rule 4).&rdquo;</em></li>
+                <li><strong className="text-white">Label Selection Lines Clearly:</strong> Explicitly state: S₁ = y and S₀ = z.</li>
+                <li><strong className="text-white">Write the 4x1 MUX Equation:</strong> Conclude by writing the canonical multiplexer equation: F = S₁&apos;S₀&apos; I₀ + S₁&apos;S₀ I₁ + S₁ S₀&apos; I₂ + S₁ S₀ I₃.</li>
               </ul>
             </div>
           </div>

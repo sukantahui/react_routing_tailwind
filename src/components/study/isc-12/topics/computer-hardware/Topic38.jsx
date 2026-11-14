@@ -39,11 +39,11 @@ const Topic38 = () => {
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            1-Bit Full Adder Realization using Two $4 \times 1$ Multiplexers
+            1-Bit Full Adder Realization using Two 4 × 1 Multiplexers
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Synthesizing Arithmetic Logic with Shared Selection Bus ($S_1 = B, S_0 = C_{"{"}in{"}"}$): Sum = $\Sigma(1, 2, 4, 7)$ and Carry = $\Sigma(3, 5, 6, 7)$ on Dual $4 \times 1$ MUX Architecture (74153 IC)
+            Synthesizing Arithmetic Logic with Shared Selection Bus (S₁ = B, S₀ = Cin): Sum = Σ(1, 2, 4, 7) and Carry = Σ(3, 5, 6, 7) on Dual 4 × 1 MUX Architecture (74153 IC)
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -88,10 +88,10 @@ const Topic38 = () => {
               <Zap size={14} /> Shared Select Bus Principle
             </div>
             <p className="text-slate-200">
-              A 1-Bit Full Adder has 3 input variables ($A, B, C_{"{"}in{"}"}$) and 2 output functions ($\text{Sum}$ and $\text{Carry}$). Instead of building separate gate networks with XOR and AND gates, we deploy <strong>two $4 \times 1$ multiplexers</strong>.
+              A 1-Bit Full Adder has 3 input variables (A, B, Cin) and 2 output functions (Sum and Carry). Instead of building separate gate networks with XOR and AND gates, we deploy <strong>two 4 × 1 multiplexers</strong>.
             </p>
             <p className="text-slate-400">
-              By connecting variables $B$ and $C_{"{"}in{"}"}$ to the selection lines $S_1$ and $S_0$ of both multiplexers in parallel, both outputs are computed simultaneously. The singled-out variable $A$ (and its complement $A&apos;$) drives the data inputs, requiring only a single shared NOT gate for the entire circuit!
+              By connecting variables B and Cin to the selection lines S₁ and S₀ of both multiplexers in parallel, both outputs are computed simultaneously. The singled-out variable A (and its complement A&apos;) drives the data inputs, requiring only a single shared NOT gate for the entire circuit!
             </p>
           </div>
         </section>
@@ -189,7 +189,7 @@ const Topic38 = () => {
             <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">03</div>
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-white">Full Adder Truth Table &amp; Dual MUX Circuit</h2>
-              <p className="text-xs text-slate-400">Full Adder hardware implementation using two $4 \times 1$ MUXes sharing select bus $B, C_{"{"}in{"}"}$</p>
+              <p className="text-xs text-slate-400">Full Adder hardware implementation using two 4 × 1 MUXes sharing select bus B, Cin</p>
             </div>
           </div>
 
@@ -221,7 +221,7 @@ const Topic38 = () => {
           {/* DUAL MUX CIRCUIT DIAGRAM SVG */}
           <div className="pt-2 space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
-              Hardware Circuit Diagram: Dual $4 \times 1$ MUX Architecture
+              Hardware Circuit Diagram: Dual 4 × 1 MUX Architecture
             </span>
             <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 flex justify-center">
               <svg viewBox="0 0 540 280" className="w-full max-w-lg h-auto font-mono text-xs select-none">
@@ -381,8 +381,8 @@ const Topic38 = () => {
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
               <h3 className="font-bold text-amber-400 text-sm">Key Evaluation Checkpoints</h3>
               <ul className="list-disc list-inside space-y-1 text-slate-400">
-                <li><strong className="text-white">Shared Selection Lines:</strong> You must explicitly draw selection lines $B$ and $C_{"{"}in{"}"}$ wired in parallel to both multiplexers.</li>
-                <li><strong className="text-white">Single Inverter:</strong> Point out that only one NOT gate is needed to invert $A$ to $A&apos;$.</li>
+                <li><strong className="text-white">Shared Selection Lines:</strong> You must explicitly draw selection lines B and Cin wired in parallel to both multiplexers.</li>
+                <li><strong className="text-white">Single Inverter:</strong> Point out that only one NOT gate is needed to invert A to A&apos;.</li>
                 <li><strong className="text-white">Commercial Relevance:</strong> Mentioning the 74153 dual 4:1 multiplexer IC demonstrates practical engineering depth that impresses evaluators.</li>
               </ul>
             </div>
