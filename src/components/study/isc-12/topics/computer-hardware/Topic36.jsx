@@ -69,8 +69,8 @@ const Topic36 = () => {
             <span className="px-3 py-1 text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-full">
               Computer Hardware &amp; Combinational Circuits
             </span>
-            <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">
-              CISCE Syllabus 868 Masterclass
+            <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full flex items-center gap-1.5">
+              <CheckCircle2 size={12} /> Textbook Page 108 Standard
             </span>
           </div>
 
@@ -79,7 +79,7 @@ const Topic36 = () => {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Textbook Section 2.3.4A: Leftmost Singled-Out Variable Method &amp; Rules 1–4 for $F(x, y, z) = \Sigma(1, 3, 5, 6)$ using $S_1 = y, S_0 = z$
+            Textbook Page 108 (Section 2.3.4A): Leftmost Singled-Out Variable Method, Steps IV–VI &amp; Rules 1–4 for $F(x, y, z) = \Sigma(1, 3, 5, 6)$ using $S_1 = y, S_0 = z$ with Figure 2.25
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">

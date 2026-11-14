@@ -1,97 +1,97 @@
 // Topic 27 FAQs - 15 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
+// Textbook Page 108: Boolean Function Implementation using 4:1 Multiplexer
 
 export const faqs = [
   {
     "id": 1,
-    "question": "What is the maximum number of Boolean variables a 4-to-1 MUX can implement without external logic gates?",
-    "answer": "3 variables (using 2 variables as select lines and 1 variable as the residual data input).",
-    "explanation": "By applying Shannon's expansion, an 8-minterm (3-variable) function can be mapped onto the 4 data inputs of a 4-to-1 MUX."
+    "question": "What is the core theorem on Textbook Page 107 for implementing Boolean functions using multiplexers?",
+    "answer": "Any Boolean function of n variables can be implemented with a 2^(n-1) to 1 multiplexer with (n - 1) selection lines.",
+    "explanation": "Because a multiplexer has an internal decoder and OR gate, using (n - 1) variables on the select lines leaves 1 variable to generate the required data inputs."
   },
   {
     "id": 2,
-    "question": "How does the 'Residual Variable Method' work when implementing F(A, B, C) using a 4-to-1 MUX?",
-    "answer": "Two variables (e.g., A, B) connect to select lines (S1, S0); the third variable C is evaluated to determine data inputs I0, I1, I2, I3.",
-    "explanation": "For each combination of A and B, the output depends only on C, evaluating to either 0, 1, C, or C'."
+    "question": "For a 3-variable function F(x, y, z), how are the variables partitioned in Textbook Section 2.3.4A?",
+    "answer": "The leftmost variable x is singled out as the data literal; variables y and z are connected to selection lines S1 and S0.",
+    "explanation": "In an ordered set of variables x y z, the leftmost variable x has highest order and is singled out, while remaining variables connect to the select bus."
   },
   {
     "id": 3,
-    "question": "What are the four possible values that each multiplexer data input line (I0-I3) can receive?",
-    "answer": "0 (GND), 1 (VCC), the residual variable (C), or the complemented residual variable (C').",
-    "explanation": "Every single-variable Boolean function can only simplify to one of these four fundamental states."
+    "question": "What is Step IV as described on Textbook Page 108?",
+    "answer": "Partitioning minterms: x is 0 for minterms 0 to (2^n/2 - 1) i.e. 0 to 3, and x is 1 for minterms 2^n/2 to (2^n - 1) i.e. 4 to 7.",
+    "explanation": "For n=3, minterms 0, 1, 2, 3 have x complemented (x'), while minterms 4, 5, 6, 7 have x uncomplemented (x)."
   },
   {
     "id": 4,
-    "question": "Explain how to construct the Multiplexer Implementation Table for F(A, B, C) with select lines A and B.",
-    "answer": "Create a table with 4 columns (I0, I1, I2, I3) and 2 rows labeled C' (minterms 0,2,4,6) and C (minterms 1,3,5,7).",
-    "explanation": "Circle the minterm numbers that are present in the given function F. Then inspect each column to deduce the input value."
+    "question": "How is the Implementation Table structured on Textbook Page 108 (Step V)?",
+    "answer": "A table with 4 columns (I0, I1, I2, I3) and 2 rows: Row x' containing minterms 0, 1, 2, 3, and Row x containing minterms 4, 5, 6, 7.",
+    "explanation": "Column I0 holds minterms (0, 4), I1 holds (1, 5), I2 holds (2, 6), and I3 holds (3, 7)."
   },
   {
     "id": 5,
-    "question": "In an implementation table, how do you determine if an input line I_k should be connected to 0, 1, C, or C'?",
-    "answer": "Both circled = 1; neither circled = 0; only bottom row (C) circled = C; only top row (C') circled = C'.",
-    "explanation": "If both minterms are active, the function is 1 regardless of C. If neither is active, it is 0. If only one is active, it matches that row."
+    "question": "State Rule 1 from Textbook Page 108 Step VI.",
+    "answer": "Rule 1: If the two minterms in a column are not circled, apply 0 to the corresponding multiplexer input.",
+    "explanation": "Neither minterm is active in the function, so the output for that select code must be logic 0 (Ground)."
   },
   {
     "id": 6,
-    "question": "Implement F(A, B, C) = Σ(1, 2, 4, 7) using a 4-to-1 MUX with A and B as select lines.",
-    "answer": "I0 = C, I1 = C', I2 = C', I3 = C.",
-    "explanation": "Column I0 has 1 circled -> C; Column I1 has 2 circled -> C'; Column I2 has 4 circled -> C'; Column I3 has 7 circled -> C. (This also synthesizes a 3-input XOR gate!)."
+    "question": "State Rule 2 from Textbook Page 108 Step VI.",
+    "answer": "Rule 2: If the two minterms in a column are circled, apply 1 to the corresponding multiplexer input.",
+    "explanation": "Both minterms are active in the function, so the output is logic 1 (VCC) regardless of variable x."
   },
   {
     "id": 7,
-    "question": "Implement F(A, B, C) = Σ(0, 1, 3, 4, 6) using a 4-to-1 MUX with select lines B and C.",
-    "answer": "With B, C as select lines and A as residual variable: I0 = 1, I1 = A', I2 = 1, I3 = A'.",
-    "explanation": "Choosing different variables as select lines yields different input configurations, sometimes eliminating the need for an inverter."
+    "question": "State Rule 3 from Textbook Page 108 Step VI.",
+    "answer": "Rule 3: If the bottom minterm is circled and the top is not circled, apply x (in uncomplemented form) to the corresponding multiplexer input.",
+    "explanation": "The output is 1 only when x = 1 (the bottom row), meaning the output directly follows variable x."
   },
   {
     "id": 8,
-    "question": "How can a 1-bit Half Adder Sum and Carry be implemented using a 4-to-1 MUX?",
-    "answer": "Select lines A and B: for Sum = Σ(1, 2), inputs are I0=0, I1=1, I2=1, I3=0; for Carry = Σ(3), inputs are I0=0, I1=0, I2=0, I3=1.",
-    "explanation": "Here only 2 variables exist, so data inputs are directly tied to fixed logic levels 0 and 1 without needing residual variables."
+    "question": "State Rule 4 from Textbook Page 108 Step VI.",
+    "answer": "Rule 4: If the top minterm is circled and the bottom is not circled, apply x' to the corresponding multiplexer input.",
+    "explanation": "The output is 1 only when x = 0 (the top row), meaning the output requires the inverted signal x' via a NOT gate."
   },
   {
     "id": 9,
-    "question": "What does it mean if all minterms in a column of the implementation table are circled?",
-    "answer": "The corresponding data input line must be connected directly to logic HIGH (VCC / 1).",
-    "explanation": "Since the output must be 1 whether the residual variable is 0 or 1, the input is independent of the residual variable."
+    "question": "In the textbook example F(x, y, z) = Σ(1, 3, 5, 6), which minterms are circled in the implementation table?",
+    "answer": "Minterms 1, 3, 5, and 6 are circled.",
+    "explanation": "In column I0: none circled; column I1: 1 and 5 circled; column I2: 6 circled; column I3: 3 circled."
   },
   {
     "id": 10,
-    "question": "What does it mean if no minterm in a column of the implementation table is circled?",
-    "answer": "The corresponding data input line must be connected directly to logic LOW (GND / 0).",
-    "explanation": "Because neither minterm produces an output of 1, the output must remain 0 for that select combination."
+    "question": "What are the exact inputs applied to I0, I1, I2, I3 for F(x, y, z) = Σ(1, 3, 5, 6) on Page 108?",
+    "answer": "I0 is applied 0 (Rule 1), I1 is applied 1 (Rule 2), I2 is applied x (Rule 3), I3 is applied x' (Rule 4).",
+    "explanation": "This yields the complete input vector {0, 1, x, x'} feeding into the 4:1 multiplexer."
   },
   {
     "id": 11,
-    "question": "Can a 4-to-1 MUX implement a 4-variable Boolean function? Explain how.",
-    "answer": "Yes, but it requires external logic gates because each data input must implement a 2-variable sub-function of the two residual variables.",
-    "explanation": "Shannon's expansion with 2 select lines leaves 2 residual variables; an external gate network or smaller MUXes must synthesize each input."
+    "question": "What logic gates are required externally in Figure 2.25 on Textbook Page 108?",
+    "answer": "Exactly one NOT gate (inverter) connected to variable x to produce x' for input I3.",
+    "explanation": "Inputs I0 and I1 connect to GND and VCC, I2 connects directly to x, and I3 requires x' through an inverter."
   },
   {
     "id": 12,
-    "question": "Why is implementing Boolean functions with multiplexers advantageous in circuit design?",
-    "answer": "Functions can be modified or reprogrammed simply by changing input wiring without redesigning or replacing logic gate chips.",
-    "explanation": "This reconfigurability is the fundamental foundation of modern Field Programmable Gate Arrays (FPGAs)."
+    "question": "What is the canonical Boolean equation for a 4x1 MUX given at the bottom of Textbook Page 108?",
+    "answer": "F = S1' S0' I0 + S1' S0 I1 + S1 S0' I2 + S1 S0 I3.",
+    "explanation": "Each product term represents one selection combination decoding one of the four data inputs."
   },
   {
     "id": 13,
-    "question": "If a residual variable complement (e.g., C') is needed, how is it generated?",
-    "answer": "By passing the residual variable C through an external NOT gate (inverter).",
-    "explanation": "At most, a single NOT gate is required for the entire 3-variable circuit to generate C' for any inputs that require it."
+    "question": "Show how the MUX equation simplifies to F(x, y, z) for the inputs {0, 1, x, x'}.",
+    "answer": "F = y'z'(0) + y'z(1) + yz'(x) + yz(x') = y'z + xyz' + x'yz, which is identical to minterms m1 + m5 + m6 + m3.",
+    "explanation": "Algebraic expansion proves that the multiplexer circuit precisely synthesizes the target Boolean function."
   },
   {
     "id": 14,
-    "question": "What is Shannon's Expansion Theorem basis for MUX function implementation?",
-    "answer": "F(A, B, C) = A'B'·F(0,0,C) + A'B·F(0,1,C) + AB'·F(1,0,C) + AB·F(1,1,C).",
-    "explanation": "Each cofactor F(a, b, C) corresponds exactly to the Boolean function applied to data input line I_{2a+b}."
+    "question": "How does the selection line assignment differ if the variable order is given as y z x?",
+    "answer": "The leftmost variable y is singled out as data; remaining variables z and x connect to select lines S1 and S0.",
+    "explanation": "As stated in Textbook Step II, singling out depends on the given variable sequence."
   },
   {
     "id": 15,
-    "question": "What are the mandatory steps in ISC board examinations for solving MUX implementation problems?",
-    "answer": "1. State select and residual variables. 2. Draw the implementation table with circled minterms. 3. List derived inputs I0-I3. 4. Draw labeled 4-to-1 MUX schematic.",
-    "explanation": "Following this precise 4-step structure guarantees maximum marks under CISCE examination grading standards."
+    "question": "Why is the Singled-Out Variable Method on Page 108 preferred in CISCE board examinations?",
+    "answer": "It provides a deterministic, algorithmic procedure (Steps I to VI) with strict evaluation criteria and minimal gate overhead.",
+    "explanation": "Board evaluators award specific step marks for the 2-row table, circle inspection, rule citation, and circuit schematic."
   }
 ];
-
 export default faqs;
