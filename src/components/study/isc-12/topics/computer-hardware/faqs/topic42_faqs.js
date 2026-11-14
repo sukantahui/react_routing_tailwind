@@ -11,7 +11,7 @@ export const faqs = [
   },
   {
     id: 2,
-    question: "In the textbook method (Section 2.3.4A), which variable is singled out and which drive the select lines?",
+    question: "In the standard 8:1 MUX implementation method, which variable is singled out and which drive the select lines?",
     answer: "Variable a is singled out as the data input literal, while variables b, c, and d connect to select lines S2 = b, S1 = c, and S0 = d.",
     explanation: "This follows the natural alphabetical sequence (abcd) where the most significant variable a is partitioned across the two rows."
   },

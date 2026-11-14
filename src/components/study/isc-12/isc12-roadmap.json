@@ -866,7 +866,7 @@
             "MUX Variable Selection Strategy: Leftmost Singled-Out (A) vs Rightmost Singled-Out (C) Comparative Analysis for F(A, B, C) = Σ(0, 2, 4, 6, 7)",
             "Implementation through Scaled-Down Multiplexers: Realizing 3-Variable Logic using a 2-to-1 MUX via Factoring & Shannon Expansion",
             "Practical Applications of Multiplexers: Bus Word Routing Between Registers & Parallel-to-Serial Data Conversion (Data Serializer)",
-            "Special Practical Masterclass: 10 Detailed 8:1 Multiplexer Implementation Examples for 4-Variable Boolean Functions (Textbook Section 2.3.4A Method & Step-by-Step Derivations)"
+            "Special Practical Masterclass: 10 Detailed 8:1 Multiplexer Implementation Examples for 4-Variable Boolean Functions with Complete Step-by-Step Derivations"
           ],
           "learningOutcomes": [
             "Differentiate between combinational and sequential logic circuits.",

@@ -31,7 +31,7 @@ const TEN_PROBLEMS = [
   {
     id: 1,
     mins: [0, 1, 3, 4, 8, 9, 15],
-    title: "Example 1: Original Textbook Example 2.13 (Page 109)",
+    title: "Example 1: Textbook Reference Example 2.13",
     subtitle: "CISCE Textbook Reference Problem • Standard Syllabus Benchmark",
     tag: "Textbook Core"
   },
@@ -427,7 +427,7 @@ const Topic42 = () => {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl">
-            Complete worked implementation tables and derivations for 10 four-variable Boolean functions using an 8:1 Multiplexer (Textbook Section 2.3.4A, Pages 107–109). Every example features Step 1 to Step 5, full implementation tables, vertical pair analysis for all 8 pins (I₀ to I₇), and pin connection summaries.
+            Complete worked implementation tables and derivations for 10 four-variable Boolean functions using an 8:1 Multiplexer. Every example features Step 1 to Step 5, full implementation tables, vertical pair analysis for all 8 pins (I₀ to I₇), and pin connection summaries.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -565,8 +565,8 @@ const Topic42 = () => {
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">02</div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-white">Textbook Implementation Method (Section 2.3.4A)</h2>
-              <p className="text-xs text-slate-400">Formal CISCE Class 12 syllabus specification from Textbook Pages 107–109</p>
+              <h2 className="text-lg sm:text-xl font-bold text-white">Multiplexer Implementation Method</h2>
+              <p className="text-xs text-slate-400">Formal CISCE Class 12 syllabus specification and variable partitioning</p>
             </div>
           </div>
 
@@ -1098,7 +1098,7 @@ const Topic42 = () => {
               id: "Custom",
               mins: customMinterms,
               title: "Your Custom 4-Variable Function Realization",
-              subtitle: "Synthesized in Real Time using Textbook Section 2.3.4A Method",
+              subtitle: "Synthesized in Real Time using Standard 4-Variable MUX Method",
               tag: "Interactive Sandbox"
             }}
             index={0}
