@@ -17741,9 +17741,6 @@
   .text-rose-800 {
     color: var(--color-rose-800);
   }
-  .text-rose-900 {
-    color: var(--color-rose-900);
-  }
   .text-sky-50 {
     color: var(--color-sky-50);
   }
@@ -19948,12 +19945,6 @@
       --tw-ring-color: color-mix(in oklab, var(--color-indigo-400) 40%, transparent);
     }
   }
-  .ring-indigo-400\/50 {
-    --tw-ring-color: color-mix(in srgb, oklch(67.3% 0.182 276.935) 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-ring-color: color-mix(in oklab, var(--color-indigo-400) 50%, transparent);
-    }
-  }
   .ring-indigo-500 {
     --tw-ring-color: var(--color-indigo-500);
   }
@@ -20001,12 +19992,6 @@
   }
   .ring-purple-400 {
     --tw-ring-color: var(--color-purple-400);
-  }
-  .ring-purple-400\/50 {
-    --tw-ring-color: color-mix(in srgb, oklch(71.4% 0.203 305.504) 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-ring-color: color-mix(in oklab, var(--color-purple-400) 50%, transparent);
-    }
   }
   .ring-purple-500 {
     --tw-ring-color: var(--color-purple-500);
@@ -30880,11 +30865,6 @@
       }
     }
   }
-  .focus\:ring-teal-400 {
-    &:focus {
-      --tw-ring-color: var(--color-teal-400);
-    }
-  }
   .focus\:ring-teal-500 {
     &:focus {
       --tw-ring-color: var(--color-teal-500);
@@ -33017,6 +32997,11 @@
   .md\:col-span-5 {
     @media (width >= 48rem) {
       grid-column: span 5 / span 5;
+    }
+  }
+  .md\:col-span-6 {
+    @media (width >= 48rem) {
+      grid-column: span 6 / span 6;
     }
   }
   .md\:col-span-7 {

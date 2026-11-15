@@ -112,9 +112,6 @@ export default function PrintableStudentAdmissionForm() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedStudentId, setSelectedStudentId] = useState(initialStudentId);
 
-  // Payment scheme state: 'full' | 'downpayment' | 'monthly' | 'custom'
-  const [paymentMode, setPaymentMode] = useState("full");
-
   // Zoom / scale control for on-screen preview
   const [zoomScale, setZoomScale] = useState(100);
 
@@ -148,63 +145,13 @@ export default function PrintableStudentAdmissionForm() {
     courseId: 3,
     courseName: "Tally Prime",
     courseCode: "Tally01",
-    duration: "3 Months",
+    duration: "3-4 Months",
     batchMode: "Classroom (Offline)",
     preferredTiming: "Morning (09:00 AM - 12:00 PM)",
     totalCourseFee: "4500",
-    paymentScheme: "Full Course Fee (Lump-Sum • Paid in Full)",
-    admissionFeePaid: "4500",
-    balanceFee: "0",
+    feeMode: "Course Fees",
     receiptNo: "REC-" + Math.floor(1000 + Math.random() * 9000),
   });
-
-  // Calculate fee for a specific payment mode
-  const calculateFeeForMode = (mode, totalFeeVal, courseObj) => {
-    const total = Number(totalFeeVal) || 0;
-    if (!total) {
-      return {
-        payable: "",
-        balance: "",
-        schemeLabel: mode === "full" ? "Full Course Fee (Lump-Sum)" : "Admission Down-Payment",
-      };
-    }
-
-    if (mode === "full") {
-      return {
-        payable: String(total),
-        balance: "0",
-        schemeLabel: "Full Course Fee (Lump-Sum • Paid in Full)",
-      };
-    } else if (mode === "downpayment") {
-      // If course is already low cost (<= 5000), default deposit is 2000 or full
-      let downpayment = Math.min(total, 3000);
-      if (total > 8000) {
-        downpayment = Math.round((total * 0.25) / 500) * 500;
-      }
-      return {
-        payable: String(downpayment),
-        balance: String(Math.max(0, total - downpayment)),
-        schemeLabel: "Admission Down-Payment / Booking Fee",
-      };
-    } else if (mode === "monthly") {
-      // Monthly installment: course monthlyInstallment or total / duration
-      const inst = courseObj?.monthlyInstallment || Math.max(1000, Math.round((total / 4) / 500) * 500);
-      const payable = Math.min(total, inst);
-      return {
-        payable: String(payable),
-        balance: String(Math.max(0, total - payable)),
-        schemeLabel: "Monthly Installment Scheme (1st Month Paid)",
-      };
-    } else {
-      // Custom mode: retain current payable
-      const currentPaid = Number(formData.admissionFeePaid) || total;
-      return {
-        payable: String(currentPaid),
-        balance: String(Math.max(0, total - currentPaid)),
-        schemeLabel: "Custom Payment Scheme",
-      };
-    }
-  };
 
   // Fetch courses directly from cnat_api backend with fallback
   const fetchCoursesFromApi = async () => {
@@ -383,19 +330,15 @@ export default function PrintableStudentAdmissionForm() {
           const defaultCourse = safeCourses.find((c) => c.id === 3) || safeCourses[0];
           if (defaultCourse) {
             const initialFee = getCourseFee(defaultCourse);
-            const initialMode = defaultCourse.fee_modes_id === 2 ? "full" : "downpayment";
-            const { payable, balance, schemeLabel } = calculateFeeForMode(initialMode, initialFee, defaultCourse);
-            setPaymentMode(initialMode);
+            const feeModeName = defaultCourse.fee_mode || (defaultCourse.fee_modes_id === 2 ? "Course Fees (Lump Sum)" : "Monthly Duration");
             setFormData((prev) => ({
               ...prev,
               courseId: defaultCourse.id,
               courseName: defaultCourse.course_name || defaultCourse.courseName,
               courseCode: defaultCourse.course_code || defaultCourse.courseCode,
-              duration: defaultCourse.duration || "3 Months",
-              totalCourseFee: String(initialFee),
-              admissionFeePaid: payable,
-              balanceFee: balance,
-              paymentScheme: schemeLabel,
+              duration: defaultCourse.duration || (defaultCourse.fee_modes_id === 2 ? "3-4 Months" : "6 Months"),
+              totalCourseFee: initialFee > 0 ? String(initialFee) : "",
+              feeMode: feeModeName,
             }));
           }
 
@@ -444,9 +387,7 @@ export default function PrintableStudentAdmissionForm() {
 
     const actualCourseFee = getCourseFee(course);
     const totalFee = String(studentAdm?.course_fee || studentAdm?.total_fee || actualCourseFee || "4500");
-    const modeToUse = course?.fee_modes_id === 2 ? "full" : paymentMode;
-    const { payable, balance, schemeLabel } = calculateFeeForMode(modeToUse, totalFee, course);
-    setPaymentMode(modeToUse);
+    const feeModeText = course?.fee_mode || (course?.fee_modes_id === 2 ? "Course Fees (Lump Sum)" : "Monthly Duration");
 
     const regNo =
       student.registration_number ||
@@ -486,11 +427,9 @@ export default function PrintableStudentAdmissionForm() {
       courseId: course?.id || targetCourseId || "",
       courseName: course?.course_name || course?.courseName || "Tally Prime",
       courseCode: course?.course_code || course?.courseCode || "Tally01",
-      duration: course?.duration || "3 Months",
+      duration: course?.duration || (course?.fee_modes_id === 2 ? "3-4 Months" : "6 Months"),
       totalCourseFee: totalFee,
-      paymentScheme: schemeLabel,
-      admissionFeePaid: payable,
-      balanceFee: balance,
+      feeMode: feeModeText,
       receiptNo: studentAdm?.receipt_no || prev.receiptNo,
     }));
   }, [selectedStudentId, isPrefillMode, students, courses, admissions]);
@@ -550,20 +489,15 @@ export default function PrintableStudentAdmissionForm() {
     const selectedC = courses.find((c) => String(c.id) === String(cid));
     if (selectedC) {
       const realFee = getCourseFee(selectedC);
-      // If course is Course Fees (fee_modes_id === 2), default to full fee; otherwise maintain paymentMode
-      const targetMode = selectedC.fee_modes_id === 2 ? "full" : (paymentMode || "downpayment");
-      const { payable, balance, schemeLabel } = calculateFeeForMode(targetMode, realFee, selectedC);
-      setPaymentMode(targetMode);
+      const feeModeText = selectedC.fee_mode || (selectedC.fee_modes_id === 2 ? "Course Fees (Lump Sum)" : "Monthly Duration");
       setFormData((prev) => ({
         ...prev,
         courseId: selectedC.id,
         courseName: selectedC.course_name || selectedC.courseName || "",
         courseCode: selectedC.course_code || selectedC.courseCode || `CRS-${selectedC.id}`,
         duration: selectedC.duration || (selectedC.fee_modes_id === 2 ? "3-4 Months" : "6 Months"),
-        totalCourseFee: String(realFee),
-        admissionFeePaid: payable,
-        balanceFee: balance,
-        paymentScheme: schemeLabel,
+        totalCourseFee: realFee > 0 ? String(realFee) : "",
+        feeMode: feeModeText,
       }));
     } else {
       setFormData((prev) => ({
@@ -571,43 +505,16 @@ export default function PrintableStudentAdmissionForm() {
         courseId: "",
         courseName: "",
         courseCode: "",
+        duration: "",
         totalCourseFee: "",
-        admissionFeePaid: "",
-        balanceFee: "",
+        feeMode: "",
       }));
     }
   };
 
-  // Handle payment mode change -> automatically calculate payable amount and balance
-  const handlePaymentModeChange = (modeId) => {
-    setPaymentMode(modeId);
-    const selectedC = courses.find((c) => String(c.id) === String(formData.courseId));
-    const { payable, balance, schemeLabel } = calculateFeeForMode(modeId, formData.totalCourseFee, selectedC);
-    setFormData((prev) => ({
-      ...prev,
-      admissionFeePaid: payable,
-      balanceFee: balance,
-      paymentScheme: schemeLabel,
-    }));
-  };
-
-  // Handle manual amount input change
-  const handleCustomAmountChange = (newAmount) => {
-    const payable = Math.max(0, Number(newAmount) || 0);
-    const total = Number(formData.totalCourseFee) || 0;
-    const bal = Math.max(0, total - payable);
-    setPaymentMode("custom");
-    setFormData((prev) => ({
-      ...prev,
-      admissionFeePaid: String(payable),
-      balanceFee: String(bal),
-      paymentScheme: "Custom Payment Amount",
-    }));
-  };
-
-  // Dynamic UPI Payload for live QR generation
+  // Dynamic UPI Payload for live QR generation using official course fee
   const upiPayload = useMemo(() => {
-    const amountNum = Number(formData.admissionFeePaid) || 0;
+    const amountNum = Number(formData.totalCourseFee) || 0;
     let uri = `upi://pay?pa=${UPI_ID}&pn=${encodeURIComponent(PAYEE_NAME)}&cu=INR`;
     if (amountNum > 0) {
       uri += `&am=${amountNum.toFixed(2)}`;
@@ -634,7 +541,7 @@ export default function PrintableStudentAdmissionForm() {
     }
 
     return uri;
-  }, [formData.admissionFeePaid, formData.studentName, formData.courseName]);
+  }, [formData.totalCourseFee, formData.studentName, formData.courseName]);
 
   // Print trigger
   const handlePrint = () => {
@@ -803,11 +710,11 @@ export default function PrintableStudentAdmissionForm() {
             )}
 
             {/* Course Selector */}
-            <div className={isPrefillMode ? "md:col-span-5" : "md:col-span-7"}>
+            <div className={isPrefillMode ? "md:col-span-6" : "md:col-span-12"}>
               <label className="block text-[11px] font-semibold text-slate-400 mb-1 flex items-center justify-between">
                 <span>2. Select Course (from API):</span>
                 <span className="text-[10px] text-emerald-400 font-mono font-bold">
-                  Fee: ₹{Number(formData.totalCourseFee || 0).toLocaleString("en-IN")}
+                  Official Fee: ₹{Number(formData.totalCourseFee || 0).toLocaleString("en-IN")}
                 </span>
               </label>
               <select
@@ -827,54 +734,9 @@ export default function PrintableStudentAdmissionForm() {
                 })}
               </select>
             </div>
-
-            {/* Payment Mode Selector */}
-            <div className={isPrefillMode ? "md:col-span-4" : "md:col-span-5"}>
-              <label className="block text-[11px] font-semibold text-slate-400 mb-1">
-                3. Payment Mode &bull; Auto-calculates Amount:
-              </label>
-              <div className="grid grid-cols-3 gap-1 p-1 bg-slate-950 border border-slate-800 rounded-xl">
-                <button
-                  type="button"
-                  onClick={() => handlePaymentModeChange("full")}
-                  className={`py-1.5 px-1 rounded-lg text-[10.5px] font-bold text-center transition cursor-pointer truncate ${
-                    paymentMode === "full"
-                      ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Full 100% Course Fee"
-                >
-                  Full Fee
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handlePaymentModeChange("downpayment")}
-                  className={`py-1.5 px-1 rounded-lg text-[10.5px] font-bold text-center transition cursor-pointer truncate ${
-                    paymentMode === "downpayment"
-                      ? "bg-indigo-600 text-white shadow-sm ring-1 ring-indigo-400/50"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Initial Booking / Admission Deposit"
-                >
-                  Admission Fee
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handlePaymentModeChange("monthly")}
-                  className={`py-1.5 px-1 rounded-lg text-[10.5px] font-bold text-center transition cursor-pointer truncate ${
-                    paymentMode === "monthly"
-                      ? "bg-purple-600 text-white shadow-sm ring-1 ring-purple-400/50"
-                      : "text-slate-400 hover:text-slate-200"
-                  }`}
-                  title="Monthly Installment"
-                >
-                  Installment
-                </button>
-              </div>
-            </div>
           </div>
 
-          {/* Row 3: Live Fee Summary & Instant Fine-Tuning */}
+          {/* Row 3: Live Fee Summary & Live UPI QR Bar */}
           <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800/80 flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center">
@@ -883,26 +745,16 @@ export default function PrintableStudentAdmissionForm() {
               <div>
                 <span className="font-bold text-white">Live UPI Payment QR:</span>
                 <span className="text-slate-400 ml-1.5 font-mono text-[11px]">
-                  {UPI_ID} &bull; Mode: <strong className="text-teal-300">{formData.paymentScheme}</strong>
+                  {UPI_ID} &bull; Payee: <strong className="text-teal-300">{PAYEE_NAME}</strong>
                 </span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <span className="text-slate-400 text-[11px] font-semibold">Payable Amount (₹):</span>
-                <input
-                  type="number"
-                  value={formData.admissionFeePaid}
-                  onChange={(e) => handleCustomAmountChange(e.target.value)}
-                  className="w-24 bg-slate-900 border border-teal-500/50 rounded-lg px-2 py-1 text-emerald-400 font-bold font-mono text-xs focus:outline-none focus:ring-1 focus:ring-teal-400 text-right"
-                  placeholder="Amount"
-                />
-              </div>
-
-              <div className="text-[11px] font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
-                Balance Due: <strong className="text-rose-400">₹{formData.balanceFee || "0"}</strong>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="text-slate-400 text-[11px] font-medium">Prescribed Course Fee:</span>
+              <span className="text-sm font-black font-mono text-emerald-400 bg-slate-900 px-3 py-1 rounded-lg border border-slate-800">
+                ₹ {Number(formData.totalCourseFee || 0).toLocaleString("en-IN")}
+              </span>
             </div>
           </div>
         </div>
@@ -1224,36 +1076,18 @@ export default function PrintableStudentAdmissionForm() {
                       </div>
                     </div>
 
-                    {/* Financial Summary Box */}
-                    <div className="mt-1 p-2 bg-slate-50 border border-slate-300 rounded space-y-1">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="flex items-center justify-between border-b border-slate-200 pb-0.5">
-                          <span className="font-bold text-slate-700">Official Course Fee:</span>
-                          <span className="font-mono font-bold text-slate-950 text-[10.5px]">
-                            {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "₹ ________"}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between border-b border-slate-200 pb-0.5">
-                          <span className="font-bold text-slate-700">Payment Scheme:</span>
-                          <span className="font-semibold text-slate-900 truncate max-w-[150px]" title={formData.paymentScheme}>
-                            {formData.paymentScheme || "Standard Scheme"}
-                          </span>
-                        </div>
+                    {/* Official Prescribed Course Fee */}
+                    <div className="mt-1 p-2 bg-slate-50 border border-slate-300 rounded flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-slate-700 text-[9px] uppercase tracking-wide">
+                          Prescribed Course Fee:
+                        </span>
+                        <span className="font-mono font-black text-slate-950 text-[12px]">
+                          {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "₹ ________"}
+                        </span>
                       </div>
-
-                      <div className="grid grid-cols-2 gap-2 pt-0.5">
-                        <div className="flex items-center justify-between p-1 bg-emerald-50 rounded border border-emerald-300">
-                          <span className="font-bold text-emerald-900">Payable / Amount Paid:</span>
-                          <span className="font-mono font-extrabold text-emerald-800 text-[11px]">
-                            {formData.admissionFeePaid ? `₹ ${Number(formData.admissionFeePaid).toLocaleString("en-IN")}` : "₹ ________"}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between p-1 bg-rose-50 rounded border border-rose-300">
-                          <span className="font-bold text-rose-900">Remaining Balance:</span>
-                          <span className="font-mono font-bold text-rose-800 text-[10.5px]">
-                            {formData.balanceFee ? `₹ ${Number(formData.balanceFee).toLocaleString("en-IN")}` : "₹ ________"}
-                          </span>
-                        </div>
+                      <div className="text-[8px] text-slate-600 font-medium">
+                        Scheme: <strong className="text-slate-800">{formData.feeMode || "Standard Academic Fee"}</strong>
                       </div>
                     </div>
                   </div>
@@ -1263,7 +1097,7 @@ export default function PrintableStudentAdmissionForm() {
                     {/* Header */}
                     <div className="w-full pb-1 border-b border-slate-300 text-center">
                       <div className="text-[8px] font-extrabold uppercase text-slate-900 tracking-wider">
-                        Scan &amp; Pay Fees Online
+                        Scan &amp; Pay Course Fee
                       </div>
                       <div className="text-[7px] text-slate-600 font-mono">
                         UPI: <strong>{UPI_ID}</strong>
@@ -1283,10 +1117,10 @@ export default function PrintableStudentAdmissionForm() {
                     {/* Amount Pill */}
                     <div className="w-full py-0.5 px-1 bg-slate-900 text-white rounded text-center">
                       <div className="text-[6.5px] uppercase tracking-wider text-slate-300">
-                        Payable Amount
+                        Course Fee
                       </div>
                       <div className="text-[11.5px] font-black font-mono leading-none tracking-tight">
-                        ₹ {Number(formData.admissionFeePaid || formData.totalCourseFee || 0).toLocaleString("en-IN")}
+                        ₹ {Number(formData.totalCourseFee || 0).toLocaleString("en-IN")}
                       </div>
                     </div>
 
@@ -1430,23 +1264,23 @@ export default function PrintableStudentAdmissionForm() {
                   </div>
                 </div>
 
-                <div className="col-span-4 space-y-0.5 text-right">
+                <div className="col-span-4 space-y-1 text-right">
                   <div className="flex items-center justify-between gap-1">
-                    <span className="font-bold text-slate-700">Total Course Fee:</span>
-                    <span className="font-mono font-bold text-slate-950">
+                    <span className="font-bold text-slate-700">Official Course Fee:</span>
+                    <span className="font-mono font-black text-slate-950 text-[10px]">
                       {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "₹ ________"}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-1">
-                    <span className="font-bold text-slate-700">Fee Received:</span>
-                    <span className="font-mono font-bold text-emerald-800">
-                      {formData.admissionFeePaid ? `₹ ${Number(formData.admissionFeePaid).toLocaleString("en-IN")}` : "₹ ________"}
+                    <span className="font-bold text-slate-700">Fee Scheme:</span>
+                    <span className="font-semibold text-slate-800 text-[8.5px]">
+                      {formData.feeMode || "Standard"}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-1">
-                    <span className="font-bold text-slate-700">Balance Due:</span>
-                    <span className="font-mono font-bold text-rose-800">
-                      {formData.balanceFee ? `₹ ${Number(formData.balanceFee).toLocaleString("en-IN")}` : "₹ ________"}
+                    <span className="font-bold text-slate-700">UPI Payee:</span>
+                    <span className="font-mono text-slate-600 text-[8px]">
+                      {UPI_ID}
                     </span>
                   </div>
                 </div>
