@@ -117,7 +117,7 @@ export default function PrintableStudentAdmissionForm() {
 
   // Editable form fields
   const [formData, setFormData] = useState({
-    formNo: "CNAT/ADM/2026-27/001",
+    formNo: "",
     sessionYear: "2026 - 2027",
     admissionDate: new Date().toISOString().split("T")[0],
     registrationNo: "",
@@ -397,11 +397,9 @@ export default function PrintableStudentAdmissionForm() {
       student.regNo ||
       `CNAT-${new Date().getFullYear()}-${String(student.id).padStart(4, "0")}`;
 
-    const formNoVal = `CNAT/ADM/${new Date().getFullYear()}-${String(new Date().getFullYear() + 1).slice(2)}/${String(student.id).padStart(4, "0")}`;
-
     setFormData((prev) => ({
       ...prev,
-      formNo: formNoVal,
+      formNo: "",
       registrationNo: regNo,
       admissionDate: studentAdm?.admission_date || student.admission_date || student.created_at?.split("T")[0] || prev.admissionDate,
       studentName: (student.student_name || student.studentName || student.name || "").toUpperCase(),
@@ -441,7 +439,7 @@ export default function PrintableStudentAdmissionForm() {
       setSelectedStudentId("");
       setFormData((prev) => ({
         ...prev,
-        formNo: `CNAT/ADM/${new Date().getFullYear()}-${String(new Date().getFullYear() + 1).slice(2)}/______`,
+        formNo: "",
         sessionYear: "2026 - 2027",
         admissionDate: new Date().toISOString().split("T")[0],
         registrationNo: "",
@@ -847,8 +845,8 @@ export default function PrintableStudentAdmissionForm() {
               <div className="grid grid-cols-4 gap-2 mt-2 pt-1 border-t border-slate-300 text-[9px]">
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-slate-800">Application No:</span>
-                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                    {formData.formNo || "____________________"}
+                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                    {formData.formNo || ""}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -859,14 +857,14 @@ export default function PrintableStudentAdmissionForm() {
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-slate-800">Date:</span>
-                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                    {formData.admissionDate || "____/____/2026"}
+                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                    {formData.admissionDate || ""}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-slate-800">Student Reg. No:</span>
-                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                    {formData.registrationNo || "____________________"}
+                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                    {formData.registrationNo || ""}
                   </span>
                 </div>
               </div>
@@ -915,8 +913,8 @@ export default function PrintableStudentAdmissionForm() {
                   </div>
                   <div className="col-span-3 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Blood Group:</span>
-                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center">
-                      {formData.bloodGroup || "______"}
+                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center min-h-[14px] inline-block">
+                      {formData.bloodGroup || ""}
                     </span>
                   </div>
                   <div className="col-span-3 flex items-center gap-1">
@@ -939,8 +937,8 @@ export default function PrintableStudentAdmissionForm() {
                   </div>
                   <div className="col-span-5 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Occupation:</span>
-                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.fatherOccupation || "________________________"}
+                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.fatherOccupation || ""}
                     </span>
                   </div>
                 </div>
@@ -957,8 +955,8 @@ export default function PrintableStudentAdmissionForm() {
                   </div>
                   <div className="col-span-5 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Occupation:</span>
-                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.motherOccupation || "________________________"}
+                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.motherOccupation || ""}
                     </span>
                   </div>
                 </div>
@@ -967,20 +965,20 @@ export default function PrintableStudentAdmissionForm() {
                 <div className="grid grid-cols-12 gap-2">
                   <div className="col-span-4 flex items-center gap-1">
                     <span className="font-bold text-slate-800">WhatsApp / Mobile:</span>
-                    <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.primaryPhone || "________________"}
+                    <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.primaryPhone || ""}
                     </span>
                   </div>
                   <div className="col-span-4 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Alternate Phone:</span>
-                    <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.altPhone || "________________"}
+                    <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.altPhone || ""}
                     </span>
                   </div>
                   <div className="col-span-4 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Email ID:</span>
-                    <span className="font-mono text-slate-950 border-b border-dotted border-slate-700 flex-1 truncate">
-                      {formData.email || "________________________"}
+                    <span className="font-mono text-slate-950 border-b border-dotted border-slate-700 flex-1 truncate min-h-[14px] inline-block">
+                      {formData.email || ""}
                     </span>
                   </div>
                 </div>
@@ -991,7 +989,7 @@ export default function PrintableStudentAdmissionForm() {
                     Residential Address:
                   </span>
                   <div className="flex-1 font-semibold text-slate-950 border-b border-dotted border-slate-700 min-h-[16px]">
-                    {formData.address || "________________________________________________________________________________________________________"}
+                    {formData.address || ""}
                   </div>
                 </div>
 
@@ -999,8 +997,8 @@ export default function PrintableStudentAdmissionForm() {
                 <div className="grid grid-cols-12 gap-2">
                   <div className="col-span-3 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Landmark / PO:</span>
-                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.landmark || formData.postOffice || "________________"}
+                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.landmark || formData.postOffice || ""}
                     </span>
                   </div>
                   <div className="col-span-3 flex items-center gap-1">
@@ -1044,7 +1042,7 @@ export default function PrintableStudentAdmissionForm() {
                         Course Applied For:
                       </span>
                       <div className="flex-1 font-bold text-slate-950 border-b border-dotted border-slate-700 min-h-[16px] text-[10px]">
-                        {formData.courseName || "____________________________________________________________"}
+                        {formData.courseName || ""}
                       </div>
                     </div>
 
@@ -1086,8 +1084,8 @@ export default function PrintableStudentAdmissionForm() {
                         <span className="font-bold text-slate-700 text-[9px] uppercase tracking-wide">
                           Prescribed Course Fee:
                         </span>
-                        <span className="font-mono font-black text-slate-950 text-[12px]">
-                          {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "₹ ________"}
+                        <span className="font-mono font-black text-slate-950 text-[12px] min-w-[70px] inline-block">
+                          {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : ""}
                         </span>
                       </div>
                       <div className="text-[8px] text-slate-600 font-medium">
@@ -1171,7 +1169,7 @@ export default function PrintableStudentAdmissionForm() {
               <div className="grid grid-cols-12 gap-3 items-end pt-1 text-[8.5px]">
                 {/* Date & Place */}
                 <div className="col-span-3 space-y-1">
-                  <div><strong>Date:</strong> {formData.admissionDate || "____/____/2026"}</div>
+                  <div><strong>Date:</strong> <span className="border-b border-dotted border-slate-600 inline-block min-w-[70px] text-center">{formData.admissionDate || ""}</span></div>
                   <div><strong>Place:</strong> Barrackpore, Kolkata</div>
                 </div>
 
@@ -1244,7 +1242,7 @@ export default function PrintableStudentAdmissionForm() {
                     Receipt / Ack No: {formData.receiptNo || "CNAT-REC-01"}
                   </div>
                   <div className="text-[8px] text-slate-600">
-                    Date: {formData.admissionDate || "____/____/2026"}
+                    Date: <span className="border-b border-dotted border-slate-600 inline-block min-w-[65px] text-center">{formData.admissionDate || ""}</span>
                   </div>
                 </div>
               </div>
@@ -1254,20 +1252,20 @@ export default function PrintableStudentAdmissionForm() {
                 <div className="col-span-8 space-y-1">
                   <div className="flex items-center gap-1">
                     <span className="w-[85px] font-bold text-slate-700">Student Name:</span>
-                    <span className="font-bold text-slate-950 uppercase border-b border-dotted border-slate-600 flex-1">
-                      {formData.studentName || "____________________________________________________"}
+                    <span className="font-bold text-slate-950 uppercase border-b border-dotted border-slate-600 flex-1 min-h-[14px] inline-block">
+                      {formData.studentName || ""}
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
                     <span className="w-[85px] font-bold text-slate-700">Course Enrolled:</span>
-                    <span className="font-semibold text-slate-900 border-b border-dotted border-slate-600 flex-1">
-                      {formData.courseName || "____________________________________________________"}
+                    <span className="font-semibold text-slate-900 border-b border-dotted border-slate-600 flex-1 min-h-[14px] inline-block">
+                      {formData.courseName || ""}
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
                     <span className="w-[85px] font-bold text-slate-700">Reg / Form No:</span>
-                    <span className="font-mono font-semibold text-slate-900 border-b border-dotted border-slate-600 flex-1">
-                      {formData.registrationNo || formData.formNo || "________________________"}
+                    <span className="font-mono font-semibold text-slate-900 border-b border-dotted border-slate-600 flex-1 min-h-[14px] inline-block">
+                      {formData.registrationNo || ""}
                     </span>
                   </div>
                 </div>
@@ -1276,7 +1274,7 @@ export default function PrintableStudentAdmissionForm() {
                   <div className="flex items-center justify-between gap-1">
                     <span className="font-bold text-slate-700">Official Course Fee:</span>
                     <span className="font-mono font-black text-slate-950 text-[10px]">
-                      {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "₹ ________"}
+                      {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : ""}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-1">

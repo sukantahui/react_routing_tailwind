@@ -298,12 +298,20 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           badge: "Fee QR",
           badgeColor: "bg-teal-500/20 text-teal-300 border-teal-500/30",
         },
+        {
+          to: "/students/admission-form",
+          label: "Print Admission Form",
+          desc: "Official printable A4 admission form",
+          icon: "bi-printer-fill",
+          badge: "A4 Form",
+          badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+        },
         ...(isManagerOrAdmin
           ? [
               {
                 to: "/students/student-admission",
                 label: "All-in-One Admission",
-                desc: "Quick register student, course enrollment & initial fee",
+                desc: "Quick register student, course enrollment & fee",
                 icon: "bi-person-badge-fill",
                 badge: "Fast Track",
                 badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
@@ -315,14 +323,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           label: "Quick Student Register",
           desc: "Simple student registration form",
           icon: "bi-person-plus-fill",
-        },
-        {
-          to: "/students/admission-form",
-          label: "Printable A4 Admission Form",
-          desc: "Print official A4 application & blank walk-in form",
-          icon: "bi-printer-fill",
-          badge: "A4 Form",
-          badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
         },
       ],
     },
@@ -407,6 +407,8 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           label: "Custom Certificate Studio",
           desc: "Manual designer & template customization",
           icon: "bi-file-earmark-medical-fill",
+          badge: "Custom",
+          badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/30",
         },
       ],
     },
@@ -428,6 +430,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         ...(isAdmin
           ? [
               {
+                to: "/admin/course-fees",
+                label: "Course Fees Manager",
+                desc: "Configure course fees, lump-sum & monthly schemes",
+                icon: "bi-currency-rupee",
+                badge: "Fee Setup",
+                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+              },
+              {
                 to: "/admin/users",
                 label: "User & Role Directory",
                 desc: "Manage faculty, staff & administrative logins",
@@ -444,20 +454,12 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
               },
               {
-                to: "/admin/course-fees",
-                label: "Course Fees Manager",
-                desc: "Configure course fees, lump-sum & monthly schemes",
-                icon: "bi-currency-rupee",
-                badge: "Admin Fee",
-                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-              },
-              {
                 to: "/admin/backups",
                 label: "Database Backups",
                 desc: "Create, download & manage MySQL dumps",
                 icon: "bi-database-fill-down",
                 badge: "DBA",
-                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+                badgeColor: "bg-teal-500/20 text-teal-300 border-teal-500/30",
               },
             ]
           : []),
@@ -1055,7 +1057,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.98 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute left-1/2 -translate-x-[22%] xl:-translate-x-[18%] top-full mt-2 w-[1080px] xl:w-[1120px] max-w-[calc(100vw-24px)] bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/90 p-4 sm:p-5 z-50 ring-1 ring-white/10"
+                        className="fixed left-1/2 -translate-x-1/2 top-[58px] w-[1180px] max-w-[calc(100vw-32px)] bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/90 p-4 sm:p-5 z-50 ring-1 ring-white/10"
                       >
                         {/* Top Header */}
                         <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-3.5 px-1">
@@ -1099,6 +1101,24 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                 ? "bg-amber-500/10 border-amber-500/25 text-amber-300"
                                 : "bg-rose-500/10 border-rose-500/25 text-rose-300";
 
+                            const itemIconColor =
+                              group.accent === "sky"
+                                ? "text-sky-400 group-hover/item:text-sky-300 group-hover/item:border-sky-500/40"
+                                : group.accent === "indigo"
+                                ? "text-indigo-400 group-hover/item:text-indigo-300 group-hover/item:border-indigo-500/40"
+                                : group.accent === "amber"
+                                ? "text-amber-400 group-hover/item:text-amber-300 group-hover/item:border-amber-500/40"
+                                : "text-rose-400 group-hover/item:text-rose-300 group-hover/item:border-rose-500/40";
+
+                            const activeClass =
+                              group.accent === "sky"
+                                ? "bg-sky-500/20 text-sky-200 border-sky-500/30"
+                                : group.accent === "indigo"
+                                ? "bg-indigo-500/20 text-indigo-200 border-indigo-500/30"
+                                : group.accent === "amber"
+                                ? "bg-amber-500/20 text-amber-200 border-amber-500/30"
+                                : "bg-rose-500/20 text-rose-200 border-rose-500/30";
+
                             return (
                               <div key={group.id} className="space-y-2 flex flex-col">
                                 {/* Category Header */}
@@ -1117,17 +1137,17 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                       className={({ isActive }) =>
                                         `group/item flex items-start gap-2.5 p-2 rounded-xl transition-all duration-150 ${
                                           isActive
-                                            ? "bg-sky-500/20 text-sky-200 border border-sky-500/30"
-                                            : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent"
+                                            ? `${activeClass} border`
+                                            : "hover:bg-slate-800/80 text-slate-300 hover:text-white border border-transparent hover:border-slate-700/60"
                                         }`
                                       }
                                     >
-                                      <div className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center text-sky-400 group-hover/item:border-sky-500/40 group-hover/item:text-sky-300 group-hover/item:scale-105 transition">
+                                      <div className={`mt-0.5 flex-shrink-0 w-7 h-7 rounded-lg bg-slate-800/90 border border-slate-700/60 flex items-center justify-center ${itemIconColor} group-hover/item:scale-105 transition`}>
                                         <i className={`bi ${item.icon} text-xs`}></i>
                                       </div>
                                       <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between gap-1.5">
-                                          <span className="text-xs font-semibold truncate group-hover/item:text-sky-300 transition">
+                                          <span className="text-xs font-semibold truncate group-hover/item:text-white transition">
                                             {item.label}
                                           </span>
                                           {item.badge && (
@@ -1155,15 +1175,24 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           <span className="flex items-center gap-1.5 text-slate-400">
                             <i className="bi bi-shield-check text-emerald-400"></i>
                             <span className="hidden sm:inline">Operational Flow:</span>
-                            <span className="font-mono text-[10px] text-slate-500">
-                              Step 1 Directory &rarr; Step 2 Admission &rarr; Step 3 Fee &rarr; Step 4 Exam &rarr; Step 5 Certificate
+                            <span className="font-mono text-[10px] text-slate-400">
+                              Step 1 Directory &rarr; Step 2 Admission &rarr; Step 3 Fees &rarr; Step 4 Exams &rarr; Step 5 Certificate
                             </span>
                           </span>
                           <div className="flex items-center gap-3 ml-auto">
                             <NavLink
+                              to="/admin/course-fees"
+                              onClick={closeAllDropdowns}
+                              className="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 hover:underline text-xs"
+                            >
+                              <i className="bi bi-currency-rupee text-[11px]"></i>
+                              <span>Course Fees</span>
+                            </NavLink>
+                            <span className="text-slate-700">&bull;</span>
+                            <NavLink
                               to="/student-course-qr"
                               onClick={closeAllDropdowns}
-                              className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 hover:underline text-xs"
+                              className="text-teal-400 hover:text-teal-300 font-semibold flex items-center gap-1 hover:underline text-xs"
                             >
                               <i className="bi bi-qr-code-scan text-[11px]"></i>
                               <span>Fee QR Studio</span>
