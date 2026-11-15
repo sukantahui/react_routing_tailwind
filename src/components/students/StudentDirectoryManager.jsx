@@ -952,6 +952,15 @@ We wish you great success in your learning journey!
                 <BookOpen className="w-4 h-4" />
                 <span>Add with Course &amp; Fee</span>
               </Link>
+
+              <Link
+                to="/student-course-qr"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold shadow-lg shadow-emerald-600/25 transition active:scale-95"
+                title="Generate custom fee payment QR &amp; WhatsApp advice"
+              >
+                <QrCode className="w-4 h-4" />
+                <span>Student Fee QR</span>
+              </Link>
             </div>
           </div>
         )}
@@ -1415,6 +1424,15 @@ We wish you great success in your learning journey!
                                 <BookOpen className="w-3.5 h-3.5" />
                               </Link>
 
+                              {/* Direct Fee QR */}
+                              <Link
+                                to={`/student-course-qr?studentId=${student.id}&student=${encodeURIComponent(student.student_name || "")}&phone=${encodeURIComponent(student.mobile_number || "")}`}
+                                className="p-1.5 rounded-lg bg-teal-600/30 hover:bg-teal-500 text-teal-300 hover:text-white border border-teal-500/40 transition"
+                                title={`Generate Fee Payment QR for ${student.student_name}`}
+                              >
+                                <QrCode className="w-3.5 h-3.5" />
+                              </Link>
+
                               {/* Delete Student */}
                               <button
                                 type="button"
@@ -1632,6 +1650,14 @@ We wish you great success in your learning journey!
                           title="Admit to Course"
                         >
                           <BookOpen className="w-4 h-4" />
+                        </Link>
+
+                        <Link
+                          to={`/student-course-qr?studentId=${student.id}&student=${encodeURIComponent(student.student_name || "")}&phone=${encodeURIComponent(student.mobile_number || "")}`}
+                          className="p-1.5 rounded-xl bg-teal-600/30 hover:bg-teal-500 text-teal-300 hover:text-white border border-teal-500/40 transition"
+                          title={`Generate Fee Payment QR for ${student.student_name}`}
+                        >
+                          <QrCode className="w-4 h-4" />
                         </Link>
                       </div>
                     </div>

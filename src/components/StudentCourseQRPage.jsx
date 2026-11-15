@@ -235,6 +235,10 @@ export default function StudentCourseQRPage() {
   const courseParam = searchParams.get("course") || null;
   const studentParam = searchParams.get("student") || "";
   const phoneParam = searchParams.get("phone") || "";
+  const modeParam = searchParams.get("mode") || null;
+  const amountParam = searchParams.get("amount") || "";
+  const rollParam = searchParams.get("roll") || searchParams.get("studentId") || "";
+  const remarksParam = searchParams.get("remarks") || "";
 
   // Data states
   const [admissions, setAdmissions] = useState([]);
@@ -242,7 +246,13 @@ export default function StudentCourseQRPage() {
   const [loading, setLoading] = useState(true);
 
   // Active view: 'courses' | 'non-admitted' | 'admissions' | 'custom'
-  const [viewMode, setViewMode] = useState("courses");
+  const [viewMode, setViewMode] = useState(
+    modeParam === "custom"
+      ? "custom"
+      : modeParam === "direct" || modeParam === "student" || studentParam || amountParam
+      ? "non-admitted"
+      : "courses"
+  );
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -372,12 +382,12 @@ export default function StudentCourseQRPage() {
   const [courseCategory, setCourseCategory] = useState("Programming Languages");
   const [totalCourseFee, setTotalCourseFee] = useState(12000); // Standard rate drawn from DB
   const [paymentType, setPaymentType] = useState("installment"); // 'installment' | 'full' | 'custom'
-  const [customPayAmount, setCustomPayAmount] = useState("2000"); // Editable paying amount
+  const [customPayAmount, setCustomPayAmount] = useState(amountParam || "2000"); // Editable paying amount
   const [studentName, setStudentName] = useState(studentParam || "");
   const [studentPhone, setStudentPhone] = useState(phoneParam || "");
-  const [studentRollNo, setStudentRollNo] = useState("");
+  const [studentRollNo, setStudentRollNo] = useState(rollParam || "");
   const [batchTiming, setBatchTiming] = useState(BATCH_TIMINGS[0]);
-  const [studentRemarks, setStudentRemarks] = useState("");
+  const [studentRemarks, setStudentRemarks] = useState(remarksParam || "");
   const [qrType, setQrType] = useState("upi"); // 'upi' | 'summary' | 'wa'
 
   // Feedback states
@@ -1006,7 +1016,7 @@ export default function StudentCourseQRPage() {
               <span>Database Courses Catalog ({catalogCourses.length})</span>
             </button>
 
-            {/* 2. NON-ADMITTED / QUICK DIRECT QR */}
+            {/* 2. ADMIN CUSTOM STUDENT & FEE QR */}
             <button
               type="button"
               onClick={() => setViewMode("non-admitted")}
@@ -1017,7 +1027,7 @@ export default function StudentCourseQRPage() {
               }`}
             >
               <Zap size={13} className={viewMode === "non-admitted" ? "fill-slate-950" : ""} />
-              <span>Non-Admitted / Direct Walk-in QR</span>
+              <span>Custom Student &amp; Fee QR Studio</span>
             </button>
 
             {/* 3. ENROLLED ADMISSIONS */}
@@ -1270,17 +1280,95 @@ export default function StudentCourseQRPage() {
                 </div>
               )}
 
-              {/* VIEW MODE 2: NON-ADMITTED / DIRECT WALK-IN */}
+              {/* VIEW MODE 2: CUSTOM STUDENT & FEE QR STUDIO */}
               {viewMode === "non-admitted" && (
                 <div className="p-5 sm:p-6 rounded-3xl bg-slate-900/95 border border-amber-500/30 shadow-2xl space-y-5">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                  <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-800">
                     <div className="flex items-center gap-2 text-amber-400 font-extrabold text-sm sm:text-base">
                       <Zap size={18} className="fill-amber-400" />
-                      <span>Direct QR: Enter Course Name &amp; Amount Only</span>
+                      <span>Custom Student Fee &amp; UPI QR Studio</span>
                     </div>
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300">
-                      Non-Admitted / Direct
+                      Admin Generator
                     </span>
+                  </div>
+
+                  {/* SECTION A: STUDENT DETAILS */}
+                  <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800/90 space-y-3.5">
+                    <span className="text-[11px] font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <User size={13} />
+                      <span>Student Information (Direct / Admission)</span>
+                    </span>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="text-[11px] font-medium text-slate-300 mb-1 block">
+                          Student Full Name
+                        </label>
+                        <div className="relative">
+                          <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                          <input
+                            type="text"
+                            value={studentName}
+                            onChange={(e) => setStudentName(e.target.value)}
+                            placeholder="e.g. Rahul Sharma"
+                            className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-[11px] font-medium text-slate-300 mb-1 block">
+                          Mobile / WhatsApp Number
+                        </label>
+                        <div className="relative">
+                          <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                          <input
+                            type="tel"
+                            value={studentPhone}
+                            onChange={(e) => setStudentPhone(e.target.value)}
+                            placeholder="e.g. 9830123456"
+                            className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 font-mono"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-[11px] font-medium text-slate-300 mb-1 block">
+                          Student ID / Token / Roll
+                        </label>
+                        <div className="relative">
+                          <Hash size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                          <input
+                            type="text"
+                            value={studentRollNo}
+                            onChange={(e) => setStudentRollNo(e.target.value)}
+                            placeholder="e.g. STU-2026-042 (or auto)"
+                            className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 font-mono uppercase"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="text-[11px] font-medium text-slate-300 mb-1 block">
+                          Batch Timing / Slot
+                        </label>
+                        <div className="relative">
+                          <Clock size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                          <select
+                            value={batchTiming}
+                            onChange={(e) => setBatchTiming(e.target.value)}
+                            className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-sky-500 cursor-pointer"
+                          >
+                            {BATCH_TIMINGS.map((b) => (
+                              <option key={b} value={b}>
+                                {b}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* FIELD 1: COURSE NAME */}
@@ -1288,7 +1376,7 @@ export default function StudentCourseQRPage() {
                     <label className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center justify-between">
                       <span className="flex items-center gap-1.5 text-sky-400">
                         <BookOpen size={14} />
-                        <span>1. Course / Subject Name <span className="text-rose-400">*</span></span>
+                        <span>Course / Subject Name <span className="text-rose-400">*</span></span>
                       </span>
                     </label>
 
@@ -1339,7 +1427,7 @@ export default function StudentCourseQRPage() {
                     <label className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center justify-between">
                       <span className="flex items-center gap-1.5 text-emerald-400">
                         <CreditCard size={14} />
-                        <span>2. Payable Fee Amount (₹) - Editable <span className="text-rose-400">*</span></span>
+                        <span>Payable Fee Amount (₹) - Editable <span className="text-rose-400">*</span></span>
                       </span>
                       <span className="text-xs font-extrabold text-emerald-400">
                         ₹{numericAmount.toLocaleString("en-IN")}
@@ -1389,6 +1477,57 @@ export default function StudentCourseQRPage() {
                           );
                         })}
                       </div>
+                    </div>
+                  </div>
+
+                  {/* FIELD 3: PURPOSE & REMARKS */}
+                  <div className="space-y-2 pt-2 border-t border-slate-800">
+                    <label className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center justify-between">
+                      <span className="flex items-center gap-1.5 text-amber-400">
+                        <MessageCircle size={14} />
+                        <span>Payment Remarks / Purpose (Included in QR Advice)</span>
+                      </span>
+                      {studentRemarks && (
+                        <button
+                          type="button"
+                          onClick={() => setStudentRemarks("")}
+                          className="text-[10px] text-rose-400 hover:underline cursor-pointer"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </label>
+
+                    <input
+                      type="text"
+                      value={studentRemarks}
+                      onChange={(e) => setStudentRemarks(e.target.value)}
+                      placeholder="e.g. 1st Installment • Monthly Tuition • Study Material Included"
+                      className="w-full px-4 py-2.5 bg-slate-950 border border-slate-700/80 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                    />
+
+                    <div className="flex flex-wrap gap-1 pt-0.5">
+                      {[
+                        "Monthly Tuition Fee",
+                        "1st Installment",
+                        "Course Admission Fee",
+                        "Full Settlement",
+                        "Study Material Included",
+                        "Exam & Certification Fee",
+                      ].map((preset) => (
+                        <button
+                          key={preset}
+                          type="button"
+                          onClick={() => setStudentRemarks(preset)}
+                          className={`text-[10px] px-2.5 py-1 rounded-lg border transition cursor-pointer ${
+                            studentRemarks === preset
+                              ? "bg-amber-500/20 text-amber-300 border-amber-500/40 font-semibold"
+                              : "bg-slate-950/80 text-slate-400 hover:text-slate-200 border-slate-800"
+                          }`}
+                        >
+                          {preset}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -1720,6 +1859,12 @@ export default function StudentCourseQRPage() {
 
                 {/* Course & Scheme Badge Below QR */}
                 <div className="mt-3 w-full p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-left space-y-1">
+                  {studentName.trim() && (
+                    <div className="flex items-center justify-between text-[11px] text-sky-300 border-b border-slate-800/80 pb-1 mb-1">
+                      <span className="text-slate-400">Student:</span>
+                      <span className="font-bold">{studentName.trim()}</span>
+                    </div>
+                  )}
                   <div className="flex items-center justify-between text-xs font-bold text-white">
                     <span className="truncate">{courseTitle || "Course Fee"}</span>
                     <span className="text-emerald-400">₹{numericAmount.toLocaleString("en-IN")}</span>

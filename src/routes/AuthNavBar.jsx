@@ -283,10 +283,10 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         },
         {
           to: "/student-course-qr",
-          label: "Student Course QR",
-          desc: "Generate course payment QR & WhatsApp advice",
-          icon: "bi-qr-code",
-          badge: "WhatsApp",
+          label: "Student QR Generator",
+          desc: "Custom fee amount, student details & UPI QR",
+          icon: "bi-qr-code-scan",
+          badge: "Fee QR",
         },
         ...(isManagerOrAdmin
           ? [
@@ -407,6 +407,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           desc: "New student registration with course & initial fee payment",
           icon: "bi-mortarboard-fill",
           badge: "All-in-One",
+        },
+        {
+          to: "/student-course-qr",
+          label: "Student Fee QR Studio",
+          desc: "Admin custom amount, student details & UPI QR",
+          icon: "bi-qr-code-scan",
+          badge: "Fee QR",
         },
         ...(isAdmin
           ? [
@@ -564,6 +571,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           desc: "Instant dynamic QR generator & scanner",
           icon: "bi-qr-code-scan",
           tag: "Utility",
+        },
+        {
+          to: "/student-course-qr",
+          label: "Student Course & Fee QR",
+          desc: "Custom student fee QR & WhatsApp advice",
+          icon: "bi-qr-code",
+          tag: "Finance",
         },
         {
           to: "/icons",

@@ -3458,6 +3458,9 @@
   .scroll-mt-6 {
     scroll-margin-top: calc(var(--spacing) * 6);
   }
+  .scroll-mt-24 {
+    scroll-margin-top: calc(var(--spacing) * 24);
+  }
   .scroll-mt-32 {
     scroll-margin-top: calc(var(--spacing) * 32);
   }
@@ -22998,6 +23001,16 @@
       }
     }
   }
+  .hover\:border-emerald-400\/80 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(76.5% 0.177 163.223) 80%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-emerald-400) 80%, transparent);
+        }
+      }
+    }
+  }
   .hover\:border-emerald-500 {
     &:hover {
       @media (hover: hover) {
@@ -31975,6 +31988,11 @@
   .sm\:-mx-7 {
     @media (width >= 40rem) {
       margin-inline: calc(var(--spacing) * -7);
+    }
+  }
+  .sm\:mx-2 {
+    @media (width >= 40rem) {
+      margin-inline: calc(var(--spacing) * 2);
     }
   }
   .sm\:mx-3 {
