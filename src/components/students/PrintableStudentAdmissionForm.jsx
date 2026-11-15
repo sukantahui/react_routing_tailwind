@@ -465,6 +465,10 @@ export default function PrintableStudentAdmissionForm() {
         state: "West Bengal",
         pinCode: "",
       }));
+    } else {
+      if (students.length > 0) {
+        setSelectedStudentId(String(students[0].id));
+      }
     }
   };
 
@@ -1174,7 +1178,7 @@ export default function PrintableStudentAdmissionForm() {
                 {/* Candidate Signature */}
                 <div className="col-span-3 text-center">
                   <div className="border-b border-slate-700 min-h-[30px] flex items-end justify-center pb-0.5 font-cursive text-slate-800 text-xs">
-                    {formData.studentName ? formData.studentName.split(" ")[0] : ""}
+                    {isPrefillMode && formData.studentName ? formData.studentName.split(" ")[0] : ""}
                   </div>
                   <div className="font-bold text-slate-900 mt-0.5">Signature of Student</div>
                 </div>
@@ -1188,16 +1192,20 @@ export default function PrintableStudentAdmissionForm() {
                 {/* Authorized Director Sign & Seal */}
                 <div className="col-span-3 text-center relative">
                   <div className="border-b border-slate-700 min-h-[30px] flex items-center justify-center relative">
-                    <img
-                      src={signatureImg}
-                      alt="Authorized Signature"
-                      className="h-7 object-contain opacity-90 mx-auto"
-                    />
-                    <img
-                      src={stampImg}
-                      alt="Official Seal"
-                      className="w-10 h-10 object-contain absolute right-0 -top-2 opacity-70 pointer-events-none"
-                    />
+                    {isPrefillMode && (
+                      <>
+                        <img
+                          src={signatureImg}
+                          alt="Authorized Signature"
+                          className="h-7 object-contain opacity-90 mx-auto"
+                        />
+                        <img
+                          src={stampImg}
+                          alt="Official Seal"
+                          className="w-10 h-10 object-contain absolute right-0 -top-2 opacity-70 pointer-events-none"
+                        />
+                      </>
+                    )}
                   </div>
                   <div className="font-bold text-slate-900 mt-0.5">Authorized Signatory &amp; Seal</div>
                   <div className="text-[7px] text-slate-600">Director, Coder &amp; AccoTax</div>
@@ -1293,7 +1301,9 @@ export default function PrintableStudentAdmissionForm() {
                 </div>
                 <div className="text-center w-40">
                   <div className="border-b border-slate-700 min-h-[16px] flex items-center justify-center">
-                    <span className="font-cursive text-slate-800 text-[10px]">Sukanta Hui</span>
+                    {isPrefillMode && (
+                      <span className="font-cursive text-slate-800 text-[10px]">Sukanta Hui</span>
+                    )}
                   </div>
                   <div className="font-bold text-slate-900 mt-0.5">Center In-Charge &amp; Official Seal</div>
                 </div>
