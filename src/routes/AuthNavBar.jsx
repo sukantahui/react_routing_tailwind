@@ -259,91 +259,106 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       id: "students",
       title: "Students & Admissions",
       icon: "bi-mortarboard-fill",
-      color: "from-sky-500/20 to-blue-500/10 text-sky-400 border-sky-500/30",
+      accent: "sky",
+      headerColor: "text-sky-400 bg-sky-500/10 border-sky-500/30",
       items: [
         {
           to: "/admin/students",
           label: "Students Directory",
-          desc: "Manage, search, alter & add students (Step 1)",
+          desc: "Search, filter & view all student profiles",
           icon: "bi-people-fill",
           badge: "Step 1",
-        },
-        {
-          to: "/students/add",
-          label: "Add New Student",
-          desc: "Fast student registration form",
-          icon: "bi-person-plus-fill",
+          badgeColor: "bg-sky-500/20 text-sky-300 border-sky-500/30",
         },
         {
           to: "/admission",
           label: "Course Admission",
-          desc: "Assign course & fee structure to student (Step 2)",
+          desc: "Enroll student & assign course fee schedule",
           icon: "bi-mortarboard-fill",
           badge: "Step 2",
+          badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
         },
+        ...(isManagerOrAdmin
+          ? [
+              {
+                to: "/payments",
+                label: "Fee Collection & Dues",
+                desc: "Collect fee vouchers, ledger & dues summary",
+                icon: "bi-receipt-cutoff",
+                badge: "Step 3",
+                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+              },
+            ]
+          : []),
         {
           to: "/student-course-qr",
-          label: "Student QR Generator",
+          label: "Student Fee QR Studio",
           desc: "Custom fee amount, student details & UPI QR",
           icon: "bi-qr-code-scan",
           badge: "Fee QR",
+          badgeColor: "bg-teal-500/20 text-teal-300 border-teal-500/30",
         },
         ...(isManagerOrAdmin
           ? [
               {
                 to: "/students/student-admission",
-                label: "Add Student (Course & Fee)",
+                label: "All-in-One Admission",
                 desc: "Quick register student, course enrollment & initial fee",
                 icon: "bi-person-badge-fill",
-                badge: "All-in-One",
-              },
-              {
-                to: "/payments",
-                label: "Fee Payments & Receipts",
-                desc: "Collect fee vouchers, ledger & dues summary (Step 3)",
-                icon: "bi-receipt-cutoff",
-                badge: "Step 3",
+                badge: "Fast Track",
+                badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
               },
             ]
           : []),
+        {
+          to: "/students/add",
+          label: "Quick Student Register",
+          desc: "Simple student registration form",
+          icon: "bi-person-plus-fill",
+        },
       ],
     },
     {
       id: "academics",
       title: "Academics & Examination",
       icon: "bi-book-half",
-      color: "from-indigo-500/20 to-purple-500/10 text-indigo-400 border-indigo-500/30",
+      accent: "indigo",
+      headerColor: "text-indigo-400 bg-indigo-500/10 border-indigo-500/30",
       items: [
         {
           to: "/admin/courses",
           label: "Courses Master",
-          desc: "Curriculums, duration & pricing",
+          desc: "Curriculums, duration & pricing rules",
           icon: "bi-collection-fill",
+          badge: "Curriculum",
+          badgeColor: "bg-blue-500/20 text-blue-300 border-blue-500/30",
         },
         {
           to: "/results",
-          label: "Examination Results",
-          desc: "Record theory/practical marks & publish grades (Step 4)",
+          label: "Exam Results & Marks",
+          desc: "Record marks, viva & publish final grades",
           icon: "bi-bar-chart-steps",
           badge: "Step 4",
+          badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/30",
         },
         {
           to: "/questions",
           label: "Question Bank & MCQs",
-          desc: "Add & manage questions, options & answers",
+          desc: "Manage questions, tests, options & solutions",
           icon: "bi-question-diamond-fill",
           badge: "New",
+          badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
         },
         {
           to: "/subjects",
           label: "Curriculum & Subjects",
-          desc: "Subject syllabus, chapters and topics",
+          desc: "Subject syllabus, modules, chapters & topics",
           icon: "bi-journals",
         },
         {
           to: "/teachers",
           label: "Faculty & Teachers",
-          desc: "Instructor profiles & allocations",
+          desc: "Instructor profiles, subjects & allocations",
           icon: "bi-person-workspace",
         },
       ],
@@ -352,32 +367,37 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       id: "certificates",
       title: "Certificates & Verification",
       icon: "bi-award-fill",
-      color: "from-amber-500/20 to-orange-500/10 text-amber-400 border-amber-500/30",
+      accent: "amber",
+      headerColor: "text-amber-400 bg-amber-500/10 border-amber-500/30",
       items: [
         {
           to: "/certificates/issue",
-          label: "Issue Student Certificate",
-          desc: "Step-by-step certificate issuance studio (Step 5)",
+          label: "Issue Certificate",
+          desc: "Step-by-step certificate issuance wizard",
           icon: "bi-award-fill",
           badge: "Step 5",
+          badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
         },
         {
           to: "/admin/certificates",
-          label: "Certificates Master Register",
-          desc: "Audit, search, export & print issued certificates",
+          label: "Certificates Register",
+          desc: "Audit register, search, export & print records",
           icon: "bi-patch-check-fill",
           badge: "Audit",
+          badgeColor: "bg-sky-500/20 text-sky-300 border-sky-500/30",
         },
         {
           to: "/certificates",
-          label: "Public Verification Portal",
-          desc: "Authenticate certificate & student results",
+          label: "Verify Credentials",
+          desc: "Scan QR or verify credential authenticity",
           icon: "bi-shield-check",
+          badge: "Public",
+          badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
         },
         {
           to: "/certificate",
-          label: "Certificate Studio (Custom)",
-          desc: "Manual certificate generator & template designer",
+          label: "Custom Certificate Studio",
+          desc: "Manual designer & template customization",
           icon: "bi-file-earmark-medical-fill",
         },
       ],
@@ -386,49 +406,34 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
       id: "administration",
       title: "Administration & System",
       icon: "bi-shield-lock-fill",
-      color: "from-rose-500/20 to-pink-500/10 text-rose-400 border-rose-500/30",
+      accent: "rose",
+      headerColor: "text-rose-400 bg-rose-500/10 border-rose-500/30",
       items: [
         {
           to: "/admin",
           label: "Admin Command Center",
-          desc: "Central student hub, system tools & actions",
+          desc: "Executive dashboard, quick tools & key metrics",
           icon: "bi-shield-lock-fill",
-        },
-        {
-          to: "/admin/students",
-          label: "Students Directory & Hub",
-          desc: "List, search, alter & add students",
-          icon: "bi-people-fill",
-          badge: "Special Area",
-        },
-        {
-          to: "/students/student-admission",
-          label: "Add Student (Course & Fee)",
-          desc: "New student registration with course & initial fee payment",
-          icon: "bi-mortarboard-fill",
-          badge: "All-in-One",
-        },
-        {
-          to: "/student-course-qr",
-          label: "Student Fee QR Studio",
-          desc: "Admin custom amount, student details & UPI QR",
-          icon: "bi-qr-code-scan",
-          badge: "Fee QR",
+          badge: "HQ",
+          badgeColor: "bg-rose-500/20 text-rose-300 border-rose-500/30",
         },
         ...(isAdmin
           ? [
               {
                 to: "/admin/users",
                 label: "User & Role Directory",
-                desc: "View and manage registered accounts",
+                desc: "Manage faculty, staff & administrative logins",
                 icon: "bi-people-fill",
+                badge: "Staff",
+                badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/30",
               },
               {
                 to: "/users/add",
                 label: "Register New User",
-                desc: "Set login credentials, password & role",
+                desc: "Create staff credentials, passwords & roles",
                 icon: "bi-person-plus-fill",
-                badge: "Admin",
+                badge: "Add User",
+                badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
               },
               {
                 to: "/admin/backups",
@@ -436,9 +441,18 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 desc: "Create, download & manage MySQL dumps",
                 icon: "bi-database-fill-down",
                 badge: "DBA",
+                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
               },
             ]
           : []),
+        {
+          to: "/settings",
+          label: "System Settings",
+          desc: "Global portal preferences & configurations",
+          icon: "bi-gear-fill",
+          badge: "Config",
+          badgeColor: "bg-slate-700/50 text-slate-300 border-slate-600/50",
+        },
       ],
     },
   ], [isAdmin, isManagerOrAdmin]);
@@ -1025,31 +1039,60 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.98 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute left-1/2 -translate-x-1/3 top-full mt-2 w-[720px] bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/80 p-4 z-50 ring-1 ring-white/10"
+                        className="absolute left-1/2 -translate-x-[22%] xl:-translate-x-[18%] top-full mt-2 w-[1080px] xl:w-[1120px] max-w-[calc(100vw-24px)] bg-slate-900/98 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl shadow-black/90 p-4 sm:p-5 z-50 ring-1 ring-white/10"
                       >
                         {/* Top Header */}
-                        <div className="flex items-center justify-between pb-2.5 border-b border-slate-800 mb-3 px-1">
+                        <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-3.5 px-1">
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-sky-400"></span>
-                            <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                            <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
+                            <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
                               Academic &amp; Administrative Master
                             </span>
+                            <span className="hidden sm:inline-block text-[11px] text-slate-500 font-medium">
+                              • Central Operations &amp; Academic Control
+                            </span>
                           </div>
-                          <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60">
-                            Instant Access
-                          </span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] text-sky-400 bg-sky-500/15 px-2.5 py-0.5 rounded-full border border-sky-500/30 font-semibold">
+                              4 Core Modules
+                            </span>
+                            <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700/60 font-medium">
+                              Steps 1 - 5 Unified
+                            </span>
+                          </div>
                         </div>
 
-                          {/* Columns Grid */}
-                          <div className="grid grid-cols-3 gap-3">
-                            {masterGroups.map((group) => (
-                              <div key={group.id} className="space-y-1.5">
-                                <div className="flex items-center gap-2 px-2 py-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                                  <i className={`bi ${group.icon} text-sky-400`}></i>
-                                  <span>{group.title}</span>
+                        {/* 4-Column Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                          {masterGroups.map((group) => {
+                            const iconColor =
+                              group.accent === "sky"
+                                ? "text-sky-400"
+                                : group.accent === "indigo"
+                                ? "text-indigo-400"
+                                : group.accent === "amber"
+                                ? "text-amber-400"
+                                : "text-rose-400";
+
+                            const headerBg =
+                              group.accent === "sky"
+                                ? "bg-sky-500/10 border-sky-500/25 text-sky-300"
+                                : group.accent === "indigo"
+                                ? "bg-indigo-500/10 border-indigo-500/25 text-indigo-300"
+                                : group.accent === "amber"
+                                ? "bg-amber-500/10 border-amber-500/25 text-amber-300"
+                                : "bg-rose-500/10 border-rose-500/25 text-rose-300";
+
+                            return (
+                              <div key={group.id} className="space-y-2 flex flex-col">
+                                {/* Category Header */}
+                                <div className={`flex items-center gap-2 px-2.5 py-1.5 rounded-xl border text-[11px] font-bold uppercase tracking-wider ${headerBg}`}>
+                                  <i className={`bi ${group.icon} ${iconColor} text-xs`}></i>
+                                  <span className="truncate">{group.title}</span>
                                 </div>
 
-                                <div className="space-y-1">
+                                {/* Items List */}
+                                <div className="space-y-1 flex-1">
                                   {group.items.map((item) => (
                                     <NavLink
                                       key={item.to}
@@ -1067,17 +1110,19 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                         <i className={`bi ${item.icon} text-xs`}></i>
                                       </div>
                                       <div className="flex-1 min-w-0">
-                                        <div className="flex items-center justify-between">
+                                        <div className="flex items-center justify-between gap-1.5">
                                           <span className="text-xs font-semibold truncate group-hover/item:text-sky-300 transition">
                                             {item.label}
                                           </span>
                                           {item.badge && (
-                                            <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                                            <span className={`text-[9px] px-1.5 py-0.5 rounded-md font-bold flex-shrink-0 border leading-none ${
+                                              item.badgeColor || "bg-sky-500/20 text-sky-400 border-sky-500/30"
+                                            }`}>
                                               {item.badge}
                                             </span>
                                           )}
                                         </div>
-                                        <p className="text-[10px] text-slate-400 line-clamp-1 group-hover/item:text-slate-300 transition">
+                                        <p className="text-[10px] text-slate-400 line-clamp-1 group-hover/item:text-slate-300 transition mt-0.5">
                                           {item.desc}
                                         </p>
                                       </div>
@@ -1085,25 +1130,40 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                   ))}
                                 </div>
                               </div>
-                            ))}
-                          </div>
+                            );
+                          })}
+                        </div>
 
-                          {/* Bottom Banner */}
-                          <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 px-2">
-                            <span className="flex items-center gap-1.5">
-                              <i className="bi bi-shield-check text-emerald-400"></i>
-                              Authorized Faculty &amp; Administrative Operations
+                        {/* Bottom Banner */}
+                        <div className="mt-3.5 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 px-2">
+                          <span className="flex items-center gap-1.5 text-slate-400">
+                            <i className="bi bi-shield-check text-emerald-400"></i>
+                            <span className="hidden sm:inline">Operational Flow:</span>
+                            <span className="font-mono text-[10px] text-slate-500">
+                              Step 1 Directory &rarr; Step 2 Admission &rarr; Step 3 Fee &rarr; Step 4 Exam &rarr; Step 5 Certificate
                             </span>
+                          </span>
+                          <div className="flex items-center gap-3 ml-auto">
+                            <NavLink
+                              to="/student-course-qr"
+                              onClick={closeAllDropdowns}
+                              className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 hover:underline text-xs"
+                            >
+                              <i className="bi bi-qr-code-scan text-[11px]"></i>
+                              <span>Fee QR Studio</span>
+                            </NavLink>
+                            <span className="text-slate-700">&bull;</span>
                             <NavLink
                               to="/admin"
                               onClick={closeAllDropdowns}
-                              className="text-sky-400 hover:text-sky-300 font-medium flex items-center gap-1 hover:underline"
+                              className="text-sky-400 hover:text-sky-300 font-semibold flex items-center gap-1 hover:underline text-xs"
                             >
-                              <span>Full Admin View</span>
+                              <span>Full Admin HQ</span>
                               <i className="bi bi-arrow-right text-[10px]"></i>
                             </NavLink>
                           </div>
-                        </motion.div>
+                        </div>
+                      </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
@@ -1941,7 +2001,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                                       <div className="flex items-center justify-between">
                                         <p className="font-semibold truncate text-white">{item.label}</p>
                                         {item.badge && (
-                                          <span className="text-[9px] px-1.5 py-0.2 rounded-full font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                                          <span className={`text-[9px] px-1.5 py-0.5 rounded-md font-bold border ${item.badgeColor || "bg-sky-500/20 text-sky-400 border-sky-500/30"}`}>
                                             {item.badge}
                                           </span>
                                         )}
