@@ -555,10 +555,11 @@ export default function PrintableStudentAdmissionForm() {
             size: A4 portrait;
             margin: 6mm 8mm 6mm 8mm;
           }
-          html, body {
+          html, body, #root, #root > div, main {
             margin: 0 !important;
             padding: 0 !important;
             background: #ffffff !important;
+            background-color: #ffffff !important;
             color: #0f172a !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
@@ -588,6 +589,7 @@ export default function PrintableStudentAdmissionForm() {
             padding: 0 !important;
             margin: 0 !important;
             background: #ffffff !important;
+            background-color: #ffffff !important;
             min-height: auto !important;
           }
           .a4-page-container {
@@ -599,6 +601,7 @@ export default function PrintableStudentAdmissionForm() {
             border: none !important;
             box-shadow: none !important;
             background: #ffffff !important;
+            background-color: #ffffff !important;
           }
           .a4-sheet {
             width: 100% !important;
@@ -610,6 +613,9 @@ export default function PrintableStudentAdmissionForm() {
             border-radius: 0 !important;
             page-break-inside: avoid !important;
             break-inside: avoid !important;
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            transform: none !important;
           }
         }
       `}</style>

@@ -61,9 +61,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300 overflow-x-clip">
+    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-sky-500/30 selection:text-sky-300 overflow-x-clip print:bg-white print:text-black print:min-h-0 print:p-0 print:m-0">
       {/* Navbar */}
-      <div className="fixed top-0 left-0 w-full z-50">
+      <div className="fixed top-0 left-0 w-full z-50 print:hidden no-print">
         {isLoggedIn ? (
           <AuthNavBar setIsLoggedIn={setIsLoggedIn} />
         ) : (
@@ -72,7 +72,7 @@ export default function App() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-14">
+      <main className="pt-14 print:pt-0 print:m-0 print:bg-white">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </main>
 
@@ -87,7 +87,7 @@ export default function App() {
 
       {/* Global Word Dictionary & External Websites Modal */}
       {dictionaryModalWord && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200 print:hidden no-print">
           <div className="bg-slate-900 border border-sky-500/50 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3 sticky top-0 bg-slate-900 z-10">
               <div className="flex items-center gap-2.5">

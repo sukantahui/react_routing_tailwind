@@ -120,4 +120,48 @@ div:where(.swal2-container) .swal2-close {
 
 div:where(.swal2-container) .swal2-close:hover {
   color: #ffffff !important;
+}
+
+/* =========================================================================
+   Print Media Global Overrides: Pure White Sheet, Zero Offsets, Hide Navbars
+   ========================================================================= */
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  #root,
+  #root > div,
+  main {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+  .no-print,
+  .print\:hidden,
+  header,
+  nav,
+  footer,
+  [role="navigation"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
 }
