@@ -19969,6 +19969,12 @@
       --tw-ring-color: color-mix(in oklab, var(--color-indigo-400) 40%, transparent);
     }
   }
+  .ring-indigo-400\/50 {
+    --tw-ring-color: color-mix(in srgb, oklch(67.3% 0.182 276.935) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-ring-color: color-mix(in oklab, var(--color-indigo-400) 50%, transparent);
+    }
+  }
   .ring-indigo-500 {
     --tw-ring-color: var(--color-indigo-500);
   }
@@ -20016,6 +20022,12 @@
   }
   .ring-purple-400 {
     --tw-ring-color: var(--color-purple-400);
+  }
+  .ring-purple-400\/50 {
+    --tw-ring-color: color-mix(in srgb, oklch(71.4% 0.203 305.504) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-ring-color: color-mix(in oklab, var(--color-purple-400) 50%, transparent);
+    }
   }
   .ring-purple-500 {
     --tw-ring-color: var(--color-purple-500);
