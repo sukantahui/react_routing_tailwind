@@ -444,6 +444,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
               },
               {
+                to: "/admin/course-fees",
+                label: "Course Fees Manager",
+                desc: "Configure course fees, lump-sum & monthly schemes",
+                icon: "bi-currency-rupee",
+                badge: "Admin Fee",
+                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+              },
+              {
                 to: "/admin/backups",
                 label: "Database Backups",
                 desc: "Create, download & manage MySQL dumps",

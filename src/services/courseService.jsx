@@ -55,6 +55,27 @@ export const courseService = {
     }
   },
 
+  // Update Course Fees & Pricing Governance (Admin / Developer / Owner only)
+  updateFees: async (courseId, feeData) => {
+    try {
+      // Attempt authenticated Tier 1 endpoint
+      const response = await api.put(`/courses/${courseId}/fees`, feeData);
+      return response.data;
+    } catch (error) {
+      // In local dev environment fallback to /dev/courses/{id}/fees if token missing
+      if (import.meta.env.DEV) {
+        try {
+          const devRes = await api.put(`/dev/courses/${courseId}/fees`, feeData);
+          return devRes.data;
+        } catch (devErr) {
+          void devErr;
+        }
+      }
+      console.error("Error updating Course Fees:", error);
+      throw error;
+    }
+  },
+
   // Delete course
   delete: async (courseId) => {
     try {

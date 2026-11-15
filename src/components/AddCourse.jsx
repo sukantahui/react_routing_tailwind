@@ -325,7 +325,16 @@ export default function AddCourse() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 w-full md:w-auto">
+          <div className="flex items-center gap-3 w-full md:w-auto flex-wrap">
+            <Link
+              to="/admin/course-fees"
+              className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-lg shadow-emerald-600/20 transition cursor-pointer"
+              title="Admin-only dedicated Course Fee & Pricing Manager"
+            >
+              <IndianRupee className="w-4 h-4" />
+              <span>Course Fees Provision</span>
+            </Link>
+
             <button
               onClick={openCreateModal}
               className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-400 hover:via-indigo-500 hover:to-purple-500 shadow-lg shadow-sky-500/20 transition cursor-pointer"
@@ -531,6 +540,15 @@ export default function AddCourse() {
 
                         {/* Actions */}
                         <td className="py-3.5 px-4 text-right space-x-2">
+                          <Link
+                            to="/admin/course-fees"
+                            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 transition cursor-pointer"
+                            title="Quick edit course fees in dedicated Manager"
+                          >
+                            <IndianRupee className="w-3.5 h-3.5" />
+                            <span>Edit Fee</span>
+                          </Link>
+
                           <button
                             onClick={() => openModifyModal(c)}
                             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-600/20 hover:bg-sky-600/30 text-sky-400 border border-sky-500/30 transition cursor-pointer"

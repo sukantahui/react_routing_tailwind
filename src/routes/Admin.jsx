@@ -335,6 +335,15 @@ We eagerly await your gracious presence!
                         </Link>
 
                         <Link
+                            to="/admin/course-fees"
+                            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white text-xs font-bold shadow-md shadow-emerald-600/25 transition active:scale-95 cursor-pointer"
+                            title="Add and update course fees (Admin only)"
+                        >
+                            <i className="bi bi-currency-rupee text-sm"></i>
+                            <span>Course Fees Provision</span>
+                        </Link>
+
+                        <Link
                             to="/bijoya"
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition active:scale-95"
                         >
@@ -346,7 +355,7 @@ We eagerly await your gracious presence!
                 </div>
 
                 {/* 2. CORE INSTITUTIONAL QUICK ACTIONS (INSTANT ACCESS TILES) */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-9 gap-3">
                     <button
                         type="button"
                         onClick={() => setActiveWorkspaceTab("students")}
@@ -427,6 +436,26 @@ We eagerly await your gracious presence!
                         </p>
                         <p className="text-[10px] text-slate-400 truncate">
                             Custom amount &amp; fee QR
+                        </p>
+                    </Link>
+
+                    <Link
+                        to="/admin/course-fees"
+                        className="group p-3 rounded-2xl bg-slate-900/80 border border-emerald-500/40 hover:border-emerald-400/80 shadow-sm hover:shadow-emerald-500/20 transition hover:-translate-y-0.5"
+                    >
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm group-hover:scale-110 transition-transform font-bold">
+                                ₹
+                            </div>
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 uppercase tracking-wider">
+                                Admin Fee
+                            </span>
+                        </div>
+                        <p className="text-xs font-bold text-white group-hover:text-emerald-300 transition truncate">
+                            Course Fees Manager
+                        </p>
+                        <p className="text-[10px] text-slate-400 truncate">
+                            Add &amp; update course fees
                         </p>
                     </Link>
 

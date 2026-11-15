@@ -86,6 +86,7 @@ const FeePaymentsList = lazy(() => import('../components/FeePaymentsList'));
 const QuestionBankManager = lazy(() => import('../components/questions/QuestionBankManager'));
 const StudentDirectoryManager = lazy(() => import('../components/students/StudentDirectoryManager'));
 const PrintableStudentAdmissionForm = lazy(() => import('../components/students/PrintableStudentAdmissionForm'));
+const CourseFeeManager = lazy(() => import('../components/admin/CourseFeeManager'));
 
 // Master Study View Engines
 const StudyRoadmap = lazy(() => import('../components/study/StudyRoadmap'));
@@ -908,6 +909,30 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']} disallowStudents={true}>
               <AddCourse />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/admin/course-fees"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']} disallowStudents={true}>
+              <CourseFeeManager />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/admin/fees"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']} disallowStudents={true}>
+              <CourseFeeManager />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/courses/fees"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']} disallowStudents={true}>
+              <CourseFeeManager />
             </ProtectedRouteWrapper>
           }
         />
