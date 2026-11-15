@@ -85,6 +85,7 @@ const StudentWithAdmission = lazy(() => import('../components/students/StudentWi
 const FeePaymentsList = lazy(() => import('../components/FeePaymentsList'));
 const QuestionBankManager = lazy(() => import('../components/questions/QuestionBankManager'));
 const StudentDirectoryManager = lazy(() => import('../components/students/StudentDirectoryManager'));
+const PrintableStudentAdmissionForm = lazy(() => import('../components/students/PrintableStudentAdmissionForm'));
 
 // Master Study View Engines
 const StudyRoadmap = lazy(() => import('../components/study/StudyRoadmap'));
@@ -159,6 +160,8 @@ const ROUTES = {
   FEE_PAYMENTS_LIST: '/payments',
   FEE_RECEIPTS_LIST: '/fees-receipts',
   REGISTER_STUDENT_ADMISSION: '/students/register-admission',
+  STUDENT_ADMISSION_FORM: '/students/admission-form',
+  PRINTABLE_STUDENT_FORM: '/student-form',
   NOT_FOUND: '*',
 
   // Dedicated Course Landing Pages (SEO)
@@ -651,6 +654,11 @@ export default function AppRoutes() {
         <Route path={ROUTES.QRCODE} element={<QRCodeGenerator />} />
         <Route path={ROUTES.STUDENT_COURSE_QR} element={<StudentCourseQRPage />} />
         <Route path="/tools/student-course-qr" element={<StudentCourseQRPage />} />
+        <Route path={ROUTES.STUDENT_ADMISSION_FORM} element={<PrintableStudentAdmissionForm />} />
+        <Route path="/students/admission-form" element={<PrintableStudentAdmissionForm />} />
+        <Route path="/students/print-form" element={<PrintableStudentAdmissionForm />} />
+        <Route path="/student-form" element={<PrintableStudentAdmissionForm />} />
+        <Route path="/admission-form" element={<PrintableStudentAdmissionForm />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
         <Route path={ROUTES.PYTHON_PLAY} element={<PythonPlayground />} />
         <Route path={ROUTES.WHITEBOARD} element={<PlayWhiteBoard />} />

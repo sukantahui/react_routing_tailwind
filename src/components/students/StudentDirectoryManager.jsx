@@ -37,6 +37,7 @@ import {
   ExternalLink,
   Layers,
   Clock,
+  Printer,
 } from "lucide-react";
 import { studentService } from "../../services/studentService";
 import { userService, DEFAULT_STUDENT_PASSWORD } from "../../services/userService";
@@ -961,6 +962,15 @@ We wish you great success in your learning journey!
                 <QrCode className="w-4 h-4" />
                 <span>Student Fee QR</span>
               </Link>
+
+              <Link
+                to="/students/admission-form"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white text-xs font-bold shadow-lg shadow-teal-600/25 transition active:scale-95"
+                title="Print official student admission application form (A4 size)"
+              >
+                <Printer className="w-4 h-4" />
+                <span>Print A4 Form</span>
+              </Link>
             </div>
           </div>
         )}
@@ -1433,6 +1443,15 @@ We wish you great success in your learning journey!
                                 <QrCode className="w-3.5 h-3.5" />
                               </Link>
 
+                              {/* Print A4 Admission Form */}
+                              <Link
+                                to={`/students/admission-form?studentId=${student.id}`}
+                                className="p-1.5 rounded-lg bg-cyan-600/30 hover:bg-cyan-500 text-cyan-300 hover:text-white border border-cyan-500/40 transition"
+                                title={`Print A4 Admission Form for ${student.student_name}`}
+                              >
+                                <Printer className="w-3.5 h-3.5" />
+                              </Link>
+
                               {/* Delete Student */}
                               <button
                                 type="button"
@@ -1658,6 +1677,14 @@ We wish you great success in your learning journey!
                           title={`Generate Fee Payment QR for ${student.student_name}`}
                         >
                           <QrCode className="w-4 h-4" />
+                        </Link>
+
+                        <Link
+                          to={`/students/admission-form?studentId=${student.id}`}
+                          className="p-1.5 rounded-xl bg-cyan-600/30 hover:bg-cyan-500 text-cyan-300 hover:text-white border border-cyan-500/40 transition"
+                          title={`Print A4 Admission Form for ${student.student_name}`}
+                        >
+                          <Printer className="w-4 h-4" />
                         </Link>
                       </div>
                     </div>
@@ -1985,6 +2012,14 @@ We wish you great success in your learning journey!
                   >
                     <QrCode className="w-3.5 h-3.5" />
                     <span>Course QR</span>
+                  </Link>
+
+                  <Link
+                    to={`/students/admission-form?studentId=${viewingStudent.id}`}
+                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700 font-semibold text-xs transition"
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span>Print A4 Form</span>
                   </Link>
                 </div>
 

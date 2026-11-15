@@ -431,6 +431,26 @@ We eagerly await your gracious presence!
                     </Link>
 
                     <Link
+                        to="/students/admission-form"
+                        className="group p-3 rounded-2xl bg-slate-900/80 border border-teal-500/40 hover:border-teal-400/80 shadow-sm hover:shadow-teal-500/20 transition hover:-translate-y-0.5"
+                    >
+                        <div className="flex items-center justify-between mb-2">
+                            <div className="w-8 h-8 rounded-xl bg-teal-500/20 text-teal-400 border border-teal-500/30 flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
+                                <i className="bi bi-printer-fill"></i>
+                            </div>
+                            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 uppercase tracking-wider">
+                                A4 Print
+                            </span>
+                        </div>
+                        <p className="text-xs font-bold text-white group-hover:text-teal-300 transition truncate">
+                            Print Admission Form
+                        </p>
+                        <p className="text-[10px] text-slate-400 truncate">
+                            Blank &amp; auto-fill A4 sheet
+                        </p>
+                    </Link>
+
+                    <Link
                         to="/payments"
                         className="group p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 shadow-sm hover:shadow-md transition hover:-translate-y-0.5"
                     >

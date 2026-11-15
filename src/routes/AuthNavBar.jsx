@@ -316,6 +316,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           desc: "Simple student registration form",
           icon: "bi-person-plus-fill",
         },
+        {
+          to: "/students/admission-form",
+          label: "Printable A4 Admission Form",
+          desc: "Print official A4 application & blank walk-in form",
+          icon: "bi-printer-fill",
+          badge: "A4 Form",
+          badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+        },
       ],
     },
     {
