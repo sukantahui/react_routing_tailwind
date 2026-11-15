@@ -43820,9 +43820,19 @@
       padding: calc(var(--spacing) * 4);
     }
   }
+  .print\:pt-0 {
+    @media print {
+      padding-top: 0;
+    }
+  }
   .print\:pt-2 {
     @media print {
       padding-top: calc(var(--spacing) * 2);
+    }
+  }
+  .print\:pb-0 {
+    @media print {
+      padding-bottom: 0;
     }
   }
   .print\:pb-2 {
@@ -43894,6 +43904,11 @@
   .print\:text-gray-700 {
     @media print {
       color: var(--color-gray-700);
+    }
+  }
+  .print\:text-slate-900 {
+    @media print {
+      color: var(--color-slate-900);
     }
   }
   .print\:shadow-none {

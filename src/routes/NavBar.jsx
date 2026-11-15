@@ -525,7 +525,7 @@ const NavBar = () => {
     <>
       <header
         ref={navContainerRef}
-        className="w-full bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60 shadow-sm shadow-black/20 transition-all duration-300 relative select-none"
+        className="print:hidden no-print w-full bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60 shadow-sm shadow-black/20 transition-all duration-300 relative select-none"
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
           <div className="w-full flex items-center justify-between h-14">

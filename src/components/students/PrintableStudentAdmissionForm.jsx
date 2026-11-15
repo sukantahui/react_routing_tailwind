@@ -545,7 +545,7 @@ export default function PrintableStudentAdmissionForm() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 pb-20 pt-16">
+    <div className="printable-form-page min-h-screen bg-slate-950 text-slate-100 pb-20 pt-16 print:pt-0 print:pb-0 print:bg-white print:text-slate-900">
       {/* =========================================================================
           PRINT-ONLY CSS ENFORCEMENT FOR CRISP SINGLE-PAGE A4 OUTPUT
       ========================================================================= */}
@@ -564,8 +564,31 @@ export default function PrintableStudentAdmissionForm() {
             print-color-adjust: exact !important;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
           }
-          .no-print {
+          /* Completely hide navbar, header, navigation, menus, and top controls */
+          header,
+          nav,
+          footer,
+          .no-print,
+          [role="navigation"],
+          .navbar {
             display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            min-height: 0 !important;
+            max-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+          }
+          .printable-form-page {
+            padding: 0 !important;
+            margin: 0 !important;
+            background: #ffffff !important;
+            min-height: auto !important;
           }
           .a4-page-container {
             width: 100% !important;

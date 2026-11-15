@@ -940,7 +940,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     <>
       {/* 👑 ADMIN IMPERSONATION STICKY BANNER */}
       {impersonationStatus.isImpersonating && (
-        <div className="w-full bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white px-3 sm:px-6 py-2 shadow-2xl border-b border-amber-400/40 sticky top-0 z-[60] flex items-center justify-between gap-3 text-xs sm:text-sm">
+        <div className="print:hidden no-print w-full bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white px-3 sm:px-6 py-2 shadow-2xl border-b border-amber-400/40 sticky top-0 z-[60] flex items-center justify-between gap-3 text-xs sm:text-sm">
           <div className="flex items-center gap-2.5 min-w-0 font-medium">
             <span className="px-2 py-0.5 rounded-full bg-black/35 border border-white/25 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider flex items-center gap-1.5 flex-shrink-0 shadow-inner">
               <i className="bi bi-shield-shaded text-amber-200"></i>
@@ -971,7 +971,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
       <header
         ref={navContainerRef}
-        className="w-full bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60 shadow-sm shadow-black/20 transition-all duration-300 relative select-none"
+        className="print:hidden no-print w-full bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/60 shadow-sm shadow-black/20 transition-all duration-300 relative select-none"
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
           <div className="w-full flex items-center justify-between h-14">
