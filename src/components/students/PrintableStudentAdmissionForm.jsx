@@ -99,11 +99,11 @@ export default function PrintableStudentAdmissionForm() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // Mode: prefill from db vs clean blank form
-  const initialBlank = searchParams.get("blank") === "true";
+  // Mode: blank form is default. Prefill only if explicit studentId or ?prefill=true
+  const initialPrefill = searchParams.get("prefill") === "true" || !!searchParams.get("studentId");
   const initialStudentId = searchParams.get("studentId") || "";
 
-  const [isPrefillMode, setIsPrefillMode] = useState(!initialBlank);
+  const [isPrefillMode, setIsPrefillMode] = useState(initialPrefill);
   const [students, setStudents] = useState([]);
   const [courses, setCourses] = useState([]);
   const [admissions, setAdmissions] = useState([]);
@@ -115,18 +115,18 @@ export default function PrintableStudentAdmissionForm() {
   // Zoom / scale control for on-screen preview
   const [zoomScale, setZoomScale] = useState(100);
 
-  // Editable form fields
+  // Editable form fields: 100% BLANK by default
   const [formData, setFormData] = useState({
     formNo: "",
     sessionYear: "2026 - 2027",
-    admissionDate: new Date().toISOString().split("T")[0],
+    admissionDate: "",
     registrationNo: "",
     // Applicant details
     studentName: "",
     dob: "",
-    gender: "Male",
+    gender: "",
     bloodGroup: "",
-    category: "General",
+    category: "",
     fatherName: "",
     fatherOccupation: "",
     motherName: "",
@@ -138,19 +138,19 @@ export default function PrintableStudentAdmissionForm() {
     landmark: "",
     policeStation: "",
     postOffice: "",
-    district: "North 24 Parganas",
-    state: "West Bengal",
-    pinCode: "700122",
+    district: "",
+    state: "",
+    pinCode: "",
     // Academic & course details
-    courseId: 3,
-    courseName: "Tally Prime",
-    courseCode: "Tally01",
-    duration: "3-4 Months",
-    batchMode: "Classroom (Offline)",
-    preferredTiming: "Morning (09:00 AM - 12:00 PM)",
-    totalCourseFee: "4500",
-    feeMode: "Course Fees",
-    receiptNo: "REC-" + Math.floor(1000 + Math.random() * 9000),
+    courseId: "",
+    courseName: "",
+    courseCode: "",
+    duration: "",
+    batchMode: "",
+    preferredTiming: "",
+    totalCourseFee: "",
+    feeMode: "",
+    receiptNo: "",
   });
 
   // Fetch courses directly from cnat_api backend with fallback
@@ -326,24 +326,9 @@ export default function PrintableStudentAdmissionForm() {
                 ];
           setAdmissions(safeAdmissions);
 
-          // Initialize with first course or selected student course
-          const defaultCourse = safeCourses.find((c) => c.id === 3) || safeCourses[0];
-          if (defaultCourse) {
-            const initialFee = getCourseFee(defaultCourse);
-            const feeModeName = defaultCourse.fee_mode || (defaultCourse.fee_modes_id === 2 ? "Course Fees (Lump Sum)" : "Monthly Duration");
-            setFormData((prev) => ({
-              ...prev,
-              courseId: defaultCourse.id,
-              courseName: defaultCourse.course_name || defaultCourse.courseName,
-              courseCode: defaultCourse.course_code || defaultCourse.courseCode,
-              duration: defaultCourse.duration || (defaultCourse.fee_modes_id === 2 ? "3-4 Months" : "6 Months"),
-              totalCourseFee: initialFee > 0 ? String(initialFee) : "",
-              feeMode: feeModeName,
-            }));
-          }
-
-          if (isPrefillMode && !selectedStudentId && safeStudents.length > 0) {
-            setSelectedStudentId(String(safeStudents[0].id));
+          // In prefill mode, select initial student if provided
+          if (initialPrefill && initialStudentId) {
+            setSelectedStudentId(String(initialStudentId));
           }
         }
       } catch (err) {
@@ -362,10 +347,11 @@ export default function PrintableStudentAdmissionForm() {
   // Sync search params with mode and studentId
   useEffect(() => {
     const params = {};
-    if (!isPrefillMode) {
-      params.blank = "true";
-    } else if (selectedStudentId) {
-      params.studentId = selectedStudentId;
+    if (isPrefillMode) {
+      params.prefill = "true";
+      if (selectedStudentId) {
+        params.studentId = selectedStudentId;
+      }
     }
     setSearchParams(params, { replace: true });
   }, [isPrefillMode, selectedStudentId, setSearchParams]);
@@ -437,11 +423,10 @@ export default function PrintableStudentAdmissionForm() {
     setIsPrefillMode(prefill);
     if (!prefill) {
       setSelectedStudentId("");
-      setFormData((prev) => ({
-        ...prev,
+      setFormData({
         formNo: "",
         sessionYear: "2026 - 2027",
-        admissionDate: new Date().toISOString().split("T")[0],
+        admissionDate: "",
         registrationNo: "",
         studentName: "",
         dob: "",
@@ -460,9 +445,18 @@ export default function PrintableStudentAdmissionForm() {
         policeStation: "",
         postOffice: "",
         district: "",
-        state: "West Bengal",
+        state: "",
         pinCode: "",
-      }));
+        courseId: "",
+        courseName: "",
+        courseCode: "",
+        duration: "",
+        batchMode: "",
+        preferredTiming: "",
+        totalCourseFee: "",
+        feeMode: "",
+        receiptNo: "",
+      });
     } else {
       if (students.length > 0) {
         setSelectedStudentId(String(students[0].id));
@@ -714,17 +708,19 @@ export default function PrintableStudentAdmissionForm() {
             {/* Course Selector */}
             <div className={isPrefillMode ? "md:col-span-6" : "md:col-span-12"}>
               <label className="block text-[11px] font-semibold text-slate-400 mb-1 flex items-center justify-between">
-                <span>2. Select Course (from API):</span>
-                <span className="text-[10px] text-emerald-400 font-mono font-bold">
-                  Official Fee: ₹{Number(formData.totalCourseFee || 0).toLocaleString("en-IN")}
-                </span>
+                <span>{isPrefillMode ? "2. Select Course (from API):" : "Select Course (Optional for Walk-in):"}</span>
+                {formData.totalCourseFee ? (
+                  <span className="text-[10px] text-emerald-400 font-mono font-bold">
+                    Official Fee: ₹{Number(formData.totalCourseFee).toLocaleString("en-IN")}
+                  </span>
+                ) : null}
               </label>
               <select
                 value={formData.courseId}
                 onChange={handleCourseChange}
                 className="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500 font-medium cursor-pointer"
               >
-                <option value="">-- Select Course --</option>
+                <option value="">-- Choose Course (Optional) --</option>
                 {courses.map((crs) => {
                   const fee = getCourseFee(crs);
                   const modeText = crs.fee_mode || (crs.fee_modes_id === 2 ? "Full Course Fee" : "Monthly");
@@ -997,20 +993,20 @@ export default function PrintableStudentAdmissionForm() {
                   </div>
                   <div className="col-span-3 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Police Station:</span>
-                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.policeStation || "Barrackpore"}
+                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.policeStation || ""}
                     </span>
                   </div>
                   <div className="col-span-3 flex items-center gap-1">
                     <span className="font-bold text-slate-800">District:</span>
-                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                      {formData.district || "North 24 Pgs"}
+                    <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                      {formData.district || ""}
                     </span>
                   </div>
                   <div className="col-span-3 flex items-center gap-1">
                     <span className="font-bold text-slate-800">PIN Code:</span>
-                    <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center">
-                      {formData.pinCode || "700122"}
+                    <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center min-h-[14px] inline-block">
+                      {formData.pinCode || ""}
                     </span>
                   </div>
                 </div>
@@ -1044,20 +1040,20 @@ export default function PrintableStudentAdmissionForm() {
                     <div className="grid grid-cols-12 gap-2">
                       <div className="col-span-4 flex items-center gap-1">
                         <span className="font-bold text-slate-800">Course Code:</span>
-                        <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
-                          {formData.courseCode || "CRS-001"}
+                        <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                          {formData.courseCode || ""}
                         </span>
                       </div>
                       <div className="col-span-4 flex items-center gap-1">
                         <span className="font-bold text-slate-800">Duration:</span>
-                        <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center">
-                          {formData.duration || "3-6 Months"}
+                        <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center min-h-[14px] inline-block">
+                          {formData.duration || ""}
                         </span>
                       </div>
                       <div className="col-span-4 flex items-center gap-1">
                         <span className="font-bold text-slate-800">Mode:</span>
-                        <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center">
-                          {formData.batchMode || "Classroom"}
+                        <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center min-h-[14px] inline-block">
+                          {formData.batchMode || ""}
                         </span>
                       </div>
                     </div>
@@ -1067,7 +1063,7 @@ export default function PrintableStudentAdmissionForm() {
                       <span className="w-[110px] font-bold text-slate-800 flex-shrink-0">
                         Preferred Timing:
                       </span>
-                      <div className="flex-1 text-[8.5px] text-slate-800 border-b border-dotted border-slate-700">
+                      <div className="flex-1 text-[8.5px] text-slate-800 border-b border-dotted border-slate-700 min-h-[14px]">
                         {formData.preferredTiming || "[ ] Morning (8am-12pm)  [ ] Afternoon (12pm-4pm)  [ ] Evening (4pm-8pm)"}
                       </div>
                     </div>
@@ -1083,7 +1079,7 @@ export default function PrintableStudentAdmissionForm() {
                         </span>
                       </div>
                       <div className="text-[8px] text-slate-600 font-medium">
-                        Scheme: <strong className="text-slate-800">{formData.feeMode || "Standard Academic Fee"}</strong>
+                        Scheme: <strong className="text-slate-800">{formData.feeMode || "Standard"}</strong>
                       </div>
                     </div>
                   </div>
@@ -1116,7 +1112,7 @@ export default function PrintableStudentAdmissionForm() {
                         Course Fee
                       </div>
                       <div className="text-[11.5px] font-black font-mono leading-none tracking-tight">
-                        ₹ {Number(formData.totalCourseFee || 0).toLocaleString("en-IN")}
+                        {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "As Applicable"}
                       </div>
                     </div>
 
@@ -1233,7 +1229,7 @@ export default function PrintableStudentAdmissionForm() {
                 </div>
                 <div className="text-right">
                   <div className="font-mono font-bold text-slate-900 text-[9px]">
-                    Receipt / Ack No: {formData.receiptNo || "CNAT-REC-01"}
+                    Receipt / Ack No: <span className="border-b border-dotted border-slate-600 inline-block min-w-[65px] text-center">{formData.receiptNo || ""}</span>
                   </div>
                   <div className="text-[8px] text-slate-600">
                     Date: <span className="border-b border-dotted border-slate-600 inline-block min-w-[65px] text-center">{formData.admissionDate || ""}</span>
@@ -1274,7 +1270,7 @@ export default function PrintableStudentAdmissionForm() {
                   <div className="flex items-center justify-between gap-1">
                     <span className="font-bold text-slate-700">Fee Scheme:</span>
                     <span className="font-semibold text-slate-800 text-[8.5px]">
-                      {formData.feeMode || "Standard"}
+                      {formData.feeMode || ""}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-1">
