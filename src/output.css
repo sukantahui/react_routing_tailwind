@@ -2038,6 +2038,12 @@
   .w-\[800px\] {
     width: 800px;
   }
+  .w-\[1020px\] {
+    width: 1020px;
+  }
+  .w-\[1080px\] {
+    width: 1080px;
+  }
   .w-auto {
     width: auto;
   }
@@ -2148,6 +2154,9 @@
   }
   .max-w-\[620px\] {
     max-width: 620px;
+  }
+  .max-w-\[calc\(100vw-24px\)\] {
+    max-width: calc(100vw - 24px);
   }
   .max-w-full {
     max-width: 100%;
@@ -2330,6 +2339,14 @@
   }
   .-translate-x-2\/3 {
     --tw-translate-x: calc(calc(2 / 3 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-x-\[22\%\] {
+    --tw-translate-x: calc(22% * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-x-\[24\%\] {
+    --tw-translate-x: calc(24% * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .translate-x-0 {
@@ -5468,6 +5485,12 @@
       border-color: color-mix(in oklab, var(--color-indigo-500) 20%, transparent);
     }
   }
+  .border-indigo-500\/25 {
+    border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 25%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-500) 25%, transparent);
+    }
+  }
   .border-indigo-500\/30 {
     border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -6744,6 +6767,12 @@
     border-color: color-mix(in srgb, oklch(44.6% 0.043 257.281) 40%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-slate-600) 40%, transparent);
+    }
+  }
+  .border-slate-600\/50 {
+    border-color: color-mix(in srgb, oklch(44.6% 0.043 257.281) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-slate-600) 50%, transparent);
     }
   }
   .border-slate-700 {
@@ -33789,9 +33818,26 @@
       display: inline;
     }
   }
+  .xl\:w-\[1120px\] {
+    @media (width >= 80rem) {
+      width: 1120px;
+    }
+  }
   .xl\:w-auto {
     @media (width >= 80rem) {
       width: auto;
+    }
+  }
+  .xl\:-translate-x-\[18\%\] {
+    @media (width >= 80rem) {
+      --tw-translate-x: calc(18% * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .xl\:-translate-x-\[20\%\] {
+    @media (width >= 80rem) {
+      --tw-translate-x: calc(20% * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
   .xl\:grid-cols-3 {
