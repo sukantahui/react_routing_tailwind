@@ -799,8 +799,8 @@ export default function PrintableStudentAdmissionForm() {
 
                 {/* Institute Title & Accreditation Details */}
                 <div className="flex-1 text-center px-1">
-                  <div className="text-[9px] font-bold uppercase tracking-widest text-slate-600">
-                    Govt. Registered &bull; ISO 9001:2015 Certified Educational Center
+                  <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-800">
+                    AN ISO 9001:2015 CERTIFIED EDUCATIONAL INSTITUTION
                   </div>
                   <h1 className="text-[20px] font-black uppercase tracking-tight text-slate-900 leading-tight">
                     CODER &amp; ACCOTAX
