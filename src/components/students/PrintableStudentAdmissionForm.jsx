@@ -793,7 +793,7 @@ export default function PrintableStudentAdmissionForm() {
                     className="w-[64px] h-[64px] object-contain mx-auto"
                   />
                   <div className="text-[7.5px] font-bold text-center text-slate-600 mt-1 uppercase tracking-tighter">
-                    Est. 2018
+                    Est. 1998
                   </div>
                 </div>
 
