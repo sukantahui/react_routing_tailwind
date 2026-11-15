@@ -890,15 +890,15 @@ export default function PrintableStudentAdmissionForm() {
                   </div>
                 </div>
 
-                {/* DOB, Gender, Blood Group, Category */}
+                {/* DOB, Gender, Blood Group */}
                 <div className="grid grid-cols-12 gap-2">
-                  <div className="col-span-3 flex items-center gap-1">
+                  <div className="col-span-5 flex items-center gap-1">
                     <span className="font-bold text-slate-800">Date of Birth:</span>
                     <span className="font-mono font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1">
                       {formData.dob || "DD / MM / YYYY"}
                     </span>
                   </div>
-                  <div className="col-span-3 flex items-center gap-1.5">
+                  <div className="col-span-4 flex items-center gap-2">
                     <span className="font-bold text-slate-800">Gender:</span>
                     <span className="inline-flex items-center gap-1">
                       <span className={`inline-block w-2.5 h-2.5 border border-slate-700 rounded-sm text-center text-[7px] leading-none font-bold ${formData.gender === "Male" ? "bg-slate-900 text-white" : ""}`}>
@@ -915,12 +915,6 @@ export default function PrintableStudentAdmissionForm() {
                     <span className="font-bold text-slate-800">Blood Group:</span>
                     <span className="font-semibold text-slate-950 border-b border-dotted border-slate-700 flex-1 text-center min-h-[14px] inline-block">
                       {formData.bloodGroup || ""}
-                    </span>
-                  </div>
-                  <div className="col-span-3 flex items-center gap-1">
-                    <span className="font-bold text-slate-800">Category:</span>
-                    <span className="text-[8px] text-slate-700 flex-1 border-b border-dotted border-slate-700">
-                      {formData.category || "[ ] Gen  [ ] OBC  [ ] SC  [ ] ST"}
                     </span>
                   </div>
                 </div>
