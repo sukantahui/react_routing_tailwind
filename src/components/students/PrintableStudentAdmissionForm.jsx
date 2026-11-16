@@ -373,7 +373,10 @@ export default function PrintableStudentAdmissionForm() {
 
     const actualCourseFee = getCourseFee(course);
     const totalFee = String(studentAdm?.course_fee || studentAdm?.total_fee || actualCourseFee || "4500");
-    const feeModeText = course?.fee_mode || (course?.fee_modes_id === 2 ? "Course Fees (Lump Sum)" : "Monthly Duration");
+    const isMonthly = Number(course?.fee_modes_id) === 1 || String(course?.fee_mode || "").toLowerCase().includes("monthly");
+    const feeModeText = isMonthly ? "Monthly" : (course?.fee_mode || "Full Course Fee");
+    const durationVal = isMonthly ? "" : (course?.duration || "3-4 Months");
+    const modeVal = isMonthly ? "Monthly" : (course?.fee_mode || "Full Course Fee");
 
     const regNo =
       student.registration_number ||
@@ -411,7 +414,8 @@ export default function PrintableStudentAdmissionForm() {
       courseId: course?.id || targetCourseId || "",
       courseName: course?.course_name || course?.courseName || "Tally Prime",
       courseCode: course?.course_code || course?.courseCode || "Tally01",
-      duration: course?.duration || (course?.fee_modes_id === 2 ? "3-4 Months" : "6 Months"),
+      duration: durationVal,
+      batchMode: modeVal,
       totalCourseFee: totalFee,
       feeMode: feeModeText,
       receiptNo: studentAdm?.receipt_no || prev.receiptNo,
@@ -485,13 +489,17 @@ export default function PrintableStudentAdmissionForm() {
     const selectedC = courses.find((c) => String(c.id) === String(cid));
     if (selectedC) {
       const realFee = getCourseFee(selectedC);
-      const feeModeText = selectedC.fee_mode || (selectedC.fee_modes_id === 2 ? "Course Fees (Lump Sum)" : "Monthly Duration");
+      const isMonthly = Number(selectedC.fee_modes_id) === 1 || String(selectedC.fee_mode || "").toLowerCase().includes("monthly");
+      const feeModeText = isMonthly ? "Monthly" : (selectedC.fee_mode || "Full Course Fee");
+      const durationVal = isMonthly ? "" : (selectedC.duration || "3-4 Months");
+      const modeVal = isMonthly ? "Monthly" : (selectedC.fee_mode || "Full Course Fee");
       setFormData((prev) => ({
         ...prev,
         courseId: selectedC.id,
         courseName: selectedC.course_name || selectedC.courseName || "",
         courseCode: selectedC.course_code || selectedC.courseCode || `CRS-${selectedC.id}`,
-        duration: selectedC.duration || (selectedC.fee_modes_id === 2 ? "3-4 Months" : "6 Months"),
+        duration: durationVal,
+        batchMode: modeVal,
         totalCourseFee: realFee > 0 ? String(realFee) : "",
         feeMode: feeModeText,
       }));
@@ -502,6 +510,7 @@ export default function PrintableStudentAdmissionForm() {
         courseName: "",
         courseCode: "",
         duration: "",
+        batchMode: "",
         totalCourseFee: "",
         feeMode: "",
       }));
