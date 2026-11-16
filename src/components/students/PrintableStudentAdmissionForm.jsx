@@ -553,7 +553,7 @@ export default function PrintableStudentAdmissionForm() {
         @media print {
           @page {
             size: A4 portrait;
-            margin: 4mm 6mm 4mm 6mm;
+            margin: 8mm 7mm 6mm 7mm;
           }
           html, body, #root, #root > div, main {
             margin: 0 !important;
@@ -610,7 +610,7 @@ export default function PrintableStudentAdmissionForm() {
             height: auto !important;
             max-height: none !important;
             margin: 0 !important;
-            padding: 3.5mm 5mm !important;
+            padding: 4.5mm 5mm 3.5mm 5mm !important;
             box-shadow: none !important;
             border: 1.5px solid #0f172a !important;
             border-radius: 0 !important;
