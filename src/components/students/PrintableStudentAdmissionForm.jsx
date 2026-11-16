@@ -843,8 +843,8 @@ export default function PrintableStudentAdmissionForm() {
                   <div className="text-[9px] text-slate-600 leading-tight mt-0.5">
                     📍 25(10/A) Shibtala Road, P.O. Nonachandanpukur, Barrackpore, Kolkata - 700122 (W.B.)
                   </div>
-                  <div className="text-[9px] font-medium text-slate-700 leading-tight mt-0.5 flex items-center justify-center gap-3">
-                    <span>📞 <strong>+91 70037 56860</strong></span>
+                  <div className="text-[9px] font-medium text-slate-700 leading-tight mt-0.5 flex items-center justify-center gap-2.5">
+                    <span>📞 <strong>+91 70037 56860 / 94324 56083</strong></span>
                     <span>✉️ info@codernaccotax.co.in</span>
                     <span>🌐 www.codernaccotax.co.in</span>
                   </div>
@@ -1256,7 +1256,7 @@ export default function PrintableStudentAdmissionForm() {
                       CODER &amp; ACCOTAX &bull; ADMISSION ACKNOWLEDGMENT SLIP
                     </span>
                     <span className="text-[8px] text-slate-600 block">
-                      25(10/A) Shibtala Road, Barrackpore, Kolkata-700122 | 📞 +91 70037 56860
+                      25(10/A) Shibtala Road, Barrackpore, Kolkata-700122 | 📞 +91 70037 56860 / 94324 56083
                     </span>
                   </div>
                 </div>
