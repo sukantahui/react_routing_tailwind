@@ -1562,8 +1562,8 @@
   .h-\[2px\] {
     height: 2px;
   }
-  .h-\[36mm\] {
-    height: 36mm;
+  .h-\[28mm\] {
+    height: 28mm;
   }
   .h-\[58px\] {
     height: 58px;
@@ -1790,8 +1790,8 @@
   .min-h-\[16px\] {
     min-height: 16px;
   }
-  .min-h-\[25px\] {
-    min-height: 25px;
+  .min-h-\[24px\] {
+    min-height: 24px;
   }
   .min-h-\[36px\] {
     min-height: 36px;
@@ -2021,8 +2021,8 @@
   .w-\[1px\] {
     width: 1px;
   }
-  .w-\[30mm\] {
-    width: 30mm;
+  .w-\[24mm\] {
+    width: 24mm;
   }
   .w-\[58px\] {
     width: 58px;
@@ -2030,8 +2030,8 @@
   .w-\[62px\] {
     width: 62px;
   }
-  .w-\[85px\] {
-    width: 85px;
+  .w-\[90px\] {
+    width: 90px;
   }
   .w-\[92vw\] {
     width: 92vw;
@@ -16844,6 +16844,9 @@
   .text-\[11px\] {
     font-size: 11px;
   }
+  .text-\[12\.5px\] {
+    font-size: 12.5px;
+  }
   .text-\[12px\] {
     font-size: 12px;
   }
@@ -16853,8 +16856,8 @@
   .text-\[14px\] {
     font-size: 14px;
   }
-  .text-\[21px\] {
-    font-size: 21px;
+  .text-\[22px\] {
+    font-size: 22px;
   }
   .leading-4 {
     --tw-leading: calc(var(--spacing) * 4);

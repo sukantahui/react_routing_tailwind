@@ -824,49 +824,46 @@ export default function PrintableStudentAdmissionForm() {
                     alt="Coder & AccoTax Logo"
                     className="w-[58px] h-[58px] object-contain mx-auto"
                   />
-                  <div className="text-[7.5px] font-bold text-center text-slate-600 mt-0.5 uppercase tracking-tighter">
+                  <div className="text-[8px] font-bold text-center text-slate-600 mt-0.5 uppercase tracking-tighter">
                     Est. 1998
                   </div>
                 </div>
 
                 {/* Institute Title & Accreditation Details */}
                 <div className="flex-1 text-center px-1">
-                  <div className="text-[10.5px] font-extrabold uppercase tracking-wider text-slate-800">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider text-slate-800">
                     AN ISO 9001:2015 CERTIFIED EDUCATIONAL INSTITUTION
                   </div>
-                  <h1 className="text-[21px] font-black uppercase tracking-tight text-slate-900 leading-tight">
+                  <h1 className="text-[22px] font-black uppercase tracking-tight text-slate-900 leading-tight">
                     CODER &amp; ACCOTAX
                   </h1>
-                  <div className="text-[10px] font-semibold text-slate-800 tracking-normal leading-tight">
+                  <div className="text-[10.5px] font-semibold text-slate-800 tracking-normal leading-tight">
                     Professional Institute of Software Engineering, Corporate Accounting &amp; Taxation
                   </div>
-                  <div className="text-[8.5px] text-slate-600 leading-tight mt-0.5">
+                  <div className="text-[9px] text-slate-600 leading-tight mt-0.5">
                     📍 25(10/A) Shibtala Road, P.O. Nonachandanpukur, Barrackpore, Kolkata - 700122 (W.B.)
                   </div>
-                  <div className="text-[8.5px] font-medium text-slate-700 leading-tight mt-0.5 flex items-center justify-center gap-3">
+                  <div className="text-[9px] font-medium text-slate-700 leading-tight mt-0.5 flex items-center justify-center gap-3">
                     <span>📞 <strong>+91 70037 56860</strong></span>
                     <span>✉️ info@codernaccotax.co.in</span>
                     <span>🌐 www.codernaccotax.co.in</span>
                   </div>
 
                   {/* Form Badge Banner */}
-                  <div className="inline-block mt-0.5 px-3.5 py-0.5 bg-slate-900 text-white rounded-full text-[9.5px] font-extrabold tracking-wider uppercase">
+                  <div className="inline-block mt-0.5 px-3.5 py-0.5 bg-slate-900 text-white rounded-full text-[10px] font-extrabold tracking-wider uppercase">
                     STUDENT ADMISSION &amp; REGISTRATION APPLICATION FORM
                   </div>
                 </div>
 
-                {/* Passport Size Photo Box (35mm x 45mm standard specification) */}
-                <div className="w-[30mm] h-[36mm] flex-shrink-0 border-2 border-dashed border-slate-700 bg-slate-50 flex flex-col items-center justify-center p-1 text-center relative rounded-sm">
-                  <div className="text-[8px] font-bold text-slate-600 uppercase leading-snug">
-                    Affix Recent
+                {/* Passport Size Photo Box (Compact Standard Specification) */}
+                <div className="w-[24mm] h-[28mm] flex-shrink-0 border-2 border-dashed border-slate-700 bg-slate-50 flex flex-col items-center justify-center p-0.5 text-center relative rounded-sm">
+                  <div className="text-[7.5px] font-extrabold text-slate-700 uppercase leading-snug">
+                    Affix Photo
                   </div>
-                  <div className="text-[7.5px] text-slate-500 leading-tight">
-                    Color Passport
+                  <div className="text-[6.5px] font-semibold text-slate-600 leading-tight">
+                    Passport Size
                   </div>
-                  <div className="text-[7.5px] text-slate-500 leading-tight">
-                    Photograph
-                  </div>
-                  <div className="text-[6.5px] text-slate-400 mt-0.5">
+                  <div className="text-[6px] text-slate-500 mt-0.5">
                     (Self-Attested)
                   </div>
                   <div className="absolute inset-0 border border-slate-300 pointer-events-none m-0.5"></div>
@@ -874,10 +871,10 @@ export default function PrintableStudentAdmissionForm() {
               </div>
 
               {/* Form Metadata Strip (Form No, Session, Date, Reg No) */}
-              <div className="grid grid-cols-4 gap-2 mt-1.5 pt-1 border-t border-slate-300 text-[9.5px]">
+              <div className="grid grid-cols-4 gap-2 mt-1.5 pt-1 border-t border-slate-300 text-[10px]">
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-slate-800">Application No:</span>
-                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[16px] inline-block">
                     {formData.formNo || ""}
                   </span>
                 </div>
@@ -889,13 +886,13 @@ export default function PrintableStudentAdmissionForm() {
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-slate-800">Date:</span>
-                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[16px] inline-block">
                     {formData.admissionDate || ""}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="font-bold text-slate-800">Student Reg. No:</span>
-                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[14px] inline-block">
+                  <span className="font-mono font-bold text-slate-950 border-b border-dotted border-slate-700 flex-1 min-h-[16px] inline-block">
                     {formData.registrationNo || ""}
                   </span>
                 </div>
@@ -906,18 +903,18 @@ export default function PrintableStudentAdmissionForm() {
                 SECTION 1: APPLICANT PERSONAL INFORMATION
             ===================================================================== */}
             <div className="mb-1.5">
-              <div className="bg-slate-800 text-white px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wide flex items-center justify-between">
+              <div className="bg-slate-800 text-white px-2 py-0.5 text-[10px] font-black uppercase tracking-wide flex items-center justify-between">
                 <span>1. Applicant Personal Particulars</span>
-                <span className="text-[8px] font-normal lowercase tracking-normal">(Fill in CAPITAL letters using blue or black ballpoint pen)</span>
+                <span className="text-[8.5px] font-medium lowercase tracking-normal">(Fill in CAPITAL letters using blue or black ballpoint pen)</span>
               </div>
 
-              <div className="border border-t-0 border-slate-800 p-1.5 space-y-1 text-[9.5px]">
+              <div className="border border-t-0 border-slate-800 p-1.5 space-y-1 text-[10px]">
                 {/* Full Name Row */}
                 <div className="flex items-center gap-1.5">
                   <span className="w-[130px] font-bold text-slate-800 flex-shrink-0">
                     Full Name of Applicant:
                   </span>
-                  <div className="flex-1 font-bold tracking-wide uppercase text-slate-950 border-b border-dotted border-slate-700 min-h-[16px] text-[10px]">
+                  <div className="flex-1 font-bold tracking-wide uppercase text-slate-950 border-b border-dotted border-slate-700 min-h-[16px] text-[10.5px]">
                     {formData.studentName || ""}
                   </div>
                 </div>
@@ -933,12 +930,12 @@ export default function PrintableStudentAdmissionForm() {
                   <div className="col-span-4 flex items-center gap-2">
                     <span className="font-bold text-slate-800">Gender:</span>
                     <span className="inline-flex items-center gap-1">
-                      <span className={`inline-block w-2.5 h-2.5 border border-slate-700 rounded-sm text-center text-[7.5px] leading-none font-bold ${formData.gender === "Male" ? "bg-slate-900 text-white" : ""}`}>
+                      <span className={`inline-block w-2.5 h-2.5 border border-slate-700 rounded-sm text-center text-[8px] leading-none font-bold ${formData.gender === "Male" ? "bg-slate-900 text-white" : ""}`}>
                         {formData.gender === "Male" ? "✓" : ""}
                       </span> Male
                     </span>
                     <span className="inline-flex items-center gap-1">
-                      <span className={`inline-block w-2.5 h-2.5 border border-slate-700 rounded-sm text-center text-[7.5px] leading-none font-bold ${formData.gender === "Female" ? "bg-slate-900 text-white" : ""}`}>
+                      <span className={`inline-block w-2.5 h-2.5 border border-slate-700 rounded-sm text-center text-[8px] leading-none font-bold ${formData.gender === "Female" ? "bg-slate-900 text-white" : ""}`}>
                         {formData.gender === "Female" ? "✓" : ""}
                       </span> Female
                     </span>
@@ -1053,12 +1050,12 @@ export default function PrintableStudentAdmissionForm() {
                 SECTION 2: COURSE ENROLLMENT, FEE STRUCTURE & OFFICIAL UPI PAYMENT QR
             ===================================================================== */}
             <div className="mb-1.5">
-              <div className="bg-slate-800 text-white px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wide flex items-center justify-between">
+              <div className="bg-slate-800 text-white px-2 py-0.5 text-[10px] font-black uppercase tracking-wide flex items-center justify-between">
                 <span>2. Course Admission, Fee Structure &amp; Official Payment QR</span>
-                <span className="text-[8px] font-normal lowercase tracking-normal">(Scan UPI QR code below to pay course fee directly via GPay, PhonePe, Paytm or BHIM)</span>
+                <span className="text-[8.5px] font-medium lowercase tracking-normal">(Scan UPI QR code below to pay course fee directly via GPay, PhonePe, Paytm or BHIM)</span>
               </div>
 
-              <div className="border border-t-0 border-slate-800 p-1.5 text-[9px]">
+              <div className="border border-t-0 border-slate-800 p-1.5 text-[9.5px]">
                 <div className="grid grid-cols-12 gap-2.5 items-stretch">
                   {/* Left Column (8 cols): Course Particulars & Fee Financials */}
                   <div className="col-span-8 flex flex-col justify-between space-y-1">
@@ -1067,7 +1064,7 @@ export default function PrintableStudentAdmissionForm() {
                       <span className="w-[115px] font-bold text-slate-800 flex-shrink-0">
                         Course Applied For:
                       </span>
-                      <div className="flex-1 font-bold text-slate-950 border-b border-dotted border-slate-700 min-h-[16px] text-[10px]">
+                      <div className="flex-1 font-bold text-slate-950 border-b border-dotted border-slate-700 min-h-[16px] text-[10.5px]">
                         {formData.courseName || ""}
                       </div>
                     </div>
@@ -1099,7 +1096,7 @@ export default function PrintableStudentAdmissionForm() {
                       <span className="w-[115px] font-bold text-slate-800 flex-shrink-0">
                         Preferred Timing:
                       </span>
-                      <div className="flex-1 text-[8.5px] text-slate-800 border-b border-dotted border-slate-700 min-h-[15px]">
+                      <div className="flex-1 text-[9px] text-slate-800 border-b border-dotted border-slate-700 min-h-[15px]">
                         {formData.preferredTiming || "[ ] Morning (8am-12pm)  [ ] Afternoon (12pm-4pm)  [ ] Evening (4pm-8pm)"}
                       </div>
                     </div>
@@ -1107,14 +1104,14 @@ export default function PrintableStudentAdmissionForm() {
                     {/* Official Prescribed Course Fee */}
                     <div className="mt-0.5 p-1.5 bg-slate-50 border border-slate-300 rounded flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-slate-700 text-[9px] uppercase tracking-wide">
+                        <span className="font-bold text-slate-700 text-[9.5px] uppercase tracking-wide">
                           Prescribed Course Fee:
                         </span>
-                        <span className="font-mono font-black text-slate-950 text-[12px] min-w-[70px] inline-block">
+                        <span className="font-mono font-black text-slate-950 text-[12.5px] min-w-[70px] inline-block">
                           {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : ""}
                         </span>
                       </div>
-                      <div className="text-[8px] text-slate-600 font-medium">
+                      <div className="text-[8.5px] text-slate-600 font-medium">
                         Scheme: <strong className="text-slate-800">{formData.feeMode || "Standard"}</strong>
                       </div>
                     </div>
@@ -1124,10 +1121,10 @@ export default function PrintableStudentAdmissionForm() {
                   <div className="col-span-4 border-2 border-slate-900 bg-slate-50 p-1.5 rounded flex flex-col items-center justify-between text-center relative">
                     {/* Header */}
                     <div className="w-full pb-0.5 border-b border-slate-300 text-center">
-                      <div className="text-[8px] font-extrabold uppercase text-slate-900 tracking-wider">
+                      <div className="text-[8.5px] font-extrabold uppercase text-slate-900 tracking-wider">
                         Scan &amp; Pay Course Fee
                       </div>
-                      <div className="text-[7px] text-slate-600 font-mono">
+                      <div className="text-[7.5px] text-slate-600 font-mono">
                         UPI: <strong>{UPI_ID}</strong>
                       </div>
                     </div>
@@ -1136,24 +1133,24 @@ export default function PrintableStudentAdmissionForm() {
                     <div className="my-0.5 p-1 bg-white border border-slate-300 rounded shadow-sm">
                       <QRCode
                         value={upiPayload}
-                        size={80}
+                        size={78}
                         level="M"
-                        style={{ height: "auto", maxWidth: "100%", width: "80px" }}
+                        style={{ height: "auto", maxWidth: "100%", width: "78px" }}
                       />
                     </div>
 
                     {/* Amount Pill */}
                     <div className="w-full py-0.5 px-1 bg-slate-900 text-white rounded text-center">
-                      <div className="text-[6.5px] uppercase tracking-wider text-slate-300">
+                      <div className="text-[7px] uppercase tracking-wider text-slate-300">
                         Course Fee
                       </div>
-                      <div className="text-[11.5px] font-black font-mono leading-none tracking-tight">
+                      <div className="text-[12px] font-black font-mono leading-none tracking-tight">
                         {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : "As Applicable"}
                       </div>
                     </div>
 
                     {/* Supported Apps Note */}
-                    <div className="text-[6.5px] text-slate-600 mt-0.5 leading-tight">
+                    <div className="text-[7px] text-slate-600 mt-0.5 leading-tight">
                       GPay &bull; PhonePe &bull; Paytm &bull; BHIM &bull; Any UPI
                     </div>
                   </div>
@@ -1165,10 +1162,10 @@ export default function PrintableStudentAdmissionForm() {
                 SECTION 3: INSTITUTION RULES, CODE OF CONDUCT & TERMS
             ===================================================================== */}
             <div className="mb-1.5">
-              <div className="bg-slate-800 text-white px-2 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wide">
+              <div className="bg-slate-800 text-white px-2 py-0.5 text-[10px] font-black uppercase tracking-wide">
                 3. General Rules, Discipline &amp; Code of Conduct
               </div>
-              <div className="border border-t-0 border-slate-800 p-1.5 text-[8px] text-slate-700 space-y-0.5 leading-snug bg-slate-50/50">
+              <div className="border border-t-0 border-slate-800 p-1.5 text-[8.5px] text-slate-700 space-y-0.5 leading-snug bg-slate-50/50">
                 <p>
                   <strong>1. Attendance Requirement:</strong> A minimum of <strong>75% classroom and practical lab attendance</strong> is strictly compulsory to be eligible for examination appearances, modular assessments, placement recommendations, and final project submissions.
                 </p>
@@ -1188,11 +1185,11 @@ export default function PrintableStudentAdmissionForm() {
                 SECTION 4: DECLARATION & FORMAL SIGNATURE BLOCKS
             ===================================================================== */}
             <div className="border border-slate-800 p-1.5 mb-1.5">
-              <div className="text-[8px] font-semibold text-slate-800 italic leading-tight text-justify mb-2">
+              <div className="text-[8.5px] font-medium text-slate-800 italic leading-tight text-justify mb-1.5">
                 "I hereby solemnly declare that all statements made in this admission application form are true, complete, and correct to the best of my knowledge and belief. I have read, understood, and agreed to adhere unconditionally to all rules, fee schedules, and disciplinary guidelines of Coder &amp; AccoTax."
               </div>
 
-              <div className="grid grid-cols-12 gap-3 items-end pt-0.5 text-[8px]">
+              <div className="grid grid-cols-12 gap-3 items-end pt-0.5 text-[8.5px]">
                 {/* Date & Place */}
                 <div className="col-span-3 space-y-0.5">
                   <div><strong>Date:</strong> <span className="border-b border-dotted border-slate-600 inline-block min-w-[70px] text-center">{formData.admissionDate || ""}</span></div>
@@ -1201,21 +1198,21 @@ export default function PrintableStudentAdmissionForm() {
 
                 {/* Candidate Signature */}
                 <div className="col-span-3 text-center">
-                  <div className="border-b border-slate-700 min-h-[25px] flex items-end justify-center pb-0.5 font-cursive text-slate-800 text-xs">
+                  <div className="border-b border-slate-700 min-h-[24px] flex items-end justify-center pb-0.5 font-cursive text-slate-800 text-xs">
                     {isPrefillMode && formData.studentName ? formData.studentName.split(" ")[0] : ""}
                   </div>
-                  <div className="font-bold text-slate-900 mt-0.5">Signature of Student</div>
+                  <div className="font-bold text-slate-900 mt-0.5 text-[9px]">Signature of Student</div>
                 </div>
 
                 {/* Guardian Signature */}
                 <div className="col-span-3 text-center">
-                  <div className="border-b border-slate-700 min-h-[25px] flex items-end justify-center pb-0.5 font-cursive text-slate-800 text-xs"></div>
-                  <div className="font-bold text-slate-900 mt-0.5">Signature of Parent / Guardian</div>
+                  <div className="border-b border-slate-700 min-h-[24px] flex items-end justify-center pb-0.5 font-cursive text-slate-800 text-xs"></div>
+                  <div className="font-bold text-slate-900 mt-0.5 text-[9px]">Signature of Parent / Guardian</div>
                 </div>
 
                 {/* Authorized Director Sign & Seal */}
                 <div className="col-span-3 text-center relative">
-                  <div className="border-b border-slate-700 min-h-[25px] flex items-center justify-center relative">
+                  <div className="border-b border-slate-700 min-h-[24px] flex items-center justify-center relative">
                     {isPrefillMode && (
                       <>
                         <img
@@ -1231,8 +1228,8 @@ export default function PrintableStudentAdmissionForm() {
                       </>
                     )}
                   </div>
-                  <div className="font-bold text-slate-900 mt-0.5">Authorized Signatory &amp; Seal</div>
-                  <div className="text-[7.5px] text-slate-600">Director, Coder &amp; AccoTax</div>
+                  <div className="font-bold text-slate-900 mt-0.5 text-[9px]">Authorized Signatory &amp; Seal</div>
+                  <div className="text-[8px] text-slate-600">Director, Coder &amp; AccoTax</div>
                 </div>
               </div>
             </div>
@@ -1251,45 +1248,45 @@ export default function PrintableStudentAdmissionForm() {
 
             <div className="border border-slate-800 p-1.5 bg-slate-50/60 rounded-sm mt-1">
               {/* Counterfoil Header */}
-              <div className="flex items-center justify-between pb-1 border-b border-slate-300 text-[8.5px]">
+              <div className="flex items-center justify-between pb-1 border-b border-slate-300 text-[9px]">
                 <div className="flex items-center gap-2">
                   <img src={cnatLogo} alt="Logo" className="w-4.5 h-4.5 object-contain" />
                   <div>
-                    <span className="font-extrabold uppercase text-slate-900 text-[10px]">
+                    <span className="font-black uppercase text-slate-900 text-[10.5px]">
                       CODER &amp; ACCOTAX &bull; ADMISSION ACKNOWLEDGMENT SLIP
                     </span>
-                    <span className="text-[7.5px] text-slate-600 block">
+                    <span className="text-[8px] text-slate-600 block">
                       25(10/A) Shibtala Road, Barrackpore, Kolkata-700122 | 📞 +91 70037 56860
                     </span>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="font-mono font-bold text-slate-900 text-[9px]">
+                  <div className="font-mono font-bold text-slate-900 text-[9.5px]">
                     Receipt / Ack No: <span className="border-b border-dotted border-slate-600 inline-block min-w-[65px] text-center">{formData.receiptNo || ""}</span>
                   </div>
-                  <div className="text-[8px] text-slate-600">
+                  <div className="text-[8.5px] text-slate-600">
                     Date: <span className="border-b border-dotted border-slate-600 inline-block min-w-[65px] text-center">{formData.admissionDate || ""}</span>
                   </div>
                 </div>
               </div>
 
               {/* Counterfoil Details Grid */}
-              <div className="grid grid-cols-12 gap-2 mt-1 text-[8.5px]">
+              <div className="grid grid-cols-12 gap-2 mt-1 text-[9px]">
                 <div className="col-span-8 space-y-0.5">
                   <div className="flex items-center gap-1">
-                    <span className="w-[85px] font-bold text-slate-700">Student Name:</span>
+                    <span className="w-[90px] font-bold text-slate-700">Student Name:</span>
                     <span className="font-bold text-slate-950 uppercase border-b border-dotted border-slate-600 flex-1 min-h-[14px] inline-block">
                       {formData.studentName || ""}
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="w-[85px] font-bold text-slate-700">Course Enrolled:</span>
+                    <span className="w-[90px] font-bold text-slate-700">Course Enrolled:</span>
                     <span className="font-semibold text-slate-900 border-b border-dotted border-slate-600 flex-1 min-h-[14px] inline-block">
                       {formData.courseName || ""}
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="w-[85px] font-bold text-slate-700">Reg / Form No:</span>
+                    <span className="w-[90px] font-bold text-slate-700">Reg / Form No:</span>
                     <span className="font-mono font-semibold text-slate-900 border-b border-dotted border-slate-600 flex-1 min-h-[14px] inline-block">
                       {formData.registrationNo || ""}
                     </span>
@@ -1299,19 +1296,19 @@ export default function PrintableStudentAdmissionForm() {
                 <div className="col-span-4 space-y-0.5 text-right">
                   <div className="flex items-center justify-between gap-1">
                     <span className="font-bold text-slate-700">Official Course Fee:</span>
-                    <span className="font-mono font-black text-slate-950 text-[10.5px]">
+                    <span className="font-mono font-black text-slate-950 text-[11.5px]">
                       {formData.totalCourseFee ? `₹ ${Number(formData.totalCourseFee).toLocaleString("en-IN")}` : ""}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-1">
                     <span className="font-bold text-slate-700">Fee Scheme:</span>
-                    <span className="font-semibold text-slate-800 text-[8.5px]">
+                    <span className="font-semibold text-slate-800 text-[9px]">
                       {formData.feeMode || ""}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-1">
                     <span className="font-bold text-slate-700">UPI Payee:</span>
-                    <span className="font-mono text-slate-600 text-[8px]">
+                    <span className="font-mono text-slate-600 text-[8.5px]">
                       {UPI_ID}
                     </span>
                   </div>
@@ -1319,7 +1316,7 @@ export default function PrintableStudentAdmissionForm() {
               </div>
 
               {/* Counterfoil Sign-off */}
-              <div className="flex items-end justify-between mt-1 pt-1 border-t border-slate-300 text-[8px]">
+              <div className="flex items-end justify-between mt-1 pt-1 border-t border-slate-300 text-[8.5px]">
                 <div className="text-slate-600">
                   <span className="font-semibold text-slate-800">Note:</span> Retain this slip for verification. Payee: <strong>{UPI_ID}</strong>
                 </div>
@@ -1329,7 +1326,7 @@ export default function PrintableStudentAdmissionForm() {
                       <span className="font-cursive text-slate-800 text-[10px]">Sukanta Hui</span>
                     )}
                   </div>
-                  <div className="font-bold text-slate-900 mt-0.5">Center In-Charge &amp; Official Seal</div>
+                  <div className="font-bold text-slate-900 mt-0.5 text-[9.5px]">Center In-Charge &amp; Official Seal</div>
                 </div>
               </div>
             </div>
