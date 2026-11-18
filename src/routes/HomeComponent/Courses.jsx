@@ -468,10 +468,10 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
                   <button
                     type="button"
                     onClick={() => setShowPrintModal(true)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white border border-sky-500/35 transition cursor-pointer shadow-sm"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-md shadow-blue-600/30 border border-blue-400/30 transition cursor-pointer"
                     title="Open official printable syllabus specification (A4)"
                   >
-                    <i className="bi bi-printer"></i>
+                    <i className="bi bi-printer-fill"></i>
                     <span>Print Syllabus</span>
                   </button>
                 </div>
@@ -724,10 +724,10 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
 
             <button
               onClick={() => setShowPrintModal(true)}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl bg-sky-600/25 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/40 transition cursor-pointer"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white shadow-md shadow-blue-600/30 border border-blue-400/40 transition cursor-pointer"
               title="Print or Save Official Course Syllabus Document (A4)"
             >
-              <i className="bi bi-printer"></i>
+              <i className="bi bi-printer-fill"></i>
               <span>Print Syllabus</span>
             </button>
 

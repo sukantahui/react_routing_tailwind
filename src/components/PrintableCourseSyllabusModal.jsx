@@ -3,6 +3,7 @@
 // Official Printable Course Curriculum & Syllabus Specification (A4 Format)
 // Coder & AccoTax (AN ISO 9001:2015 CERTIFIED EDUCATIONAL INSTITUTION)
 // Barrackpore, Kolkata - 700122 (W.B.)
+// Professional Executive Edition with Academic Navy, Royal Gold & Slate Palette
 // ============================================================================
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
@@ -30,6 +31,9 @@ import {
   ShieldCheck,
   Code2,
   Sliders,
+  GraduationCap,
+  Star,
+  CheckCircle,
 } from "lucide-react";
 import cnatLogo from "../assets/cnat.png";
 import signatureImg from "../assets/signature.png";
@@ -48,7 +52,7 @@ const renderBoldText = (text) => {
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={index} className="font-bold text-slate-900">
+        <strong key={index} className="font-bold text-slate-950">
           {part.slice(2, -2)}
         </strong>
       );
@@ -61,30 +65,37 @@ const renderBoldText = (text) => {
 const parseModule = (moduleText, idx) => {
   if (!moduleText) return { number: `Module ${idx + 1}`, title: `Topic ${idx + 1}`, topics: "" };
 
-  // Match: "Module X: [Title] – [Desc]" or "Module X: [Title] - [Desc]"
-  const matchWithDash = String(moduleText).match(/^(Module\s+\d+:?)\s*(.*?)(?:\s*–\s*|\s*-\s*)(.*)$/i);
-  if (matchWithDash) {
+  let text = String(moduleText).trim();
+  let modNum = `Module ${String(idx + 1).padStart(2, "0")}`;
+
+  // 1. Check if starts with 'Module X:' or 'Module X -'
+  const modPrefixMatch = text.match(/^(Module\s+\d+)\s*[:\.\-]?\s*(.*)$/i);
+  if (modPrefixMatch) {
+    modNum = modPrefixMatch[1].replace(/module\s+/i, "Module ");
+    text = modPrefixMatch[2].trim();
+  } else {
+    // Check if starts with a number e.g. "14 React.js Fundamentals..."
+    const numPrefixMatch = text.match(/^(\d+)[\.\s:\-]+(.*)$/);
+    if (numPrefixMatch && parseInt(numPrefixMatch[1], 10) < 100) {
+      modNum = `Module ${String(numPrefixMatch[1]).padStart(2, "0")}`;
+      text = numPrefixMatch[2].trim();
+    }
+  }
+
+  // 2. Split title and topics by en-dash '–', em-dash '—', or ' - '
+  const dashMatch = text.match(/^(.*?)(?:\s*[–—]\s*|\s+-\s+)(.*)$/);
+  if (dashMatch) {
     return {
-      number: matchWithDash[1].replace(/:$/, "").trim(),
-      title: matchWithDash[2].trim(),
-      topics: matchWithDash[3].trim(),
+      number: modNum,
+      title: dashMatch[1].trim(),
+      topics: dashMatch[2].trim(),
     };
   }
 
-  // Match: "Module X: [Title]"
-  const matchColon = String(moduleText).match(/^(Module\s+\d+):\s*(.*)$/i);
-  if (matchColon) {
-    return {
-      number: matchColon[1].trim(),
-      title: matchColon[2].trim(),
-      topics: "",
-    };
-  }
-
-  // Fallback
+  // 3. Fallback: entire text is title
   return {
-    number: `Module ${String(idx + 1).padStart(2, "0")}`,
-    title: moduleText,
+    number: modNum,
+    title: text,
     topics: "",
   };
 };
@@ -199,7 +210,7 @@ export default function PrintableCourseSyllabusModal({
   const verificationUrl = `https://${INSTITUTE_WEB}/#courses`;
 
   return createPortal(
-    <div className="printable-syllabus-modal-overlay fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div className="printable-syllabus-modal-overlay fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/90 backdrop-blur-md overflow-y-auto">
       {/* =========================================================================
           PRINT-ONLY CSS ENFORCEMENT FOR CLEAN A4 SYLLABUS PRINTING
       ========================================================================= */}
@@ -297,27 +308,30 @@ export default function PrintableCourseSyllabusModal({
       />
 
       {/* Main Modal Wrapper */}
-      <div className="printable-syllabus-content-wrapper relative w-full max-w-5xl bg-slate-900 border border-slate-700 rounded-3xl shadow-2xl flex flex-col max-h-[94vh] z-10 overflow-hidden text-slate-100">
+      <div className="printable-syllabus-content-wrapper relative w-full max-w-5xl bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl flex flex-col max-h-[94vh] z-10 overflow-hidden text-slate-100">
         
         {/* ===================================================================
             SCREEN TOOLBAR / ACTION BAR (HIDDEN IN PRINT)
         =================================================================== */}
-        <div className="printable-syllabus-controls no-print p-4 sm:p-5 bg-slate-950 border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-3 flex-shrink-0">
+        <div className="printable-syllabus-controls no-print p-4 sm:p-5 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-3 flex-shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400 flex-shrink-0">
-              <Printer size={20} />
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-lg shadow-blue-500/25 flex-shrink-0">
+              <Printer size={18} />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h3 className="font-bold text-white text-base sm:text-lg tracking-tight">
-                  Printable Course Syllabus
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="font-extrabold text-white text-base sm:text-lg tracking-tight">
+                  Official Printable Syllabus
                 </h3>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
-                  Official A4 Spec
+                <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 uppercase tracking-wider">
+                  Academic A4 Spec
+                </span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                  ISO 9001:2015
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-0.5 truncate max-w-md">
-                {course.title} &bull; {parsedModules.length} Modules &bull; Ready for A4 Print &amp; PDF Download
+                {course.title} &bull; {parsedModules.length} Modules &bull; High-Contrast Print &amp; PDF
               </p>
             </div>
           </div>
@@ -325,14 +339,14 @@ export default function PrintableCourseSyllabusModal({
           {/* Action buttons & toggle options */}
           <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap justify-end">
             {/* Quick section filters */}
-            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800 text-[11px] text-slate-300 shadow-inner">
               <span className="text-slate-500 font-semibold mr-1">Include:</span>
               <label className="flex items-center gap-1 cursor-pointer hover:text-white select-none">
                 <input
                   type="checkbox"
                   checked={includeOverview}
                   onChange={(e) => setIncludeOverview(e.target.checked)}
-                  className="rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-0 w-3 h-3 cursor-pointer"
+                  className="rounded border-slate-700 bg-slate-800 text-blue-500 focus:ring-0 w-3 h-3 cursor-pointer"
                 />
                 <span>Overview</span>
               </label>
@@ -342,7 +356,7 @@ export default function PrintableCourseSyllabusModal({
                     type="checkbox"
                     checked={includeProjects}
                     onChange={(e) => setIncludeProjects(e.target.checked)}
-                    className="rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-0 w-3 h-3 cursor-pointer"
+                    className="rounded border-slate-700 bg-slate-800 text-blue-500 focus:ring-0 w-3 h-3 cursor-pointer"
                   />
                   <span>Projects</span>
                 </label>
@@ -353,7 +367,7 @@ export default function PrintableCourseSyllabusModal({
                     type="checkbox"
                     checked={includeOutcomes}
                     onChange={(e) => setIncludeOutcomes(e.target.checked)}
-                    className="rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-0 w-3 h-3 cursor-pointer"
+                    className="rounded border-slate-700 bg-slate-800 text-blue-500 focus:ring-0 w-3 h-3 cursor-pointer"
                   />
                   <span>Outcomes</span>
                 </label>
@@ -364,7 +378,7 @@ export default function PrintableCourseSyllabusModal({
             <button
               onClick={handleCopyText}
               className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition cursor-pointer"
-              title="Copy formatted text to clipboard"
+              title="Copy formatted syllabus text to clipboard"
             >
               {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
               <span>{copied ? "Copied!" : "Copy Text"}</span>
@@ -373,7 +387,7 @@ export default function PrintableCourseSyllabusModal({
             {/* Print / Save as PDF Primary Button */}
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-sky-500/25 transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-600/30 border border-blue-400/30 transition cursor-pointer"
               title="Open browser print dialog to print or save as PDF"
             >
               <Printer size={16} />
@@ -394,7 +408,7 @@ export default function PrintableCourseSyllabusModal({
         {/* ===================================================================
             SCROLLABLE A4 DOCUMENT PREVIEW CONTAINER
         =================================================================== */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-6 md:p-8 bg-slate-950/90 flex justify-center">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-6 md:p-8 bg-slate-950 flex justify-center">
           
           {/* A4 Printable Syllabus Sheet */}
           <div
@@ -404,48 +418,63 @@ export default function PrintableCourseSyllabusModal({
             style={{ minHeight: "297mm" }}
           >
             {/* ---------------------------------------------------------------
-                1. OFFICIAL HEADER (Branded Coder & AccoTax)
+                1. OFFICIAL INSTITUTIONAL HEADER (Executive Navy & Gold Identity)
             --------------------------------------------------------------- */}
-            <div className="flex items-start justify-between gap-4 border-b-2 border-slate-800 pb-4 mb-4 avoid-break">
-              {/* Left: Spiral Logo */}
+            <div className="flex items-start justify-between gap-4 border-b-2 border-[#0a2540] pb-4 mb-4 avoid-break">
+              {/* Left: Spiral Logo with badge */}
               <div className="flex flex-col items-center justify-center flex-shrink-0 pt-0.5">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden flex items-center justify-center bg-white p-0.5">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden flex items-center justify-center bg-white p-1 border border-slate-200 shadow-sm">
                   <img
                     src={cnatLogo}
                     alt="Coder & AccoTax Logo"
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="text-[10px] font-black tracking-widest text-slate-600 uppercase mt-1">
+                <span className="text-[10px] font-black tracking-widest text-[#0a2540] uppercase mt-1">
                   EST. 1998
                 </span>
               </div>
 
               {/* Center: Institute Details */}
               <div className="flex-1 text-center px-1">
-                <span className="text-[10px] sm:text-[11px] font-black tracking-wider uppercase text-slate-700 block mb-0.5">
-                  AN ISO 9001:2015 CERTIFIED EDUCATIONAL INSTITUTION
-                </span>
-                <h1 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight leading-none uppercase">
+                {/* ISO Certified Badge */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-500/10 via-amber-500/15 to-amber-500/10 border border-amber-600/30 text-amber-900 font-extrabold text-[10px] tracking-wider uppercase mb-1 shadow-sm">
+                  <Award size={11} className="text-amber-700" />
+                  <span>AN ISO 9001:2015 CERTIFIED EDUCATIONAL INSTITUTION</span>
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl font-black text-[#0a2540] tracking-tight leading-none uppercase">
                   CODER &amp; ACCOTAX
                 </h1>
-                <p className="text-[11px] sm:text-xs font-semibold text-slate-700 mt-1 leading-tight">
+                <p className="text-[11px] sm:text-xs font-bold text-[#1e3a8a] mt-1 leading-tight tracking-wide">
                   Professional Institute of Software Engineering, Corporate Accounting &amp; Taxation
                 </p>
-                <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-600 mt-1">
-                  <MapPin size={11} className="text-slate-600 flex-shrink-0" />
+
+                {/* Address */}
+                <div className="flex items-center justify-center gap-1 text-[10px] text-slate-600 mt-1.5">
+                  <MapPin size={11} className="text-[#0a2540] flex-shrink-0" />
                   <span>{INSTITUTE_ADDRESS}</span>
                 </div>
-                <div className="flex items-center justify-center flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-slate-600 font-medium mt-0.5">
-                  <span>📞 {PRIMARY_PHONE} / {SECONDARY_PHONE}</span>
-                  <span>✉ {INSTITUTE_EMAIL}</span>
-                  <span>🌐 {INSTITUTE_WEB}</span>
+
+                {/* Contact Pill Row */}
+                <div className="flex items-center justify-center flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-slate-700 font-semibold mt-1">
+                  <span className="inline-flex items-center gap-1 text-[#0284c7]">
+                    <Phone size={10} /> {PRIMARY_PHONE} / {SECONDARY_PHONE}
+                  </span>
+                  <span className="text-slate-300">&bull;</span>
+                  <span className="inline-flex items-center gap-1 text-[#4f46e5]">
+                    <Mail size={10} /> {INSTITUTE_EMAIL}
+                  </span>
+                  <span className="text-slate-300">&bull;</span>
+                  <span className="inline-flex items-center gap-1 text-[#059669]">
+                    <Globe size={10} /> {INSTITUTE_WEB}
+                  </span>
                 </div>
               </div>
 
               {/* Right: Dynamic Verification QR Code */}
               <div className="flex flex-col items-center justify-center flex-shrink-0 text-center pt-0.5">
-                <div className="p-1.5 bg-white border border-slate-300 rounded-lg shadow-sm">
+                <div className="p-1.5 bg-white border-2 border-blue-100 rounded-xl shadow-sm">
                   <QRCode
                     value={verificationUrl}
                     size={64}
@@ -453,44 +482,58 @@ export default function PrintableCourseSyllabusModal({
                     viewBox={`0 0 64 64`}
                   />
                 </div>
-                <span className="text-[9px] font-bold text-slate-700 tracking-tight mt-1 leading-tight block">
-                  Scan to Verify<br />Curriculum Online
+                <div className="flex items-center justify-center gap-0.5 mt-1 text-[#0a2540]">
+                  <ShieldCheck size={10} className="text-emerald-600" />
+                  <span className="text-[9px] font-bold tracking-tight leading-tight block">
+                    Verify Online
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* ---------------------------------------------------------------
+                2. TITLE & DOCUMENT CLASSIFICATION BAR (Navy & Gold Accent)
+            --------------------------------------------------------------- */}
+            <div className="mb-4 avoid-break shadow-sm">
+              <div className="bg-gradient-to-r from-[#0b2545] via-[#133e6f] to-[#0b2545] text-white px-4 py-2.5 rounded-t-lg flex items-center justify-between gap-2 flex-wrap border-b border-blue-400/30">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span className="text-xs sm:text-sm font-black tracking-wider uppercase">
+                    OFFICIAL COURSE CURRICULUM &amp; SYLLABUS SPECIFICATION
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold text-slate-950 bg-gradient-to-r from-amber-300 to-amber-400 px-3 py-0.5 rounded-md shadow-sm">
+                  Session: 2026 - 2027
+                </span>
+              </div>
+              <div className="bg-gradient-to-r from-blue-50/80 via-slate-50 to-blue-50/80 border-x border-b border-blue-200 px-4 py-1.5 rounded-b-lg flex items-center justify-between text-[11px] text-slate-700 font-medium flex-wrap gap-2">
+                <span><strong className="text-[#0a2540]">Document Ref:</strong> {courseRefNo}</span>
+                <span><strong className="text-[#0a2540]">Standard Revision:</strong> v2.4 (Industry Aligned)</span>
+                <span><strong className="text-[#0a2540]">Date of Issue:</strong> {currentDateStr}</span>
+                <span className="text-emerald-800 font-bold inline-flex items-center gap-1">
+                  <CheckCircle2 size={12} className="text-emerald-600" />
+                  ISO 9001:2015 Recognized
                 </span>
               </div>
             </div>
 
             {/* ---------------------------------------------------------------
-                2. TITLE & DOCUMENT CLASSIFICATION BAR
+                3. COURSE SPECIFICATION SUMMARY TABLE (Executive Academic Card)
             --------------------------------------------------------------- */}
-            <div className="mb-4 avoid-break">
-              <div className="bg-slate-900 text-white px-4 py-2 rounded-t-md flex items-center justify-between gap-2 flex-wrap">
-                <span className="text-xs sm:text-sm font-black tracking-wider uppercase">
-                  OFFICIAL COURSE CURRICULUM &amp; SYLLABUS SPECIFICATION
-                </span>
-                <span className="text-[11px] font-bold text-sky-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
-                  Academic Session: 2026 - 2027
-                </span>
+            <div className="mb-5 avoid-break border border-blue-200/90 rounded-lg overflow-hidden text-xs shadow-sm bg-white">
+              <div className="bg-gradient-to-r from-[#0f2d59] to-[#1e3a8a] text-white px-3.5 py-1.5 font-bold text-[11px] uppercase tracking-wider flex items-center justify-between">
+                <span>Course Program Specification</span>
+                <span className="text-[10px] text-blue-200 font-medium">Standard Academic Track</span>
               </div>
-              <div className="bg-slate-100 border-x border-b border-slate-300 px-4 py-1.5 rounded-b-md flex items-center justify-between text-[11px] text-slate-700 font-medium flex-wrap gap-2">
-                <span><strong>Document Ref:</strong> {courseRefNo}</span>
-                <span><strong>Revision:</strong> v2.4 (Industry Benchmark Aligned)</span>
-                <span><strong>Issued:</strong> {currentDateStr}</span>
-                <span className="text-emerald-700 font-bold">● ISO 9001:2015 Recognized</span>
-              </div>
-            </div>
 
-            {/* ---------------------------------------------------------------
-                3. COURSE SPECIFICATION SUMMARY TABLE
-            --------------------------------------------------------------- */}
-            <div className="mb-5 avoid-break border border-slate-300 rounded-md overflow-hidden text-xs">
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-blue-100">
                 {/* Column 1 */}
-                <div className="divide-y divide-slate-200">
-                  <div className="p-2.5 bg-slate-50 flex items-start gap-2">
-                    <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
+                <div className="divide-y divide-slate-100">
+                  <div className="p-2.5 bg-blue-50/40 flex items-start gap-2">
+                    <span className="font-bold text-[#0a2540] w-28 flex-shrink-0 uppercase text-[10px]">
                       Course Title:
                     </span>
-                    <span className="font-extrabold text-slate-950 text-sm">
+                    <span className="font-extrabold text-[#0a2540] text-sm tracking-tight">
                       {course.title}
                     </span>
                   </div>
@@ -498,7 +541,7 @@ export default function PrintableCourseSyllabusModal({
                     <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
                       Domain / Stream:
                     </span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded bg-sky-100 text-sky-900 border border-sky-200 font-semibold text-[11px]">
                       {courseCategory}
                     </span>
                   </div>
@@ -506,51 +549,52 @@ export default function PrintableCourseSyllabusModal({
                     <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
                       Level:
                     </span>
-                    <span className="font-semibold text-slate-800">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded bg-indigo-100 text-indigo-900 border border-indigo-200 font-semibold text-[11px]">
                       {course.level || "Beginner to Advanced"}
                     </span>
                   </div>
                   <div className="p-2 flex items-center gap-2">
                     <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
-                      Duration:
+                      Total Duration:
                     </span>
-                    <span className="font-bold text-slate-950">
+                    <span className="font-bold text-[#0a2540] text-xs">
                       {course.duration || `${parsedModules.length} Modules / Comprehensive`}
                     </span>
                   </div>
                 </div>
 
                 {/* Column 2 */}
-                <div className="divide-y divide-slate-200">
-                  <div className="p-2.5 bg-slate-50 flex items-center gap-2">
-                    <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
+                <div className="divide-y divide-slate-100">
+                  <div className="p-2.5 bg-blue-50/40 flex items-center gap-2">
+                    <span className="font-bold text-[#0a2540] w-28 flex-shrink-0 uppercase text-[10px]">
                       Training Mode:
                     </span>
-                    <span className="font-semibold text-slate-800">
-                      {course.mode || "Online / Offline (Hands-on Labs)"}
+                    <span className="inline-flex items-center px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 border border-emerald-200 font-semibold text-[11px]">
+                      {course.mode || "Online / Offline (Hands-on Practical Labs)"}
                     </span>
                   </div>
                   <div className="p-2 flex items-center gap-2">
                     <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
                       Lead Mentor:
                     </span>
-                    <span className="font-semibold text-slate-800">
-                      {course.instructor || "Sukanta Hui"} (Senior Software Architect)
+                    <span className="font-bold text-slate-900">
+                      {course.instructor || "Sukanta Hui"} <span className="text-[10px] text-slate-500 font-normal">(Senior Software Architect)</span>
                     </span>
                   </div>
                   <div className="p-2 flex items-center gap-2">
                     <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
                       Course Fee:
                     </span>
-                    <span className="font-bold text-slate-950">
-                      {course.fee ? `${course.fee} (Installments & Concession Available)` : "Standard Institute Fee Structure"}
+                    <span className="font-bold text-[#0a2540]">
+                      {course.fee ? `${course.fee}` : "Standard Fee"} <span className="text-[10px] text-emerald-700 font-medium">(Concession &amp; Installments Available)</span>
                     </span>
                   </div>
                   <div className="p-2 flex items-center gap-2">
                     <span className="font-bold text-slate-600 w-28 flex-shrink-0 uppercase text-[10px]">
                       Certification:
                     </span>
-                    <span className="font-semibold text-emerald-800">
+                    <span className="font-bold text-emerald-800 flex items-center gap-1">
+                      <Award size={13} className="text-amber-600" />
                       ISO 9001:2015 Recognized Course Certificate
                     </span>
                   </div>
@@ -559,17 +603,17 @@ export default function PrintableCourseSyllabusModal({
             </div>
 
             {/* ---------------------------------------------------------------
-                4. COURSE OVERVIEW & PREREQUISITES (OPTIONAL ON SCREEN)
+                4. COURSE OVERVIEW & PREREQUISITES (Executive Border Accent)
             --------------------------------------------------------------- */}
             {includeOverview && (
               <div className="mb-5 avoid-break">
-                <div className="flex items-center gap-2 border-b border-slate-300 pb-1 mb-2">
-                  <BookOpen size={14} className="text-slate-700" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                <div className="flex items-center gap-2 border-b-2 border-[#1e3a8a] pb-1 mb-2">
+                  <BookOpen size={14} className="text-[#1e3a8a]" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0a2540]">
                     Course Overview &amp; Learning Objectives
                   </h3>
                 </div>
-                <div className="bg-slate-50 border border-slate-200 p-3 rounded-md text-xs text-slate-700 leading-relaxed space-y-2">
+                <div className="bg-gradient-to-r from-blue-50/60 to-slate-50 border-l-4 border-[#1e3a8a] border-y border-r border-blue-100 p-3.5 rounded-r-lg text-xs text-slate-800 leading-relaxed space-y-2">
                   <p>
                     {renderBoldText(
                       details.overview ||
@@ -578,9 +622,11 @@ export default function PrintableCourseSyllabusModal({
                     )}
                   </p>
                   {details.prerequisites && (
-                    <div className="pt-1 border-t border-slate-200 flex items-start gap-1.5 text-[11px] text-slate-600">
-                      <strong className="text-slate-800">Prerequisites:</strong>
-                      <span>{renderBoldText(details.prerequisites)}</span>
+                    <div className="pt-2 border-t border-blue-100/80 flex items-start gap-2 text-[11px] text-slate-700">
+                      <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px] uppercase flex-shrink-0">
+                        Prerequisites
+                      </span>
+                      <span className="pt-0.5">{renderBoldText(details.prerequisites)}</span>
                     </div>
                   )}
                 </div>
@@ -588,76 +634,95 @@ export default function PrintableCourseSyllabusModal({
             )}
 
             {/* ---------------------------------------------------------------
-                5. DETAILED CURRICULUM & STRUCTURED MODULES
+                5. DETAILED CURRICULUM & STRUCTURED MODULES (Modern Clean Cards)
             --------------------------------------------------------------- */}
             <div className="mb-5">
-              <div className="flex items-center justify-between border-b border-slate-300 pb-1 mb-2.5 avoid-break">
+              <div className="flex items-center justify-between border-b-2 border-[#0a2540] pb-1.5 mb-3 avoid-break">
                 <div className="flex items-center gap-2">
-                  <Layers size={14} className="text-slate-700" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                  <Layers size={14} className="text-[#0a2540]" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0a2540]">
                     Structured Modular Curriculum ({parsedModules.length} Modules)
                   </h3>
                 </div>
-                <span className="text-[10px] font-semibold text-slate-600">
-                  Comprehensive Theory + Live Practical Labs
-                </span>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#0a2540] text-white">
+                    {parsedModules.length} Modules
+                  </span>
+                  <span className="text-[10px] font-semibold text-slate-600 hidden sm:inline">
+                    Theory + Hands-on Lab Work
+                  </span>
+                </div>
               </div>
 
               {parsedModules.length > 0 ? (
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {parsedModules.map((mod, idx) => (
                     <div
                       key={idx}
-                      className="avoid-break border border-slate-200 rounded-md p-2.5 bg-white hover:border-slate-400 transition"
+                      className="avoid-break border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm hover:border-blue-300 transition"
                     >
-                      <div className="flex items-start gap-2.5">
-                        <span className="inline-block px-2 py-0.5 rounded bg-slate-900 text-white font-mono text-[10px] font-bold tracking-wider flex-shrink-0">
-                          {mod.number}
-                        </span>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-xs font-bold text-slate-950 leading-snug">
+                      {/* Module Header Bar with Navy Tint */}
+                      <div className="bg-gradient-to-r from-slate-50 via-blue-50/40 to-white px-3 py-1.5 border-b border-slate-200/80 flex items-center justify-between gap-2 flex-wrap">
+                        <div className="flex items-center gap-2.5">
+                          <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded bg-gradient-to-r from-[#0d2a52] to-[#1e40af] text-white font-mono text-[10px] font-bold tracking-wide shadow-sm flex-shrink-0">
+                            {mod.number}
+                          </span>
+                          <h4 className="text-xs sm:text-[13px] font-bold text-[#0a2540] leading-snug">
                             {mod.title}
                           </h4>
-                          {mod.topics && (
-                            <p className="text-[11px] text-slate-600 leading-relaxed mt-1">
-                              {renderBoldText(mod.topics)}
-                            </p>
-                          )}
                         </div>
+                        <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                          Topic #{idx + 1}
+                        </span>
                       </div>
+
+                      {/* Module Topics / Description */}
+                      {mod.topics && (
+                        <div className="px-3.5 py-2 text-[11px] text-slate-700 leading-relaxed bg-white">
+                          <div className="border-l-2 border-blue-500 pl-2.5 py-1 bg-blue-50/25 rounded-r">
+                            <span className="font-bold text-[#0a2540] mr-1.5">Key Topics &amp; Practice:</span>
+                            {renderBoldText(mod.topics)}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="p-4 border border-slate-200 rounded-md text-xs text-slate-700">
+                <div className="p-4 border border-slate-200 rounded-lg text-xs text-slate-700 bg-slate-50">
                   <p>{course.more || course.desc || "Curriculum details available upon inquiry."}</p>
                 </div>
               )}
             </div>
 
             {/* ---------------------------------------------------------------
-                6. CAPSTONE PROJECTS (IF PRESENT & ENABLED)
+                6. CAPSTONE PROJECTS (Rich Indigo Theme)
             --------------------------------------------------------------- */}
             {includeProjects && projects.length > 0 && (
               <div className="mb-5 avoid-break">
-                <div className="flex items-center gap-2 border-b border-slate-300 pb-1 mb-2">
-                  <Code2 size={14} className="text-slate-700" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                <div className="flex items-center gap-2 border-b-2 border-indigo-900 pb-1.5 mb-2.5">
+                  <Code2 size={14} className="text-indigo-900" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-indigo-950">
                     Real-World Practical Projects &amp; Lab Assignments ({projects.length})
                   </h3>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {projects.map((proj, idx) => (
                     <div
                       key={idx}
-                      className="border border-slate-200 rounded-md p-2 bg-slate-50 text-xs flex items-start gap-2"
+                      className="border border-indigo-200/90 rounded-lg p-2.5 bg-gradient-to-br from-indigo-50/60 to-purple-50/30 text-xs flex items-start gap-2.5 shadow-sm"
                     >
-                      <span className="w-5 h-5 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center text-[10px] flex-shrink-0 mt-0.5">
+                      <span className="w-5 h-5 rounded-md bg-indigo-700 text-white font-bold flex items-center justify-center text-[10px] flex-shrink-0 mt-0.5 shadow-sm">
                         {idx + 1}
                       </span>
-                      <span className="font-semibold text-slate-800 leading-snug">
-                        {renderBoldText(proj)}
-                      </span>
+                      <div className="flex-1 min-w-0">
+                        <span className="font-bold text-indigo-950 leading-snug block">
+                          {renderBoldText(proj)}
+                        </span>
+                        <span className="text-[10px] text-indigo-700/80 font-medium block mt-0.5">
+                          Industry Grade Evaluation
+                        </span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -665,21 +730,23 @@ export default function PrintableCourseSyllabusModal({
             )}
 
             {/* ---------------------------------------------------------------
-                7. KEY LEARNING OUTCOMES (IF PRESENT & ENABLED)
+                7. KEY LEARNING OUTCOMES (Emerald / Teal Theme)
             --------------------------------------------------------------- */}
             {includeOutcomes && outcomes.length > 0 && (
               <div className="mb-5 avoid-break">
-                <div className="flex items-center gap-2 border-b border-slate-300 pb-1 mb-2">
-                  <CheckCircle2 size={14} className="text-emerald-700" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                    Target Competencies &amp; Learning Outcomes
+                <div className="flex items-center gap-2 border-b-2 border-emerald-800 pb-1.5 mb-2.5">
+                  <CheckCircle2 size={14} className="text-emerald-800" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-950">
+                    Target Competencies &amp; Industry Learning Outcomes
                   </h3>
                 </div>
-                <div className="border border-slate-200 rounded-md p-3 bg-slate-50 text-xs space-y-1.5">
+                <div className="border border-emerald-200/90 rounded-lg p-3 bg-gradient-to-br from-emerald-50/50 to-teal-50/30 text-xs space-y-2 shadow-sm">
                   {outcomes.map((out, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-slate-700">
-                      <span className="text-emerald-600 font-bold mt-0.5">✔</span>
-                      <span className="leading-snug">{renderBoldText(out)}</span>
+                    <div key={idx} className="flex items-start gap-2.5 text-slate-800">
+                      <div className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5 shadow-sm">
+                        ✓
+                      </div>
+                      <span className="leading-snug font-medium">{renderBoldText(out)}</span>
                     </div>
                   ))}
                 </div>
@@ -689,18 +756,19 @@ export default function PrintableCourseSyllabusModal({
             {/* ---------------------------------------------------------------
                 8. OFFICIAL CERTIFICATION & CENTER ENDORSEMENT FOOTER
             --------------------------------------------------------------- */}
-            <div className="border-t-2 border-slate-800 pt-4 mt-6 avoid-break">
+            <div className="border-t-2 border-[#0a2540] pt-4 mt-6 avoid-break">
               <div className="flex flex-col sm:flex-row items-end justify-between gap-4 text-xs">
                 {/* Left: Institute Note */}
                 <div className="max-w-md text-[10px] text-slate-600 leading-relaxed">
-                  <p className="font-bold text-slate-800 uppercase tracking-wider mb-0.5">
+                  <p className="font-bold text-[#0a2540] uppercase tracking-wider mb-0.5 flex items-center gap-1">
+                    <ShieldCheck size={12} className="text-emerald-600" />
                     Academic Accreditation &amp; Quality Standard
                   </p>
                   <p>
                     This is an authorized curriculum syllabus of Coder &amp; AccoTax. Course content is revised cyclically to meet contemporary IT software industry standards and corporate statutory frameworks.
                   </p>
                   <div className="mt-2 text-[9px] text-slate-500 font-mono">
-                    Official Copy &bull; Ref: {courseRefNo} &bull; Generated: {currentDateStr} &bull; Page 1 of Official Spec
+                    Official Spec &bull; Ref: {courseRefNo} &bull; Issue: {currentDateStr} &bull; Page 1 of Official Spec
                   </div>
                 </div>
 
@@ -708,14 +776,14 @@ export default function PrintableCourseSyllabusModal({
                 <div className="flex items-center gap-6 flex-shrink-0">
                   {/* Official Stamp */}
                   <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center p-0.5">
                       <img
                         src={stampImg}
                         alt="Center Seal"
-                        className="max-h-full max-w-full object-contain opacity-90"
+                        className="max-h-full max-w-full object-contain opacity-95"
                       />
                     </div>
-                    <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wider mt-0.5">
+                    <span className="text-[9px] font-bold text-[#0a2540] uppercase tracking-wider mt-0.5">
                       Center Official Seal
                     </span>
                   </div>
@@ -729,11 +797,11 @@ export default function PrintableCourseSyllabusModal({
                         className="max-h-full max-w-full object-contain"
                       />
                     </div>
-                    <div className="border-t border-slate-400 w-28 pt-1 text-center">
-                      <span className="font-bold text-slate-900 text-[10px] block leading-tight">
+                    <div className="border-t-2 border-[#0a2540] w-32 pt-1 text-center">
+                      <span className="font-bold text-[#0a2540] text-[11px] block leading-tight">
                         Sukanta Hui
                       </span>
-                      <span className="text-[9px] text-slate-600 block leading-tight">
+                      <span className="text-[9px] text-slate-600 font-semibold block leading-tight">
                         Academic Director
                       </span>
                     </div>
