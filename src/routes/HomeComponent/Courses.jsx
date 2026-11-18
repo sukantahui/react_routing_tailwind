@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, Database, RefreshCw, Sparkles, CheckCircle2 } from "lucide-react";
 import coursesData from "../../data/courses.json";
 import StudentCourseQRModal from "../../components/StudentCourseQRModal";
+import PrintableCourseSyllabusModal from "../../components/PrintableCourseSyllabusModal";
 import { courseService } from "../../services/courseService";
 
 // Course & Group Images
@@ -268,6 +269,7 @@ const getBadgeClass = (badge = "") => {
 const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
   const [activeTab, setActiveTab] = useState("syllabus");
   const [copied, setCopied] = useState(false);
+  const [showPrintModal, setShowPrintModal] = useState(false);
 
   // Close on Escape key
   useEffect(() => {
@@ -307,12 +309,13 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 overflow-y-auto bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div 
-        className="fixed inset-0" 
-        onClick={onClose} 
-        aria-label="Close modal backdrop"
-      />
+    <>
+      <div className="course-details-modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 overflow-y-auto bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+        <div 
+          className="fixed inset-0" 
+          onClick={onClose} 
+          aria-label="Close modal backdrop"
+        />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 15 }}
@@ -453,14 +456,25 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
           {/* TAB 1: SYLLABUS */}
           {activeTab === "syllabus" && (
             <div className="space-y-4">
-              <div className="flex items-center justify-between gap-2 mb-2">
+              <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
                 <h4 className="text-base font-bold text-white flex items-center gap-2">
                   <i className="bi bi-journal-code text-sky-400"></i>
                   <span>Detailed Curriculum & Modules</span>
                 </h4>
-                <span className="text-xs text-slate-400 font-medium">
-                  {syllabus.length} Structured Modules
-                </span>
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs text-slate-400 font-medium">
+                    {syllabus.length} Structured Modules
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setShowPrintModal(true)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-white border border-sky-500/35 transition cursor-pointer shadow-sm"
+                    title="Open official printable syllabus specification (A4)"
+                  >
+                    <i className="bi bi-printer"></i>
+                    <span>Print Syllabus</span>
+                  </button>
+                </div>
               </div>
 
               {syllabus.length > 0 ? (
@@ -695,7 +709,7 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
 
         {/* Modal Footer with generous padding */}
         <div className="p-5 sm:p-6 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+          <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap sm:flex-nowrap">
             <button
               onClick={() => {
                 onClose();
@@ -706,6 +720,15 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
             >
               <i className="bi bi-qr-code-scan"></i>
               <span>Student QR &amp; WhatsApp</span>
+            </button>
+
+            <button
+              onClick={() => setShowPrintModal(true)}
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl bg-sky-600/25 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/40 transition cursor-pointer"
+              title="Print or Save Official Course Syllabus Document (A4)"
+            >
+              <i className="bi bi-printer"></i>
+              <span>Print Syllabus</span>
             </button>
 
             <button
@@ -737,6 +760,16 @@ const CourseDetailsModal = ({ course, category, onClose, onOpenQR }) => {
         </div>
       </motion.div>
     </div>
+
+    {showPrintModal && (
+      <PrintableCourseSyllabusModal
+        isOpen={showPrintModal}
+        course={course}
+        category={category}
+        onClose={() => setShowPrintModal(false)}
+      />
+    )}
+  </>
   );
 };
 
