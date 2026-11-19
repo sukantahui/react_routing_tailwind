@@ -1,48 +1,423 @@
 =============================================================================
-CODER & ACCOTAX ACADEMIC STUDY NOTES
+CODER & ACCOTAX ACADEMIC STUDY NOTES & ENGINEERING HANDBOOK
 Course: Introduction to Machine Learning (Subject Code: BCAC701B)
-Module: Data Types and Preprocessing
-Topic 22: Worked Example 2: Handling missing salary values
-Author: Sukanta Hui | Barrackpore, West Bengal, India
+Module: Data Types and Preprocessing (Slug: 001_002_data-types-and-preprocessing)
+Topic 22: Worked Example 2: Handling Missing Salary Values
+Lead Author: Sukanta Hui | Head of AI & Advanced Analytics | Barrackpore, WB
+Academic Body: MAKAUT (Maulana Abul Kalam Azad University of Technology)
 =============================================================================
 
-1. THEORETICAL FOUNDATION & CONCEPTS
 -----------------------------------------------------------------------------
-Topic: Worked Example 2: Handling missing salary values
-Module Scope: Data Types and Preprocessing
+1. THEORETICAL FOUNDATION: RUBIN'S MISSING DATA TAXONOMY
+-----------------------------------------------------------------------------
+In tabular data preprocessing, compensation (salary, CTC, income) represents one
+of the most statistically sensitive continuous features. Missingness in salary
+records is rarely a benign cosmetic gap; it is governed by latent behavioral,
+administrative, and commercial mechanisms.
 
-Core Conceptual Formulation:
-- Detailed examination of Worked Example 2: Handling missing salary values within the Data Types and Preprocessing framework.
-- Mathematical formulation, algorithmic mechanics, and optimization equations.
-- In-depth understanding of loss surfaces, bias-variance trade-offs, and empirical convergence.
+Formally defined by Donald B. Rubin (1976), let the complete data matrix be 
+partitioned as:
+    Y = (Y_obs, Y_mis)
+where Y_obs denotes the subset of observed values and Y_mis denotes the subset of
+missing values. Let M be an indicator matrix of identical dimensions where:
+    M_ij = 1  if Y_ij is missing
+    M_ij = 0  if Y_ij is observed
+
+The probability of missingness is governed by the conditional distribution:
+    P(M | Y_obs, Y_mis, \psi)
+where \psi represents the latent parameters indexing the missingness mechanism.
+
+Rubin categorized missing data mechanisms into three distinct mathematical regimes:
+
+1.1 Missing Completely at Random (MCAR)
+Missingness is strictly independent of both observed and unobserved data:
+    P(M | Y_obs, Y_mis, \psi) = P(M | \psi)   \forall Y_obs, Y_mis
+
+- Practical Reality: A database packet drop, an optical character recognition (OCR)
+  scan failure on an onboarding form, or an accidental page skip by a data entry
+  clerk at a Salt Lake Sector V HR operations desk.
+- Statistical Implication: Observed cases represent a completely random subsample
+  of the target population. Sample mean and variance computed on Y_obs remain
+  asymptotically unbiased, though statistical power and sample size (N) are reduced.
+- Little's MCAR Test: Evaluates the null hypothesis H0: Data is MCAR using a 
+  multivariate chi-squared statistic:
+    d^2 = \sum_{j=1}^J N_j (\bar{Y}_j - \hat{\mu}_j)^T \hat{\Sigma}_j^{-1} (\bar{Y}_j - \hat{\mu}_j) \sim \chi^2(df)
+
+1.2 Missing at Random (MAR)
+Missingness depends systematically on observed covariate features, but NOT on
+the missing value itself once conditioned on those covariates:
+    P(M | Y_obs, Y_mis, \psi) = P(M | Y_obs, \psi)   \forall Y_mis
+
+- Practical Reality: In an IT firm cohort, Software Engineers (SE) with less than
+  2 years of experience might frequently omit salary because campus hire compensation
+  is standardized, or Senior Staff Engineers might omit salary because company
+  policy dictates stock unit equity rather than liquid cash disclosure.
+- Statistical Implication: Ignoring the missingness mechanism produces severe 
+  estimation bias. However, conditioning on observed covariates (e.g., Job Role, 
+  Years of Experience, Academic Degree Rank) restores identifiability. Conditional
+  imputation (Group Median, KNN, Regression) yields statistically consistent estimators.
+
+1.3 Missing Not at Random (MNAR / Non-Ignorable)
+Missingness depends directly on the unobserved value itself, even after controlling
+for all observed covariates:
+    P(M | Y_obs, Y_mis, \psi) \neq P(M | Y_obs, \psi)
+
+- Practical Reality: High-net-worth executives, CXOs, or Engineering Managers earning
+  over ₹40 LPA actively withhold their salary on loan application portals due to
+  privacy concerns or fear of higher income-tax bracket profiling. Conversely, workers
+  earning below minimum wage might conceal compensation due to social stigma.
+- Statistical Implication: The missingness process is non-ignorable. Any imputation
+  model fitted solely on observed records Y_obs suffers from severe survivor truncation
+  bias. Deleting missing rows drastically deflates the estimated population mean.
+  Resolution requires either joint modeling (Heckman selection model) or the explicit
+  engineering of a Missingness Indicator feature:
+    I_{salary_missing} \in {0, 1}
 
 -----------------------------------------------------------------------------
-2. MATHEMATICAL FORMULATION & ALGORITHMS
+2. THE SALARY DISTRIBUTION PROBLEM: SKEWNESS & OUTLIERS
 -----------------------------------------------------------------------------
-- Input Feature Matrix: X in R^(N x d)
-- Optimization Function: min_w (1/N) * sum_{i=1}^N Loss(h(x_i), y_i) + lambda * Omega(w)
-- Continuous evaluation of empirical error gradients and hyperparameter tuning.
+Unlike height or standardized test scores, compensation distributions in human
+economies do not conform to a Gaussian bell curve \mathcal{N}(\mu, \sigma^2).
+They are governed by right-skewed distributions—empirically modeled by Log-Normal
+or Pareto Type I distributions:
+    f(y; \alpha, y_m) = \frac{\alpha \cdot y_m^\alpha}{y^{\alpha + 1}}   \text{ for } y \ge y_m
+
+Key Empirical Characteristics of Salary Distributions:
+1. Positivity Bound: Salary y > 0 (strictly positive support).
+2. Right Heavy Tail: A small fraction of elite professionals (e.g., Tech Leads,
+   Directors) earn compensation multiple orders of magnitude greater than the entry-level mode.
+3. Disconnect Between Mean and Median:
+   In skewed data:
+       Mean(\mathbf{y}) > Median(\mathbf{y})
+   The arithmetic mean is pulled sharply upward by executive compensation outliers.
+   For instance, in our Salt Lake IT cohort:
+       Ground Truth Mean: ₹18.06 LPA
+       Ground Truth Median: ₹14.15 LPA
+
+Mathematical Consequence for Baseline Imputation:
+- If a data scientist imputes missing salaries using the Global Mean (\bar{y}),
+  entry-level engineers (e.g., Mahima, true salary ₹5.2 LPA) are artificially
+  imputed with ₹17-18 LPA, massively overestimating their creditworthiness or
+  underestimating their risk of attrition.
+- Global Median minimizes the L1 loss:
+    \hat{y}_{median} = \arg\min_c \sum_{i \in \text{Obs}} |y_i - c|
+  Median is robust to Pareto tails, but global imputation completely destroys
+  variance and cross-feature covariance.
 
 -----------------------------------------------------------------------------
-3. REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES
+3. MATHEMATICAL PROOF OF VARIANCE DEFLATION UNDER MEAN IMPUTATION
 -----------------------------------------------------------------------------
-Case 1: Academic Learning Analytics at Barrackpore Institute (Mamata & Mahima)
-Case 2: Commercial Real Estate & Financial Valuation in Kolkata & Salt Lake (Debangshu)
-Case 3: Retail Customer Intelligence & Segmentation in Ichapur (Susmita)
-Case 4: Clinical Diagnostic Perception at Jadavpur Medical Research Hub (Abhronila)
+A pervasive trap in industrial data science is the unrecognized destruction of
+sample variance caused by imputing constant central tendencies.
+
+Theorem (Variance Deflation):
+Let a sample of size N have N_obs observed values and N_mis missing values, with
+missing fraction f = N_mis / N. Suppose the missing values are imputed with the
+sample mean of observed values:
+    \bar{y}_{obs} = \frac{1}{N_{obs}} \sum_{i=1}^{N_{obs}} y_i
+
+Let S^2_{obs} be the sample variance of the observed data:
+    S^2_{obs} = \frac{1}{N_{obs} - 1} \sum_{i=1}^{N_{obs}} (y_i - \bar{y}_{obs})^2
+
+Let S^2_{imputed} be the sample variance of the completed dataset of size N:
+    S^2_{imputed} = \frac{1}{N - 1} \sum_{i=1}^N (y_i - \bar{y}_{completed})^2
+
+Since \bar{y}_{completed} = \bar{y}_{obs}, the deviation of each imputed record is:
+    (y_j - \bar{y}_{completed}) = (\bar{y}_{obs} - \bar{y}_{obs}) = 0   \forall j \in \text{Missing}
+
+Therefore:
+    \sum_{i=1}^N (y_i - \bar{y}_{completed})^2 = \sum_{i=1}^{N_{obs}} (y_i - \bar{y}_{obs})^2 + \sum_{j=1}^{N_{mis}} (0)^2
+                                              = (N_{obs} - 1) S^2_{obs}
+
+Dividing by (N - 1):
+    S^2_{imputed} = \frac{N_{obs} - 1}{N - 1} S^2_{obs} \approx (1 - f) S^2_{obs}
+
+Corollary:
+1. Imputing a constant mean shrinks the estimated variance by approximately the
+   missing fraction (1 - f). If 25% of salary records are missing (f = 0.25),
+   the post-imputation variance is artificially reduced by 25%.
+2. Standard error of model coefficients \hat{\beta} is underestimated:
+    SE(\hat{\beta}) = \frac{\hat{\sigma}}{\sqrt{\sum (x_i - \bar{x})^2}}
+   This produces artificially narrow confidence intervals and inflated t-statistics,
+   leading to false discoveries (Type I errors) in scientific and financial models.
 
 -----------------------------------------------------------------------------
-4. COMMON PITFALLS & INDUSTRY BEST PRACTICES
+4. STRATIFIED GROUP MEDIAN IMPUTATION
 -----------------------------------------------------------------------------
-- Common Pitfall: Premature overfitting on training data without validation cross-checks.
-- Common Pitfall: Failing to scale input features prior to gradient descent optimization.
-- Best Practice: Always establish a simple baseline benchmark before training complex models.
-- Best Practice: Rigorously audit test splits to prevent subtle data leakage.
+To mitigate the global distortion while retaining deterministic simplicity,
+we condition on salient categorical features that correlate strongly with salary.
+
+Mathematical Formulation:
+Let C be a categorical partitioning variable (e.g., Job Role \in {SE, SSE, Lead, EM}).
+For each group k \in \mathcal{C}:
+    \Omega_k = \{i \in \text{Observed} \mid C_i = k\}
+The group median \hat{\mu}_k is computed as:
+    \hat{\mu}_k = \text{Median}(\{y_i \mid i \in \Omega_k\})
+
+For any missing record j with category C_j = k:
+    \hat{y}_j = \begin{cases}
+        \hat{\mu}_k & \text{if } |\Omega_k| \ge n_{min} \\
+        \hat{\mu}_{global} & \text{if } |\Omega_k| < n_{min} \text{ (Hierarchical Fallback)}
+    \end{cases}
+
+Multi-Level Fallback Hierarchy:
+In production, hierarchical cascading avoids cold-start crashes:
+    Level 1: Condition on (Role, Experience Bracket, Education Degree)
+    Level 2: Condition on (Role, Experience Bracket)
+    Level 3: Condition on (Role)
+    Level 4: Global Median of Observed Records
+
+In our Salt Lake IT experiment:
+- Mahima (Role = SE) receives the median of observed SEs: Median(6.5, 7.8, 6.0) = ₹6.5 LPA
+  (True salary: ₹5.2 LPA, absolute error = ₹1.30 LPA).
+- Priyanka (Role = SSE) receives the median of observed SSEs: Median(14.5, 13.8, 15.2) = ₹14.5 LPA
+  (True salary: ₹16.0 LPA, absolute error = ₹1.50 LPA).
+- Subhajit (Role = EM) receives the median of observed EMs: Median(38.0) = ₹38.0 LPA
+  (True salary: ₹42.0 LPA, absolute error = ₹4.00 LPA).
+- Overall MAE drops significantly from ₹10.36 LPA (Global Median) to ₹2.27 LPA.
 
 -----------------------------------------------------------------------------
-5. INSTRUCTOR CHECKLIST & REVISION NOTES (SUKANTA HUI)
+5. DISTANCE-WEIGHTED K-NEAREST NEIGHBORS (KNN) IMPUTATION
 -----------------------------------------------------------------------------
-[ ] Master the foundational definitions, formulas, and terminology of Worked Example 2: Handling missing salary values.
-[ ] Understand the step-by-step algorithmic pipeline and optimization updates.
-[ ] Relate theoretical principles to regional industrial case studies and applications.
+When multiple continuous and ordinal attributes are available (e.g., Years of
+Experience, Education Degree Rank, Certifications), nearest-neighbor imputation
+leverages multi-dimensional proximity without imposing strict linear relationships.
+
+5.1 Distance Normalization (Min-Max Feature Scaling)
+Raw Euclidean distance is dominated by features with large absolute scales.
+Before distance computation, all donor features X \in \mathbb{R}^d must be normalized
+to the unit hypercube [0, 1]^d:
+    x'_{i,k} = \frac{x_{i,k} - \min(X_k)}{\max(X_k) - \min(X_k)}
+
+5.2 Distance Metric
+For missing query record \mathbf{q} and donor candidate \mathbf{x}_i:
+    d(\mathbf{q}, \mathbf{x}_i) = \sqrt{\sum_{k=1}^d (q'_k - x'_{i,k})^2}
+
+5.3 Inverse-Distance Kernel Weighting
+To prioritize immediate neighbors over distant ones, weights are assigned using
+inverse distance with a smoothing parameter \epsilon = 10^{-5}:
+    w_i = \frac{1}{d(\mathbf{q}, \mathbf{x}_i) + \epsilon}
+
+Let \mathcal{N}_K(\mathbf{q}) be the set of K nearest donors with observed salary values.
+The imputed value is the convex combination:
+    \hat{y}_{\mathbf{q}} = \frac{\sum_{i \in \mathcal{N}_K(\mathbf{q})} w_i \cdot y_i}{\sum_{i \in \mathcal{N}_K(\mathbf{q})} w_i}
+
+In our Salt Lake IT experiment (with K=2, features = [exp_years, degree_rank]):
+- Mahima (exp=1.5, deg=0): Nearest donors are Tanmoy (exp=2.5, deg=0) and Susmita (exp=2.0, deg=1).
+  Imputed salary: ₹6.19 LPA (True: ₹5.20 LPA, Error: ₹0.99 LPA).
+- Priyanka (exp=6.0, deg=1): Nearest donors are Kallol (exp=5.5, deg=1) and Mamata (exp=5.0, deg=2).
+  Imputed salary: ₹15.01 LPA (True: ₹16.00 LPA, Error: ₹0.99 LPA).
+- Subhajit (exp=14.0, deg=2): Nearest donors are Abhronila (exp=12.0, deg=3) and Sourav (exp=10.0, deg=2).
+  Imputed salary: ₹34.05 LPA (True: ₹42.00 LPA, Error: ₹7.95 LPA).
+Overall KNN MAE = ₹3.31 LPA.
+
+-----------------------------------------------------------------------------
+6. STOCHASTIC REGRESSION IMPUTATION (MICE / FCS)
+-----------------------------------------------------------------------------
+While deterministic regression (\hat{y} = \mathbf{x}^T \hat{\beta}) predicts the
+conditional expectation E[Y | X], it exhibits the exact same variance-deflation
+pathology as mean imputation along the regression hyperplane. It creates points
+that lie perfectly on the regression line, artificially boosting the correlation
+coefficient r(X, Y) and suppressing residual error.
+
+6.1 Ordinary Least Squares Regression on Observed Data
+Fit a linear relationship between observed experience x and observed salary y:
+    \hat{\beta}_1 = \frac{\sum_{i=1}^{N_{obs}} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{N_{obs}} (x_i - \bar{x})^2}
+    \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}
+
+Residual variance estimate:
+    \hat{\sigma}^2_e = \frac{1}{N_{obs} - 2} \sum_{i=1}^{N_{obs}} (y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_i))^2
+
+In our Salt Lake dataset:
+    \hat{\beta}_1 = 2.9431  (₹2.94 LPA per year of experience)
+    \hat{\beta}_0 = 0.5847  (₹0.58 LPA base)
+    \hat{\sigma}_e = 1.3412 LPA
+
+6.2 Residual Noise Injection (Stochastic Imputation)
+To faithfully reproduce the underlying population distribution, stochastic regression
+draws a random residual shock from the estimated residual error distribution:
+    \epsilon_j \sim \mathcal{N}(0, \hat{\sigma}^2_e)
+    \hat{y}_j = \max(0.0, \hat{\beta}_0 + \hat{\beta}_1 x_j + \epsilon_j)
+
+This is the foundational step of Multiple Imputation by Chained Equations (MICE):
+- Deterministic Imputed Mean: ₹17.65 LPA, Std Dev: ₹12.01 LPA
+- Stochastic Imputed Mean: ₹17.92 LPA, Std Dev: ₹12.51 LPA
+- Ground Truth Mean: ₹18.06 LPA, Std Dev: ₹12.83 LPA
+Variance preservation ratio under stochastic regression reaches 97.5%, compared
+to only 78.4% under global median imputation!
+
+-----------------------------------------------------------------------------
+7. WEST BENGAL REGIONAL INDUSTRIAL CASE STUDIES
+-----------------------------------------------------------------------------
+
+Case Study 1: FinTech Retail Micro-Lending in Barrackpore & Ichapur
+Context: Susmita operates an underwriting algorithm at a Barrackpore NBFC offering
+unsecured credit to small retail shopkeepers along Old Calcutta Road.
+Challenge: Over 35% of applicant loan files contain missing reported monthly income.
+Applicants often lack formal ITRs or payslips.
+Mechanism Audit: Missingness is MAR conditioned on Business Type (grocery vs garment)
+and Daily UPI Transaction Volume recorded by PhonePe/Paytm QR codes.
+Solution Implemented: Susmita built a stratified regression imputation engine conditioned
+on daily UPI settlement volume and commercial shop floor area. Imputing median income
+by commercial cluster prevented under-lending to high-turnover grocery merchants.
+
+Case Study 2: Salt Lake Sector V IT Offshoring Vendor Salary Benchmarking
+Context: Mamata and Mahima manage workforce analytics for an IT consulting vendor
+in Salt Lake Sector V with 4,500 software professionals across Eastern India.
+Challenge: Annual market compensation survey responses suffer 22% missingness.
+Senior Lead Architects (> ₹30 LPA) refuse to disclose current CTC.
+Mechanism Audit: MNAR mechanism. Excluding non-disclosing leads reduced the survey's
+75th percentile benchmark by ₹6.2 LPA, leading to client under-billing and employee
+poaching by multinational tech campuses in Rajarhat.
+Solution Implemented: Implemented an explicit Missingness Indicator feature combined
+with stochastic regression imputation on verified years of experience and GitHub/LeetCode
+skill assessment percentiles. Recalibrated compensation bands retained senior talent.
+
+Case Study 3: Healthcare Consultant Specialist Billing in Kolkata & Jadavpur
+Context: Abhronila oversees clinical data operations across a super-specialty hospital
+chain with facilities in Jadavpur, EM Bypass, and Dhakuria.
+Challenge: Visiting senior consultant surgeons frequently leave consultation fee
+fields blank on electronic health records (EHR), resulting in revenue leakage.
+Mechanism Audit: Missingness is MAR conditioned on surgical specialty (Cardiac vs
+Orthopedic vs General) and bed occupancy duration.
+Solution Implemented: Implemented a Distance-Weighted KNN Imputer (K=3) matching
+visiting surgeons by primary procedural specialty code and operational theatre hours.
+Imputed fee accuracy reached 96.4% of audit reconciliation values.
+
+Case Study 4: Commercial Real Estate Lease Valuations in New Town & Rajarhat
+Context: Debangshu is developing an automated property valuation model for commercial
+office parks in New Town Action Area II.
+Challenge: Lease agreements for emerging FinTech startups frequently omit tenant executive
+compensation payroll declarations required for corporate bond risk ratings.
+Mechanism Audit: Mixed MAR and MNAR. High-growth VC-backed startups deliberately
+withhold executive salaries to protect equity negotiation leverage.
+Solution Implemented: Applied MICE (Iterative Fully Conditional Specification) chaining
+paid-up equity capital, leased square footage, and total headcounts to impute
+missing payroll obligations without deflating macroeconomic volatility.
+
+-----------------------------------------------------------------------------
+8. COMMON PRODUCTION PITFALLS & ARCHITECTURAL VULNERABILITIES
+-----------------------------------------------------------------------------
+
+Pitfall 1: Imputation Data Leakage (Fit-Before-Split Crime)
+- Antipattern: Computing `imputer.fit(X)` or `df['salary'].fillna(df['salary'].median())`
+  on the entire dataset prior to performing train/test cross-validation splits.
+- Architectural Consequence: Test-set salary distribution information bleeds into
+  the training set. Model evaluation metrics (RMSE, R^2) look unrealistically
+  optimistic in offline development, but degrade catastrophically in live production.
+- Production Fix: Always fit imputers strictly on `X_train`, and call `imputer.transform(X_test)`
+  using the frozen training statistics.
+
+Pitfall 2: Listwise Deletion (Dropna) Under Non-MCAR Regimes
+- Antipattern: Executing `df.dropna(subset=['salary'])` when missingness is MAR or MNAR.
+- Architectural Consequence: In our Salt Lake experiment, dropping rows with missing
+  salaries removes Subhajit (EM, ₹42 LPA), deflating the mean from ₹18.06 LPA to
+  ₹15.82 LPA. The model completely loses the capacity to predict executive compensation.
+- Production Fix: Test missingness patterns using correlation matrices between M
+  and covariates before ever resorting to row elimination.
+
+Pitfall 3: Failing to Encode a Missingness Indicator
+- Antipattern: Replacing missing salaries with median values without recording that
+  an imputation occurred.
+- Architectural Consequence: In MNAR settings, the fact that an applicant withheld
+  salary is itself a highly informative predictive signal (e.g., credit risk or privacy
+  consciousness). A constant imputation erases this critical behavioral signature.
+- Production Fix: Deploy `sklearn.impute.MissingIndicator` or manually append:
+    df['salary_is_missing'] = df['salary'].isna().astype(int)
+
+Pitfall 4: Negative Salary Imputation from Unbounded Parametric Regressors
+- Antipattern: Applying standard linear regression without truncation on low-experience
+  candidates with large negative residual shocks:
+    \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x + \epsilon \implies -₹1.8 \text{ LPA}
+- Architectural Consequence: Downstream financial scoring pipelines crash or produce
+  impossible negative borrowing limits.
+- Production Fix: Enforce hard domain boundary clamps:
+    \hat{y}_{safe} = \max(\text{Minimum\_Wage}, \hat{y}_{imputed})
+  or fit models in log-transformed space: \log(y) \sim X.
+
+-----------------------------------------------------------------------------
+9. COMPREHENSIVE REVISION CHECKLIST (SUKANTA HUI)
+-----------------------------------------------------------------------------
+[ ] Understand Rubin's missing data taxonomy: MCAR vs MAR vs MNAR and their mathematical definitions.
+[ ] State the mathematical proof showing why mean imputation deflates sample variance by (1 - f).
+[ ] Understand why salary is right-skewed and why median is preferred over mean for central tendency.
+[ ] Explain the step-by-step mechanics of Stratified Group Median Imputation and fallback trees.
+[ ] Calculate Distance-Weighted KNN Imputation given normalized multi-feature vectors.
+[ ] Differentiate between deterministic and stochastic regression imputation in MICE.
+[ ] Recognize how listwise deletion induces survivor bias under MAR/MNAR data.
+[ ] Design production pipelines using Scikit-Learn ColumnTransformer without causing data leakage.
+[ ] Implement the Missingness Indicator pattern for non-ignorable missing salary data.
+[ ] Enforce physical boundary constraints (non-negativity, statutory minimum wage) on imputed outputs.
+
+-----------------------------------------------------------------------------
+10. MAKAUT SEMESTER EXAMINATION & VIVA VOCE QUESTIONS WITH MODEL ANSWERS
+-----------------------------------------------------------------------------
+
+Q1: What is the formal difference between MAR and MCAR in the context of salary data?
+Answer: Under MCAR (Missing Completely at Random), the probability of missingness
+is independent of both observed and unobserved data: P(M | Y_obs, Y_mis) = P(M).
+An example is an accidental database drop of an onboarding form. Under MAR
+(Missing at Random), missingness depends on observed features (e.g., Job Role,
+Experience) but not on the missing salary itself once conditioned:
+P(M | Y_obs, Y_mis) = P(M | Y_obs). For example, entry-level engineers may omit
+salary because campus compensation is standardized.
+
+Q2: Why does global mean imputation cause severe distortion in salary prediction models?
+Answer: Salary data exhibits strong positive skewness with a heavy Pareto right tail.
+The arithmetic mean is pulled upward by high-earning outliers, making it an unrepresentative
+measure of central tendency. Imputing the global mean systematically overestimates
+entry-level salaries and severely deflates the overall sample variance by approximately
+(1 - f), where f is the missing fraction.
+
+Q3: Prove mathematically that mean imputation shrinks sample variance.
+Answer: Let complete sample variance be S^2 = \frac{1}{N-1} \sum_{i=1}^N (y_i - \bar{y})^2.
+If N_mis values are replaced with \bar{y}_{obs}, their deviations (y_j - \bar{y}_{obs})
+equal zero. Thus, the sum of squared deviations over all N observations equals the sum
+over only the N_obs observed records: (N_obs - 1) S^2_{obs}. Dividing by (N - 1) yields:
+S^2_{imputed} = \frac{N_{obs} - 1}{N - 1} S^2_{obs} \approx (1 - f) S^2_{obs}.
+
+Q4: What is the primary vulnerability of K-Nearest Neighbors (KNN) imputation when applied to salary?
+Answer: KNN distance metrics (e.g., Euclidean distance) are highly sensitive to feature
+scales. If Experience (range 1-15 years) and Age (range 20-60) are not normalized,
+one feature dominates neighbor selection. Furthermore, KNN has an inference complexity
+of O(N_{obs} \cdot d) per missing record, making it computationally expensive on massive
+streaming production datasets without spatial indexing (KD-Trees or BallTrees).
+
+Q5: When is Listwise Deletion (dropping missing rows) statistically acceptable?
+Answer: Listwise deletion is only acceptable when data is demonstrably MCAR and the
+missing fraction f is very small (< 5%), so the statistical power reduction is negligible.
+Under MAR or MNAR, listwise deletion discards non-random subsets of the population,
+causing severe selection and survivor bias in model parameters.
+
+Q6: What is Stochastic Regression Imputation and why is it superior to Deterministic Regression?
+Answer: Deterministic regression predicts missing values strictly on the fitted regression line
+\hat{y} = \mathbf{x}^T \hat{\beta}. This eliminates residual variation and artificially inflates
+the correlation between predictors and salary. Stochastic regression adds a random error
+draw \epsilon \sim \mathcal{N}(0, \hat{\sigma}^2_e) to each prediction, preserving both
+the conditional mean and the full natural variance of the population distribution.
+
+Q7: What is the Missingness Indicator pattern and when should it be deployed?
+Answer: The Missingness Indicator pattern creates a binary auxiliary feature:
+I_i = 1 if salary was missing, 0 otherwise. It should be deployed whenever missingness
+is suspected to be MNAR (Non-Ignorable). It allows tree-based and linear models to learn
+the distinct behavioral risk profile of users who chose to withhold their compensation.
+
+Q8: How does data leakage manifest during missing value imputation in a machine learning workflow?
+Answer: Imputation data leakage occurs when statistics (mean, median, KNN donors, regression
+coefficients) are calculated over the entire dataset before splitting into training and
+validation/test folds. The model learns from validation distribution parameters, resulting
+in over-optimistic validation metrics that fail in real-world deployment. Imputers must
+strictly follow the `fit(X_train)` and `transform(X_test)` paradigm.
+
+Q9: How do you handle cold-start missing values where a specific category has zero observed salary donors?
+Answer: Deploy a Hierarchical Fallback Strategy. For example, if a newly created role
+has zero observed salaries, fallback from Level 1 (Role + Experience bucket) to Level 2
+(Experience bucket across department) to Level 3 (Department median) to Level 4 (Global median).
+
+Q10: Why must physical boundary constraints be enforced post-imputation for salary values?
+Answer: Parametric regression models and stochastic error draws can occasionally produce
+negative values or figures below the statutory minimum wage for low-experience candidates.
+Production pipelines must enforce hard domain clamping: \hat{y} = \max(\text{Minimum\_Wage}, \hat{y}).
+=============================================================================
+AUTHOR SIGNATURE: Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal, India
 =============================================================================
