@@ -1,279 +1,544 @@
 /**
- * Topic 2: Relevant and irrelevant features
- * 30 Assessment Questions (Moderate to Expert)
- * Author: Sukanta Hui | Coder & AccoTax | Barrackpore
+ * =============================================================================
+ * CODER & ACCOTAX ACADEMIC QUESTION BANK
+ * Course: Introduction to Machine Learning (BCAC701B)
+ * Module 3: Feature Selection and Training & Testing Data
+ * Topic 2: Relevant and Irrelevant Features
+ * Lead Author: Sukanta Hui | Barrackpore, West Bengal, India
+ * 
+ * 30 Authentic Graded Questions Across 4 Rigorous Pedagogical Tiers:
+ * - Tier 1: Conceptual Foundations & Terminology (Q1 - Q8)
+ * - Tier 2: Mathematical Formulations & Information Theory (Q9 - Q16)
+ * - Tier 3: Applied Architecture, Algorithms & Feature Dynamics (Q17 - Q24)
+ * - Tier 4: Real-World Industrial Case Studies & Troubleshooting (Q25 - Q30)
+ * =============================================================================
  */
 
 const questions = [
+  // =========================================================================
+  // TIER 1: CONCEPTUAL FOUNDATIONS & TERMINOLOGY (Q1 - Q8)
+  // =========================================================================
   {
-    "id": 1,
-    "question": "Question 1 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #1)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #1 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q1)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 1,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "A junior data scientist at WBSEDCL assumes that discarding a feature is safe as long as other features correlate with the target.",
+    question: "Under the seminal Kohavi-John (1997) framework, when is a feature X_i formally defined as 'Strongly Relevant'?",
+    options: [
+      "When its Pearson correlation with the target variable exceeds |r| >= 0.85.",
+      "When removing X_i from the full feature set S causes a change in the conditional probability distribution P(Y | S) for some instance.",
+      "When it exhibits positive mutual information with at least one other input feature in the dataset.",
+      "When it has the lowest p-value in a univariate ordinary least squares regression."
+    ],
+    correct: 1,
+    explanation: "A feature X_i is strongly relevant if and only if P(Y = y | X_i = x_i, S_i = s_i) != P(Y = y | S_i = s_i) for some values, where S_i is the set of all other features. This proves X_i provides unique information that no other combination of features can replicate.",
+    practicalTip: "Strongly relevant features are non-negotiable; removing any strongly relevant feature will strictly degrade the Bayes optimal error rate."
   },
   {
-    "id": 2,
-    "question": "Question 2 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #2)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #2 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q2)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 2,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "During an audit of a patient diagnostic database in Salt Lake, a feature 'ambient_room_temperature_fahrenheit' is found alongside 'ambient_room_temperature_celsius'.",
+    question: "How does the Kohavi-John taxonomy classify a redundant feature that carries predictive power but duplicates existing information?",
+    options: [
+      "As a Strongly Relevant feature because it correlates with the target.",
+      "As an Irrelevant feature because it contains zero predictive signal.",
+      "As a Weakly Relevant feature because its predictive power is subsumed when the full feature set is present.",
+      "As a Non-Conforming Latent feature requiring dimensional embedding."
+    ],
+    correct: 2,
+    explanation: "A feature is weakly relevant if it is not strongly relevant, but there exists some subset S' of features such that P(Y | X_i, S') != P(Y | S'). A redundant feature is weakly relevant: it carries predictive information alone, but given its duplicate, it adds no unique conditional information.",
+    practicalTip: "Pruning redundant features simplifies the model, reduces multicollinearity, and speeds up training without sacrificing Bayes optimal accuracy."
   },
   {
-    "id": 3,
-    "question": "Question 3 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #3)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #3 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q3)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 3,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "An ML pipeline ingests customer records containing random 128-bit UUID strings generated by a distributed database cluster.",
+    question: "What is the formal definition of an 'Irrelevant Feature' in machine learning theory?",
+    options: [
+      "A feature whose mean value across training samples is equal to zero.",
+      "A feature that is conditionally independent of target Y given every possible subset of remaining features.",
+      "A feature that exhibits high collinearity with the primary predictor.",
+      "A feature with a non-Gaussian empirical probability density distribution."
+    ],
+    correct: 1,
+    explanation: "An irrelevant feature X_i satisfies P(Y = y | X_i = x_i, S' = s') = P(Y = y | S' = s') for ALL subsets S' of the remaining features. It provides strictly zero predictive information under all conditions.",
+    practicalTip: "High-cardinality IDs and random hashes should be dropped at the data ingestion gateway to prevent tree-based models from memorizing spurious splits."
   },
   {
-    "id": 4,
-    "question": "Question 4 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #4)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #4 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q4)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 4,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "In a binary classification task where Y = X1 XOR X2, a student calculates the Pearson correlation between X1 and Y and finds r = 0.00.",
+    question: "Why do univariate filter methods fail catastrophically in detecting feature relevance in XOR / parity problems?",
+    options: [
+      "Because Pearson correlation is only defined for continuous target variables.",
+      "Because univariate filters evaluate each feature in isolation, missing multivariate interactive synergies.",
+      "Because the XOR operator introduces complex numbers into the covariance matrix.",
+      "Because gradient descent cannot converge on non-convex loss functions."
+    ],
+    correct: 1,
+    explanation: "In the XOR problem, P(Y=1|X1=1) = 0.5 and P(Y=1|X1=0) = 0.5. Individually, X1 and Y are statistically independent (I(X1; Y) = 0, r = 0). A univariate filter evaluates X1 alone and discards it as irrelevant, completely missing the fact that {X1, X2} jointly predicts Y with 100% accuracy.",
+    practicalTip: "Never rely exclusively on univariate filters when domain knowledge suggests non-linear interactions or synergistic physical couplings."
   },
   {
-    "id": 5,
-    "question": "Question 5 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #5)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #5 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q5)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 5,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "A data engineer in Kolkata argues: 'We should include all 300 collected sensor metrics in our KNN classifier because KNN will just ignore non-useful dimensions.'",
+    question: "What actually happens to a k-Nearest Neighbors (KNN) classifier when many irrelevant noise features are added?",
+    options: [
+      "KNN automatically scales noise feature weights to zero during training.",
+      "Distance calculations become dominated by noise, making all pairwise distances nearly equal and destroying neighborhood structure.",
+      "The computational time complexity drops to O(1) due to sparse matrix acceleration.",
+      "The decision boundary becomes perfectly linear regardless of k."
+    ],
+    correct: 1,
+    explanation: "KNN computes Euclidean distance: d(u, v) = sqrt(sum (u_j - v_j)^2). As irrelevant dimensions increase, the noise terms dominate the sum. In high dimensions, (dist_max - dist_min) / dist_min -> 0. All points become equidistant, rendering the concept of 'nearest neighbor' meaningless.",
+    practicalTip: "Distance-based algorithms (KNN, RBF SVM, K-Means) are exceptionally vulnerable to irrelevant features; feature selection is mandatory."
   },
   {
-    "id": 6,
-    "question": "Question 6 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #6)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #6 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q6)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 6,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "A team evaluating smart-meter energy consumption in Barrackpore wants to distinguish between 'Relevance' and 'Usefulness' of features.",
+    question: "What is the critical distinction between a feature being 'Relevant' versus being 'Useful' for a specific model?",
+    options: [
+      "Relevance is bounded between -1 and +1, whereas usefulness is unbounded.",
+      "Relevance is an intrinsic property of the underlying data-generating distribution, whereas usefulness depends on the specific learning algorithm and computational constraints.",
+      "Usefulness requires the feature to have zero variance across all training folds.",
+      "There is no distinction; the terms are mathematically identical in all ML literature."
+    ],
+    correct: 1,
+    explanation: "Relevance (Kohavi-John) is defined with respect to the true conditional distribution P(Y | X) independent of any model. Usefulness reflects whether a specific learning algorithm (e.g. a linear model vs random forest) can exploit that feature to improve empirical accuracy under sample and computational limits.",
+    practicalTip: "A strongly relevant feature might not be 'useful' to a linear model if the relationship with target Y is non-linear and no non-linear transformations are provided."
   },
   {
-    "id": 7,
-    "question": "Question 7 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #7)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #7 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q7)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 7,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "An analyst measures student performance in Ichapur and notes that adding 20 random noise columns increases training accuracy from 84% to 96%, but test accuracy drops from 82% to 64%.",
+    question: "What theoretical phenomenon explains this divergence between training and test accuracy upon adding irrelevant features?",
+    options: [
+      "Underfitting caused by excessive regularization penalties.",
+      "Overfitting and variance inflation, as the model memorizes spurious random alignments between noise features and training labels.",
+      "Data leakage from the test set into the cross-validation folds.",
+      "Numerical underflow in floating-point gradient updates."
+    ],
+    correct: 1,
+    explanation: "Every irrelevant feature grants the model additional degrees of freedom to memorize random noise patterns in the training sample. The model's empirical training loss decreases, but estimation variance increases, severely destroying out-of-sample generalization.",
+    practicalTip: "Always monitor the generalization gap (Train Acc - Validation Acc). A widening gap as features are added is the hallmark of irrelevant noise contamination."
   },
   {
-    "id": 8,
-    "question": "Question 8 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #8)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #8 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q8)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 8,
+    tier: 1,
+    difficulty: "Foundation",
+    category: "Conceptual Foundations",
+    scenario: "In an exam paper at MAKAUT, students are asked to categorize features into a Venn diagram of relevance.",
+    question: "Which of the following subsets forms a strict partition of all input features X in the Kohavi-John taxonomy?",
+    options: [
+      "Strongly Relevant, Weakly Relevant, and Irrelevant.",
+      "Linear Features, Non-linear Features, and Polynomial Features.",
+      "Continuous Features, Categorical Features, and Discrete Features.",
+      "Training Features, Validation Features, and Testing Features."
+    ],
+    correct: 0,
+    explanation: "Every feature X_i in the input space X falls into exactly one of three mutually exclusive and collectively exhaustive categories: Strongly Relevant, Weakly Relevant, or Irrelevant.",
+    practicalTip: "Remember the hierarchy: Strongly Relevant (keep always) -> Weakly Relevant (decide based on redundancy vs interaction) -> Irrelevant (discard completely)."
+  },
+
+  // =========================================================================
+  // TIER 2: MATHEMATICAL FORMULATIONS & INFORMATION THEORY (Q9 - Q16)
+  // =========================================================================
+  {
+    id: 9,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "A researcher uses Shannon Information Theory to rigorously test whether feature X_i is strongly relevant.",
+    question: "Which information-theoretic condition is mathematically equivalent to the statement 'X_i is Strongly Relevant'?",
+    options: [
+      "I(X_i; Y) > 0",
+      "I(X_i; Y | S_i) > 0, where S_i = X \\ {X_i}",
+      "H(X_i) > H(Y)",
+      "H(Y | X_i) = 0"
+    ],
+    correct: 1,
+    explanation: "Strong relevance implies that conditioning on all other features S_i still leaves unexplained uncertainty in Y that X_i uniquely resolves. Thus, the Conditional Mutual Information I(X_i; Y | S_i) = H(Y | S_i) - H(Y | X_i, S_i) must be strictly greater than zero.",
+    practicalTip: "Computing I(X_i; Y | S_i) requires multivariate density estimation; in practice, permutation importance or wrapper selection approximates this test."
   },
   {
-    "id": 9,
-    "question": "Question 9 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #9)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #9 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q9)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 10,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "Suppose target Y has Shannon entropy H(Y) = 1.0 bit. Feature X_1 yields conditional entropy H(Y | X_1) = 0.4 bits.",
+    question: "What is the Mutual Information I(X_1; Y), and how is it interpreted?",
+    options: [
+      "0.4 bits; X_1 accounts for 40% of the total target variation.",
+      "0.6 bits; knowing X_1 reduces target uncertainty by 0.6 bits.",
+      "1.4 bits; joint entropy expands beyond individual limits.",
+      "0.0 bits; because entropy cannot be subtracted."
+    ],
+    correct: 1,
+    explanation: "Mutual Information I(X_1; Y) = H(Y) - H(Y | X_1) = 1.0 - 0.4 = 0.6 bits. This represents the absolute reduction in uncertainty regarding Y obtained by observing X_1.",
+    practicalTip: "Mutual Information is non-negative (I >= 0) and equals zero if and only if X and Y are completely statistically independent."
   },
   {
-    "id": 10,
-    "question": "Question 10 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #10)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #10 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Basic",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q10)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 11,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "An Ordinary Least Squares regression model y = X*beta + epsilon is fitted with p features. An analyst adds k completely orthogonal noise columns.",
+    question: "What is the exact mathematical effect on the covariance matrix of estimated parameters Var(beta_hat) = sigma^2 * (X^T * X)^(-1)?",
+    options: [
+      "The variance of the original parameters decreases because sample size is unchanged.",
+      "The trace of (X^T * X)^(-1) increases, inflating the variance of all estimated regression coefficients.",
+      "The residual sum of squares jumps to infinity due to singularity.",
+      "The parameter covariance matrix becomes strictly diagonal with all zeros."
+    ],
+    correct: 1,
+    explanation: "Adding orthogonal noise columns expands the design matrix without contributing true signal. In finite samples, the trace of (X^T * X)^(-1) increases, which directly magnifies the variance of all estimated parameters: Var(beta_hat) = sigma^2 * (X^T * X)^(-1).",
+    practicalTip: "Irrelevant features do not just waste memory; they actively inflate parameter estimation errors across all remaining valid features."
   },
   {
-    "id": 11,
-    "question": "Question 11 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #11)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #11 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q11)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 12,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "In an XOR setup with X1, X2 in {0, 1} and Y = X1 XOR X2, assume P(X1=1)=0.5 and P(X2=1)=0.5 independently.",
+    question: "What are the exact values of I(X1; Y) and I(X1, X2; Y)?",
+    options: [
+      "I(X1; Y) = 0.5 bits, I(X1, X2; Y) = 0.5 bits.",
+      "I(X1; Y) = 0.0 bits, I(X1, X2; Y) = 1.0 bit.",
+      "I(X1; Y) = 1.0 bit, I(X1, X2; Y) = 2.0 bits.",
+      "I(X1; Y) = 0.0 bits, I(X1, X2; Y) = 0.0 bits."
+    ],
+    correct: 1,
+    explanation: "H(Y) = 1.0 bit. P(Y|X1) is uniformly 0.5, so H(Y|X1) = 1.0 bit ==> I(X1; Y) = 1.0 - 1.0 = 0.0 bits. However, given both X1 and X2, Y is completely determined (H(Y|X1, X2) = 0.0) ==> I(X1, X2; Y) = 1.0 - 0.0 = 1.0 bit.",
+    practicalTip: "The difference I(X1, X2; Y) - I(X1; Y) - I(X2; Y) = 1.0 - 0 - 0 = +1.0 bit is called positive Interaction Information or synergy."
   },
   {
-    "id": 12,
-    "question": "Question 12 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #12)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #12 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q12)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 13,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "A data scientist computes the Variance Inflation Factor (VIF) for feature X_j to detect redundancy. The R^2 obtained from regressing X_j on all other features is 0.96.",
+    question: "What is the VIF for X_j, and what does this indicate about its relevance?",
+    options: [
+      "VIF = 4.0; the feature is strongly relevant and non-redundant.",
+      "VIF = 25.0; the feature is heavily redundant (weakly relevant) with existing features.",
+      "VIF = 0.04; the feature has zero multicollinearity.",
+      "VIF = 0.96; the feature is completely irrelevant."
+    ],
+    correct: 1,
+    explanation: "VIF_j = 1 / (1 - R_j^2) = 1 / (1 - 0.96) = 1 / 0.04 = 25.0. A VIF >= 10 indicates severe multicollinearity, proving that X_j's information is largely redundant given the other features in the matrix.",
+    practicalTip: "Features with high VIF can often be safely eliminated to stabilize linear model coefficients and reduce variance."
   },
   {
-    "id": 13,
-    "question": "Question 13 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #13)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #13 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q13)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 14,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "Consider two continuous features where X2 = 3.5 * X1 + 2.0 (exact deterministic linear relationship). Both X1 and X2 correlate with target Y.",
+    question: "How does the Kohavi-John taxonomy classify X1 and X2 with respect to the full feature set {X1, X2}?",
+    options: [
+      "Both X1 and X2 are Strongly Relevant.",
+      "Both X1 and X2 are Irrelevant.",
+      "Both X1 and X2 are Weakly Relevant (Redundant), as either can be dropped without losing information.",
+      "X1 is Strongly Relevant and X2 is Irrelevant by convention."
+    ],
+    correct: 2,
+    explanation: "Since X2 is a deterministic function of X1, P(Y | X1, X2) = P(Y | X1) = P(Y | X2). Removing X1 does not change P(Y | X2), so X1 is not strongly relevant. Removing X2 does not change P(Y | X1), so X2 is not strongly relevant. Both are weakly relevant (redundant with each other).",
+    practicalTip: "In collinear pairs, either feature can be retained, but keeping both inflates standard errors in linear models."
   },
   {
-    "id": 14,
-    "question": "Question 14 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #14)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #14 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q14)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 15,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "Let target Y be continuous, and let X_noise be a standard Gaussian variable X_noise ~ N(0, 1) generated completely independently of Y.",
+    question: "What is the expected value of the population Pearson correlation E[r(X_noise, Y)] and what is the variance of the sample correlation Var(r_sample) for sample size N?",
+    options: [
+      "E[r] = 0, Var(r_sample) approx 1 / N",
+      "E[r] = 1, Var(r_sample) approx 0",
+      "E[r] = 0.5, Var(r_sample) approx 1 / (N^2)",
+      "E[r] = -1, Var(r_sample) approx N"
+    ],
+    correct: 0,
+    explanation: "For an irrelevant independent feature, the true population correlation is 0. However, the sample correlation has variance approximately 1 / N. With small N (e.g. N = 50), random noise features can easily exhibit sample correlations of |r| approx 2 / sqrt(50) = 0.28 purely by chance!",
+    practicalTip: "Always use cross-validation or adjusted significance thresholds (Bonferroni correction) when evaluating feature correlations on small datasets."
   },
   {
-    "id": 15,
-    "question": "Question 15 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #15)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #15 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q15)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 16,
+    tier: 2,
+    difficulty: "Intermediate",
+    category: "Mathematical Formulations",
+    scenario: "A non-linear relationship between feature X and target Y is defined by Y = X^2 where X is uniformly distributed on [-2, +2].",
+    question: "What are the Pearson correlation r(X, Y) and the Mutual Information I(X; Y)?",
+    options: [
+      "r(X, Y) = 1.0, I(X; Y) = 0 bits.",
+      "r(X, Y) = 0.0, I(X; Y) > 0 bits.",
+      "r(X, Y) = 0.0, I(X; Y) = 0 bits.",
+      "r(X, Y) = -1.0, I(X; Y) > 0 bits."
+    ],
+    correct: 1,
+    explanation: "Because the relationship is symmetric about zero, Cov(X, Y) = E[X^3] - E[X]E[X^2] = 0 - 0 = 0, so Pearson r = 0.0. However, Y is completely determined by X, so H(Y|X) is minimal, and Mutual Information I(X; Y) is strictly positive. X is strongly relevant despite zero linear correlation.",
+    practicalTip: "A linear filter evaluating r would discard X as irrelevant; mutual information or decision trees capture non-linear strong relevance."
+  },
+
+  // =========================================================================
+  // TIER 3: APPLIED ARCHITECTURE, ALGORITHMS & FEATURE DYNAMICS (Q17 - Q24)
+  // =========================================================================
+  {
+    id: 17,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "An ML engineer tests a Forward Stepwise Selection wrapper on a dataset with 8 features including an XOR pair {X3, X4}.",
+    question: "Why does standard Greedy Forward Stepwise Selection fail to select either feature of an XOR pair in Step 1?",
+    options: [
+      "Because Forward Selection only accepts normalized features.",
+      "Because in Step 1, every feature is evaluated in isolation (size 1 model), where both X3 and X4 show zero improvement in loss.",
+      "Because the XOR operator violates gradient descent Lipschitz continuity.",
+      "Because Stepwise Selection only evaluates even-numbered feature indices."
+    ],
+    correct: 1,
+    explanation: "Greedy Forward Selection starts with an empty set and tests each feature individually: argmin_{j} Loss({j}). Because neither X3 nor X4 alone reduces prediction loss, their single-feature performance is near zero, causing the greedy algorithm to pick other features or terminate early.",
+    practicalTip: "To discover interactive pairs, wrappers must either use lookahead steps (evaluating pairs), beam search, or pre-engineered interaction terms."
   },
   {
-    "id": 16,
-    "question": "Question 16 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #16)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #16 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q16)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 18,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "A data pipeline at an e-commerce hub in Kolkata applies L1 Lasso regularization (min ||y - Xw||^2 + lambda * ||w||_1) to prune features.",
+    question: "How does Lasso L1 regularization treat a pair of highly collinear, redundant features {X1, X2}?",
+    options: [
+      "It assigns identical non-zero weights to both features.",
+      "It arbitrarily drives one feature's weight to exactly zero while retaining the other.",
+      "It sets both feature weights to zero simultaneously.",
+      "It doubles the weight of both features to compensate for collinearity."
+    ],
+    correct: 1,
+    explanation: "Due to the sharp diamond-shaped L1 geometry in weight space, the objective contour touches the axis corner, forcing one of the redundant weights to exactly zero while preserving the other. This automatically prunes redundancy.",
+    practicalTip: "If you want to keep grouped collinear features together, use ElasticNet (L1 + L2 penalty) instead of pure Lasso."
   },
   {
-    "id": 17,
-    "question": "Question 17 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #17)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #17 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q17)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 19,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "A Random Forest classifier is trained on credit card fraud data with 5 strongly relevant features and 50 irrelevant random noise features.",
+    question: "How do irrelevant noise features degrade the performance of a Random Forest?",
+    options: [
+      "They cause the trees to have infinite depth without stopping.",
+      "At each candidate split, random feature subsampling (mtry) frequently selects only noise features, leading to uninformative, noisy splits.",
+      "They force all decision trees in the ensemble to become identical.",
+      "They convert the ensemble into a linear regression model."
+    ],
+    correct: 1,
+    explanation: "At each split node, Random Forest considers a random subset of mtry features (e.g. sqrt(d)). When 50 out of 55 features are noise, the probability that all mtry candidate features are pure noise is high: ((50/55)^mtry). The tree is forced to split on noise, polluting the ensemble and degrading accuracy.",
+    practicalTip: "Even tree ensembles that perform internal feature selection suffer when the ratio of noise features to informative features is high."
   },
   {
-    "id": 18,
-    "question": "Question 18 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #18)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #18 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q18)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 20,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "In an academic experiment, a student measures the feature importances produced by a Decision Tree on a dataset containing an irrelevant feature with 10,000 unique categorical categories (like Customer_ID).",
+    question: "Why does Gini-importance (mean decrease in impurity) incorrectly rank the high-cardinality irrelevant feature as the most important?",
+    options: [
+      "Because high-cardinality features have higher numerical values.",
+      "Because high-cardinality features allow the tree to create pure leaf splits by memorizing individual training instances.",
+      "Because Gini impurity is mathematically inverted for categorical data.",
+      "Because decision trees cannot compute splits on categorical columns."
+    ],
+    correct: 1,
+    explanation: "A high-cardinality categorical feature (like ID) can trivially split every training sample into its own pure leaf node, yielding a massive apparent drop in Gini impurity. This is severe overfitting. The feature is completely irrelevant for test data.",
+    practicalTip: "Use Permutation Importance on held-out validation data instead of default MDI (Mean Decrease Impurity) to avoid high-cardinality bias."
   },
   {
-    "id": 19,
-    "question": "Question 19 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #19)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #19 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q19)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 21,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "A production engineer configures scikit-learn's `VarianceThreshold(threshold=0.0)` as the very first step in a feature preprocessing pipeline.",
+    question: "What specific class of irrelevant features does this step cleanly eliminate?",
+    options: [
+      "Features that are non-linearly correlated with the target.",
+      "Constant features that take the exact same value across all training instances.",
+      "Features that have a high correlation with the target variable.",
+      "Features that follow a heavy-tailed Cauchy distribution."
+    ],
+    correct: 1,
+    explanation: "A feature with variance = 0.0 is constant across all samples (e.g., country='India' in a domestic West Bengal dataset). A constant provides zero discriminatory power and is mathematically irrelevant under all conditioning subsets.",
+    practicalTip: "Always put VarianceThreshold(0.0) first in your pipeline to strip useless constant columns before computationally heavy transforms."
   },
   {
-    "id": 20,
-    "question": "Question 20 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #20)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #20 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q20)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 22,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "An engineer in Hooghly trains a Support Vector Machine with an RBF kernel on textile tensile data with 10 relevant features and 40 noise features.",
+    question: "Why does the RBF kernel k(x, z) = exp(-gamma * ||x - z||^2) fail when irrelevant dimensions are present?",
+    options: [
+      "The exponential function overflows to infinity in 64-bit precision.",
+      "The Euclidean norm ||x - z||^2 accumulates squared noise across the 40 irrelevant dimensions, washing out the meaningful signal distance.",
+      "The dual optimization problem becomes strictly non-convex.",
+      "The Gram matrix becomes non-positive semi-definite."
+    ],
+    correct: 1,
+    explanation: "The RBF kernel computes squared distance across all dimensions: sum_{j=1}^50 (x_j - z_j)^2. The 40 irrelevant noise dimensions contribute 80% of the distance calculation, swamping the true similarity in the 10 relevant dimensions and causing kernel values to decay to zero.",
+    practicalTip: "Scale features and perform rigorous feature selection before applying kernel methods with isotropic distance metrics."
   },
   {
-    "id": 21,
-    "question": "Question 21 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #21)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #21 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q21)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 23,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "A data team wishes to use Permutation Feature Importance to classify features into Strongly Relevant, Weakly Relevant, or Irrelevant.",
+    question: "How does Permutation Feature Importance measure the relevance of feature X_j on a validation set?",
+    options: [
+      "By calculating the derivative of the loss function with respect to X_j.",
+      "By randomly shuffling the values of column X_j to break its association with the target and recording the drop in model validation score.",
+      "By inverting the covariance matrix of the training set.",
+      "By training a new decision tree on column X_j alone."
+    ],
+    correct: 1,
+    explanation: "Permutation feature importance shuffles the values of feature X_j across validation samples. If X_j was strongly relevant, breaking its link with Y causes a steep drop in validation performance. If X_j was irrelevant, shuffling its noise values produces near-zero change in performance.",
+    practicalTip: "Permutation importance is model-agnostic and directly measures the empirical usefulness of a feature on unseen validation data."
   },
   {
-    "id": 22,
-    "question": "Question 22 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #22)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #22 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Moderate",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q22)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 24,
+    tier: 3,
+    difficulty: "Advanced",
+    category: "Applied Architecture",
+    scenario: "Two collinear features X1 and X2 (r = 0.99) are both included in a model. When Permutation Feature Importance is computed by shuffling one feature at a time, both receive near-zero importance scores.",
+    question: "Why does univariate permutation importance fail to identify the importance of collinear weakly relevant features?",
+    options: [
+      "Because permutation importance cannot be computed on floating-point numbers.",
+      "Because when X1 is shuffled, the model can still rely on X2 to make accurate predictions, and vice versa.",
+      "Because the validation dataset automatically resets itself after each shuffle.",
+      "Because collinear features invert the sign of the scoring metric."
+    ],
+    correct: 1,
+    explanation: "Because X1 and X2 contain duplicate information, corrupting X1 alone leaves X2 intact to carry the predictive load. Thus, neither individual shuffle causes a performance drop! To detect the true importance of redundant features, they must be grouped and permuted together.",
+    practicalTip: "Use hierarchical feature clustering and group-permutation importance when severe multicollinearity is present."
+  },
+
+  // =========================================================================
+  // TIER 4: REAL-WORLD INDUSTRIAL CASE STUDIES & TROUBLESHOOTING (Q25 - Q30)
+  // =========================================================================
+  {
+    id: 25,
+    tier: 4,
+    difficulty: "Expert",
+    category: "Industrial Case Studies",
+    scenario: "At the WBSEDCL smart grid substation in Barrackpore, engineers model distribution transformer core temperature to prevent summer burnouts.",
+    question: "Given the features [Active Power (kW), Reactive Power (kVAR), Ambient Temp, Transformer Serial Number, Apparent Power (kVA)], which subset contains ONLY strongly relevant features?",
+    options: [
+      "[Transformer Serial Number, Ambient Temp]",
+      "[Active Power (kW), Reactive Power (kVAR), Ambient Temp]",
+      "[Active Power (kW), Apparent Power (kVA)]",
+      "[Transformer Serial Number, Apparent Power (kVA), Reactive Power (kVAR)]"
+    ],
+    correct: 1,
+    explanation: "Active Power and Reactive Power represent the physical electrical load, and Ambient Temperature governs thermal dissipation (all strongly relevant). Apparent Power is redundant (kVA = sqrt(kW^2 + kVAR^2)), and Transformer Serial Number is an irrelevant identifier.",
+    practicalTip: "Always consult domain engineering physics to identify deterministic equations that create redundant features."
   },
   {
-    "id": 23,
-    "question": "Question 23 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #23)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #23 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q23)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 26,
+    tier: 4,
+    difficulty: "Expert",
+    category: "Industrial Case Studies",
+    scenario: "A diagnostic clinic in Salt Lake predicts cardiac risk. The dataset includes [LDL Cholesterol, HDL Cholesterol, Triglycerides, Total Cholesterol, Patient Hospital Bed Number].",
+    question: "According to the Friedewald formula (Total = LDL + HDL + Triglycerides / 5), how should 'Total Cholesterol' and 'Bed Number' be categorized?",
+    options: [
+      "Total Cholesterol is Strongly Relevant; Bed Number is Weakly Relevant.",
+      "Total Cholesterol is Weakly Relevant (Redundant); Bed Number is Completely Irrelevant.",
+      "Both features are Strongly Relevant.",
+      "Both features are Completely Irrelevant."
+    ],
+    correct: 1,
+    explanation: "Because Total Cholesterol is mathematically determined by the other lipid fractions, it carries no unique conditional information when LDL, HDL, and Triglycerides are present (making it weakly relevant/redundant). Bed Number is an arbitrary administrative assignment with zero biological relationship to cardiac disease (irrelevant).",
+    practicalTip: "Excluding administrative identifiers and redundant aggregate scores reduces model footprint and eliminates noise."
   },
   {
-    "id": 24,
-    "question": "Question 24 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #24)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #24 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q24)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 27,
+    tier: 4,
+    difficulty: "Expert",
+    category: "Industrial Case Studies",
+    scenario: "A jute spinning mill in Serampore, Hooghly tests a model predicting yarn breaking tenacity. Features include moisture regain (%), chemical retting dosage (g/L), retting duration (hours), and spinning frame motor chassis paint color.",
+    question: "If biological experiments show that retting dosage and duration only work if applied together within a specific joint window, how are dosage and duration classified?",
+    options: [
+      "Both are Irrelevant because univariate correlation with tenacity is nearly zero.",
+      "Both are Weakly Relevant (Interactive / Synergistic), forming a non-linear joint dependency.",
+      "Both are Strongly Relevant on their own.",
+      "Both are Redundant with motor chassis paint color."
+    ],
+    correct: 1,
+    explanation: "Interactive features that show negligible single-variable correlation but high joint predictive power are classified as weakly relevant (interactive/synergistic). Paint color is completely irrelevant.",
+    practicalTip: "Use explicit polynomial interaction features (e.g. dosage * duration) if deploying linear or logistic regression models on physical processes."
   },
   {
-    "id": 25,
-    "question": "Question 25 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #25)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #25 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q25)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 28,
+    tier: 4,
+    difficulty: "Expert",
+    category: "Industrial Case Studies",
+    scenario: "Kolkata Metro Green Line operates automated fare collection (AFC) gates at Sealdah and Howrah. An analyst builds a passenger surge predictor using gate RFID tap counts, optical barrier break counts, passenger birth day of the month, and train arrival delay.",
+    question: "Which of the following describes the feature classification correctly?",
+    options: [
+      "Train arrival delay is Irrelevant; Passenger birth day is Strongly Relevant.",
+      "Optical barrier counts are Redundant with RFID tap counts; Passenger birth day is Irrelevant; Train delay is Strongly Relevant.",
+      "All four features are Strongly Relevant.",
+      "All four features are Weakly Relevant."
+    ],
+    correct: 1,
+    explanation: "Train arrival delay directly causes passenger surges on the platform (strongly relevant). Optical barrier breaks count the same passengers as RFID taps (r = 0.998, redundant). Passenger birth day has no causal or predictive link to station crowding (irrelevant).",
+    practicalTip: "Pruning sensor redundancy protects edge computing hardware from unnecessary dual-channel network bandwidth."
   },
   {
-    "id": 26,
-    "question": "Question 26 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #26)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #26 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q26)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 29,
+    tier: 4,
+    difficulty: "Expert",
+    category: "Industrial Case Studies",
+    scenario: "A data scientist at an IT services firm in Sector V, Salt Lake, discovers that an XGBoost model has 98% accuracy on training data and 61% accuracy on cross-validation after adding 150 automated aggregated customer features.",
+    question: "What is the recommended diagnostic step to identify and remove the irrelevant features causing this severe overfitting?",
+    options: [
+      "Increase the learning rate to 1.0 to force faster convergence.",
+      "Compute Permutation Feature Importance on the validation set, plot the distribution of importance scores, and prune features with scores <= 0.",
+      "Duplicate the training data 10 times to provide more samples.",
+      "Replace XGBoost with an unregularized high-degree polynomial regression."
+    ],
+    correct: 1,
+    explanation: "Permutation Feature Importance on held-out validation data cleanly separates true predictive features from noise. Features that have zero or negative permutation importance on validation data do not generalize and should be pruned.",
+    practicalTip: "A feature with negative validation importance means the model performs BETTER when that feature is completely corrupted into random noise!"
   },
   {
-    "id": 27,
-    "question": "Question 27 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #27)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #27 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q27)\nmodel = LinearRegression().fit(X_train, y_train)"
-  },
-  {
-    "id": 28,
-    "question": "Question 28 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #28)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #28 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q28)\nmodel = LinearRegression().fit(X_train, y_train)"
-  },
-  {
-    "id": 29,
-    "question": "Question 29 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #29)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #29 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q29)\nmodel = LinearRegression().fit(X_train, y_train)"
-  },
-  {
-    "id": 30,
-    "question": "Question 30 on Relevant and irrelevant features: What is a critical conceptual principle of Relevant and irrelevant features (Concept #30)?",
-    "shortAnswer": "Essential principle of Relevant and irrelevant features covering mathematical representation, loss minimization, and generalization.",
-    "explanation": "In the study of Relevant and irrelevant features (Feature Selection and Training & Testing Data), understanding concept #30 ensures accurate model calibration, avoiding overfitting and data leakage while optimizing performance over empirical datasets.",
-    "hint": "Recall how Relevant and irrelevant features operates on feature representations and updates model parameters.",
-    "level": "Expert",
-    "codeExample": "# Conceptual Verification for Relevant and irrelevant features (Q30)\nmodel = LinearRegression().fit(X_train, y_train)"
+    id: 30,
+    tier: 4,
+    difficulty: "Expert",
+    category: "Industrial Case Studies",
+    scenario: "An ML architect is preparing a high-throughput real-time fraud detection service with a strict 15-millisecond latency SLA.",
+    question: "Beyond improving model generalization, what critical operational benefit does eliminating weakly relevant (redundant) and irrelevant features provide?",
+    options: [
+      "It eliminates the need for unit testing and CI/CD pipelines.",
+      "It reduces feature computation latency, minimizes feature store lookup overhead, and decreases payload size for real-time inference.",
+      "It guarantees that precision and recall will both equal 100%.",
+      "It converts asynchronous network requests into instantaneous quantum transfers."
+    ],
+    correct: 1,
+    explanation: "In production, feature engineering takes 80%+ of inference latency. Eliminating redundant and irrelevant features directly slashes data pipeline latency, database query overhead, memory consumption, and network serialization costs.",
+    practicalTip: "Feature selection is as much a production systems engineering optimization as it is a statistical accuracy optimization."
   }
 ];
 
