@@ -5623,6 +5623,12 @@
       border-color: color-mix(in oklab, var(--color-indigo-500) 60%, transparent);
     }
   }
+  .border-indigo-500\/80 {
+    border-color: color-mix(in srgb, oklch(58.5% 0.233 277.117) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-indigo-500) 80%, transparent);
+    }
+  }
   .border-indigo-600 {
     border-color: var(--color-indigo-600);
   }
@@ -23831,6 +23837,16 @@
         border-color: color-mix(in srgb, oklch(45.7% 0.24 277.023) 60%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           border-color: color-mix(in oklab, var(--color-indigo-700) 60%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:border-indigo-800\/60 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(39.8% 0.195 277.366) 60%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-indigo-800) 60%, transparent);
         }
       }
     }
