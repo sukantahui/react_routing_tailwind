@@ -457,7 +457,7 @@ const Topic24 = () => {
                   <td className="py-2.5 px-3 font-semibold text-amber-300">Gradient-Based</td>
                   <td className="py-2.5 px-3">Logistic Regression, SGD, Neural Nets</td>
                   <td className="py-2.5 px-3 font-bold text-amber-400">HIGH (Severe Slowdown)</td>
-                  <td className="py-2.5 px-3">High Hessian condition number κ >> 1 causes gradient oscillation</td>
+                  <td className="py-2.5 px-3">High Hessian condition number &kappa; &gt;&gt; 1 causes gradient oscillation</td>
                   <td className="py-2.5 px-3 text-cyan-300 font-mono">StandardScaler (Zero mean, unit var)</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30">
@@ -1448,7 +1448,7 @@ const Topic24 = () => {
             <div className="p-3 rounded-xl bg-slate-950 font-mono text-[11px] text-rose-300 border border-rose-900/30">
               # UNBOUNDED INFERENCE HAZARD<br />
               scaler = MinMaxScaler() # Defaults to clip=False<br />
-              scaler.transform([[60.0]]) # Yields 1.268 (> 1.0)!
+              scaler.transform([[60.0]]) # Yields 1.268 (&gt; 1.0)!
             </div>
             <div className="p-3 rounded-xl bg-emerald-950/40 font-mono text-[11px] text-emerald-300 border border-emerald-800/40">
               # PRODUCTION BEST PRACTICE<br />
