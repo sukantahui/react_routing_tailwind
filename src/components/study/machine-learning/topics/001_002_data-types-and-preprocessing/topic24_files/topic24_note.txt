@@ -1,48 +1,357 @@
 =============================================================================
-CODER & ACCOTAX ACADEMIC STUDY NOTES
+CODER & ACCOTAX ACADEMIC STUDY NOTES & ENGINEERING HANDBOOK
 Course: Introduction to Machine Learning (Subject Code: BCAC701B)
-Module: Data Types and Preprocessing
-Topic 24: Worked Example 4: Scaling age and income features
-Author: Sukanta Hui | Barrackpore, West Bengal, India
+Module: Data Types and Preprocessing (Slug: 001_002_data-types-and-preprocessing)
+Topic 24: Worked Example 4: Scaling Age and Income Features
+Lead Author: Sukanta Hui | Head of AI & Advanced Analytics | Barrackpore, WB
+Academic Body: MAKAUT (Maulana Abul Kalam Azad University of Technology)
 =============================================================================
 
-1. THEORETICAL FOUNDATION & CONCEPTS
 -----------------------------------------------------------------------------
-Topic: Worked Example 4: Scaling age and income features
-Module Scope: Data Types and Preprocessing
+1. THEORETICAL FOUNDATION: THE SCALE DISPARITY PATHOLOGY
+-----------------------------------------------------------------------------
+In tabular machine learning datasets, continuous numerical features rarely share
+homogeneous physical units or numerical magnitudes. A quintessential industrial
+manifestation is the joint representation of Age and Income:
+- Age: Measured in chronological years, typically spanning a compact domain:
+    \text{Age} \in [18, 65] \implies \Delta_{\text{age}} \approx 47 \text{ years}
+- Annual Income: Measured in monetary currency (e.g., INR or Lakhs Per Annum):
+    \text{Income} \in [\text{₹}3,00,000, \text{₹}50,00,000] \implies \Delta_{\text{income}} \approx 47,00,000
 
-Core Conceptual Formulation:
-- Detailed examination of Worked Example 4: Scaling age and income features within the Data Types and Preprocessing framework.
-- Mathematical formulation, algorithmic mechanics, and optimization equations.
-- In-depth understanding of loss surfaces, bias-variance trade-offs, and empirical convergence.
+When fed directly into machine learning algorithms without preprocessing, this five-to-six
+order-of-magnitude disparity induces catastrophic numerical and geometric distortions.
 
------------------------------------------------------------------------------
-2. MATHEMATICAL FORMULATION & ALGORITHMS
------------------------------------------------------------------------------
-- Input Feature Matrix: X in R^(N x d)
-- Optimization Function: min_w (1/N) * sum_{i=1}^N Loss(h(x_i), y_i) + lambda * Omega(w)
-- Continuous evaluation of empirical error gradients and hyperparameter tuning.
-
------------------------------------------------------------------------------
-3. REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES
------------------------------------------------------------------------------
-Case 1: Academic Learning Analytics at Barrackpore Institute (Mamata & Mahima)
-Case 2: Commercial Real Estate & Financial Valuation in Kolkata & Salt Lake (Debangshu)
-Case 3: Retail Customer Intelligence & Segmentation in Ichapur (Susmita)
-Case 4: Clinical Diagnostic Perception at Jadavpur Medical Research Hub (Abhronila)
-
------------------------------------------------------------------------------
-4. COMMON PITFALLS & INDUSTRY BEST PRACTICES
------------------------------------------------------------------------------
-- Common Pitfall: Premature overfitting on training data without validation cross-checks.
-- Common Pitfall: Failing to scale input features prior to gradient descent optimization.
-- Best Practice: Always establish a simple baseline benchmark before training complex models.
-- Best Practice: Rigorously audit test splits to prevent subtle data leakage.
+Mathematical Classification of Sensitive vs Invariant Algorithms:
+1. Scale-Sensitive Estimators (Strictly Require Feature Scaling):
+   - Distance-Based Models: K-Nearest Neighbors (KNN), K-Means Clustering, DBSCAN,
+     Principal Component Analysis (PCA).
+   - Gradient-Based Optimizers: Linear Regression via SGD, Logistic Regression,
+     Support Vector Machines (SVM with linear/RBF kernels), Deep Neural Networks (MLP).
+   - Regularized Models: Ridge (L2), Lasso (L1), ElasticNet (regularization penalties
+     \lambda \|\mathbf{w}\|^2 penalize coefficients unequally if features are unscaled).
+2. Scale-Invariant Estimators (Do NOT Require Feature Scaling):
+   - Tree-Based Ensembles: Decision Trees, Random Forests, Gradient Boosted Decision
+     Trees (XGBoost, LightGBM, CatBoost).
+   - Reason: Tree splitting criteria (Gini Impurity, Information Gain) depend strictly
+     on rank-order sorting:
+       \arg\min_t \left[ \frac{N_L}{N} H(D_L) + \frac{N_R}{N} H(D_R) \right]
+     Any strictly monotonic transformation g(x) leaves order splits completely invariant.
 
 -----------------------------------------------------------------------------
-5. INSTRUCTOR CHECKLIST & REVISION NOTES (SUKANTA HUI)
+2. GEOMETRIC PROOF: EUCLIDEAN DISTANCE DOMINATION IN METRIC SPACE
 -----------------------------------------------------------------------------
-[ ] Master the foundational definitions, formulas, and terminology of Worked Example 4: Scaling age and income features.
-[ ] Understand the step-by-step algorithmic pipeline and optimization updates.
-[ ] Relate theoretical principles to regional industrial case studies and applications.
+Consider two data points \mathbf{x}_i, \mathbf{x}_j \in \mathbb{R}^2 where x^{(1)} represents
+Age and x^{(2)} represents Annual Income in raw Rupees (INR).
+
+The standard Euclidean distance between \mathbf{x}_i and \mathbf{x}_j is:
+    d(\mathbf{x}_i, \mathbf{x}_j) = \sqrt{(x_i^{(1)} - x_j^{(1)})^2 + (x_i^{(2)} - x_j^{(2)})^2}
+
+Squared Distance Decomposition:
+    d^2(\mathbf{x}_i, \mathbf{x}_j) = (\Delta \text{Age})^2 + (\Delta \text{Income})^2
+
+Let typical standard deviations or domain ranges be denoted as R_{\text{age}} and R_{\text{income}}:
+    R_{\text{age}} \approx 10^1 \implies (\Delta \text{Age})^2 \approx 10^2
+    R_{\text{income}} \approx 10^6 \implies (\Delta \text{Income})^2 \approx 10^{12}
+
+The Relative Contribution Ratio:
+    \rho = \frac{(\Delta \text{Income})^2}{(\Delta \text{Age})^2} \approx \frac{10^{12}}{10^2} = 10^{10}
+
+Theorem (Distance Domination):
+In unscaled Euclidean space, the contribution of Annual Income to the overall distance
+metric exceeds that of Age by a factor of 10,000,000,000 (ten billion).
+
+Corollary:
+1. In K-Nearest Neighbors (KNN), a candidate applicant who is 30 years older but earns
+   ₹5,000 closer in income will be classified as a "closer neighbor" than an applicant
+   with identical age but an income difference of ₹6,000.
+2. The Age feature is functionally obliterated from the metric space. The algorithm
+   collapses into a 1-dimensional model operating exclusively on Income.
+3. In Principal Component Analysis (PCA), the first principal component (PC1) will align
+   almost 100% with the Income axis, because PCA maximizes variance \text{Var}(X), and
+   Income variance (10^{12}) completely eclipses Age variance (10^2).
+
+-----------------------------------------------------------------------------
+3. OPTIMIZATION PATHOLOGY: LOSS CONTOURS & HESSIAN CONDITION NUMBER
+-----------------------------------------------------------------------------
+For gradient descent optimization in linear and logistic regression, feature scaling
+governs the convergence rate and numerical stability of parameter updates.
+
+Consider the quadratic Mean Squared Error (MSE) loss surface:
+    J(\mathbf{w}) = \frac{1}{2N} \sum_{i=1}^N (w_1 x_{i1} + w_2 x_{i2} - y_i)^2
+
+The Hessian matrix H = \nabla^2 J(\mathbf{w}) is the matrix of second partial derivatives:
+    H = \frac{1}{N} X^T X = \begin{bmatrix}
+        \frac{1}{N} \sum x_{i1}^2 & \frac{1}{N} \sum x_{i1} x_{i2} \\
+        \frac{1}{N} \sum x_{i1} x_{i2} & \frac{1}{N} \sum x_{i2}^2
+    \end{bmatrix}
+
+When features are uncentered and unscaled:
+- \frac{1}{N} \sum x_{i1}^2 = \text{Var}(\text{Age}) + \mu_{\text{age}}^2 \approx 10^2
+- \frac{1}{N} \sum x_{i2}^2 = \text{Var}(\text{Income}) + \mu_{\text{income}}^2 \approx 10^{12}
+
+Condition Number of the Hessian:
+    \kappa(H) = \frac{\lambda_{\max}(H)}{\lambda_{\min}(H)} \approx \frac{10^{12}}{10^2} = 10^{10}
+
+Geometric Consequence on Gradient Descent Updates:
+1. Eccentric Elliptical Canyon:
+   The level contours of J(\mathbf{w}) are elongated ellipses with an aspect ratio
+   of \sqrt{\kappa(H)} \approx 10^5 to 1. The canyon walls are violently steep along
+   the w_{\text{income}} direction and virtually flat along the w_{\text{age}} direction.
+2. Gradient Vector Direction:
+   The negative gradient -\nabla J(\mathbf{w}) points perpendicular to the contour
+   tangent, NOT toward the global optimum \mathbf{w}^*.
+3. Oscillatory Pathology:
+   - A learning rate \eta suitable for the flat Age direction causes explosive divergence
+     (gradient explosion) along the steep Income direction.
+   - A tiny learning rate \eta suitable for Income causes agonizingly slow progress
+     (vanishing step size) along Age, requiring tens of thousands of epochs to converge.
+
+After Standardization (Z-Score Scaling):
+When features are scaled such that \mu_k = 0 and \sigma_k = 1:
+    H = \begin{bmatrix} 1 & r \\ r & 1 \end{bmatrix}
+where r is the Pearson correlation coefficient between Age and Income (|r| < 1).
+The eigenvalues are \lambda_1 = 1 + r and \lambda_2 = 1 - r.
+If r \approx 0:
+    \kappa(H) \approx \frac{1 + 0}{1 - 0} = 1.0
+
+The contours become perfectly spherical concentric circles. Gradient vectors point
+directly at the global minimum \mathbf{w}^*, achieving optimal convergence in a fraction
+of the epochs without zig-zagging.
+
+-----------------------------------------------------------------------------
+4. COMPREHENSIVE BENCHMARK OF 4 FEATURE SCALERS
+-----------------------------------------------------------------------------
+
+4.1 Min-Max Normalization (Rescaling to [0, 1])
+Mathematical Formula:
+    x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}} \in [0, 1]
+
+- Characteristics: Bounded hard interval [0, 1]. Preserves exact zero entries if
+  minimum is zero.
+- Primary Industrial Flaw: Extreme Outlier Vulnerability.
+  If an executive earning ₹1 Crore (₹100 LPA) enters a dataset where normal salaries
+  range from ₹3 LPA to ₹15 LPA:
+    x_{\max} = 100 \implies x'_{\text{normal}} = \frac{15 - 3}{100 - 3} = 0.123
+  99% of the population is squashed into a narrow band [0.0, 0.12], destroying feature variance.
+
+4.2 Z-Score Standardization (StandardScaler)
+Mathematical Formula:
+    z = \frac{x - \mu}{\sigma} \sim \mathcal{N}(0, 1)
+
+- Characteristics: Rescales distribution to mean \mu = 0 and variance \sigma^2 = 1.
+  Domain is unbounded: (-\infty, +\infty).
+- Preserves Outlier Relativity: Outliers are mapped to z > +3.0 or z < -3.0 without
+  collapsing the variance of normal observations.
+- Requirement: Sensitive to extreme outliers because both sample mean \mu and sample
+  standard deviation \sigma are non-robust L2 statistics.
+
+4.3 RobustScaler (Median & IQR Normalization)
+Mathematical Formula:
+    x_{\text{rob}} = \frac{x - Q_2}{Q_3 - Q_1} = \frac{x - \text{Median}}{\text{IQR}}
+
+- Characteristics:
+  - Center: Sample Median (Q_2), breakdown point of 50%.
+  - Scale: Interquartile Range (\text{IQR} = Q_3 - Q_1), breakdown point of 25%.
+- Industrial Superiority: Completely immune to extreme income outliers (e.g., Subhajit
+  earning ₹48 LPA). The scaling parameters are calculated exclusively from the central
+  50% of the distribution.
+
+4.4 Log-Transformation + Standardization (Log1p Scaler)
+Mathematical Formula:
+    x_{\log} = \ln(1 + x), \quad z_{\log} = \frac{x_{\log} - \mu_{\log}}{\sigma_{\log}}
+
+- Characteristics: Annual income follows a heavy right-tailed Pareto or Log-Normal
+  distribution. Taking the natural logarithm compresses extreme positive values,
+  converting skewed distributions into symmetric Gaussian-like bells.
+
+-----------------------------------------------------------------------------
+5. THE DATA LEAKAGE TRAP IN FEATURE SCALING (FIT-BEFORE-SPLIT)
+-----------------------------------------------------------------------------
+A critical architectural crime in feature scaling is computing normalization parameters
+over the entire dataset prior to train/test partitioning:
+    \mu_{\text{leak}} = \frac{1}{N_{\text{total}}} \sum_{i=1}^{N_{\text{total}}} x_i
+
+Why This Causes Data Leakage:
+1. Information Bleed:
+   The mean \mu_{\text{leak}} and standard deviation \sigma_{\text{leak}} incorporate
+   information from the test set (which is supposed to represent completely unseen future data).
+2. Optimistic Bias:
+   If the test set contains extreme high-income outliers, the training set's scale is
+   artificially compressed, masking how the model would perform when genuine out-of-distribution
+   data arrives.
+3. The Immutable Pipeline Law:
+    \text{scaler.fit}(X_{\text{train}})
+    X_{\text{train\_scaled}} = \text{scaler.transform}(X_{\text{train}})
+    X_{\text{test\_scaled}}  = \text{scaler.transform}(X_{\text{test}})
+   The test set must strictly be transformed using the frozen parameters (\mu_{\text{train}},
+   \sigma_{\text{train}}, x_{\min, \text{train}}, x_{\max, \text{train}}) computed on training data alone.
+
+Out-of-Bounds Inference in Min-Max Scaling:
+When a live production applicant arrives with an income exceeding the training maximum
+(e.g., Income = ₹60 LPA when x_{\max, \text{train}} = ₹48 LPA):
+    x'_{\text{test}} = \frac{60 - 3.2}{48 - 3.2} = \frac{56.8}{44.8} = 1.268 > 1.0!
+Production pipelines must either clip values `np.clip(x', 0.0, 1.0)` or adopt unbounded
+StandardScaler / RobustScaler.
+
+-----------------------------------------------------------------------------
+6. WEST BENGAL REGIONAL INDUSTRIAL CASE STUDIES
+-----------------------------------------------------------------------------
+
+Case Study 1: FinTech Retail Micro-Lending in Barrackpore & Ichapur
+Context: Susmita oversees credit underwriting for an NBFC along BT Road offering
+unsecured personal credit to retail employees and shopkeepers.
+Challenge: Loan applicants range from junior factory staff (Age 22, Income ₹3.5 LPA)
+to senior supervisors (Age 55, Income ₹18.0 LPA). Using unscaled KNN (K=5) to detect
+credit-risk peers caused Age to have zero weight. A 23-year-old with ₹14 LPA was paired
+with 54-year-old nearing retirement purely because of similar salary tiers.
+Implementation: Deployed `StandardScaler` inside a Scikit-Learn `Pipeline`. Age and Income
+were standardized to unit variance. KNN neighbor selection shifted to demographically
+coherent peers, reducing loan default classification error by 27.4%.
+
+Case Study 2: Commercial Real Estate Lease Valuations in New Town & Rajarhat
+Context: Debangshu built an automated valuation model for commercial office towers
+in New Town Action Area II.
+Challenge: Predictor features included Building Age (2 to 25 years) and Total Tenant
+Annual Payroll (₹15 Lakhs to ₹35 Crores). Gradient descent for linear regression failed
+to converge within 5,000 iterations, oscillating wildly due to a Hessian condition
+number \kappa > 10^8.
+Implementation: Applied `RobustScaler` on Payroll to handle VC-funded unicorn outliers,
+and `StandardScaler` on Building Age. Gradient descent converged stably in 140 epochs.
+
+Case Study 3: Super-App Hyperlocal Grocery Customer Segmentation in Howrah & Kolkata
+Context: Mahima directs customer lifetime value (CLV) clustering for a quick-commerce
+app operating across Howrah and Central Kolkata.
+Challenge: Clustering customers using K-Means on Age (20-60) and Monthly Grocery Spend
+(₹2,000 to ₹85,000). Unscaled K-Means produced vertical stripe clusters based purely
+on grocery spend, completely ignoring customer age cohorts.
+Implementation: Applied `MinMaxScaler` with hard boundary clipping [0, 1]. K-Means
+successfully segmented customers into 4 distinct quadrants: Young Budget, Young Gourmet,
+Family Bulk, and Senior Traditional.
+
+Case Study 4: Clinical Health Risk Stratification in Siliguri & North Bengal
+Context: Abhronila manages epidemiological predictive modeling for a healthcare network
+screening tea garden workers and urban residents across Darjeeling district.
+Challenge: Predicting cardiovascular event risk using Patient Age (30-80 years) and
+Annual Household Income (₹40,000 to ₹12,00,000). SVM with RBF kernel achieved only
+52% accuracy (random guessing) because the kernel exponent \gamma \|\mathbf{x}_i - \mathbf{x}_j\|^2
+was overwhelmed by income squared differences.
+Implementation: Log-transformed household income and applied Z-Score standardization
+to all clinical and demographic predictors. SVM RBF accuracy jumped to 89.6%.
+
+-----------------------------------------------------------------------------
+7. PRODUCTION PITFALLS & ARCHITECTURAL VULNERABILITIES
+-----------------------------------------------------------------------------
+
+Pitfall 1: Scaling Sparse CSR Matrices with `with_mean=True`
+- Antipattern: Executing `StandardScaler(with_mean=True).fit_transform(X_sparse)` on
+  a text or high-cardinality one-hot matrix.
+- Consequence: Subtracting the mean \mu from zero entries converts millions of structural
+  zeroes into dense non-zero floats (\mu \neq 0). Memory consumption explodes from
+  50MB to 32GB, causing out-of-memory (OOM) kernel crashes.
+- Production Fix: Set `StandardScaler(with_mean=False)` or use `MaxAbsScaler()`, which
+  divides strictly by the absolute maximum without centering.
+
+Pitfall 2: Outlier Compression Collapse in MinMaxScaler
+- Antipattern: Using `MinMaxScaler` on heavy-tailed financial income features containing
+  extreme wealth outliers (e.g., Subhajit earning ₹48 LPA vs cohort median ₹14.5 LPA).
+- Consequence: The maximum stretches the denominator, compressing 90% of ordinary applicants
+  into an indistinguishable narrow band [0.0, 0.20].
+- Production Fix: Deploy `RobustScaler` or apply `np.log1p` before scaling.
+
+Pitfall 3: Applying Scalers to Tree-Based Ensembles (Unnecessary Overhead)
+- Antipattern: Spending computing resources tuning and running scalers on XGBoost,
+  LightGBM, or Random Forests.
+- Consequence: Adds pipeline serialization overhead and potential latency in serving,
+  with zero gain in tree accuracy (trees split on rank orderings).
+- Production Fix: Skip feature scaling for purely tree-based production pipelines.
+
+Pitfall 4: Data Leakage via `fit_transform` on Validation Sets
+- Antipattern: Calling `scaler.fit_transform(X_test)`.
+- Consequence: Re-estimating parameters on the test set aligns test features with test
+  sample statistics rather than training parameters, corrupting out-of-sample evaluation.
+- Production Fix: Strictly invoke `scaler.transform(X_test)` using frozen training statistics.
+
+-----------------------------------------------------------------------------
+8. COMPREHENSIVE REVISION CHECKLIST (SUKANTA HUI)
+-----------------------------------------------------------------------------
+[ ] Understand the mathematical definition of scale disparity between Age and Income.
+[ ] Prove analytically why unscaled Euclidean distance is dominated by features with large ranges.
+[ ] Explain how unscaled features deform quadratic loss contours into eccentric elliptical canyons.
+[ ] Calculate the condition number of the Hessian matrix \kappa(H) before and after standardization.
+[ ] Differentiate between MinMaxScaler, StandardScaler, RobustScaler, and Log1pScaler.
+[ ] State why RobustScaler uses Median and IQR and why it is immune to executive income outliers.
+[ ] Explain the mathematical consequence of a test instance exceeding x_{\max} under Min-Max scaling.
+[ ] Identify which machine learning algorithms are scale-sensitive vs scale-invariant.
+[ ] Explain why `with_mean=False` must be passed to StandardScaler when transforming sparse CSR matrices.
+[ ] Implement an end-to-end leakage-free pipeline with ColumnTransformer scaling Age and Income.
+
+-----------------------------------------------------------------------------
+9. MAKAUT SEMESTER EXAMINATION & VIVA VOCE QUESTIONS WITH MODEL ANSWERS
+-----------------------------------------------------------------------------
+
+Q1: Why is feature scaling critical for K-Nearest Neighbors (KNN) when combining Age and Income?
+Answer: KNN relies on Euclidean distance d = \sqrt{\sum (x_i - x_j)^2}. Since Income is measured
+in thousands or lakhs (range 10^5 to 10^6) while Age is measured in years (range 10^1 to 10^2),
+the squared difference of income is 10^8 to 10^10 times larger than that of age. Income completely
+dominates the metric space, rendering Age functionally irrelevant unless both are scaled to
+comparable numerical variances.
+
+Q2: How does feature standardization accelerate gradient descent convergence?
+Answer: Unscaled features create an eccentric elliptical loss surface with an extremely high
+Hessian condition number \kappa = \lambda_{\max} / \lambda_{\min} \gg 1. Gradients oscillate
+violently along the steep dimension while creeping along the flat dimension. Standardization
+rescales feature variances to unity, transforming contours into concentric spheres with
+\kappa \approx 1, allowing gradients to point directly toward the global minimum.
+
+Q3: When is RobustScaler preferred over StandardScaler for income features?
+Answer: Income distributions are heavily right-skewed and often contain extreme wealth outliers.
+StandardScaler relies on sample mean \mu and sample standard deviation \sigma, both of which are
+severely distorted by outliers. RobustScaler uses the Median and Interquartile Range (IQR = Q_3 - Q_1),
+which have a high breakdown point (50% and 25%), making the scaling parameters immune to extreme values.
+
+Q4: Why are decision trees and Random Forests invariant to feature scaling?
+Answer: Decision tree splitting algorithms evaluate potential split thresholds based on the
+rank order of feature values to maximize information gain or Gini impurity reduction. Because
+linear and monotonic scaling transformations (such as Min-Max, Standardization, or Log) do not
+alter the relative ordering of values, the optimal split points and resulting tree topologies
+remain completely identical.
+
+Q5: What is the risk of using MinMaxScaler on streaming production data?
+Answer: MinMaxScaler bounds training data to [0, 1] based on x_{\min} and x_{\max}. If a live
+streaming applicant has an income higher than the training maximum, the transformed value
+exceeds 1.0 (x' > 1.0). For algorithms with strict bounded inputs (e.g., neural networks with
+sigmoid activations), this can cause unexpected saturation or numerical errors unless clipped.
+
+Q6: Why must you set `with_mean=False` when applying StandardScaler to sparse matrices?
+Answer: Sparse matrices (e.g., text TF-IDF or high-cardinality one-hot encodings) store only
+non-zero coordinates to conserve RAM. Standard scaling centers data by subtracting the feature
+mean \mu from every entry: (x - \mu). Because \mu \neq 0, all structural zeroes become non-zero
+floats, converting the sparse matrix into a dense matrix and causing catastrophic Out-Of-Memory
+(OOM) crashes. Setting `with_mean=False` rescales by variance without centering.
+
+Q7: What is the effect of unscaled features on L2-regularized Ridge Regression?
+Answer: The Ridge objective function adds a penalty \lambda \sum w_j^2 to the loss. If Income
+has a huge numerical scale, its corresponding coefficient w_{\text{income}} will naturally be
+tiny, while w_{\text{age}} will be large. The L2 penalty will disproportionately penalize
+w_{\text{age}} while barely penalizing w_{\text{income}}, distorting the intended regularization.
+
+Q8: How does the Log1p transformation assist in scaling heavy-tailed income features?
+Answer: Income often follows a Pareto or log-normal distribution with an extreme right tail.
+The transformation x_{\log} = \ln(1 + x) compresses large values exponentially more than small
+values, converting the skewed distribution into an approximately symmetric bell curve before
+standard scaling is applied.
+
+Q9: What is the 'Fit-Before-Split' data leakage pathology in feature scaling?
+Answer: Calculating scaling parameters (mean, standard deviation, minimum, maximum) across the
+entire dataset before splitting into training and test sets leaks test distribution parameters
+into the training pipeline. The model learns from test-set statistics, generating over-optimistic
+validation performance that degrades in genuine deployment.
+
+Q10: In Support Vector Machines with RBF kernels, what happens if Age and Income are unscaled?
+Answer: The RBF kernel computes K(\mathbf{x}, \mathbf{x}') = \exp(-\gamma \|\mathbf{x} - \mathbf{x}'\|^2).
+If unscaled, the squared norm is dominated entirely by Income differences, making the exponent
+extremely negative and causing the kernel value to collapse to zero for virtually all distinct pairs,
+destroying the SVM's dual optimization space.
+=============================================================================
+AUTHOR SIGNATURE: Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal, India
 =============================================================================
