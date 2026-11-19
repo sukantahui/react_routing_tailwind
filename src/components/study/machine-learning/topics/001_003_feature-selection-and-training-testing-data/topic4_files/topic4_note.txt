@@ -1,48 +1,287 @@
-=============================================================================
-CODER & ACCOTAX ACADEMIC STUDY NOTES
-Course: Introduction to Machine Learning (Subject Code: BCAC701B)
-Module: Feature Selection and Training & Testing Data
-Topic 4: Basic feature selection techniques
-Author: Sukanta Hui | Barrackpore, West Bengal, India
-=============================================================================
+================================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTES: ADVANCED MACHINE LEARNING (BCAC701B)
+TOPIC 4: BASIC FEATURE SELECTION TECHNIQUES (VARIANCE, ANOVA, CHI2, DEDUPLICATION)
+MODULE 3: FEATURE SELECTION AND TRAINING & TESTING DATA
+COURSE INSTRUCTOR: SUKANTA HUI | BARRACKPORE, WEST BENGAL, INDIA
+================================================================================
 
-1. THEORETICAL FOUNDATION & CONCEPTS
------------------------------------------------------------------------------
-Topic: Basic feature selection techniques
-Module Scope: Feature Selection and Training & Testing Data
+1. INTRODUCTION AND ARCHITECTURAL FOUNDATION
+--------------------------------------------------------------------------------
+Modern data science pipelines ingest tabular datasets containing dozens or hundreds
+of candidate columns. However, fitting statistical or machine learning models on raw,
+unfiltered feature matrices introduces computational bloat, numerical instability,
+and severe risk of overfitting.
 
-Core Conceptual Formulation:
-- Detailed examination of Basic feature selection techniques within the Feature Selection and Training & Testing Data framework.
-- Mathematical formulation, algorithmic mechanics, and optimization equations.
-- In-depth understanding of loss surfaces, bias-variance trade-offs, and empirical convergence.
+Basic Feature Selection Techniques represent the foundational first tier of feature
+engineering. They serve as rapid, scalable, computationally efficient pre-filters that
+cleanse the design matrix X in R^(N x d) BEFORE computationally expensive wrapper
+algorithms, deep neural networks, or non-linear models are trained.
 
------------------------------------------------------------------------------
-2. MATHEMATICAL FORMULATION & ALGORITHMS
------------------------------------------------------------------------------
-- Input Feature Matrix: X in R^(N x d)
-- Optimization Function: min_w (1/N) * sum_{i=1}^N Loss(h(x_i), y_i) + lambda * Omega(w)
-- Continuous evaluation of empirical error gradients and hyperparameter tuning.
+These foundational techniques fall into two major operational branches:
+1. Unsupervised Filters:
+   Evaluate properties of the features alone without referencing target labels Y.
+   (e.g., Variance Thresholding, Constant/Quasi-Constant Dropping, Duplicate Hash Pruning).
+2. Supervised Univariate Filters:
+   Evaluate the individual statistical relationship between each feature X_j and
+   target Y in isolation, ranking features by statistical significance.
+   (e.g., ANOVA F-test, Pearson Correlation, Chi-Square Contingency Test, Mutual Information).
 
------------------------------------------------------------------------------
-3. REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES
------------------------------------------------------------------------------
-Case 1: Academic Learning Analytics at Barrackpore Institute (Mamata & Mahima)
-Case 2: Commercial Real Estate & Financial Valuation in Kolkata & Salt Lake (Debangshu)
-Case 3: Retail Customer Intelligence & Segmentation in Ichapur (Susmita)
-Case 4: Clinical Diagnostic Perception at Jadavpur Medical Research Hub (Abhronila)
 
------------------------------------------------------------------------------
-4. COMMON PITFALLS & INDUSTRY BEST PRACTICES
------------------------------------------------------------------------------
-- Common Pitfall: Premature overfitting on training data without validation cross-checks.
-- Common Pitfall: Failing to scale input features prior to gradient descent optimization.
-- Best Practice: Always establish a simple baseline benchmark before training complex models.
-- Best Practice: Rigorously audit test splits to prevent subtle data leakage.
+2. MATHEMATICAL FORMULATION OF BASIC FILTERING TECHNIQUES
+--------------------------------------------------------------------------------
 
------------------------------------------------------------------------------
-5. INSTRUCTOR CHECKLIST & REVISION NOTES (SUKANTA HUI)
------------------------------------------------------------------------------
-[ ] Master the foundational definitions, formulas, and terminology of Basic feature selection techniques.
-[ ] Understand the step-by-step algorithmic pipeline and optimization updates.
-[ ] Relate theoretical principles to regional industrial case studies and applications.
-=============================================================================
+A. VARIANCE THRESHOLDING (UNSUPERVISED SELECTION)
+The simplest feature selection approach removes all features whose variance does not
+meet a specified numerical threshold.
+
+1. Continuous Features:
+Sample variance is computed as:
+    s^2 = (1 / (N - 1)) * sum_{i=1}^N (x_i - bar{x})^2
+If s^2 <= theta, feature X_j is pruned.
+- When theta = 0.0: Eliminates constant features (zero information content; identical value across all samples).
+
+2. Binary / Indicator Features (Bernoulli Variance):
+For a binary feature X in {0, 1} where the probability of observing 1 is p (and 0 is 1 - p):
+    Var(X) = p * (1 - p)
+If 99% of samples possess value 1 (p = 0.99), the feature is quasi-constant:
+    Var(X) = 0.99 * (1 - 0.99) = 0.99 * 0.01 = 0.0099
+Setting theta = 0.01 cleanly eliminates all binary features where 99%+ of observations
+belong to a single dominant category.
+
+Scale Sensitivity Caution:
+Variance is dependent on unit scale. A feature measured in millimeters has 1,000,000x
+the variance of the same feature measured in meters! Always standardize features or
+apply VarianceThreshold strictly on features with identical physical units or binary flags.
+
+
+B. ONE-WAY ANOVA F-TEST (CONTINUOUS FEATURE -> CATEGORICAL TARGET)
+Used for multiclass classification tasks with continuous numerical features. Tests
+the null hypothesis H_0: The population means of feature X across all K classes are identical:
+    mu_1 = mu_2 = ... = mu_K
+
+Decomposition of Total Sum of Squares (SS_T = SS_B + SS_W):
+1. Sum of Squares Between Groups (SS_B):
+    SS_B = sum_{k=1}^K n_k * (bar{x}_k - bar{x})^2
+    Degrees of freedom: df_B = K - 1
+2. Sum of Squares Within Groups (SS_W):
+    SS_W = sum_{k=1}^K sum_{i=1}^{n_k} (x_{ki} - bar{x}_k)^2
+    Degrees of freedom: df_W = N - K
+3. Mean Squares:
+    MS_B = SS_B / (K - 1)
+    MS_W = SS_W / (N - K)
+4. ANOVA F-Statistic:
+    F = MS_B / MS_W ~ F_{K - 1, N - K}
+
+Interpretation:
+A high F-score indicates that the variance BETWEEN different class categories is much
+larger than the internal variance WITHIN each class. The feature has strong discriminatory
+power to separate the classes.
+
+
+C. PEARSON'S CHI-SQUARE (chi^2) TEST (CATEGORICAL FEATURE -> CATEGORICAL TARGET)
+Evaluates whether a discrete or categorical feature X is statistically independent
+of categorical target Y.
+
+Mathematical Formulation:
+Construct an r x c contingency table of observed counts O_ij.
+Under the null hypothesis of statistical independence, the expected frequency E_ij is:
+    E_ij = (Row_i * Col_j) / N
+where Row_i is total count in category i of feature X, and Col_j is total count in class j of Y.
+
+Chi-Square Test Statistic:
+    chi^2 = sum_{i=1}^r sum_{j=1}^c ( (O_ij - E_ij)^2 / E_ij ) ~ chi^2_{df}
+Degrees of freedom:
+    df = (r - 1) * (c - 1)
+
+Interpretation:
+Features with the highest chi^2 values have the greatest deviation from random
+independence, meaning they provide strong predictive association with class labels.
+Scikit-learn requirement: Input values must be non-negative (frequencies, counts, or binary flags).
+
+
+D. F-REGRESSION (CONTINUOUS FEATURE -> CONTINUOUS TARGET)
+For linear regression tasks, univariate correlation r is converted into an F-test:
+    F = (r^2 / (1 - r^2)) * (N - 2) ~ F_{1, N - 2}
+This tests whether the linear regression slope beta_1 differs significantly from zero.
+
+
+E. GREEDY PAIRWISE CORRELATION DEDUPLICATION
+When multiple features exhibit extreme collinearity (|r(X_j, X_k)| >= threshold, e.g. 0.85):
+Algorithm:
+1. Compute full d x d Pearson correlation matrix R.
+2. Initialize an empty drop set D.
+3. For i from 1 to d:
+     If i in D: continue
+     For j from i + 1 to d:
+       If j in D: continue
+       If |R_{ij}| >= threshold:
+         Add j to drop set D (or compare correlation with target and drop the weaker one).
+4. Return remaining feature set S = X \ D.
+Time Complexity: O(d^2 * N) for computing R, and O(d^2) for the greedy search.
+
+
+3. SELECTION HEURISTICS: SELECTKBEST, PERCENTILE & MULTIPLE TESTING
+--------------------------------------------------------------------------------
+
+A. SELECTKBEST VS SELECTPERCENTILE
+- SelectKBest: Retains the top k features with the highest test scores.
+  Best when domain constraints require a strict fixed budget of features (e.g., exactly 10 sensors on an edge device).
+- SelectPercentile: Retains the top p percent of features (e.g. top 20%).
+  Best when datasets vary in dimensionality across iterations.
+
+B. MULTIPLE TESTING CORRECTION (THE FALSE DISCOVERY TRAP)
+When evaluating 10,000 features simultaneously (e.g. genomic microarrays or NLP n-grams)
+at alpha = 0.05, pure random noise will produce 10,000 * 0.05 = 500 statistically
+significant features purely by chance!
+
+1. Bonferroni Correction (Family-Wise Error Rate - FWER):
+   Stringent conservative threshold:
+       alpha_adj = alpha / m
+   where m is total number of tested features. Often too conservative (high Type II error).
+2. Benjamini-Hochberg Procedure (False Discovery Rate - FDR):
+   Controls the expected proportion of false positives among all discoveries:
+   - Sort p-values in ascending order: P_(1) <= P_(2) <= ... <= P_(m).
+   - Find the largest index k such that:
+       P_(k) <= (k / m) * Q
+   - Reject null hypotheses for all features 1 through k.
+   Provides vastly superior power while controlling false discoveries at rate Q (e.g. Q = 0.05).
+
+
+4. ADVANTAGES AND LIMITATIONS OF BASIC FEATURE SELECTION
+--------------------------------------------------------------------------------
+ADVANTAGES:
+1. Blazing Computational Speed: O(d * N) complexity. Can filter 100,000 features in seconds.
+2. Model Agnostic: Can be applied prior to any model class (Linear, Trees, SVMs, Neural Nets).
+3. Zero Overfitting on Interactions: Because each feature is evaluated independently,
+   filters do not suffer from combinatorial overfitting.
+4. Memory Footprint Reduction: Cleans the design matrix before memory-intensive algorithms run.
+
+LIMITATIONS:
+1. Univariate Blindness (The XOR Trap): Cannot detect interactive feature pairs.
+2. Multicollinearity Ignorance: Standard SelectKBest picks all redundant collinear
+   features if all have high individual scores (e.g., picking both Celsius and Fahrenheit).
+3. Monotonic / Linear Assumption: ANOVA and Pearson assume linear or group-mean relationships.
+
+
+5. FOUR REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES (WEST BENGAL)
+--------------------------------------------------------------------------------
+
+CASE STUDY 1: KOLKATA METRO GREEN LINE PASSENGER TELEMETRY
+- Domain: Automated Fare Collection (AFC) gate congestion forecasting at Sealdah & Howrah.
+- Feature Selection Pipeline:
+  * Step 1 (Variance Thresholding, theta = 0.01):
+    - `metro_currency_code` (all 356 for INR) has Var = 0.0000 -> Pruned as constant.
+    - `is_kolkata_resident` (99.2% positive) has Var = 0.0049 -> Pruned as quasi-constant.
+  * Step 2 (Pairwise Correlation Deduplication, threshold = 0.85):
+    - `platform_rfid_taps` and `platform_optical_barrier_pulses` correlate |r| = 0.9997.
+    - Optical pulses pruned to eliminate redundant sensor channel.
+  * Step 3 (SelectKBest via ANOVA F-test):
+    - Top 3 features selected: `platform_rfid_taps` (F = 124.38), `rain_intensity_mm` (F = 22.08),
+      and `train_arrival_gap_mins` (F = 21.89).
+
+CASE STUDY 2: WBSEDCL SMART GRID SUBSTATION MONITORING (BARRACKPORE)
+- Domain: 33/11 kV distribution transformer telemetry in North 24 Parganas.
+- Feature Selection Pipeline:
+  * 32 telemetry channels collected every 15 minutes.
+  * VarianceThreshold(0.0) strips 3 static configuration register flags.
+  * CorrelationDeduplicator(|r| >= 0.90) deduplicates secondary current transformer CT-2
+    (collinear with primary CT-1, r = 0.992).
+  * SelectPercentile(percentile=40) using ANOVA F-score selects active kW, kVAR, ambient temp,
+    and total harmonic distortion (THD).
+
+CASE STUDY 3: SILIGURI TEA GARDEN HYPERSPECTRAL LEAF QUALITY ASSAY
+- Domain: Spectrophotometric grading of Camellia sinensis leaf batches across 120 optical wavelengths.
+- Feature Selection Pipeline:
+  * Consecutive narrow wavelength bands (e.g., 680 nm and 682 nm) exhibit r = 0.996.
+  * Greedy correlation deduplication reduces 120 bands to 28 non-collinear spectral windows.
+  * SelectKBest with F-regression selects top 8 key chlorophyll-a absorption wavelengths.
+
+CASE STUDY 4: SERAMPORE INDUSTRIAL JUTE MILL SPINNING FRAME RESILIENCE
+- Domain: Mechanical failure prediction for automated jute spinning spindles in Hooghly.
+- Feature Selection Pipeline:
+  * 45 mechanical telemetry attributes.
+  * Low-variance filter removes fixed lubricant batch IDs and factory shift codes.
+  * Chi-Square test evaluates association between categorical maintenance status and bearing failure.
+  * Pruning reduces inference latency on factory edge gateway from 180 ms to 14 ms.
+
+
+6. COMMON PRODUCTION PITFALLS & ARCHITECTURAL ANTI-PATTERNS
+--------------------------------------------------------------------------------
+1. Applying VarianceThreshold on Unscaled Heterogeneous Features:
+   Comparing variance of salary in INR (millions) with age in years (tens). The algorithm
+   drops age simply because its numerical unit is smaller, not because it is less informative!
+2. Data Leakage via Pre-Split Feature Selection:
+   Computing ANOVA F-scores or Chi-Square on the full dataset before train/test splitting.
+   This leaks test set distribution into feature rankings, causing optimistic bias.
+3. Blindly Running SelectKBest on Redundant Features:
+   Selecting top 5 features with highest univariate scores when features 1, 2, and 3 are
+   near-identical copies of each other. The model receives only 3 distinct signals.
+4. Using Chi-Square on Negative or Standardized Values:
+   scikit-learn's chi2 requires strictly non-negative values. Passing z-score standardized
+   features (which contain negative numbers) crashes or outputs nonsensical statistics.
+5. Inappropriate Threshold Setting for Binary Quasi-Constants:
+   Setting theta = 0.1 on binary features. Since max Bernoulli variance is 0.25 (at p = 0.5),
+   a threshold of 0.1 drops features where up to 88% of samples have one value, discarding
+   rare but highly informative disease indicators!
+6. Discarding Low-Variance Rare Binary Anomaly Flags:
+   In fraud detection, an indicator `is_foreign_ip_mismatch` occurs in only 0.2% of cases
+   (Var = 0.00199). VarianceThreshold(0.01) deletes it, even though it predicts 90% of fraud!
+
+
+7. MAKAUT VIVA VOCE EXAMINATION QUESTIONS & ANSWERS (SUKANTA HUI CURATED)
+--------------------------------------------------------------------------------
+Q1: What is the purpose of VarianceThreshold, and is it a supervised or unsupervised method?
+A1: VarianceThreshold is an UNSUPERVISED feature selection technique. It removes all
+    features whose variance falls below a specified cutoff. It does not use target
+    labels Y. Its primary purpose is to prune constant (zero variance) and quasi-constant
+    features that carry negligible informational diversity.
+
+Q2: For a binary indicator feature, what is the variance formula, and how is the cutoff set?
+A2: For a Bernoulli variable X in {0, 1} with P(X = 1) = p, the variance is Var(X) = p * (1 - p).
+    If we wish to prune features where 99% of samples are identical, the cutoff is set to
+    theta = 0.99 * (1 - 0.99) = 0.0099.
+
+Q3: Explain the mathematical mechanism of the One-Way ANOVA F-test in SelectKBest.
+A3: ANOVA computes the ratio of between-group mean square (MS_B) to within-group mean
+    square (MS_W): F = MS_B / MS_W. If the class categories have widely separated means
+    relative to internal scatter, F is large, indicating strong discriminatory power.
+
+Q4: Why does scikit-learn's `chi2` function require non-negative input features?
+A4: Pearson's Chi-Square test is derived from multinomial contingency counts:
+    chi^2 = sum (O - E)^2 / E. The mathematical formulation assumes frequency counts or
+    non-negative occurrences; negative values violate the probabilistic framework.
+
+Q5: What is the difference between SelectKBest and SelectPercentile?
+A5: SelectKBest retains a fixed integer count k of top-scoring features (e.g. k = 10).
+    SelectPercentile retains the top p percent of features (e.g. top 25%), scaling with
+    input dimensionality.
+
+Q6: What is the False Discovery Rate (FDR), and how does the Benjamini-Hochberg method control it?
+A6: FDR is the expected proportion of false positives among all rejected null hypotheses.
+    The Benjamini-Hochberg method sorts p-values P_(1) <= ... <= P_(m) and finds the largest
+    k satisfying P_(k) <= (k / m) * Q, rejecting hypotheses 1..k to guarantee FDR <= Q.
+
+Q7: Why does univariate feature selection fail to identify the XOR problem?
+A7: Univariate filters evaluate each feature independently with target Y. In the XOR
+    problem, each individual feature has zero linear correlation (r = 0) and identical
+    class-conditional means (ANOVA F approx 0). The filter drops both as useless, missing
+    their 100% deterministic joint synergy.
+
+Q8: Describe the Greedy Pairwise Correlation Deduplication algorithm.
+A8: 1. Compute the pairwise Pearson correlation matrix R.
+    2. Identify all pairs (X_j, X_k) where |r| >= threshold (e.g. 0.85).
+    3. Greedily prune one feature from each collinear pair (preferably the one with lower
+       correlation to the target), eliminating multicollinearity.
+
+Q9: What is the danger of applying VarianceThreshold before feature scaling?
+A9: Variance depends on the measurement unit. A feature measured in millimeters will have
+    1,000,000x the variance of the same feature in meters. Unscaled variance thresholding
+    will erroneously drop variables with small units regardless of informative value.
+
+Q10: In credit card fraud detection, why should you NOT use VarianceThreshold(0.01) on rare fraud flags?
+A10: In fraud detection, key indicators (e.g., failed OTP count > 5) occur in fewer than
+     0.5% of transactions (Var < 0.005). Setting threshold = 0.01 will delete these rare,
+     life-saving anomaly signals because it mistakes rarity for uselessness.
+================================================================================
+END OF STUDY NOTES: TOPIC 4 (BCAC701B)
+================================================================================
