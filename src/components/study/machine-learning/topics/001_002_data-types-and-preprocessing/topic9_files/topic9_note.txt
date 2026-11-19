@@ -1,48 +1,180 @@
 =============================================================================
-CODER & ACCOTAX ACADEMIC STUDY NOTES
+CODER & ACCOTAX ACADEMIC STUDY NOTES & REVISION HANDBOOK
 Course: Introduction to Machine Learning (Subject Code: BCAC701B)
-Module: Data Types and Preprocessing
-Topic 9: Mean, median and mode imputation
-Author: Sukanta Hui | Barrackpore, West Bengal, India
+Module: Data Types and Preprocessing (Slug: 001_002_data-types-and-preprocessing)
+Topic 9: Mean, Median and Mode Imputation Architecture
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal, India
 =============================================================================
 
-1. THEORETICAL FOUNDATION & CONCEPTS
+1. EXECUTIVE OVERVIEW: THE CENTRAL TENDENCY IMPUTATION PARADIGM
 -----------------------------------------------------------------------------
-Topic: Mean, median and mode imputation
-Module Scope: Data Types and Preprocessing
+Univariate central tendency imputation is the most ubiquitous, computationally efficient, 
+and universally supported method for replacing missing values in machine learning pipelines.
 
-Core Conceptual Formulation:
-- Detailed examination of Mean, median and mode imputation within the Data Types and Preprocessing framework.
-- Mathematical formulation, algorithmic mechanics, and optimization equations.
-- In-depth understanding of loss surfaces, bias-variance trade-offs, and empirical convergence.
+Rather than running complex multivariate neural networks or distance matrices, central 
+tendency replaces missing cells with a single representative scalar derived from the 
+observed sample distribution:
+- Arithmetic Mean: The center of gravity / centroid of continuous observations.
+- Sample Median: The 50th percentile rank order divider.
+- Sample Mode: The most frequently occurring categorical or discrete observation.
 
------------------------------------------------------------------------------
-2. MATHEMATICAL FORMULATION & ALGORITHMS
------------------------------------------------------------------------------
-- Input Feature Matrix: X in R^(N x d)
-- Optimization Function: min_w (1/N) * sum_{i=1}^N Loss(h(x_i), y_i) + lambda * Omega(w)
-- Continuous evaluation of empirical error gradients and hyperparameter tuning.
+While computationally simple (O(N) time complexity and O(1) inference storage), blindly 
+applying the mean or median without analyzing distribution topology introduces severe 
+variance deflation, distorts covariance, and biases downstream classifiers.
 
------------------------------------------------------------------------------
-3. REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES
------------------------------------------------------------------------------
-Case 1: Academic Learning Analytics at Barrackpore Institute (Mamata & Mahima)
-Case 2: Commercial Real Estate & Financial Valuation in Kolkata & Salt Lake (Debangshu)
-Case 3: Retail Customer Intelligence & Segmentation in Ichapur (Susmita)
-Case 4: Clinical Diagnostic Perception at Jadavpur Medical Research Hub (Abhronila)
 
+2. MATHEMATICAL FOUNDATIONS: LOSS FUNCTION DERIVATIONS
 -----------------------------------------------------------------------------
-4. COMMON PITFALLS & INDUSTRY BEST PRACTICES
------------------------------------------------------------------------------
-- Common Pitfall: Premature overfitting on training data without validation cross-checks.
-- Common Pitfall: Failing to scale input features prior to gradient descent optimization.
-- Best Practice: Always establish a simple baseline benchmark before training complex models.
-- Best Practice: Rigorously audit test splits to prevent subtle data leakage.
+Why do Mean, Median, and Mode behave differently? Because each represents the optimal 
+point estimator minimizing a completely different mathematical loss function!
 
+Theorem 1: The Sample Mean Minimizes L2 (Squared Error) Loss
+  Objective: Find scalar c that minimizes the sum of squared distances to observed points:
+      J(c) = sum_{i=1}^N (x_i - c)^2
+  Differentiating with respect to c and setting the derivative to zero:
+      dJ / dc = sum_{i=1}^N 2*(x_i - c)*(-1) = -2 * sum_{i=1}^N (x_i - c) = 0
+      sum_{i=1}^N x_i - N*c = 0  ==>  c* = (1 / N) * sum_{i=1}^N x_i = mu_sample
+  Conclusion: The arithmetic mean is the unique optimal constant estimator under L2 loss. 
+  However, squaring deviations gives quadratic leverage to extreme outliers.
+
+Theorem 2: The Sample Median Minimizes L1 (Absolute Error) Loss
+  Objective: Find scalar c that minimizes the sum of absolute distances:
+      J(c) = sum_{i=1}^N |x_i - c|
+  Differentiating piecewise:
+      dJ / dc = sum_{i=1}^N -sign(x_i - c) = 0
+  This requires the count of observations where x_i > c to exactly balance the count where x_i < c:
+      Count(x_i < c) = Count(x_i > c)  ==>  c* = Median (50th percentile)
+  Conclusion: The median is non-parametric and impervious to extreme outliers.
+
+Theorem 3: The Sample Mode Minimizes 0-1 (Zero-One) Loss
+  Objective: In discrete or categorical features, assign a constant c to minimize misclassification rate:
+      J(c) = sum_{i=1}^N I(x_i != c)
+  Minimizing error is identical to maximizing probability:
+      c* = argmax_c P(X = c) = Mode
+  Conclusion: Mode imputation is the only mathematically coherent central tendency for nominal labels.
+
+
+3. DISTRIBUTION SKEWNESS & TOPOLOGICAL SELECTION RULES
 -----------------------------------------------------------------------------
-5. INSTRUCTOR CHECKLIST & REVISION NOTES (SUKANTA HUI)
+The choice between Mean and Median is strictly governed by the skewness of the feature distribution:
+
+1. Symmetric / Normal Distribution (Gaussian):
+   - Relationship: Mean ≈ Median ≈ Mode
+   - Recommendation: Use Mean Imputation. It is the Best Linear Unbiased Estimator (BLUE) 
+     and maximizes statistical efficiency under normality.
+
+2. Positive / Right-Skewed Distribution (Long Tail on Right):
+   - Relationship: Mode < Median < Mean
+   - Real-World Examples: Software developer salaries in Salt Lake Sector V, property prices 
+     in Ballygunge, patient hospital bills in Kolkata.
+   - Pathology of Mean: A few multi-Crore outliers pull the arithmetic mean far to the right. 
+     Imputing the mean assigns an artificially bloated salary to junior employees.
+   - Recommendation: Use Median Imputation!
+
+3. Negative / Left-Skewed Distribution (Long Tail on Left):
+   - Relationship: Mean < Median < Mode
+   - Real-World Examples: Human adult life expectancy, college exam scores on an easy test.
+   - Recommendation: Use Median Imputation!
+
+
+4. THE STATISTICAL PATHOLOGY OF VARIANCE SHRINKAGE
 -----------------------------------------------------------------------------
-[ ] Master the foundational definitions, formulas, and terminology of Mean, median and mode imputation.
-[ ] Understand the step-by-step algorithmic pipeline and optimization updates.
-[ ] Relate theoretical principles to regional industrial case studies and applications.
+The fundamental flaw of single mean imputation is the Variance Deflation Theorem:
+
+Let a dataset have N_obs observed records with variance sigma^2, and N_mis missing records.
+If all N_mis cells are filled with the exact sample mean mu:
+    Var(X_imputed) = [ sum_{i in obs} (x_i - mu)^2 + sum_{i in mis} (mu - mu)^2 ] / (N_obs + N_mis)
+Because (mu - mu)^2 = 0 for all missing rows, the numerator does NOT grow!
+    Var(X_imputed) = [ N_obs / (N_obs + N_mis) ] * Var(X_obs)
+    Var(X_imputed) = (1 - p_mis) * Var(X_obs)
+
+Statistical Consequences:
+1. Artificial Precision: Standard error SE = sigma / sqrt(N) is artificially shrunk, 
+   producing falsely narrow confidence intervals and inflated t-statistics (Type I false positives).
+2. Covariance Dilution: The covariance with target y is multiplied by (1 - p_mis), 
+   weakening perceived feature correlations.
+3. Histogram Spike Artifact: In continuous distributions, mean imputation injects an unnatural, 
+   infinitely sharp Dirac delta spike at mu, confusing non-linear models.
+
+
+5. STRATIFIED / GROUPED IMPUTATION ARCHITECTURE
+-----------------------------------------------------------------------------
+Rather than calculating a single flat global scalar across the entire column, Grouped Imputation 
+conditions on auxiliary categorical attributes:
+    x_hat_i = Median(X | Group = g_i)
+
+In Salt Lake Sector V IT compensation:
+- Global Median Salary: Rs 12.0 LPA (Heavily distorted across roles)
+- Engineering Group Median: Rs 10.2 LPA
+- Data Science Group Median: Rs 14.5 LPA
+- Quality Assurance Group Median: Rs 7.1 LPA
+- Leadership Group Median: Rs 73.5 LPA
+
+Impact:
+- Reduces imputation Mean Absolute Error (MAE) by over 60-80%!
+- Prevents cross-department variance contamination while maintaining computational simplicity.
+
+
+6. PREVENTING DATA LEAKAGE: THE FIT-TRANSFORM BOUNDARY
+-----------------------------------------------------------------------------
+Fatal Leaky Pipeline:
+    # BUG: Calculating mean on full dataset before train/test split!
+    mean_val = df['salary'].mean()
+    df['salary'].fillna(mean_val, inplace=True)
+    train, test = train_test_split(df) # Test set values leaked into train_val!
+
+Correct Anti-Leakage Architecture:
+    train, test = train_test_split(df)
+    train_mean = train['salary'].mean() # Learned STRICTLY from train
+    train['salary'].fillna(train_mean, inplace=True)
+    test['salary'].fillna(train_mean, inplace=True) # Frozen train scalar applied to test!
+
+
+7. REGIONAL WEST BENGAL INDUSTRIAL CASE STUDIES
+-----------------------------------------------------------------------------
+Case Study 1: Salt Lake Sector V Software Compensation Telemetry
+- Problem: Salary records for 10,000 tech employees contained 22% missingness. Extreme 
+  executive salaries (Rs 85 LPA) inflated the global mean to Rs 28.9 LPA, whereas junior 
+  developers earned Rs 8.5 LPA.
+- Solution: Grouped median imputation stratified by (Job_Role, Years_Experience_Bin). 
+  Slashed reconstruction MAE from 18.5 LPA down to 0.78 LPA!
+
+Case Study 2: WBSEDCL Industrial Power Load Telemetry (Barrackpore)
+- Problem: Factory hourly kilowatt readings contained monsoon network drops. High-voltage 
+  welding spikes (9999 kW) pulled the arithmetic mean to impossible thresholds.
+- Solution: Median imputation, preserving normal manufacturing baseline power consumption.
+
+Case Study 3: Hooghly Jute Mill Worker Shift Attendance
+- Problem: Mechanical punch-card timestamps occasionally failed to record shift assignment 
+  (Morning, General, Evening, Night).
+- Solution: Categorical Mode imputation. 'General' shift was the dominant empirical mode (74%), 
+  providing statistically optimal 0-1 loss classification.
+
+Case Study 4: SSKM Hospital Pediatric Outpatient Growth Roster
+- Problem: Child weight records were missing on 15% of outpatient cards. A single global 
+  median weight (e.g. 25 kg) is absurd across newborns vs 10-year-olds.
+- Solution: Age-bracketed grouped median imputation (Month 0-6, Month 6-12, Year 1-3, etc.).
+
+
+8. MAKAUT SEMESTER EXAM REVISION FLASHCARDS & SHORT QUESTIONS
+-----------------------------------------------------------------------------
+[Q1] Prove that the sample mean minimizes L2 loss.
+     -> d/dc sum (x_i - c)^2 = -2 sum (x_i - c) = 0 ==> sum x_i - Nc = 0 ==> c = (1/N) sum x_i.
+
+[Q2] What happens to the sample variance when 20% of missing values are imputed with the mean?
+     -> Var(X_imp) = (1 - 0.20) * Var(X_obs) = 0.80 * Var(X_obs). Variance is deflated by exactly 20%.
+
+[Q3] In a right-skewed salary distribution, what is the ordering of Mean, Median, and Mode?
+     -> Mode < Median < Mean.
+
+[Q4] Why should Mode Imputation be used for discrete categorical variables rather than Mean?
+     -> Mean produces non-existent fractional floats (e.g. City = 1.4); Mode selects the 
+        most probable empirical category, minimizing 0-1 misclassification loss.
+
+[Q5] What is Grouped Imputation and why is it superior to Global Imputation?
+     -> Calculating central tendency within demographic subsets (e.g. Median salary per job title); 
+        it preserves subgroup variances and slashes imputation error.
+
+=============================================================================
+END OF REVISION HANDBOOK - CODER & ACCOTAX BARRACKPORE
 =============================================================================
