@@ -1,48 +1,191 @@
 =============================================================================
-CODER & ACCOTAX ACADEMIC STUDY NOTES
+CODER & ACCOTAX ACADEMIC STUDY NOTES & REVISION HANDBOOK
 Course: Introduction to Machine Learning (Subject Code: BCAC701B)
-Module: Data Types and Preprocessing
-Topic 7: Data cleaning
-Author: Sukanta Hui | Barrackpore, West Bengal, India
+Module: Data Types and Preprocessing (Slug: 001_002_data-types-and-preprocessing)
+Topic 7: Data Cleaning & Rectification Architecture
+Author: Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal, India
 =============================================================================
 
-1. THEORETICAL FOUNDATION & CONCEPTS
+1. EXECUTIVE OVERVIEW: THE ANATOMY OF DATA CLEANING
 -----------------------------------------------------------------------------
-Topic: Data cleaning
-Module Scope: Data Types and Preprocessing
+Data Cleaning (also designated as Data Cleansing or Data Scrubbing) is the rigorous 
+computational process of detecting, diagnosing, and rectifying corrupt, inaccurate, 
+incomplete, duplicated, or improperly formatted records from a dataset.
 
-Core Conceptual Formulation:
-- Detailed examination of Data cleaning within the Data Types and Preprocessing framework.
-- Mathematical formulation, algorithmic mechanics, and optimization equations.
-- In-depth understanding of loss surfaces, bias-variance trade-offs, and empirical convergence.
+While general preprocessing encompasses scaling, dimensionality reduction, and 
+feature extraction, Data Cleaning is specifically concerned with DATA INTEGRITY 
+and FIDELITY:
+    Clean Data = Real-World Ground Truth - Measurement Noise - Ingestion Artifacts
 
------------------------------------------------------------------------------
-2. MATHEMATICAL FORMULATION & ALGORITHMS
------------------------------------------------------------------------------
-- Input Feature Matrix: X in R^(N x d)
-- Optimization Function: min_w (1/N) * sum_{i=1}^N Loss(h(x_i), y_i) + lambda * Omega(w)
-- Continuous evaluation of empirical error gradients and hyperparameter tuning.
+In empirical Machine Learning projects:
+- Real-world data is NEVER clean; it originates from heterogeneous databases, faulty IoT 
+  sensors, manual citizen web forms, and legacy COBOL/Excel dumps.
+- Up to 40% of records in raw public sector registries contain at least one defect.
+- Training an algorithm on dirty data produces biased model weights, high prediction 
+  variance, and unexplainable production failures.
 
------------------------------------------------------------------------------
-3. REAL-WORLD REGIONAL INDUSTRIAL CASE STUDIES
------------------------------------------------------------------------------
-Case 1: Academic Learning Analytics at Barrackpore Institute (Mamata & Mahima)
-Case 2: Commercial Real Estate & Financial Valuation in Kolkata & Salt Lake (Debangshu)
-Case 3: Retail Customer Intelligence & Segmentation in Ichapur (Susmita)
-Case 4: Clinical Diagnostic Perception at Jadavpur Medical Research Hub (Abhronila)
 
+2. THE 4 CLASSIFICATIONS OF DATA DIRT
 -----------------------------------------------------------------------------
-4. COMMON PITFALLS & INDUSTRY BEST PRACTICES
------------------------------------------------------------------------------
-- Common Pitfall: Premature overfitting on training data without validation cross-checks.
-- Common Pitfall: Failing to scale input features prior to gradient descent optimization.
-- Best Practice: Always establish a simple baseline benchmark before training complex models.
-- Best Practice: Rigorously audit test splits to prevent subtle data leakage.
+Data defects manifest across four primary architectural classifications:
 
+A. Syntactic & Structural Irregularities:
+   - Case Mismatches: 'kolkata', 'Kolkata', 'KOLKATA', 'Calcutta' representing the identical city.
+   - Irregular Whitespace: Leading tabs, trailing spaces, or hidden non-breaking spaces ('\u00a0').
+   - Format Discordance: Dates written as '2024-05-12' vs '12/05/2024' vs 'May 12, 2024'.
+   - Phone Numbers: '9432456083' vs '+91-9432456083' vs '(033) 2592-XXXX'.
+
+B. Semantic & Logical Contradictions:
+   - Domain Range Violations: Age = -5, Human Heart Rate = 450 bpm, Property Tax = -Rs 500.
+   - Cross-Field Inconsistencies: Citizen Age = 8 years old, but Years of Employment = 15 years.
+   - Chronological Anomalies: Hospital Discharge Date preceding Admission Date.
+
+C. Hidden Sentinel Values (Implicit Missing Data):
+   - Legacy systems avoid null pointer exceptions by filling missing cells with special constants:
+     Numeric Sentinels: -999, -1, 9999, 999999
+     String Sentinels: 'N/A', 'NA', 'NULL', 'None', '?', 'MISSING', '#REF!', 'Unknown'
+   - Standard automated checks (e.g., pandas `df.isna()`) evaluate to FALSE on these valid 
+     floats or strings, secretly poisoning statistical means, variances, and loss functions!
+
+D. Duplicate Entities (Exact vs Fuzzy Near-Duplicates):
+   - Exact Duplicates: Identical byte-for-byte rows resulting from network retry loops.
+   - Fuzzy / Near-Duplicates: The same physical person recorded under different keys:
+     "Sukanta Hui, Barrackpore, 9432456083" vs "S. Hui, Barrackpore, +919432456083".
+
+
+3. MATHEMATICAL FOUNDATIONS OF DATA CLEANING
 -----------------------------------------------------------------------------
-5. INSTRUCTOR CHECKLIST & REVISION NOTES (SUKANTA HUI)
+1. Levenshtein Edit Distance Metric:
+   The minimum number of single-character edits (insertions, deletions, substitutions) 
+   required to transform string s1 into string s2:
+       D(i, j) = 0                                     if i=0, j=0
+       D(i, j) = i                                     if j=0
+       D(i, j) = j                                     if i=0
+       D(i, j) = min [ D(i-1, j) + 1,                  (Deletion)
+                       D(i, j-1) + 1,                  (Insertion)
+                       D(i-1, j-1) + cost(s1[i], s2[j]) ] (Substitution)
+       where cost = 0 if s1[i] == s2[j] else 1.
+
+   Normalized Similarity Ratio:
+       Sim(s1, s2) = 1.0 - [ D(s1, s2) / max(|s1|, |s2|) ] in [0.0, 1.0]
+
+2. Noise Contamination Theorem in Linear Models:
+   Let true data generating process be y = X*beta + epsilon.
+   If inputs are contaminated with measurement noise X_dirty = X + Delta:
+       beta_hat = (X_dirty^T * X_dirty)^(-1) * X_dirty^T * y
+   This produces Attenuation Bias (Errors-in-Variables):
+       E[beta_hat] = beta * [ sigma_X^2 / (sigma_X^2 + sigma_Delta^2) ]
+   As sensor noise variance sigma_Delta^2 increases, the estimated parameter beta_hat 
+   is shrunk toward zero, destroying true causal relationship detection!
+
+3. Listwise Deletion Information Loss:
+   Dropping any row containing a missing attribute results in sample size reduction:
+       N_clean = N * prod_{j=1}^d (1 - p_j)
+   If a dataset has 50 columns each with only 3% missingness, complete-case analysis 
+   discards over 78% of all collected training records:
+       (1 - 0.03)^50 = 0.218 -> 78.2% data destroyed!
+
+
+4. THE 5-STAGE END-TO-END DATA CLEANING PROTOCOL
 -----------------------------------------------------------------------------
-[ ] Master the foundational definitions, formulas, and terminology of Data cleaning.
-[ ] Understand the step-by-step algorithmic pipeline and optimization updates.
-[ ] Relate theoretical principles to regional industrial case studies and applications.
+Stage 1: Profiling & Schema Auditing
+  - Detect column data types, null ratios, cardinality, and unexpected non-numeric tokens.
+  - Calculate baseline Data Quality Index before any mutation.
+
+Stage 2: Hidden Sentinel Extraction & Standardization
+  - Scan numerical columns for legacy sentinel boundaries (-999, 9999).
+  - Convert all semantic missing tokens ('N/A', '?', 'null') explicitly to np.nan.
+
+Stage 3: Text Normalization & Canonical Synonym Mapping
+  - Trim leading/trailing whitespace and collapse interior spaces (`re.sub(r'\s+', ' ', text)`).
+  - Apply domain-specific synonym dictionaries ('Calcutta' -> 'Kolkata', 'Bkp' -> 'Barrackpore').
+  - Standardize phone numbers to canonical E.164 international format (+91-XXXXXXXXXX).
+
+Stage 4: Domain Constraint & Cross-Field Logical Validation
+  - Enforce physical bounds: Age in [18, 100], Tax >= 0.
+  - Cross-field logic checks: if Years_Experience > (Age - 16), flag and auto-correct.
+
+Stage 5: Deduplication (Deterministic & Probabilistic Entity Resolution)
+  - Pass 1: Deterministic primary key / contact hash deduplication.
+  - Pass 2: Fuzzy composite string matching on Name + Locality with similarity threshold >= 0.80.
+  - Maintain an immutable Audit Trail logging every deleted row and modified attribute value.
+
+
+5. REGIONAL WEST BENGAL INDUSTRIAL CASE STUDIES
+-----------------------------------------------------------------------------
+Case Study 1: Kolkata Municipal Corporation (KMC) Property Tax Registry
+- Problem: Tax assessment records from 144 civic wards contain fuzzy address variations:
+  "Ballygunge Circular Rd", "Ballygunge Cir Rd", "B.C. Road", "Ballygunge Cir. Road".
+- Solution: Rule-based regex token expansion combined with Levenshtein fuzzy deduplication, 
+  collapsing 12,000 duplicate assessment accounts and recovering Rs 4.2 Crores in unlinked tax dues.
+
+Case Study 2: West Bengal Food & Supplies Department (WBFACS - Khadya Sathi)
+- Problem: Digitization of 8.5 Crore ration cards created transliteration errors when 
+  converting Bengali citizen names into English (e.g. "Bondopadhyay" vs "Banerjee", "Mukhopadhyay" vs "Mukherjee").
+- Solution: Phonetic encoding algorithms (Soundex / Metaphone tailored to Indic phonetics) 
+  linked with Aadhaar UIDAI deduplication to eliminate fraudulent ghost cards.
+
+Case Study 3: North 24 Parganas District Hospital Emergency ICU Telemetry
+- Problem: Patient heart-rate and oxygen telemetry streams recorded zero values (0 bpm) 
+  whenever ECG chest leads disconnected as patients shifted in bed.
+- Solution: Multi-sensor cross-validation: if heart rate = 0 bpm but blood pressure and 
+  pulse oximeter waveforms remain normal, the zero reading is classified as a mechanical 
+  lead disconnect artifact (flagged as missing and forward-filled) rather than cardiac arrest.
+
+Case Study 4: Howrah Wholesale Agricultural & Fish Mandi Ledgers
+- Problem: Daily wholesale ledgers mixed traditional Bengali weight units (Maund = 37.32 kg, 
+  Seer = 0.933 kg) with modern metric Kilograms and Quintals.
+- Solution: Deterministic unit extraction parser that converts all legacy imperial and regional 
+  units into standardized SI kilograms (kg) before feeding commodity price forecast models.
+
+
+6. ENGINEERING BEST PRACTICES & COMMON ANTI-PATTERNS
+-----------------------------------------------------------------------------
+1. Anti-Pattern: Blind Listwise Row Dropping (`df.dropna()`)
+   - Naively executing `df.dropna()` without profiling can delete 80% of your training dataset, 
+     inducing fatal survivorship and selection bias.
+   - Best Practice: Drop columns with > 60-70% missingness; impute columns with < 30% missingness.
+
+2. Anti-Pattern: Hardcoded In-Place Mutation Without Lineage Tracking
+   - Mutating raw DataFrames in-place destroys reproducibility and makes it impossible to 
+     audit what changed, why it changed, or whether an algorithm hallucinated a correction.
+   - Best Practice: Maintain a structured audit log recording {record_id, field, original_val, clean_val, rule_triggered}.
+
+3. Anti-Pattern: Unconditional Case-Folding
+   - Lowercasing all text can destroy meaningful domain signals (e.g., 'IT' [Information Tech] 
+     becomes pronoun 'it'; 'US' [United States] becomes 'us').
+   - Best Practice: Apply case-folding strictly to nominal category dictionaries and entity names.
+
+4. Anti-Pattern: Ignoring Hidden Non-Breaking Spaces
+   - Web scrapers often ingest `&nbsp;` (Unicode `\u00a0`). Standard Python `.strip()` or SQL `TRIM()` 
+     does not remove non-breaking spaces in legacy database engines, causing string joins to fail silently.
+   - Best Practice: Normalize Unicode strings via `unicodedata.normalize('NFKD', s)`.
+
+
+7. MAKAUT SEMESTER EXAM REVISION FLASHCARDS & SHORT QUESTIONS
+-----------------------------------------------------------------------------
+[Q1] Define Data Cleaning and state its primary objective.
+     -> The systematic detection and rectification of corrupt, inaccurate, incomplete, or 
+        duplicated records to ensure data integrity prior to machine learning training.
+
+[Q2] What is a hidden sentinel value? Give two examples.
+     -> A valid numeric or text constant used by legacy databases to represent missing values 
+        (e.g., -999 for missing age, 'N/A' or 'Unknown' for missing category), which bypasses 
+        standard null checks.
+
+[Q3] How does Levenshtein distance differ from Hamming distance?
+     -> Hamming distance only measures substitutions between strings of EQUAL length. 
+        Levenshtein distance handles insertions, deletions, and substitutions between strings 
+        of DIFFERENT lengths.
+
+[Q4] Explain the difference between Exact Deduplication and Fuzzy Deduplication.
+     -> Exact deduplication checks for 100% byte or hash equality. Fuzzy deduplication 
+        identifies near-duplicates using string similarity thresholds (e.g. "S. Hui" vs "Sukanta Hui").
+
+[Q5] What is Attenuation Bias caused by measurement noise?
+     -> When feature measurements contain random noise, regression coefficients beta_hat 
+        are systematically shrunk toward zero, underestimating the true relationship.
+
+=============================================================================
+END OF REVISION HANDBOOK - CODER & ACCOTAX BARRACKPORE
 =============================================================================
