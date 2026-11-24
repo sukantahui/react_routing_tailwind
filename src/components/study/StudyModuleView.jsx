@@ -77,10 +77,12 @@ export default function StudyModuleView({
         };
         flat.push(item);
 
-        if (m.slug === slug) {
-          foundModule = item;
-          foundSegment = seg;
-          foundIndex = item.__index;
+        if (m.slug === slug || (slug && (m.slug.startsWith(slug + "_") || m.slug.startsWith(slug)))) {
+          if (!foundModule) {
+            foundModule = item;
+            foundSegment = seg;
+            foundIndex = item.__index;
+          }
         }
       });
     });

@@ -1412,10 +1412,10 @@
     },
     {
       "segmentId": "test-paper",
-      "title": "Segment 9 – Test Paper (ICSE Board Solved Papers 2026 – 2022)",
+      "title": "Segment 9 – Test Paper (ICSE Board Solved Papers & 10 Model Sample Papers)",
       "level": "Board Examination Scope",
-      "summary": "Authentic, solved ICSE Class X Computer Applications board examination papers for 2026, 2025, 2024, 2023, and 2022 with complete Section A objective questions and Section B programming solutions with Variable Description Tables.",
-      "allocatedHours": 25,
+      "summary": "Authentic, solved ICSE Class X Computer Applications board examination papers (2026 – 2022) and 10 comprehensive model sample papers with complete Section A objective questions and Section B programming solutions with Variable Description Tables.",
+      "allocatedHours": 60,
       "modules": [
         {
           "moduleId": "icse-board-papers",
@@ -1489,6 +1489,84 @@
           ],
           "badge": "ICSE Board Test Paper Master",
           "previousModule": "008_002_selection-exam",
+          "nextModule": "009_002_icse-sample-papers"
+        },
+        {
+          "moduleId": "icse-sample-papers",
+          "slug": "009_002_icse-sample-papers",
+          "title": "ICSE Class X 10 Model Sample Papers (Full Board Exam Simulation)",
+          "level": "Board Examination Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 18,
+          "estimatedHours": 35,
+          "summary": "10 authentic model sample question papers meticulously aligned with the CISCE ICSE Class 10 Computer Applications syllabus. Features 200 Section A MCQs, 100 short output & evaluation questions, and 60 Section B algorithmic programs with complete BlueJ solutions and Variable Description Tables.",
+          "tags": [
+            "sample-papers",
+            "icse-class-10",
+            "model-papers",
+            "computer-applications",
+            "board-exam",
+            "cisce",
+            "solved-papers"
+          ],
+          "topics": [
+            "ICSE Class X Sample Paper 1 (Model Board Examination)",
+            "ICSE Class X Sample Paper 2 (Model Board Examination)",
+            "ICSE Class X Sample Paper 3 (Model Board Examination)",
+            "ICSE Class X Sample Paper 4 (Model Board Examination)",
+            "ICSE Class X Sample Paper 5 (Model Board Examination)",
+            "ICSE Class X Sample Paper 6 (Model Board Examination)",
+            "ICSE Class X Sample Paper 7 (Model Board Examination)",
+            "ICSE Class X Sample Paper 8 (Model Board Examination)",
+            "ICSE Class X Sample Paper 9 (Model Board Examination)",
+            "ICSE Class X Sample Paper 10 (Model Board Examination)"
+          ],
+          "learningOutcomes": [
+            "Master all CISCE board examination question patterns across 10 complete 100-mark papers",
+            "Develop precision and speed in solving 20 MCQs and 10 output questions under timed conditions",
+            "Perfect Section B programming: OOP class design, 1D array searches/sorts, string analysis, special numbers, 2D matrix manipulation, and method overloading",
+            "Achieve flawless Variable Description Tables (VDT) to secure maximum marks in ICSE evaluations"
+          ],
+          "prerequisites": [
+            "009_001_icse-test-papers"
+          ],
+          "miniProjects": [
+            "Comprehensive 10-Paper ICSE Model Board Examination Portfolio"
+          ],
+          "exercises": {
+            "mcq": 200,
+            "coding": 60,
+            "projects": 10
+          },
+          "assessment": {
+            "type": "10 Complete 100-Mark ICSE Model Board Examination Simulations",
+            "passScore": 85
+          },
+          "useCases": [
+            "Thorough revision and timed mock exam preparation for ICSE Class 10 board candidates"
+          ],
+          "careerSkills": [
+            "Rigorous Java algorithm implementation",
+            "Code tracing, dry-running, and variable documentation according to CISCE rubrics"
+          ],
+          "commonMistakes": [
+            "Forgetting to initialize total accumulator variables or loop counter variables",
+            "Omitting the Variable Description Table (VDT) leading to loss of marks",
+            "Using library shortcuts like Arrays.sort() instead of writing Bubble or Selection sort loops",
+            "Not handling boundary conditions such as 0 or empty inputs in number theory problems"
+          ],
+          "references": [
+            "CISCE ICSE Class X Computer Applications Syllabus & Specimen Papers",
+            "Previous 10 Years ICSE Board Question Papers (2015-2026)"
+          ],
+          "teachingTips": [
+            "Always allocate 15 minutes of reading time strategically to choose the best 4 Section B programs before writing code."
+          ],
+          "preReading": [
+            "Complete ICSE Class X Computer Applications Curriculum"
+          ],
+          "badge": "ICSE Sample Papers Grandmaster",
+          "previousModule": "009_001_icse-test-papers",
           "nextModule": null
         }
       ]

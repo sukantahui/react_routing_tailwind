@@ -1,0 +1,255 @@
+{
+  "paperId": "ICSE-SAMPLE-04",
+  "title": "ICSE Class X Computer Applications Sample Paper 4 (Model Board Examination)",
+  "duration": "2 Hours",
+  "totalMarks": 100,
+  "prerequisites": "Complete ICSE Class X Computer Applications syllabus (Java with BlueJ)",
+  "instructions": [
+    "Answers to this Paper must be written on the paper provided separately.",
+    "You will not be allowed to write during the first 15 minutes. This time is to be spent in reading the question paper.",
+    "The time given at the head of this Paper is the time allowed for writing the answers.",
+    "This Paper is divided into two Sections. Attempt all questions from Section A and any four questions from Section B.",
+    "The intended marks for questions or parts of questions are given in brackets [ ]."
+  ],
+  "sections": [
+    {
+      "section": "A (Part 1)",
+      "name": "Section A [Compulsory - 20 Marks]",
+      "marks": 20,
+      "questions": [
+        {
+          "q": "1. Act of representing essential features without including background implementation details is known as:\n(a) Data Hiding\n(b) Abstraction\n(c) Inheritance\n(d) Overloading",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Abstraction**\n\n**Explanation:** Abstraction focuses on what an object does rather than how it internally achieves it.",
+          "hint": "Driving a car using steering and pedals without knowing internal combustion mechanics."
+        },
+        {
+          "q": "2. What is the default value assigned to a member variable of type `boolean` in a Java class?\n(a) true\n(b) false\n(c) 0\n(d) null",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) false**\n\n**Explanation:** In Java, instance variables of type `boolean` are automatically initialized to `false` by default.",
+          "hint": "Boolean default is neither 0 nor null."
+        },
+        {
+          "q": "3. What does `\"apple\".compareTo(\"banana\")` return?\n(a) 0\n(b) A positive integer\n(c) A negative integer\n(d) true",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) A negative integer**\n\n**Explanation:** `compareTo()` performs lexicographical comparison. Since `'a'` (ASCII 97) is less than `'b'` (ASCII 98), 97 - 98 = -1 (a negative integer).",
+          "hint": "'a' comes before 'b' in alphabetical order."
+        },
+        {
+          "q": "4. What is the value returned by `Math.sqrt(Math.abs(-64.0))`?\n(a) 8.0\n(b) -8.0\n(c) 8\n(d) 64.0",
+          "marks": 1,
+          "answer": "**Correct Answer: (a) 8.0**\n\n**Explanation:** `Math.abs(-64.0)` returns `64.0`. `Math.sqrt(64.0)` returns `8.0` as a double.",
+          "hint": "Square root of 64 as a double."
+        },
+        {
+          "q": "5. What does `Character.isWhitespace(' ')` return?\n(a) false\n(b) true\n(c) 0\n(d) null",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) true**\n\n**Explanation:** A space character `' '` is a standard whitespace character, so `isWhitespace(' ')` evaluates to `true`.",
+          "hint": "Space is standard whitespace."
+        },
+        {
+          "q": "6. What is the value of `y` in: `int a = 8; int y = a >> 1;`?\n(a) 16\n(b) 4\n(c) 2\n(d) 8",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 4**\n\n**Explanation:** Right shift by 1 bit divides the integer by 2: 8 >> 1 = 4.",
+          "hint": "Right shift divides by 2."
+        },
+        {
+          "q": "7. A loop that never terminates because its condition is always true is known as:\n(a) Nested loop\n(b) Delay loop\n(c) Infinite loop\n(d) Step loop",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Infinite loop**\n\n**Explanation:** An infinite loop has a termination condition that never evaluates to `false`.",
+          "hint": "Runs endlessly without stopping."
+        },
+        {
+          "q": "8. A constructor having arguments in its parameter list is called:\n(a) Default constructor\n(b) Parameterized constructor\n(c) Overloaded method\n(d) Friend constructor",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Parameterized constructor**\n\n**Explanation:** A parameterized constructor accepts arguments to initialize instance variables with custom values during instantiation.",
+          "hint": "Accepts arguments."
+        },
+        {
+          "q": "9. In a 2D array `int a[][] = new int[4][5];`, what is the total number of elements?\n(a) 9\n(b) 20\n(c) 4\n(d) 5",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 20**\n\n**Explanation:** Total elements = rows × columns = 4 × 5 = 20 elements.",
+          "hint": "4 rows times 5 columns."
+        },
+        {
+          "q": "10. Which escape sequence represents a newline in Java output statements?\n(a) \\t\n(b) \\b\n(c) \\n\n(d) \\r",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) \\n**\n\n**Explanation:** `\\n` is the newline character in Java strings.",
+          "hint": "'n' stands for newline."
+        },
+        {
+          "q": "11. Which package is automatically imported into every Java program without an import statement?\n(a) java.util\n(b) java.io\n(c) java.lang\n(d) java.awt",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) java.lang**\n\n**Explanation:** `java.lang` contains fundamental classes (System, Math, String, Character, Integer) and is imported automatically by the compiler.",
+          "hint": "Contains Math, String, System."
+        },
+        {
+          "q": "12. The `default` statement in a switch construct:\n(a) Must always appear as the very first line\n(b) Is mandatory in every switch block\n(c) Executes when none of the specified case labels match\n(d) Can only contain return statements",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) Executes when none of the specified case labels match**\n\n**Explanation:** The optional `default` case executes if no case label equals the switch selector value.",
+          "hint": "Catch-all when no case matches."
+        },
+        {
+          "q": "13. What is the return value of `\"ICSE\".startsWith(\"IC\")`?\n(a) 1\n(b) 0\n(c) true\n(d) false",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) true**\n\n**Explanation:** `startsWith(prefix)` returns a boolean `true` if the string begins with the specified prefix.",
+          "hint": "Returns boolean true."
+        },
+        {
+          "q": "14. A method that does not return any value to the caller specifies its return type as:\n(a) null\n(b) zero\n(c) void\n(d) empty",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) void**\n\n**Explanation:** `void` keyword signifies that the method executes its statements without returning any value.",
+          "hint": "Keyword: void."
+        },
+        {
+          "q": "15. Which area of memory stores primitive local variables and method invocation frames in Java?\n(a) Heap\n(b) Stack\n(c) PermGen\n(d) Metaspace",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Stack**\n\n**Explanation:** Method call frames and local primitive variables are allocated on the Stack memory, while objects reside on the Heap.",
+          "hint": "Local variables live on the Stack."
+        },
+        {
+          "q": "16. What is a method that retrieves the value of a private instance variable without altering it called?\n(a) Mutator method\n(b) Accessor method\n(c) Constructor\n(d) Destructor",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Accessor method**\n\n**Explanation:** Accessor methods (getter methods) return the value of a private field without modifying it.",
+          "hint": "Getter method."
+        },
+        {
+          "q": "17. Which access specifier makes a class member accessible only within its own class?\n(a) public\n(b) protected\n(c) private\n(d) default",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) private**\n\n**Explanation:** `private` members cannot be accessed directly from any other class, ensuring data hiding.",
+          "hint": "Most restrictive access specifier."
+        },
+        {
+          "q": "18. What is the extension of a compiled Java bytecode file?\n(a) .java\n(b) .class\n(c) .exe\n(d) .obj",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) .class**\n\n**Explanation:** Compiling `Program.java` generates `Program.class` containing JVM bytecode.",
+          "hint": "Ends in .class."
+        },
+        {
+          "q": "19. How do you read a single character from the keyboard using a Scanner object `sc`?\n(a) sc.nextChar()\n(b) sc.next().charAt(0)\n(c) sc.readChar()\n(d) (char) sc.nextInt()",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) sc.next().charAt(0)**\n\n**Explanation:** `Scanner` has no `nextChar()` method. Standard practice is to read the first word with `next()` and extract the first character at index 0 via `charAt(0)`.",
+          "hint": "next().charAt(0)."
+        },
+        {
+          "q": "20. Which of the following statements correctly creates an object of class `Demo`?\n(a) Demo obj = create Demo();\n(b) Demo obj = new Demo();\n(c) new Demo obj = Demo();\n(d) obj Demo = new Demo;",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Demo obj = new Demo();**\n\n**Explanation:** Standard syntax: `ClassName objectName = new Constructor();`.",
+          "hint": "ClassName obj = new ClassName();"
+        }
+      ]
+    },
+    {
+      "section": "A (Part 2)",
+      "name": "Section A (Part 2) [Compulsory - 20 Marks]",
+      "marks": 20,
+      "questions": [
+        {
+          "q": "1. Evaluate the value of variable `z`:\n```java\nint p = 5, q = 3;\nint z = p++ * --q + ++p / q;\n```",
+          "marks": 2,
+          "answer": "**Step-by-step Evaluation:**\n- `p++`: uses `5`, then `p` becomes 6.\n- `--q`: pre-decrement turns `q` from 3 to 2, value used = `2`.\n- Multiplication: `5 * 2 = 10`.\n- `++p`: pre-increment turns `p` from 6 to 7, value used = `7`.\n- Integer Division: `7 / 2 = 3` (fraction truncated).\n- Addition: `10 + 3 = 13`.\n\n**Final Result:** `z = 13`, `p = 7`, `q = 2`.",
+          "hint": "5 * 2 = 10, then 7 / 2 = 3, 10 + 3 = 13."
+        },
+        {
+          "q": "2. What is the output of the following Java snippet?\n```java\nString st = \"KOLKATA CITY\";\nSystem.out.println(st.substring(3, 7) + \"#\" + st.length());\n```",
+          "marks": 2,
+          "answer": "**Output:** `KATA#12`\n\n**Explanation:**\n- `substring(3, 7)` extracts indices 3, 4, 5, 6: K(3), A(4), T(5), A(6) -> `\"KATA\"`.\n- `st.length()` counts all 12 characters (including space) -> `12`.",
+          "hint": "Substring index 3 to 6, length includes space."
+        },
+        {
+          "q": "3. Write the Java expression for the kinematic formula:\n$$v^2 = u^2 + 2as \\implies v = \\sqrt{u^2 + 2as}$$",
+          "marks": 2,
+          "answer": "**Java Expression:**\n```java\ndouble v = Math.sqrt(Math.pow(u, 2) + 2.0 * a * s);\n```\n*Alternative:* `Math.sqrt(u * u + 2.0 * a * s);`",
+          "hint": "Use Math.sqrt() for the square root."
+        },
+        {
+          "q": "4. Differentiate between `Math.floor()` and `Math.ceil()` methods with examples.",
+          "marks": 2,
+          "answer": "**Difference:**\n1. `Math.floor(x)`: Returns the largest double integer less than or equal to x (rounds down). Example: `Math.floor(4.7)` returns `4.0`.\n2. `Math.ceil(x)`: Returns the smallest double integer greater than or equal to x (rounds up). Example: `Math.ceil(4.2)` returns `5.0`.",
+          "hint": "floor rounds down, ceil rounds up."
+        },
+        {
+          "q": "5. Rewrite the following code using the ternary operator:\n```java\nint discount;\nif (billAmount > 5000)\n    discount = 500;\nelse\n    discount = 100;\n```",
+          "marks": 2,
+          "answer": "**Ternary Operator Equivalent:**\n```java\nint discount = (billAmount > 5000) ? 500 : 100;\n```",
+          "hint": "discount = (condition) ? 500 : 100;"
+        },
+        {
+          "q": "6. State the output of the following loop:\n```java\nfor (int k = 10; k >= 2; k -= 3) {\n    if (k == 4)\n        break;\n    System.out.print(k + \" \");\n}\n```",
+          "marks": 2,
+          "answer": "**Output:** `10 7 `\n\n**Explanation:**\n- Pass 1: k = 10, prints `10 `.\n- Pass 2: k = 7, prints `7 `.\n- Pass 3: k = 4, triggers `break` which halts loop execution immediately.",
+          "hint": "break terminates loop when k == 4."
+        },
+        {
+          "q": "7. Give the output of:\n```java\nSystem.out.println(Math.max(-12.5, -7.2));\nSystem.out.println(Math.min(15, 25));\n```",
+          "marks": 2,
+          "answer": "**Output:**\n`-7.2`\n`15`\n\n**Explanation:** Between -12.5 and -7.2, -7.2 is numerically greater. Between 15 and 25, 15 is smaller.",
+          "hint": "-7.2 is greater than -12.5 on a number line."
+        },
+        {
+          "q": "8. What is the output of:\n```java\nchar c = 'b';\nSystem.out.println(Character.toUpperCase(c));\nSystem.out.println(Character.isLetterOrDigit(c));\n```",
+          "marks": 2,
+          "answer": "**Output:**\n`B`\n`true`\n\n**Explanation:** `toUpperCase('b')` converts to `'B'`. `'b'` is a valid alphabet letter, so `isLetterOrDigit('b')` returns `true`.",
+          "hint": "'b' -> 'B', and letter check is true."
+        },
+        {
+          "q": "9. Spot the error in the following code and write the correction:\n```java\nString arr[] = new String[5];\narr[5] = \"ICSE\";\n```",
+          "marks": 2,
+          "answer": "**Error:** Array index `5` is out of bounds. An array of size 5 has valid index range from `0` to `4`.\n\n**Corrected Statement:**\n```java\narr[4] = \"ICSE\"; // Or declare size 6: new String[6];\n```",
+          "hint": "Valid indices are 0 to 4."
+        },
+        {
+          "q": "10. What is the value of `count` after loop execution?\n```java\nint count = 0;\nfor (int i = 10; i >= 1; i -= 2) {\n    count++;\n}\n```",
+          "marks": 2,
+          "answer": "**Analysis:**\n- Values of `i`: 10, 8, 6, 4, 2 (5 values).\n- When i = 0, loop terminates.\n\n**Answer:** Loop executes **5 times**, `count = 5`.",
+          "hint": "10, 8, 6, 4, 2 -> 5 iterations."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Section B – Programming Applications (Attempt Any Four)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 6,
+      "description": "Answer any four questions from this section. The answers should include class declaration, variable declaration table, and complete program logic written in Java using BlueJ. (4 × 15 = 60 Marks)",
+      "questions": [
+        {
+          "q": "Class Design - Vehicle Parking Lot Charges\n\nQuestion 3 [Class Design - Vehicle Parking Lot Charges]\n\nDefine a class named `ParkingLot` with the following descriptions:\n- **Data members / Instance variables:**\n  - `int vno`: to store vehicle registration number\n  - `double hours`: number of hours the vehicle stayed in the parking lot\n  - `double bill`: calculated parking fee\n- **Member methods:**\n  - `void input()`: to input the vehicle number and hours parked.\n  - `void calculate()`: to calculate the parking bill based on the tariff:\n    - First 1 hour: ₹ 20.00\n    - Next 3 hours (hours 2, 3, 4): ₹ 10.00 per hour\n    - Above 4 hours: ₹ 8.00 per hour for every additional hour.\n  - `void display()`: to display vehicle number, hours parked, and total charges.\n- Write a `main()` method to create an object and call all methods.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class ParkingLot {\n    private int vno;\n    private double hours;\n    private double bill;\n\n    public void input() {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter Vehicle Number (last 4 digits): \");\n        vno = sc.nextInt();\n        System.out.print(\"Enter Duration Parked (in hours)   : \");\n        hours = sc.nextDouble();\n    }\n\n    public void calculate() {\n        if (hours <= 1.0) {\n            bill = 20.0;\n        } else if (hours <= 4.0) {\n            bill = 20.0 + ((hours - 1.0) * 10.0);\n        } else {\n            bill = 20.0 + (3.0 * 10.0) + ((hours - 4.0) * 8.0);\n        }\n    }\n\n    public void display() {\n        System.out.println(\"\\n========================================\");\n        System.out.println(\"          PARKING LOT RECEIPT           \");\n        System.out.println(\"========================================\");\n        System.out.println(\"Vehicle Number : \" + vno);\n        System.out.println(\"Duration Parked: \" + hours + \" hours\");\n        System.out.printf(\"Total Charges  : Rs. %.2f\\n\", bill);\n        System.out.println(\"========================================\");\n    }\n\n    public static void main(String[] args) {\n        ParkingLot slot = new ParkingLot();\n        slot.input();\n        slot.calculate();\n        slot.display();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `vno` | `int` | Vehicle registration number |\n| `hours` | `double` | Total hours vehicle was parked |\n| `bill` | `double` | Calculated parking charges |\n| `slot` | `ParkingLot` | Class instance instantiated in main() |",
+          "hint": "Define class members with appropriate access specifiers, implement the constructor, write calculation logic, and instantiate the class in main()."
+        },
+        {
+          "q": "1D Array - Selection Sort Descending\n\nQuestion 4 [1D Array - Selection Sort Descending]\n\nWrite a Java program to accept the daily temperatures of 10 days into a 1D double array `double temp[]`.\nSort the temperatures in **descending order** (highest to lowest) using the **Selection Sort** algorithm.\nDisplay the original array and the sorted temperature array.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class SelectionSortDescending {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        double[] temp = new double[10];\n\n        System.out.println(\"Enter 10 daily temperature readings in Celsius:\");\n        for (int i = 0; i < 10; i++) {\n            System.out.print(\"Day [\" + (i + 1) + \"]: \");\n            temp[i] = sc.nextDouble();\n        }\n\n        System.out.print(\"\\nOriginal Readings: \");\n        for (double t : temp) System.out.printf(\"%.1f \", t);\n        System.out.println();\n\n        // Selection Sort Descending\n        int n = temp.length;\n        for (int i = 0; i < n - 1; i++) {\n            int maxIdx = i;\n            for (int j = i + 1; j < n; j++) {\n                if (temp[j] > temp[maxIdx]) {\n                    maxIdx = j;\n                }\n            }\n            double swap = temp[i];\n            temp[i] = temp[maxIdx];\n            temp[maxIdx] = swap;\n        }\n\n        System.out.print(\"Sorted (Descending): \");\n        for (double t : temp) System.out.printf(\"%.1f \", t);\n        System.out.println();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `temp[]` | `double[]` | Array of 10 daily temperature readings |\n| `n` | `int` | Array length |\n| `maxIdx` | `int` | Index of maximum element in current pass |\n| `swap` | `double` | Temporary variable for swap exchange |\n| `i, j` | `int` | Loop counters for passes and comparisons |",
+          "hint": "Implement the required array algorithm (Bubble/Selection sort, Linear/Binary search, or segregation) using standard loops without library shortcuts."
+        },
+        {
+          "q": "String Processing - Longest Word in a Sentence\n\nQuestion 5 [String Processing - Longest Word in a Sentence]\n\nWrite a Java program to accept a sentence ending with a period or space.\nExtract each word from the sentence:\n- Find and display the **longest word** present in the sentence.\n- Display the length (number of characters) of the longest word.\n- If multiple words share the maximum length, display the first one encountered.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class LongestWordInSentence {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a sentence: \");\n        String str = sc.nextLine().trim() + \" \";\n\n        String currentWord = \"\";\n        String longestWord = \"\";\n\n        for (int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            if (ch != ' ') {\n                currentWord += ch;\n            } else {\n                if (currentWord.length() > longestWord.length()) {\n                    longestWord = currentWord;\n                }\n                currentWord = \"\";\n            }\n        }\n\n        System.out.println(\"\\nSentence     : \" + str.trim());\n        System.out.println(\"Longest Word : \" + longestWord);\n        System.out.println(\"Word Length  : \" + longestWord.length() + \" characters\");\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `str` | `String` | Input sentence padded with trailing space |\n| `currentWord` | `String` | Word being constructed character-by-character |\n| `longestWord` | `String` | Tracks word with greatest length |\n| `ch` | `char` | Extracted character at index i |\n| `i` | `int` | Loop traversal index |",
+          "hint": "Iterate through the string character by character, handle whitespace and casing appropriately, and accumulate the target result."
+        },
+        {
+          "q": "Special Number Logic - Automorphic or Prime Number\n\nQuestion 6 [Special Number Logic - Automorphic or Prime Number]\n\nWrite a menu-driven program to accept an integer and check:\n- **1. Automorphic Number:** An automorphic number is an integer whose square ends in the same digits as the number itself.\n  *Examples:* $5^2 = 2\\mathbf{5}$, $25^2 = 6\\mathbf{25}$, $76^2 = 57\\mathbf{76}$.\n- **2. Prime Number:** A number greater than 1 having only two factors (1 and itself).\n- Display appropriate error message for an invalid choice.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class AutomorphicPrimeChecker {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"--- MENU ---\");\n        System.out.println(\"1. Check Automorphic Number\");\n        System.out.println(\"2. Check Prime Number\");\n        System.out.print(\"Enter choice: \");\n        int choice = sc.nextInt();\n\n        System.out.print(\"Enter number: \");\n        int n = sc.nextInt();\n\n        switch (choice) {\n            case 1:\n                long sq = (long) n * n;\n                int temp = n;\n                int numDigits = 0;\n                while (temp > 0) {\n                    numDigits++;\n                    temp /= 10;\n                }\n                long divisor = (long) Math.pow(10, numDigits);\n                if (sq % divisor == n) {\n                    System.out.println(n + \" is an AUTOMORPHIC NUMBER (Square: \" + sq + \").\");\n                } else {\n                    System.out.println(n + \" is NOT an Automorphic number (Square: \" + sq + \").\");\n                }\n                break;\n\n            case 2:\n                boolean isPrime = (n > 1);\n                for (int i = 2; i <= Math.sqrt(n); i++) {\n                    if (n % i == 0) {\n                        isPrime = false;\n                        break;\n                    }\n                }\n                if (isPrime) {\n                    System.out.println(n + \" is a PRIME NUMBER.\");\n                } else {\n                    System.out.println(n + \" is NOT a Prime number.\");\n                }\n                break;\n\n            default:\n                System.out.println(\"Invalid Menu Choice!\");\n        }\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `choice` | `int` | Menu selection |\n| `n` | `int` | Input integer to evaluate |\n| `sq` | `long` | Square of number n |\n| `numDigits` | `int` | Count of digits in n |\n| `divisor` | `long` | 10 raised to power of numDigits |\n| `isPrime` | `boolean` | Prime verification flag |",
+          "hint": "Extract digits using % 10 and / 10, calculate the specified mathematical property, and compare against the original number."
+        },
+        {
+          "q": "2D Array - Row-wise and Column-wise Sum\n\nQuestion 7 [2D Array - Row-wise and Column-wise Sum]\n\nWrite a Java program to input integers into a $3 \\times 3$ matrix `int mat[][]`.\n- Display the matrix in grid form.\n- Calculate and display the sum of elements of **each individual row**.\n- Calculate and display the sum of elements of **each individual column**.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class MatrixRowColSum {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[][] mat = new int[3][3];\n\n        System.out.println(\"Enter 9 elements for 3x3 matrix:\");\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < 3; j++) {\n                System.out.print(\"mat[\" + i + \"][\" + j + \"]: \");\n                mat[i][j] = sc.nextInt();\n            }\n        }\n\n        System.out.println(\"\\n--- Matrix with Row Sums ---\");\n        for (int i = 0; i < 3; i++) {\n            int rowSum = 0;\n            for (int j = 0; j < 3; j++) {\n                System.out.print(mat[i][j] + \"\\t\");\n                rowSum += mat[i][j];\n            }\n            System.out.println(\"| Row \" + (i + 1) + \" Sum = \" + rowSum);\n        }\n\n        System.out.println(\"----------------------------------------\");\n        System.out.print(\"Col Sum:\\t\");\n        for (int j = 0; j < 3; j++) {\n            int colSum = 0;\n            for (int i = 0; i < 3; i++) {\n                colSum += mat[i][j];\n            }\n            System.out.print(colSum + \"\\t\");\n        }\n        System.out.println();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `mat[][]` | `int[][]` | 3x3 integer matrix |\n| `rowSum` | `int` | Sum of elements in row i |\n| `colSum` | `int` | Sum of elements in column j |\n| `i, j` | `int` | Row and column iteration indices |",
+          "hint": "Traverse the 2D array using nested loops (rows and columns) and apply the coordinate or diagonal conditions."
+        },
+        {
+          "q": "Method Overloading - Geometric Volume Calculation\n\nQuestion 8 [Method Overloading - Geometric Volume Calculation]\n\nDesign a class to overload a method named `volume()`:\n- `double volume(double s)`: calculates and returns volume of a cube ($V = s^3$).\n- `double volume(double r, double h)`: calculates and returns volume of a cylinder ($V = \\pi r^2 h$).\n- `double volume(double l, double b, double h)`: calculates and returns volume of a cuboid ($V = l \\times b \\times h$).\nWrite a `main()` method to instantiate the class and display the volumes with formatted decimal precision.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\npublic class VolumeOverloading {\n    public double volume(double s) {\n        return Math.pow(s, 3);\n    }\n\n    public double volume(double r, double h) {\n        return (22.0 / 7.0) * Math.pow(r, 2) * h;\n    }\n\n    public double volume(double l, double b, double h) {\n        return l * b * h;\n    }\n\n    public static void main(String[] args) {\n        VolumeOverloading geo = new VolumeOverloading();\n        System.out.printf(\"Volume of Cube (s=4.0)          : %.2f cubic units\\n\", geo.volume(4.0));\n        System.out.printf(\"Volume of Cylinder (r=3.0, h=7.0): %.2f cubic units\\n\", geo.volume(3.0, 7.0));\n        System.out.printf(\"Volume of Cuboid (5x4x3)        : %.2f cubic units\\n\", geo.volume(5.0, 4.0, 3.0));\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `s` | `double` | Side length of cube |\n| `r` | `double` | Radius of cylinder base |\n| `h` | `double` | Height of cylinder / cuboid |\n| `l, b` | `double` | Length and breadth of cuboid |\n| `geo` | `VolumeOverloading` | Class instance created in main() |",
+          "hint": "Follow the menu options using a switch-case statement or implement the overloaded methods with distinct parameter signatures."
+        }
+      ]
+    }
+  ]
+}

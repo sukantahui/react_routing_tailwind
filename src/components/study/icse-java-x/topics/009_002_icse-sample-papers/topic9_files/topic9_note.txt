@@ -1,0 +1,58 @@
+================================================================================
+ICSE CLASS X COMPUTER APPLICATIONS (JAVA WITH BLUEJ) - STUDY NOTES
+TOPIC: ICSE CLASS X COMPUTER APPLICATIONS SAMPLE PAPER 10 (MODEL BOARD EXAM)
+INSTITUTE: Coder & AccoTax, Barrackpore
+EDUCATOR: Sukanta Hui (Contact: +91 7003756860 | www.codernaccotax.co.in)
+================================================================================
+
+1. SYLLABUS OVERVIEW & BLUEPRINT:
+--------------------------------------------------------------------------------
+Model Examination Paper 10 strictly follows the CISCE Class 10 Computer Applications
+curriculum and examination blueprint:
+- Total Time: 2 Hours (plus 15 minutes reading time)
+- Total Marks: 100 Marks
+- Section A (40 Marks - Compulsory):
+  * Question 1: 20 Multiple Choice Questions (1 mark each = 20 Marks)
+  * Question 2: 10 Short Output / Evaluation Questions (2 marks each = 20 Marks)
+- Section B (60 Marks - Attempt ANY 4 of 6 Questions):
+  * 6 Programming Questions carrying 15 marks each (4 x 15 = 60 Marks)
+
+2. CORE EXAM PRINCIPLES & ICSE BOARD TIPS:
+--------------------------------------------------------------------------------
+1. Read carefully during the 15-minute reading period. Select the 4 Section B
+   questions you can code with 100% confidence.
+2. Section A covers every corner of the syllabus: OOP principles, primitive data
+   types, type casting, Wrapper class methods, Math class methods, Character class
+   methods, String class methods, operators, loops, and constructors.
+3. Every Section B answer MUST contain:
+   a) Clean class definition with instance variables.
+   b) Constructors and member methods matching exact signatures.
+   c) Proper Scanner-based or parameter-based user inputs.
+   d) Mandatory Variable Description Table (VDT) detailing Name, Data Type, and Purpose.
+
+3. COMMON BOARD TRAPS & MISTAKES:
+--------------------------------------------------------------------------------
+- Off-by-one errors in String substring(start, end): The character at index 'end'
+  is EXCLUDED!
+- Math.round(double) returns long, while Math.round(float) returns int.
+- Confusing String reference equality (==) with content equality (.equals()).
+- Writing Java library shortcut methods like Arrays.sort() which score ZERO marks.
+  Pure algorithmic loops (Bubble / Selection) are strictly required.
+- Omitting Variable Description Table in Section B programs (-2 marks penalty).
+
+4. VARIABLE DESCRIPTION TABLE TEMPLATE (MANDATORY IN SECTION B):
+--------------------------------------------------------------------------------
+Variable Name   Data Type   Purpose / Description
+--------------------------------------------------------------------------------
+<varName>       <type>      <clear description of role in program>
+--------------------------------------------------------------------------------
+
+5. PAPER 10 SPECIFIC HIGHLIGHTS:
+--------------------------------------------------------------------------------
+- Q3: Question 3: Class Design — FitLife Gym Membership Billing System
+- Q4: Question 4: Array Processing — Sign Segregation (Negative, Zero, Positive)
+- Q5: Question 5: String Processing — Caesar Substitution Cipher Encryption
+- Q6: Question 6: Number Theory — Evil Number vs Odious Number
+- Q7: Question 7: Matrix Processing — Upper Triangular Grid & Lower Triangular Sum
+- Q8: Question 8: Menu-Driven Program — Prime Palindrome Check & Floyd's Triangle
+================================================================================

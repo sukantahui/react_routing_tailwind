@@ -1,0 +1,255 @@
+{
+  "paperId": "ICSE-SAMPLE-01",
+  "title": "ICSE Class X Computer Applications Sample Paper 1 (Model Board Examination)",
+  "duration": "2 Hours",
+  "totalMarks": 100,
+  "prerequisites": "Complete ICSE Class X Computer Applications syllabus (Java with BlueJ)",
+  "instructions": [
+    "Answers to this Paper must be written on the paper provided separately.",
+    "You will not be allowed to write during the first 15 minutes. This time is to be spent in reading the question paper.",
+    "The time given at the head of this Paper is the time allowed for writing the answers.",
+    "This Paper is divided into two Sections. Attempt all questions from Section A and any four questions from Section B.",
+    "The intended marks for questions or parts of questions are given in brackets [ ]."
+  ],
+  "sections": [
+    {
+      "section": "A (Part 1)",
+      "name": "Section A [Compulsory - 20 Marks]",
+      "marks": 20,
+      "questions": [
+        {
+          "q": "1. The object-oriented programming principle of wrapping data and methods into a single protective unit is called:\n(a) Abstraction\n(b) Encapsulation\n(c) Inheritance\n(d) Polymorphism",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Encapsulation**\n\n**Explanation:** Encapsulation binds state (variables) and behavior (methods) together within a class, hiding internal implementation details from external interference.",
+          "hint": "Think of an insulated capsule containing medicine."
+        },
+        {
+          "q": "2. What is the size of the `char` primitive data type in Java?\n(a) 1 byte\n(b) 2 bytes\n(c) 4 bytes\n(d) 8 bytes",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 2 bytes**\n\n**Explanation:** Java uses 16-bit Unicode characters to support international character sets; hence `char` requires 2 bytes (16 bits).",
+          "hint": "Java uses 16-bit Unicode, not 8-bit ASCII."
+        },
+        {
+          "q": "3. What is the return value of `\"BLUEJ\".indexOf('E')`?\n(a) 2\n(b) 3\n(c) 4\n(d) -1",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 3**\n\n**Explanation:** Java string indexing is 0-based: B(0), L(1), U(2), E(3), J(4). Hence index of 'E' is 3.",
+          "hint": "Remember strings in Java start at index 0."
+        },
+        {
+          "q": "4. The return value of `Math.ceil(-5.8)` is:\n(a) -6.0\n(b) -5.0\n(c) 5.0\n(d) -5",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) -5.0**\n\n**Explanation:** `Math.ceil()` returns the smallest double value that is greater than or equal to the argument. Since -5.0 >= -5.8, the ceiling is -5.0.",
+          "hint": "On a number line, ceiling moves toward the right (positive direction)."
+        },
+        {
+          "q": "5. What is the return value of `Character.isLetterOrDigit('@')`?\n(a) true\n(b) false\n(c) 1\n(d) -1",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) false**\n\n**Explanation:** '@' is a special symbol / punctuation, neither an alphabet letter nor a digit; hence it returns `false`.",
+          "hint": "Special characters return false."
+        },
+        {
+          "q": "6. If `int x = 10;`, what is the value of `int y = ++x + x++;`?\n(a) 21\n(b) 22\n(c) 23\n(d) 20",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 22**\n\n**Explanation:** `++x` pre-increments x from 10 to 11 (value used = 11). Then `x++` uses current x = 11 and increments x to 12. Total = 11 + 11 = 22.",
+          "hint": "11 + 11 = 22."
+        },
+        {
+          "q": "7. How many times will the loop execute: `for(int i = 5; i <= 25; i += 5)`?\n(a) 4 times\n(b) 5 times\n(c) 6 times\n(d) Infinite times",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 5 times**\n\n**Explanation:** Values of `i` during execution are 5, 10, 15, 20, 25. Total = 5 iterations.",
+          "hint": "Count: 5, 10, 15, 20, 25."
+        },
+        {
+          "q": "8. A constructor in Java:\n(a) Has a void return type\n(b) Has the same name as the class and no return type\n(c) Can return an integer value\n(d) Is called explicitly using dot operator",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Has the same name as the class and no return type**\n\n**Explanation:** Constructors initialize newly allocated objects, share the exact identifier of their enclosing class, and never declare a return type (not even void).",
+          "hint": "Class name matches constructor name."
+        },
+        {
+          "q": "9. If an array is declared as `int arr[] = new int[10];`, what is the valid index range?\n(a) 1 to 10\n(b) 0 to 9\n(c) 0 to 10\n(d) 1 to 9",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) 0 to 9**\n\n**Explanation:** Array indices in Java start at 0 and conclude at `length - 1` (10 - 1 = 9).",
+          "hint": "0 to N - 1."
+        },
+        {
+          "q": "10. The explicit conversion of an operand from one data type to another by programmer notation is:\n(a) Implicit conversion\n(b) Type casting\n(c) Type coercion\n(d) Autoboxing",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Type casting**\n\n**Explanation:** Type casting is explicit narrowing conversion specified by the programmer, e.g. `(int) 7.95`.",
+          "hint": "Explicit conversion syntax: (type) value."
+        },
+        {
+          "q": "11. The process of automatically converting a primitive data type into its corresponding wrapper class object is:\n(a) Unboxing\n(b) Autoboxing\n(c) Type casting\n(d) Serialization",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Autoboxing**\n\n**Explanation:** Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes (e.g. `int` to `Integer`).",
+          "hint": "Primitive to Object = Boxing."
+        },
+        {
+          "q": "12. Which data type is NOT allowed as a selector expression in a Java `switch` statement?\n(a) byte\n(b) int\n(c) double\n(d) char",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) double**\n\n**Explanation:** Floating-point data types (`double`, `float`) cannot be used as switch selectors because of inexact binary representation.",
+          "hint": "Floating point numbers are disallowed."
+        },
+        {
+          "q": "13. In Java, Strings are said to be 'immutable'. This means:\n(a) Strings cannot be assigned new values\n(b) The contents of a String object cannot be modified once created\n(c) Strings cannot be concatenated\n(d) String variables cannot be reassigned",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) The contents of a String object cannot be modified once created**\n\n**Explanation:** In Java, once a `String` object is created in memory, its characters cannot be altered. Operations like `concat()` or `toUpperCase()` return a newly allocated String.",
+          "hint": "Methods return new String objects."
+        },
+        {
+          "q": "14. Two or more methods having the exact same name within a single class is called:\n(a) Method Overriding\n(b) Method Overloading\n(c) Constructor Duplication\n(d) Dynamic Binding",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Method Overloading**\n\n**Explanation:** Method overloading allows multiple methods in the same class to share the same name provided their argument lists (types, number, or order of parameters) differ.",
+          "hint": "Same name, different parameter lists."
+        },
+        {
+          "q": "15. In Java, all primitive data types are passed to methods using:\n(a) Call by Reference\n(b) Call by Value\n(c) Call by Pointer\n(d) Call by Name",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Call by Value**\n\n**Explanation:** In Java, primitive arguments are always passed by value, meaning a copy of the actual variable's value is delivered to the formal parameter.",
+          "hint": "Copy of the value is passed."
+        },
+        {
+          "q": "16. A method that calculates and returns a result without altering the state of the invoking object or arguments is a:\n(a) Impure method\n(b) Pure method\n(c) Static method\n(d) Mutator method",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Pure method**\n\n**Explanation:** Pure methods (also known as accessor methods) have no side effects; they do not modify any object state.",
+          "hint": "No side effects on object state."
+        },
+        {
+          "q": "17. A class is often termed an 'Object Factory' because:\n(a) It manufactures hardware\n(b) It serves as a blueprint from which multiple objects can be instantiated\n(c) It can only create one object\n(d) It compiles directly to machine code",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) It serves as a blueprint from which multiple objects can be instantiated**\n\n**Explanation:** A class defines the common template of attributes and methods; multiple individual object instances are produced ('manufactured') from it.",
+          "hint": "Blueprint for instantiating objects."
+        },
+        {
+          "q": "18. What type of code is produced by the Java compiler (`javac`) from source code?\n(a) Machine code\n(b) Bytecode\n(c) Assembly code\n(d) C code",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) Bytecode**\n\n**Explanation:** The Java compiler translates `.java` source files into intermediate, platform-independent `.class` bytecode instructions.",
+          "hint": "Stored in .class files."
+        },
+        {
+          "q": "19. Which package must be imported to use the `Scanner` class for console input in Java?\n(a) java.io\n(b) java.util\n(c) java.lang\n(d) java.net",
+          "marks": 1,
+          "answer": "**Correct Answer: (b) java.util**\n\n**Explanation:** `Scanner` resides inside the utility package `java.util.Scanner`.",
+          "hint": "import java.util.Scanner;"
+        },
+        {
+          "q": "20. When no access specifier is specified for a class variable, its visibility is:\n(a) public\n(b) private\n(c) default (package-private)\n(d) protected",
+          "marks": 1,
+          "answer": "**Correct Answer: (c) default (package-private)**\n\n**Explanation:** Omitting an access specifier assigns 'default' visibility, making the member accessible to all classes within the same package, but hidden outside.",
+          "hint": "Package-private."
+        }
+      ]
+    },
+    {
+      "section": "A (Part 2)",
+      "name": "Section A (Part 2) [Compulsory - 20 Marks]",
+      "marks": 20,
+      "questions": [
+        {
+          "q": "1. Evaluate the value of `res` after executing the following statements:\n```java\nint a = 6, b = 4;\nint res = ++a * --b + a++ % b;\n```",
+          "marks": 2,
+          "answer": "**Step-by-step Evaluation:**\n- `++a`: pre-increment turns `a` from 6 to 7, value used = `7`.\n- `--b`: pre-decrement turns `b` from 4 to 3, value used = `3`.\n- Multiplication: `7 * 3 = 21`.\n- `a++`: uses current `a = 7`, then `a` becomes 8.\n- Modulo: `7 % 3 = 1` (since `b = 3`).\n- Addition: `21 + 1 = 22`.\n\n**Final Result:** `res = 22`, `a = 8`, `b = 3`.",
+          "hint": "Pre-increment before multiplication, post-increment after modulo."
+        },
+        {
+          "q": "2. State the output of the following code snippet:\n```java\nString s = \"BARRACKPORE\";\nSystem.out.println(s.indexOf('R') + \" \" + s.lastIndexOf('R'));\n```",
+          "marks": 2,
+          "answer": "**Output:** `2 10`\n\n**Explanation:**\n- B(0), A(1), R(2)... First occurrence of 'R' is at index `2`.\n- ...O(9), R(10), E(11)... Last occurrence of 'R' is at index `10`.",
+          "hint": "Find first index and last index of 'R'."
+        },
+        {
+          "q": "3. Write the equivalent Java expression for the mathematical formula:\n$$Z = \\frac{\\sqrt{a^2 + b^2}}{2ab}$$",
+          "marks": 2,
+          "answer": "**Java Expression:**\n```java\ndouble Z = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)) / (2.0 * a * b);\n```\n*Alternative:* `Math.sqrt(a * a + b * b) / (2.0 * a * b);`",
+          "hint": "Use Math.sqrt() and ensure denominator is enclosed in parentheses (2 * a * b)."
+        },
+        {
+          "q": "4. Differentiate between `equals()` and `==` operator when comparing String objects in Java.",
+          "marks": 2,
+          "answer": "**Difference:**\n1. `==` operator compares **memory references (addresses)** of the String objects to test if both refer to the exact same memory location.\n2. `equals()` method compares the **actual content / character sequences** of the two strings for equality.",
+          "hint": "== compares references, equals() compares actual character content."
+        },
+        {
+          "q": "5. Rewrite the following `if-else` construct using the ternary conditional operator (`? :`):\n```java\nString status;\nif (attendance >= 75)\n    status = \"Eligible\";\nelse\n    status = \"Detained\";\n```",
+          "marks": 2,
+          "answer": "**Ternary Operator Equivalent:**\n```java\nString status = (attendance >= 75) ? \"Eligible\" : \"Detained\";\n```",
+          "hint": "variable = (condition) ? value_if_true : value_if_false;"
+        },
+        {
+          "q": "6. Predict the output of the following loop:\n```java\nfor (int i = 1; i <= 6; i++) {\n    if (i == 4)\n        continue;\n    System.out.print(i + \" \");\n}\n```",
+          "marks": 2,
+          "answer": "**Output:** `1 2 3 5 6 `\n\n**Explanation:** When `i == 4`, `continue` skips the print statement and jumps directly to `i++`. Thus, `4` is omitted.",
+          "hint": "continue skips iteration when i == 4."
+        },
+        {
+          "q": "7. Give the output of the following statements:\n```java\nSystem.out.println(Math.round(8.5));\nSystem.out.println(Math.round(8.4));\n```",
+          "marks": 2,
+          "answer": "**Output:**\n`9`\n`8`\n\n**Explanation:** `Math.round()` adds 0.5 and takes the floor. For 8.5, 8.5 + 0.5 = 9.0 -> 9. For 8.4, 8.4 + 0.5 = 8.9 -> 8.",
+          "hint": "0.5 rounds up to 9, 0.4 rounds down to 8."
+        },
+        {
+          "q": "8. State the output of:\n```java\nchar ch = 'E';\nSystem.out.println((char)(ch + 3));\nSystem.out.println(Character.isLowerCase(ch));\n```",
+          "marks": 2,
+          "answer": "**Output:**\n`H`\n`false`\n\n**Explanation:** ASCII of 'E' is 69. 69 + 3 = 72, which corresponds to character `'H'`. 'E' is uppercase, so `isLowerCase()` returns `false`.",
+          "hint": "'E' + 3 = 'H', 'E' is not lowercase."
+        },
+        {
+          "q": "9. Identify the syntax error in the following code snippet and write the corrected statement:\n```java\nint x = 10, y = 20;\nint max = if (x > y) x else y;\n```",
+          "marks": 2,
+          "answer": "**Error:** `if-else` is a control statement, not an expression that can be assigned directly to a variable.\n\n**Corrected Statement (using ternary operator):**\n```java\nint max = (x > y) ? x : y;\n```",
+          "hint": "Use ternary operator ? : instead of if-else for inline assignment."
+        },
+        {
+          "q": "10. How many times does the loop execute and what is the final value of `p`?\n```java\nint p = 1;\nfor (int i = 1; i <= 15; i += 4) {\n    p *= 2;\n}\n```",
+          "marks": 2,
+          "answer": "**Analysis:**\n- Values of `i`: 1, 5, 9, 13 (4 times).\n- When i = 17, loop terminates.\n- `p` doubles 4 times: 1 -> 2 -> 4 -> 8 -> 16.\n\n**Answer:** Loop executes **4 times**. Final value of `p = 16`.",
+          "hint": "i steps: 1, 5, 9, 13 (4 iterations). 2^4 = 16."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Section B – Programming Applications (Attempt Any Four)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 6,
+      "description": "Answer any four questions from this section. The answers should include class declaration, variable declaration table, and complete program logic written in Java using BlueJ. (4 × 15 = 60 Marks)",
+      "questions": [
+        {
+          "q": "Class Design - Electricity Consumer Billing\n\nQuestion 3 [Class Design - Electricity Consumer Billing]\n\nDefine a class named `ElectricBill` with the following specifications:\n- **Data members / Instance variables:**\n  - `String n`: to store the name of the consumer\n  - `int units`: to store the number of units consumed\n  - `double bill`: to store the calculated electricity bill\n- **Member methods:**\n  - `void accept()`: to input the name of the consumer and units consumed.\n  - `void calculate()`: to compute the bill based on the tariff slabs:\n    - First 100 units: ₹ 1.50 per unit\n    - Next 200 units (101 - 300): ₹ 2.50 per unit\n    - Above 300 units: ₹ 4.00 per unit\n    - A fixed monthly meter rent of ₹ 150.00 is charged to all consumers.\n  - `void print()`: to display the consumer name, units consumed, meter rent, and the final bill amount in a clean format.\n- Write a `main()` method to create an object of the class and call all methods.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class ElectricBill {\n    private String n;\n    private int units;\n    private double bill;\n\n    public void accept() {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter Consumer Name: \");\n        n = sc.nextLine();\n        System.out.print(\"Enter Units Consumed: \");\n        units = sc.nextInt();\n    }\n\n    public void calculate() {\n        double meterRent = 150.0;\n        double energyCharge = 0.0;\n\n        if (units <= 100) {\n            energyCharge = units * 1.50;\n        } else if (units <= 300) {\n            energyCharge = (100 * 1.50) + ((units - 100) * 2.50);\n        } else {\n            energyCharge = (100 * 1.50) + (200 * 2.50) + ((units - 300) * 4.00);\n        }\n\n        bill = energyCharge + meterRent;\n    }\n\n    public void print() {\n        System.out.println(\"\\n========================================\");\n        System.out.println(\"       WEST BENGAL ELECTRICITY BILL     \");\n        System.out.println(\"========================================\");\n        System.out.println(\"Consumer Name  : \" + n);\n        System.out.println(\"Units Consumed : \" + units);\n        System.out.println(\"Meter Rent     : Rs. 150.00\");\n        System.out.printf(\"Total Amount   : Rs. %.2f\\n\", bill);\n        System.out.println(\"========================================\");\n    }\n\n    public static void main(String[] args) {\n        ElectricBill consumer = new ElectricBill();\n        consumer.accept();\n        consumer.calculate();\n        consumer.print();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `n` | `String` | Stores consumer name |\n| `units` | `int` | Stores units consumed |\n| `bill` | `double` | Calculated total electricity bill |\n| `meterRent` | `double` | Fixed meter surcharge of Rs 150.00 |\n| `energyCharge` | `double` | Variable energy charge based on slabs |\n| `consumer` | `ElectricBill` | Class object created in main() |",
+          "hint": "Define class members with appropriate access specifiers, implement the constructor, write calculation logic, and instantiate the class in main()."
+        },
+        {
+          "q": "1D Array - Linear Search\n\nQuestion 4 [1D Array - Linear Search]\n\nWrite a Java program to accept the roll numbers of 20 students in a single-dimensional array `int roll[]`.\nInput a search key roll number from the user.\nUsing the **Linear Search** technique:\n- Search whether the roll number exists in the array.\n- If found, print `\"Roll Number found at position: \"` followed by the 1-based index position.\n- If not found, print `\"Roll Number not found in record.\"`\n- Also find and display the highest and lowest roll numbers in the class.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class StudentRollSearch {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[] roll = new int[20];\n\n        System.out.println(\"Enter 20 Student Roll Numbers:\");\n        for (int i = 0; i < 20; i++) {\n            System.out.print(\"Roll [\" + (i + 1) + \"]: \");\n            roll[i] = sc.nextInt();\n        }\n\n        System.out.print(\"\\nEnter Roll Number to Search: \");\n        int searchKey = sc.nextInt();\n\n        boolean found = false;\n        int foundPos = -1;\n        int maxRoll = roll[0];\n        int minRoll = roll[0];\n\n        for (int i = 0; i < roll.length; i++) {\n            if (roll[i] == searchKey) {\n                found = true;\n                foundPos = i + 1;\n            }\n            if (roll[i] > maxRoll) maxRoll = roll[i];\n            if (roll[i] < minRoll) minRoll = roll[i];\n        }\n\n        System.out.println(\"\\n--- Search & Statistics Results ---\");\n        if (found) {\n            System.out.println(\"Roll Number found at position: \" + foundPos);\n        } else {\n            System.out.println(\"Roll Number not found in record.\");\n        }\n        System.out.println(\"Highest Roll Number : \" + maxRoll);\n        System.out.println(\"Lowest Roll Number  : \" + minRoll);\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `roll[]` | `int[]` | Array of 20 student roll numbers |\n| `searchKey` | `int` | Target roll number to locate |\n| `found` | `boolean` | Flag indicating search success |\n| `foundPos` | `int` | 1-based index position of search key |\n| `maxRoll` | `int` | Maximum roll number in array |\n| `minRoll` | `int` | Minimum roll number in array |",
+          "hint": "Implement the required array algorithm (Bubble/Selection sort, Linear/Binary search, or segregation) using standard loops without library shortcuts."
+        },
+        {
+          "q": "String Processing - Vowel Frequency Analysis\n\nQuestion 5 [String Processing - Vowel Frequency Analysis]\n\nWrite a Java program to accept a sentence in uppercase.\nPerform the following tasks:\n- Count and display the individual frequencies of each of the five vowels ('A', 'E', 'I', 'O', 'U').\n- Count the total number of alphabets and consonants.\n- Display each vowel alongside its frequency count in a neat tabular format.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class VowelFrequencyCounter {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a sentence: \");\n        String str = sc.nextLine().toUpperCase();\n\n        int countA = 0, countE = 0, countI = 0, countO = 0, countU = 0;\n        int totalAlphabets = 0, totalConsonants = 0;\n\n        for (int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            if (Character.isLetter(ch)) {\n                totalAlphabets++;\n                switch (ch) {\n                    case 'A': countA++; break;\n                    case 'E': countE++; break;\n                    case 'I': countI++; break;\n                    case 'O': countO++; break;\n                    case 'U': countU++; break;\n                    default: totalConsonants++; break;\n                }\n            }\n        }\n\n        System.out.println(\"\\n=================================\");\n        System.out.println(\"        VOWEL FREQUENCY TABLE    \");\n        System.out.println(\"=================================\");\n        System.out.println(\"Vowel 'A' : \" + countA);\n        System.out.println(\"Vowel 'E' : \" + countE);\n        System.out.println(\"Vowel 'I' : \" + countI);\n        System.out.println(\"Vowel 'O' : \" + countO);\n        System.out.println(\"Vowel 'U' : \" + countU);\n        System.out.println(\"---------------------------------\");\n        System.out.println(\"Total Alphabets  : \" + totalAlphabets);\n        System.out.println(\"Total Consonants : \" + totalConsonants);\n        System.out.println(\"=================================\");\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `str` | `String` | Input sentence in uppercase |\n| `countA, E, I, O, U` | `int` | Frequency counters for each vowel |\n| `totalAlphabets` | `int` | Total count of alphabetical characters |\n| `totalConsonants` | `int` | Total count of consonants |\n| `ch` | `char` | Current character during loop traversal |",
+          "hint": "Iterate through the string character by character, handle whitespace and casing appropriately, and accumulate the target result."
+        },
+        {
+          "q": "Special Number Logic - Armstrong or Neon Number\n\nQuestion 6 [Special Number Logic - Armstrong or Neon Number]\n\nWrite a menu-driven program to accept a number from the user and check for either of the following based on user choice:\n- **Option 1: Armstrong Number:** A number is an Armstrong number when the sum of the cubes of its individual digits is equal to the original number.\n  *Example:* $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$.\n- **Option 2: Neon Number:** A number is a Neon number if the sum of the digits of its square is equal to the number itself.\n  *Example:* $9^2 = 81$, sum of digits of square $= 8 + 1 = 9$ (Neon Number).\n- Display an appropriate error message for an invalid menu choice.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class SpecialNumberChecker {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.println(\"--- NUMBER LOGIC MENU ---\");\n        System.out.println(\"1. Check Armstrong Number\");\n        System.out.println(\"2. Check Neon Number\");\n        System.out.print(\"Enter your choice (1 or 2): \");\n        int choice = sc.nextInt();\n\n        System.out.print(\"Enter an integer: \");\n        int num = sc.nextInt();\n\n        switch (choice) {\n            case 1:\n                int temp = num;\n                int sumCubes = 0;\n                while (temp > 0) {\n                    int d = temp % 10;\n                    sumCubes += d * d * d;\n                    temp /= 10;\n                }\n                if (sumCubes == num) {\n                    System.out.println(num + \" is an ARMSTRONG NUMBER.\");\n                } else {\n                    System.out.println(num + \" is NOT an Armstrong number.\");\n                }\n                break;\n\n            case 2:\n                int sq = num * num;\n                int sumDigits = 0;\n                int tempSq = sq;\n                while (tempSq > 0) {\n                    sumDigits += tempSq % 10;\n                    tempSq /= 10;\n                }\n                if (sumDigits == num) {\n                    System.out.println(num + \" is a NEON NUMBER.\");\n                } else {\n                    System.out.println(num + \" is NOT a Neon number.\");\n                }\n                break;\n\n            default:\n                System.out.println(\"Invalid Choice! Please enter 1 or 2.\");\n        }\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `choice` | `int` | Menu selection (1 or 2) |\n| `num` | `int` | Input number to check |\n| `temp` | `int` | Copy of num for digit extraction |\n| `sumCubes` | `int` | Sum of cubes of digits |\n| `sq` | `int` | Square of num for Neon check |\n| `sumDigits` | `int` | Sum of digits of the square |",
+          "hint": "Extract digits using % 10 and / 10, calculate the specified mathematical property, and compare against the original number."
+        },
+        {
+          "q": "2D Array - Matrix Diagonal Sum\n\nQuestion 7 [2D Array - Matrix Diagonal Sum]\n\nWrite a Java program to input integers into a $4 \\times 4$ two-dimensional square matrix `int mat[][]`.\nPerform the following tasks:\n- Display the matrix in a standard $4 \\times 4$ grid format.\n- Calculate and display the sum of the **Left Diagonal** (Primary diagonal, where $i == j$).\n- Calculate and display the sum of the **Right Diagonal** (Secondary diagonal, where $i + j == 3$).\n- Display the grand total sum of all diagonal elements.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\nimport java.util.Scanner;\n\npublic class MatrixDiagonalSum {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int[][] mat = new int[4][4];\n\n        System.out.println(\"Enter 16 elements for 4x4 Matrix:\");\n        for (int i = 0; i < 4; i++) {\n            for (int j = 0; j < 4; j++) {\n                System.out.print(\"Element [\" + i + \"][\" + j + \"]: \");\n                mat[i][j] = sc.nextInt();\n            }\n        }\n\n        System.out.println(\"\\n--- 4x4 Matrix Display ---\");\n        int leftDiagSum = 0;\n        int rightDiagSum = 0;\n\n        for (int i = 0; i < 4; i++) {\n            for (int j = 0; j < 4; j++) {\n                System.out.print(mat[i][j] + \"\\t\");\n                if (i == j) leftDiagSum += mat[i][j];\n                if (i + j == 3) rightDiagSum += mat[i][j];\n            }\n            System.out.println();\n        }\n\n        System.out.println(\"\\nSum of Left Diagonal Elements  : \" + leftDiagSum);\n        System.out.println(\"Sum of Right Diagonal Elements : \" + rightDiagSum);\n        System.out.println(\"Total Diagonal Sum             : \" + (leftDiagSum + rightDiagSum));\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `mat[][]` | `int[][]` | 4x4 matrix storing elements |\n| `leftDiagSum` | `int` | Sum of left diagonal elements |\n| `rightDiagSum` | `int` | Sum of right diagonal elements |\n| `i, j` | `int` | Row and column iteration counters |",
+          "hint": "Traverse the 2D array using nested loops (rows and columns) and apply the coordinate or diagonal conditions."
+        },
+        {
+          "q": "Method Overloading - Polygon Display\n\nQuestion 8 [Method Overloading - Polygon Display]\n\nDesign a class to overload a method named `polygon()` with the following descriptions:\n- `void polygon(int n, char ch)`: prints a square shape of $n$ rows and $n$ columns using the character `ch`.\n- `void polygon(int x, int y)`: prints a rectangle shape of $x$ rows and $y$ columns using the character `'@'`.\n- `void polygon()`: prints a right-angled triangle of 4 rows using the character `'*'`:\n  ```\n  *\n  * *\n  * * *\n  * * * *\n  ```\nWrite a `main()` method to create an object of the class and invoke all three overloaded methods.",
+          "marks": 15,
+          "answer": "**Complete BlueJ Java Solution:**\n\n```java\npublic class OverloadPolygon {\n    public void polygon(int n, char ch) {\n        System.out.println(\"\\nSquare Pattern (\" + n + \"x\" + n + \"):\");\n        for (int i = 1; i <= n; i++) {\n            for (int j = 1; j <= n; j++) {\n                System.out.print(ch + \" \");\n            }\n            System.out.println();\n        }\n    }\n\n    public void polygon(int x, int y) {\n        System.out.println(\"\\nRectangle Pattern (\" + x + \"x\" + y + \"):\");\n        for (int i = 1; i <= x; i++) {\n            for (int j = 1; j <= y; j++) {\n                System.out.print(\"@ \");\n            }\n            System.out.println();\n        }\n    }\n\n    public void polygon() {\n        System.out.println(\"\\nTriangle Pattern (4 rows):\");\n        for (int i = 1; i <= 4; i++) {\n            for (int j = 1; j <= i; j++) {\n                System.out.print(\"* \");\n            }\n            System.out.println();\n        }\n    }\n\n    public static void main(String[] args) {\n        OverloadPolygon obj = new OverloadPolygon();\n        obj.polygon(3, '#');\n        obj.polygon(2, 5);\n        obj.polygon();\n    }\n}\n```\n\n### Variable Description Table (VDT):\n\n| Variable Name | Data Type | Purpose |\n| :--- | :--- | :--- |\n| `n` | `int` | Dimension of square pattern |\n| `ch` | `char` | Character used for square pattern |\n| `x, y` | `int` | Rows and columns for rectangle pattern |\n| `obj` | `OverloadPolygon` | Class instance created in main() |",
+          "hint": "Follow the menu options using a switch-case statement or implement the overloaded methods with distinct parameter signatures."
+        }
+      ]
+    }
+  ]
+}
