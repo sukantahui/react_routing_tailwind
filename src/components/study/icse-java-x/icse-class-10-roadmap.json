@@ -1412,10 +1412,10 @@
     },
     {
       "segmentId": "test-paper",
-      "title": "Segment 9 – Test Paper (ICSE Board Solved Papers & 10 Model Sample Papers)",
+      "title": "Segment 9 – Test Paper (ICSE Board Solved Papers & 20 Model Sample Papers)",
       "level": "Board Examination Scope",
-      "summary": "Authentic, solved ICSE Class X Computer Applications board examination papers (2026 – 2022) and 10 comprehensive model sample papers with complete Section A objective questions and Section B programming solutions with Variable Description Tables.",
-      "allocatedHours": 60,
+      "summary": "Authentic, solved ICSE Class X Computer Applications board examination papers (2026 – 2022) and 20 comprehensive model sample papers with complete Section A objective questions and Section B programming solutions with Variable Description Tables.",
+      "allocatedHours": 85,
       "modules": [
         {
           "moduleId": "icse-board-papers",
@@ -1494,12 +1494,12 @@
         {
           "moduleId": "icse-sample-papers",
           "slug": "009_002_icse-sample-papers",
-          "title": "ICSE Class X 10 Model Sample Papers (Full Board Exam Simulation)",
+          "title": "ICSE Class X 20 Model Sample Papers (Full Board Exam Simulation)",
           "level": "Board Examination Scope",
           "difficulty": "Advanced",
           "difficultyIndex": 18,
-          "estimatedHours": 35,
-          "summary": "10 authentic model sample question papers meticulously aligned with the CISCE ICSE Class 10 Computer Applications syllabus. Features 200 Section A MCQs, 100 short output & evaluation questions, and 60 Section B algorithmic programs with complete BlueJ solutions and Variable Description Tables.",
+          "estimatedHours": 60,
+          "summary": "20 authentic model sample question papers meticulously aligned with the CISCE ICSE Class 10 Computer Applications syllabus. Features 400 Section A MCQs, 200 short output & evaluation questions, and 120 Section B algorithmic programs with complete BlueJ solutions and Variable Description Tables.",
           "tags": [
             "sample-papers",
             "icse-class-10",
@@ -1519,10 +1519,20 @@
             "ICSE Class X Sample Paper 7 (Model Board Examination)",
             "ICSE Class X Sample Paper 8 (Model Board Examination)",
             "ICSE Class X Sample Paper 9 (Model Board Examination)",
-            "ICSE Class X Sample Paper 10 (Model Board Examination)"
+            "ICSE Class X Sample Paper 10 (Model Board Examination)",
+            "ICSE Class X Sample Paper 11 (Model Board Examination)",
+            "ICSE Class X Sample Paper 12 (Model Board Examination)",
+            "ICSE Class X Sample Paper 13 (Model Board Examination)",
+            "ICSE Class X Sample Paper 14 (Model Board Examination)",
+            "ICSE Class X Sample Paper 15 (Model Board Examination)",
+            "ICSE Class X Sample Paper 16 (Model Board Examination)",
+            "ICSE Class X Sample Paper 17 (Model Board Examination)",
+            "ICSE Class X Sample Paper 18 (Model Board Examination)",
+            "ICSE Class X Sample Paper 19 (Model Board Examination)",
+            "ICSE Class X Sample Paper 20 (Model Board Examination)"
           ],
           "learningOutcomes": [
-            "Master all CISCE board examination question patterns across 10 complete 100-mark papers",
+            "Master all CISCE board examination question patterns across 20 complete 100-mark papers",
             "Develop precision and speed in solving 20 MCQs and 10 output questions under timed conditions",
             "Perfect Section B programming: OOP class design, 1D array searches/sorts, string analysis, special numbers, 2D matrix manipulation, and method overloading",
             "Achieve flawless Variable Description Tables (VDT) to secure maximum marks in ICSE evaluations"
@@ -1531,15 +1541,15 @@
             "009_001_icse-test-papers"
           ],
           "miniProjects": [
-            "Comprehensive 10-Paper ICSE Model Board Examination Portfolio"
+            "Comprehensive 20-Paper ICSE Model Board Examination Portfolio"
           ],
           "exercises": {
-            "mcq": 200,
-            "coding": 60,
-            "projects": 10
+            "mcq": 400,
+            "coding": 120,
+            "projects": 20
           },
           "assessment": {
-            "type": "10 Complete 100-Mark ICSE Model Board Examination Simulations",
+            "type": "20 Complete 100-Mark ICSE Model Board Examination Simulations",
             "passScore": 85
           },
           "useCases": [
