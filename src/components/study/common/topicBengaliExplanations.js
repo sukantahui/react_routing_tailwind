@@ -264,7 +264,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
     titleBn: "Mean, Median এবং Mode Imputation",
     subtitleBn: "Central Tendency-র মাধ্যমে শূন্যস্থান পূরণের গাণিতিক যুক্তি",
     simpleSummary: "Missing Values দূর করার সবচেয়ে কার্যকর প্রাথমিক উপায় হলো পরিসংখ্যানের Central Tendency (গড়, মধ্যমা বা প্রচুরক) দিয়ে ফাঁকা ঘর পূরণ করা। সাধারণ সিমেট্রিক ডেটায় Mean, চরম Outliers বা Skewed ডেটায় Median, এবং Categorical ডেটায় Mode ব্যবহার করা হয়।",
-    coreIntuition: "একটি চায়ের দোকানে কয়েকজন বসে আছেন। তাদের বয়সের একটি ফাঁকা ঘর পূরণ করতে হলে আপনি সবার গড় বয়স বসাতে পারেন। কিন্তু যদি হঠাৎ সেই দোকানে একজন ৯০ বছরের বৃদ্ধ বা কোটিপতি বসেন, তবে Mean নিলে হিসাব বিগড়ে যাবে; তখন মাঝখানের ব্যক্তিটির মান (Median) নেওয়াই সবচেয়ে বুদ্ধিমানের কাজ!",
+    coreIntuition: "ধরা যাক একটি ডেটাসেটে ৫ জন কর্মীর মাসিক বেতন যথাক্রমে ₹২০,০০০, ₹২২,০০০, ₹২১,০০০, ₹২৩,০০০ এবং একজনের অস্বাভাবিক উচ্চ মান ₹১০,০০,০০০ (একটি চরম Outlier)। এখানে সাধারণ গড় (Mean) হিসাব করলে দাঁড়াবে ₹২,১৭,২০০—যা বাকি কর্মীদের বাস্তব বেতনের সম্পূর্ণ বিকৃত চিত্র তুলে ধরে! কিন্তু মধ্যমা (Median) নিলে মান আসে ₹২২,০০০, যা অধিকাংশ সাধারণ রেকর্ডের নিখুঁত ও বাস্তবসম্মত প্রতিনিধিত্ব করে। এই কারণেই Outlier যুক্ত ডেটায় Mean-এর বদলে Median Imputation ব্যবহার করা হয়।",
     whyImportant: "গাণিতিক প্রমাণ রয়েছে: Squared Error (L2 Loss) কমাতে Sample Mean সর্বোত্তম, Absolute Error (L1 Loss) কমাতে Sample Median সবচেয়ে Robust, এবং 0-1 Classification Loss কমাতে Mode সবচেয়ে সেরা।",
     keyPoints: [
       {
@@ -286,7 +286,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
     ],
     realWorldAnalogy: "ক্লাসের কোনো ছাত্র অসুস্থতার জন্য একটি পরীক্ষায় বসতে পারেনি। তার নম্বরের ঘরে পুরো ক্লাসের Median Marks বসিয়ে রেজাল্ট প্রস্তুত করা।",
     formulaOrRule: "L2 Loss: argmin_c ∑ (x_i - c)² ⟹ c* = Mean | L1 Loss: argmin_c ∑ |x_i - c| ⟹ c* = Median।",
-    commonMistakes: "Salary কলামে Mean ব্যবহার করা। একজন কোটিপতির প্রভাবে সাধারণ কর্মীদের বেতনও অস্বাভাবিক বেশি দেখাবে!",
+    commonMistakes: "চরম Outliers থাকা কোনো কলামে (যেমন Salary বা House Prices) সরাসরি Mean Imputation ব্যবহার করা। এতে ফাঁকা ঘরে অবাস্তব বড় মান বসে পুরো ডেটাসেটের বিশ্লেষণ বিকৃত করে।",
     examTips: "Variance Deflation Theorem: Var(X_{imputed}) = (1 - p) Var(X_{obs}) সমীকরণটি খাতায় লিখলে পুরো নম্বর মিলবে।"
   },
 
@@ -407,7 +407,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
     titleEn: "Data Transformation",
     titleBn: "Data Transformation (Log & Power Transforms)",
     subtitleBn: "Skewed ডেটাকে Normal Distribution-এ রূপান্তরের কৌশল",
-    simpleSummary: "বাস্তব ডেটাসেটে অধিকাংশ মান একদিকে গাদাগাদি করে থাকে এবং লম্বা একটি লেজ অন্য প্রান্তে চলে যায় (যেমন Salary বা House Prices—অধিকাংশ সাধারণ আয়ের, হাতে গোনা কয়েকজন কোটিপতি)। এই Skewed ডেটাকে গণিতের বিশেষ ফাংশন (যেমন Log বা Box-Cox) দিয়ে চেপে Bell-shaped Normal Distribution-এ রূপ দেওয়াকেই Data Transformation বলে।",
+    simpleSummary: "বাস্তব ডেটাসেটে অধিকাংশ মান একদিকে গাদাগাদি করে থাকে এবং লম্বা একটি লেজ অন্য প্রান্তে চলে যায় (যেমন Salary বা House Prices—যেখানে অধিকাংশ মান একটি নির্দিষ্ট স্বাভাবিক পরিসরে থাকলেও অল্প কিছু চরম উচ্চ মান (High-Value Outliers) থাকে)। এই Skewed ডেটাকে গণিতের বিশেষ ফাংশন (যেমন Log বা Box-Cox) দিয়ে চেপে Bell-shaped Normal Distribution-এ রূপ দেওয়াকেই Data Transformation বলে।",
     coreIntuition: "একটি স্প্রিংকে জোরে টানলে যেমন একদিকে লম্বা হয়ে বাঁকা হয়ে যায়, আপনি যদি দুই হাত দিয়ে তাকে চেপে স্বাভাবিক গোল আকারে ফিরিয়ে আনেন, তবে স্প্রিংটি স্থিতিশীল হয়। Transformation ঠিক তেমনই ডেটার লম্বা লেজকে (Tail) চেপে স্বাভাবিক করে দেয়।",
     whyImportant: "Linear Regression এবং বহু Machine Learning অ্যালগরিদম ধরে নেয় যে Residuals বা Features-এর বণ্টন Normal হবে। ডেটা যদি প্রচণ্ড Skewed হয়, তবে Model ছোট মানের সূক্ষ্ম পার্থক্যগুলো বুঝতেই পারে না।",
     keyPoints: [
@@ -436,7 +436,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
     titleBn: "Feature Scaling (ফিচার স্কেলিং)",
     subtitleBn: "Scale Dominance রোধ: বিভিন্ন এককের বৈশিষ্ট্যের ভারসাম্য",
     simpleSummary: "ডেটাসেটের বিভিন্ন Columns-এর পরিমাপের একক ও মান যদি মারাত্মক অসম হয় (যেমন: Age 18 থেকে 60 বছর, আর Annual Salary ₹3,00,000 থেকে ₹30,00,000), তবে Model বড় সংখ্যার Salary-কে বেশি গুরুত্ব দেয় আর Age-কে অগ্রাহ্য করে। সব Features-কে একটি নির্দিষ্ট অভিন্ন স্কেলের সীমানায় আনাকেই Feature Scaling বলে।",
-    coreIntuition: "একটি দাঁড়িপাল্লার একদিকে আপনি যদি 50 কেজির চালের বস্তা রাখেন আর অন্যদিকে 25 গ্রামের চকোলেট রাখেন, তবে দাঁড়িপাল্লা কেবল চালের ওজনেই হেলে থাকবে। চকোলেটের কোনো প্রভাবই দেখা যাবে না। Scaling-এর কাজ হলো চাল ও চকোলেট দুটোকেই সমপরিমাণ প্রাসঙ্গিকতায় আনা।",
+    coreIntuition: "ধরা যাক একটি ডেটাসেটে দুটি ফিচার রয়েছে: Customer Age (১৮ থেকে ৬৫ বছর) এবং Annual Income (₹৩,০০,০০০ থেকে ₹৫০,০০,০০০)। গাণিতিক সূত্রে দূরত্বের পার্থক্য পরিমাপের সময় Annual Income-এর সংখ্যার পার্থক্য লাখের ঘরে হওয়ায় তা Age-এর প্রভাবকে সম্পূর্ণরূপে ঢেকে ফেলে। Feature Scaling-এর কাজ হলো বিভিন্ন এককের প্রতিটি বৈশিষ্ট্যকে একটি সুনির্দিষ্ট অভিন্ন স্কেলে রূপান্তর করে সমমর্যাদা দেওয়া।",
     whyImportant: "দূরত্বভিত্তিক মডেল (KNN, K-Means, SVM) এবং Gradient Descent ভিত্তিক মডেল (Logistic Regression, Neural Networks) স্কেলিং ছাড়া ধীরগতির ও ভুল পথে চলে।",
     keyPoints: [
       {
@@ -632,7 +632,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
     titleBn: "Worked Example 2: Handling Missing Salary Values",
     subtitleBn: "কর্পোরেট পে-রোল ডেটাসেটে Stratified Median Imputation",
     simpleSummary: "একটি আইটি কোম্পানির কর্মীদের ডেটাসেটে দেখা গেল ২০% কর্মীর Salary কলামে Missing Values রয়েছে। কিন্তু জুনিয়র ট্রেইনি আর সিনিয়র ইঞ্জিনিয়ারের বেতন তো এক হতে পারে না! তাই সরল গড় না নিয়ে কীভাবে পদের বিভাগ অনুযায়ী (Job Role অনুযায়ী Stratified Group Median) নিখুঁতভাবে ফাঁকা ঘর পূরণ করা হয়, তা এখানে দেখানো হয়েছে।",
-    coreIntuition: "একটি মিষ্টির দোকানে রসগোল্লা আর কাজু বরফি আছে। রসগোল্লার দামের ট্যাগ হারিয়ে গেলে আপনি কি পুরো দোকানের সব মিষ্টির গড় দাম বসাবেন? নিশ্চয়ই না! আপনি অন্য রসগোল্লার দাম দেখেই ট্যাগ বসাবেন। এটাই হলো 'Group-by Imputation'।",
+    coreIntuition: "ধরা যাক একটি প্রতিষ্ঠানে বিভিন্ন পদের (যেমন Junior Developer, Senior Architect, Executive Manager) কর্মীরা কাজ করেন। প্রতিটি পদের বেতনের নিজস্ব একটি বাস্তব কাঠামো রয়েছে। কোনো Junior Developer-এর বেতনের ঘর ফাঁকা থাকলে সম্পূর্ণ প্রতিষ্ঠানের সব পদের সামগ্রিক গড় না বসিয়ে, তার সমপদস্থ ডেভেলপারদের বেতনের মধ্যমা (Stratified Group Median) বসানোই হলো সবচেয়ে যৌক্তিক ও নিখুঁত পদ্ধতি।",
     whyImportant: "কোম্পানিতে সরাসরি সামগ্রিক Mean বসালে জুনিয়রদের বেতন অবাস্তব রকম বেশি এবং সিনিয়রদের বেতন কৃত্রিমভাবে কমে যায়। Group-based Median নিলে আয়ের বণ্টন অবিকল সত্য থাকে।",
     keyPoints: [
       {
@@ -688,7 +688,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
     titleBn: "Worked Example 4: Scaling Age and Income Features",
     subtitleBn: "StandardScaler ও RobustScaler দিয়ে সংখ্যার তীব্র বৈষম্য দূরীকরণ",
     simpleSummary: "একটি ক্রেডিট কার্ড ডেটাসেটে 'Age' কলামের মান রয়েছে 18 থেকে 65-এর মধ্যে, আর 'Annual Income' কলামের মান রয়েছে ₹3,00,000 থেকে ₹50,00,000-এর মধ্যে। এই দুই কলামকে পাশাপাশি রেখে Model Training-এর পূর্বে কীভাবে StandardScaler বা RobustScaler দিয়ে স্কেল করা হয়, তার সম্পূর্ণ ওয়ার্কফ্লো।",
-    coreIntuition: "একদিকে 50 কেজির চালের বস্তা আর অন্যদিকে 25 গ্রামের চকোলেট। Scaling ছাড়া K-Nearest Neighbors (KNN) অ্যালগরিদম কেবল Income দেখেই দূরত্ব মাপবে; Age-এর কোনো গুরুত্বই মডেলে ধরা পড়বে না।",
+    coreIntuition: "ধরা যাক লোন আবেদনকারীদের Age এবং Annual Income ফিচার দুটি পাশাপাশি রয়েছে। Scaling ছাড়া K-Nearest Neighbors (KNN) বা Gradient Descent কেবল বিশাল সংখ্যার Income দেখেই দূরত্বের পার্থক্য নির্ধারণ করবে; Age-এর কোনো প্রভাবই মডেলে অনুভূত হবে না। StandardScaler বা RobustScaler প্রয়োগ করে এই সংখ্যার তীব্র বৈষম্য দূর করা হয়।",
     whyImportant: "এই স্কেলিং না করলে Model Income কলামের বিশাল সংখ্যার কারণে বিভ্রান্ত হবে। তাছাড়া Training Data-র প্যারামিটার দিয়ে Testing Data রূপান্তর করে Data Leakage ঠেকানোর কৌশল শেখা যায়।",
     keyPoints: [
       {
@@ -701,7 +701,7 @@ export const TOPIC_BENGALI_EXPLANATIONS = {
       },
       {
         title: "RobustScaler Alternative",
-        explanation: "Income কলামে কোটিপতিদের চরম Outlier থাকলে StandardScaler-এর বদলে RobustScaler (Median ও IQR) ব্যবহার করা সেরা।"
+        explanation: "Income কলামে চরম উচ্চ মানের Outlier থাকলে StandardScaler-এর বদলে RobustScaler (Median ও IQR) ব্যবহার করা সেরা।"
       }
     ],
     realWorldAnalogy: "ব্যাংকে হোম লোনের আবেদন যাচাইকারী AI অ্যালগরিদম—যেখানে আবেদনকারীর বয়স ও বাৎসরিক উপার্জনের যৌথ বিবেচনায় ঋণ মঞ্জুর করা হয়।",
