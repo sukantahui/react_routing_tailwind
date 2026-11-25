@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic9_files/mean_median_and_mode_imputation_lab.py?raw";
 import noteText from "./topic9_files/topic9_note.txt?raw";
@@ -795,16 +796,12 @@ const Topic9 = () => {
             </h3>
 
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-              <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                 <span className="text-xs font-bold text-cyan-300">Derivative &amp; First Order Condition:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\frac{d}{dc} \\sum_{i=1}^N (x_i - c)^2 = -2 \\sum_{i=1}^N (x_i - c) = 0"}
-                </div>
-                <div className="text-sm font-mono text-cyan-300 py-1">
-                  {"\\sum_{i=1}^N x_i - N c = 0 \\implies c^* = \\frac{1}{N}\\sum_{i=1}^N x_i = \\mu"}
-                </div>
-                <p className="text-[11px] text-slate-400">
-                  Because d^2/dc^2 = 2N &gt; 0, the critical point is strictly a global minimum.
+                <BlockMath math="\frac{d}{dc} \sum_{i=1}^N (x_i - c)^2 = -2 \sum_{i=1}^N (x_i - c) = 0" />
+                <BlockMath math="\sum_{i=1}^N x_i - N c = 0 \implies c^* = \frac{1}{N}\sum_{i=1}^N x_i = \mu" />
+                <p className="text-[11px] text-slate-400 mt-2">
+                  Because <InlineMath math="\frac{d^2}{dc^2} = 2N > 0" />, the critical point is strictly a global minimum.
                 </p>
               </div>
             </div>
@@ -817,13 +814,48 @@ const Topic9 = () => {
             </h3>
 
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-              <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                 <span className="text-xs font-bold text-amber-300">Variance Shrinkage Equation:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\text{Var}(X_{\\text{imputed}}) = (1 - p_{\\text{missing}}) \\cdot \\text{Var}(X_{\\text{observed}})"}
-                </div>
-                <p className="text-[11px] text-slate-400">
-                  Because (mu - mu)^2 = 0 for all imputed rows, sample variance shrinks directly proportional to missingness p.
+                <BlockMath math="\text{Var}(X_{\text{imputed}}) = (1 - p_{\text{missing}}) \cdot \text{Var}(X_{\text{observed}})" />
+                <p className="text-[11px] text-slate-400 mt-2">
+                  Because <InlineMath math="(\mu - \mu)^2 = 0" /> for all imputed rows, sample variance shrinks directly proportional to missingness <InlineMath math="p" />.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: L1 Proof for Median */}
+          <div className="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 space-y-4">
+            <h3 className="text-base font-bold text-emerald-400 flex items-center gap-2">
+              <span>⚖️</span> 3. L1 Loss Proof for Sample Median
+            </h3>
+
+            <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-emerald-300">Subgradient Optimality Condition:</span>
+                <BlockMath math="\mathcal{L}_1(c) = \sum_{i=1}^N |x_i - c| \implies \frac{\partial \mathcal{L}_1}{\partial c} = -\sum_{i=1}^N \text{sgn}(x_i - c) = 0" />
+                <BlockMath math="\sum_{i=1}^N \mathbb{I}(x_i > c) = \sum_{i=1}^N \mathbb{I}(x_i < c) \implies c^* = \text{Median}(X)" />
+                <p className="text-[11px] text-slate-400 mt-2">
+                  Equal number of observations lie above and below <InlineMath math="c^*" />, establishing a 50% breakdown point resistant to extreme outliers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: 0-1 Loss & Covariance Attenuation */}
+          <div className="bg-slate-900/90 p-6 rounded-2xl border border-slate-800 space-y-4">
+            <h3 className="text-base font-bold text-rose-400 flex items-center gap-2">
+              <span>🎯</span> 4. 0-1 Loss (Mode) &amp; Covariance Attenuation
+            </h3>
+
+            <div className="space-y-3 text-xs sm:text-sm text-slate-300">
+              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <span className="text-xs font-bold text-rose-300">Categorical Misclassification Minimizer:</span>
+                <BlockMath math="c^* = \arg\min_c \sum_{i=1}^N \mathbb{I}(x_i \ne c) = \arg\max_k \sum_{i=1}^N \mathbb{I}(x_i = k) = \text{Mode}(X)" />
+                <span className="text-xs font-bold text-amber-300 block pt-1">Covariance Attenuation with Target:</span>
+                <BlockMath math="\text{Cov}(X_{\text{imputed}}, Y) = (1 - p_{\text{missing}}) \cdot \text{Cov}(X_{\text{observed}}, Y)" />
+                <p className="text-[11px] text-slate-400 mt-2">
+                  Imputing a scalar constant adds 0 to cross-products, diluting correlation with target variable <InlineMath math="Y" /> by factor <InlineMath math="(1 - p)" />.
                 </p>
               </div>
             </div>
