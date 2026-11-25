@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic7_files/data_cleaning_lab.py?raw";
 import noteText from "./topic7_files/topic7_note.txt?raw";
@@ -986,8 +987,8 @@ const Topic7 = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-cyan-300">Edit Distance Formulation:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"D(i, j) = \\min \\begin{cases} D(i-1, j) + 1 & \\text{(Deletion)} \\\\ D(i, j-1) + 1 & \\text{(Insertion)} \\\\ D(i-1, j-1) + \\mathbb{I}(s_1[i] \\neq s_2[j]) & \\text{(Substitution)} \\end{cases}"}
+                <div className="py-1">
+                  <BlockMath math="D(i, j) = \min \begin{cases} D(i-1, j) + 1 & \text{(Deletion)} \\ D(i, j-1) + 1 & \text{(Insertion)} \\ D(i-1, j-1) + \mathbb{I}(s_1[i] \neq s_2[j]) & \text{(Substitution)} \end{cases}" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Computes the minimal cost path through the alignment lattice in O(|s1| · |s2|) space and time.
@@ -996,8 +997,8 @@ const Topic7 = () => {
 
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-emerald-300">Normalized Similarity Metric:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\text{Sim}(s_1, s_2) = 1.0 - \\frac{D(s_1, s_2)}{\\max(|s_1|, |s_2|)} \\in [0.0, 1.0]"}
+                <div className="py-1">
+                  <BlockMath math="\text{Sim}(s_1, s_2) = 1.0 - \frac{D(s_1, s_2)}{\max(|s_1|, |s_2|)} \in [0.0, 1.0]" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Produces a bounded similarity score suitable for automated entity resolution thresholds.
@@ -1015,8 +1016,8 @@ const Topic7 = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-amber-300">Errors-in-Variables (Attenuation Bias):</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\mathbb{E}[\\hat{\\beta}] = \\beta \\left( \\frac{\\sigma_X^2}{\\sigma_X^2 + \\sigma_\\Delta^2} \\right) < \\beta"}
+                <div className="py-1">
+                  <BlockMath math="\mathbb{E}[\hat{\beta}] = \beta \left( \frac{\sigma_X^2}{\sigma_X^2 + \sigma_\Delta^2} \right) < \beta" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Uncleaned sensor measurement noise directly shrinks the estimated model weights toward zero.
@@ -1025,8 +1026,8 @@ const Topic7 = () => {
 
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-purple-300">Listwise Deletion Loss Equation:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"N_{\\text{clean}} = N \\prod_{j=1}^d (1 - p_j)"}
+                <div className="py-1">
+                  <BlockMath math="N_{\text{clean}} = N \prod_{j=1}^d (1 - p_j)" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Demonstrates why running `df.dropna()` on high-dimensional data annihilates the majority of samples.

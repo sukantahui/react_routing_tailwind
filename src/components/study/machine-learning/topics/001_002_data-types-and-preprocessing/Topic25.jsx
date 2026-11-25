@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic25_files/practice_problems_lab.py?raw";
 import noteText from "./topic25_files/topic25_note.txt?raw";
@@ -679,21 +680,21 @@ const Topic25 = () => {
                   <td className="p-3.5 font-bold text-indigo-400">Stage 4</td>
                   <td className="p-3.5 font-semibold text-white">Multi-Mechanism Imputation</td>
                   <td className="p-3.5 text-slate-400">Rubin audit, Stratified Median, KNN</td>
-                  <td className="p-3.5 font-mono text-cyan-300">{"\\hat{\\mu}_k = \\arg\\min_c \\sum |y_i - c|"}</td>
+                  <td className="p-3.5 text-cyan-300"><InlineMath math="\hat{\mu}_k = \arg\min_c \sum |y_i - c|" /></td>
                   <td className="p-3.5 text-rose-400">Survivor truncation bias or variance deflation</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30">
                   <td className="p-3.5 font-bold text-indigo-400">Stage 5</td>
                   <td className="p-3.5 font-semibold text-white">Categorical Encoding</td>
                   <td className="p-3.5 text-slate-400">Drop-first OHE, Cold-start guard</td>
-                  <td className="p-3.5 font-mono text-cyan-300">{"\\text{rank}(X) = K, \\det(X^TX) > 0"}</td>
+                  <td className="p-3.5 text-cyan-300"><InlineMath math="\mathrm{rank}(X) = K, \, \det(X^TX) > 0" /></td>
                   <td className="p-3.5 text-rose-400">Dummy Variable Trap, singular matrix collapse</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30">
                   <td className="p-3.5 font-bold text-indigo-400">Stage 6</td>
                   <td className="p-3.5 font-semibold text-white">Feature Normalization</td>
                   <td className="p-3.5 text-slate-400">RobustScaler, Domain clipping bounds</td>
-                  <td className="p-3.5 font-mono text-cyan-300">{"x' = (x - Q_2) / \\text{IQR}"}</td>
+                  <td className="p-3.5 text-cyan-300"><InlineMath math="x' = (x - Q_2) / \mathrm{IQR}" /></td>
                   <td className="p-3.5 text-rose-400">Distance domination, high-earner compression</td>
                 </tr>
               </tbody>
@@ -1300,8 +1301,8 @@ const Topic25 = () => {
             <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
               1. L1 Group Median Imputation
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-indigo-200 border border-indigo-900/40">
-              {"\\hat{\\mu}_k = \\arg\\min_c \\sum_{i \\in \\Omega_k} |y_i - c|"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-indigo-200 border border-indigo-900/40">
+              <BlockMath math="\hat{\mu}_k = \arg\min_c \sum_{i \in \Omega_k} |y_i - c|" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Unlike the arithmetic mean which minimizes squared Euclidean distance (L2 norm) and is heavily pulled by outliers, the sample median minimizes absolute deviation (L1 norm). In stratified departmental payrolls, conditioning on job tier restores unbiasedness under MAR.
@@ -1313,8 +1314,8 @@ const Topic25 = () => {
             <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
               2. Jaro-Winkler String Metric
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-cyan-200 border border-cyan-900/40">
-              {"d_w = d_j + \\ell \\cdot p \\cdot (1 - d_j), \\quad \\ell \\le 4, \\, p = 0.1"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-cyan-200 border border-cyan-900/40">
+              <BlockMath math="d_w = d_j + \ell \cdot p \cdot (1 - d_j), \quad \ell \le 4, \, p = 0.1" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Standard Jaro similarity d_j considers matching character counts m and transpositions t within window W = floor(max(|s1|, |s2|)/2) - 1. Winkler&apos;s modification applies a favorable prefix scaling bonus for up to 4 shared initial characters.
@@ -1326,8 +1327,8 @@ const Topic25 = () => {
             <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
               3. Singularity Proof: det(X^T X) = 0
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-emerald-200 border border-emerald-900/40">
-              {"\\sum_{k=1}^K \\mathbf{d}_k = \\mathbf{1} \\implies 1 \\cdot \\mathbf{1} - \\sum_{k=1}^K \\mathbf{d}_k = \\mathbf{0}"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-emerald-200 border border-emerald-900/40">
+              <BlockMath math="\sum_{k=1}^K \mathbf{d}_k = \mathbf{1} \implies 1 \cdot \mathbf{1} - \sum_{k=1}^K \mathbf{d}_k = \mathbf{0}" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               When all K categories are one-hot encoded with an intercept column 1, the columns are perfectly linearly dependent. By the Rank-Nullity theorem, rank(X) &le; K in a (K+1)-dimensional parameter space, guaranteeing det(X^T X) = 0 and infinite condition number.
@@ -1339,8 +1340,8 @@ const Topic25 = () => {
             <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
               4. Breakdown Point & Outlier Scaling
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-amber-200 border border-amber-900/40">
-              {"x_{\\text{rob}} = \\frac{x - \\text{Median}}{\\text{IQR}}, \\quad \\varepsilon^*_{\\text{median}} = 50\\%, \\; \\varepsilon^*_{\\text{IQR}} = 25\\%"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-amber-200 border border-amber-900/40">
+              <BlockMath math="x_{\text{rob}} = \frac{x - \text{Median}}{\text{IQR}}, \quad \varepsilon^*_{\text{median}} = 50\%, \; \varepsilon^*_{\text{IQR}} = 25\%" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               While the sample mean and variance collapse under a single corrupted observation (breakdown point 0%), RobustScaler relies on the sample median (50% breakdown point) and interquartile range IQR = Q3 - Q1 (25% breakdown point), preventing scale distortion.

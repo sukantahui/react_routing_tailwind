@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic8_files/handling_missing_values_lab.py?raw";
 import noteText from "./topic8_files/topic8_note.txt?raw";
@@ -826,8 +827,8 @@ const Topic8 = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-cyan-300">Weighted Donor Estimator:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\hat{y}_i = \\frac{\\sum_{k \\in \\mathcal{N}_i} w_k y_k}{\\sum_{k \\in \\mathcal{N}_i} w_k}, \\quad w_k = \\frac{1}{d(\\mathbf{x}_i^{\\text{obs}}, \\mathbf{x}_k^{\\text{obs}})}"}
+                <div className="py-1">
+                  <BlockMath math="\hat{y}_i = \frac{\sum_{k \in \mathcal{N}_i} w_k y_k}{\sum_{k \in \mathcal{N}_i} w_k}, \quad w_k = \frac{1}{d(\mathbf{x}_i^{\text{obs}}, \mathbf{x}_k^{\text{obs}})}" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Estimates missing attribute y_i by borrowing proportionally from the k nearest donors who share observed coordinates.
@@ -836,8 +837,8 @@ const Topic8 = () => {
 
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-emerald-300">Adjusted Euclidean Distance:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"d(\\mathbf{x}, \\mathbf{z}) = \\sqrt{ \\frac{d_{\\text{total}}}{d_{\\text{obs}}} \\sum_{j \\in \\text{obs}} (x_j - z_j)^2 }"}
+                <div className="py-1">
+                  <BlockMath math="d(\mathbf{x}, \mathbf{z}) = \sqrt{ \frac{d_{\text{total}}}{d_{\text{obs}}} \sum_{j \in \text{obs}} (x_j - z_j)^2 }" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Scales distance to account for instances that possess differing numbers of mutually observed features.
@@ -855,8 +856,8 @@ const Topic8 = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-amber-300">Total Variance Pooling Equation:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"T = \\bar{U} + \\left(1 + \\frac{1}{M}\\right) B"}
+                <div className="py-1">
+                  <BlockMath math="T = \bar{U} + \left(1 + \frac{1}{M}\right) B" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   U_bar is average within-imputation variance; B is between-imputation variance measuring honest parameter uncertainty.
@@ -865,8 +866,8 @@ const Topic8 = () => {
 
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-purple-300">Compound Listwise Sample Loss:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"N_{\\text{complete}} = N \\prod_{j=1}^d (1 - p_j) \\approx N(1 - p)^d"}
+                <div className="py-1">
+                  <BlockMath math="N_{\text{complete}} = N \prod_{j=1}^d (1 - p_j) \approx N(1 - p)^d" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Proves why running dropna() across high-dimensional datasets destroys over 70% of collected records.

@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic6_files/data_preprocessing_concept_lab.py?raw";
 import noteText from "./topic6_files/topic6_note.txt?raw";
@@ -887,8 +888,8 @@ const Topic6 = () => {
 
                     <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-1">
                       <div className="text-xs text-slate-500 font-mono uppercase">Core Mathematical Dependency:</div>
-                      <div className="text-sm font-mono text-cyan-300 overflow-x-auto py-1">
-                        {current.formula}
+                      <div className="overflow-x-auto py-1">
+                        <BlockMath math={current.formula} className="text-cyan-300" />
                       </div>
                     </div>
                   </div>
@@ -946,8 +947,8 @@ const Topic6 = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-cyan-300">Min-Max Normalization (Bounded [0, 1]):</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"x' = \\frac{x - x_{\\min}}{x_{\\max} - x_{\\min}}"}
+                <div className="py-1">
+                  <BlockMath math="x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}}" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Maps all observations into a rigid [0, 1] hypercube. Highly vulnerable to maximum sensor outliers.
@@ -956,8 +957,8 @@ const Topic6 = () => {
 
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-emerald-300">Z-Score Standardization (Gaussian N(0, 1)):</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"z = \\frac{x - \\mu}{\\sigma}, \\quad \\mu = \\frac{1}{N}\\sum_{i=1}^N x_i, \\quad \\sigma = \\sqrt{\\frac{1}{N}\\sum_{i=1}^N (x_i - \\mu)^2}"}
+                <div className="py-1">
+                  <BlockMath math="z = \frac{x - \mu}{\sigma}, \quad \mu = \frac{1}{N}\sum_{i=1}^N x_i, \quad \sigma = \sqrt{\frac{1}{N}\sum_{i=1}^N (x_i - \mu)^2}" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   Preserves zero center and variance. Outliers retain proportional relative distance in units of standard deviations.
@@ -975,8 +976,8 @@ const Topic6 = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-amber-300">Hessian Condition Number κ(H):</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\kappa = \\frac{\\lambda_{\\max}(H)}{\\lambda_{\\min}(H)}, \\quad H = \\nabla^2 J(\\mathbf{w}) = \\mathbf{X}^T \\mathbf{X}"}
+                <div className="py-1">
+                  <BlockMath math="\kappa = \frac{\lambda_{\max}(H)}{\lambda_{\min}(H)}, \quad H = \nabla^2 J(\mathbf{w}) = \mathbf{X}^T \mathbf{X}" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   If features have disparate scales (e.g. 1 vs 10,000), κ exceeds 10^6, turning loss contours into narrow, steep canyons.
@@ -985,8 +986,8 @@ const Topic6 = () => {
 
               <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                 <span className="text-xs font-bold text-purple-300">Convergence Rate Inequality:</span>
-                <div className="text-sm font-mono text-white py-1">
-                  {"\\| \\mathbf{w}^{(t)} - \\mathbf{w}^* \\| \\le \\left( \\frac{\\kappa - 1}{\\kappa + 1} \\right)^t \\| \\mathbf{w}^{(0)} - \\mathbf{w}^* \\|"}
+                <div className="py-1">
+                  <BlockMath math="\| \mathbf{w}^{(t)} - \mathbf{w}^* \| \le \left( \frac{\kappa - 1}{\kappa + 1} \right)^t \| \mathbf{w}^{(0)} - \mathbf{w}^* \|" className="text-white" />
                 </div>
                 <p className="text-[11px] text-slate-400">
                   When standardized, κ ≈ 1, enabling spherical contours and fast, direct gradient steps without zig-zag oscillations!

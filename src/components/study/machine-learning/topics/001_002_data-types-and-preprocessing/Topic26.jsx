@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic26_files/master_quiz_and_certification_lab.py?raw";
 import noteText from "./topic26_files/topic26_note.txt?raw";
@@ -1094,8 +1095,8 @@ const Topic26 = () => {
             <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">
               1. Stevens Measurement Scale Admissibility
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-indigo-200 border border-indigo-900/40">
-              {"\\text{Ratio: } f(x) = cx, \\quad \\text{Interval: } f(x) = ax + b, \\quad \\text{Ordinal: } f(x_1) > f(x_2) \\iff x_1 > x_2"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-indigo-200 border border-indigo-900/40">
+              <BlockMath math="\text{Ratio: } f(x) = cx, \quad \text{Interval: } f(x) = ax + b, \quad \text{Ordinal: } f(x_1) > f(x_2) \iff x_1 > x_2" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Transformations on features must preserve their scale invariants. Multiplying nominal codes by weights is meaningless; Z-score standardization is strictly valid on interval and ratio scales.
@@ -1107,8 +1108,8 @@ const Topic26 = () => {
             <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
               2. Rubin Missingness &amp; Conditional Independence
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-cyan-200 border border-cyan-900/40">
-              {"\\text{MAR: } P(M \\mid Y_{\\text{obs}}, Y_{\\text{mis}}) = P(M \\mid Y_{\\text{obs}}), \\quad \\text{MNAR: } P(M \\mid Y) \\neq P(M \\mid Y_{\\text{obs}})"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-cyan-200 border border-cyan-900/40">
+              <BlockMath math="\text{MAR: } P(M \mid Y_{\text{obs}}, Y_{\text{mis}}) = P(M \mid Y_{\text{obs}}), \quad \text{MNAR: } P(M \mid Y) \neq P(M \mid Y_{\text{obs}})" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Under MAR, conditioning on observed covariates restores unbiased estimation via stratified group medians. Under MNAR, listwise deletion deletes non-respondents, creating survivor truncation bias.
@@ -1120,8 +1121,8 @@ const Topic26 = () => {
             <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
               3. Dummy Variable Singularity Proof
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-emerald-200 border border-emerald-900/40">
-              {"\\sum_{k=1}^K \\mathbf{d}_k = \\mathbf{1} \\implies 1 \\cdot \\mathbf{1} - \\sum_{k=1}^K \\mathbf{d}_k = \\mathbf{0} \\implies \\det(X^T X) = 0.000000"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-emerald-200 border border-emerald-900/40">
+              <BlockMath math="\sum_{k=1}^K \mathbf{d}_k = \mathbf{1} \implies 1 \cdot \mathbf{1} - \sum_{k=1}^K \mathbf{d}_k = \mathbf{0} \implies \det(X^T X) = 0" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Because all dummy columns sum to the intercept column, column rank is deficient (rank(X) &le; K &lt; K+1). The Gram matrix cannot be inverted; solved by dropping the reference dummy column.
@@ -1133,8 +1134,8 @@ const Topic26 = () => {
             <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
               4. Breakdown Points &amp; Robust Scaling
             </div>
-            <div className="p-3 bg-slate-900/90 rounded-xl font-mono text-xs text-amber-200 border border-amber-900/40">
-              {"x_{\\text{rob}} = \\frac{x - \\text{Median}}{\\text{IQR}}, \\quad \\varepsilon^*_{\\text{mean}} = 0\\%, \\; \\varepsilon^*_{\\text{median}} = 50\\%, \\; \\varepsilon^*_{\\text{IQR}} = 25\\%"}
+            <div className="p-3 bg-slate-900/90 rounded-xl text-amber-200 border border-amber-900/40">
+              <BlockMath math="x_{\text{rob}} = \frac{x - \text{Median}}{\text{IQR}}, \quad \varepsilon^*_{\text{mean}} = 0\%, \; \varepsilon^*_{\text{median}} = 50\%, \; \varepsilon^*_{\text{IQR}} = 25\%" />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               While a single outlier destroys the mean and standard deviation, RobustScaler leverages the 50% breakdown point of the sample median and the 25% breakdown point of the IQR, preventing scale compression.

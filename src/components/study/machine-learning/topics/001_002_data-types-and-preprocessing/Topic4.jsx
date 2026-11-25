@@ -4,6 +4,7 @@ import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import { BlockMath, InlineMath } from "../../../../../common/MathView";
 
 import labCode from "./topic4_files/discrete_and_continuous_variables_lab.py?raw";
 import noteText from "./topic4_files/topic4_note.txt?raw";
@@ -459,10 +460,10 @@ const Topic4 = () => {
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-4xl">
             Distinguish countable isolated states (integers in{" "}
-            <span className="text-cyan-400 font-mono">{"\\mathbb{Z}"}</span>) governed by{" "}
+            <InlineMath math="\mathbb{Z}" className="text-cyan-400" />) governed by{" "}
             <span className="text-indigo-400 font-semibold">Probability Mass Functions (PMF)</span>{" "}
             from uncountable continuous intervals (reals in{" "}
-            <span className="text-cyan-400 font-mono">{"\\mathbb{R}"}</span>) governed by{" "}
+            <InlineMath math="\mathbb{R}" className="text-cyan-400" />) governed by{" "}
             <span className="text-purple-400 font-semibold">Probability Density Functions (PDF)</span>.
             Master the continuous zero-probability paradox, count GLM log-link architectures, and optimal
             equal-width vs quantile discretization.
@@ -785,9 +786,9 @@ const Topic4 = () => {
                   </p>
                 </div>
                 <div className="pt-2 border-t border-slate-900">
-                  <code className="text-[11px] font-mono text-cyan-300 bg-slate-900/90 px-2 py-1 rounded block overflow-x-auto">
-                    {item.equation}
-                  </code>
+                  <div className="bg-slate-900/90 px-2 py-1 rounded block overflow-x-auto">
+                    <BlockMath math={item.equation} className="text-xs text-cyan-300" />
+                  </div>
                 </div>
               </div>
             ))}
@@ -1369,17 +1370,17 @@ const Topic4 = () => {
 
             <p className="text-xs text-slate-300 leading-relaxed">
               Let random variable X take values in a countable support set{" "}
-              <span className="text-cyan-400 font-mono">{"\\mathcal{X} = \\{x_1, x_2, \\dots\\} \\subseteq \\mathbb{Z}"}</span>.
+              <InlineMath math="\mathcal{X} = \{x_1, x_2, \dots\} \subseteq \mathbb{Z}" className="text-cyan-400" />.
               The Probability Mass Function assigns direct point probabilities satisfying Kolmogorov axioms:
             </p>
 
-            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-cyan-300 space-y-2">
-              <div>{"p(x_k) = P(X = x_k) \ge 0, \quad \forall x_k \in \mathcal{X}"}</div>
-              <div>{"\sum_{k=1}^{\infty} p(x_k) = 1.0"}</div>
-              <div className="text-slate-400 text-[11px] pt-1 border-t border-slate-900">
-                {"Expectation: E[X] = \sum x_k \cdot p(x_k)"}
-                <br />
-                {"Variance: Var(X) = \sum (x_k - \mu)^2 \cdot p(x_k)"}
+            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+              <BlockMath math="p(x_k) = P(X = x_k) \ge 0, \quad \forall x_k \in \mathcal{X}" className="text-cyan-300" />
+              <BlockMath math="\sum_{k=1}^{\infty} p(x_k) = 1.0" className="text-cyan-300" />
+              <BlockMath math="P(X \in A) = \sum_{x_k \in A} p(x_k)" className="text-cyan-300" />
+              <div className="text-slate-400 text-xs pt-2 border-t border-slate-900 space-y-1">
+                <div><InlineMath math="\mathbb{E}[X] = \sum x_k \cdot p(x_k)" /></div>
+                <div><InlineMath math="\mathrm{Var}(X) = \sum (x_k - \mu)^2 \cdot p(x_k)" /></div>
               </div>
             </div>
 
@@ -1387,8 +1388,8 @@ const Topic4 = () => {
               The Cumulative Distribution Function (CDF) is a monotonic staircase step function with
               isolated jump discontinuities:
             </p>
-            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-xs text-slate-300">
-              {"F(x) = P(X \le x) = \sum_{x_k \le x} p(x_k)"}
+            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
+              <BlockMath math="F(x) = P(X \le x) = \sum_{x_k \le x} p(x_k)" className="text-slate-300" />
             </div>
           </div>
 
@@ -1405,16 +1406,16 @@ const Topic4 = () => {
 
             <p className="text-xs text-slate-300 leading-relaxed">
               Let random variable X take values in an uncountable continuum{" "}
-              <span className="text-purple-400 font-mono">{"\\mathcal{X} \\subseteq \\mathbb{R}"}</span>.
+              <InlineMath math="\mathcal{X} \subseteq \mathbb{R}" className="text-purple-400" />.
               The Probability Density Function (PDF) f(x) represents infinitesimal density per unit length:
             </p>
 
-            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-purple-300 space-y-2">
-              <div>{"f(x) \ge 0, \quad \forall x \in \mathbb{R}"}</div>
-              <div>{"\int_{-\infty}^{\infty} f(x) \, dx = 1.0"}</div>
-              <div>{"P(a \le X \le b) = \int_{a}^{b} f(x) \, dx"}</div>
-              <div className="text-slate-400 text-[11px] pt-1 border-t border-slate-900">
-                {"Expectation: E[X] = \int_{-\infty}^{\infty} x \cdot f(x) \, dx"}
+            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+              <BlockMath math="f(x) \ge 0, \quad \forall x \in \mathbb{R}" className="text-purple-300" />
+              <BlockMath math="\int_{-\infty}^{\infty} f(x) \, dx = 1.0" className="text-purple-300" />
+              <BlockMath math="P(a \le X \le b) = \int_{a}^{b} f(x) \, dx" className="text-purple-300" />
+              <div className="text-slate-400 text-xs pt-2 border-t border-slate-900">
+                <InlineMath math="\mathbb{E}[X] = \int_{-\infty}^{\infty} x \cdot f(x) \, dx" />
               </div>
             </div>
 
@@ -1422,8 +1423,8 @@ const Topic4 = () => {
               The continuous CDF is smooth and continuously differentiable almost everywhere, with the
               fundamental relation:
             </p>
-            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-xs text-slate-300">
-              {"F(x) = \int_{-\infty}^{x} f(u) \, du \implies f(x) = \frac{d}{dx} F(x)"}
+            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
+              <BlockMath math="F(x) = \int_{-\infty}^{x} f(u) \, du \implies f(x) = \frac{d}{dx} F(x)" className="text-slate-300" />
             </div>
           </div>
         </div>
@@ -1454,24 +1455,24 @@ const Topic4 = () => {
                 To enforce strictly positive expected rates <span className="font-mono text-white">λ_i &gt; 0</span>,
                 we apply the natural logarithm as the canonical link function:
               </p>
-              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-center text-cyan-400">
-                {"\ln(\lambda_i) = w^T x_i + b \iff \lambda_i = \exp(w^T x_i + b)"}
+              <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 text-center">
+                <BlockMath math="\ln(\lambda_i) = \mathbf{w}^T \mathbf{x}_i + b \iff \lambda_i = \exp(\mathbf{w}^T \mathbf{x}_i + b)" className="text-cyan-400" />
               </div>
             </div>
 
-            <div className="space-y-3 bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs font-mono text-slate-300">
+            <div className="space-y-3 bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs text-slate-300">
               <div className="text-amber-400 font-bold font-sans">Poisson Log-Likelihood Loss Derivation:</div>
               <p className="text-[11px] text-slate-400 font-sans">
                 The joint likelihood of observing counts y_1, ..., y_N is:
               </p>
-              <div className="text-amber-300 text-[11px]">
-                {"L(w) = \prod_{i=1}^N \frac{\lambda_i^{y_i} e^{-\lambda_i}}{y_i!}"}
+              <div className="text-amber-300 text-xs">
+                <BlockMath math="L(\mathbf{w}) = \prod_{i=1}^N \frac{\lambda_i^{y_i} e^{-\lambda_i}}{y_i!}" />
               </div>
               <p className="text-[11px] text-slate-400 font-sans">
                 Taking the negative logarithm yields the convex Negative Log-Likelihood loss function minimized during gradient descent:
               </p>
-              <div className="p-2.5 bg-slate-900 rounded border border-slate-800 text-emerald-400 text-[11px]">
-                {"J(w) = \sum_{i=1}^N \left( \exp(w^T x_i) - y_i (w^T x_i) + \ln(y_i!) \right)"}
+              <div className="p-2.5 bg-slate-900 rounded border border-slate-800 text-emerald-400 text-xs">
+                <BlockMath math="J(\mathbf{w}) = \sum_{i=1}^N \left( \exp(\mathbf{w}^T \mathbf{x}_i) - y_i (\mathbf{w}^T \mathbf{x}_i) + \ln(y_i!) \right)" />
               </div>
             </div>
           </div>
