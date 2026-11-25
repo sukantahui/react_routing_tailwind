@@ -53,6 +53,7 @@ const SelectionWordLookup = React.lazy(() => import("../../common/SelectionWordL
 const ScreenAnnotator = React.lazy(() => import("../../common/ScreenAnnotator"));
 const StudyWhiteboard = React.lazy(() => import("../../common/StudyWhiteboard"));
 const CNATMamChatbot = React.lazy(() => import("./common/CNATMamChatbot"));
+const TopicBengaliExplanationModal = React.lazy(() => import("../../common/TopicBengaliExplanationModal"));
 
 // Cache for dynamically loaded topic components to prevent recreation on re-render
 const topicComponentCache = new Map();
@@ -227,6 +228,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   const [drawAnywhere, setDrawAnywhere] = useState(false);
   const [showMathSymbols, setShowMathSymbols] = useState(false);
   const [showWordDictionary, setShowWordDictionary] = useState(false);
+  const [showBengaliModal, setShowBengaliModal] = useState(false);
   const [dictionaryWord, setDictionaryWord] = useState("catastrophic");
   const [fontSize, setFontSize] = useState('normal'); // 'normal' | 'large'
   const [copiedLink, setCopiedLink] = useState(false);
@@ -751,6 +753,16 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 <span className="hidden md:inline">{drawAnywhere ? "Stop" : "Annotate"}</span>
               </button>
 
+              {/* Bengali Topic Explanation button */}
+              <button
+                onClick={() => setShowBengaliModal(true)}
+                className="px-2.5 py-1 rounded-lg text-xs font-semibold border transition flex items-center gap-1 bg-emerald-950/40 border-emerald-800/80 text-emerald-300 hover:bg-emerald-900/60 hover:text-white hover:border-emerald-600 shadow-sm cursor-pointer"
+                title="সহজ বাংলায় এই টপিকের পুঙ্খানুপুঙ্খ ব্যাখ্যা শুনুন ও পড়ুন (Explain in Bengali)"
+              >
+                <span className="text-xs">🇧🇩</span>
+                <span className="hidden xl:inline font-sans">বাংলায় বুঝুন</span>
+              </button>
+
               {/* Vocabulary & Word Meaning Dictionary button */}
               <button
                 onClick={() => {
@@ -1054,6 +1066,33 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
             }}
           >
             <div className="w-full space-y-4">
+
+              {/* Bengali Explanation Quick Action Card */}
+              <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-gradient-to-r from-emerald-950/70 via-slate-900 to-slate-900/90 rounded-2xl border border-emerald-500/30 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xl shadow-inner shrink-0">
+                    🇧🇩
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-white text-sm">বাংলায় সহজ ব্যাখ্যা ও মূল বিষয়</span>
+                      <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        Bengali Guide
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-300 mt-0.5 font-sans">
+                      টপিকটি সাধারণ বাংলায় সহজে বুঝতে এবং প্রয়োজনীয় বিষয়গুলি বাস্তব উদাহরণ সহ জানতে এখানে ক্লিক করুন।
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowBengaliModal(true)}
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs sm:text-sm font-semibold transition flex items-center gap-2 shadow-lg shadow-emerald-950/50 cursor-pointer active:scale-95 shrink-0"
+                >
+                  <BookOpen size={16} />
+                  <span>বাংলায় বুঝুন (Explain in Bengali)</span>
+                </button>
+              </div>
 
               {/* Dynamic Topic Content Page */}
               <div className={`w-full ${fontSize === 'large' ? 'text-lg sm:text-xl' : 'text-base'}`}>
@@ -1563,6 +1602,21 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           moduleSlug={moduleSlug}
           subjectKey={subjectKey}
         />
+      </Suspense>
+
+      {/* ========================================================================= */}
+      {/* BENGALI TOPIC EXPLANATION MODAL */}
+      {/* ========================================================================= */}
+      <Suspense fallback={null}>
+        {showBengaliModal && (
+          <TopicBengaliExplanationModal
+            isOpen={showBengaliModal}
+            onClose={() => setShowBengaliModal(false)}
+            topicIndex={index}
+            topicTitle={topicTitle || `Topic ${index}`}
+            moduleTitle={moduleData?.title || ""}
+          />
+        )}
       </Suspense>
 
     </div>
