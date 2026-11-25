@@ -1,0 +1,32 @@
+- generic [ref=f7e3]:
+  - banner [ref=f7e5]:
+    - generic [ref=f7e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001" [ref=f7e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=f7e11]
+        - generic [ref=f7e13]:
+          - generic [ref=f7e14]: Coder&AccoTax
+          - generic [ref=f7e15]: ISO 9001
+      - navigation [ref=f7e17]:
+        - link "Courses" [ref=f7e18] [cursor=pointer]:
+          - /url: /#courses
+        - button "Tools " [ref=f7e20] [cursor=pointer]:
+          - generic [ref=f7e21]: Tools
+          - generic [ref=f7e22]: 
+        - button "Tutorials " [ref=f7e24] [cursor=pointer]:
+          - generic [ref=f7e25]: Tutorials
+          - generic [ref=f7e26]: 
+        - button "About " [ref=f7e28] [cursor=pointer]:
+          - generic [ref=f7e29]: About
+          - generic [ref=f7e30]: 
+      - generic [ref=f7e31]:
+        - button " ⌘K" [ref=f7e32] [cursor=pointer]:
+          - generic [ref=f7e33]: 
+          - generic [ref=f7e34]: ⌘K
+        - link "Portal Sign In" [ref=f7e35] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=f7e36]: 
+          - generic [ref=f7e37]: Sign In
+        - text:   
+  - main [ref=f7e38]:
+    - paragraph [ref=f7e42]: Loading page...

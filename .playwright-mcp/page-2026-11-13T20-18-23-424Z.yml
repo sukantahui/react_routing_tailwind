@@ -1,0 +1,412 @@
+- generic [ref=f4e3]:
+  - banner [ref=f4e5]:
+    - generic [ref=f4e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001 Premier Coding & IT Institute" [ref=f4e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=f4e11]
+        - generic [ref=f4e12]:
+          - generic [ref=f4e13]:
+            - generic [ref=f4e14]: Coder&AccoTax
+            - generic [ref=f4e15]: ISO 9001
+          - generic [ref=f4e17]: Premier Coding & IT Institute
+      - navigation [ref=f4e18]:
+        - link "Courses" [ref=f4e19] [cursor=pointer]:
+          - /url: /#courses
+        - button "Tools " [ref=f4e21] [cursor=pointer]:
+          - generic [ref=f4e22]: Tools
+          - generic [ref=f4e23]: 
+        - button "Tutorials " [ref=f4e25] [cursor=pointer]:
+          - generic [ref=f4e26]: Tutorials
+          - generic [ref=f4e27]: 
+        - button "About " [ref=f4e29] [cursor=pointer]:
+          - generic [ref=f4e30]: About
+          - generic [ref=f4e31]: 
+      - generic [ref=f4e32]:
+        - button " Quick Jump... ⌘K" [ref=f4e33] [cursor=pointer]:
+          - generic [ref=f4e34]: 
+          - generic [ref=f4e35]: Quick Jump...
+          - generic [ref=f4e36]: ⌘K
+        - link "Portal Sign In" [ref=f4e37] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=f4e38]: 
+          - generic [ref=f4e39]: Sign In
+        - text:   
+  - main [ref=f4e40]:
+    - generic [ref=f4e60]:
+      - generic [ref=f4e62]:
+        - generic [ref=f4e63]:
+          - link "Overview" [ref=f4e64] [cursor=pointer]:
+            - /url: /isc-12/module/computer-hardware
+          - generic [ref=f4e69]: Computer Hardware & Combinational Circuits
+          - link "Next Module" [ref=f4e75] [cursor=pointer]:
+            - /url: /isc-12/topic/expression-conversion-using-stack/0
+        - generic [ref=f4e79]:
+          - generic [ref=f4e80]:
+            - generic [ref=f4e83]: 36/36
+            - generic [ref=f4e86]: 17%
+          - button "Hide Topics" [ref=f4e87]
+          - button "Workspace" [ref=f4e90]
+          - button "Annotate" [ref=f4e94]
+          - button "Dictionary" [ref=f4e101]
+          - button "Math" [ref=f4e106]
+          - button "Focus Mode (Hide sidebars & clutter)" [ref=f4e110]
+          - button "A+" [ref=f4e116]
+          - button "Bookmark topic" [ref=f4e117]
+          - button "Copy topic link" [ref=f4e120]
+          - button "Done" [ref=f4e124]
+          - generic [ref=f4e129]:
+            - link "Prev" [ref=f4e130] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/34
+            - button "Next" [disabled] [ref=f4e134]
+      - generic [ref=f4e139]:
+        - complementary [ref=f4e140]:
+          - generic [ref=f4e141]:
+            - generic [ref=f4e142]:
+              - generic [ref=f4e143]: Module Progress
+              - generic [ref=f4e144]: 6/36 (17%)
+            - generic [ref=f4e147]:
+              - generic [ref=f4e148]: 16 hrs
+              - generic [ref=f4e149]: Medium
+          - textbox "Filter topics..." [ref=f4e154]
+          - generic [ref=f4e155]:
+            - link "01.Introduction to Combinational Logic Circuits (Definition, Characteristics, Combinational vs Sequential)" [ref=f4e156] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/0
+              - generic [ref=f4e160]:
+                - generic [ref=f4e161]: "01."
+                - text: Introduction to Combinational Logic Circuits (Definition, Characteristics, Combinational vs Sequential)
+            - link "02.Elementary & Universal Logic Gates Revision (AND, OR, NOT, NAND, NOR, XOR, XNOR)" [ref=f4e162] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/1
+              - generic [ref=f4e164]:
+                - generic [ref=f4e165]: "02."
+                - text: Elementary & Universal Logic Gates Revision (AND, OR, NOT, NAND, NOR, XOR, XNOR)
+            - 'link "03.Half Adder: Operating Principle, Truth Table, Sum (A ⊕ B) and Carry (A · B) Derivations, Logic Circuit" [ref=f4e166] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/2
+              - generic [ref=f4e168]:
+                - generic [ref=f4e169]: "03."
+                - text: "Half Adder: Operating Principle, Truth Table, Sum (A ⊕ B) and Carry (A · B) Derivations, Logic Circuit"
+            - 'link "04.Full Adder: Concept of 3-bit Addition, Truth Table, Sum and Carry-out Derivations, Logic Circuit" [ref=f4e170] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/3
+              - generic [ref=f4e172]:
+                - generic [ref=f4e173]: "04."
+                - text: "Full Adder: Concept of 3-bit Addition, Truth Table, Sum and Carry-out Derivations, Logic Circuit"
+            - link "05.Implementation of Full Adder using two Half Adders and an OR gate (Algebraic Proof & Circuit)" [ref=f4e174] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/4
+              - generic [ref=f4e176]:
+                - generic [ref=f4e177]: "05."
+                - text: Implementation of Full Adder using two Half Adders and an OR gate (Algebraic Proof & Circuit)
+            - 'link "06.Half Subtractor: Truth Table, Difference (A ⊕ B) and Borrow (A'' · B) Derivations, Circuit Diagram" [ref=f4e178] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/5
+              - generic [ref=f4e180]:
+                - generic [ref=f4e181]: "06."
+                - text: "Half Subtractor: Truth Table, Difference (A ⊕ B) and Borrow (A' · B) Derivations, Circuit Diagram"
+            - 'link "07.Full Subtractor: Truth Table, Difference and Borrow-out Derivations, Logic Circuit Diagram" [ref=f4e182] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/6
+              - generic [ref=f4e184]:
+                - generic [ref=f4e185]: "07."
+                - text: "Full Subtractor: Truth Table, Difference and Borrow-out Derivations, Logic Circuit Diagram"
+            - link "08.Construction of Full Subtractor using two Half Subtractors and an OR gate" [ref=f4e186] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/7
+              - generic [ref=f4e188]:
+                - generic [ref=f4e189]: "08."
+                - text: Construction of Full Subtractor using two Half Subtractors and an OR gate
+            - 'link "09.Encoders: Definition, Operating Principle, and Line Compression (2^n Inputs to n Outputs)" [ref=f4e190] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/8
+              - generic [ref=f4e194]:
+                - generic [ref=f4e195]: "09."
+                - text: "Encoders: Definition, Operating Principle, and Line Compression (2^n Inputs to n Outputs)"
+            - 'link "10.4-to-2 Line Binary Encoder: Truth Table, Boolean Output Equations, Logic Circuit using OR Gates" [ref=f4e196] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/9
+              - generic [ref=f4e198]:
+                - generic [ref=f4e199]: "10."
+                - text: "4-to-2 Line Binary Encoder: Truth Table, Boolean Output Equations, Logic Circuit using OR Gates"
+            - 'link "11.8-to-3 Line Octal-to-Binary Encoder: Inputs (D0-D7), Outputs (X, Y, Z), Truth Table, Circuit Diagram" [ref=f4e200] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/10
+              - generic [ref=f4e202]:
+                - generic [ref=f4e203]: "11."
+                - text: "8-to-3 Line Octal-to-Binary Encoder: Inputs (D0-D7), Outputs (X, Y, Z), Truth Table, Circuit Diagram"
+            - 'link "12.Decimal-to-BCD Encoder: Concept, Truth Table, Boolean Equations, Logic Circuit Implementation" [ref=f4e204] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/11
+              - generic [ref=f4e206]:
+                - generic [ref=f4e207]: "12."
+                - text: "Decimal-to-BCD Encoder: Concept, Truth Table, Boolean Equations, Logic Circuit Implementation"
+            - 'link "13.Priority Encoder: Working Principle, Priority Assignment, and Practical Applications" [ref=f4e208] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/12
+              - generic [ref=f4e210]:
+                - generic [ref=f4e211]: "13."
+                - text: "Priority Encoder: Working Principle, Priority Assignment, and Practical Applications"
+            - 'link "14.Decoders: Definition, Operating Principle, and Line Expansion (n Inputs to 2^n Outputs)" [ref=f4e212] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/13
+              - generic [ref=f4e214]:
+                - generic [ref=f4e215]: "14."
+                - text: "Decoders: Definition, Operating Principle, and Line Expansion (n Inputs to 2^n Outputs)"
+            - 'link "15.2-to-4 Line Binary Decoder: Truth Table, Output Minterms, AND Gate Circuit with Active-HIGH Enable" [ref=f4e216] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/14
+              - generic [ref=f4e220]:
+                - generic [ref=f4e221]: "15."
+                - text: "2-to-4 Line Binary Decoder: Truth Table, Output Minterms, AND Gate Circuit with Active-HIGH Enable"
+            - link "16.2-to-4 Line Decoder with Active-LOW Enable & NAND Gate Realization" [ref=f4e222] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/15
+              - generic [ref=f4e224]:
+                - generic [ref=f4e225]: "16."
+                - text: 2-to-4 Line Decoder with Active-LOW Enable & NAND Gate Realization
+            - 'link "17.3-to-8 Line Binary Decoder: Inputs, Outputs, Complete Truth Table, Circuit Diagram using AND Gates" [ref=f4e226] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/16
+              - generic [ref=f4e228]:
+                - generic [ref=f4e229]: "17."
+                - text: "3-to-8 Line Binary Decoder: Inputs, Outputs, Complete Truth Table, Circuit Diagram using AND Gates"
+            - 'link "18.Higher-Order Decoder Construction: Designing 3-to-8 Decoder using two 2-to-4 Decoders with Enable" [ref=f4e230] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/17
+              - generic [ref=f4e232]:
+                - generic [ref=f4e233]: "18."
+                - text: "Higher-Order Decoder Construction: Designing 3-to-8 Decoder using two 2-to-4 Decoders with Enable"
+            - 'link "19.Higher-Order Decoder Construction: Designing 4-to-16 Line Decoder using two 3-to-8 Decoders" [ref=f4e234] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/18
+              - generic [ref=f4e236]:
+                - generic [ref=f4e237]: "19."
+                - text: "Higher-Order Decoder Construction: Designing 4-to-16 Line Decoder using two 3-to-8 Decoders"
+            - link "20.Decoder as a Universal Minterm Generator for Realizing Arbitrary Boolean Functions" [ref=f4e238] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/19
+              - generic [ref=f4e240]:
+                - generic [ref=f4e241]: "20."
+                - text: Decoder as a Universal Minterm Generator for Realizing Arbitrary Boolean Functions
+            - 'link "21.Multiplexers (MUX): Definition, Concept of Data Selector, Inputs, Selection Lines (2^n to 1), Output" [ref=f4e242] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/20
+              - generic [ref=f4e244]:
+                - generic [ref=f4e245]: "21."
+                - text: "Multiplexers (MUX): Definition, Concept of Data Selector, Inputs, Selection Lines (2^n to 1), Output"
+            - 'link "22.2-to-1 Multiplexer: Function Table, Boolean Equation Y = S''I0 + SI1, Gate-Level Logic Circuit" [ref=f4e246] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/21
+              - generic [ref=f4e248]:
+                - generic [ref=f4e249]: "22."
+                - text: "2-to-1 Multiplexer: Function Table, Boolean Equation Y = S'I0 + SI1, Gate-Level Logic Circuit"
+            - 'link "23.4-to-1 Multiplexer: Function Table, Boolean Equation, Logic Gate Diagram, Block Diagram" [ref=f4e250] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/22
+              - generic [ref=f4e252]:
+                - generic [ref=f4e253]: "23."
+                - text: "4-to-1 Multiplexer: Function Table, Boolean Equation, Logic Gate Diagram, Block Diagram"
+            - 'link "24.8-to-1 Multiplexer: Function Table, Select Line Combinations (S2, S1, S0), Logic Circuit Diagram" [ref=f4e254] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/23
+              - generic [ref=f4e258]:
+                - generic [ref=f4e259]: "24."
+                - text: "8-to-1 Multiplexer: Function Table, Select Line Combinations (S2, S1, S0), Logic Circuit Diagram"
+            - 'link "25.16-to-1 Multiplexer: Block Diagram, Selection Logic, and IC Implementation Concepts" [ref=f4e260] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/24
+              - generic [ref=f4e262]:
+                - generic [ref=f4e263]: "25."
+                - text: "16-to-1 Multiplexer: Block Diagram, Selection Logic, and IC Implementation Concepts"
+            - 'link "26.Cascading Multiplexer Trees: Implementing 8-to-1 MUX using two 4-to-1 MUXes and an OR Gate" [ref=f4e264] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/25
+              - generic [ref=f4e266]:
+                - generic [ref=f4e267]: "26."
+                - text: "Cascading Multiplexer Trees: Implementing 8-to-1 MUX using two 4-to-1 MUXes and an OR Gate"
+            - 'link "27.Cascading Multiplexer Trees: Implementing 16-to-1 MUX using two 8-to-1 MUXes and an Inverter" [ref=f4e268] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/26
+              - generic [ref=f4e270]:
+                - generic [ref=f4e271]: "27."
+                - text: "Cascading Multiplexer Trees: Implementing 16-to-1 MUX using two 8-to-1 MUXes and an Inverter"
+            - link "28.Realization of Boolean Functions using 4-to-1 Multiplexer (Truth Table Mapping & Implementation Table)" [ref=f4e272] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/27
+              - generic [ref=f4e276]:
+                - generic [ref=f4e277]: "28."
+                - text: Realization of Boolean Functions using 4-to-1 Multiplexer (Truth Table Mapping & Implementation Table)
+            - link "29.Realization of Boolean Functions using 8-to-1 Multiplexer (Variable Mapping & Minterm Selection)" [ref=f4e278] [cursor=pointer]:
+              - /url: /isc-12/topic/computer-hardware/28
+              - generic [ref=f4e280]:
+                - generic [ref=f4e281]: "29."
+                - text: Realization of Boolean Functions using 8-to-1 Multiplexer (Variable Mapping & Minterm Selection)
+            - 'link "30.Demultiplexers (DEMUX): Definition, Concept of Data Distributor, Single Input, Select Lines (1 to 2^n)" [ref=f4e282] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/29
+              - generic [ref=f4e284]:
+                - generic [ref=f4e285]: "30."
+                - text: "Demultiplexers (DEMUX): Definition, Concept of Data Distributor, Single Input, Select Lines (1 to 2^n)"
+            - 'link "31.1-to-2 and 1-to-4 Demultiplexer: Function Table, Boolean Equations, Gate-Level Logic Circuit" [ref=f4e286] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/30
+              - generic [ref=f4e288]:
+                - generic [ref=f4e289]: "31."
+                - text: "1-to-2 and 1-to-4 Demultiplexer: Function Table, Boolean Equations, Gate-Level Logic Circuit"
+            - 'link "32.1-to-8 Demultiplexer: Function Table, Output Routing Logic, Complete Circuit Diagram" [ref=f4e290] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/31
+              - generic [ref=f4e292]:
+                - generic [ref=f4e293]: "32."
+                - text: "1-to-8 Demultiplexer: Function Table, Output Routing Logic, Complete Circuit Diagram"
+            - 'link "33.Relationship & Equivalence: Using a Decoder with an Enable Input as a Demultiplexer" [ref=f4e294] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/32
+              - generic [ref=f4e296]:
+                - generic [ref=f4e297]: "33."
+                - text: "Relationship & Equivalence: Using a Decoder with an Enable Input as a Demultiplexer"
+            - 'link "34.Comparative Analysis: Encoder vs Multiplexer (Input/Output Ratios, Select Lines & Applications)" [ref=f4e298] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/33
+              - generic [ref=f4e300]:
+                - generic [ref=f4e301]: "34."
+                - text: "Comparative Analysis: Encoder vs Multiplexer (Input/Output Ratios, Select Lines & Applications)"
+            - 'link "35.Comparative Analysis: Decoder vs Demultiplexer (Operational Differences, Truth Table Comparison)" [ref=f4e302] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/34
+              - generic [ref=f4e304]:
+                - generic [ref=f4e305]: "35."
+                - text: "Comparative Analysis: Decoder vs Demultiplexer (Operational Differences, Truth Table Comparison)"
+            - 'link "36.ISC Board Examination Analysis: 2-Mark and 4-Mark Circuit Design, Derivations, and Previous Years Questions" [ref=f4e306] [cursor=pointer]':
+              - /url: /isc-12/topic/computer-hardware/35
+              - generic [ref=f4e310]:
+                - generic [ref=f4e311]: "36."
+                - text: "ISC Board Examination Analysis: 2-Mark and 4-Mark Circuit Design, Derivations, and Previous Years Questions"
+          - generic [ref=f4e312]:
+            - link "Next Module Expression Conversion (Infix, Prefix & Postfix)" [ref=f4e313] [cursor=pointer]:
+              - /url: /isc-12/topic/expression-conversion-using-stack/0
+              - generic [ref=f4e314]: Next Module
+              - generic [ref=f4e318]: Expression Conversion (Infix, Prefix & Postfix)
+            - link "← Module Overview" [ref=f4e319] [cursor=pointer]:
+              - /url: /isc-12/module/computer-hardware
+            - link "📍 Course Roadmap" [ref=f4e320] [cursor=pointer]:
+              - /url: /isc-12/roadmap
+        - main [ref=f4e321]:
+          - generic [ref=f4e322]:
+            - generic [ref=f4e324]:
+              - generic [ref=f4e46]:
+                - generic [ref=f4e47]:
+                  - generic [ref=f4e48]: ISC Class 12 • Topic 35
+                  - generic [ref=f4e49]: Computer Hardware & Combinational Circuits
+                  - generic [ref=f4e50]: CISCE Syllabus 868 Masterclass
+                - 'heading "ISC Board Examination Masterclass: Hardware Design & Past Years" [level=1] [ref=f4e51]'
+                - paragraph [ref=f4e52]: 10-Year Question Trend Analysis, 2-Mark & 4-Mark Archetypes, Master Circuit Cheat Sheet, and Self-Test Challenge
+                - generic [ref=f4e53]:
+                  - button "1. 10-Year Trend Analysis" [ref=f4e54]
+                  - button "2. Master Circuit Cheat Sheet" [ref=f4e55]
+                  - button "3. Board Exam Question Bank" [ref=f4e56]
+                  - button "4. Interactive Board Challenge" [ref=f4e57]
+                  - button "5. Council Examiner Guidelines" [ref=f4e58]
+                  - button "6. 15 Essential FAQs" [active] [ref=f4e59]
+              - generic [ref=f4e326]:
+                - generic [ref=f4e332]:
+                  - heading "15 Essential ISC Board FAQs & Practical Derivations" [level=2] [ref=f4e333]
+                  - paragraph [ref=f4e334]: Self-assessment questions & technical diagnostic practice
+                - generic [ref=f4e335]:
+                  - button "Q1. What are the highest-frequency topics from Computer Hardware in ISC Class 12 Board Exams?" [ref=f4e337]:
+                    - generic [ref=f4e338]:
+                      - generic [ref=f4e339]: Q1.
+                      - generic [ref=f4e340]: What are the highest-frequency topics from Computer Hardware in ISC Class 12 Board Exams?
+                  - button "Q2. What is the standard CISCE marking scheme for a 5-mark combinational circuit question?" [ref=f4e345]:
+                    - generic [ref=f4e346]:
+                      - generic [ref=f4e347]: Q2.
+                      - generic [ref=f4e348]: What is the standard CISCE marking scheme for a 5-mark combinational circuit question?
+                  - button "Q3. What is the most common error in Half Subtractor and Full Subtractor questions in board exams?" [ref=f4e353]:
+                    - generic [ref=f4e354]:
+                      - generic [ref=f4e355]: Q3.
+                      - generic [ref=f4e356]: What is the most common error in Half Subtractor and Full Subtractor questions in board exams?
+                  - button "Q4. In drawing Cascaded Decoders (e.g., 3:8 from 2:4), what omission causes students to lose 2 out of 3 marks?" [ref=f4e361]:
+                    - generic [ref=f4e362]:
+                      - generic [ref=f4e363]: Q4.
+                      - generic [ref=f4e364]: In drawing Cascaded Decoders (e.g., 3:8 from 2:4), what omission causes students to lose 2 out of 3 marks?
+                  - button "Q5. What are the mandatory elements required when implementing a Boolean function using a MUX in ISC exams?" [ref=f4e369]:
+                    - generic [ref=f4e370]:
+                      - generic [ref=f4e371]: Q5.
+                      - generic [ref=f4e372]: What are the mandatory elements required when implementing a Boolean function using a MUX in ISC exams?
+                  - button "Q6. How should students represent Active-LOW outputs and inputs on IC block diagrams to avoid losing marks?" [ref=f4e377]:
+                    - generic [ref=f4e378]:
+                      - generic [ref=f4e379]: Q6.
+                      - generic [ref=f4e380]: How should students represent Active-LOW outputs and inputs on IC block diagrams to avoid losing marks?
+                  - button "Q7. When asked for a 'Truth Table with Enable', how should the disabled condition be represented?" [ref=f4e385]:
+                    - generic [ref=f4e386]:
+                      - generic [ref=f4e387]: Q7.
+                      - generic [ref=f4e388]: When asked for a 'Truth Table with Enable', how should the disabled condition be represented?
+                  - button "Q8. Why must logic gate symbols strictly conform to standard ANSI/IEEE shapes in ISC exams?" [ref=f4e393]:
+                    - generic [ref=f4e394]:
+                      - generic [ref=f4e395]: Q8.
+                      - generic [ref=f4e396]: Why must logic gate symbols strictly conform to standard ANSI/IEEE shapes in ISC exams?
+                  - button "Q9. What is the rule regarding labeling bus lines and pin numbers in board examination diagrams?" [ref=f4e401]:
+                    - generic [ref=f4e402]:
+                      - generic [ref=f4e403]: Q9.
+                      - generic [ref=f4e404]: What is the rule regarding labeling bus lines and pin numbers in board examination diagrams?
+                  - button "Q10. How do students clearly distinguish between a Binary Encoder and a Priority Encoder in descriptive exam answers?" [ref=f4e409]:
+                    - generic [ref=f4e410]:
+                      - generic [ref=f4e411]: Q10.
+                      - generic [ref=f4e412]: How do students clearly distinguish between a Binary Encoder and a Priority Encoder in descriptive exam answers?
+                  - button "Q11. What is the exact step-by-step method to realize a function using a Decoder and external logic gates?" [ref=f4e417]:
+                    - generic [ref=f4e418]:
+                      - generic [ref=f4e419]: Q11.
+                      - generic [ref=f4e420]: What is the exact step-by-step method to realize a function using a Decoder and external logic gates?
+                  - button "Q12. How do you handle non-canonical Boolean expressions when an exam question asks for Decoder or MUX implementation?" [ref=f4e425]:
+                    - generic [ref=f4e426]:
+                      - generic [ref=f4e427]: Q12.
+                      - generic [ref=f4e428]: How do you handle non-canonical Boolean expressions when an exam question asks for Decoder or MUX implementation?
+                  - button "Q13. What is the penalty for writing raw Boolean expressions without showing derivation or truth tables?" [ref=f4e433]:
+                    - generic [ref=f4e434]:
+                      - generic [ref=f4e435]: Q13.
+                      - generic [ref=f4e436]: What is the penalty for writing raw Boolean expressions without showing derivation or truth tables?
+                  - button "Q14. How should time management be handled for the Computer Hardware section in the 3-hour ISC theory paper?" [ref=f4e441]:
+                    - generic [ref=f4e442]:
+                      - generic [ref=f4e443]: Q14.
+                      - generic [ref=f4e444]: How should time management be handled for the Computer Hardware section in the 3-hour ISC theory paper?
+                  - button "Q15. What are the top three pieces of advice from senior CISCE Computer Science examiners for scoring 100% in this module?" [ref=f4e449]:
+                    - generic [ref=f4e450]:
+                      - generic [ref=f4e451]: Q15.
+                      - generic [ref=f4e452]: What are the top three pieces of advice from senior CISCE Computer Science examiners for scoring 100% in this module?
+              - generic [ref=f4e458]:
+                - generic [ref=f4e459]:
+                  - img "Sukanta Hui" [ref=f4e461]
+                  - generic [ref=f4e462]: Verified Lead
+                - generic [ref=f4e468]:
+                  - generic [ref=f4e469]:
+                    - generic [ref=f4e470]:
+                      - heading "Sukanta Hui" [level=3] [ref=f4e471]
+                      - paragraph [ref=f4e476]: Senior Software Architect · Lead Educator & Tech Mentor
+                    - generic [ref=f4e477]: Founder, Coder & AccoTax · Barrackpore, West Bengal, India
+                  - generic [ref=f4e478]:
+                    - generic [ref=f4e479]:
+                      - generic [ref=f4e480]: 28+ Years
+                      - generic [ref=f4e481]: Teaching Experience
+                    - generic [ref=f4e482]:
+                      - generic [ref=f4e483]: 6,000+
+                      - generic [ref=f4e484]: Alumni & Learners
+                    - generic [ref=f4e485]:
+                      - generic [ref=f4e486]: 100%
+                      - generic [ref=f4e487]: Hands-on Practice
+                    - generic [ref=f4e488]:
+                      - generic [ref=f4e489]: Direct
+                      - generic [ref=f4e490]: Doubt Support
+                  - paragraph [ref=f4e491]: Congratulations on completing the entire Computer Hardware module! You have mastered Adders, Subtractors, Encoders, Decoders, Multiplexers, Demultiplexers, and cascading trees. This module is the most predictable, reliable scoring territory in your entire ISC Computer Science syllabus. Walk into the exam room with total confidence—you are fully prepared to score 100/100!
+                  - generic [ref=f4e492]:
+                    - generic [ref=f4e493]:
+                      - link "WhatsApp Query" [ref=f4e494] [cursor=pointer]:
+                        - /url: https://wa.me/917003756860
+                      - link "Email" [ref=f4e498] [cursor=pointer]:
+                        - /url: mailto:contact@codernaccotax.co.in
+                    - generic [ref=f4e503]:
+                      - link "LinkedIn Profile" [ref=f4e504] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/sukantahui/
+                      - link "GitHub Repository" [ref=f4e509] [cursor=pointer]:
+                        - /url: https://github.com/sukantahui
+                      - link "Official Website" [ref=f4e513] [cursor=pointer]:
+                        - /url: https://www.codernaccotax.co.in
+                      - link "Twitter / X" [ref=f4e517] [cursor=pointer]:
+                        - /url: https://twitter.com/sukantahui
+                      - link "Direct Phone" [ref=f4e520] [cursor=pointer]:
+                        - /url: tel:+917003756860
+            - generic [ref=f4e523]:
+              - heading "Have a Question About This Topic?" [level=3] [ref=f4e527]
+              - paragraph [ref=f4e528]: Ask your calculation, formulation, or theorem doubt directly to instructor Sukanta Hui.
+              - textbox "Type your question or problem statement here..." [ref=f4e529]
+              - button "Send Query via WhatsApp" [ref=f4e530]
+            - generic [ref=f4e534]:
+              - generic [ref=f4e541]:
+                - generic [ref=f4e542]: "Same Segment: Section D – Data Structures & Hardware"
+                - generic [ref=f4e543]: Expression Conversion (Infix, Prefix & Postfix)
+              - link "Go to Next Module" [ref=f4e544] [cursor=pointer]:
+                - /url: /isc-12/topic/expression-conversion-using-stack/0
+            - navigation [ref=f4e548]:
+              - 'link "Previous Topic Comparative Analysis: Decoder vs Demultiplexer (Operational Differences, Truth Table Comparison)" [ref=f4e549] [cursor=pointer]':
+                - /url: /isc-12/topic/computer-hardware/34
+                - generic [ref=f4e552]:
+                  - generic [ref=f4e553]: Previous Topic
+                  - generic [ref=f4e554]: "Comparative Analysis: Decoder vs Demultiplexer (Operational Differences, Truth Table Comparison)"
+              - link "Next Module in Segment Expression Conversion (Infix, Prefix & Postfix)" [ref=f4e555] [cursor=pointer]:
+                - /url: /isc-12/topic/expression-conversion-using-stack/0
+                - generic [ref=f4e556]:
+                  - generic [ref=f4e557]: Next Module in Segment
+                  - generic [ref=f4e562]: Expression Conversion (Infix, Prefix & Postfix)
+      - generic [ref=f4e566]:
+        - button "CNAT Mam Ask CNAT Mam AI Mentor" [ref=f4e567] [cursor=pointer]:
+          - generic [ref=f4e571]:
+            - img "CNAT Mam" [ref=f4e573]
+            - generic [ref=f4e574]: Ask CNAT Mam
+          - generic [ref=f4e575]: AI Mentor
+        - button "Close AI Assistant" [ref=f4e576] [cursor=pointer]

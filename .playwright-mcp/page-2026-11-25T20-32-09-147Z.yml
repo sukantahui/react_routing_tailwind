@@ -1,0 +1,32 @@
+- generic [ref=f5e3]:
+  - banner [ref=f5e5]:
+    - generic [ref=f5e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001" [ref=f5e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=f5e11]
+        - generic [ref=f5e13]:
+          - generic [ref=f5e14]: Coder&AccoTax
+          - generic [ref=f5e15]: ISO 9001
+      - navigation [ref=f5e17]:
+        - link "Courses" [ref=f5e18] [cursor=pointer]:
+          - /url: /#courses
+        - button "Tools " [ref=f5e20] [cursor=pointer]:
+          - generic [ref=f5e21]: Tools
+          - generic [ref=f5e22]: 
+        - button "Tutorials " [ref=f5e24] [cursor=pointer]:
+          - generic [ref=f5e25]: Tutorials
+          - generic [ref=f5e26]: 
+        - button "About " [ref=f5e28] [cursor=pointer]:
+          - generic [ref=f5e29]: About
+          - generic [ref=f5e30]: 
+      - generic [ref=f5e31]:
+        - button " ⌘K" [ref=f5e32] [cursor=pointer]:
+          - generic [ref=f5e33]: 
+          - generic [ref=f5e34]: ⌘K
+        - link "Portal Sign In" [ref=f5e35] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=f5e36]: 
+          - generic [ref=f5e37]: Sign In
+        - text:   
+  - main [ref=f5e38]:
+    - paragraph [ref=f5e42]: Loading course curriculum...
