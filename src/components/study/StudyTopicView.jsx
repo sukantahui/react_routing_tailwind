@@ -1075,13 +1075,13 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-white text-sm">বাংলায় সহজ ব্যাখ্যা ও মূল বিষয়</span>
-                      <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                        Bengali Guide
+                      <span className="font-bold text-white text-sm">Bilingual Concept Guide (বাংলায় সহজ পাঠ)</span>
+                      <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-sans">
+                        Bengali Explainer
                       </span>
                     </div>
                     <p className="text-xs text-slate-300 mt-0.5 font-sans">
-                      টপিকটি সাধারণ বাংলায় সহজে বুঝতে এবং প্রয়োজনীয় বিষয়গুলি বাস্তব উদাহরণ সহ জানতে এখানে ক্লিক করুন।
+                      টপিকটির Core Concepts সাধারণ বাংলায় বুঝতে এবং প্রয়োজনীয় English Technical Terms বাস্তব উদাহরণ সহ জানতে এখানে ক্লিক করুন।
                     </p>
                   </div>
                 </div>

@@ -171,12 +171,12 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
         <div className="relative z-10 px-6 py-5 border-b border-slate-800 bg-slate-950/60 flex items-start justify-between gap-4">
           <div className="space-y-1">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5">
+              <span className="px-2.5 py-0.5 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 font-sans">
                 <span>🇧🇩</span>
-                <span>সহজ বাংলায় সহজ পাঠ</span>
+                <span>Bilingual Study Guide • সহজ বাংলা পাঠ</span>
               </span>
-              <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">
-                টপিক {topicIndex} • {data.titleEn}
+              <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-sans">
+                Topic {topicIndex} • {data.titleEn}
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
@@ -197,20 +197,20 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
                   ? "bg-emerald-600 border-emerald-500 text-white animate-pulse"
                   : "bg-slate-800 hover:bg-slate-750 border-slate-700 text-slate-200"
               }`}
-              title={isSpeaking ? "কথা বলা বন্ধ করুন" : "বাংলায় পড়ে শোনান"}
+              title={isSpeaking ? "Stop Voice" : "Listen in Bengali"}
             >
               {isSpeaking ? <VolumeX size={16} /> : <Volume2 size={16} />}
-              <span className="hidden sm:inline">{isSpeaking ? "থামুন" : "শুনুন"}</span>
+              <span className="hidden sm:inline">{isSpeaking ? "Stop" : "Listen"}</span>
             </button>
 
             {/* Copy Button */}
             <button
               onClick={handleCopyNotes}
               className="p-2 rounded-xl bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 transition flex items-center gap-1.5 text-xs font-semibold"
-              title="সম্পূর্ণ বাংলা নোট কপি করুন"
+              title="Copy Study Notes"
             >
               {copied ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
-              <span className="hidden sm:inline">{copied ? "কপি হয়েছে!" : "নোট কপি"}</span>
+              <span className="hidden sm:inline">{copied ? "Copied!" : "Copy Notes"}</span>
             </button>
 
             {/* Close Button */}
@@ -219,8 +219,8 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
                 handleStopSpeech();
                 onClose();
               }}
-              className="p-2 rounded-xl bg-slate-800/80 hover:bg-rose-950/80 hover:text-rose-300 border border-slate-700 hover:border-rose-700/60 text-slate-400 transition"
-              title="বন্ধ করুন (Esc)"
+              className="p-2 rounded-xl bg-slate-800/80 hover:bg-rose-950/80 hover:text-rose-300 border border-slate-700 hover:border-rose-700/60 text-slate-400 transition cursor-pointer"
+              title="Close (Esc)"
             >
               <X size={18} />
             </button>
@@ -232,10 +232,10 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
         {/* ============================================================== */}
         <div className="relative z-10 px-6 pt-3 pb-1 border-b border-slate-800/80 bg-slate-900/90 flex flex-wrap gap-2 text-xs">
           {[
-            { id: "overview", label: "১. সারসংক্ষেপ ও মূল ভাব", icon: Sparkles },
-            { id: "keypoints", label: "২. প্রয়োজনীয় বিষয়সমূহের ব্যাখ্যা", icon: Layers },
-            { id: "analogy", label: "৩. বাস্তব জীবনের উদাহরণ", icon: Lightbulb },
-            { id: "exam", label: "৪. পরীক্ষা টিপস ও সাধারণ ভুল", icon: GraduationCap }
+            { id: "overview", label: "1. Overview & Core Concept", icon: Sparkles },
+            { id: "keypoints", label: "2. Key Points & Deep Dive", icon: Layers },
+            { id: "analogy", label: "3. Real-World Analogy (বাস্তব উদাহরণ)", icon: Lightbulb },
+            { id: "exam", label: "4. Exam Tips & Pitfalls", icon: GraduationCap }
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
