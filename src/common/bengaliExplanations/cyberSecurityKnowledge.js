@@ -88,7 +88,7 @@ export const CYBER_SECURITY_PROFILES = {
     defaultAnalogy: "একটি আন্তর্জাতিক মানের কারখানায় গুণমান বজায় রাখতে যেমন ISO কোয়ালিটি সার্কেল অনুসরণ করা হয়, সিকিউরিটিতেও তেমনই কোনো ত্রুটি স্থায়ী হতে না দিয়ে ক্রমাগত পরিমার্জন করা হয়।",
     defaultMistake: "ISO 27001 এবং ISO 27002-এর পার্থক্য গুলিয়ে ফেলা। 27001 হলো অডিট ও সার্টিফিকেশনের স্পেসিফিকেশন, আর 27002 হলো গাইডলাইন ও কন্ট্রোলসের বিস্তারিত গাইড।",
     defaultExamTip: "PDCA (Plan-Do-Check-Act) সাইকেলের ডায়াগ্রাম এঁকে প্রতিটি ধাপে কী কী কাজ সম্পাদিত হয় তা পয়েন্ট আকারে লিখবেন।",
-    defaultFormula: "\\text{PDCA Cycle: } \\text{Plan (Context & Policy)} \\rightarrow \\text{Do (Implement Controls)} \\rightarrow \\text{Check (Audit & Review)} \\rightarrow \\text{Act (Corrective Actions)}"
+    defaultFormula: "\\text{PDCA Cycle: } \\text{Plan (Context \\& Policy)} \\rightarrow \\text{Do (Implement Controls)} \\rightarrow \\text{Check (Audit \\& Review)} \\rightarrow \\text{Act (Corrective Actions)}"
   },
 
   "003_003": {
@@ -106,7 +106,7 @@ export const CYBER_SECURITY_PROFILES = {
     defaultAnalogy: "একটি আর্থিক অডিটের মতো—কোম্পানি নিজে যা দাবি করছে, নিরপেক্ষ বহিঃস্থ চার্টার্ড অ্যাকাউন্ট্যান্ট যেমন প্রতিটি রসিদ ও লেজার মিলিয়ে দেখেন, সাইবার অডিটরও তেমনই সার্ভারের লগ ও পলিসি কনফিগারেশন মিলিয়ে সত্যতা যাচাই করেন।",
     defaultMistake: "Vulnerability Assessment (স্বয়ংক্রিয় স্ক্যান দিয়ে সম্ভাব্য ত্রুটির তালিকা) এবং Penetration Testing (হ্যাকারের মতো আক্রমণ চালিয়ে ত্রুটি কাজে লাগানো)-কে একই জিনিস মনে করা।",
     defaultExamTip: "Internal Audit এবং External Certification Audit-এর ৩টি পার্থক্য লিখবেন এবং অডিটের ৩টি পর্যায় (Pre-audit, On-site Execution, Reporting) পয়েন্ট করবেন।",
-    defaultFormula: "\\text{Audit Finding} = \\text{Condition (Current State)} \\text{ vs } \\text{Criteria (Policy Standard)} \\rightarrow \\text{Impact & Remedy}"
+    defaultFormula: "\\text{Audit Finding} = \\text{Condition (Current State)} \\text{ vs } \\text{Criteria (Policy Standard)} \\rightarrow \\text{Impact \\& Remedy}"
   },
 
   // SEGMENT 4: Cyber Attacks & Threat Analysis
@@ -198,7 +198,7 @@ export const CYBER_SECURITY_PROFILES = {
     defaultAnalogy: "একটি সরকারি গোপন নথির ওপর উচ্চ আদালতের বিচারপতির ডিজিটাল সিলমোহর ও ওয়াটারমার্ক—যা প্রমাণ করে নথিটি আসল এবং পথিমধ্যে কেউ পরিবর্তন করেনি।",
     defaultMistake: "SSL এবং TLS-কে আলাদা বিপরীত প্রোটোকল মনে করা; SSL হলো পুরোনো এবং ত্রুটিযুক্ত সংস্করণ, যার আধুনিক ও সুরক্ষিত রূপান্তর হলো TLS (বর্তমানে TLS 1.3 ব্যবহৃত হয়)।",
     defaultExamTip: "TLS Handshake-এর ধাপগুলো (ClientHello, ServerHello, Certificate Exchange, Key Generation, Finished) ফ্লোচার্ট দিয়ে দেখাবেন।",
-    defaultFormula: "\\text{TLS Security} = \\text{Asymmetric Handshake (Auth & Key Exchange)} + \\text{Symmetric Session Cipher (Data AES)} + \\text{HMAC (Integrity)}"
+    defaultFormula: "\\text{TLS Security} = \\text{Asymmetric Handshake (Auth \\& Key Exchange)} + \\text{Symmetric Session Cipher (Data AES)} + \\text{HMAC (Integrity)}"
   },
 
   "005_005": {

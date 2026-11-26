@@ -18,6 +18,20 @@ import {
 import { getBengaliExplanation } from "./topicBengaliExplanations";
 import { BlockMath, InlineMath } from "./MathView";
 
+// Helper to parse and render text with inline LaTeX math ($...$)
+function renderFormattedMathText(text) {
+  if (!text || typeof text !== "string") return text;
+  if (!text.includes("$")) return text;
+
+  const parts = text.split("$");
+  return parts.map((part, idx) => {
+    if (idx % 2 === 1) {
+      return <InlineMath key={idx} math={part} />;
+    }
+    return part;
+  });
+}
+
 export default function TopicBengaliExplanationModal({
   isOpen,
   onClose,
@@ -305,12 +319,12 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
 
               {/* Formula or Rule if exists */}
               {data.formulaOrRule && (
-                <div className="p-4 rounded-xl bg-slate-950 border border-cyan-800/40 space-y-1.5">
-                  <span className="text-xs font-bold text-cyan-400 font-mono uppercase tracking-wider">
+                <div className="p-4 rounded-xl bg-slate-950 border border-cyan-800/40 space-y-2">
+                  <span className="text-xs font-bold text-cyan-400 font-mono uppercase tracking-wider block">
                     গাণিতিক নীতি / নিয়ম (Core Rule):
                   </span>
-                  <div className="text-xs sm:text-sm font-mono text-cyan-200 p-2.5 bg-slate-900 rounded-lg overflow-x-auto border border-cyan-950">
-                    {data.formulaOrRule}
+                  <div className="p-3 bg-slate-900/90 rounded-xl overflow-x-auto border border-cyan-950/80 shadow-inner">
+                    <BlockMath math={data.formulaOrRule} />
                   </div>
                 </div>
               )}
