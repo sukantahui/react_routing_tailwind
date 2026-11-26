@@ -24,14 +24,15 @@ export default function TopicBengaliExplanationModal({
   topicIndex = 0,
   topicTitle = "",
   moduleTitle = "",
-  moduleSlug = ""
+  moduleSlug = "",
+  subjectKey = ""
 }) {
   const [activeTab, setActiveTab] = useState("overview"); // 'overview' | 'keypoints' | 'analogy' | 'exam'
   const [copied, setCopied] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const speechRef = useRef(null);
 
-  const data = getBengaliExplanation(topicIndex, topicTitle, moduleSlug, moduleTitle);
+  const data = getBengaliExplanation(topicIndex, topicTitle, moduleSlug, moduleTitle, subjectKey);
 
   // Close on Escape key
   useEffect(() => {
@@ -295,7 +296,7 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
               <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2">
                 <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
                   <HelpCircle size={16} />
-                  <span>মেশিন লার্নিংয়ে এটি কেন এত গুরুত্বপূর্ণ?</span>
+                  <span>বাস্তব ক্ষেত্রে এটি কেন এত গুরুত্বপূর্ণ? (Why is it Crucial?)</span>
                 </div>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                   {data.whyImportant}
@@ -365,7 +366,7 @@ ${data.commonMistakes ? `\n৭. সাধারণ ভুল: ${data.commonMista
               <div className="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
                 <span className="text-emerald-400 font-bold">💡 কেন বাস্তব উদাহরণের সাথে মেলানো জরুরি?</span>
                 <p>
-                  মেশিন লার্নিংয়ের অনেক জটিল টার্ম শুনলে খটমট মনে হতে পারে। কিন্তু বাস্তব জীবনের সহজ বিষয়ের সাথে মেলালে যেকোনো অ্যালগরিদমের ভেতরের যুক্তিবোধ অত্যন্ত স্বচ্ছ হয়ে ওঠে এবং দীর্ঘদিন স্মৃতিতে স্থায়ী থাকে।
+                  কম্পিউটার সায়েন্স ও আইটির অনেক জটিল টার্ম শুনলে খটমট মনে হতে পারে। কিন্তু বাস্তব জীবনের সহজ বিষয়ের সাথে মেলালে যেকোনো প্রযুক্তি ও অ্যালগরিদমের ভেতরের যুক্তিবোধ অত্যন্ত স্বচ্ছ হয়ে ওঠে এবং দীর্ঘদিন স্মৃতিতে স্থায়ী থাকে।
                 </p>
               </div>
             </div>

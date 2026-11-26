@@ -1616,6 +1616,7 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
             topicTitle={topicTitle || `Topic ${index}`}
             moduleTitle={moduleData?.title || ""}
             moduleSlug={moduleSlug}
+            subjectKey={subjectKey}
           />
         )}
       </Suspense>

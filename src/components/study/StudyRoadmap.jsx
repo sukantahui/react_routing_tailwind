@@ -1,6 +1,6 @@
 // src/components/study/quantitative-analysis/QuantitativeAnalysisRoadmap.jsx
 
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback, Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -45,6 +45,8 @@ import {
   Zap
 } from "lucide-react";
 import TeacherProfileCard, { defaultTeacher } from "./common/TeacherProfileCard";
+
+const TopicBengaliExplanationModal = lazy(() => import("../../common/TopicBengaliExplanationModal"));
 
 // Subtle, refined segment themes (calm & professional)
 const SEGMENT_THEMES = [
@@ -123,6 +125,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
   const [toastMessage, setToastMessage] = useState(null);
   const [lastVisited, setLastVisited] = useState(null);
   const [authVersion, setAuthVersion] = useState(0);
+  const [bengaliModalData, setBengaliModalData] = useState(null); // { topicIndex, topicTitle, moduleTitle, moduleSlug, subjectKey }
 
   // Authentication & Role Check Helpers
   const isLoggedIn = useCallback(() => {
@@ -1277,12 +1280,33 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                         </div>
 
                         <div className="mt-2.5 pt-2 border-t border-slate-850 flex items-center justify-between text-[11px] text-slate-400">
-                          <span className="truncate max-w-[200px] text-slate-500 text-[10px] font-sans">
+                          <span className="truncate max-w-[150px] sm:max-w-[200px] text-slate-500 text-[10px] font-sans">
                             Module: {item.moduleTitle}
                           </span>
-                          <span className="font-bold text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1 text-[11px] shrink-0 font-mono">
-                            ⚡ Open Topic <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
-                          </span>
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setBengaliModalData({
+                                  topicIndex: item.topicIndex,
+                                  topicTitle: item.topicTitle,
+                                  moduleTitle: item.moduleTitle,
+                                  moduleSlug: item.moduleSlug,
+                                  subjectKey: roadmapData?.folder
+                                });
+                              }}
+                              className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white border border-emerald-800/80 transition flex items-center gap-1 cursor-pointer"
+                              title={`সহজ বাংলায় বুঝুন: ${item.topicTitle}`}
+                            >
+                              <BookOpen size={10} />
+                              <span>বাংলা</span>
+                            </button>
+                            <span className="font-bold text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1 text-[11px] font-mono">
+                              Open <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+                            </span>
+                          </div>
                         </div>
                       </Link>
                     ))}
@@ -1693,6 +1717,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                                   onCopyLink={() => copyDirectLink(module.slug, module.title)}
                                   onRecordVisit={() => recordVisit(module, segment.segmentId, segment.title)}
                                   roadmapFolder={roadmapData.folder}
+                                  onOpenBengaliModal={(modalData) => setBengaliModalData(modalData)}
                                 />
                               ))}
                             </div>
@@ -1727,6 +1752,7 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
                                     onCopyLink={() => copyDirectLink(module.slug, module.title)}
                                     onRecordVisit={() => recordVisit(module, segment.segmentId, segment.title)}
                                     roadmapFolder={roadmapData.folder}
+                                    onOpenBengaliModal={(modalData) => setBengaliModalData(modalData)}
                                   />
                                 </div>
                               ))}
@@ -1780,6 +1806,22 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
         {/* ========================================================== */}
         <TeacherProfileCard teacher={roadmapData?.teacher} />
 
+        {/* ========================================================================= */}
+        {/* BENGALI TOPIC EXPLANATION MODAL */}
+        {/* ========================================================================= */}
+        <Suspense fallback={null}>
+          {bengaliModalData && (
+            <TopicBengaliExplanationModal
+              isOpen={!!bengaliModalData}
+              onClose={() => setBengaliModalData(null)}
+              topicIndex={bengaliModalData.topicIndex}
+              topicTitle={bengaliModalData.topicTitle}
+              moduleTitle={bengaliModalData.moduleTitle}
+              moduleSlug={bengaliModalData.moduleSlug}
+              subjectKey={bengaliModalData.subjectKey || roadmapData?.folder}
+            />
+          )}
+        </Suspense>
 
         {/* ========================================================== */}
         {/* Footer */}
@@ -1815,7 +1857,8 @@ function ModuleCard({
   onToggleExpand,
   onCopyLink,
   onRecordVisit,
-  roadmapFolder
+  roadmapFolder,
+  onOpenBengaliModal
 }) {
   const topicsCount = module.topics?.length || 0;
   const isCopied = copiedSlug === module.slug;
@@ -1918,25 +1961,52 @@ function ModuleCard({
                 const isMatch = searchTerms.length > 0 && searchTerms.some(t => `${topic} ${topicAliases}`.toLowerCase().includes(t));
 
                 return (
-                  <Link
+                  <div
                     key={i}
-                    to={`/${roadmapFolder}/topic/${module.slug}/${i}`}
-                    onClick={onRecordVisit}
-                    title={`Open Topic #${i}: ${topic}`}
-                    className={`group/t px-2 py-1 rounded-lg text-[10px] transition-all flex items-center gap-1.5 border max-w-full ${
-                      isMatch
-                        ? "bg-cyan-950/90 border-cyan-400 text-cyan-200 font-bold shadow-md shadow-cyan-950 ring-1 ring-cyan-400/60"
-                        : "bg-slate-950 text-slate-400 border-slate-850 hover:border-slate-700 hover:text-slate-200 hover:bg-slate-900"
-                    }`}
+                    className="inline-flex items-center rounded-lg border border-slate-850 bg-slate-950 hover:border-slate-700 transition-all max-w-full overflow-hidden shadow-xs group/item"
                   >
-                    <span className={`font-mono text-[9px] font-bold px-1 py-0.2 rounded ${isMatch ? "bg-cyan-900 text-amber-300" : "bg-slate-900 text-slate-500"}`}>
-                      T{i}
-                    </span>
-                    <span className="truncate max-w-[170px] sm:max-w-[210px]">
-                      <HighlightedText text={topic} search={search} />
-                    </span>
-                    <ArrowRight size={10} className={`shrink-0 transition-opacity ${isMatch ? "opacity-100 text-cyan-300" : "opacity-0 group-hover/t:opacity-100 text-sky-400"}`} />
-                  </Link>
+                    <Link
+                      to={`/${roadmapFolder}/topic/${module.slug}/${i}`}
+                      onClick={onRecordVisit}
+                      title={`Open Topic #${i}: ${topic}`}
+                      className={`group/t px-2 py-1 text-[10px] transition-all flex items-center gap-1.5 max-w-full ${
+                        isMatch
+                          ? "bg-cyan-950/90 text-cyan-200 font-bold"
+                          : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+                      }`}
+                    >
+                      <span className={`font-mono text-[9px] font-bold px-1 py-0.2 rounded ${isMatch ? "bg-cyan-900 text-amber-300" : "bg-slate-900 text-slate-500"}`}>
+                        T{i}
+                      </span>
+                      <span className="truncate max-w-[130px] sm:max-w-[170px]">
+                        <HighlightedText text={topic} search={search} />
+                      </span>
+                      <ArrowRight size={10} className={`shrink-0 transition-opacity ${isMatch ? "opacity-100 text-cyan-300" : "opacity-0 group-hover/t:opacity-100 text-sky-400"}`} />
+                    </Link>
+
+                    {/* Bengali Explanation Quick Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (onOpenBengaliModal) {
+                          onOpenBengaliModal({
+                            topicIndex: i,
+                            topicTitle: topic,
+                            moduleTitle: module.title,
+                            moduleSlug: module.slug,
+                            subjectKey: roadmapFolder
+                          });
+                        }
+                      }}
+                      title={`সহজ বাংলায় বুঝুন: ${topic}`}
+                      className="px-1.5 py-1 text-[9px] font-semibold bg-emerald-950/70 hover:bg-emerald-900 text-emerald-400 hover:text-emerald-200 border-l border-emerald-900/60 transition-colors flex items-center gap-0.5 cursor-pointer shrink-0"
+                    >
+                      <BookOpen size={9} />
+                      <span className="font-sans">বাংলা</span>
+                    </button>
+                  </div>
                 );
               })}
             </div>

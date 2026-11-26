@@ -1,6 +1,6 @@
 // src/components/study/quantitative-analysis/QuantitativeAnalysisModuleView.jsx
 
-import React, { useEffect, useMemo, useState, useCallback } from "react";
+import React, { useEffect, useMemo, useState, useCallback, Suspense, lazy } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -30,8 +30,11 @@ import {
   List,
   Code2,
   ExternalLink,
-  Github
+  Github,
+  BookOpen
 } from "lucide-react";
+
+const TopicBengaliExplanationModal = lazy(() => import("../../common/TopicBengaliExplanationModal"));
 
 export default function StudyModuleView({
   roadmapData,
@@ -114,6 +117,7 @@ export default function StudyModuleView({
   const [copiedLink, setCopiedLink] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
+  const [bengaliModalData, setBengaliModalData] = useState(null);
   const [topicViewMode, setTopicViewMode] = useState(() => {
     try {
       return localStorage.getItem("study-module-view-mode") || "list";
@@ -786,21 +790,43 @@ export default function StudyModuleView({
                       </Link>
                     </div>
 
-                    {/* Right: Compact Open / Study Action */}
-                    <Link
-                      to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
-                      onClick={() => handleTopicClick(idx)}
-                      className={`shrink-0 px-2.5 py-1 rounded-lg border text-xs font-medium flex items-center gap-1 transition ${
-                        isDone
-                          ? "bg-slate-900/40 text-slate-400 border-slate-800/60 hover:text-slate-200 hover:bg-slate-800"
-                          : isLastVisited
-                          ? "bg-sky-900/40 text-sky-200 border-sky-800/80 hover:bg-sky-800/50"
-                          : "bg-slate-900/60 text-slate-300 border-slate-800/60 group-hover:border-slate-700 group-hover:text-white hover:bg-slate-800"
-                      }`}
-                    >
-                      <span className="text-[11px]">{isDone ? "Review" : "Study"}</span>
-                      <ChevronRight size={13} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
+                    {/* Right: Bengali Quick Action & Open / Study Action */}
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setBengaliModalData({
+                            topicIndex: idx,
+                            topicTitle: topic,
+                            moduleTitle: moduleData?.title,
+                            moduleSlug: moduleData?.slug,
+                            subjectKey: roadmapData?.folder || subjectKey
+                          });
+                        }}
+                        className="px-2 py-1 rounded-lg bg-emerald-950/70 hover:bg-emerald-900 text-emerald-400 hover:text-emerald-200 border border-emerald-900/60 text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
+                        title={`সহজ বাংলায় বুঝুন: ${topic}`}
+                      >
+                        <BookOpen size={11} className="text-emerald-400" />
+                        <span className="text-[11px] font-sans">বাংলা</span>
+                      </button>
+
+                      <Link
+                        to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                        onClick={() => handleTopicClick(idx)}
+                        className={`shrink-0 px-2.5 py-1 rounded-lg border text-xs font-medium flex items-center gap-1 transition ${
+                          isDone
+                            ? "bg-slate-900/40 text-slate-400 border-slate-800/60 hover:text-slate-200 hover:bg-slate-800"
+                            : isLastVisited
+                            ? "bg-sky-900/40 text-sky-200 border-sky-800/80 hover:bg-sky-800/50"
+                            : "bg-slate-900/60 text-slate-300 border-slate-800/60 group-hover:border-slate-700 group-hover:text-white hover:bg-slate-800"
+                        }`}
+                      >
+                        <span className="text-[11px]">{isDone ? "Review" : "Study"}</span>
+                        <ChevronRight size={13} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </div>
                   </div>
                 );
               })}
@@ -870,7 +896,27 @@ export default function StudyModuleView({
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-end pt-2 border-t border-slate-800/40">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-800/40">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setBengaliModalData({
+                            topicIndex: idx,
+                            topicTitle: topic,
+                            moduleTitle: moduleData?.title,
+                            moduleSlug: moduleData?.slug,
+                            subjectKey: roadmapData?.folder || subjectKey
+                          });
+                        }}
+                        className="px-2 py-0.5 rounded-lg bg-emerald-950/70 hover:bg-emerald-900 text-emerald-400 hover:text-emerald-200 border border-emerald-900/60 text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
+                        title={`সহজ বাংলায় বুঝুন: ${topic}`}
+                      >
+                        <BookOpen size={10} className="text-emerald-400" />
+                        <span className="text-[10px] font-sans">বাংলায় বুঝুন</span>
+                      </button>
+
                       <Link
                         to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
                         onClick={() => handleTopicClick(idx)}
@@ -1021,6 +1067,23 @@ export default function StudyModuleView({
         </footer>
 
       </main>
+
+      {/* ========================================================================= */}
+      {/* BENGALI TOPIC EXPLANATION MODAL */}
+      {/* ========================================================================= */}
+      <Suspense fallback={null}>
+        {bengaliModalData && (
+          <TopicBengaliExplanationModal
+            isOpen={!!bengaliModalData}
+            onClose={() => setBengaliModalData(null)}
+            topicIndex={bengaliModalData.topicIndex}
+            topicTitle={bengaliModalData.topicTitle}
+            moduleTitle={bengaliModalData.moduleTitle}
+            moduleSlug={bengaliModalData.moduleSlug}
+            subjectKey={bengaliModalData.subjectKey || roadmapData?.folder || subjectKey}
+          />
+        )}
+      </Suspense>
 
     </div>
   );
